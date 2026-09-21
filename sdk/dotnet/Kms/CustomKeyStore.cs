@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Kms
     /// {
     ///     var example = new Aws.Kms.CustomKeyStore("example", new()
     ///     {
-    ///         CustomKeyStoreName = "example-vpc-xks",
-    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
     ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
     ///         {
     ///             AccessKeyId = ephemeralAccessKeyId,
     ///             RawSecretAccessKey = ephemeralSecretAccessKey,
     ///         },
+    ///         CustomKeyStoreName = "example-vpc-xks",
+    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
     ///         XksProxyConnectivity = "VPC_ENDPOINT_SERVICE",
     ///         XksProxyUriEndpoint = "https://myproxy-private.xks.example.com",
     ///         XksProxyUriPath = "/kms/xks/v1",
@@ -79,13 +79,13 @@ namespace Pulumi.Aws.Kms
     /// {
     ///     var example = new Aws.Kms.CustomKeyStore("example", new()
     ///     {
-    ///         CustomKeyStoreName = "example-public-xks",
-    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
     ///         XksProxyAuthenticationCredential = new Aws.Kms.Inputs.CustomKeyStoreXksProxyAuthenticationCredentialArgs
     ///         {
     ///             AccessKeyId = ephemeralAccessKeyId,
     ///             RawSecretAccessKey = ephemeralSecretAccessKey,
     ///         },
+    ///         CustomKeyStoreName = "example-public-xks",
+    ///         CustomKeyStoreType = "EXTERNAL_KEY_STORE",
     ///         XksProxyConnectivity = "PUBLIC_ENDPOINT",
     ///         XksProxyUriEndpoint = "https://myproxy.xks.example.com",
     ///         XksProxyUriPath = "/kms/xks/v1",

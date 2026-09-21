@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
     public sealed class FlowDefinitionOutputConfig
     {
         /// <summary>
-        /// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+        /// KMS key ARN for server-side encryption.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

@@ -150,91 +150,91 @@ namespace Pulumi.Aws.Rds
     public partial class CustomDbEngineVersion : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the custom engine version.
+        /// ARN for the custom engine version.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The date and time that the CEV was created.
+        /// Date and time that the CEV was created.
         /// </summary>
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Amazon S3 bucket that contains the database installation files.
+        /// Name of the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Output("databaseInstallationFilesS3BucketName")]
         public Output<string?> DatabaseInstallationFilesS3BucketName { get; private set; } = null!;
 
         /// <summary>
-        /// The prefix for the Amazon S3 bucket that contains the database installation files.
+        /// Prefix for the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Output("databaseInstallationFilesS3Prefix")]
         public Output<string?> DatabaseInstallationFilesS3Prefix { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB parameter group family for the CEV.
+        /// Name of the DB parameter group family for the CEV.
         /// </summary>
         [Output("dbParameterGroupFamily")]
         public Output<string> DbParameterGroupFamily { get; private set; } = null!;
 
         /// <summary>
-        /// The description of the CEV.
+        /// Description of the CEV.
         /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+        /// Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
+        /// Name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Output("filename")]
         public Output<string?> Filename { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AMI that was created with the CEV.
+        /// ID of the AMI that was created with the CEV.
         /// </summary>
         [Output("imageId")]
         public Output<string> ImageId { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+        /// ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
 
         /// <summary>
-        /// The major version of the database engine.
+        /// Major version of the database engine.
         /// </summary>
         [Output("majorEngineVersion")]
         public Output<string> MajorEngineVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
+        /// Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Output("manifest")]
         public Output<string?> Manifest { get; private set; } = null!;
 
         /// <summary>
-        /// The returned manifest file, in JSON format, service generated and often different from input `Manifest`.
+        /// Returned manifest file, in JSON format, service generated and often different from input `Manifest`.
         /// </summary>
         [Output("manifestComputed")]
         public Output<string> ManifestComputed { get; private set; } = null!;
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Output("manifestHash")]
         public Output<string?> ManifestHash { get; private set; } = null!;
@@ -246,25 +246,25 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+        /// ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         /// </summary>
         [Output("sourceImageId")]
         public Output<string?> SourceImageId { get; private set; } = null!;
 
         /// <summary>
-        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
+        /// Status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -316,55 +316,55 @@ namespace Pulumi.Aws.Rds
     public sealed class CustomDbEngineVersionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the Amazon S3 bucket that contains the database installation files.
+        /// Name of the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3BucketName")]
         public Input<string>? DatabaseInstallationFilesS3BucketName { get; set; }
 
         /// <summary>
-        /// The prefix for the Amazon S3 bucket that contains the database installation files.
+        /// Prefix for the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3Prefix")]
         public Input<string>? DatabaseInstallationFilesS3Prefix { get; set; }
 
         /// <summary>
-        /// The description of the CEV.
+        /// Description of the CEV.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+        /// Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
 
         /// <summary>
-        /// The version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Input("engineVersion", required: true)]
         public Input<string> EngineVersion { get; set; } = null!;
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
+        /// Name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+        /// ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
+        /// Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Input("manifestHash")]
         public Input<string>? ManifestHash { get; set; }
@@ -376,13 +376,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+        /// ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
+        /// Status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -408,91 +408,91 @@ namespace Pulumi.Aws.Rds
     public sealed class CustomDbEngineVersionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the custom engine version.
+        /// ARN for the custom engine version.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The date and time that the CEV was created.
+        /// Date and time that the CEV was created.
         /// </summary>
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
         /// <summary>
-        /// The name of the Amazon S3 bucket that contains the database installation files.
+        /// Name of the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3BucketName")]
         public Input<string>? DatabaseInstallationFilesS3BucketName { get; set; }
 
         /// <summary>
-        /// The prefix for the Amazon S3 bucket that contains the database installation files.
+        /// Prefix for the Amazon S3 bucket that contains the database installation files.
         /// </summary>
         [Input("databaseInstallationFilesS3Prefix")]
         public Input<string>? DatabaseInstallationFilesS3Prefix { get; set; }
 
         /// <summary>
-        /// The name of the DB parameter group family for the CEV.
+        /// Name of the DB parameter group family for the CEV.
         /// </summary>
         [Input("dbParameterGroupFamily")]
         public Input<string>? DbParameterGroupFamily { get; set; }
 
         /// <summary>
-        /// The description of the CEV.
+        /// Description of the CEV.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+        /// Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The version of the database engine.
+        /// Version of the database engine.
         /// </summary>
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
         /// <summary>
-        /// The name of the manifest file within the local filesystem. Conflicts with `Manifest`.
+        /// Name of the manifest file within the local filesystem. Conflicts with `Manifest`.
         /// </summary>
         [Input("filename")]
         public Input<string>? Filename { get; set; }
 
         /// <summary>
-        /// The ID of the AMI that was created with the CEV.
+        /// ID of the AMI that was created with the CEV.
         /// </summary>
         [Input("imageId")]
         public Input<string>? ImageId { get; set; }
 
         /// <summary>
-        /// The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+        /// ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
 
         /// <summary>
-        /// The major version of the database engine.
+        /// Major version of the database engine.
         /// </summary>
         [Input("majorEngineVersion")]
         public Input<string>? MajorEngineVersion { get; set; }
 
         /// <summary>
-        /// The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
+        /// Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `Filename`.
         /// </summary>
         [Input("manifest")]
         public Input<string>? Manifest { get; set; }
 
         /// <summary>
-        /// The returned manifest file, in JSON format, service generated and often different from input `Manifest`.
+        /// Returned manifest file, in JSON format, service generated and often different from input `Manifest`.
         /// </summary>
         [Input("manifestComputed")]
         public Input<string>? ManifestComputed { get; set; }
 
         /// <summary>
-        /// Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
+        /// Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `Filename`. The usual way to set this is filebase64sha256("manifest.json") where "manifest.json" is the local filename of the manifest source.
         /// </summary>
         [Input("manifestHash")]
         public Input<string>? ManifestHash { get; set; }
@@ -504,13 +504,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+        /// ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
         /// </summary>
         [Input("sourceImageId")]
         public Input<string>? SourceImageId { get; set; }
 
         /// <summary>
-        /// The status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
+        /// Status of the CEV. Valid values are `Available`, `Inactive`, `inactive-except-restore`.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -519,7 +519,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A mapping of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -531,7 +531,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

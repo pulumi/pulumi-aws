@@ -88,17 +88,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalog(ctx, "example", &glue.CatalogArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example Glue Catalog with data lake access"),
 //				CatalogProperties: &glue.CatalogCatalogPropertiesArgs{
-//					CustomProperties: pulumi.StringMap{
-//						"property1": pulumi.String("value1"),
-//					},
 //					DataLakeAccessProperties: &glue.CatalogCatalogPropertiesDataLakeAccessPropertiesArgs{
 //						DataLakeAccess: pulumi.Bool(true),
 //						CatalogType:    pulumi.String("aws:glue:datacatalog"),
 //					},
+//					CustomProperties: pulumi.StringMap{
+//						"property1": pulumi.String("value1"),
+//					},
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Example Glue Catalog with data lake access"),
 //			})
 //			if err != nil {
 //				return err
@@ -124,11 +124,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalog(ctx, "example", &glue.CatalogArgs{
-//				Name: pulumi.String("example"),
 //				FederatedCatalog: &glue.CatalogFederatedCatalogArgs{
 //					ConnectionName: pulumi.Any(exampleAwsGlueConnection.Name),
 //					Identifier:     pulumi.String("arn:aws:glue:us-east-1:123456789012:catalog"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -154,28 +154,28 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalog(ctx, "example", &glue.CatalogArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example Glue Catalog"),
 //				CreateDatabaseDefaultPermissions: glue.CatalogCreateDatabaseDefaultPermissionArray{
 //					&glue.CatalogCreateDatabaseDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("ALL"),
-//						},
 //						Principal: &glue.CatalogCreateDatabaseDefaultPermissionPrincipalArgs{
 //							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
+//						},
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("ALL"),
 //						},
 //					},
 //				},
 //				CreateTableDefaultPermissions: glue.CatalogCreateTableDefaultPermissionArray{
 //					&glue.CatalogCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("ALL"),
-//						},
 //						Principal: &glue.CatalogCreateTableDefaultPermissionPrincipalArgs{
 //							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
 //						},
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("ALL"),
+//						},
 //					},
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Example Glue Catalog"),
 //			})
 //			if err != nil {
 //				return err

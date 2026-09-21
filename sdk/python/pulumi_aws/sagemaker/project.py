@@ -119,7 +119,7 @@ class _ProjectState:
         """
         Input properties used for looking up and filtering Project resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Project.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Project.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] project_name: The name of the Project.
@@ -149,7 +149,7 @@ class _ProjectState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Project.
+        ARN assigned by AWS to this Project.
         """
         return pulumi.get(self, "arn")
 
@@ -266,10 +266,10 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Project("example",
-            project_name="example",
             service_catalog_provisioning_details={
                 "product_id": example_aws_servicecatalog_product["id"],
-            })
+            },
+            project_name="example")
         ```
 
         ## Import
@@ -307,10 +307,10 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Project("example",
-            project_name="example",
             service_catalog_provisioning_details={
                 "product_id": example_aws_servicecatalog_product["id"],
-            })
+            },
+            project_name="example")
         ```
 
         ## Import
@@ -388,7 +388,7 @@ class Project(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Project.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Project.
         :param pulumi.Input[_builtins.str] project_description: A description for the project.
         :param pulumi.Input[_builtins.str] project_id: The ID of the project.
         :param pulumi.Input[_builtins.str] project_name: The name of the Project.
@@ -415,7 +415,7 @@ class Project(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Project.
+        ARN assigned by AWS to this Project.
         """
         return pulumi.get(self, "arn")
 

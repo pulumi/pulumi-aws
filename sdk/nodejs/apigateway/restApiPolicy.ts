@@ -20,18 +20,18 @@ import * as utilities from "../utilities";
  * const testRestApi = new aws.apigateway.RestApi("test", {name: "example-rest-api"});
  * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "AWS",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["execute-api:Invoke"],
- *         resources: [pulumi.interpolate`${testRestApi.executionArn}/*`],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
  *             values: ["123.123.123.123/32"],
  *         }],
+ *         principals: [{
+ *             type: "AWS",
+ *             identifiers: ["*"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["execute-api:Invoke"],
+ *         resources: [pulumi.interpolate`${testRestApi.executionArn}/*`],
  *     }],
  * });
  * const testRestApiPolicy = new aws.apigateway.RestApiPolicy("test", {

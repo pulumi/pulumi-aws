@@ -81,7 +81,7 @@ type Volume struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrOutput `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrOutput `pulumi:"outpostArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -154,7 +154,7 @@ type volumeState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -195,7 +195,7 @@ type VolumeState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -236,7 +236,7 @@ type volumeArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled *bool `pulumi:"multiAttachEnabled"`
-	// Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn *string `pulumi:"outpostArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -272,7 +272,7 @@ type VolumeArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
 	MultiAttachEnabled pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Outpost.
+	// ARN of the Outpost.
 	OutpostArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -421,7 +421,7 @@ func (o VolumeOutput) MultiAttachEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.MultiAttachEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Outpost.
+// ARN of the Outpost.
 func (o VolumeOutput) OutpostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.OutpostArn }).(pulumi.StringPtrOutput)
 }

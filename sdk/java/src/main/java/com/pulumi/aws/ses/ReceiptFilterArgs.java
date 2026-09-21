@@ -17,14 +17,14 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
     public static final ReceiptFilterArgs Empty = new ReceiptFilterArgs();
 
     /**
-     * The IP address or address range to filter, in CIDR notation
+     * IP address or address range to filter, in CIDR notation
      * 
      */
     @Import(name="cidr", required=true)
     private Output<String> cidr;
 
     /**
-     * @return The IP address or address range to filter, in CIDR notation
+     * @return IP address or address range to filter, in CIDR notation
      * 
      */
     public Output<String> cidr() {
@@ -32,14 +32,14 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the filter
+     * Name of the filter
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the filter
+     * @return Name of the filter
      * 
      */
     public Optional<Output<String>> name() {
@@ -104,7 +104,7 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidr The IP address or address range to filter, in CIDR notation
+         * @param cidr IP address or address range to filter, in CIDR notation
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param cidr The IP address or address range to filter, in CIDR notation
+         * @param cidr IP address or address range to filter, in CIDR notation
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the filter
+         * @param name Name of the filter
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ReceiptFilterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the filter
+         * @param name Name of the filter
          * 
          * @return builder
          * 

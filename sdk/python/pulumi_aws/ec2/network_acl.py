@@ -309,7 +309,6 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
             egress=[{
                 "protocol": "tcp",
                 "rule_no": 200,
@@ -326,12 +325,24 @@ class NetworkAcl(pulumi.CustomResource):
                 "from_port": 80,
                 "to_port": 80,
             }],
+            vpc_id=main_aws_vpc["id"],
             tags={
                 "Name": "main",
             })
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Network ACL.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Network ACLs using the `id`. For example:
 
@@ -376,7 +387,6 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         main = aws.ec2.NetworkAcl("main",
-            vpc_id=main_aws_vpc["id"],
             egress=[{
                 "protocol": "tcp",
                 "rule_no": 200,
@@ -393,12 +403,24 @@ class NetworkAcl(pulumi.CustomResource):
                 "from_port": 80,
                 "to_port": 80,
             }],
+            vpc_id=main_aws_vpc["id"],
             tags={
                 "Name": "main",
             })
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) ID of the Network ACL.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import Network ACLs using the `id`. For example:
 

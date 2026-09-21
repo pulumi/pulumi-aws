@@ -42,12 +42,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const example = new aws.arczonalshift.ZonalAutoshiftConfiguration("example", {
- *     resourceArn: exampleLoadBalancer.arn,
- *     zonalAutoshiftStatus: "ENABLED",
  *     outcomeAlarms: [{
  *         alarmIdentifier: exampleMetricAlarm.arn,
  *         type: "CLOUDWATCH",
  *     }],
+ *     resourceArn: exampleLoadBalancer.arn,
+ *     zonalAutoshiftStatus: "ENABLED",
  * });
  * ```
  *
@@ -58,16 +58,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.arczonalshift.ZonalAutoshiftConfiguration("example", {
- *     resourceArn: exampleAwsLb.arn,
- *     zonalAutoshiftStatus: "ENABLED",
- *     outcomeAlarms: [{
- *         alarmIdentifier: outcome.arn,
- *         type: "CLOUDWATCH",
- *     }],
  *     blockingAlarms: [{
  *         alarmIdentifier: blocking.arn,
  *         type: "CLOUDWATCH",
  *     }],
+ *     outcomeAlarms: [{
+ *         alarmIdentifier: outcome.arn,
+ *         type: "CLOUDWATCH",
+ *     }],
+ *     resourceArn: exampleAwsLb.arn,
+ *     zonalAutoshiftStatus: "ENABLED",
  * });
  * ```
  *
@@ -78,13 +78,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.arczonalshift.ZonalAutoshiftConfiguration("example", {
- *     resourceArn: exampleAwsLb.arn,
- *     zonalAutoshiftStatus: "ENABLED",
- *     blockedWindows: ["Mon:00:00-Mon:08:00"],
  *     outcomeAlarms: [{
  *         alarmIdentifier: exampleAwsCloudwatchMetricAlarm.arn,
  *         type: "CLOUDWATCH",
  *     }],
+ *     resourceArn: exampleAwsLb.arn,
+ *     zonalAutoshiftStatus: "ENABLED",
+ *     blockedWindows: ["Mon:00:00-Mon:08:00"],
  * });
  * ```
  *

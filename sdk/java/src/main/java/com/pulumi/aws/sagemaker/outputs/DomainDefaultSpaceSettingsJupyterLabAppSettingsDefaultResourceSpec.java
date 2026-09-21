@@ -17,7 +17,7 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourc
      */
     private @Nullable String instanceType;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     private @Nullable String lifecycleConfigArn;
@@ -46,7 +46,7 @@ public final class DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourc
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     public Optional<String> lifecycleConfigArn() {

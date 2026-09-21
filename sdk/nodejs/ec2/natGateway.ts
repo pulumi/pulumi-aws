@@ -99,8 +99,6 @@ import * as utilities from "../utilities";
  *     exampleEip.push(new aws.ec2.Eip(`example-${range}`, {domain: "vpc"}));
  * }
  * const exampleNatGateway = new aws.ec2.NatGateway("example", {
- *     vpcId: example.id,
- *     availabilityMode: "regional",
  *     availabilityZoneAddresses: [
  *         {
  *             allocationIds: [exampleEip[0].id],
@@ -114,6 +112,8 @@ import * as utilities from "../utilities";
  *             availabilityZone: available.then(available => available.names?.[1]),
  *         },
  *     ],
+ *     vpcId: example.id,
+ *     availabilityMode: "regional",
  * });
  * ```
  *

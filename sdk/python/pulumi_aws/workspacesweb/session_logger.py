@@ -341,11 +341,11 @@ class SessionLogger(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -353,7 +353,6 @@ class SessionLogger(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
             event_filter={
                 "all": {},
             },
@@ -364,6 +363,7 @@ class SessionLogger(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
+            display_name="example-session-logger",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
@@ -377,11 +377,11 @@ class SessionLogger(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [
                 example_bucket.arn,
@@ -420,12 +420,6 @@ class SessionLogger(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Session Logger",
             policy=kms_key_policy.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
-            },
             event_filter={
                 "includes": [
                     "SessionStart",
@@ -440,6 +434,12 @@ class SessionLogger(pulumi.CustomResource):
                     "key_prefix": "workspaces-web-logs/",
                     "log_file_format": "JsonLines",
                 },
+            },
+            display_name="example-session-logger",
+            customer_managed_key=example_key.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+                "Application": "WorkSpacesWeb",
             },
             tags={
                 "Name": "example-session-logger",
@@ -491,11 +491,11 @@ class SessionLogger(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example-session-logs")
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
@@ -503,7 +503,6 @@ class SessionLogger(pulumi.CustomResource):
             bucket=example_bucket.id,
             policy=example.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
             event_filter={
                 "all": {},
             },
@@ -514,6 +513,7 @@ class SessionLogger(pulumi.CustomResource):
                     "log_file_format": "Json",
                 },
             },
+            display_name="example-session-logger",
             opts = pulumi.ResourceOptions(depends_on=[example_bucket_policy]))
         ```
 
@@ -527,11 +527,11 @@ class SessionLogger(pulumi.CustomResource):
             bucket="example-session-logs",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces-web.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [
                 example_bucket.arn,
@@ -570,12 +570,6 @@ class SessionLogger(pulumi.CustomResource):
             description="KMS key for WorkSpaces Web Session Logger",
             policy=kms_key_policy.json)
         example_session_logger = aws.workspacesweb.SessionLogger("example",
-            display_name="example-session-logger",
-            customer_managed_key=example_key.arn,
-            additional_encryption_context={
-                "Environment": "Production",
-                "Application": "WorkSpacesWeb",
-            },
             event_filter={
                 "includes": [
                     "SessionStart",
@@ -590,6 +584,12 @@ class SessionLogger(pulumi.CustomResource):
                     "key_prefix": "workspaces-web-logs/",
                     "log_file_format": "JsonLines",
                 },
+            },
+            display_name="example-session-logger",
+            customer_managed_key=example_key.arn,
+            additional_encryption_context={
+                "Environment": "Production",
+                "Application": "WorkSpacesWeb",
             },
             tags={
                 "Name": "example-session-logger",

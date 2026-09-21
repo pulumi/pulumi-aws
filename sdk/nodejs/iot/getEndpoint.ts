@@ -21,12 +21,12 @@ import * as utilities from "../utilities";
  *     }],
  *     spec: [{
  *         container: [{
- *             image: "gcr.io/my-project/image-name",
- *             name: "image-name",
  *             env: [{
  *                 name: "IOT_ENDPOINT",
  *                 value: example.endpointAddress,
  *             }],
+ *             image: "gcr.io/my-project/image-name",
+ *             name: "image-name",
  *         }],
  *     }],
  * });
@@ -92,12 +92,12 @@ export interface GetEndpointResult {
  *     }],
  *     spec: [{
  *         container: [{
- *             image: "gcr.io/my-project/image-name",
- *             name: "image-name",
  *             env: [{
  *                 name: "IOT_ENDPOINT",
  *                 value: example.endpointAddress,
  *             }],
+ *             image: "gcr.io/my-project/image-name",
+ *             name: "image-name",
  *         }],
  *     }],
  * });

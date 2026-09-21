@@ -98,7 +98,7 @@ import (
 type DomainVerification struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the domain verification.
+	// ARN of the domain verification.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -155,7 +155,7 @@ func GetDomainVerification(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DomainVerification resources.
 type domainVerificationState struct {
-	// Amazon Resource Name (ARN) of the domain verification.
+	// ARN of the domain verification.
 	Arn *string `pulumi:"arn"`
 	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -180,7 +180,7 @@ type domainVerificationState struct {
 }
 
 type DomainVerificationState struct {
-	// Amazon Resource Name (ARN) of the domain verification.
+	// ARN of the domain verification.
 	Arn pulumi.StringPtrInput
 	// Date and time that the domain verification was created, in ISO-8601 format.
 	CreatedAt pulumi.StringPtrInput
@@ -318,7 +318,7 @@ func (o DomainVerificationOutput) ToDomainVerificationOutputWithContext(ctx cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the domain verification.
+// ARN of the domain verification.
 func (o DomainVerificationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainVerification) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

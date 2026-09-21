@@ -47,12 +47,12 @@ class NodeGroupArgs:
         The set of arguments for constructing a NodeGroup resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[_builtins.str] node_role_arn: ARN of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input['NodeGroupScalingConfigArgs'] scaling_config: Configuration block with scaling settings. See `scaling_config` below for details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of EC2 Subnets to associate with the EKS Node Group.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[_builtins.str] ami_type: Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.bool] force_update_version: Force version update if existing pods are unable to be drained due to a pod disruption budget issue.
@@ -128,7 +128,7 @@ class NodeGroupArgs:
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        ARN of the IAM Role that provides permissions for the EKS Node Group.
         """
         return pulumi.get(self, "node_role_arn")
 
@@ -166,7 +166,7 @@ class NodeGroupArgs:
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -411,8 +411,8 @@ class _NodeGroupState:
         """
         Input properties used for looking up and filtering NodeGroup resources.
 
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
+        :param pulumi.Input[_builtins.str] ami_type: Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Node Group.
         :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
@@ -423,7 +423,7 @@ class _NodeGroupState:
         :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input['NodeGroupNodeRepairConfigArgs'] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[_builtins.str] node_role_arn: ARN of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input['NodeGroupRemoteAccessArgs'] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -497,7 +497,7 @@ class _NodeGroupState:
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -509,7 +509,7 @@ class _NodeGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EKS Node Group.
+        ARN of the EKS Node Group.
         """
         return pulumi.get(self, "arn")
 
@@ -641,7 +641,7 @@ class _NodeGroupState:
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        ARN of the IAM Role that provides permissions for the EKS Node Group.
         """
         return pulumi.get(self, "node_role_arn")
 
@@ -847,10 +847,6 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
                 "desired_size": 1,
                 "max_size": 2,
@@ -859,6 +855,10 @@ class NodeGroup(pulumi.CustomResource):
             update_config={
                 "max_unavailable": 1,
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
@@ -876,7 +876,26 @@ class NodeGroup(pulumi.CustomResource):
 
         example = aws.eks.NodeGroup("example", scaling_config={
             "desired_size": 2,
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scalingConfig.desiredSize"]))
+        ```
+
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x86_64` in the parameter name below with `arm64` to retrieve the ARM version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2023/x86_64/standard/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=pulumi.Output.unsecret(eks_ami_release_version.value),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Node Group
@@ -951,7 +970,7 @@ class NodeGroup(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[_builtins.str] ami_type: Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
@@ -962,7 +981,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[_builtins.str] node_role_arn: ARN of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -992,10 +1011,6 @@ class NodeGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             scaling_config={
                 "desired_size": 1,
                 "max_size": 2,
@@ -1004,6 +1019,10 @@ class NodeGroup(pulumi.CustomResource):
             update_config={
                 "max_unavailable": 1,
             },
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet],
             opts = pulumi.ResourceOptions(depends_on=[
                     example__amazon_eks_worker_node_policy,
                     example__amazon_ekscni_policy,
@@ -1021,7 +1040,26 @@ class NodeGroup(pulumi.CustomResource):
 
         example = aws.eks.NodeGroup("example", scaling_config={
             "desired_size": 2,
-        })
+        },
+        opts = pulumi.ResourceOptions(ignore_changes=["scalingConfig.desiredSize"]))
+        ```
+
+        ### Tracking the latest EKS Node Group AMI releases
+
+        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x86_64` in the parameter name below with `arm64` to retrieve the ARM version.
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2023/x86_64/standard/recommended/release_version")
+        example = aws.eks.NodeGroup("example",
+            cluster_name=example_aws_eks_cluster["name"],
+            node_group_name="example",
+            version=example_aws_eks_cluster["version"],
+            release_version=pulumi.Output.unsecret(eks_ami_release_version.value),
+            node_role_arn=example_aws_iam_role["arn"],
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Node Group
@@ -1217,8 +1255,8 @@ class NodeGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] ami_type: Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Node Group.
+        :param pulumi.Input[_builtins.str] ami_type: Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Node Group.
         :param pulumi.Input[_builtins.str] capacity_type: Type of capacity associated with the EKS Node Group. Valid values: `ON_DEMAND`, `SPOT`. This provider will only perform drift detection if a configuration value is provided.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.int] disk_size: Disk size in GiB for worker nodes. Defaults to `50` for Windows, `20` all other node groups. The provider will only perform drift detection if a configuration value is provided.
@@ -1229,7 +1267,7 @@ class NodeGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] node_group_name: Name of the EKS Node Group. If omitted, the provider will assign a random, unique name. Conflicts with `node_group_name_prefix`. The node group name can't be longer than 63 characters. It must start with a letter or digit, but can also include hyphens and underscores for the remaining characters.
         :param pulumi.Input[_builtins.str] node_group_name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `node_group_name`.
         :param pulumi.Input[Union['NodeGroupNodeRepairConfigArgs', 'NodeGroupNodeRepairConfigArgsDict']] node_repair_config: The node auto repair configuration for the node group. See `node_repair_config` below for details.
-        :param pulumi.Input[_builtins.str] node_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        :param pulumi.Input[_builtins.str] node_role_arn: ARN of the IAM Role that provides permissions for the EKS Node Group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] release_version: AMI version of the EKS Node Group. Defaults to latest version for Kubernetes version.
         :param pulumi.Input[Union['NodeGroupRemoteAccessArgs', 'NodeGroupRemoteAccessArgsDict']] remote_access: Configuration block with remote access settings. See `remote_access` below for details. Conflicts with `launch_template`.
@@ -1282,7 +1320,7 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter(name="amiType")
     def ami_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         """
         return pulumi.get(self, "ami_type")
 
@@ -1290,7 +1328,7 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EKS Node Group.
+        ARN of the EKS Node Group.
         """
         return pulumi.get(self, "arn")
 
@@ -1378,7 +1416,7 @@ class NodeGroup(pulumi.CustomResource):
     @pulumi.getter(name="nodeRoleArn")
     def node_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        ARN of the IAM Role that provides permissions for the EKS Node Group.
         """
         return pulumi.get(self, "node_role_arn")
 

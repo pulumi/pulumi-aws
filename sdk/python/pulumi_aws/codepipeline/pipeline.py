@@ -35,7 +35,7 @@ class PipelineArgs:
         The set of arguments for constructing a Pipeline resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['PipelineArtifactStoreArgs']]] artifact_stores: One or more artifact_store blocks. Artifact stores are documented below.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[_builtins.str] execution_mode: The method that the pipeline will use to handle multiple executions. The default mode is `SUPERSEDED`. For value values, refer to the [AWS documentation](https://docs.aws.amazon.com/codepipeline/latest/APIReference/API_PipelineDeclaration.html#CodePipeline-Type-PipelineDeclaration-executionMode).
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
@@ -81,7 +81,7 @@ class PipelineArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -213,7 +213,7 @@ class _PipelineState:
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input['PipelineStageArgs']]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -326,7 +326,7 @@ class _PipelineState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -440,11 +440,11 @@ class Pipeline(pulumi.CustomResource):
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codepipeline.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
@@ -452,19 +452,16 @@ class Pipeline(pulumi.CustomResource):
             assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
-            name="tf-test-pipeline",
-            role_arn=codepipeline_role.arn,
             artifact_stores=[{
-                "location": codepipeline_bucket.bucket,
-                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey.arn,
                     "type": "KMS",
                 },
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
             }],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -478,9 +475,9 @@ class Pipeline(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
-                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -493,9 +490,9 @@ class Pipeline(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
+                    "name": "Build",
                 },
                 {
-                    "name": "Deploy",
                     "actions": [{
                         "name": "Deploy",
                         "category": "Deploy",
@@ -511,8 +508,11 @@ class Pipeline(pulumi.CustomResource):
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
                     }],
+                    "name": "Deploy",
                 },
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role.arn)
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,
@@ -581,7 +581,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineTriggerArgs', 'PipelineTriggerArgsDict']]]] triggers: A trigger block. Valid only when `pipeline_type` is `V2`. Triggers are documented below.
@@ -609,11 +609,11 @@ class Pipeline(pulumi.CustomResource):
             provider_type="GitHub")
         codepipeline_bucket = aws.s3.Bucket("codepipeline_bucket", bucket="test-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codepipeline.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         codepipeline_role = aws.iam.Role("codepipeline_role",
@@ -621,19 +621,16 @@ class Pipeline(pulumi.CustomResource):
             assume_role_policy=assume_role.json)
         s3kmskey = aws.kms.get_alias(name="alias/myKmsKey")
         codepipeline = aws.codepipeline.Pipeline("codepipeline",
-            name="tf-test-pipeline",
-            role_arn=codepipeline_role.arn,
             artifact_stores=[{
-                "location": codepipeline_bucket.bucket,
-                "type": "S3",
                 "encryption_key": {
                     "id": s3kmskey.arn,
                     "type": "KMS",
                 },
+                "location": codepipeline_bucket.bucket,
+                "type": "S3",
             }],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -647,9 +644,9 @@ class Pipeline(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
-                    "name": "Build",
                     "actions": [{
                         "name": "Build",
                         "category": "Build",
@@ -662,9 +659,9 @@ class Pipeline(pulumi.CustomResource):
                             "ProjectName": "test",
                         },
                     }],
+                    "name": "Build",
                 },
                 {
-                    "name": "Deploy",
                     "actions": [{
                         "name": "Deploy",
                         "category": "Deploy",
@@ -680,8 +677,11 @@ class Pipeline(pulumi.CustomResource):
                             "TemplatePath": "build_output::sam-templated.yaml",
                         },
                     }],
+                    "name": "Deploy",
                 },
-            ])
+            ],
+            name="tf-test-pipeline",
+            role_arn=codepipeline_role.arn)
         codepipeline_bucket_pab = aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab",
             bucket=codepipeline_bucket.id,
             block_public_acls=True,
@@ -832,7 +832,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_type: Type of the pipeline. Possible values are: `V1` and `V2`. Default value is `V1`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         :param pulumi.Input[Sequence[pulumi.Input[Union['PipelineStageArgs', 'PipelineStageArgsDict']]]] stages: A stage block. Stages are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -913,7 +913,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+        Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
         """
         return pulumi.get(self, "role_arn")
 

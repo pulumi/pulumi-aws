@@ -19,14 +19,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     public static final EventSubscriptionState Empty = new EventSubscriptionState();
 
     /**
-     * Amazon Resource Name (ARN) of the DMS Event Subscription.
+     * ARN of the DMS Event Subscription.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DMS Event Subscription.
+     * @return ARN of the DMS Event Subscription.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -202,7 +202,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DMS Event Subscription.
+         * @param arn ARN of the DMS Event Subscription.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DMS Event Subscription.
+         * @param arn ARN of the DMS Event Subscription.
          * 
          * @return builder
          * 

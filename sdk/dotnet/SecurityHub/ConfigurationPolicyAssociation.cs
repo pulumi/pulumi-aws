@@ -31,12 +31,12 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
     ///     {
-    ///         AutoEnable = false,
-    ///         AutoEnableStandards = "NONE",
     ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
+    ///         AutoEnable = false,
+    ///         AutoEnableStandards = "NONE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -47,21 +47,21 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleConfigurationPolicy = new Aws.SecurityHub.ConfigurationPolicy("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         Description = "This is an example configuration policy",
     ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
+    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
+    ///             {
+    ///                 DisabledControlIdentifiers = new() { },
+    ///             },
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]
     ///             {
     ///                 "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
     ///                 "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
     ///             },
-    ///             SecurityControlsConfiguration = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
-    ///             {
-    ///                 DisabledControlIdentifiers = new() { },
-    ///             },
     ///         },
+    ///         Name = "Example",
+    ///         Description = "This is an example configuration policy",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

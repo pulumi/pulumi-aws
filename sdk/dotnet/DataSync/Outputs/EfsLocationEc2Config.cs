@@ -14,11 +14,11 @@ namespace Pulumi.Aws.DataSync.Outputs
     public sealed class EfsLocationEc2Config
     {
         /// <summary>
-        /// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+        /// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupArns;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+        /// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
         /// </summary>
         public readonly string SubnetArn;
 

@@ -67,12 +67,8 @@ type GetAuthorizersResult struct {
 }
 
 func GetAuthorizersOutput(ctx *pulumi.Context, args GetAuthorizersOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizersResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthorizersResultOutput, error) {
-			args := v.(GetAuthorizersArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", args, GetAuthorizersResultOutput{}, options).(GetAuthorizersResultOutput), nil
-		}).(GetAuthorizersResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getAuthorizers:getAuthorizers", args, GetAuthorizersResultOutput{}, options).(GetAuthorizersResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizers.

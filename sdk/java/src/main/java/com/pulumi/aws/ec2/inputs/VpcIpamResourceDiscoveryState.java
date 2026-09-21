@@ -21,14 +21,14 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
     public static final VpcIpamResourceDiscoveryState Empty = new VpcIpamResourceDiscoveryState();
 
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * @return ARN of IPAM Resource Discovery
      * 
      */
     public Optional<Output<String>> arn() {
@@ -204,7 +204,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM Resource Discovery
+         * @param arn ARN of IPAM Resource Discovery
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class VpcIpamResourceDiscoveryState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM Resource Discovery
+         * @param arn ARN of IPAM Resource Discovery
          * 
          * @return builder
          * 

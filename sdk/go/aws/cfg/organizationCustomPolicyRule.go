@@ -87,7 +87,7 @@ import (
 type OrganizationCustomPolicyRule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts pulumi.StringArrayOutput `pulumi:"debugLogDeliveryAccounts"`
@@ -160,7 +160,7 @@ func GetOrganizationCustomPolicyRule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OrganizationCustomPolicyRule resources.
 type organizationCustomPolicyRuleState struct {
-	// Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn *string `pulumi:"arn"`
 	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts []string `pulumi:"debugLogDeliveryAccounts"`
@@ -195,7 +195,7 @@ type organizationCustomPolicyRuleState struct {
 }
 
 type OrganizationCustomPolicyRuleState struct {
-	// Amazon Resource Name (ARN) of the rule.
+	// ARN of the rule.
 	Arn pulumi.StringPtrInput
 	// List of accounts that you can enable debug logging for. The list is null when debug logging is enabled for all accounts.
 	DebugLogDeliveryAccounts pulumi.StringArrayInput
@@ -387,7 +387,7 @@ func (o OrganizationCustomPolicyRuleOutput) ToOrganizationCustomPolicyRuleOutput
 	return o
 }
 
-// Amazon Resource Name (ARN) of the rule.
+// ARN of the rule.
 func (o OrganizationCustomPolicyRuleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationCustomPolicyRule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

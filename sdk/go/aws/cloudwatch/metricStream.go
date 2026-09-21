@@ -39,7 +39,6 @@ import (
 //			streamsAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -48,6 +47,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -73,7 +73,6 @@ import (
 //			firehoseAssumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -82,6 +81,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -98,21 +98,17 @@ import (
 //				return err
 //			}
 //			s3Stream, err := kinesis.NewFirehoseDeliveryStream(ctx, "s3_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("metric-stream-test-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseToS3Role.Arn,
 //					BucketArn: bucket.Arn,
 //				},
+//				Name:        pulumi.String("metric-stream-test-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				Name:         pulumi.String("my-metric-stream"),
-//				RoleArn:      metricStreamToFirehoseRole.Arn,
-//				FirehoseArn:  s3Stream.Arn,
-//				OutputFormat: pulumi.String("json"),
 //				IncludeFilters: cloudwatch.MetricStreamIncludeFilterArray{
 //					&cloudwatch.MetricStreamIncludeFilterArgs{
 //						Namespace: pulumi.String("AWS/EC2"),
@@ -126,6 +122,10 @@ import (
 //						MetricNames: pulumi.StringArray{},
 //					},
 //				},
+//				Name:         pulumi.String("my-metric-stream"),
+//				RoleArn:      metricStreamToFirehoseRole.Arn,
+//				FirehoseArn:  s3Stream.Arn,
+//				OutputFormat: pulumi.String("json"),
 //			})
 //			if err != nil {
 //				return err
@@ -210,35 +210,35 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricStream(ctx, "main", &cloudwatch.MetricStreamArgs{
-//				Name:         pulumi.String("my-metric-stream"),
-//				RoleArn:      pulumi.Any(metricStreamToFirehose.Arn),
-//				FirehoseArn:  pulumi.Any(s3Stream.Arn),
-//				OutputFormat: pulumi.String("json"),
 //				StatisticsConfigurations: cloudwatch.MetricStreamStatisticsConfigurationArray{
 //					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
+//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
+//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
+//								MetricName: pulumi.String("CPUUtilization"),
+//								Namespace:  pulumi.String("AWS/EC2"),
+//							},
+//						},
 //						AdditionalStatistics: pulumi.StringArray{
 //							pulumi.String("p1"),
 //							pulumi.String("tm99"),
 //						},
+//					},
+//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
 //						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
 //							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
 //								MetricName: pulumi.String("CPUUtilization"),
 //								Namespace:  pulumi.String("AWS/EC2"),
 //							},
 //						},
-//					},
-//					&cloudwatch.MetricStreamStatisticsConfigurationArgs{
 //						AdditionalStatistics: pulumi.StringArray{
 //							pulumi.String("TS(50.5:)"),
 //						},
-//						IncludeMetrics: cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArray{
-//							&cloudwatch.MetricStreamStatisticsConfigurationIncludeMetricArgs{
-//								MetricName: pulumi.String("CPUUtilization"),
-//								Namespace:  pulumi.String("AWS/EC2"),
-//							},
-//						},
 //					},
 //				},
+//				Name:         pulumi.String("my-metric-stream"),
+//				RoleArn:      pulumi.Any(metricStreamToFirehose.Arn),
+//				FirehoseArn:  pulumi.Any(s3Stream.Arn),
+//				OutputFormat: pulumi.String("json"),
 //			})
 //			if err != nil {
 //				return err

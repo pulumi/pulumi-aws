@@ -50,7 +50,7 @@ import (
 type RouteTable struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Route Table ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
 	DefaultAssociationRouteTable pulumi.BoolOutput `pulumi:"defaultAssociationRouteTable"`
@@ -99,7 +99,7 @@ func GetRouteTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteTable resources.
 type routeTableState struct {
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Route Table ARN.
 	Arn *string `pulumi:"arn"`
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
 	DefaultAssociationRouteTable *bool `pulumi:"defaultAssociationRouteTable"`
@@ -116,7 +116,7 @@ type routeTableState struct {
 }
 
 type RouteTableState struct {
-	// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Route Table ARN.
 	Arn pulumi.StringPtrInput
 	// Boolean whether this is the default association route table for the EC2 Transit Gateway.
 	DefaultAssociationRouteTable pulumi.BoolPtrInput
@@ -242,7 +242,7 @@ func (o RouteTableOutput) ToRouteTableOutputWithContext(ctx context.Context) Rou
 	return o
 }
 
-// EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+// EC2 Transit Gateway Route Table ARN.
 func (o RouteTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LogS3TableIntegrationSource("example", LogS3TableIntegrationSourceArgs.builder()
- *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
  *             .dataSource(LogS3TableIntegrationSourceDataSourceArgs.builder()
  *                 .name("*")
  *                 .type("*")
  *                 .build())
+ *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
  *             .build());
  * 
  *     }
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogS3TableIntegrationSource = new LogS3TableIntegrationSource("exampleLogS3TableIntegrationSource", LogS3TableIntegrationSourceArgs.builder()
- *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
  *             .dataSource(LogS3TableIntegrationSourceDataSourceArgs.builder()
  *                 .name("myapp")
  *                 .type("events")
  *                 .build())
+ *             .integrationArn(exampleAwsObservabilityadminS3TableIntegration.arn())
  *             .build());
  * 
  *     }

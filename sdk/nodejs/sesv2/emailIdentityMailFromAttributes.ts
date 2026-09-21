@@ -60,15 +60,15 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
     }
 
     /**
-     * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
     declare public readonly behaviorOnMxFailure: pulumi.Output<string | undefined>;
     /**
-     * The verified email identity.
+     * Verified email identity.
      */
     declare public readonly emailIdentity: pulumi.Output<string>;
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     declare public readonly mailFromDomain: pulumi.Output<string | undefined>;
     /**
@@ -113,15 +113,15 @@ export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {
  */
 export interface EmailIdentityMailFromAttributesState {
     /**
-     * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
     behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
-     * The verified email identity.
+     * Verified email identity.
      */
     emailIdentity?: pulumi.Input<string | undefined>;
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     mailFromDomain?: pulumi.Input<string | undefined>;
     /**
@@ -135,15 +135,15 @@ export interface EmailIdentityMailFromAttributesState {
  */
 export interface EmailIdentityMailFromAttributesArgs {
     /**
-     * The action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn't found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      */
     behaviorOnMxFailure?: pulumi.Input<string | undefined>;
     /**
-     * The verified email identity.
+     * Verified email identity.
      */
     emailIdentity: pulumi.Input<string>;
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      */
     mailFromDomain?: pulumi.Input<string | undefined>;
     /**

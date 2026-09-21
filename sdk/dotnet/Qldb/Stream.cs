@@ -24,15 +24,15 @@ namespace Pulumi.Aws.Qldb
     /// {
     ///     var example = new Aws.Qldb.Stream("example", new()
     ///     {
-    ///         LedgerName = "existing-ledger-name",
-    ///         StreamName = "sample-ledger-stream",
-    ///         RoleArn = "sample-role-arn",
-    ///         InclusiveStartTime = "2021-01-01T00:00:00Z",
     ///         KinesisConfiguration = new Aws.Qldb.Inputs.StreamKinesisConfigurationArgs
     ///         {
     ///             AggregationEnabled = false,
     ///             StreamArn = "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
     ///         },
+    ///         LedgerName = "existing-ledger-name",
+    ///         StreamName = "sample-ledger-stream",
+    ///         RoleArn = "sample-role-arn",
+    ///         InclusiveStartTime = "2021-01-01T00:00:00Z",
     ///         Tags = 
     ///         {
     ///             { "example", "tag" },
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Qldb
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Qldb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Qldb
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+        /// ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementIpSetReferenceStatement
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+        /// ARN of the IP Set that this statement references.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -36,7 +36,7 @@ export function getListener(args: GetListenerArgs, opts?: pulumi.InvokeOptions):
  */
 export interface GetListenerArgs {
     /**
-     * ID or Amazon Resource Name (ARN) of the listener
+     * ID or ARN of the listener
      */
     listenerIdentifier: string;
     /**
@@ -44,7 +44,7 @@ export interface GetListenerArgs {
      */
     region?: string;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * ID or ARN of the service network
      */
     serviceIdentifier: string;
     /**
@@ -138,7 +138,7 @@ export function getListenerOutput(args: GetListenerOutputArgs, opts?: pulumi.Inv
  */
 export interface GetListenerOutputArgs {
     /**
-     * ID or Amazon Resource Name (ARN) of the listener
+     * ID or ARN of the listener
      */
     listenerIdentifier: pulumi.Input<string>;
     /**
@@ -146,7 +146,7 @@ export interface GetListenerOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network
+     * ID or ARN of the service network
      */
     serviceIdentifier: pulumi.Input<string>;
     /**

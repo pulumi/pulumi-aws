@@ -59,7 +59,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the DynamoDB table.
+ * - `resourceArn` (String) ARN of the DynamoDB table.
  * 
  * Using `pulumi import`, import DynamoDB Resource Policy using the `resourceArn`. For example:
  * 
@@ -117,14 +117,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+     * ARN of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index ARNs in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index Amazon Resource Name (ARN)s in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
+     * @return ARN of the DynamoDB resource to which the policy will be attached. The resources you can specify include tables and streams. You can control index permissions using the base table&#39;s policy. To specify the same permission level for your table and its indexes, you can provide both the table and index ARNs in the Resource field of a given Statement in your policy document. Alternatively, to specify different permissions for your table, indexes, or both, you can define multiple Statement fields in your policy document.
      * 
      */
     public Output<String> resourceArn() {

@@ -17,7 +17,7 @@ public final class GetAppregistryApplicationResult {
      */
     private Map<String,String> applicationTag;
     /**
-     * @return ARN (Amazon Resource Name) of the application.
+     * @return ARN of the application.
      * 
      */
     private String arn;
@@ -48,7 +48,7 @@ public final class GetAppregistryApplicationResult {
         return this.applicationTag;
     }
     /**
-     * @return ARN (Amazon Resource Name) of the application.
+     * @return ARN of the application.
      * 
      */
     public String arn() {

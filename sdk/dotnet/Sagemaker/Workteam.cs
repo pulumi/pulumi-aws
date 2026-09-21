@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
-    ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
@@ -41,6 +38,9 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
+    ///         WorkteamName = "example",
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
+    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -58,9 +58,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Workteam("example", new()
     ///     {
-    ///         WorkteamName = "example",
-    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
-    ///         Description = "example",
     ///         MemberDefinitions = new[]
     ///         {
     ///             new Aws.Sagemaker.Inputs.WorkteamMemberDefinitionArgs
@@ -74,6 +71,9 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
+    ///         WorkteamName = "example",
+    ///         WorkforceName = exampleAwsSagemakerWorkforce.Id,
+    ///         Description = "example",
     ///     });
     /// 
     /// });
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Workteam : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        /// ARN assigned by AWS to this Workteam.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -271,7 +271,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class WorkteamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        /// ARN assigned by AWS to this Workteam.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

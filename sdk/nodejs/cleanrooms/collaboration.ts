@@ -18,15 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testCollaboration = new aws.cleanrooms.Collaboration("test_collaboration", {
- *     name: "pulumi-example-collaboration",
- *     creatorMemberAbilities: [
- *         "CAN_QUERY",
- *         "CAN_RECEIVE_RESULTS",
- *     ],
- *     creatorDisplayName: "Creator ",
- *     description: "I made this collaboration with Pulumi!",
- *     queryLogStatus: "DISABLED",
- *     analyticsEngine: "SPARK",
  *     dataEncryptionMetadata: {
  *         allowClearText: true,
  *         allowDuplicates: true,
@@ -38,6 +29,15 @@ import * as utilities from "../utilities";
  *         displayName: "Other member",
  *         memberAbilities: [],
  *     }],
+ *     name: "pulumi-example-collaboration",
+ *     creatorMemberAbilities: [
+ *         "CAN_QUERY",
+ *         "CAN_RECEIVE_RESULTS",
+ *     ],
+ *     creatorDisplayName: "Creator ",
+ *     description: "I made this collaboration with Pulumi!",
+ *     queryLogStatus: "DISABLED",
+ *     analyticsEngine: "SPARK",
  *     tags: {
  *         Project: "Pulumi",
  *     },

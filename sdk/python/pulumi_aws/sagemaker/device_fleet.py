@@ -33,7 +33,7 @@ class DeviceFleetArgs:
 
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input['DeviceFleetOutputConfigArgs'] output_config: Specifies details about the repository. see Output Config details below.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        :param pulumi.Input[_builtins.str] role_arn: ARN that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[_builtins.str] description: A description of the fleet.
         :param pulumi.Input[_builtins.bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -79,7 +79,7 @@ class DeviceFleetArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        ARN that has access to AWS Internet of Things (IoT).
         """
         return pulumi.get(self, "role_arn")
 
@@ -152,13 +152,13 @@ class _DeviceFleetState:
         """
         Input properties used for looking up and filtering DeviceFleet resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Device Fleet.
         :param pulumi.Input[_builtins.str] description: A description of the fleet.
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input[_builtins.bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input['DeviceFleetOutputConfigArgs'] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        :param pulumi.Input[_builtins.str] role_arn: ARN that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -187,7 +187,7 @@ class _DeviceFleetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        ARN assigned by AWS to this Device Fleet.
         """
         return pulumi.get(self, "arn")
 
@@ -268,7 +268,7 @@ class _DeviceFleetState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        ARN that has access to AWS Internet of Things (IoT).
         """
         return pulumi.get(self, "role_arn")
 
@@ -327,11 +327,11 @@ class DeviceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.DeviceFleet("example",
-            device_fleet_name="example",
-            role_arn=test["arn"],
             output_config={
                 "s3_output_location": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
-            })
+            },
+            device_fleet_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -350,7 +350,7 @@ class DeviceFleet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        :param pulumi.Input[_builtins.str] role_arn: ARN that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -371,11 +371,11 @@ class DeviceFleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.DeviceFleet("example",
-            device_fleet_name="example",
-            role_arn=test["arn"],
             output_config={
                 "s3_output_location": f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
-            })
+            },
+            device_fleet_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -461,13 +461,13 @@ class DeviceFleet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Device Fleet.
         :param pulumi.Input[_builtins.str] description: A description of the fleet.
         :param pulumi.Input[_builtins.str] device_fleet_name: The name of the Device Fleet (must be unique).
         :param pulumi.Input[_builtins.bool] enable_iot_role_alias: Whether to create an AWS IoT Role Alias during device fleet creation. The name of the role alias generated will match this pattern: "SageMakerEdge-{DeviceFleetName}".
         :param pulumi.Input[Union['DeviceFleetOutputConfigArgs', 'DeviceFleetOutputConfigArgsDict']] output_config: Specifies details about the repository. see Output Config details below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        :param pulumi.Input[_builtins.str] role_arn: ARN that has access to AWS Internet of Things (IoT).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -491,7 +491,7 @@ class DeviceFleet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        ARN assigned by AWS to this Device Fleet.
         """
         return pulumi.get(self, "arn")
 
@@ -544,7 +544,7 @@ class DeviceFleet(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        ARN that has access to AWS Internet of Things (IoT).
         """
         return pulumi.get(self, "role_arn")
 

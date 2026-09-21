@@ -70,7 +70,7 @@ export class LogGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * ARN specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class LogGroup extends pulumi.CustomResource {
  */
 export interface LogGroupState {
     /**
-     * The Amazon Resource Name (ARN) specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
+     * ARN specifying the log group. Any `:*` suffix added by the API, denoting all CloudWatch Log Streams under the CloudWatch Log Group, is removed for greater compatibility with other AWS services that do not accept the suffix.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

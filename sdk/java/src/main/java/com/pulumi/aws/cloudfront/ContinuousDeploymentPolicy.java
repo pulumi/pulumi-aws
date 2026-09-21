@@ -57,17 +57,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
  *                     .weight(0.01)
  *                     .build())
+ *                 .type("SingleWeight")
  *                 .build())
+ *             .enabled(true)
  *             .build());
  * 
  *         var production = new Distribution("production", DistributionArgs.builder()
@@ -109,21 +109,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleWeight")
  *                 .singleWeightConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigArgs.builder()
- *                     .weight(0.01)
  *                     .sessionStickinessConfig(ContinuousDeploymentPolicyTrafficConfigSingleWeightConfigSessionStickinessConfigArgs.builder()
  *                         .idleTtl(300)
  *                         .maximumTtl(600)
  *                         .build())
+ *                     .weight(0.01)
  *                     .build())
+ *                 .type("SingleWeight")
  *                 .build())
+ *             .enabled(true)
  *             .build());
  * 
  *     }
@@ -159,18 +159,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContinuousDeploymentPolicy("example", ContinuousDeploymentPolicyArgs.builder()
- *             .enabled(true)
  *             .stagingDistributionDnsNames(ContinuousDeploymentPolicyStagingDistributionDnsNamesArgs.builder()
  *                 .items(staging.domainName())
  *                 .quantity(1)
  *                 .build())
  *             .trafficConfig(ContinuousDeploymentPolicyTrafficConfigArgs.builder()
- *                 .type("SingleHeader")
  *                 .singleHeaderConfig(ContinuousDeploymentPolicyTrafficConfigSingleHeaderConfigArgs.builder()
  *                     .header("aws-cf-cd-example")
  *                     .value("example")
  *                     .build())
+ *                 .type("SingleHeader")
  *                 .build())
+ *             .enabled(true)
  *             .build());
  * 
  *     }

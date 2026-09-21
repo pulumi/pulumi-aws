@@ -141,7 +141,7 @@ type EnvironmentEC2 struct {
 	ConnectionType pulumi.StringPtrOutput `pulumi:"connectionType"`
 	// The description of the environment.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
@@ -213,7 +213,7 @@ type environmentEC2State struct {
 	ConnectionType *string `pulumi:"connectionType"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
-	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
@@ -250,7 +250,7 @@ type EnvironmentEC2State struct {
 	ConnectionType pulumi.StringPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
-	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
@@ -289,7 +289,7 @@ type environmentEC2Args struct {
 	ConnectionType *string `pulumi:"connectionType"`
 	// The description of the environment.
 	Description *string `pulumi:"description"`
-	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
@@ -321,7 +321,7 @@ type EnvironmentEC2Args struct {
 	ConnectionType pulumi.StringPtrInput
 	// The description of the environment.
 	Description pulumi.StringPtrInput
-	// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+	// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 	// * `amazonlinux-2-x86_64`
 	// * `amazonlinux-2023-x86_64`
 	// * `ubuntu-18.04-x86_64`
@@ -452,7 +452,7 @@ func (o EnvironmentEC2Output) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EnvironmentEC2) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+// Identifier for the AMI that's used to create the EC2 instance. Valid values are
 // * `amazonlinux-2-x86_64`
 // * `amazonlinux-2023-x86_64`
 // * `ubuntu-18.04-x86_64`

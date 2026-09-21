@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Kendra Faq"),
 //				},
@@ -66,14 +66,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:    pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:       pulumi.String("Example"),
-//				FileFormat: pulumi.String("CSV"),
-//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId:    pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:       pulumi.String("Example"),
+//				FileFormat: pulumi.String("CSV"),
+//				RoleArn:    pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -99,14 +99,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewFaq(ctx, "example", &kendra.FaqArgs{
-//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:         pulumi.String("Example"),
-//				LanguageCode: pulumi.String("en"),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				S3Path: &kendra.FaqS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				IndexId:      pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:         pulumi.String("Example"),
+//				LanguageCode: pulumi.String("en"),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -144,7 +144,7 @@ type Faq struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathOutput `pulumi:"s3Path"`
@@ -213,7 +213,7 @@ type faqState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn *string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path *FaqS3Path `pulumi:"s3Path"`
@@ -244,7 +244,7 @@ type FaqState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringPtrInput
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathPtrInput
@@ -271,7 +271,7 @@ type faqArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn string `pulumi:"roleArn"`
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3Path         `pulumi:"s3Path"`
@@ -289,7 +289,7 @@ type FaqArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+	// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 	RoleArn pulumi.StringInput
 	// The S3 location of the FAQ input data. Detailed below.
 	S3Path FaqS3PathInput
@@ -430,7 +430,7 @@ func (o FaqOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
 func (o FaqOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Faq) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

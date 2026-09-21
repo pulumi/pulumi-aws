@@ -24,7 +24,7 @@ class DefaultKmsKeyArgs:
         """
         The set of arguments for constructing a DefaultKmsKey resource.
 
-        :param pulumi.Input[_builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[_builtins.str] key_arn: ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "key_arn", key_arn)
@@ -35,7 +35,7 @@ class DefaultKmsKeyArgs:
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         """
         return pulumi.get(self, "key_arn")
 
@@ -64,7 +64,7 @@ class _DefaultKmsKeyState:
         """
         Input properties used for looking up and filtering DefaultKmsKey resources.
 
-        :param pulumi.Input[_builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[_builtins.str] key_arn: ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if key_arn is not None:
@@ -76,7 +76,7 @@ class _DefaultKmsKeyState:
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         """
         return pulumi.get(self, "key_arn")
 
@@ -136,7 +136,7 @@ class DefaultKmsKey(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[_builtins.str] key_arn: ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -222,7 +222,7 @@ class DefaultKmsKey(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_arn: The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        :param pulumi.Input[_builtins.str] key_arn: ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -237,7 +237,7 @@ class DefaultKmsKey(pulumi.CustomResource):
     @pulumi.getter(name="keyArn")
     def key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+        ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
         """
         return pulumi.get(self, "key_arn")
 

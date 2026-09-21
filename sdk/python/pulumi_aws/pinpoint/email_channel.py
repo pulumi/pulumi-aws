@@ -391,11 +391,11 @@ class EmailChannel(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pinpoint.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)
@@ -457,11 +457,11 @@ class EmailChannel(pulumi.CustomResource):
 
         app = aws.pinpoint.App("app")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["pinpoint.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role", assume_role_policy=assume_role.json)

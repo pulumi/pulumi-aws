@@ -441,17 +441,18 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         this = aws.cfg.Rule("this",
-            name="example",
             source={
                 "owner": "AWS",
                 "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
-            })
+            },
+            name="example")
         this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
-            config_rule_name=this.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
+            execution_controls={
+                "ssm_controls": {
+                    "concurrent_execution_rate_percentage": 25,
+                    "error_percentage": 20,
+                },
+            },
             parameters=[
                 {
                     "name": "AutomationAssumeRole",
@@ -466,15 +467,14 @@ class RemediationConfiguration(pulumi.CustomResource):
                     "static_value": "AES256",
                 },
             ],
+            config_rule_name=this.name,
+            resource_type="AWS::S3::Bucket",
+            target_type="SSM_DOCUMENT",
+            target_id="AWS-EnableS3BucketEncryption",
+            target_version="1",
             automatic=True,
             maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls={
-                "ssm_controls": {
-                    "concurrent_execution_rate_percentage": 25,
-                    "error_percentage": 20,
-                },
-            })
+            retry_attempt_seconds=600)
         ```
 
         ## Import
@@ -533,17 +533,18 @@ class RemediationConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         this = aws.cfg.Rule("this",
-            name="example",
             source={
                 "owner": "AWS",
                 "source_identifier": "S3_BUCKET_VERSIONING_ENABLED",
-            })
+            },
+            name="example")
         this_remediation_configuration = aws.cfg.RemediationConfiguration("this",
-            config_rule_name=this.name,
-            resource_type="AWS::S3::Bucket",
-            target_type="SSM_DOCUMENT",
-            target_id="AWS-EnableS3BucketEncryption",
-            target_version="1",
+            execution_controls={
+                "ssm_controls": {
+                    "concurrent_execution_rate_percentage": 25,
+                    "error_percentage": 20,
+                },
+            },
             parameters=[
                 {
                     "name": "AutomationAssumeRole",
@@ -558,15 +559,14 @@ class RemediationConfiguration(pulumi.CustomResource):
                     "static_value": "AES256",
                 },
             ],
+            config_rule_name=this.name,
+            resource_type="AWS::S3::Bucket",
+            target_type="SSM_DOCUMENT",
+            target_id="AWS-EnableS3BucketEncryption",
+            target_version="1",
             automatic=True,
             maximum_automatic_attempts=10,
-            retry_attempt_seconds=600,
-            execution_controls={
-                "ssm_controls": {
-                    "concurrent_execution_rate_percentage": 25,
-                    "error_percentage": 20,
-                },
-            })
+            retry_attempt_seconds=600)
         ```
 
         ## Import

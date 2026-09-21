@@ -30,6 +30,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				CustomRules: amplify.AppCustomRuleArray{
+//					&amplify.AppCustomRuleArgs{
+//						Source: pulumi.String("/<*>"),
+//						Status: pulumi.String("404"),
+//						Target: pulumi.String("/index.html"),
+//					},
+//				},
 //				Name:       pulumi.String("example"),
 //				Repository: pulumi.String("https://github.com/example/app"),
 //				BuildSpec: pulumi.String(`version: 0.1
@@ -53,13 +60,6 @@ import (
 //
 // `),
 //
-//				CustomRules: amplify.AppCustomRuleArray{
-//					&amplify.AppCustomRuleArgs{
-//						Source: pulumi.String("/<*>"),
-//						Status: pulumi.String("404"),
-//						Target: pulumi.String("/index.html"),
-//					},
-//				},
 //				EnvironmentVariables: pulumi.StringMap{
 //					"ENV": pulumi.String("test"),
 //				},
@@ -120,14 +120,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
+//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
+//					EnableAutoBuild: pulumi.Bool(true),
+//				},
 //				Name:                     pulumi.String("example"),
 //				EnableAutoBranchCreation: pulumi.Bool(true),
 //				AutoBranchCreationPatterns: pulumi.StringArray{
 //					pulumi.String("*"),
 //					pulumi.String("*/**"),
-//				},
-//				AutoBranchCreationConfig: &amplify.AppAutoBranchCreationConfigArgs{
-//					EnableAutoBuild: pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {
@@ -189,7 +189,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				Name: pulumi.String("example"),
 //				CustomRules: amplify.AppCustomRuleArray{
 //					&amplify.AppCustomRuleArgs{
 //						Source: pulumi.String("/api/<*>"),
@@ -202,6 +201,7 @@ import (
 //						Target: pulumi.String("/index.html"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -298,10 +298,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amplify.NewApp(ctx, "example", &amplify.AppArgs{
-//				Name: pulumi.String("example"),
 //				JobConfig: &amplify.AppJobConfigArgs{
 //					BuildComputeType: pulumi.String("STANDARD_8GB"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

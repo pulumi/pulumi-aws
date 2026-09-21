@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/videoStream:VideoStream")
 public class VideoStream extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`)
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * @return ARN specifying the Stream (same as `id`)
      * 
      */
     public Output<String> arn() {
@@ -126,14 +126,14 @@ public class VideoStream extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.deviceName);
     }
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * @return ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      * 
      */
     public Output<String> kmsKeyId() {

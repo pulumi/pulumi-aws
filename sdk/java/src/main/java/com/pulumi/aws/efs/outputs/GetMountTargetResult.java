@@ -30,7 +30,7 @@ public final class GetMountTargetResult {
      */
     private String dnsName;
     /**
-     * @return Amazon Resource Name of the file system for which the mount target is intended.
+     * @return ARN of the file system for which the mount target is intended.
      * 
      */
     private String fileSystemArn;
@@ -109,7 +109,7 @@ public final class GetMountTargetResult {
         return this.dnsName;
     }
     /**
-     * @return Amazon Resource Name of the file system for which the mount target is intended.
+     * @return ARN of the file system for which the mount target is intended.
      * 
      */
     public String fileSystemArn() {

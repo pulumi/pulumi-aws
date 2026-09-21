@@ -150,11 +150,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(exampleContainerService.privateRegistryAccess().applyValue(_privateRegistryAccess -> _privateRegistryAccess.ecrImagePullerRole().principalArn()))
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "ecr:BatchGetImage",
  *                     "ecr:GetDownloadUrlForLayer")
@@ -295,14 +295,14 @@ public class ContainerService extends com.pulumi.resources.CustomResource {
         return this.principalArn;
     }
     /**
-     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      * 
      */
     @Export(name="privateDomainName", refs={String.class}, tree="[0]")
     private Output<String> privateDomainName;
 
     /**
-     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      * 
      */
     public Output<String> privateDomainName() {

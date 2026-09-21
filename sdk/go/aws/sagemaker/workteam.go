@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
-//				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{
 //						CognitoMemberDefinition: &sagemaker.WorkteamMemberDefinitionCognitoMemberDefinitionArgs{
@@ -43,6 +40,9 @@ import (
 //						},
 //					},
 //				},
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
+//				Description:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,9 +68,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewWorkteam(ctx, "example", &sagemaker.WorkteamArgs{
-//				WorkteamName:  pulumi.String("example"),
-//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
-//				Description:   pulumi.String("example"),
 //				MemberDefinitions: sagemaker.WorkteamMemberDefinitionArray{
 //					&sagemaker.WorkteamMemberDefinitionArgs{
 //						OidcMemberDefinition: &sagemaker.WorkteamMemberDefinitionOidcMemberDefinitionArgs{
@@ -80,6 +77,9 @@ import (
 //						},
 //					},
 //				},
+//				WorkteamName:  pulumi.String("example"),
+//				WorkforceName: pulumi.Any(exampleAwsSagemakerWorkforce.Id),
+//				Description:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,7 +100,7 @@ import (
 type Workteam struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+	// ARN assigned by AWS to this Workteam.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A description of the work team.
 	Description pulumi.StringOutput `pulumi:"description"`
@@ -163,7 +163,7 @@ func GetWorkteam(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Workteam resources.
 type workteamState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+	// ARN assigned by AWS to this Workteam.
 	Arn *string `pulumi:"arn"`
 	// A description of the work team.
 	Description *string `pulumi:"description"`
@@ -188,7 +188,7 @@ type workteamState struct {
 }
 
 type WorkteamState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+	// ARN assigned by AWS to this Workteam.
 	Arn pulumi.StringPtrInput
 	// A description of the work team.
 	Description pulumi.StringPtrInput
@@ -342,7 +342,7 @@ func (o WorkteamOutput) ToWorkteamOutputWithContext(ctx context.Context) Worktea
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+// ARN assigned by AWS to this Workteam.
 func (o WorkteamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workteam) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

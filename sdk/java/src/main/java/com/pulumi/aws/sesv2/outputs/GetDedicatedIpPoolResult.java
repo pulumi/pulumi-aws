@@ -19,7 +19,7 @@ public final class GetDedicatedIpPoolResult {
      */
     private String arn;
     /**
-     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
+     * @return List of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
      * 
      */
     private List<GetDedicatedIpPoolDedicatedIp> dedicatedIps;
@@ -31,12 +31,12 @@ public final class GetDedicatedIpPoolResult {
     private String poolName;
     private String region;
     /**
-     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
      */
     private String scalingMode;
     /**
-     * @return A map of tags attached to the pool.
+     * @return Map of tags attached to the pool.
      * 
      */
     private Map<String,String> tags;
@@ -50,7 +50,7 @@ public final class GetDedicatedIpPoolResult {
         return this.arn;
     }
     /**
-     * @return A list of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
+     * @return List of objects describing the pool&#39;s dedicated IP&#39;s. See `dedicatedIps`.
      * 
      */
     public List<GetDedicatedIpPoolDedicatedIp> dedicatedIps() {
@@ -70,14 +70,14 @@ public final class GetDedicatedIpPoolResult {
         return this.region;
     }
     /**
-     * @return (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * @return IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      * 
      */
     public String scalingMode() {
         return this.scalingMode;
     }
     /**
-     * @return A map of tags attached to the pool.
+     * @return Map of tags attached to the pool.
      * 
      */
     public Map<String,String> tags() {

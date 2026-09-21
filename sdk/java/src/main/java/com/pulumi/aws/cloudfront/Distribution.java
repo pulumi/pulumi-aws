@@ -59,21 +59,21 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.cloudfront.OriginAccessControlArgs;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.route53.Route53Functions;
@@ -118,19 +118,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
- *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(b.bucketRegionalDomainName())
- *                 .originAccessControlId(default_.id())
- *                 .originId(s3OriginId)
- *                 .build())
- *             .enabled(true)
- *             .isIpv6Enabled(true)
- *             .comment("Some comment")
- *             .defaultRootObject("index.html")
- *             .aliases(            
- *                 String.format("mysite.%s", myDomain),
- *                 String.format("yoursite.%s", myDomain))
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
+ *                 .forwardedValues(DistributionDefaultCacheBehaviorForwardedValuesArgs.builder()
+ *                     .cookies(DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs.builder()
+ *                         .forward("none")
+ *                         .build())
+ *                     .queryString(false)
+ *                     .build())
  *                 .allowedMethods(                
  *                     "DELETE",
  *                     "GET",
@@ -143,65 +137,11 @@ import javax.annotation.Nullable;
  *                     "GET",
  *                     "HEAD")
  *                 .targetOriginId(s3OriginId)
- *                 .forwardedValues(DistributionDefaultCacheBehaviorForwardedValuesArgs.builder()
- *                     .queryString(false)
- *                     .cookies(DistributionDefaultCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                         .forward("none")
- *                         .build())
- *                     .build())
  *                 .viewerProtocolPolicy("allow-all")
  *                 .minTtl(0)
  *                 .defaultTtl(3600)
  *                 .maxTtl(86400)
  *                 .build())
- *             .orderedCacheBehaviors(            
- *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern("/content/immutable/*")
- *                     .allowedMethods(                    
- *                         "GET",
- *                         "HEAD",
- *                         "OPTIONS")
- *                     .cachedMethods(                    
- *                         "GET",
- *                         "HEAD",
- *                         "OPTIONS")
- *                     .targetOriginId(s3OriginId)
- *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
- *                         .queryString(false)
- *                         .headers("Origin")
- *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward("none")
- *                             .build())
- *                         .build())
- *                     .minTtl(0)
- *                     .defaultTtl(86400)
- *                     .maxTtl(31536000)
- *                     .compress(true)
- *                     .viewerProtocolPolicy("redirect-to-https")
- *                     .build(),
- *                 DistributionOrderedCacheBehaviorArgs.builder()
- *                     .pathPattern("/content/*")
- *                     .allowedMethods(                    
- *                         "GET",
- *                         "HEAD",
- *                         "OPTIONS")
- *                     .cachedMethods(                    
- *                         "GET",
- *                         "HEAD")
- *                     .targetOriginId(s3OriginId)
- *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
- *                         .queryString(false)
- *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
- *                             .forward("none")
- *                             .build())
- *                         .build())
- *                     .minTtl(0)
- *                     .defaultTtl(3600)
- *                     .maxTtl(86400)
- *                     .compress(true)
- *                     .viewerProtocolPolicy("redirect-to-https")
- *                     .build())
- *             .priceClass("PriceClass_200")
  *             .restrictions(DistributionRestrictionsArgs.builder()
  *                 .geoRestriction(DistributionRestrictionsGeoRestrictionArgs.builder()
  *                     .restrictionType("whitelist")
@@ -212,31 +152,91 @@ import javax.annotation.Nullable;
  *                         "DE")
  *                     .build())
  *                 .build())
- *             .tags(Map.of("Environment", "production"))
  *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
  *                 .acmCertificateArn(myDomainGetCertificate.arn())
  *                 .sslSupportMethod("sni-only")
  *                 .build())
+ *             .orderedCacheBehaviors(            
+ *                 DistributionOrderedCacheBehaviorArgs.builder()
+ *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
+ *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
+ *                             .forward("none")
+ *                             .build())
+ *                         .queryString(false)
+ *                         .headers("Origin")
+ *                         .build())
+ *                     .pathPattern("/content/immutable/*")
+ *                     .allowedMethods(                    
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
+ *                     .cachedMethods(                    
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
+ *                     .targetOriginId(s3OriginId)
+ *                     .minTtl(0)
+ *                     .defaultTtl(86400)
+ *                     .maxTtl(31536000)
+ *                     .compress(true)
+ *                     .viewerProtocolPolicy("redirect-to-https")
+ *                     .build(),
+ *                 DistributionOrderedCacheBehaviorArgs.builder()
+ *                     .forwardedValues(DistributionOrderedCacheBehaviorForwardedValuesArgs.builder()
+ *                         .cookies(DistributionOrderedCacheBehaviorForwardedValuesCookiesArgs.builder()
+ *                             .forward("none")
+ *                             .build())
+ *                         .queryString(false)
+ *                         .build())
+ *                     .pathPattern("/content/*")
+ *                     .allowedMethods(                    
+ *                         "GET",
+ *                         "HEAD",
+ *                         "OPTIONS")
+ *                     .cachedMethods(                    
+ *                         "GET",
+ *                         "HEAD")
+ *                     .targetOriginId(s3OriginId)
+ *                     .minTtl(0)
+ *                     .defaultTtl(3600)
+ *                     .maxTtl(86400)
+ *                     .compress(true)
+ *                     .viewerProtocolPolicy("redirect-to-https")
+ *                     .build())
+ *             .origins(DistributionOriginArgs.builder()
+ *                 .domainName(b.bucketRegionalDomainName())
+ *                 .originAccessControlId(default_.id())
+ *                 .originId(s3OriginId)
+ *                 .build())
+ *             .enabled(true)
+ *             .isIpv6Enabled(true)
+ *             .comment("Some comment")
+ *             .defaultRootObject("index.html")
+ *             .aliases(            
+ *                 String.format("mysite.%s", myDomain),
+ *                 String.format("yoursite.%s", myDomain))
+ *             .priceClass("PriceClass_200")
+ *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
  *         // See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  *         final var originBucketPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowCloudFrontServicePrincipalReadWrite")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("cloudfront.amazonaws.com")
- *                     .build())
- *                 .actions(                
- *                     "s3:GetObject",
- *                     "s3:PutObject")
- *                 .resources(b.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("AWS:SourceArn")
  *                     .values(s3Distribution.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("cloudfront.amazonaws.com")
+ *                     .build())
+ *                 .sid("AllowCloudFrontServicePrincipalReadWrite")
+ *                 .effect("Allow")
+ *                 .actions(                
+ *                     "s3:GetObject",
+ *                     "s3:PutObject")
+ *                 .resources(b.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
  *             .build());
  * 
@@ -252,14 +252,14 @@ import javax.annotation.Nullable;
  * 
  *         for (var range : KeyedValue.of(s3Distribution.aliases())) {
  *             new Record("cloudfront-" + range.key(), RecordArgs.builder()
- *                 .zoneId(myDomainGetZone.zoneId())
- *                 .name(range.value())
- *                 .type("A")
  *                 .aliases(RecordAliasArgs.builder()
  *                     .name(s3Distribution.domainName())
  *                     .zoneId(s3Distribution.hostedZoneId())
  *                     .evaluateTargetHealth(false)
  *                     .build())
+ *                 .zoneId(myDomainGetZone.zoneId())
+ *                 .name(range.value())
+ *                 .type("A")
  *                 .build());
  *         }
  * 
@@ -281,12 +281,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupFailoverCriteriaArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginGroupMemberArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -301,8 +301,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
+ *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
+ *                 .targetOriginId("groupS3")
+ *                 .build())
  *             .originGroups(DistributionOriginGroupArgs.builder()
- *                 .originId("groupS3")
  *                 .failoverCriteria(DistributionOriginGroupFailoverCriteriaArgs.builder()
  *                     .statusCodes(                    
  *                         403,
@@ -317,25 +319,23 @@ import javax.annotation.Nullable;
  *                     DistributionOriginGroupMemberArgs.builder()
  *                         .originId("failoverS3")
  *                         .build())
+ *                 .originId("groupS3")
  *                 .build())
  *             .origins(            
  *                 DistributionOriginArgs.builder()
+ *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
+ *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
+ *                         .build())
  *                     .domainName(primary.bucketRegionalDomainName())
  *                     .originId("primaryS3")
- *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
- *                         .build())
  *                     .build(),
  *                 DistributionOriginArgs.builder()
- *                     .domainName(failover.bucketRegionalDomainName())
- *                     .originId("failoverS3")
  *                     .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
  *                         .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
  *                         .build())
+ *                     .domainName(failover.bucketRegionalDomainName())
+ *                     .originId("failoverS3")
  *                     .build())
- *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
- *                 .targetOriginId("groupS3")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -356,12 +356,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.Distribution;
  * import com.pulumi.aws.cloudfront.DistributionArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionDefaultCacheBehaviorArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionRestrictionsGeoRestrictionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionViewerCertificateArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionOriginS3OriginConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -378,17 +378,6 @@ import javax.annotation.Nullable;
  *         final var s3OriginId = "myS3Origin";
  * 
  *         var s3Distribution = new Distribution("s3Distribution", DistributionArgs.builder()
- *             .origins(DistributionOriginArgs.builder()
- *                 .domainName(primary.bucketRegionalDomainName())
- *                 .originId("myS3Origin")
- *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
- *                     .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
- *                     .build())
- *                 .build())
- *             .enabled(true)
- *             .isIpv6Enabled(true)
- *             .comment("Some comment")
- *             .defaultRootObject("index.html")
  *             .defaultCacheBehavior(DistributionDefaultCacheBehaviorArgs.builder()
  *                 .cachePolicyId("4135ea2d-6df8-44a3-9df3-4b5a84be39ad")
  *                 .allowedMethods(                
@@ -414,6 +403,17 @@ import javax.annotation.Nullable;
  *             .viewerCertificate(DistributionViewerCertificateArgs.builder()
  *                 .cloudfrontDefaultCertificate(true)
  *                 .build())
+ *             .origins(DistributionOriginArgs.builder()
+ *                 .s3OriginConfig(DistributionOriginS3OriginConfigArgs.builder()
+ *                     .originAccessIdentity(default_.cloudfrontAccessIdentityPath())
+ *                     .build())
+ *                 .domainName(primary.bucketRegionalDomainName())
+ *                 .originId("myS3Origin")
+ *                 .build())
+ *             .enabled(true)
+ *             .isIpv6Enabled(true)
+ *             .comment("Some comment")
+ *             .defaultRootObject("index.html")
  *             .build());
  * 
  *     }
@@ -471,21 +471,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
- *             .region("us-east-1")
- *             .name("s3-destination")
- *             .outputFormat("parquet")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(exampleBucket.arn().applyValue(_arn -> String.format("%s/prefix", _arn)))
  *                 .build())
+ *             .region("us-east-1")
+ *             .name("s3-destination")
+ *             .outputFormat("parquet")
  *             .build());
  * 
  *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
- *             .region("us-east-1")
- *             .deliverySourceName(exampleLogDeliverySource.name())
- *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
  *             .s3DeliveryConfigurations(LogDeliveryS3DeliveryConfigurationArgs.builder()
  *                 .suffixPath("/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}")
  *                 .build())
+ *             .region("us-east-1")
+ *             .deliverySourceName(exampleLogDeliverySource.name())
+ *             .deliveryDestinationArn(exampleLogDeliveryDestination.arn())
  *             .build());
  * 
  *     }
@@ -542,12 +542,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogDeliveryDestination = new LogDeliveryDestination("exampleLogDeliveryDestination", LogDeliveryDestinationArgs.builder()
- *             .region("us-east-1")
- *             .name("firehose-destination")
- *             .outputFormat("json")
  *             .deliveryDestinationConfiguration(LogDeliveryDestinationDeliveryDestinationConfigurationArgs.builder()
  *                 .destinationResourceArn(cloudfrontLogs.arn())
  *                 .build())
+ *             .region("us-east-1")
+ *             .name("firehose-destination")
+ *             .outputFormat("json")
  *             .build());
  * 
  *         var exampleLogDelivery = new LogDelivery("exampleLogDelivery", LogDeliveryArgs.builder()
@@ -607,12 +607,12 @@ import javax.annotation.Nullable;
  *                 .id(example.id())
  *                 .build())
  *             .viewerMtlsConfig(DistributionViewerMtlsConfigArgs.builder()
- *                 .mode("verify")
  *                 .trustStoreConfig(DistributionViewerMtlsConfigTrustStoreConfigArgs.builder()
  *                     .trustStoreId(exampleTrustStore.id())
  *                     .advertiseTrustStoreCaNames(true)
  *                     .ignoreCertificateExpiry(false)
  *                     .build())
+ *                 .mode("verify")
  *                 .build())
  *             .build());
  * 

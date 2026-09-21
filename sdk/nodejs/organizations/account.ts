@@ -57,6 +57,8 @@ import * as utilities from "../utilities";
  *     name: "my_new_account",
  *     email: "john@doe.org",
  *     roleName: "myOrganizationRole",
+ * }, {
+ *     ignoreChanges: ["roleName"],
  * });
  * ```
  */

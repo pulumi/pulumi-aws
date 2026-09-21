@@ -44,7 +44,7 @@ class GetEmailIdentityResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The ARN of the email identity.
+        ARN of the email identity.
         """
         return pulumi.get(self, "arn")
 

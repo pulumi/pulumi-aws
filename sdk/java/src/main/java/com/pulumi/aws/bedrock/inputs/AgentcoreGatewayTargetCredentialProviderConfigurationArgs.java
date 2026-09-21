@@ -20,14 +20,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
     public static final AgentcoreGatewayTargetCredentialProviderConfigurationArgs Empty = new AgentcoreGatewayTargetCredentialProviderConfigurationArgs();
 
     /**
-     * API key-based authentication configuration. See `apiKey` below.
+     * API key-based authentication configuration. See `apiKey` Block below.
      * 
      */
     @Import(name="apiKey")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs> apiKey;
 
     /**
-     * @return API key-based authentication configuration. See `apiKey` below.
+     * @return API key-based authentication configuration. See `apiKey` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs>> apiKey() {
@@ -35,14 +35,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
     }
 
     /**
-     * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
      * 
      */
     @Import(name="callerIamCredentials")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs> callerIamCredentials;
 
     /**
-     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+     * @return Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs>> callerIamCredentials() {
@@ -50,14 +50,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
     }
 
     /**
-     * Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+     * Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
      * 
      */
     @Import(name="gatewayIamRole")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs> gatewayIamRole;
 
     /**
-     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+     * @return Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs>> gatewayIamRole() {
@@ -80,14 +80,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
     }
 
     /**
-     * OAuth-based authentication configuration. See `oauth` below.
+     * OAuth-based authentication configuration. See `oauth` Block below.
      * 
      */
     @Import(name="oauth")
     private @Nullable Output<AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs> oauth;
 
     /**
-     * @return OAuth-based authentication configuration. See `oauth` below.
+     * @return OAuth-based authentication configuration. See `oauth` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs>> oauth() {
@@ -123,7 +123,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param apiKey API key-based authentication configuration. See `apiKey` below.
+         * @param apiKey API key-based authentication configuration. See `apiKey` Block below.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param apiKey API key-based authentication configuration. See `apiKey` below.
+         * @param apiKey API key-based authentication configuration. See `apiKey` Block below.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param callerIamCredentials Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+         * @param callerIamCredentials Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param callerIamCredentials Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+         * @param callerIamCredentials Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` below.
+         * @param gatewayIamRole Use the gateway&#39;s IAM role for authentication. See `gatewayIamRole` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param oauth OAuth-based authentication configuration. See `oauth` below.
+         * @param oauth OAuth-based authentication configuration. See `oauth` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +218,7 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationArgs ext
         }
 
         /**
-         * @param oauth OAuth-based authentication configuration. See `oauth` below.
+         * @param oauth OAuth-based authentication configuration. See `oauth` Block below.
          * 
          * @return builder
          * 

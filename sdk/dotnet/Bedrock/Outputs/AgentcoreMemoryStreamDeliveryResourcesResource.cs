@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStreamDeliveryResourcesResource
     {
         /// <summary>
-        /// Kinesis Data Stream configuration. See `Kinesis` below.
+        /// Kinesis Data Stream configuration. See `Kinesis` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStreamDeliveryResourcesResourceKinesis? Kinesis;
 

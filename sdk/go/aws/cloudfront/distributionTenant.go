@@ -35,14 +35,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewDistributionTenant(ctx, "example", &cloudfront.DistributionTenantArgs{
-//				Name:           pulumi.String("example-tenant"),
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
-//				Enabled:        pulumi.Bool(true),
 //				Domains: cloudfront.DistributionTenantDomainArray{
 //					&cloudfront.DistributionTenantDomainArgs{
 //						Domain: pulumi.String("tenant.example.com"),
 //					},
 //				},
+//				Name:           pulumi.String("example-tenant"),
+//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
+//				Enabled:        pulumi.Bool(true),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //				},
@@ -71,14 +71,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewDistributionTenant(ctx, "example", &cloudfront.DistributionTenantArgs{
-//				Name:           pulumi.String("example-tenant"),
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
-//				Enabled:        pulumi.Bool(false),
-//				Domains: cloudfront.DistributionTenantDomainArray{
-//					&cloudfront.DistributionTenantDomainArgs{
-//						Domain: pulumi.String("tenant.example.com"),
-//					},
-//				},
 //				Customizations: &cloudfront.DistributionTenantCustomizationsArgs{
 //					GeoRestriction: &cloudfront.DistributionTenantCustomizationsGeoRestrictionArgs{
 //						RestrictionType: pulumi.String("whitelist"),
@@ -95,6 +87,14 @@ import (
 //						Arn:    pulumi.Any(tenantWaf.Arn),
 //					},
 //				},
+//				Domains: cloudfront.DistributionTenantDomainArray{
+//					&cloudfront.DistributionTenantDomainArgs{
+//						Domain: pulumi.String("tenant.example.com"),
+//					},
+//				},
+//				Name:           pulumi.String("example-tenant"),
+//				DistributionId: pulumi.Any(exampleAwsCloudfrontMultitenantDistribution.Id),
+//				Enabled:        pulumi.Bool(false),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Tenant":      pulumi.String("example"),

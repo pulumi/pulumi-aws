@@ -28,12 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewGameSessionQueue(ctx, "test", &gamelift.GameSessionQueueArgs{
-//				Name: pulumi.String("example-session-queue"),
-//				Destinations: pulumi.StringArray{
-//					usWest2Fleet.Arn,
-//					euCentral1Fleet.Arn,
-//				},
-//				NotificationTarget: pulumi.Any(gameSessionQueueNotifications.Arn),
 //				PlayerLatencyPolicies: gamelift.GameSessionQueuePlayerLatencyPolicyArray{
 //					&gamelift.GameSessionQueuePlayerLatencyPolicyArgs{
 //						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(100),
@@ -43,7 +37,13 @@ import (
 //						MaximumIndividualPlayerLatencyMilliseconds: pulumi.Int(200),
 //					},
 //				},
-//				TimeoutInSeconds: pulumi.Int(60),
+//				Name: pulumi.String("example-session-queue"),
+//				Destinations: pulumi.StringArray{
+//					usWest2Fleet.Arn,
+//					euCentral1Fleet.Arn,
+//				},
+//				NotificationTarget: pulumi.Any(gameSessionQueueNotifications.Arn),
+//				TimeoutInSeconds:   pulumi.Int(60),
 //			})
 //			if err != nil {
 //				return err

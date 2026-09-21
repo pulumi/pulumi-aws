@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ecs.Cluster("foo", {
- *     name: "white-hart",
  *     settings: [{
  *         name: "containerInsights",
  *         value: "enabled",
  *     }],
+ *     name: "white-hart",
  * });
  * ```
  *
@@ -37,17 +37,17 @@ import * as utilities from "../utilities";
  * });
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const test = new aws.ecs.Cluster("test", {
- *     name: "example",
  *     configuration: {
  *         executeCommandConfiguration: {
- *             kmsKeyId: example.arn,
- *             logging: "OVERRIDE",
  *             logConfiguration: {
  *                 cloudWatchEncryptionEnabled: true,
  *                 cloudWatchLogGroupName: exampleLogGroup.name,
  *             },
+ *             kmsKeyId: example.arn,
+ *             logging: "OVERRIDE",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -114,18 +114,29 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const test = new aws.ecs.Cluster("test", {
- *     name: "example",
  *     configuration: {
  *         managedStorageConfiguration: {
  *             fargateEphemeralStorageKmsKeyId: example.arn,
  *         },
  *     },
+ *     name: "example",
  * }, {
  *     dependsOn: [exampleKeyPolicy],
  * });
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `name` (String) Name of the cluster.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import ECS clusters using the cluster name. For example:
  *

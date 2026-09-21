@@ -87,7 +87,9 @@ import (
 //				Name:     pulumi.String("my_new_account"),
 //				Email:    pulumi.String("john@doe.org"),
 //				RoleName: pulumi.String("myOrganizationRole"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"roleName",
+//			}))
 //			if err != nil {
 //				return err
 //			}

@@ -52,7 +52,7 @@ class InfrastructureConfigurationArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of SNS Topic.
         :param pulumi.Input[_builtins.str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
@@ -225,7 +225,7 @@ class InfrastructureConfigurationArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of SNS Topic.
+        ARN of SNS Topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -295,7 +295,7 @@ class _InfrastructureConfigurationState:
         """
         Input properties used for looking up and filtering InfrastructureConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the configuration.
         :param pulumi.Input[_builtins.str] date_created: Date when the configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date when the configuration was updated.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
@@ -311,7 +311,7 @@ class _InfrastructureConfigurationState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of SNS Topic.
         :param pulumi.Input[_builtins.str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -360,7 +360,7 @@ class _InfrastructureConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the configuration.
+        ARN of the configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -530,7 +530,7 @@ class _InfrastructureConfigurationState:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of SNS Topic.
+        ARN of SNS Topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -619,6 +619,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -631,12 +637,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             tags={
                 "foo": "bar",
             })
@@ -648,9 +648,9 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+        - `arn` (String) ARN of the Image Builder infrastructure configuration.
 
-        Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -672,7 +672,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of SNS Topic.
         :param pulumi.Input[_builtins.str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.bool] terminate_instance_on_failure: Enable if the instance should be terminated when the pipeline fails. Defaults to `false`.
@@ -693,6 +693,12 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.InfrastructureConfiguration("example",
+            logging={
+                "s3_logs": {
+                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
+                    "s3_key_prefix": "logs",
+                },
+            },
             description="example description",
             instance_profile_name=example_aws_iam_instance_profile["name"],
             instance_types=[
@@ -705,12 +711,6 @@ class InfrastructureConfiguration(pulumi.CustomResource):
             sns_topic_arn=example_aws_sns_topic["arn"],
             subnet_id=main["id"],
             terminate_instance_on_failure=True,
-            logging={
-                "s3_logs": {
-                    "s3_bucket_name": example_aws_s3_bucket["bucket"],
-                    "s3_key_prefix": "logs",
-                },
-            },
             tags={
                 "foo": "bar",
             })
@@ -722,9 +722,9 @@ class InfrastructureConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder infrastructure configuration.
+        - `arn` (String) ARN of the Image Builder infrastructure configuration.
 
-        Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.InfrastructureConfiguration` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/infrastructureConfiguration:InfrastructureConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:infrastructure-configuration/example
@@ -827,7 +827,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the configuration.
         :param pulumi.Input[_builtins.str] date_created: Date when the configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date when the configuration was updated.
         :param pulumi.Input[_builtins.str] description: Description for the configuration.
@@ -843,7 +843,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] resource_tags: Key-value map of resource tags to assign to infrastructure created by the configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: Set of EC2 Security Group identifiers.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: Amazon Resource Name (ARN) of SNS Topic.
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN of SNS Topic.
         :param pulumi.Input[_builtins.str] subnet_id: EC2 Subnet identifier. Also requires `security_group_ids` argument.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags to assign to the configuration. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -878,7 +878,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the configuration.
+        ARN of the configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -992,7 +992,7 @@ class InfrastructureConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of SNS Topic.
+        ARN of SNS Topic.
         """
         return pulumi.get(self, "sns_topic_arn")
 

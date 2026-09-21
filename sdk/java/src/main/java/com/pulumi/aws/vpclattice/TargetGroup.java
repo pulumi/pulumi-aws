@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup("example", TargetGroupArgs.builder()
- *             .name("example")
- *             .type("INSTANCE")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
  *                 .protocol("HTTPS")
  *                 .build())
+ *             .name("example")
+ *             .type("INSTANCE")
  *             .build());
  * 
  *     }
@@ -89,29 +89,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup("example", TargetGroupArgs.builder()
- *             .name("example")
- *             .type("IP")
  *             .config(TargetGroupConfigArgs.builder()
- *                 .vpcIdentifier(exampleAwsVpc.id())
- *                 .ipAddressType("IPV4")
- *                 .port(443)
- *                 .protocol("HTTPS")
- *                 .protocolVersion("HTTP1")
  *                 .healthCheck(TargetGroupConfigHealthCheckArgs.builder()
+ *                     .matcher(TargetGroupConfigHealthCheckMatcherArgs.builder()
+ *                         .value("200-299")
+ *                         .build())
  *                     .enabled(true)
  *                     .healthCheckIntervalSeconds(20)
  *                     .healthCheckTimeoutSeconds(10)
  *                     .healthyThresholdCount(7)
  *                     .unhealthyThresholdCount(3)
- *                     .matcher(TargetGroupConfigHealthCheckMatcherArgs.builder()
- *                         .value("200-299")
- *                         .build())
  *                     .path("/instance")
  *                     .port(80)
  *                     .protocol("HTTP")
  *                     .protocolVersion("HTTP1")
  *                     .build())
+ *                 .vpcIdentifier(exampleAwsVpc.id())
+ *                 .ipAddressType("IPV4")
+ *                 .port(443)
+ *                 .protocol("HTTPS")
+ *                 .protocolVersion("HTTP1")
  *                 .build())
+ *             .name("example")
+ *             .type("IP")
  *             .build());
  * 
  *     }
@@ -147,14 +147,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroup("example", TargetGroupArgs.builder()
- *             .name("example")
- *             .type("ALB")
  *             .config(TargetGroupConfigArgs.builder()
  *                 .vpcIdentifier(exampleAwsVpc.id())
  *                 .port(443)
  *                 .protocol("HTTPS")
  *                 .protocolVersion("HTTP1")
  *                 .build())
+ *             .name("example")
+ *             .type("ALB")
  *             .build());
  * 
  *     }

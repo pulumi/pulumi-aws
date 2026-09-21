@@ -12,14 +12,14 @@ import java.util.Objects;
 @CustomType
 public final class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
     /**
-     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+     * @return List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
      * 
      */
     private List<String> listenerArns;
 
     private DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute() {}
     /**
-     * @return List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+     * @return List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
      * 
      */
     public List<String> listenerArns() {

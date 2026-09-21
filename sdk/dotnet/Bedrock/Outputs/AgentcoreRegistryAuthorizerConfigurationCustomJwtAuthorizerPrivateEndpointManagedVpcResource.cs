@@ -13,11 +13,29 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource
     {
+        /// <summary>
+        /// IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+        /// </summary>
         public readonly string EndpointIpAddressType;
+        /// <summary>
+        /// Routing domain for the endpoint.
+        /// </summary>
         public readonly string? RoutingDomain;
+        /// <summary>
+        /// IDs of the security groups for the endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
+        /// <summary>
+        /// IDs of the subnets for the endpoint.
+        /// </summary>
         public readonly ImmutableArray<string> SubnetIds;
+        /// <summary>
+        /// Tags to assign to the managed VPC resource.
+        /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
+        /// <summary>
+        /// Identifier of the VPC for the endpoint.
+        /// </summary>
         public readonly string VpcIdentifier;
 
         [OutputConstructor]

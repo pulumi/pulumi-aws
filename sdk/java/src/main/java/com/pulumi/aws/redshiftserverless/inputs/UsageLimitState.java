@@ -32,14 +32,14 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * ARN of the Redshift Serverless Usage Limit.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * @return ARN of the Redshift Serverless Usage Limit.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -92,14 +92,14 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * @return ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -173,7 +173,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+         * @param arn ARN of the Redshift Serverless Usage Limit.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+         * @param arn ARN of the Redshift Serverless Usage Limit.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+         * @param resourceArn ARN of the Amazon Redshift Serverless resource to create the usage limit for.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class UsageLimitState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+         * @param resourceArn ARN of the Amazon Redshift Serverless resource to create the usage limit for.
          * 
          * @return builder
          * 

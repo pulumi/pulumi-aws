@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("example")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("109876543210")
  *                     .build())
+ *                 .sid("example")
+ *                 .effect("Allow")
  *                 .actions("schemas:*")
  *                 .resources(                
  *                     "arn:aws:schemas:us-east-1:123456789012:registry/example",

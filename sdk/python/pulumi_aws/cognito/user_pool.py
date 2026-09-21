@@ -1149,8 +1149,6 @@ class UserPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.UserPool("example",
-            mfa_configuration="ON",
-            sms_authentication_message="Your code is {####}",
             sms_configuration={
                 "external_id": "example",
                 "sns_caller_arn": example_aws_iam_role["arn"],
@@ -1158,7 +1156,9 @@ class UserPool(pulumi.CustomResource):
             },
             software_token_mfa_configuration={
                 "enabled": True,
-            })
+            },
+            mfa_configuration="ON",
+            sms_authentication_message="Your code is {####}")
         ```
 
         ### Using Account Recovery Setting
@@ -1168,7 +1168,6 @@ class UserPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cognito.UserPool("test",
-            name="mypool",
             account_recovery_setting={
                 "recovery_mechanisms": [
                     {
@@ -1180,7 +1179,8 @@ class UserPool(pulumi.CustomResource):
                         "priority": 2,
                     },
                 ],
-            })
+            },
+            name="mypool")
         ```
 
         ## Import
@@ -1251,8 +1251,6 @@ class UserPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.UserPool("example",
-            mfa_configuration="ON",
-            sms_authentication_message="Your code is {####}",
             sms_configuration={
                 "external_id": "example",
                 "sns_caller_arn": example_aws_iam_role["arn"],
@@ -1260,7 +1258,9 @@ class UserPool(pulumi.CustomResource):
             },
             software_token_mfa_configuration={
                 "enabled": True,
-            })
+            },
+            mfa_configuration="ON",
+            sms_authentication_message="Your code is {####}")
         ```
 
         ### Using Account Recovery Setting
@@ -1270,7 +1270,6 @@ class UserPool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.cognito.UserPool("test",
-            name="mypool",
             account_recovery_setting={
                 "recovery_mechanisms": [
                     {
@@ -1282,7 +1281,8 @@ class UserPool(pulumi.CustomResource):
                         "priority": 2,
                     },
                 ],
-            })
+            },
+            name="mypool")
         ```
 
         ## Import

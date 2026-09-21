@@ -277,12 +277,12 @@ class Workflow(pulumi.CustomResource):
             },
             {
                 "tag_step_details": {
-                    "name": "example",
-                    "source_file_location": "${original.file}",
                     "tags": [{
                         "key": "Name",
                         "value": "Hello World",
                     }],
+                    "name": "example",
+                    "source_file_location": "${original.file}",
                 },
                 "type": "TAG",
             },
@@ -350,12 +350,12 @@ class Workflow(pulumi.CustomResource):
             },
             {
                 "tag_step_details": {
-                    "name": "example",
-                    "source_file_location": "${original.file}",
                     "tags": [{
                         "key": "Name",
                         "value": "Hello World",
                     }],
+                    "name": "example",
+                    "source_file_location": "${original.file}",
                 },
                 "type": "TAG",
             },

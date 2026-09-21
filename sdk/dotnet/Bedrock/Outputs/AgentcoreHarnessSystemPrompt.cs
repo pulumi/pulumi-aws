@@ -16,10 +16,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// <summary>
         /// Text content of the system prompt.
         /// </summary>
-        public readonly string Text;
+        public readonly string? Text;
 
         [OutputConstructor]
-        private AgentcoreHarnessSystemPrompt(string text)
+        private AgentcoreHarnessSystemPrompt(string? text)
         {
             Text = text;
         }

@@ -57,13 +57,6 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         KmsKeyId = exampleAwsKmsKey.Arn,
-    ///         StorageCapacity = 32,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         ThroughputCapacity = 32,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
     ///         {
     ///             DnsIps = new[]
@@ -75,6 +68,13 @@ namespace Pulumi.Aws.Fsx
     ///             Password = "avoid-plaintext-passwords",
     ///             Username = "Admin",
     ///         },
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ThroughputCapacity = 32,
     ///     });
     /// 
     /// });
@@ -92,13 +92,6 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.WindowsFileSystem("example", new()
     ///     {
-    ///         KmsKeyId = exampleAwsKmsKey.Arn,
-    ///         StorageCapacity = 32,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         ThroughputCapacity = 32,
     ///         SelfManagedActiveDirectory = new Aws.Fsx.Inputs.WindowsFileSystemSelfManagedActiveDirectoryArgs
     ///         {
     ///             DnsIps = new[]
@@ -109,6 +102,13 @@ namespace Pulumi.Aws.Fsx
     ///             DomainName = "corp.example.com",
     ///             DomainJoinServiceAccountSecret = exampleAwsSecretsmanagerSecret.Arn,
     ///         },
+    ///         KmsKeyId = exampleAwsKmsKey.Arn,
+    ///         StorageCapacity = 32,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
+    ///         },
+    ///         ThroughputCapacity = 32,
     ///     });
     /// 
     /// });
@@ -138,6 +138,12 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             exampleAwsSecurityGroup.Id,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "securityGroupIds",
+    ///         },
     ///     });
     /// 
     /// });
@@ -159,7 +165,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -323,7 +329,7 @@ namespace Pulumi.Aws.Fsx
         public Output<int> ThroughputCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -577,7 +583,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -777,7 +783,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

@@ -150,7 +150,7 @@ class _ThreatIntelSetState:
         Input properties used for looking up and filtering ThreatIntelSet resources.
 
         :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the GuardDuty ThreatIntelSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
@@ -197,7 +197,7 @@ class _ThreatIntelSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+        ARN of the GuardDuty ThreatIntelSet.
         """
         return pulumi.get(self, "arn")
 
@@ -493,7 +493,7 @@ class ThreatIntelSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] activate: Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the GuardDuty ThreatIntelSet.
         :param pulumi.Input[_builtins.str] detector_id: The detector ID of the GuardDuty.
         :param pulumi.Input[_builtins.str] format: The format of the file that contains the ThreatIntelSet. Valid values: `TXT` | `STIX` | `OTX_CSV` | `ALIEN_VAULT` | `PROOF_POINT` | `FIRE_EYE`
         :param pulumi.Input[_builtins.str] location: The URI of the file that contains the ThreatIntelSet.
@@ -531,7 +531,7 @@ class ThreatIntelSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+        ARN of the GuardDuty ThreatIntelSet.
         """
         return pulumi.get(self, "arn")
 

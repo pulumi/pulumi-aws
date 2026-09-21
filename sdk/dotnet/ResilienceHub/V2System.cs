@@ -64,7 +64,7 @@ namespace Pulumi.Aws.ResilienceHub
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 System.
+    /// - `Arn` (String) ARN of the Resilience Hub V2 System.
     /// 
     /// Using `pulumi import`, import Resilience Hub V2 System using the `Arn`. For example:
     /// 

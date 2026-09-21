@@ -17,14 +17,14 @@ public final class ContactFlowState extends com.pulumi.resources.ResourceArgs {
     public static final ContactFlowState Empty = new ContactFlowState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
+     * ARN of the Contact Flow.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow.
+     * @return ARN of the Contact Flow.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -232,7 +232,7 @@ public final class ContactFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Contact Flow.
+         * @param arn ARN of the Contact Flow.
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class ContactFlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Contact Flow.
+         * @param arn ARN of the Contact Flow.
          * 
          * @return builder
          * 

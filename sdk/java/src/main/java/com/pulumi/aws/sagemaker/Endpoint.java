@@ -33,14 +33,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/endpoint:Endpoint")
 public class Endpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * ARN assigned by AWS to this endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * @return ARN assigned by AWS to this endpoint.
      * 
      */
     public Output<String> arn() {

@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
  *         // to any log group under /aws/route53/*
  *         final var route53-query-logging-policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "logs:CreateLogStream",
- *                     "logs:PutLogEvents")
- *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("route53.amazonaws.com")
  *                     .type("Service")
  *                     .build())
+ *                 .actions(                
+ *                     "logs:CreateLogStream",
+ *                     "logs:PutLogEvents")
+ *                 .resources("arn:aws:logs:*:*:log-group:/aws/route53/*")
  *                 .build())
  *             .build());
  * 
@@ -111,14 +111,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/queryLog:QueryLog")
 public class QueryLog extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     * ARN of the Query Logging Config.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Query Logging Config.
+     * @return ARN of the Query Logging Config.
      * 
      */
     public Output<String> arn() {

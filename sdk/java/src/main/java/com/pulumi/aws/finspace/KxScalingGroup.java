@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxScalingGroup:KxScalingGroup")
 public class KxScalingGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * ARN identifier of the KX Scaling Group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * @return ARN identifier of the KX Scaling Group.
      * 
      */
     public Output<String> arn() {

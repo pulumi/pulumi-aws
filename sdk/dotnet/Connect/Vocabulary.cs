@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Connect
     public partial class Vocabulary : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the vocabulary.
+        /// ARN of the vocabulary.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Connect
     public sealed class VocabularyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the vocabulary.
+        /// ARN of the vocabulary.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

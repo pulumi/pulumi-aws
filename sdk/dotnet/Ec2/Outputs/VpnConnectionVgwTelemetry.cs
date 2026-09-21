@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? AcceptedRouteCount;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+        /// ARN of the VPN tunnel endpoint certificate.
         /// </summary>
         public readonly string? CertificateArn;
         /// <summary>

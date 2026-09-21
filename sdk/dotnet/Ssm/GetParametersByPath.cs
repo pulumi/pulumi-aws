@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Ssm
     public sealed class GetParametersByPathResult
     {
         /// <summary>
-        /// A list that contains the Amazon Resource Names (ARNs) of the retrieved parameters.
+        /// List that contains the ARNs of the retrieved parameters.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>

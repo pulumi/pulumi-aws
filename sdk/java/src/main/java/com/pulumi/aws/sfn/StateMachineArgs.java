@@ -127,14 +127,14 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * @return ARN of the IAM role to use for this state machine.
      * 
      */
     public Output<String> roleArn() {
@@ -368,7 +368,7 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+         * @param roleArn ARN of the IAM role to use for this state machine.
          * 
          * @return builder
          * 
@@ -379,7 +379,7 @@ public final class StateMachineArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+         * @param roleArn ARN of the IAM role to use for this state machine.
          * 
          * @return builder
          * 

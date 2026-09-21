@@ -37,14 +37,14 @@ import (
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTPS"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					FixedResponse: &vpclattice.ListenerDefaultActionFixedResponseArgs{
 //						StatusCode: pulumi.Int(404),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTPS"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -76,21 +76,18 @@ import (
 //				return err
 //			}
 //			exampleTargetGroup, err := vpclattice.NewTargetGroup(ctx, "example", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-1"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-1"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -102,6 +99,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTP"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -133,33 +133,30 @@ import (
 //				return err
 //			}
 //			example1, err := vpclattice.NewTargetGroup(ctx, "example1", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-1"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(80),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-1"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example2, err := vpclattice.NewTargetGroup(ctx, "example2", &vpclattice.TargetGroupArgs{
-//				Name: pulumi.String("example-target-group-2"),
-//				Type: pulumi.String("INSTANCE"),
 //				Config: &vpclattice.TargetGroupConfigArgs{
 //					Port:          pulumi.Int(8080),
 //					Protocol:      pulumi.String("HTTP"),
 //					VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
 //				},
+//				Name: pulumi.String("example-target-group-2"),
+//				Type: pulumi.String("INSTANCE"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = vpclattice.NewListener(ctx, "example", &vpclattice.ListenerArgs{
-//				Name:              pulumi.String("example"),
-//				Protocol:          pulumi.String("HTTP"),
-//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //				DefaultAction: &vpclattice.ListenerDefaultActionArgs{
 //					Forwards: vpclattice.ListenerDefaultActionForwardArray{
 //						&vpclattice.ListenerDefaultActionForwardArgs{
@@ -176,6 +173,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				Protocol:          pulumi.String("HTTP"),
+//				ServiceIdentifier: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -214,7 +214,7 @@ type Listener struct {
 	Protocol pulumi.StringOutput `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringOutput `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -278,7 +278,7 @@ type listenerState struct {
 	Protocol *string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -307,7 +307,7 @@ type ListenerState struct {
 	Protocol pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -332,7 +332,7 @@ type listenerArgs struct {
 	Protocol string `pulumi:"protocol"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn *string `pulumi:"serviceArn"`
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -353,7 +353,7 @@ type ListenerArgs struct {
 	Protocol pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+	// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	ServiceArn pulumi.StringPtrInput
 	// ID of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 	// > **NOTE:** You must specify one of the following arguments: `serviceArn` or `serviceIdentifier`.
@@ -494,7 +494,7 @@ func (o ListenerOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
+// ARN of the VPC Lattice service. You must include either the `serviceArn` or `serviceIdentifier` arguments.
 func (o ListenerOutput) ServiceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Listener) pulumi.StringOutput { return v.ServiceArn }).(pulumi.StringOutput)
 }

@@ -48,7 +48,7 @@ export interface GetServerlessCacheArgs {
  */
 export interface GetServerlessCacheResult {
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      */
     readonly arn: string;
     /**

@@ -68,8 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var amazonLinux = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners("amazon")
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name("name")
@@ -79,6 +77,8 @@ import javax.annotation.Nullable;
  *                     .name("owner-alias")
  *                     .values("amazon")
  *                     .build())
+ *             .mostRecent(true)
+ *             .owners("amazon")
  *             .build());
  * 
  *         var vpc1 = new Vpc("vpc1", VpcArgs.builder()
@@ -202,14 +202,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/multicastDomain:MulticastDomain")
 public class MulticastDomain extends com.pulumi.resources.CustomResource {
     /**
-     * EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Multicast Domain ARN.
      * 
      */
     public Output<String> arn() {

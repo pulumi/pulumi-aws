@@ -75,12 +75,8 @@ type GetTransitGatewayRouteTablesResult struct {
 }
 
 func GetTransitGatewayRouteTablesOutput(ctx *pulumi.Context, args GetTransitGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetTransitGatewayRouteTablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTransitGatewayRouteTablesResultOutput, error) {
-			args := v.(GetTransitGatewayRouteTablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args, GetTransitGatewayRouteTablesResultOutput{}, options).(GetTransitGatewayRouteTablesResultOutput), nil
-		}).(GetTransitGatewayRouteTablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args, GetTransitGatewayRouteTablesResultOutput{}, options).(GetTransitGatewayRouteTablesResultOutput)
 }
 
 // A collection of arguments for invoking getTransitGatewayRouteTables.

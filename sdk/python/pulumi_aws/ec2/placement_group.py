@@ -142,7 +142,7 @@ class _PlacementGroupState:
         """
         Input properties used for looking up and filtering PlacementGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the placement group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the placement group.
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
@@ -178,7 +178,7 @@ class _PlacementGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the placement group.
+        ARN of the placement group.
         """
         return pulumi.get(self, "arn")
 
@@ -432,7 +432,7 @@ class PlacementGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the placement group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the placement group.
         :param pulumi.Input[_builtins.str] name: The name of the placement group.
         :param pulumi.Input[_builtins.int] partition_count: The number of partitions to create in the
                placement group.  Can only be specified when the `strategy` is set to
@@ -464,7 +464,7 @@ class PlacementGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the placement group.
+        ARN of the placement group.
         """
         return pulumi.get(self, "arn")
 

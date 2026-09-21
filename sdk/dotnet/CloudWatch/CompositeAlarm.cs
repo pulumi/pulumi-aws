@@ -26,6 +26,12 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.CompositeAlarm("example", new()
     ///     {
+    ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
+    ///         {
+    ///             Alarm = "suppressor-alarm",
+    ///             ExtensionPeriod = 10,
+    ///             WaitPeriod = 20,
+    ///         },
     ///         AlarmDescription = "This is a composite alarm!",
     ///         AlarmName = "example-composite-alarm",
     ///         AlarmActions = exampleAwsSnsTopic.Arn,
@@ -33,12 +39,6 @@ namespace Pulumi.Aws.CloudWatch
     ///         AlarmRule = @$"ALARM({alpha.AlarmName}) OR
     /// ALARM({bravo.AlarmName})
     /// ",
-    ///         ActionsSuppressor = new Aws.CloudWatch.Inputs.CompositeAlarmActionsSuppressorArgs
-    ///         {
-    ///             Alarm = "suppressor-alarm",
-    ///             ExtensionPeriod = 10,
-    ///             WaitPeriod = 20,
-    ///         },
     ///     });
     /// 
     /// });

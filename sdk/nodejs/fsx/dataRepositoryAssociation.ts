@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  *     perUnitStorageThroughput: 125,
  * });
  * const exampleDataRepositoryAssociation = new aws.fsx.DataRepositoryAssociation("example", {
- *     fileSystemId: exampleLustreFileSystem.id,
- *     dataRepositoryPath: pulumi.interpolate`s3://${example.id}`,
- *     fileSystemPath: "/my-bucket",
  *     s3: {
  *         autoExportPolicy: {
  *             events: [
@@ -49,6 +46,9 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     fileSystemId: exampleLustreFileSystem.id,
+ *     dataRepositoryPath: pulumi.interpolate`s3://${example.id}`,
+ *     fileSystemPath: "/my-bucket",
  * });
  * ```
  *
@@ -89,7 +89,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -196,7 +196,7 @@ export class DataRepositoryAssociation extends pulumi.CustomResource {
  */
 export interface DataRepositoryAssociationState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

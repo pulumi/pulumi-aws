@@ -45,8 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var lb = new LoadBalancer("lb", LoadBalancerArgs.builder()
- *             .name("test-lb")
- *             .availabilityZones("us-east-1a")
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()
  *                     .instancePort(25)
@@ -60,6 +58,8 @@ import javax.annotation.Nullable;
  *                     .lbPort(587)
  *                     .lbProtocol("tcp")
  *                     .build())
+ *             .name("test-lb")
+ *             .availabilityZones("us-east-1a")
  *             .build());
  * 
  *         var smtp = new ProxyProtocolPolicy("smtp", ProxyProtocolPolicyArgs.builder()

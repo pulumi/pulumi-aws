@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new App("example", AppArgs.builder()
- *             .name("test-app")
  *             .limits(AppLimitsArgs.builder()
  *                 .maximumDuration(600)
  *                 .build())
@@ -58,6 +57,7 @@ import javax.annotation.Nullable;
  *                 .start("00:00")
  *                 .end("06:00")
  *                 .build())
+ *             .name("test-app")
  *             .build());
  * 
  *     }
@@ -91,7 +91,7 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.applicationId;
     }
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -107,7 +107,7 @@ public class App extends com.pulumi.resources.CustomResource {
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the PinPoint Application.
+     * @return ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.

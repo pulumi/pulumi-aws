@@ -22,17 +22,17 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.medialive.Multiplex("example", {
- *     name: "example-multiplex-changed",
- *     availabilityZones: [
- *         available.then(available => available.names?.[0]),
- *         available.then(available => available.names?.[1]),
- *     ],
  *     multiplexSettings: {
  *         transportStreamBitrate: 1000000,
  *         transportStreamId: 1,
  *         transportStreamReservedBitrate: 1,
  *         maximumVideoBufferDelayMilliseconds: 1000,
  *     },
+ *     name: "example-multiplex-changed",
+ *     availabilityZones: [
+ *         available.then(available => available.names?.[0]),
+ *         available.then(available => available.names?.[1]),
+ *     ],
  *     startMultiplex: true,
  *     tags: {
  *         tag1: "value1",

@@ -61,7 +61,7 @@ type UsageLimit struct {
 
 	// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
 	Amount pulumi.IntOutput `pulumi:"amount"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+	// ARN of the Redshift Serverless Usage Limit.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
 	BreachAction pulumi.StringPtrOutput `pulumi:"breachAction"`
@@ -69,7 +69,7 @@ type UsageLimit struct {
 	Period pulumi.StringPtrOutput `pulumi:"period"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+	// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
 	UsageType pulumi.StringOutput `pulumi:"usageType"`
@@ -116,7 +116,7 @@ func GetUsageLimit(ctx *pulumi.Context,
 type usageLimitState struct {
 	// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
 	Amount *int `pulumi:"amount"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+	// ARN of the Redshift Serverless Usage Limit.
 	Arn *string `pulumi:"arn"`
 	// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
 	BreachAction *string `pulumi:"breachAction"`
@@ -124,7 +124,7 @@ type usageLimitState struct {
 	Period *string `pulumi:"period"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+	// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
 	UsageType *string `pulumi:"usageType"`
@@ -133,7 +133,7 @@ type usageLimitState struct {
 type UsageLimitState struct {
 	// The limit amount. If time-based, this amount is in Redshift Processing Units (RPU) consumed per hour. If data-based, this amount is in terabytes (TB) of data transferred between Regions in cross-account sharing. The value must be a positive number.
 	Amount pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+	// ARN of the Redshift Serverless Usage Limit.
 	Arn pulumi.StringPtrInput
 	// The action that Amazon Redshift Serverless takes when the limit is reached. Valid values are `log`, `emit-metric`, and `deactivate`. The default is `log`.
 	BreachAction pulumi.StringPtrInput
@@ -141,7 +141,7 @@ type UsageLimitState struct {
 	Period pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+	// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringPtrInput
 	// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
 	UsageType pulumi.StringPtrInput
@@ -160,7 +160,7 @@ type usageLimitArgs struct {
 	Period *string `pulumi:"period"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+	// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn string `pulumi:"resourceArn"`
 	// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
 	UsageType string `pulumi:"usageType"`
@@ -176,7 +176,7 @@ type UsageLimitArgs struct {
 	Period pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+	// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 	ResourceArn pulumi.StringInput
 	// The type of Amazon Redshift Serverless usage to create a usage limit for. Valid values are `serverless-compute` or `cross-region-datasharing`.
 	UsageType pulumi.StringInput
@@ -274,7 +274,7 @@ func (o UsageLimitOutput) Amount() pulumi.IntOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.IntOutput { return v.Amount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+// ARN of the Redshift Serverless Usage Limit.
 func (o UsageLimitOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -294,7 +294,7 @@ func (o UsageLimitOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+// ARN of the Amazon Redshift Serverless resource to create the usage limit for.
 func (o UsageLimitOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UsageLimit) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

@@ -66,16 +66,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId:  pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:     pulumi.String("example"),
-//				Type:     pulumi.String("S3"),
-//				RoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
-//				Schedule: pulumi.String("cron(9 10 1 * ? *)"),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
 //						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
 //					},
 //				},
+//				IndexId:  pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:     pulumi.String("example"),
+//				Type:     pulumi.String("S3"),
+//				RoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
+//				Schedule: pulumi.String("cron(9 10 1 * ? *)"),
 //			})
 //			if err != nil {
 //				return err
@@ -101,18 +101,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
+//				Configuration: &kendra.DataSourceConfigurationArgs{
+//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
+//						AccessControlListConfiguration: &kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{
+//							KeyPath: pulumi.Sprintf("s3://%v/path-1", exampleAwsS3Bucket.Id),
+//						},
+//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
+//					},
+//				},
 //				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
 //				Name:    pulumi.String("example"),
 //				Type:    pulumi.String("S3"),
 //				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//				Configuration: &kendra.DataSourceConfigurationArgs{
-//					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
-//						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
-//						AccessControlListConfiguration: &kendra.DataSourceConfigurationS3ConfigurationAccessControlListConfigurationArgs{
-//							KeyPath: pulumi.Sprintf("s3://%v/path-1", exampleAwsS3Bucket.Id),
-//						},
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -138,12 +138,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("S3"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					S3Configuration: &kendra.DataSourceConfigurationS3ConfigurationArgs{
+//						DocumentsMetadataConfiguration: &kendra.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{
+//							S3Prefix: pulumi.String("example"),
+//						},
 //						BucketName: pulumi.Any(exampleAwsS3Bucket.Id),
 //						ExclusionPatterns: pulumi.StringArray{
 //							pulumi.String("example"),
@@ -154,11 +153,12 @@ import (
 //						InclusionPrefixes: pulumi.StringArray{
 //							pulumi.String("world"),
 //						},
-//						DocumentsMetadataConfiguration: &kendra.DataSourceConfigurationS3ConfigurationDocumentsMetadataConfigurationArgs{
-//							S3Prefix: pulumi.String("example"),
-//						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("S3"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -186,10 +186,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
@@ -201,6 +197,10 @@ import (
 //						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -226,10 +226,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
@@ -241,6 +237,10 @@ import (
 //						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -266,10 +266,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
@@ -282,6 +278,10 @@ import (
 //						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -307,10 +307,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
 //						AuthenticationConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationAuthenticationConfigurationArgs{
@@ -331,6 +327,10 @@ import (
 //						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecretsmanagerSecretVersion,
 //			}))
@@ -358,13 +358,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						CrawlDepth: pulumi.Int(3),
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
 //							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
 //								SeedUrls: pulumi.StringArray{
@@ -372,8 +367,13 @@ import (
 //								},
 //							},
 //						},
+//						CrawlDepth: pulumi.Int(3),
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -399,13 +399,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						MaxLinksPerPage: pulumi.Int(100),
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
 //							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
 //								SeedUrls: pulumi.StringArray{
@@ -413,8 +408,13 @@ import (
 //								},
 //							},
 //						},
+//						MaxLinksPerPage: pulumi.Int(100),
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -440,13 +440,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						MaxUrlsPerMinuteCrawlRate: pulumi.Int(300),
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
 //							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
 //								SeedUrls: pulumi.StringArray{
@@ -454,8 +449,13 @@ import (
 //								},
 //							},
 //						},
+//						MaxUrlsPerMinuteCrawlRate: pulumi.Int(300),
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -481,10 +481,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
 //						ProxyConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationProxyConfigurationArgs{
@@ -501,6 +497,10 @@ import (
 //						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecretsmanagerSecretVersion,
 //			}))
@@ -528,18 +528,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("WEBCRAWLER"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					WebCrawlerConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationArgs{
-//						UrlExclusionPatterns: pulumi.StringArray{
-//							pulumi.String("example"),
-//						},
-//						UrlInclusionPatterns: pulumi.StringArray{
-//							pulumi.String("hello"),
-//						},
 //						Urls: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsArgs{
 //							SeedUrlConfiguration: &kendra.DataSourceConfigurationWebCrawlerConfigurationUrlsSeedUrlConfigurationArgs{
 //								SeedUrls: pulumi.StringArray{
@@ -547,8 +537,18 @@ import (
 //								},
 //							},
 //						},
+//						UrlExclusionPatterns: pulumi.StringArray{
+//							pulumi.String("example"),
+//						},
+//						UrlInclusionPatterns: pulumi.StringArray{
+//							pulumi.String("hello"),
+//						},
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("WEBCRAWLER"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -599,15 +599,15 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = kendra.NewDataSource(ctx, "example", &kendra.DataSourceArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("example"),
-//				Type:    pulumi.String("TEMPLATE"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Configuration: &kendra.DataSourceConfigurationArgs{
 //					TemplateConfiguration: &kendra.DataSourceConfigurationTemplateConfigurationArgs{
 //						Template: pulumi.String(json0),
 //					},
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("example"),
+//				Type:    pulumi.String("TEMPLATE"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -650,7 +650,7 @@ type DataSource struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+	// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrOutput `pulumi:"roleArn"`
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule pulumi.StringPtrOutput `pulumi:"schedule"`
@@ -726,7 +726,7 @@ type dataSourceState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+	// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn *string `pulumi:"roleArn"`
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule *string `pulumi:"schedule"`
@@ -767,7 +767,7 @@ type DataSourceState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+	// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrInput
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule pulumi.StringPtrInput
@@ -804,7 +804,7 @@ type dataSourceArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+	// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn *string `pulumi:"roleArn"`
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule *string `pulumi:"schedule"`
@@ -832,7 +832,7 @@ type DataSourceArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+	// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 	RoleArn pulumi.StringPtrInput
 	// Sets the frequency for Amazon Kendra to check the documents in your Data Source repository and update the index. If you don't set a schedule Amazon Kendra will not periodically update the index. You can call the `StartDataSourceSyncJob` API to update the index.
 	Schedule pulumi.StringPtrInput
@@ -988,7 +988,7 @@ func (o DataSourceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
+// ARN of a role with permission to access the data source connector. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html). You can't specify the `roleArn` parameter when the `type` parameter is set to `CUSTOM`. The `roleArn` parameter is required for all other data sources.
 func (o DataSourceOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringPtrOutput { return v.RoleArn }).(pulumi.StringPtrOutput)
 }

@@ -397,8 +397,6 @@ class AnomalyDetector(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_anomaly_detector = aws.amp.AnomalyDetector("example",
-            alias="example",
-            workspace_id=example.id,
             configuration={
                 "random_cut_forest": {
                     "query": "avg(up)",
@@ -406,7 +404,9 @@ class AnomalyDetector(pulumi.CustomResource):
             },
             missing_data_action={
                 "skip": True,
-            })
+            },
+            alias="example",
+            workspace_id=example.id)
         ```
 
         ### With evaluation interval and labels
@@ -417,28 +417,28 @@ class AnomalyDetector(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_anomaly_detector = aws.amp.AnomalyDetector("example",
-            alias="example",
-            workspace_id=example.id,
-            evaluation_interval_in_seconds=120,
-            labels={
-                "env": "production",
-                "team": "platform",
-            },
             configuration={
                 "random_cut_forest": {
-                    "query": "avg(up)",
-                    "sample_size": 256,
-                    "shingle_size": 4,
                     "ignore_near_expected_from_above": {
                         "ratio": 1.5,
                     },
                     "ignore_near_expected_from_below": {
                         "amount": float(2),
                     },
+                    "query": "avg(up)",
+                    "sample_size": 256,
+                    "shingle_size": 4,
                 },
             },
             missing_data_action={
                 "mark_as_anomaly": True,
+            },
+            alias="example",
+            workspace_id=example.id,
+            evaluation_interval_in_seconds=120,
+            labels={
+                "env": "production",
+                "team": "platform",
             })
         ```
 
@@ -495,8 +495,6 @@ class AnomalyDetector(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_anomaly_detector = aws.amp.AnomalyDetector("example",
-            alias="example",
-            workspace_id=example.id,
             configuration={
                 "random_cut_forest": {
                     "query": "avg(up)",
@@ -504,7 +502,9 @@ class AnomalyDetector(pulumi.CustomResource):
             },
             missing_data_action={
                 "skip": True,
-            })
+            },
+            alias="example",
+            workspace_id=example.id)
         ```
 
         ### With evaluation interval and labels
@@ -515,28 +515,28 @@ class AnomalyDetector(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_anomaly_detector = aws.amp.AnomalyDetector("example",
-            alias="example",
-            workspace_id=example.id,
-            evaluation_interval_in_seconds=120,
-            labels={
-                "env": "production",
-                "team": "platform",
-            },
             configuration={
                 "random_cut_forest": {
-                    "query": "avg(up)",
-                    "sample_size": 256,
-                    "shingle_size": 4,
                     "ignore_near_expected_from_above": {
                         "ratio": 1.5,
                     },
                     "ignore_near_expected_from_below": {
                         "amount": float(2),
                     },
+                    "query": "avg(up)",
+                    "sample_size": 256,
+                    "shingle_size": 4,
                 },
             },
             missing_data_action={
                 "mark_as_anomaly": True,
+            },
+            alias="example",
+            workspace_id=example.id,
+            evaluation_interval_in_seconds=120,
+            labels={
+                "env": "production",
+                "team": "platform",
             })
         ```
 

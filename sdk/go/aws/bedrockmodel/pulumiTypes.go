@@ -13,6 +13,946 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type InvocationJobInputDataConfig struct {
+	// Location of the S3 input data. See `s3InputDataConfig` Block below.
+	S3InputDataConfig InvocationJobInputDataConfigS3InputDataConfig `pulumi:"s3InputDataConfig"`
+}
+
+// InvocationJobInputDataConfigInput is an input type that accepts InvocationJobInputDataConfigArgs and InvocationJobInputDataConfigOutput values.
+// You can construct a concrete instance of `InvocationJobInputDataConfigInput` via:
+//
+//	InvocationJobInputDataConfigArgs{...}
+type InvocationJobInputDataConfigInput interface {
+	pulumi.Input
+
+	ToInvocationJobInputDataConfigOutput() InvocationJobInputDataConfigOutput
+	ToInvocationJobInputDataConfigOutputWithContext(context.Context) InvocationJobInputDataConfigOutput
+}
+
+type InvocationJobInputDataConfigArgs struct {
+	// Location of the S3 input data. See `s3InputDataConfig` Block below.
+	S3InputDataConfig InvocationJobInputDataConfigS3InputDataConfigInput `pulumi:"s3InputDataConfig"`
+}
+
+func (InvocationJobInputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobInputDataConfig)(nil)).Elem()
+}
+
+func (i InvocationJobInputDataConfigArgs) ToInvocationJobInputDataConfigOutput() InvocationJobInputDataConfigOutput {
+	return i.ToInvocationJobInputDataConfigOutputWithContext(context.Background())
+}
+
+func (i InvocationJobInputDataConfigArgs) ToInvocationJobInputDataConfigOutputWithContext(ctx context.Context) InvocationJobInputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigOutput)
+}
+
+func (i InvocationJobInputDataConfigArgs) ToInvocationJobInputDataConfigPtrOutput() InvocationJobInputDataConfigPtrOutput {
+	return i.ToInvocationJobInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobInputDataConfigArgs) ToInvocationJobInputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigOutput).ToInvocationJobInputDataConfigPtrOutputWithContext(ctx)
+}
+
+// InvocationJobInputDataConfigPtrInput is an input type that accepts InvocationJobInputDataConfigArgs, InvocationJobInputDataConfigPtr and InvocationJobInputDataConfigPtrOutput values.
+// You can construct a concrete instance of `InvocationJobInputDataConfigPtrInput` via:
+//
+//	        InvocationJobInputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobInputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobInputDataConfigPtrOutput() InvocationJobInputDataConfigPtrOutput
+	ToInvocationJobInputDataConfigPtrOutputWithContext(context.Context) InvocationJobInputDataConfigPtrOutput
+}
+
+type invocationJobInputDataConfigPtrType InvocationJobInputDataConfigArgs
+
+func InvocationJobInputDataConfigPtr(v *InvocationJobInputDataConfigArgs) InvocationJobInputDataConfigPtrInput {
+	return (*invocationJobInputDataConfigPtrType)(v)
+}
+
+func (*invocationJobInputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobInputDataConfig)(nil)).Elem()
+}
+
+func (i *invocationJobInputDataConfigPtrType) ToInvocationJobInputDataConfigPtrOutput() InvocationJobInputDataConfigPtrOutput {
+	return i.ToInvocationJobInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobInputDataConfigPtrType) ToInvocationJobInputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigPtrOutput)
+}
+
+type InvocationJobInputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobInputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobInputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobInputDataConfigOutput) ToInvocationJobInputDataConfigOutput() InvocationJobInputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigOutput) ToInvocationJobInputDataConfigOutputWithContext(ctx context.Context) InvocationJobInputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigOutput) ToInvocationJobInputDataConfigPtrOutput() InvocationJobInputDataConfigPtrOutput {
+	return o.ToInvocationJobInputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobInputDataConfigOutput) ToInvocationJobInputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobInputDataConfig) *InvocationJobInputDataConfig {
+		return &v
+	}).(InvocationJobInputDataConfigPtrOutput)
+}
+
+// Location of the S3 input data. See `s3InputDataConfig` Block below.
+func (o InvocationJobInputDataConfigOutput) S3InputDataConfig() InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return o.ApplyT(func(v InvocationJobInputDataConfig) InvocationJobInputDataConfigS3InputDataConfig {
+		return v.S3InputDataConfig
+	}).(InvocationJobInputDataConfigS3InputDataConfigOutput)
+}
+
+type InvocationJobInputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobInputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobInputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobInputDataConfigPtrOutput) ToInvocationJobInputDataConfigPtrOutput() InvocationJobInputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigPtrOutput) ToInvocationJobInputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigPtrOutput) Elem() InvocationJobInputDataConfigOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfig) InvocationJobInputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobInputDataConfig
+		return ret
+	}).(InvocationJobInputDataConfigOutput)
+}
+
+// Location of the S3 input data. See `s3InputDataConfig` Block below.
+func (o InvocationJobInputDataConfigPtrOutput) S3InputDataConfig() InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfig) *InvocationJobInputDataConfigS3InputDataConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.S3InputDataConfig
+	}).(InvocationJobInputDataConfigS3InputDataConfigPtrOutput)
+}
+
+type InvocationJobInputDataConfigS3InputDataConfig struct {
+	// ID of the AWS account that owns the S3 bucket containing the input data.
+	S3BucketOwner *string `pulumi:"s3BucketOwner"`
+	// Format of the input data. Valid values: `JSONL`.
+	S3InputFormat *string `pulumi:"s3InputFormat"`
+	// S3 location of the input data.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// InvocationJobInputDataConfigS3InputDataConfigInput is an input type that accepts InvocationJobInputDataConfigS3InputDataConfigArgs and InvocationJobInputDataConfigS3InputDataConfigOutput values.
+// You can construct a concrete instance of `InvocationJobInputDataConfigS3InputDataConfigInput` via:
+//
+//	InvocationJobInputDataConfigS3InputDataConfigArgs{...}
+type InvocationJobInputDataConfigS3InputDataConfigInput interface {
+	pulumi.Input
+
+	ToInvocationJobInputDataConfigS3InputDataConfigOutput() InvocationJobInputDataConfigS3InputDataConfigOutput
+	ToInvocationJobInputDataConfigS3InputDataConfigOutputWithContext(context.Context) InvocationJobInputDataConfigS3InputDataConfigOutput
+}
+
+type InvocationJobInputDataConfigS3InputDataConfigArgs struct {
+	// ID of the AWS account that owns the S3 bucket containing the input data.
+	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
+	// Format of the input data. Valid values: `JSONL`.
+	S3InputFormat pulumi.StringPtrInput `pulumi:"s3InputFormat"`
+	// S3 location of the input data.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (InvocationJobInputDataConfigS3InputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobInputDataConfigS3InputDataConfig)(nil)).Elem()
+}
+
+func (i InvocationJobInputDataConfigS3InputDataConfigArgs) ToInvocationJobInputDataConfigS3InputDataConfigOutput() InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return i.ToInvocationJobInputDataConfigS3InputDataConfigOutputWithContext(context.Background())
+}
+
+func (i InvocationJobInputDataConfigS3InputDataConfigArgs) ToInvocationJobInputDataConfigS3InputDataConfigOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigS3InputDataConfigOutput)
+}
+
+func (i InvocationJobInputDataConfigS3InputDataConfigArgs) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutput() InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return i.ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobInputDataConfigS3InputDataConfigArgs) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigS3InputDataConfigOutput).ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(ctx)
+}
+
+// InvocationJobInputDataConfigS3InputDataConfigPtrInput is an input type that accepts InvocationJobInputDataConfigS3InputDataConfigArgs, InvocationJobInputDataConfigS3InputDataConfigPtr and InvocationJobInputDataConfigS3InputDataConfigPtrOutput values.
+// You can construct a concrete instance of `InvocationJobInputDataConfigS3InputDataConfigPtrInput` via:
+//
+//	        InvocationJobInputDataConfigS3InputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobInputDataConfigS3InputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobInputDataConfigS3InputDataConfigPtrOutput() InvocationJobInputDataConfigS3InputDataConfigPtrOutput
+	ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(context.Context) InvocationJobInputDataConfigS3InputDataConfigPtrOutput
+}
+
+type invocationJobInputDataConfigS3InputDataConfigPtrType InvocationJobInputDataConfigS3InputDataConfigArgs
+
+func InvocationJobInputDataConfigS3InputDataConfigPtr(v *InvocationJobInputDataConfigS3InputDataConfigArgs) InvocationJobInputDataConfigS3InputDataConfigPtrInput {
+	return (*invocationJobInputDataConfigS3InputDataConfigPtrType)(v)
+}
+
+func (*invocationJobInputDataConfigS3InputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobInputDataConfigS3InputDataConfig)(nil)).Elem()
+}
+
+func (i *invocationJobInputDataConfigS3InputDataConfigPtrType) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutput() InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return i.ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobInputDataConfigS3InputDataConfigPtrType) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobInputDataConfigS3InputDataConfigPtrOutput)
+}
+
+type InvocationJobInputDataConfigS3InputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobInputDataConfigS3InputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobInputDataConfigS3InputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) ToInvocationJobInputDataConfigS3InputDataConfigOutput() InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) ToInvocationJobInputDataConfigS3InputDataConfigOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutput() InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return o.ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobInputDataConfigS3InputDataConfig) *InvocationJobInputDataConfigS3InputDataConfig {
+		return &v
+	}).(InvocationJobInputDataConfigS3InputDataConfigPtrOutput)
+}
+
+// ID of the AWS account that owns the S3 bucket containing the input data.
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobInputDataConfigS3InputDataConfig) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// Format of the input data. Valid values: `JSONL`.
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) S3InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobInputDataConfigS3InputDataConfig) *string { return v.S3InputFormat }).(pulumi.StringPtrOutput)
+}
+
+// S3 location of the input data.
+func (o InvocationJobInputDataConfigS3InputDataConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationJobInputDataConfigS3InputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type InvocationJobInputDataConfigS3InputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobInputDataConfigS3InputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobInputDataConfigS3InputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutput() InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) ToInvocationJobInputDataConfigS3InputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobInputDataConfigS3InputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) Elem() InvocationJobInputDataConfigS3InputDataConfigOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfigS3InputDataConfig) InvocationJobInputDataConfigS3InputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobInputDataConfigS3InputDataConfig
+		return ret
+	}).(InvocationJobInputDataConfigS3InputDataConfigOutput)
+}
+
+// ID of the AWS account that owns the S3 bucket containing the input data.
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfigS3InputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// Format of the input data. Valid values: `JSONL`.
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) S3InputFormat() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfigS3InputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3InputFormat
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 location of the input data.
+func (o InvocationJobInputDataConfigS3InputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobInputDataConfigS3InputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type InvocationJobOutputDataConfig struct {
+	// Location of the S3 output data. See `s3OutputDataConfig` Block below.
+	S3OutputDataConfig InvocationJobOutputDataConfigS3OutputDataConfig `pulumi:"s3OutputDataConfig"`
+}
+
+// InvocationJobOutputDataConfigInput is an input type that accepts InvocationJobOutputDataConfigArgs and InvocationJobOutputDataConfigOutput values.
+// You can construct a concrete instance of `InvocationJobOutputDataConfigInput` via:
+//
+//	InvocationJobOutputDataConfigArgs{...}
+type InvocationJobOutputDataConfigInput interface {
+	pulumi.Input
+
+	ToInvocationJobOutputDataConfigOutput() InvocationJobOutputDataConfigOutput
+	ToInvocationJobOutputDataConfigOutputWithContext(context.Context) InvocationJobOutputDataConfigOutput
+}
+
+type InvocationJobOutputDataConfigArgs struct {
+	// Location of the S3 output data. See `s3OutputDataConfig` Block below.
+	S3OutputDataConfig InvocationJobOutputDataConfigS3OutputDataConfigInput `pulumi:"s3OutputDataConfig"`
+}
+
+func (InvocationJobOutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i InvocationJobOutputDataConfigArgs) ToInvocationJobOutputDataConfigOutput() InvocationJobOutputDataConfigOutput {
+	return i.ToInvocationJobOutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i InvocationJobOutputDataConfigArgs) ToInvocationJobOutputDataConfigOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigOutput)
+}
+
+func (i InvocationJobOutputDataConfigArgs) ToInvocationJobOutputDataConfigPtrOutput() InvocationJobOutputDataConfigPtrOutput {
+	return i.ToInvocationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobOutputDataConfigArgs) ToInvocationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigOutput).ToInvocationJobOutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// InvocationJobOutputDataConfigPtrInput is an input type that accepts InvocationJobOutputDataConfigArgs, InvocationJobOutputDataConfigPtr and InvocationJobOutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `InvocationJobOutputDataConfigPtrInput` via:
+//
+//	        InvocationJobOutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobOutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobOutputDataConfigPtrOutput() InvocationJobOutputDataConfigPtrOutput
+	ToInvocationJobOutputDataConfigPtrOutputWithContext(context.Context) InvocationJobOutputDataConfigPtrOutput
+}
+
+type invocationJobOutputDataConfigPtrType InvocationJobOutputDataConfigArgs
+
+func InvocationJobOutputDataConfigPtr(v *InvocationJobOutputDataConfigArgs) InvocationJobOutputDataConfigPtrInput {
+	return (*invocationJobOutputDataConfigPtrType)(v)
+}
+
+func (*invocationJobOutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (i *invocationJobOutputDataConfigPtrType) ToInvocationJobOutputDataConfigPtrOutput() InvocationJobOutputDataConfigPtrOutput {
+	return i.ToInvocationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobOutputDataConfigPtrType) ToInvocationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigPtrOutput)
+}
+
+type InvocationJobOutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobOutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobOutputDataConfigOutput) ToInvocationJobOutputDataConfigOutput() InvocationJobOutputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigOutput) ToInvocationJobOutputDataConfigOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigOutput) ToInvocationJobOutputDataConfigPtrOutput() InvocationJobOutputDataConfigPtrOutput {
+	return o.ToInvocationJobOutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobOutputDataConfigOutput) ToInvocationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobOutputDataConfig) *InvocationJobOutputDataConfig {
+		return &v
+	}).(InvocationJobOutputDataConfigPtrOutput)
+}
+
+// Location of the S3 output data. See `s3OutputDataConfig` Block below.
+func (o InvocationJobOutputDataConfigOutput) S3OutputDataConfig() InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return o.ApplyT(func(v InvocationJobOutputDataConfig) InvocationJobOutputDataConfigS3OutputDataConfig {
+		return v.S3OutputDataConfig
+	}).(InvocationJobOutputDataConfigS3OutputDataConfigOutput)
+}
+
+type InvocationJobOutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobOutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobOutputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobOutputDataConfigPtrOutput) ToInvocationJobOutputDataConfigPtrOutput() InvocationJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigPtrOutput) ToInvocationJobOutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigPtrOutput) Elem() InvocationJobOutputDataConfigOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfig) InvocationJobOutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobOutputDataConfig
+		return ret
+	}).(InvocationJobOutputDataConfigOutput)
+}
+
+// Location of the S3 output data. See `s3OutputDataConfig` Block below.
+func (o InvocationJobOutputDataConfigPtrOutput) S3OutputDataConfig() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfig) *InvocationJobOutputDataConfigS3OutputDataConfig {
+		if v == nil {
+			return nil
+		}
+		return &v.S3OutputDataConfig
+	}).(InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput)
+}
+
+type InvocationJobOutputDataConfigS3OutputDataConfig struct {
+	// ID of the AWS account that owns the S3 bucket containing the output data.
+	S3BucketOwner *string `pulumi:"s3BucketOwner"`
+	// ARN of the KMS key that encrypts the S3 location of the output data.
+	S3EncryptionKeyId *string `pulumi:"s3EncryptionKeyId"`
+	// S3 location where the results of the batch inference job are stored.
+	S3Uri string `pulumi:"s3Uri"`
+}
+
+// InvocationJobOutputDataConfigS3OutputDataConfigInput is an input type that accepts InvocationJobOutputDataConfigS3OutputDataConfigArgs and InvocationJobOutputDataConfigS3OutputDataConfigOutput values.
+// You can construct a concrete instance of `InvocationJobOutputDataConfigS3OutputDataConfigInput` via:
+//
+//	InvocationJobOutputDataConfigS3OutputDataConfigArgs{...}
+type InvocationJobOutputDataConfigS3OutputDataConfigInput interface {
+	pulumi.Input
+
+	ToInvocationJobOutputDataConfigS3OutputDataConfigOutput() InvocationJobOutputDataConfigS3OutputDataConfigOutput
+	ToInvocationJobOutputDataConfigS3OutputDataConfigOutputWithContext(context.Context) InvocationJobOutputDataConfigS3OutputDataConfigOutput
+}
+
+type InvocationJobOutputDataConfigS3OutputDataConfigArgs struct {
+	// ID of the AWS account that owns the S3 bucket containing the output data.
+	S3BucketOwner pulumi.StringPtrInput `pulumi:"s3BucketOwner"`
+	// ARN of the KMS key that encrypts the S3 location of the output data.
+	S3EncryptionKeyId pulumi.StringPtrInput `pulumi:"s3EncryptionKeyId"`
+	// S3 location where the results of the batch inference job are stored.
+	S3Uri pulumi.StringInput `pulumi:"s3Uri"`
+}
+
+func (InvocationJobOutputDataConfigS3OutputDataConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobOutputDataConfigS3OutputDataConfig)(nil)).Elem()
+}
+
+func (i InvocationJobOutputDataConfigS3OutputDataConfigArgs) ToInvocationJobOutputDataConfigS3OutputDataConfigOutput() InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return i.ToInvocationJobOutputDataConfigS3OutputDataConfigOutputWithContext(context.Background())
+}
+
+func (i InvocationJobOutputDataConfigS3OutputDataConfigArgs) ToInvocationJobOutputDataConfigS3OutputDataConfigOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigS3OutputDataConfigOutput)
+}
+
+func (i InvocationJobOutputDataConfigS3OutputDataConfigArgs) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutput() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return i.ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobOutputDataConfigS3OutputDataConfigArgs) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigS3OutputDataConfigOutput).ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(ctx)
+}
+
+// InvocationJobOutputDataConfigS3OutputDataConfigPtrInput is an input type that accepts InvocationJobOutputDataConfigS3OutputDataConfigArgs, InvocationJobOutputDataConfigS3OutputDataConfigPtr and InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput values.
+// You can construct a concrete instance of `InvocationJobOutputDataConfigS3OutputDataConfigPtrInput` via:
+//
+//	        InvocationJobOutputDataConfigS3OutputDataConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobOutputDataConfigS3OutputDataConfigPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutput() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput
+	ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(context.Context) InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput
+}
+
+type invocationJobOutputDataConfigS3OutputDataConfigPtrType InvocationJobOutputDataConfigS3OutputDataConfigArgs
+
+func InvocationJobOutputDataConfigS3OutputDataConfigPtr(v *InvocationJobOutputDataConfigS3OutputDataConfigArgs) InvocationJobOutputDataConfigS3OutputDataConfigPtrInput {
+	return (*invocationJobOutputDataConfigS3OutputDataConfigPtrType)(v)
+}
+
+func (*invocationJobOutputDataConfigS3OutputDataConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobOutputDataConfigS3OutputDataConfig)(nil)).Elem()
+}
+
+func (i *invocationJobOutputDataConfigS3OutputDataConfigPtrType) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutput() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return i.ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobOutputDataConfigS3OutputDataConfigPtrType) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput)
+}
+
+type InvocationJobOutputDataConfigS3OutputDataConfigOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobOutputDataConfigS3OutputDataConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobOutputDataConfigS3OutputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigOutput() InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutput() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return o.ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobOutputDataConfigS3OutputDataConfig) *InvocationJobOutputDataConfigS3OutputDataConfig {
+		return &v
+	}).(InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput)
+}
+
+// ID of the AWS account that owns the S3 bucket containing the output data.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobOutputDataConfigS3OutputDataConfig) *string { return v.S3BucketOwner }).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key that encrypts the S3 location of the output data.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) S3EncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobOutputDataConfigS3OutputDataConfig) *string { return v.S3EncryptionKeyId }).(pulumi.StringPtrOutput)
+}
+
+// S3 location where the results of the batch inference job are stored.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigOutput) S3Uri() pulumi.StringOutput {
+	return o.ApplyT(func(v InvocationJobOutputDataConfigS3OutputDataConfig) string { return v.S3Uri }).(pulumi.StringOutput)
+}
+
+type InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobOutputDataConfigS3OutputDataConfig)(nil)).Elem()
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutput() InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) ToInvocationJobOutputDataConfigS3OutputDataConfigPtrOutputWithContext(ctx context.Context) InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) Elem() InvocationJobOutputDataConfigS3OutputDataConfigOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfigS3OutputDataConfig) InvocationJobOutputDataConfigS3OutputDataConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobOutputDataConfigS3OutputDataConfig
+		return ret
+	}).(InvocationJobOutputDataConfigS3OutputDataConfigOutput)
+}
+
+// ID of the AWS account that owns the S3 bucket containing the output data.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) S3BucketOwner() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfigS3OutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3BucketOwner
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARN of the KMS key that encrypts the S3 location of the output data.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) S3EncryptionKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfigS3OutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.S3EncryptionKeyId
+	}).(pulumi.StringPtrOutput)
+}
+
+// S3 location where the results of the batch inference job are stored.
+func (o InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput) S3Uri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobOutputDataConfigS3OutputDataConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.S3Uri
+	}).(pulumi.StringPtrOutput)
+}
+
+type InvocationJobTimeouts struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create *string `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete *string `pulumi:"delete"`
+}
+
+// InvocationJobTimeoutsInput is an input type that accepts InvocationJobTimeoutsArgs and InvocationJobTimeoutsOutput values.
+// You can construct a concrete instance of `InvocationJobTimeoutsInput` via:
+//
+//	InvocationJobTimeoutsArgs{...}
+type InvocationJobTimeoutsInput interface {
+	pulumi.Input
+
+	ToInvocationJobTimeoutsOutput() InvocationJobTimeoutsOutput
+	ToInvocationJobTimeoutsOutputWithContext(context.Context) InvocationJobTimeoutsOutput
+}
+
+type InvocationJobTimeoutsArgs struct {
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+	Create pulumi.StringPtrInput `pulumi:"create"`
+	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+	Delete pulumi.StringPtrInput `pulumi:"delete"`
+}
+
+func (InvocationJobTimeoutsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobTimeouts)(nil)).Elem()
+}
+
+func (i InvocationJobTimeoutsArgs) ToInvocationJobTimeoutsOutput() InvocationJobTimeoutsOutput {
+	return i.ToInvocationJobTimeoutsOutputWithContext(context.Background())
+}
+
+func (i InvocationJobTimeoutsArgs) ToInvocationJobTimeoutsOutputWithContext(ctx context.Context) InvocationJobTimeoutsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobTimeoutsOutput)
+}
+
+func (i InvocationJobTimeoutsArgs) ToInvocationJobTimeoutsPtrOutput() InvocationJobTimeoutsPtrOutput {
+	return i.ToInvocationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobTimeoutsArgs) ToInvocationJobTimeoutsPtrOutputWithContext(ctx context.Context) InvocationJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobTimeoutsOutput).ToInvocationJobTimeoutsPtrOutputWithContext(ctx)
+}
+
+// InvocationJobTimeoutsPtrInput is an input type that accepts InvocationJobTimeoutsArgs, InvocationJobTimeoutsPtr and InvocationJobTimeoutsPtrOutput values.
+// You can construct a concrete instance of `InvocationJobTimeoutsPtrInput` via:
+//
+//	        InvocationJobTimeoutsArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobTimeoutsPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobTimeoutsPtrOutput() InvocationJobTimeoutsPtrOutput
+	ToInvocationJobTimeoutsPtrOutputWithContext(context.Context) InvocationJobTimeoutsPtrOutput
+}
+
+type invocationJobTimeoutsPtrType InvocationJobTimeoutsArgs
+
+func InvocationJobTimeoutsPtr(v *InvocationJobTimeoutsArgs) InvocationJobTimeoutsPtrInput {
+	return (*invocationJobTimeoutsPtrType)(v)
+}
+
+func (*invocationJobTimeoutsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobTimeouts)(nil)).Elem()
+}
+
+func (i *invocationJobTimeoutsPtrType) ToInvocationJobTimeoutsPtrOutput() InvocationJobTimeoutsPtrOutput {
+	return i.ToInvocationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobTimeoutsPtrType) ToInvocationJobTimeoutsPtrOutputWithContext(ctx context.Context) InvocationJobTimeoutsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobTimeoutsPtrOutput)
+}
+
+type InvocationJobTimeoutsOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobTimeoutsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobTimeouts)(nil)).Elem()
+}
+
+func (o InvocationJobTimeoutsOutput) ToInvocationJobTimeoutsOutput() InvocationJobTimeoutsOutput {
+	return o
+}
+
+func (o InvocationJobTimeoutsOutput) ToInvocationJobTimeoutsOutputWithContext(ctx context.Context) InvocationJobTimeoutsOutput {
+	return o
+}
+
+func (o InvocationJobTimeoutsOutput) ToInvocationJobTimeoutsPtrOutput() InvocationJobTimeoutsPtrOutput {
+	return o.ToInvocationJobTimeoutsPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobTimeoutsOutput) ToInvocationJobTimeoutsPtrOutputWithContext(ctx context.Context) InvocationJobTimeoutsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobTimeouts) *InvocationJobTimeouts {
+		return &v
+	}).(InvocationJobTimeoutsPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InvocationJobTimeoutsOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobTimeouts) *string { return v.Create }).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InvocationJobTimeoutsOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v InvocationJobTimeouts) *string { return v.Delete }).(pulumi.StringPtrOutput)
+}
+
+type InvocationJobTimeoutsPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobTimeoutsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobTimeouts)(nil)).Elem()
+}
+
+func (o InvocationJobTimeoutsPtrOutput) ToInvocationJobTimeoutsPtrOutput() InvocationJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o InvocationJobTimeoutsPtrOutput) ToInvocationJobTimeoutsPtrOutputWithContext(ctx context.Context) InvocationJobTimeoutsPtrOutput {
+	return o
+}
+
+func (o InvocationJobTimeoutsPtrOutput) Elem() InvocationJobTimeoutsOutput {
+	return o.ApplyT(func(v *InvocationJobTimeouts) InvocationJobTimeouts {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobTimeouts
+		return ret
+	}).(InvocationJobTimeoutsOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+func (o InvocationJobTimeoutsPtrOutput) Create() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Create
+	}).(pulumi.StringPtrOutput)
+}
+
+// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+func (o InvocationJobTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *InvocationJobTimeouts) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Delete
+	}).(pulumi.StringPtrOutput)
+}
+
+type InvocationJobVpcConfig struct {
+	// IDs of the security groups in the VPC to use.
+	SecurityGroupIds []string `pulumi:"securityGroupIds"`
+	// IDs of the subnets in the VPC to use.
+	SubnetIds []string `pulumi:"subnetIds"`
+}
+
+// InvocationJobVpcConfigInput is an input type that accepts InvocationJobVpcConfigArgs and InvocationJobVpcConfigOutput values.
+// You can construct a concrete instance of `InvocationJobVpcConfigInput` via:
+//
+//	InvocationJobVpcConfigArgs{...}
+type InvocationJobVpcConfigInput interface {
+	pulumi.Input
+
+	ToInvocationJobVpcConfigOutput() InvocationJobVpcConfigOutput
+	ToInvocationJobVpcConfigOutputWithContext(context.Context) InvocationJobVpcConfigOutput
+}
+
+type InvocationJobVpcConfigArgs struct {
+	// IDs of the security groups in the VPC to use.
+	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
+	// IDs of the subnets in the VPC to use.
+	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
+}
+
+func (InvocationJobVpcConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobVpcConfig)(nil)).Elem()
+}
+
+func (i InvocationJobVpcConfigArgs) ToInvocationJobVpcConfigOutput() InvocationJobVpcConfigOutput {
+	return i.ToInvocationJobVpcConfigOutputWithContext(context.Background())
+}
+
+func (i InvocationJobVpcConfigArgs) ToInvocationJobVpcConfigOutputWithContext(ctx context.Context) InvocationJobVpcConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobVpcConfigOutput)
+}
+
+func (i InvocationJobVpcConfigArgs) ToInvocationJobVpcConfigPtrOutput() InvocationJobVpcConfigPtrOutput {
+	return i.ToInvocationJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i InvocationJobVpcConfigArgs) ToInvocationJobVpcConfigPtrOutputWithContext(ctx context.Context) InvocationJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobVpcConfigOutput).ToInvocationJobVpcConfigPtrOutputWithContext(ctx)
+}
+
+// InvocationJobVpcConfigPtrInput is an input type that accepts InvocationJobVpcConfigArgs, InvocationJobVpcConfigPtr and InvocationJobVpcConfigPtrOutput values.
+// You can construct a concrete instance of `InvocationJobVpcConfigPtrInput` via:
+//
+//	        InvocationJobVpcConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type InvocationJobVpcConfigPtrInput interface {
+	pulumi.Input
+
+	ToInvocationJobVpcConfigPtrOutput() InvocationJobVpcConfigPtrOutput
+	ToInvocationJobVpcConfigPtrOutputWithContext(context.Context) InvocationJobVpcConfigPtrOutput
+}
+
+type invocationJobVpcConfigPtrType InvocationJobVpcConfigArgs
+
+func InvocationJobVpcConfigPtr(v *InvocationJobVpcConfigArgs) InvocationJobVpcConfigPtrInput {
+	return (*invocationJobVpcConfigPtrType)(v)
+}
+
+func (*invocationJobVpcConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobVpcConfig)(nil)).Elem()
+}
+
+func (i *invocationJobVpcConfigPtrType) ToInvocationJobVpcConfigPtrOutput() InvocationJobVpcConfigPtrOutput {
+	return i.ToInvocationJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *invocationJobVpcConfigPtrType) ToInvocationJobVpcConfigPtrOutputWithContext(ctx context.Context) InvocationJobVpcConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(InvocationJobVpcConfigPtrOutput)
+}
+
+type InvocationJobVpcConfigOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobVpcConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*InvocationJobVpcConfig)(nil)).Elem()
+}
+
+func (o InvocationJobVpcConfigOutput) ToInvocationJobVpcConfigOutput() InvocationJobVpcConfigOutput {
+	return o
+}
+
+func (o InvocationJobVpcConfigOutput) ToInvocationJobVpcConfigOutputWithContext(ctx context.Context) InvocationJobVpcConfigOutput {
+	return o
+}
+
+func (o InvocationJobVpcConfigOutput) ToInvocationJobVpcConfigPtrOutput() InvocationJobVpcConfigPtrOutput {
+	return o.ToInvocationJobVpcConfigPtrOutputWithContext(context.Background())
+}
+
+func (o InvocationJobVpcConfigOutput) ToInvocationJobVpcConfigPtrOutputWithContext(ctx context.Context) InvocationJobVpcConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v InvocationJobVpcConfig) *InvocationJobVpcConfig {
+		return &v
+	}).(InvocationJobVpcConfigPtrOutput)
+}
+
+// IDs of the security groups in the VPC to use.
+func (o InvocationJobVpcConfigOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InvocationJobVpcConfig) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in the VPC to use.
+func (o InvocationJobVpcConfigOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v InvocationJobVpcConfig) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
+}
+
+type InvocationJobVpcConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (InvocationJobVpcConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**InvocationJobVpcConfig)(nil)).Elem()
+}
+
+func (o InvocationJobVpcConfigPtrOutput) ToInvocationJobVpcConfigPtrOutput() InvocationJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobVpcConfigPtrOutput) ToInvocationJobVpcConfigPtrOutputWithContext(ctx context.Context) InvocationJobVpcConfigPtrOutput {
+	return o
+}
+
+func (o InvocationJobVpcConfigPtrOutput) Elem() InvocationJobVpcConfigOutput {
+	return o.ApplyT(func(v *InvocationJobVpcConfig) InvocationJobVpcConfig {
+		if v != nil {
+			return *v
+		}
+		var ret InvocationJobVpcConfig
+		return ret
+	}).(InvocationJobVpcConfigOutput)
+}
+
+// IDs of the security groups in the VPC to use.
+func (o InvocationJobVpcConfigPtrOutput) SecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InvocationJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
+// IDs of the subnets in the VPC to use.
+func (o InvocationJobVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *InvocationJobVpcConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SubnetIds
+	}).(pulumi.StringArrayOutput)
+}
+
 type InvocationLoggingConfigurationLoggingConfig struct {
 	// CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
 	CloudwatchConfig *InvocationLoggingConfigurationLoggingConfigCloudwatchConfig `pulumi:"cloudwatchConfig"`
@@ -743,6 +1683,18 @@ func (o InvocationLoggingConfigurationLoggingConfigS3ConfigPtrOutput) KeyPrefix(
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobInputDataConfigInput)(nil)).Elem(), InvocationJobInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobInputDataConfigPtrInput)(nil)).Elem(), InvocationJobInputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobInputDataConfigS3InputDataConfigInput)(nil)).Elem(), InvocationJobInputDataConfigS3InputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobInputDataConfigS3InputDataConfigPtrInput)(nil)).Elem(), InvocationJobInputDataConfigS3InputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobOutputDataConfigInput)(nil)).Elem(), InvocationJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobOutputDataConfigPtrInput)(nil)).Elem(), InvocationJobOutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobOutputDataConfigS3OutputDataConfigInput)(nil)).Elem(), InvocationJobOutputDataConfigS3OutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobOutputDataConfigS3OutputDataConfigPtrInput)(nil)).Elem(), InvocationJobOutputDataConfigS3OutputDataConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobTimeoutsInput)(nil)).Elem(), InvocationJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobTimeoutsPtrInput)(nil)).Elem(), InvocationJobTimeoutsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobVpcConfigInput)(nil)).Elem(), InvocationJobVpcConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*InvocationJobVpcConfigPtrInput)(nil)).Elem(), InvocationJobVpcConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigPtrInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigCloudwatchConfigInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigCloudwatchConfigArgs{})
@@ -751,6 +1703,18 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigPtrInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigCloudwatchConfigLargeDataDeliveryS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigS3ConfigInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InvocationLoggingConfigurationLoggingConfigS3ConfigPtrInput)(nil)).Elem(), InvocationLoggingConfigurationLoggingConfigS3ConfigArgs{})
+	pulumi.RegisterOutputType(InvocationJobInputDataConfigOutput{})
+	pulumi.RegisterOutputType(InvocationJobInputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(InvocationJobInputDataConfigS3InputDataConfigOutput{})
+	pulumi.RegisterOutputType(InvocationJobInputDataConfigS3InputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(InvocationJobOutputDataConfigOutput{})
+	pulumi.RegisterOutputType(InvocationJobOutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(InvocationJobOutputDataConfigS3OutputDataConfigOutput{})
+	pulumi.RegisterOutputType(InvocationJobOutputDataConfigS3OutputDataConfigPtrOutput{})
+	pulumi.RegisterOutputType(InvocationJobTimeoutsOutput{})
+	pulumi.RegisterOutputType(InvocationJobTimeoutsPtrOutput{})
+	pulumi.RegisterOutputType(InvocationJobVpcConfigOutput{})
+	pulumi.RegisterOutputType(InvocationJobVpcConfigPtrOutput{})
 	pulumi.RegisterOutputType(InvocationLoggingConfigurationLoggingConfigOutput{})
 	pulumi.RegisterOutputType(InvocationLoggingConfigurationLoggingConfigPtrOutput{})
 	pulumi.RegisterOutputType(InvocationLoggingConfigurationLoggingConfigCloudwatchConfigOutput{})

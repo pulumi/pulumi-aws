@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreGatewayRule("example", {
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     priority: 100,
- *     description: "Route all requests to the primary target",
  *     actions: [{
  *         routeToTarget: {
  *             staticRoute: {
@@ -29,6 +26,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     }],
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     priority: 100,
+ *     description: "Route all requests to the primary target",
  * });
  * ```
  *
@@ -39,8 +39,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const canary = new aws.bedrock.AgentcoreGatewayRule("canary", {
- *     gatewayIdentifier: example.gatewayId,
- *     priority: 100,
  *     actions: [{
  *         routeToTarget: {
  *             weightedRoute: {
@@ -59,6 +57,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     }],
+ *     gatewayIdentifier: example.gatewayId,
+ *     priority: 100,
  * });
  * ```
  *
@@ -71,8 +71,6 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const restricted = new aws.bedrock.AgentcoreGatewayRule("restricted", {
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     priority: 50,
  *     actions: [{
  *         routeToTarget: {
  *             staticRoute: {
@@ -97,6 +95,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     priority: 50,
  * });
  * ```
  *

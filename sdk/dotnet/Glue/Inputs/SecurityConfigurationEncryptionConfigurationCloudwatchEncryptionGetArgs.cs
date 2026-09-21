@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Glue.Inputs
         public Input<string>? CloudwatchEncryptionMode { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        /// ARN of the KMS key to be used to encrypt the data.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }

@@ -255,7 +255,11 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.UserLoginProfile("example")
+        example = aws.iam.UserLoginProfile("example", opts = pulumi.ResourceOptions(ignore_changes=[
+                "passwordLength",
+                "passwordResetRequired",
+                "pgpKey",
+            ]))
         ```
 
 
@@ -307,7 +311,11 @@ class UserLoginProfile(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.iam.UserLoginProfile("example")
+        example = aws.iam.UserLoginProfile("example", opts = pulumi.ResourceOptions(ignore_changes=[
+                "passwordLength",
+                "passwordResetRequired",
+                "pgpKey",
+            ]))
         ```
 
 

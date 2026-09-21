@@ -47,13 +47,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .tags(Map.of("Name", "Example Kendra Faq"))
  *             .build());
  * 
@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .fileFormat("CSV")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .fileFormat("CSV")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -129,14 +129,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Faq("example", FaqArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .name("Example")
- *             .languageCode("en")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .s3Path(FaqS3PathArgs.builder()
  *                 .bucket(exampleAwsS3Bucket.id())
  *                 .key(exampleAwsS3Object.key())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .name("Example")
+ *             .languageCode("en")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -272,14 +272,14 @@ public class Faq extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      */
     public Output<String> roleArn() {

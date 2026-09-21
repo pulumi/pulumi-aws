@@ -69,7 +69,7 @@ type LookupReplicationInstanceResult struct {
 	EngineVersion string `pulumi:"engineVersion"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+	// ARN for the KMS key used to encrypt the connection parameters.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Specifies if the replication instance is a multi-az deployment.
 	MultiAz bool `pulumi:"multiAz"`
@@ -80,7 +80,7 @@ type LookupReplicationInstanceResult struct {
 	// Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
 	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
 	Region             string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the replication instance.
+	// ARN of the replication instance.
 	ReplicationInstanceArn string `pulumi:"replicationInstanceArn"`
 	// The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for information on instance classes.
 	ReplicationInstanceClass string `pulumi:"replicationInstanceClass"`
@@ -97,12 +97,8 @@ type LookupReplicationInstanceResult struct {
 }
 
 func LookupReplicationInstanceOutput(ctx *pulumi.Context, args LookupReplicationInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationInstanceResultOutput, error) {
-			args := v.(LookupReplicationInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:dms/getReplicationInstance:getReplicationInstance", args, LookupReplicationInstanceResultOutput{}, options).(LookupReplicationInstanceResultOutput), nil
-		}).(LookupReplicationInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:dms/getReplicationInstance:getReplicationInstance", args, LookupReplicationInstanceResultOutput{}, options).(LookupReplicationInstanceResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationInstance.
@@ -158,7 +154,7 @@ func (o LookupReplicationInstanceResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+// ARN for the KMS key used to encrypt the connection parameters.
 func (o LookupReplicationInstanceResultOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -187,7 +183,7 @@ func (o LookupReplicationInstanceResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the replication instance.
+// ARN of the replication instance.
 func (o LookupReplicationInstanceResultOutput) ReplicationInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationInstanceResult) string { return v.ReplicationInstanceArn }).(pulumi.StringOutput)
 }

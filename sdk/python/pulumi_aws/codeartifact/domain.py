@@ -27,7 +27,7 @@ class DomainArgs:
         The set of arguments for constructing a Domain resource.
 
         :param pulumi.Input[_builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[_builtins.str] encryption_key: Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -55,7 +55,7 @@ class DomainArgs:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -109,7 +109,7 @@ class _DomainState:
         :param pulumi.Input[_builtins.str] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[_builtins.str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[_builtins.str] encryption_key: Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[_builtins.str] owner: The AWS account ID that owns the domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] repository_count: The number of repositories in the domain.
@@ -192,7 +192,7 @@ class _DomainState:
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         """
         return pulumi.get(self, "encryption_key")
 
@@ -302,7 +302,7 @@ class Domain(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `arn` (String) ARN of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 
@@ -314,7 +314,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[_builtins.str] encryption_key: Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -342,7 +342,7 @@ class Domain(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `arn` (String) ARN of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 
@@ -424,7 +424,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] asset_size_bytes: The total size of all assets in the domain.
         :param pulumi.Input[_builtins.str] created_time: A timestamp that represents the date and time the domain was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] domain: The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
-        :param pulumi.Input[_builtins.str] encryption_key: The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        :param pulumi.Input[_builtins.str] encryption_key: Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         :param pulumi.Input[_builtins.str] owner: The AWS account ID that owns the domain.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] repository_count: The number of repositories in the domain.
@@ -485,7 +485,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="encryptionKey")
     def encryption_key(self) -> pulumi.Output[_builtins.str]:
         """
-        The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+        Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
         """
         return pulumi.get(self, "encryption_key")
 

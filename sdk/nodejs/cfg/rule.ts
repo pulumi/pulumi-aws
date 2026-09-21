@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["config.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *     roleArn: rRole.arn,
  * });
  * const r = new aws.cfg.Rule("r", {
- *     name: "example",
  *     source: {
  *         owner: "AWS",
  *         sourceIdentifier: "S3_BUCKET_VERSIONING_ENABLED",
  *     },
+ *     name: "example",
  * }, {
  *     dependsOn: [foo],
  * });
@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  *
  * ### Custom Rules
  *
- * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+ * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the ARN of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
@@ -97,12 +97,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.Rule("example", {
- *     name: "example",
  *     source: {
- *         owner: "CUSTOM_POLICY",
- *         sourceDetails: [{
- *             messageType: "ConfigurationItemChangeNotification",
- *         }],
  *         customPolicyDetails: {
  *             policyRuntime: "guard-2.x.x",
  *             policyText: `\\t  rule tableisactive when
@@ -117,7 +112,12 @@ import * as utilities from "../utilities";
  * \\t  }
  * `,
  *         },
+ *         sourceDetails: [{
+ *             messageType: "ConfigurationItemChangeNotification",
+ *         }],
+ *         owner: "CUSTOM_POLICY",
  *     },
+ *     name: "example",
  * });
  * ```
  *

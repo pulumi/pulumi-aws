@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const versioningExample = new aws.s3.BucketVersioning("versioning_example", {
- *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: example.id,
  * });
  * ```
  *
@@ -51,10 +51,10 @@ import * as utilities from "../utilities";
  *     acl: "private",
  * });
  * const versioningExample = new aws.s3.BucketVersioning("versioning_example", {
- *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Disabled",
  *     },
+ *     bucket: example.id,
  * });
  * ```
  *
@@ -72,10 +72,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "yotto"});
  * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
- *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: example.id,
  * });
  * const exampleBucketObjectv2 = new aws.s3.BucketObjectv2("example", {
  *     bucket: exampleBucketVersioning.id,

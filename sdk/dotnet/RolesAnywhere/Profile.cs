@@ -81,7 +81,7 @@ namespace Pulumi.Aws.RolesAnywhere
         public Output<bool?> AcceptRoleSessionName { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Profile
+        /// ARN of the Profile
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.RolesAnywhere
         public Input<bool>? AcceptRoleSessionName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Profile
+        /// ARN of the Profile
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

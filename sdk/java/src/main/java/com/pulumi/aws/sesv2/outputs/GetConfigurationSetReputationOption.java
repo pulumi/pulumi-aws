@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationSetReputationOption {
     /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+     * @return Date and time (in Unix time) when the reputation metrics were last given a fresh start.
      * 
      */
     private String lastFreshStart;
     /**
-     * @return Specifies whether tracking of reputation metrics is enabled.
+     * @return Whether tracking of reputation metrics is enabled.
      * 
      */
     private Boolean reputationMetricsEnabled;
 
     private GetConfigurationSetReputationOption() {}
     /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+     * @return Date and time (in Unix time) when the reputation metrics were last given a fresh start.
      * 
      */
     public String lastFreshStart() {
         return this.lastFreshStart;
     }
     /**
-     * @return Specifies whether tracking of reputation metrics is enabled.
+     * @return Whether tracking of reputation metrics is enabled.
      * 
      */
     public Boolean reputationMetricsEnabled() {

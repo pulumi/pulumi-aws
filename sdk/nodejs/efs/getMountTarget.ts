@@ -71,7 +71,7 @@ export interface GetMountTargetResult {
      */
     readonly dnsName: string;
     /**
-     * Amazon Resource Name of the file system for which the mount target is intended.
+     * ARN of the file system for which the mount target is intended.
      */
     readonly fileSystemArn: string;
     readonly fileSystemId: string;

@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["config.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -47,17 +47,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: r.arn,
  *     recordingGroup: {
- *         allSupported: false,
  *         exclusionByResourceTypes: [{
  *             resourceTypes: ["AWS::EC2::Instance"],
  *         }],
  *         recordingStrategies: [{
  *             useOnly: "EXCLUSION_BY_RESOURCE_TYPES",
  *         }],
+ *         allSupported: false,
  *     },
+ *     name: "example",
+ *     roleArn: r.arn,
  * });
  * ```
  *
@@ -68,8 +68,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.cfg.Recorder("foo", {
- *     name: "example",
- *     roleArn: r.arn,
  *     recordingGroup: {
  *         allSupported: false,
  *         includeGlobalResourceTypes: false,
@@ -79,13 +77,15 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     recordingMode: {
- *         recordingFrequency: "CONTINUOUS",
  *         recordingModeOverride: {
  *             description: "Only record EC2 network interfaces daily",
  *             resourceTypes: ["AWS::EC2::NetworkInterface"],
  *             recordingFrequency: "DAILY",
  *         },
+ *         recordingFrequency: "CONTINUOUS",
  *     },
+ *     name: "example",
+ *     roleArn: r.arn,
  * });
  * ```
  *
@@ -153,7 +153,7 @@ export class Recorder extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+     * ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     declare public readonly roleArn: pulumi.Output<string>;
 
@@ -212,7 +212,7 @@ export interface RecorderState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+     * ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -238,7 +238,7 @@ export interface RecorderArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+     * ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
      */
     roleArn: pulumi.Input<string>;
 }

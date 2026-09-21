@@ -34,7 +34,7 @@ class CustomerGatewayArgs:
                supports at this time is "ipsec.1".
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         :param pulumi.Input[_builtins.str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the customer gateway certificate.
         :param pulumi.Input[_builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[_builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -97,7 +97,7 @@ class CustomerGatewayArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        ARN for the customer gateway certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -173,7 +173,7 @@ class _CustomerGatewayState:
         :param pulumi.Input[_builtins.str] arn: The ARN of the customer gateway.
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         :param pulumi.Input[_builtins.str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the customer gateway certificate.
         :param pulumi.Input[_builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[_builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -243,7 +243,7 @@ class _CustomerGatewayState:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        ARN for the customer gateway certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -371,7 +371,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         :param pulumi.Input[_builtins.str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the customer gateway certificate.
         :param pulumi.Input[_builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[_builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -486,7 +486,7 @@ class CustomerGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: The ARN of the customer gateway.
         :param pulumi.Input[_builtins.str] bgp_asn: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `1` to `2147483647`. Conflicts with `bgp_asn_extended`.
         :param pulumi.Input[_builtins.str] bgp_asn_extended: The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgp_asn`.
-        :param pulumi.Input[_builtins.str] certificate_arn: The Amazon Resource Name (ARN) for the customer gateway certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN for the customer gateway certificate.
         :param pulumi.Input[_builtins.str] device_name: A name for the customer gateway device.
         :param pulumi.Input[_builtins.str] ip_address: The IPv4 address for the customer gateway device's outside interface.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -539,7 +539,7 @@ class CustomerGateway(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the customer gateway certificate.
+        ARN for the customer gateway certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

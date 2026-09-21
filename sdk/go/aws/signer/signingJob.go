@@ -35,7 +35,6 @@ import (
 //				return err
 //			}
 //			_, err = signer.NewSigningJob(ctx, "build_signing_job", &signer.SigningJobArgs{
-//				ProfileName: testSp.Name,
 //				Source: &signer.SigningJobSourceArgs{
 //					S3: &signer.SigningJobSourceS3Args{
 //						Bucket:  pulumi.String("s3-bucket-name"),
@@ -49,6 +48,7 @@ import (
 //						Prefix: pulumi.String("signed/"),
 //					},
 //				},
+//				ProfileName:             testSp.Name,
 //				IgnoreSigningJobFailure: pulumi.Bool(true),
 //			})
 //			if err != nil {

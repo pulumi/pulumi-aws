@@ -64,29 +64,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connector("example", ConnectorArgs.builder()
- *             .name("example")
- *             .kafkaconnectVersion("2.7.1")
  *             .capacity(ConnectorCapacityArgs.builder()
  *                 .autoscaling(ConnectorCapacityAutoscalingArgs.builder()
- *                     .mcuCount(1)
- *                     .minWorkerCount(1)
- *                     .maxWorkerCount(2)
  *                     .scaleInPolicy(ConnectorCapacityAutoscalingScaleInPolicyArgs.builder()
  *                         .cpuUtilizationPercentage(20)
  *                         .build())
  *                     .scaleOutPolicy(ConnectorCapacityAutoscalingScaleOutPolicyArgs.builder()
  *                         .cpuUtilizationPercentage(80)
  *                         .build())
+ *                     .mcuCount(1)
+ *                     .minWorkerCount(1)
+ *                     .maxWorkerCount(2)
  *                     .build())
  *                 .build())
- *             .connectorConfiguration(Map.ofEntries(
- *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
- *                 Map.entry("tasks.max", "1"),
- *                 Map.entry("topics", "example")
- *             ))
  *             .kafkaCluster(ConnectorKafkaClusterArgs.builder()
  *                 .apacheKafkaCluster(ConnectorKafkaClusterApacheKafkaClusterArgs.builder()
- *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
  *                     .vpc(ConnectorKafkaClusterApacheKafkaClusterVpcArgs.builder()
  *                         .securityGroups(exampleAwsSecurityGroup.id())
  *                         .subnets(                        
@@ -94,6 +86,7 @@ import javax.annotation.Nullable;
  *                             example2.id(),
  *                             example3.id())
  *                         .build())
+ *                     .bootstrapServers(exampleAwsMskCluster.bootstrapBrokersTls())
  *                     .build())
  *                 .build())
  *             .kafkaClusterClientAuthentication(ConnectorKafkaClusterClientAuthenticationArgs.builder()
@@ -108,6 +101,13 @@ import javax.annotation.Nullable;
  *                     .revision(exampleAwsMskconnectCustomPlugin.latestRevision())
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .kafkaconnectVersion("2.7.1")
+ *             .connectorConfiguration(Map.ofEntries(
+ *                 Map.entry("connector.class", "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector"),
+ *                 Map.entry("tasks.max", "1"),
+ *                 Map.entry("topics", "example")
+ *             ))
  *             .serviceExecutionRoleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
@@ -128,14 +128,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/connector:Connector")
 public class Connector extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connector.
+     * @return ARN of the connector.
      * 
      */
     public Output<String> arn() {
@@ -296,7 +296,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 
@@ -305,7 +305,7 @@ public class Connector extends com.pulumi.resources.CustomResource {
     private Output<String> serviceExecutionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * @return ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      * 
      * The following arguments are optional:
      * 

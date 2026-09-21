@@ -42,7 +42,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -51,6 +50,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -134,10 +134,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "destination", &s3.BucketVersioningArgs{
-//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -150,30 +150,30 @@ import (
 //				return err
 //			}
 //			sourceBucketVersioning, err := s3.NewBucketVersioning(ctx, "source", &s3.BucketVersioningArgs{
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketReplicationConfig(ctx, "replication", &s3.BucketReplicationConfigArgs{
-//				Role:   replicationRole.Arn,
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketReplicationConfigRuleArray{
 //					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("examplerule"),
 //						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
 //							Prefix: pulumi.String("example"),
 //						},
-//						Status: pulumi.String("Enabled"),
 //						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
 //							Bucket:       destination.Arn,
 //							StorageClass: pulumi.String("STANDARD"),
 //						},
+//						Id:     pulumi.String("examplerule"),
+//						Status: pulumi.String("Enabled"),
 //					},
 //				},
+//				Role:   replicationRole.Arn,
+//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				sourceBucketVersioning,
 //			}))
@@ -206,7 +206,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -215,6 +214,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -299,10 +299,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "destination", &s3.BucketVersioningArgs{
-//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: destination.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -316,32 +316,32 @@ import (
 //				return err
 //			}
 //			sourceBucketVersioning, err := s3.NewBucketVersioning(ctx, "source", &s3.BucketVersioningArgs{
-//				Region: pulumi.String("eu-central-1"),
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Region: pulumi.String("eu-central-1"),
+//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketReplicationConfig(ctx, "replication", &s3.BucketReplicationConfigArgs{
-//				Region: pulumi.String("eu-central-1"),
-//				Role:   replicationRole.Arn,
-//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketReplicationConfigRuleArray{
 //					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("examplerule"),
 //						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
 //							Prefix: pulumi.String("example"),
 //						},
-//						Status: pulumi.String("Enabled"),
 //						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
 //							Bucket:       destination.Arn,
 //							StorageClass: pulumi.String("STANDARD"),
 //						},
+//						Id:     pulumi.String("examplerule"),
+//						Status: pulumi.String("Enabled"),
 //					},
 //				},
+//				Region: pulumi.String("eu-central-1"),
+//				Role:   replicationRole.Arn,
+//				Bucket: source.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				sourceBucketVersioning,
 //			}))
@@ -376,10 +376,10 @@ import (
 //				return err
 //			}
 //			eastBucketVersioning, err := s3.NewBucketVersioning(ctx, "east", &s3.BucketVersioningArgs{
-//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -391,30 +391,30 @@ import (
 //				return err
 //			}
 //			westBucketVersioning, err := s3.NewBucketVersioning(ctx, "west", &s3.BucketVersioningArgs{
-//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketReplicationConfig(ctx, "east_to_west", &s3.BucketReplicationConfigArgs{
-//				Role:   pulumi.Any(eastReplication.Arn),
-//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketReplicationConfigRuleArray{
 //					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
 //						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
 //							Prefix: pulumi.String("foo"),
 //						},
-//						Status: pulumi.String("Enabled"),
 //						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
 //							Bucket:       west.Arn,
 //							StorageClass: pulumi.String("STANDARD"),
 //						},
+//						Id:     pulumi.String("foobar"),
+//						Status: pulumi.String("Enabled"),
 //					},
 //				},
+//				Role:   pulumi.Any(eastReplication.Arn),
+//				Bucket: east.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				eastBucketVersioning,
 //			}))
@@ -422,21 +422,21 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketReplicationConfig(ctx, "west_to_east", &s3.BucketReplicationConfigArgs{
-//				Role:   pulumi.Any(westReplication.Arn),
-//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
 //				Rules: s3.BucketReplicationConfigRuleArray{
 //					&s3.BucketReplicationConfigRuleArgs{
-//						Id: pulumi.String("foobar"),
 //						Filter: &s3.BucketReplicationConfigRuleFilterArgs{
 //							Prefix: pulumi.String("foo"),
 //						},
-//						Status: pulumi.String("Enabled"),
 //						Destination: &s3.BucketReplicationConfigRuleDestinationArgs{
 //							Bucket:       east.Arn,
 //							StorageClass: pulumi.String("STANDARD"),
 //						},
+//						Id:     pulumi.String("foobar"),
+//						Status: pulumi.String("Enabled"),
 //					},
 //				},
+//				Role:   pulumi.Any(westReplication.Arn),
+//				Bucket: west.ID().ToIDOutput().ToStringOutput(),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				westBucketVersioning,
 //			}))

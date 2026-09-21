@@ -7306,7 +7306,7 @@ class GetDistributionTenantCustomizationCertificateResult(dict):
     def __init__(__self__, *,
                  arn: _builtins.str):
         """
-        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+        :param _builtins.str arn: ARN for the distribution tenant.
         """
         pulumi.set(__self__, "arn", arn)
 
@@ -7314,7 +7314,7 @@ class GetDistributionTenantCustomizationCertificateResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) for the distribution tenant.
+        ARN for the distribution tenant.
         """
         return pulumi.get(self, "arn")
 
@@ -7344,7 +7344,7 @@ class GetDistributionTenantCustomizationWebAclResult(dict):
                  action: _builtins.str,
                  arn: _builtins.str):
         """
-        :param _builtins.str arn: ARN (Amazon Resource Name) for the distribution tenant.
+        :param _builtins.str arn: ARN for the distribution tenant.
         """
         pulumi.set(__self__, "action", action)
         pulumi.set(__self__, "arn", arn)
@@ -7358,7 +7358,7 @@ class GetDistributionTenantCustomizationWebAclResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) for the distribution tenant.
+        ARN for the distribution tenant.
         """
         return pulumi.get(self, "arn")
 

@@ -53,7 +53,7 @@ export class Revision extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this data set.
+     * ARN of this data set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class Revision extends pulumi.CustomResource {
  */
 export interface RevisionState {
     /**
-     * The Amazon Resource Name of this data set.
+     * ARN of this data set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

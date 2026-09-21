@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+ * - `arn` (String) ARN of the Device Farm upload.
  *
  * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
  *
@@ -66,7 +66,7 @@ export class Upload extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this upload.
+     * ARN of this upload.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class Upload extends pulumi.CustomResource {
  */
 export interface UploadState {
     /**
-     * The Amazon Resource Name of this upload.
+     * ARN of this upload.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

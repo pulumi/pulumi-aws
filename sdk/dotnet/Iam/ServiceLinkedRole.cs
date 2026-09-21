@@ -36,7 +36,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+    /// - `Arn` (String) ARN of the IAM service-linked role.
     /// 
     /// Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
     /// 
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Iam
     public partial class ServiceLinkedRole : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the role.
+        /// ARN specifying the role.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.Iam
     public sealed class ServiceLinkedRoleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the role.
+        /// ARN specifying the role.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

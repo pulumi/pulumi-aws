@@ -26,13 +26,6 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ResourceConfiguration("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
-    ///         PortRanges = new[]
-    ///         {
-    ///             "80",
-    ///         },
-    ///         Protocol = "TCP",
     ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
     ///         {
     ///             DnsResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs
@@ -41,6 +34,13 @@ namespace Pulumi.Aws.VpcLattice
     ///                 IpAddressType = "IPV4",
     ///             },
     ///         },
+    ///         Name = "Example",
+    ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
+    ///         PortRanges = new[]
+    ///         {
+    ///             "80",
+    ///         },
+    ///         Protocol = "TCP",
     ///         Tags = 
     ///         {
     ///             { "Environment", "Example" },
@@ -62,13 +62,6 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ResourceConfiguration("example", new()
     ///     {
-    ///         Name = "Example",
-    ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
-    ///         PortRanges = new[]
-    ///         {
-    ///             "80",
-    ///         },
-    ///         Protocol = "TCP",
     ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
     ///         {
     ///             IpResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs
@@ -76,6 +69,13 @@ namespace Pulumi.Aws.VpcLattice
     ///                 IpAddress = "10.0.0.1",
     ///             },
     ///         },
+    ///         Name = "Example",
+    ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
+    ///         PortRanges = new[]
+    ///         {
+    ///             "80",
+    ///         },
+    ///         Protocol = "TCP",
     ///         Tags = 
     ///         {
     ///             { "Environment", "Example" },
@@ -102,6 +102,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     ///     var exampleResourceConfiguration = new Aws.VpcLattice.ResourceConfiguration("example", new()
     ///     {
+    ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
+    ///         {
+    ///             DnsResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs
+    ///             {
+    ///                 DomainName = "test.example.com",
+    ///                 IpAddressType = "IPV4",
+    ///             },
+    ///         },
     ///         Name = "Example",
     ///         ResourceGatewayIdentifier = exampleAwsVpclatticeResourceGateway.Id,
     ///         CustomDomainName = "custom.example.com",
@@ -111,14 +119,6 @@ namespace Pulumi.Aws.VpcLattice
     ///             "443",
     ///         },
     ///         Protocol = "TCP",
-    ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
-    ///         {
-    ///             DnsResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs
-    ///             {
-    ///                 DomainName = "test.example.com",
-    ///                 IpAddressType = "IPV4",
-    ///             },
-    ///         },
     ///         Tags = 
     ///         {
     ///             { "Environment", "Example" },
@@ -140,9 +140,6 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var test = new Aws.VpcLattice.ResourceConfiguration("test", new()
     ///     {
-    ///         Name = "Example",
-    ///         ResourceGatewayIdentifier = testAwsVpclatticeResourceGateway.Id,
-    ///         Type = "ARN",
     ///         ResourceConfigurationDefinition = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArgs
     ///         {
     ///             ArnResource = new Aws.VpcLattice.Inputs.ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs
@@ -150,6 +147,9 @@ namespace Pulumi.Aws.VpcLattice
     ///                 Arn = example.Arn,
     ///             },
     ///         },
+    ///         Name = "Example",
+    ///         ResourceGatewayIdentifier = testAwsVpclatticeResourceGateway.Id,
+    ///         Type = "ARN",
     ///     });
     /// 
     /// });

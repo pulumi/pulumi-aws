@@ -31,8 +31,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             CloudWatchDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -75,8 +75,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var example = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = exampleAwsSesv2ConfigurationSet.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             EventBridgeDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs
@@ -89,6 +87,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = exampleAwsSesv2ConfigurationSet.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -111,8 +111,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             KinesisFirehoseDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs
@@ -126,6 +124,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -148,8 +148,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             PinpointDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs
@@ -162,6 +160,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -184,8 +184,6 @@ namespace Pulumi.Aws.SesV2
     /// 
     ///     var exampleConfigurationSetEventDestination = new Aws.SesV2.ConfigurationSetEventDestination("example", new()
     ///     {
-    ///         ConfigurationSetName = example.ConfigurationSetName,
-    ///         EventDestinationName = "example",
     ///         EventDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationArgs
     ///         {
     ///             SnsDestination = new Aws.SesV2.Inputs.ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs
@@ -198,6 +196,8 @@ namespace Pulumi.Aws.SesV2
     ///                 "SEND",
     ///             },
     ///         },
+    ///         ConfigurationSetName = example.ConfigurationSetName,
+    ///         EventDestinationName = "example",
     ///     });
     /// 
     /// });
@@ -215,19 +215,19 @@ namespace Pulumi.Aws.SesV2
     public partial class ConfigurationSetEventDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Output("configurationSetName")]
         public Output<string> ConfigurationSetName { get; private set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// Object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Output("eventDestination")]
         public Output<Outputs.ConfigurationSetEventDestinationEventDestination> EventDestination { get; private set; } = null!;
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// Name that identifies the event destination within the configuration set.
         /// </summary>
         [Output("eventDestinationName")]
         public Output<string> EventDestinationName { get; private set; } = null!;
@@ -285,19 +285,19 @@ namespace Pulumi.Aws.SesV2
     public sealed class ConfigurationSetEventDestinationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// Object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestination", required: true)]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationArgs> EventDestination { get; set; } = null!;
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// Name that identifies the event destination within the configuration set.
         /// </summary>
         [Input("eventDestinationName", required: true)]
         public Input<string> EventDestinationName { get; set; } = null!;
@@ -317,19 +317,19 @@ namespace Pulumi.Aws.SesV2
     public sealed class ConfigurationSetEventDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("configurationSetName")]
         public Input<string>? ConfigurationSetName { get; set; }
 
         /// <summary>
-        /// An object that defines the event destination. See `EventDestination` Block for details.
+        /// Object that defines the event destination. See `EventDestination` Block for details.
         /// </summary>
         [Input("eventDestination")]
         public Input<Inputs.ConfigurationSetEventDestinationEventDestinationGetArgs>? EventDestination { get; set; }
 
         /// <summary>
-        /// A name that identifies the event destination within the configuration set.
+        /// Name that identifies the event destination within the configuration set.
         /// </summary>
         [Input("eventDestinationName")]
         public Input<string>? EventDestinationName { get; set; }

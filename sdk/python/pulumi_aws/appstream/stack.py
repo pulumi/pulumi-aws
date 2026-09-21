@@ -534,11 +534,10 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            name="stack name",
-            description="stack description",
-            display_name="stack display name",
-            feedback_url="http://your-domain/feedback",
-            redirect_url="http://your-domain/redirect",
+            application_settings={
+                "enabled": True,
+                "settings_group": "SettingsGroup",
+            },
             storage_connectors=[{
                 "connector_type": "HOMEFOLDERS",
             }],
@@ -576,10 +575,11 @@ class Stack(pulumi.CustomResource):
                     "permission": "ENABLED",
                 },
             ],
-            application_settings={
-                "enabled": True,
-                "settings_group": "SettingsGroup",
-            },
+            name="stack name",
+            description="stack description",
+            display_name="stack display name",
+            feedback_url="http://your-domain/feedback",
+            redirect_url="http://your-domain/redirect",
             tags={
                 "TagName": "TagValue",
             })
@@ -628,11 +628,10 @@ class Stack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.Stack("example",
-            name="stack name",
-            description="stack description",
-            display_name="stack display name",
-            feedback_url="http://your-domain/feedback",
-            redirect_url="http://your-domain/redirect",
+            application_settings={
+                "enabled": True,
+                "settings_group": "SettingsGroup",
+            },
             storage_connectors=[{
                 "connector_type": "HOMEFOLDERS",
             }],
@@ -670,10 +669,11 @@ class Stack(pulumi.CustomResource):
                     "permission": "ENABLED",
                 },
             ],
-            application_settings={
-                "enabled": True,
-                "settings_group": "SettingsGroup",
-            },
+            name="stack name",
+            description="stack description",
+            display_name="stack display name",
+            feedback_url="http://your-domain/feedback",
+            redirect_url="http://your-domain/redirect",
             tags={
                 "TagName": "TagValue",
             })

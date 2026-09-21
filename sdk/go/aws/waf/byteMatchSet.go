@@ -28,18 +28,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewByteMatchSet(ctx, "byte_set", &waf.ByteMatchSetArgs{
-//				Name: pulumi.String("my_waf_byte_match_set"),
 //				ByteMatchTuples: waf.ByteMatchSetByteMatchTupleArray{
 //					&waf.ByteMatchSetByteMatchTupleArgs{
-//						TextTransformation:   pulumi.String("NONE"),
-//						TargetString:         pulumi.String("badrefer1"),
-//						PositionalConstraint: pulumi.String("CONTAINS"),
 //						FieldToMatch: &waf.ByteMatchSetByteMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("HEADER"),
 //							Data: pulumi.String("referer"),
 //						},
+//						TextTransformation:   pulumi.String("NONE"),
+//						TargetString:         pulumi.String("badrefer1"),
+//						PositionalConstraint: pulumi.String("CONTAINS"),
 //					},
 //				},
+//				Name: pulumi.String("my_waf_byte_match_set"),
 //			})
 //			if err != nil {
 //				return err
@@ -60,7 +60,7 @@ import (
 type ByteMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the byte match set.
+	// ARN of the byte match set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
@@ -100,7 +100,7 @@ func GetByteMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ByteMatchSet resources.
 type byteMatchSetState struct {
-	// Amazon Resource Name (ARN) of the byte match set.
+	// ARN of the byte match set.
 	Arn *string `pulumi:"arn"`
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
@@ -111,7 +111,7 @@ type byteMatchSetState struct {
 }
 
 type ByteMatchSetState struct {
-	// Amazon Resource Name (ARN) of the byte match set.
+	// ARN of the byte match set.
 	Arn pulumi.StringPtrInput
 	// Specifies the bytes (typically a string that corresponds
 	// with ASCII characters) that you want to search for in web requests,
@@ -231,7 +231,7 @@ func (o ByteMatchSetOutput) ToByteMatchSetOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the byte match set.
+// ARN of the byte match set.
 func (o ByteMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ByteMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -7,7 +7,10 @@ import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class V2ServiceAssociatedSystemArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class V2ServiceAssociatedSystemArgs extends com.pulumi.resources.Re
         return this.systemArn;
     }
 
+    /**
+     * List of user journey identifiers that associate the system with the service.
+     * 
+     */
+    @Import(name="userJourneyIds")
+    private @Nullable Output<List<String>> userJourneyIds;
+
+    /**
+     * @return List of user journey identifiers that associate the system with the service.
+     * 
+     */
+    public Optional<Output<List<String>>> userJourneyIds() {
+        return Optional.ofNullable(this.userJourneyIds);
+    }
+
     private V2ServiceAssociatedSystemArgs() {}
 
     private V2ServiceAssociatedSystemArgs(V2ServiceAssociatedSystemArgs $) {
         this.systemArn = $.systemArn;
+        this.userJourneyIds = $.userJourneyIds;
     }
 
     public static Builder builder() {
@@ -72,6 +91,37 @@ public final class V2ServiceAssociatedSystemArgs extends com.pulumi.resources.Re
          */
         public Builder systemArn(String systemArn) {
             return systemArn(Output.of(systemArn));
+        }
+
+        /**
+         * @param userJourneyIds List of user journey identifiers that associate the system with the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyIds(@Nullable Output<List<String>> userJourneyIds) {
+            $.userJourneyIds = userJourneyIds;
+            return this;
+        }
+
+        /**
+         * @param userJourneyIds List of user journey identifiers that associate the system with the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyIds(List<String> userJourneyIds) {
+            return userJourneyIds(Output.of(userJourneyIds));
+        }
+
+        /**
+         * @param userJourneyIds List of user journey identifiers that associate the system with the service.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder userJourneyIds(String... userJourneyIds) {
+            return userJourneyIds(List.of(userJourneyIds));
         }
 
         public V2ServiceAssociatedSystemArgs build() {

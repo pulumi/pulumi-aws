@@ -48,6 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testConfiguredTable = new ConfiguredTable("testConfiguredTable", ConfiguredTableArgs.builder()
+ *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
+ *                 .databaseName("example_database")
+ *                 .tableName("example_table")
+ *                 .build())
  *             .name("pulumi-example-table")
  *             .description("I made this table with Pulumi!")
  *             .analysisMethod("DIRECT_QUERY")
@@ -55,10 +59,6 @@ import javax.annotation.Nullable;
  *                 "column1",
  *                 "column2",
  *                 "column3")
- *             .tableReference(ConfiguredTableTableReferenceArgs.builder()
- *                 .databaseName("example_database")
- *                 .tableName("example_table")
- *                 .build())
  *             .tags(Map.of("Project", "Pulumi"))
  *             .build());
  * 

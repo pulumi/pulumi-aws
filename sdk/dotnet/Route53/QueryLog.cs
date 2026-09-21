@@ -48,15 +48,6 @@ namespace Pulumi.Aws.Route53
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     "arn:aws:logs:*:*:log-group:/aws/route53/*",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -67,6 +58,15 @@ namespace Pulumi.Aws.Route53
     ///                         },
     ///                         Type = "Service",
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:logs:*:*:log-group:/aws/route53/*",
     ///                 },
     ///             },
     ///         },
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Route53
     public partial class QueryLog : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// ARN of the Query Logging Config.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.Route53
     public sealed class QueryLogState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Query Logging Config.
+        /// ARN of the Query Logging Config.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

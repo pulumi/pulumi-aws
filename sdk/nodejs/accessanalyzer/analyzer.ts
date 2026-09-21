@@ -43,11 +43,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accessanalyzer.Analyzer("example", {
- *     analyzerName: "example",
- *     type: "ORGANIZATION_UNUSED_ACCESS",
  *     configuration: {
  *         unusedAccess: {
- *             unusedAccessAge: 180,
  *             analysisRule: {
  *                 exclusions: [
  *                     {
@@ -68,8 +65,11 @@ import * as utilities from "../utilities";
  *                     },
  *                 ],
  *             },
+ *             unusedAccessAge: 180,
  *         },
  *     },
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_UNUSED_ACCESS",
  * });
  * ```
  *
@@ -80,8 +80,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.accessanalyzer.Analyzer("test", {
- *     analyzerName: "example",
- *     type: "ORGANIZATION_INTERNAL_ACCESS",
  *     configuration: {
  *         internalAccess: {
  *             analysisRule: {
@@ -95,6 +93,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_INTERNAL_ACCESS",
  * });
  * ```
  *
@@ -105,8 +105,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.accessanalyzer.Analyzer("test", {
- *     analyzerName: "example",
- *     type: "ORGANIZATION_INTERNAL_ACCESS",
  *     configuration: {
  *         internalAccess: {
  *             analysisRule: {
@@ -117,6 +115,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     analyzerName: "example",
+ *     type: "ORGANIZATION_INTERNAL_ACCESS",
  * });
  * ```
  *

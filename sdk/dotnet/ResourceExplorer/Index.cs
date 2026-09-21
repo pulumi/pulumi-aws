@@ -36,7 +36,7 @@ namespace Pulumi.Aws.ResourceExplorer
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Resource Explorer index.
+    /// - `Arn` (String) ARN of the Resource Explorer index.
     /// 
     /// Using `pulumi import`, import Resource Explorer indexes using the `Arn`. For example:
     /// 
@@ -48,7 +48,7 @@ namespace Pulumi.Aws.ResourceExplorer
     public partial class Index : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer index.
+        /// ARN of the Resource Explorer index.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.ResourceExplorer
     public sealed class IndexState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Resource Explorer index.
+        /// ARN of the Resource Explorer index.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

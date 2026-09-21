@@ -27,10 +27,10 @@ class ResourceShareAssociationsExclusiveArgs:
         """
         The set of arguments for constructing a ResourceShareAssociationsExclusive resource.
 
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the resource share. Changing this value forces creation of a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
         """
         pulumi.set(__self__, "resource_share_arn", resource_share_arn)
@@ -47,7 +47,7 @@ class ResourceShareAssociationsExclusiveArgs:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        ARN of the resource share. Changing this value forces creation of a new resource.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -83,7 +83,7 @@ class ResourceShareAssociationsExclusiveArgs:
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         """
         return pulumi.get(self, "resource_arns")
 
@@ -117,8 +117,8 @@ class _ResourceShareAssociationsExclusiveState:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the resource share. Changing this value forces creation of a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
         """
         if principals is not None:
@@ -160,7 +160,7 @@ class _ResourceShareAssociationsExclusiveState:
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         """
         return pulumi.get(self, "resource_arns")
 
@@ -172,7 +172,7 @@ class _ResourceShareAssociationsExclusiveState:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        ARN of the resource share. Changing this value forces creation of a new resource.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -275,14 +275,14 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
             name="example-service-share",
             allow_external_principals=True)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            type="ROOT")
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=["pca-connector-ad.amazonaws.com"],
@@ -312,7 +312,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_share_arn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+        - `resource_share_arn` (String) ARN of the RAM resource share.
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
 
@@ -325,8 +325,8 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the resource share. Changing this value forces creation of a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
         """
         ...
@@ -405,14 +405,14 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
             name="example-service-share",
             allow_external_principals=True)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            type="ROOT")
         example_resource_share_associations_exclusive = aws.ram.ResourceShareAssociationsExclusive("example",
             resource_share_arn=example.arn,
             principals=["pca-connector-ad.amazonaws.com"],
@@ -442,7 +442,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_share_arn` (String) Amazon Resource Name (ARN) of the RAM resource share.
+        - `resource_share_arn` (String) ARN of the RAM resource share.
 
         Using `pulumi import`, import RAM Resource Share Association Exclusive using the `resource_share_arn`. For example:
 
@@ -511,8 +511,8 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] principals: Set of principals to associate with the resource share. Principals not configured in this argument will be removed. Valid values include: AWS account ID (exactly 12 digits, e.g., `123456789012`), AWS Organizations Organization ARN (e.g., `arn:aws:organizations::123456789012:organization/o-exampleorgid`), AWS Organizations Organizational Unit ARN (e.g., `arn:aws:organizations::123456789012:ou/o-exampleorgid/ou-examplerootid-exampleouid`), IAM role ARN (e.g., `arn:aws:iam::123456789012:role/example-role`), IAM user ARN (e.g., `arn:aws:iam::123456789012:user/example-user`), or service principal (e.g., `ec2.amazonaws.com`).
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] resource_arns: Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the resource share. Changing this value forces creation of a new resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] sources: Set of AWS account IDs that restrict which accounts a service principal can access resources from. This argument can only be specified when `principals` contains only service principals. When specified, it limits the source accounts from which the service can access the shared resources.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -546,7 +546,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
     @pulumi.getter(name="resourceArns")
     def resource_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        Set of Amazon Resource Names (ARNs) of resources to associate with the resource share. Resources not configured in this argument will be removed.
+        Set of ARNs of resources to associate with the resource share. Resources not configured in this argument will be removed.
         """
         return pulumi.get(self, "resource_arns")
 
@@ -554,7 +554,7 @@ class ResourceShareAssociationsExclusive(pulumi.CustomResource):
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource share. Changing this value forces creation of a new resource.
+        ARN of the resource share. Changing this value forces creation of a new resource.
         """
         return pulumi.get(self, "resource_share_arn")
 

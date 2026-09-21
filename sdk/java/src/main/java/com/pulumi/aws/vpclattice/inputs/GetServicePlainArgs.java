@@ -46,14 +46,14 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
     }
 
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      * 
      */
     @Import(name="serviceIdentifier")
     private @Nullable String serviceIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the service.
+     * @return ID or ARN of the service.
      * 
      */
     public Optional<String> serviceIdentifier() {
@@ -125,7 +125,7 @@ public final class GetServicePlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param serviceIdentifier ID or Amazon Resource Name (ARN) of the service.
+         * @param serviceIdentifier ID or ARN of the service.
          * 
          * @return builder
          * 

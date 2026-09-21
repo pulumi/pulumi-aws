@@ -150,7 +150,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+// - `arn` (String) ARN of the SNS topic.
 //
 // Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
 //

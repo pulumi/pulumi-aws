@@ -31,7 +31,7 @@ class VpcEndpointAssociationArgs:
         """
         The set of arguments for constructing a VpcEndpointAssociation resource.
 
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[_builtins.str] firewall_arn: The ARN that identifies the firewall.
         :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[_builtins.str] vpc_id: The unique identifier of the VPC for the endpoint association.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
@@ -54,7 +54,7 @@ class VpcEndpointAssociationArgs:
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that identifies the firewall.
+        The ARN that identifies the firewall.
         """
         return pulumi.get(self, "firewall_arn")
 
@@ -150,7 +150,7 @@ class _VpcEndpointAssociationState:
         Input properties used for looking up and filtering VpcEndpointAssociation resources.
 
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[_builtins.str] firewall_arn: The ARN that identifies the firewall.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['VpcEndpointAssociationSubnetMappingArgs'] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -199,7 +199,7 @@ class _VpcEndpointAssociationState:
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the firewall.
+        The ARN that identifies the firewall.
         """
         return pulumi.get(self, "firewall_arn")
 
@@ -341,11 +341,11 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.VpcEndpointAssociation("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            vpc_id=example_aws_vpc["id"],
             subnet_mapping={
                 "subnet_id": example_aws_subnet["id"],
             },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example endpoint",
             })
@@ -363,7 +363,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[_builtins.str] firewall_arn: The ARN that identifies the firewall.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -389,11 +389,11 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.VpcEndpointAssociation("example",
-            firewall_arn=example_aws_networkfirewall_firewall["arn"],
-            vpc_id=example_aws_vpc["id"],
             subnet_mapping={
                 "subnet_id": example_aws_subnet["id"],
             },
+            firewall_arn=example_aws_networkfirewall_firewall["arn"],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example endpoint",
             })
@@ -485,7 +485,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of the VPC endpoint association.
-        :param pulumi.Input[_builtins.str] firewall_arn: The Amazon Resource Name (ARN) that identifies the firewall.
+        :param pulumi.Input[_builtins.str] firewall_arn: The ARN that identifies the firewall.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['VpcEndpointAssociationSubnetMappingArgs', 'VpcEndpointAssociationSubnetMappingArgsDict']] subnet_mapping: The ID for a subnet that's used in an association with a firewall. See Subnet Mapping below for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -524,7 +524,7 @@ class VpcEndpointAssociation(pulumi.CustomResource):
     @pulumi.getter(name="firewallArn")
     def firewall_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that identifies the firewall.
+        The ARN that identifies the firewall.
         """
         return pulumi.get(self, "firewall_arn")
 

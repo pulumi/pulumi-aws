@@ -21,14 +21,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     public static final IngestionDestinationArgs Empty = new IngestionDestinationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      */
     @Import(name="appBundleArn", required=true)
     private Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -51,14 +51,14 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * ARN of the ingestion to use for the request.
      * 
      */
     @Import(name="ingestionArn", required=true)
     private Output<String> ingestionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * @return ARN of the ingestion to use for the request.
      * 
      */
     public Output<String> ingestionArn() {
@@ -152,7 +152,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingestionArn Amazon Resource Name (ARN) of the ingestion to use for the request.
+         * @param ingestionArn ARN of the ingestion to use for the request.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class IngestionDestinationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ingestionArn Amazon Resource Name (ARN) of the ingestion to use for the request.
+         * @param ingestionArn ARN of the ingestion to use for the request.
          * 
          * @return builder
          * 

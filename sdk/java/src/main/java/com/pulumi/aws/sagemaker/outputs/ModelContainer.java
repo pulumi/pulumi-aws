@@ -38,7 +38,7 @@ public final class ModelContainer {
      */
     private @Nullable String image;
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
     private @Nullable ModelContainerImageConfig imageConfig;
@@ -63,7 +63,7 @@ public final class ModelContainer {
      */
     private @Nullable String modelDataUrl;
     /**
-     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return ARN of the model package to use to create the model.
      * A list of key value pairs.
      * 
      */
@@ -104,7 +104,7 @@ public final class ModelContainer {
         return Optional.ofNullable(this.image);
     }
     /**
-     * @return Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+     * @return Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
      * 
      */
     public Optional<ModelContainerImageConfig> imageConfig() {
@@ -139,7 +139,7 @@ public final class ModelContainer {
         return Optional.ofNullable(this.modelDataUrl);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the model package to use to create the model.
+     * @return ARN of the model package to use to create the model.
      * A list of key value pairs.
      * 
      */

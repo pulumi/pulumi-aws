@@ -92,12 +92,8 @@ type GetInferenceProfilesResult struct {
 }
 
 func GetInferenceProfilesOutput(ctx *pulumi.Context, args GetInferenceProfilesOutputArgs, opts ...pulumi.InvokeOption) GetInferenceProfilesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInferenceProfilesResultOutput, error) {
-			args := v.(GetInferenceProfilesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args, GetInferenceProfilesResultOutput{}, options).(GetInferenceProfilesResultOutput), nil
-		}).(GetInferenceProfilesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:bedrock/getInferenceProfiles:getInferenceProfiles", args, GetInferenceProfilesResultOutput{}, options).(GetInferenceProfilesResultOutput)
 }
 
 // A collection of arguments for invoking getInferenceProfiles.

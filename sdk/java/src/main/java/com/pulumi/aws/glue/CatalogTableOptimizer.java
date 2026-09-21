@@ -47,12 +47,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
  *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
  *                 .compactionConfiguration(CatalogTableOptimizerConfigurationCompactionConfigurationArgs.builder()
  *                     .icebergConfiguration(CatalogTableOptimizerConfigurationCompactionConfigurationIcebergConfigurationArgs.builder()
  *                         .strategy("binpack")
@@ -60,7 +55,12 @@ import javax.annotation.Nullable;
  *                         .deleteFileThreshold(1)
  *                         .build())
  *                     .build())
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
+ *                 .enabled(true)
  *                 .build())
+ *             .catalogId("123456789012")
+ *             .databaseName("example_database")
+ *             .tableName("example_table")
  *             .type("compaction")
  *             .build());
  * 
@@ -97,12 +97,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
  *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
  *                 .retentionConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationArgs.builder()
  *                     .icebergConfiguration(CatalogTableOptimizerConfigurationRetentionConfigurationIcebergConfigurationArgs.builder()
  *                         .snapshotRetentionPeriodInDays(7)
@@ -110,7 +105,12 @@ import javax.annotation.Nullable;
  *                         .cleanExpiredFiles(true)
  *                         .build())
  *                     .build())
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
+ *                 .enabled(true)
  *                 .build())
+ *             .catalogId("123456789012")
+ *             .databaseName("example_database")
+ *             .tableName("example_table")
  *             .type("retention")
  *             .build());
  * 
@@ -147,19 +147,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTableOptimizer("example", CatalogTableOptimizerArgs.builder()
- *             .catalogId("123456789012")
- *             .databaseName("example_database")
- *             .tableName("example_table")
  *             .configuration(CatalogTableOptimizerConfigurationArgs.builder()
- *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
- *                 .enabled(true)
  *                 .orphanFileDeletionConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationArgs.builder()
  *                     .icebergConfiguration(CatalogTableOptimizerConfigurationOrphanFileDeletionConfigurationIcebergConfigurationArgs.builder()
  *                         .orphanFileRetentionPeriodInDays(7)
  *                         .location("s3://example-bucket/example_table/")
  *                         .build())
  *                     .build())
+ *                 .roleArn("arn:aws:iam::123456789012:role/example-role")
+ *                 .enabled(true)
  *                 .build())
+ *             .catalogId("123456789012")
+ *             .databaseName("example_database")
+ *             .tableName("example_table")
  *             .type("orphan_file_deletion")
  *             .build());
  * 

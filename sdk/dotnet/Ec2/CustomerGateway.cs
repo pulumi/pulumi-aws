@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> BgpAsnExtended { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// ARN for the customer gateway certificate.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? BgpAsnExtended { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// ARN for the customer gateway certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? BgpAsnExtended { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the customer gateway certificate.
+        /// ARN for the customer gateway certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

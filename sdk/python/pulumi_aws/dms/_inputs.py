@@ -15,6 +15,30 @@ else:
 from .. import _utilities
 
 __all__ = [
+    'DataProviderSettingsArgs',
+    'DataProviderSettingsArgsDict',
+    'DataProviderSettingsDocDbSettingsArgs',
+    'DataProviderSettingsDocDbSettingsArgsDict',
+    'DataProviderSettingsIbmDb2LuwSettingsArgs',
+    'DataProviderSettingsIbmDb2LuwSettingsArgsDict',
+    'DataProviderSettingsIbmDb2ZosSettingsArgs',
+    'DataProviderSettingsIbmDb2ZosSettingsArgsDict',
+    'DataProviderSettingsMariaDbSettingsArgs',
+    'DataProviderSettingsMariaDbSettingsArgsDict',
+    'DataProviderSettingsMicrosoftSqlServerSettingsArgs',
+    'DataProviderSettingsMicrosoftSqlServerSettingsArgsDict',
+    'DataProviderSettingsMongoDbSettingsArgs',
+    'DataProviderSettingsMongoDbSettingsArgsDict',
+    'DataProviderSettingsMysqlSettingsArgs',
+    'DataProviderSettingsMysqlSettingsArgsDict',
+    'DataProviderSettingsOracleSettingsArgs',
+    'DataProviderSettingsOracleSettingsArgsDict',
+    'DataProviderSettingsPostgresqlSettingsArgs',
+    'DataProviderSettingsPostgresqlSettingsArgsDict',
+    'DataProviderSettingsRedshiftSettingsArgs',
+    'DataProviderSettingsRedshiftSettingsArgsDict',
+    'DataProviderSettingsSybaseAseSettingsArgs',
+    'DataProviderSettingsSybaseAseSettingsArgsDict',
     'EndpointElasticsearchSettingsArgs',
     'EndpointElasticsearchSettingsArgsDict',
     'EndpointKafkaSettingsArgs',
@@ -33,11 +57,1907 @@ __all__ = [
     'EndpointRedisSettingsArgsDict',
     'EndpointRedshiftSettingsArgs',
     'EndpointRedshiftSettingsArgsDict',
+    'MigrationProjectSchemaConversionApplicationAttributesArgs',
+    'MigrationProjectSchemaConversionApplicationAttributesArgsDict',
+    'MigrationProjectSourceDataProviderDescriptorArgs',
+    'MigrationProjectSourceDataProviderDescriptorArgsDict',
+    'MigrationProjectTargetDataProviderDescriptorArgs',
+    'MigrationProjectTargetDataProviderDescriptorArgsDict',
+    'MigrationProjectTimeoutsArgs',
+    'MigrationProjectTimeoutsArgsDict',
     'ReplicationConfigComputeConfigArgs',
     'ReplicationConfigComputeConfigArgsDict',
     'ReplicationInstanceKerberosAuthenticationSettingsArgs',
     'ReplicationInstanceKerberosAuthenticationSettingsArgsDict',
 ]
+
+class DataProviderSettingsArgsDict(TypedDict):
+    doc_db_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsDocDbSettingsArgsDict']]]
+    """
+    Settings for the `docdb` engine. See `doc_db_settings` Block below.
+    """
+    ibm_db2_luw_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsIbmDb2LuwSettingsArgsDict']]]
+    """
+    Settings for the `db2` engine. See `ibm_db2_luw_settings` Block below.
+    """
+    ibm_db2_zos_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsIbmDb2ZosSettingsArgsDict']]]
+    """
+    Settings for the `db2-zos` engine. See `ibm_db2_zos_settings` Block below.
+    """
+    maria_db_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsMariaDbSettingsArgsDict']]]
+    """
+    Settings for the `mariadb` engine. See `maria_db_settings` Block below.
+    """
+    microsoft_sql_server_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsMicrosoftSqlServerSettingsArgsDict']]]
+    """
+    Settings for the `sqlserver` engine. See `microsoft_sql_server_settings` Block below.
+    """
+    mongo_db_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsMongoDbSettingsArgsDict']]]
+    """
+    Settings for the `mongodb` engine. See `mongo_db_settings` Block below.
+    """
+    mysql_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsMysqlSettingsArgsDict']]]
+    """
+    Settings for the `mysql` and `aurora` engines. See `mysql_settings` Block below.
+    """
+    oracle_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsOracleSettingsArgsDict']]]
+    """
+    Settings for the `oracle` engine. See `oracle_settings` Block below.
+    """
+    postgresql_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsPostgresqlSettingsArgsDict']]]
+    """
+    Settings for the `postgres` and `aurora-postgresql` engines. See `postgresql_settings` Block below.
+    """
+    redshift_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsRedshiftSettingsArgsDict']]]
+    """
+    Settings for the `redshift` engine. See `redshift_settings` Block below.
+    """
+    sybase_ase_settings: NotRequired[pulumi.Input[Optional['DataProviderSettingsSybaseAseSettingsArgsDict']]]
+    """
+    Settings for the `sybase` engine. See `sybase_ase_settings` Block below.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsArgs:
+    def __init__(__self__, *,
+                 doc_db_settings: pulumi.Input[Optional['DataProviderSettingsDocDbSettingsArgs']] = None,
+                 ibm_db2_luw_settings: pulumi.Input[Optional['DataProviderSettingsIbmDb2LuwSettingsArgs']] = None,
+                 ibm_db2_zos_settings: pulumi.Input[Optional['DataProviderSettingsIbmDb2ZosSettingsArgs']] = None,
+                 maria_db_settings: pulumi.Input[Optional['DataProviderSettingsMariaDbSettingsArgs']] = None,
+                 microsoft_sql_server_settings: pulumi.Input[Optional['DataProviderSettingsMicrosoftSqlServerSettingsArgs']] = None,
+                 mongo_db_settings: pulumi.Input[Optional['DataProviderSettingsMongoDbSettingsArgs']] = None,
+                 mysql_settings: pulumi.Input[Optional['DataProviderSettingsMysqlSettingsArgs']] = None,
+                 oracle_settings: pulumi.Input[Optional['DataProviderSettingsOracleSettingsArgs']] = None,
+                 postgresql_settings: pulumi.Input[Optional['DataProviderSettingsPostgresqlSettingsArgs']] = None,
+                 redshift_settings: pulumi.Input[Optional['DataProviderSettingsRedshiftSettingsArgs']] = None,
+                 sybase_ase_settings: pulumi.Input[Optional['DataProviderSettingsSybaseAseSettingsArgs']] = None):
+        """
+        :param pulumi.Input['DataProviderSettingsDocDbSettingsArgs'] doc_db_settings: Settings for the `docdb` engine. See `doc_db_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsIbmDb2LuwSettingsArgs'] ibm_db2_luw_settings: Settings for the `db2` engine. See `ibm_db2_luw_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsIbmDb2ZosSettingsArgs'] ibm_db2_zos_settings: Settings for the `db2-zos` engine. See `ibm_db2_zos_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsMariaDbSettingsArgs'] maria_db_settings: Settings for the `mariadb` engine. See `maria_db_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsMicrosoftSqlServerSettingsArgs'] microsoft_sql_server_settings: Settings for the `sqlserver` engine. See `microsoft_sql_server_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsMongoDbSettingsArgs'] mongo_db_settings: Settings for the `mongodb` engine. See `mongo_db_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsMysqlSettingsArgs'] mysql_settings: Settings for the `mysql` and `aurora` engines. See `mysql_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsOracleSettingsArgs'] oracle_settings: Settings for the `oracle` engine. See `oracle_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsPostgresqlSettingsArgs'] postgresql_settings: Settings for the `postgres` and `aurora-postgresql` engines. See `postgresql_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsRedshiftSettingsArgs'] redshift_settings: Settings for the `redshift` engine. See `redshift_settings` Block below.
+        :param pulumi.Input['DataProviderSettingsSybaseAseSettingsArgs'] sybase_ase_settings: Settings for the `sybase` engine. See `sybase_ase_settings` Block below.
+        """
+        if doc_db_settings is not None:
+            pulumi.set(__self__, "doc_db_settings", doc_db_settings)
+        if ibm_db2_luw_settings is not None:
+            pulumi.set(__self__, "ibm_db2_luw_settings", ibm_db2_luw_settings)
+        if ibm_db2_zos_settings is not None:
+            pulumi.set(__self__, "ibm_db2_zos_settings", ibm_db2_zos_settings)
+        if maria_db_settings is not None:
+            pulumi.set(__self__, "maria_db_settings", maria_db_settings)
+        if microsoft_sql_server_settings is not None:
+            pulumi.set(__self__, "microsoft_sql_server_settings", microsoft_sql_server_settings)
+        if mongo_db_settings is not None:
+            pulumi.set(__self__, "mongo_db_settings", mongo_db_settings)
+        if mysql_settings is not None:
+            pulumi.set(__self__, "mysql_settings", mysql_settings)
+        if oracle_settings is not None:
+            pulumi.set(__self__, "oracle_settings", oracle_settings)
+        if postgresql_settings is not None:
+            pulumi.set(__self__, "postgresql_settings", postgresql_settings)
+        if redshift_settings is not None:
+            pulumi.set(__self__, "redshift_settings", redshift_settings)
+        if sybase_ase_settings is not None:
+            pulumi.set(__self__, "sybase_ase_settings", sybase_ase_settings)
+
+    @_builtins.property
+    @pulumi.getter(name="docDbSettings")
+    def doc_db_settings(self) -> pulumi.Input[Optional['DataProviderSettingsDocDbSettingsArgs']]:
+        """
+        Settings for the `docdb` engine. See `doc_db_settings` Block below.
+        """
+        return pulumi.get(self, "doc_db_settings")
+
+    @doc_db_settings.setter
+    def doc_db_settings(self, value: pulumi.Input[Optional['DataProviderSettingsDocDbSettingsArgs']]):
+        pulumi.set(self, "doc_db_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ibmDb2LuwSettings")
+    def ibm_db2_luw_settings(self) -> pulumi.Input[Optional['DataProviderSettingsIbmDb2LuwSettingsArgs']]:
+        """
+        Settings for the `db2` engine. See `ibm_db2_luw_settings` Block below.
+        """
+        return pulumi.get(self, "ibm_db2_luw_settings")
+
+    @ibm_db2_luw_settings.setter
+    def ibm_db2_luw_settings(self, value: pulumi.Input[Optional['DataProviderSettingsIbmDb2LuwSettingsArgs']]):
+        pulumi.set(self, "ibm_db2_luw_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="ibmDb2ZosSettings")
+    def ibm_db2_zos_settings(self) -> pulumi.Input[Optional['DataProviderSettingsIbmDb2ZosSettingsArgs']]:
+        """
+        Settings for the `db2-zos` engine. See `ibm_db2_zos_settings` Block below.
+        """
+        return pulumi.get(self, "ibm_db2_zos_settings")
+
+    @ibm_db2_zos_settings.setter
+    def ibm_db2_zos_settings(self, value: pulumi.Input[Optional['DataProviderSettingsIbmDb2ZosSettingsArgs']]):
+        pulumi.set(self, "ibm_db2_zos_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mariaDbSettings")
+    def maria_db_settings(self) -> pulumi.Input[Optional['DataProviderSettingsMariaDbSettingsArgs']]:
+        """
+        Settings for the `mariadb` engine. See `maria_db_settings` Block below.
+        """
+        return pulumi.get(self, "maria_db_settings")
+
+    @maria_db_settings.setter
+    def maria_db_settings(self, value: pulumi.Input[Optional['DataProviderSettingsMariaDbSettingsArgs']]):
+        pulumi.set(self, "maria_db_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="microsoftSqlServerSettings")
+    def microsoft_sql_server_settings(self) -> pulumi.Input[Optional['DataProviderSettingsMicrosoftSqlServerSettingsArgs']]:
+        """
+        Settings for the `sqlserver` engine. See `microsoft_sql_server_settings` Block below.
+        """
+        return pulumi.get(self, "microsoft_sql_server_settings")
+
+    @microsoft_sql_server_settings.setter
+    def microsoft_sql_server_settings(self, value: pulumi.Input[Optional['DataProviderSettingsMicrosoftSqlServerSettingsArgs']]):
+        pulumi.set(self, "microsoft_sql_server_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mongoDbSettings")
+    def mongo_db_settings(self) -> pulumi.Input[Optional['DataProviderSettingsMongoDbSettingsArgs']]:
+        """
+        Settings for the `mongodb` engine. See `mongo_db_settings` Block below.
+        """
+        return pulumi.get(self, "mongo_db_settings")
+
+    @mongo_db_settings.setter
+    def mongo_db_settings(self, value: pulumi.Input[Optional['DataProviderSettingsMongoDbSettingsArgs']]):
+        pulumi.set(self, "mongo_db_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="mysqlSettings")
+    def mysql_settings(self) -> pulumi.Input[Optional['DataProviderSettingsMysqlSettingsArgs']]:
+        """
+        Settings for the `mysql` and `aurora` engines. See `mysql_settings` Block below.
+        """
+        return pulumi.get(self, "mysql_settings")
+
+    @mysql_settings.setter
+    def mysql_settings(self, value: pulumi.Input[Optional['DataProviderSettingsMysqlSettingsArgs']]):
+        pulumi.set(self, "mysql_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="oracleSettings")
+    def oracle_settings(self) -> pulumi.Input[Optional['DataProviderSettingsOracleSettingsArgs']]:
+        """
+        Settings for the `oracle` engine. See `oracle_settings` Block below.
+        """
+        return pulumi.get(self, "oracle_settings")
+
+    @oracle_settings.setter
+    def oracle_settings(self, value: pulumi.Input[Optional['DataProviderSettingsOracleSettingsArgs']]):
+        pulumi.set(self, "oracle_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="postgresqlSettings")
+    def postgresql_settings(self) -> pulumi.Input[Optional['DataProviderSettingsPostgresqlSettingsArgs']]:
+        """
+        Settings for the `postgres` and `aurora-postgresql` engines. See `postgresql_settings` Block below.
+        """
+        return pulumi.get(self, "postgresql_settings")
+
+    @postgresql_settings.setter
+    def postgresql_settings(self, value: pulumi.Input[Optional['DataProviderSettingsPostgresqlSettingsArgs']]):
+        pulumi.set(self, "postgresql_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="redshiftSettings")
+    def redshift_settings(self) -> pulumi.Input[Optional['DataProviderSettingsRedshiftSettingsArgs']]:
+        """
+        Settings for the `redshift` engine. See `redshift_settings` Block below.
+        """
+        return pulumi.get(self, "redshift_settings")
+
+    @redshift_settings.setter
+    def redshift_settings(self, value: pulumi.Input[Optional['DataProviderSettingsRedshiftSettingsArgs']]):
+        pulumi.set(self, "redshift_settings", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sybaseAseSettings")
+    def sybase_ase_settings(self) -> pulumi.Input[Optional['DataProviderSettingsSybaseAseSettingsArgs']]:
+        """
+        Settings for the `sybase` engine. See `sybase_ase_settings` Block below.
+        """
+        return pulumi.get(self, "sybase_ase_settings")
+
+    @sybase_ase_settings.setter
+    def sybase_ase_settings(self, value: pulumi.Input[Optional['DataProviderSettingsSybaseAseSettingsArgs']]):
+        pulumi.set(self, "sybase_ase_settings", value)
+
+
+class DataProviderSettingsDocDbSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the DocumentDB data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the DocumentDB server. Valid values are between `1` and `65535`.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the DocumentDB server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsDocDbSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the DocumentDB data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the DocumentDB server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the DocumentDB server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the DocumentDB data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the DocumentDB server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the DocumentDB server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsIbmDb2LuwSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the IBM DB2 LUW data provider.
+    """
+    encryption_algorithm: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    security_mechanism: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the IBM DB2 LUW server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsIbmDb2LuwSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encryption_algorithm: pulumi.Input[Optional[_builtins.int]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 security_mechanism: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the IBM DB2 LUW data provider.
+        :param pulumi.Input[_builtins.int] encryption_algorithm: Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+        :param pulumi.Input[_builtins.int] port: Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.int] security_mechanism: Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the IBM DB2 LUW server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if encryption_algorithm is not None:
+            pulumi.set(__self__, "encryption_algorithm", encryption_algorithm)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if security_mechanism is not None:
+            pulumi.set(__self__, "security_mechanism", security_mechanism)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the IBM DB2 LUW data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptionAlgorithm")
+    def encryption_algorithm(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+        """
+        return pulumi.get(self, "encryption_algorithm")
+
+    @encryption_algorithm.setter
+    def encryption_algorithm(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "encryption_algorithm", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="securityMechanism")
+    def security_mechanism(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+        """
+        return pulumi.get(self, "security_mechanism")
+
+    @security_mechanism.setter
+    def security_mechanism(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "security_mechanism", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the IBM DB2 LUW server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsIbmDb2ZosSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the IBM DB2 for z/OS data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the IBM DB2 for z/OS server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsIbmDb2ZosSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the IBM DB2 for z/OS data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the IBM DB2 for z/OS server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the IBM DB2 for z/OS data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the IBM DB2 for z/OS server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsMariaDbSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the MariaDB server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the MariaDB server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsMariaDbSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.int] port: Port of the MariaDB server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the MariaDB server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the MariaDB server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the MariaDB server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsMicrosoftSqlServerSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the Microsoft SQL Server data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the Microsoft SQL Server instance.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsMicrosoftSqlServerSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the Microsoft SQL Server data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the Microsoft SQL Server instance.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the Microsoft SQL Server data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the Microsoft SQL Server instance.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsMongoDbSettingsArgsDict(TypedDict):
+    auth_mechanism: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authentication mechanism for the connection. Valid values: `default`, `mongodb_cr`, and `scram_sha_1`.
+    """
+    auth_source: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database used to verify credentials. Defaults to `admin`. Not used when `auth_type` is `no`.
+    """
+    auth_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Authentication type for the connection. Valid values: `no` and `password`.
+    """
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the MongoDB data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the MongoDB server. Valid values are between `1` and `65535`.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the MongoDB server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsMongoDbSettingsArgs:
+    def __init__(__self__, *,
+                 auth_mechanism: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_source: pulumi.Input[Optional[_builtins.str]] = None,
+                 auth_type: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] auth_mechanism: Authentication mechanism for the connection. Valid values: `default`, `mongodb_cr`, and `scram_sha_1`.
+        :param pulumi.Input[_builtins.str] auth_source: Database used to verify credentials. Defaults to `admin`. Not used when `auth_type` is `no`.
+        :param pulumi.Input[_builtins.str] auth_type: Authentication type for the connection. Valid values: `no` and `password`.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the MongoDB data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the MongoDB server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the MongoDB server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if auth_mechanism is not None:
+            pulumi.set(__self__, "auth_mechanism", auth_mechanism)
+        if auth_source is not None:
+            pulumi.set(__self__, "auth_source", auth_source)
+        if auth_type is not None:
+            pulumi.set(__self__, "auth_type", auth_type)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="authMechanism")
+    def auth_mechanism(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authentication mechanism for the connection. Valid values: `default`, `mongodb_cr`, and `scram_sha_1`.
+        """
+        return pulumi.get(self, "auth_mechanism")
+
+    @auth_mechanism.setter
+    def auth_mechanism(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_mechanism", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authSource")
+    def auth_source(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database used to verify credentials. Defaults to `admin`. Not used when `auth_type` is `no`.
+        """
+        return pulumi.get(self, "auth_source")
+
+    @auth_source.setter
+    def auth_source(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_source", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authType")
+    def auth_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Authentication type for the connection. Valid values: `no` and `password`.
+        """
+        return pulumi.get(self, "auth_type")
+
+    @auth_type.setter
+    def auth_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "auth_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the MongoDB data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the MongoDB server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the MongoDB server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsMysqlSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the MySQL server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the MySQL server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsMysqlSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.int] port: Port of the MySQL server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the MySQL server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the MySQL server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the MySQL server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsOracleSettingsArgsDict(TypedDict):
+    asm_server: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+    """
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the Oracle data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the Oracle server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    secrets_manager_oracle_asm_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+    """
+    secrets_manager_oracle_asm_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+    """
+    secrets_manager_security_db_encryption_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+    """
+    secrets_manager_security_db_encryption_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the Oracle server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsOracleSettingsArgs:
+    def __init__(__self__, *,
+                 asm_server: pulumi.Input[Optional[_builtins.str]] = None,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_oracle_asm_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_security_db_encryption_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_security_db_encryption_secret_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] asm_server: Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the Oracle data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the Oracle server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_access_role_arn: ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+        :param pulumi.Input[_builtins.str] secrets_manager_oracle_asm_secret_id: Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+        :param pulumi.Input[_builtins.str] secrets_manager_security_db_encryption_access_role_arn: ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+        :param pulumi.Input[_builtins.str] secrets_manager_security_db_encryption_secret_id: Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the Oracle server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if asm_server is not None:
+            pulumi.set(__self__, "asm_server", asm_server)
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if secrets_manager_oracle_asm_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_access_role_arn", secrets_manager_oracle_asm_access_role_arn)
+        if secrets_manager_oracle_asm_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_oracle_asm_secret_id", secrets_manager_oracle_asm_secret_id)
+        if secrets_manager_security_db_encryption_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_security_db_encryption_access_role_arn", secrets_manager_security_db_encryption_access_role_arn)
+        if secrets_manager_security_db_encryption_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_security_db_encryption_secret_id", secrets_manager_security_db_encryption_secret_id)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="asmServer")
+    def asm_server(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+        """
+        return pulumi.get(self, "asm_server")
+
+    @asm_server.setter
+    def asm_server(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "asm_server", value)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the Oracle data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the Oracle server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmAccessRoleArn")
+    def secrets_manager_oracle_asm_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_access_role_arn")
+
+    @secrets_manager_oracle_asm_access_role_arn.setter
+    def secrets_manager_oracle_asm_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerOracleAsmSecretId")
+    def secrets_manager_oracle_asm_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+        """
+        return pulumi.get(self, "secrets_manager_oracle_asm_secret_id")
+
+    @secrets_manager_oracle_asm_secret_id.setter
+    def secrets_manager_oracle_asm_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_oracle_asm_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecurityDbEncryptionAccessRoleArn")
+    def secrets_manager_security_db_encryption_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+        """
+        return pulumi.get(self, "secrets_manager_security_db_encryption_access_role_arn")
+
+    @secrets_manager_security_db_encryption_access_role_arn.setter
+    def secrets_manager_security_db_encryption_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_security_db_encryption_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecurityDbEncryptionSecretId")
+    def secrets_manager_security_db_encryption_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+        """
+        return pulumi.get(self, "secrets_manager_security_db_encryption_secret_id")
+
+    @secrets_manager_security_db_encryption_secret_id.setter
+    def secrets_manager_security_db_encryption_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_security_db_encryption_secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the Oracle server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsPostgresqlSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the PostgreSQL data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the PostgreSQL server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsPostgresqlSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the PostgreSQL data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the PostgreSQL server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the PostgreSQL data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the PostgreSQL server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
+
+class DataProviderSettingsRedshiftSettingsArgsDict(TypedDict):
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the Amazon Redshift data provider.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+    """
+    s3_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+    """
+    s3_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 path containing the user-defined schema.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the Amazon Redshift server.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsRedshiftSettingsArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 s3_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] database_name: Database name on the Amazon Redshift data provider.
+        :param pulumi.Input[_builtins.int] port: Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] s3_access_role_arn: ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] s3_path: S3 path containing the user-defined schema.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the Amazon Redshift server.
+        """
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if s3_access_role_arn is not None:
+            pulumi.set(__self__, "s3_access_role_arn", s3_access_role_arn)
+        if s3_path is not None:
+            pulumi.set(__self__, "s3_path", s3_path)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the Amazon Redshift data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3AccessRoleArn")
+    def s3_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_access_role_arn")
+
+    @s3_access_role_arn.setter
+    def s3_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3Path")
+    def s3_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 path containing the user-defined schema.
+        """
+        return pulumi.get(self, "s3_path")
+
+    @s3_path.setter
+    def s3_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the Amazon Redshift server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+
+class DataProviderSettingsSybaseAseSettingsArgsDict(TypedDict):
+    certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the DMS certificate used for the SSL connection.
+    """
+    database_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Database name on the SAP ASE data provider.
+    """
+    encrypt_password: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether to encrypt the connection password during transmission. Defaults to `true`.
+    """
+    port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Port of the SAP ASE server. Valid values are between `1` and `65535`.
+    """
+    server_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Hostname of the SAP ASE server.
+    """
+    ssl_mode: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+    """
+
+@pulumi.input_type
+class DataProviderSettingsSybaseAseSettingsArgs:
+    def __init__(__self__, *,
+                 certificate_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 database_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 encrypt_password: pulumi.Input[Optional[_builtins.bool]] = None,
+                 port: pulumi.Input[Optional[_builtins.int]] = None,
+                 server_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 ssl_mode: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the DMS certificate used for the SSL connection.
+        :param pulumi.Input[_builtins.str] database_name: Database name on the SAP ASE data provider.
+        :param pulumi.Input[_builtins.bool] encrypt_password: Whether to encrypt the connection password during transmission. Defaults to `true`.
+        :param pulumi.Input[_builtins.int] port: Port of the SAP ASE server. Valid values are between `1` and `65535`.
+        :param pulumi.Input[_builtins.str] server_name: Hostname of the SAP ASE server.
+        :param pulumi.Input[_builtins.str] ssl_mode: SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        if certificate_arn is not None:
+            pulumi.set(__self__, "certificate_arn", certificate_arn)
+        if database_name is not None:
+            pulumi.set(__self__, "database_name", database_name)
+        if encrypt_password is not None:
+            pulumi.set(__self__, "encrypt_password", encrypt_password)
+        if port is not None:
+            pulumi.set(__self__, "port", port)
+        if server_name is not None:
+            pulumi.set(__self__, "server_name", server_name)
+        if ssl_mode is not None:
+            pulumi.set(__self__, "ssl_mode", ssl_mode)
+
+    @_builtins.property
+    @pulumi.getter(name="certificateArn")
+    def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the DMS certificate used for the SSL connection.
+        """
+        return pulumi.get(self, "certificate_arn")
+
+    @certificate_arn.setter
+    def certificate_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "certificate_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Database name on the SAP ASE data provider.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "database_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="encryptPassword")
+    def encrypt_password(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether to encrypt the connection password during transmission. Defaults to `true`.
+        """
+        return pulumi.get(self, "encrypt_password")
+
+    @encrypt_password.setter
+    def encrypt_password(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "encrypt_password", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port of the SAP ASE server. Valid values are between `1` and `65535`.
+        """
+        return pulumi.get(self, "port")
+
+    @port.setter
+    def port(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "port", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serverName")
+    def server_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Hostname of the SAP ASE server.
+        """
+        return pulumi.get(self, "server_name")
+
+    @server_name.setter
+    def server_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "server_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sslMode")
+    def ssl_mode(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+        """
+        return pulumi.get(self, "ssl_mode")
+
+    @ssl_mode.setter
+    def ssl_mode(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ssl_mode", value)
+
 
 class EndpointElasticsearchSettingsArgsDict(TypedDict):
     endpoint_uri: pulumi.Input[_builtins.str]
@@ -201,7 +2121,7 @@ class EndpointKafkaSettingsArgsDict(TypedDict):
     """
     security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+    Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
     """
     ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -260,7 +2180,7 @@ class EndpointKafkaSettingsArgs:
         :param pulumi.Input[_builtins.str] sasl_mechanism: For SASL/SSL authentication, AWS DMS supports the `scram-sha-512` mechanism by default. AWS DMS versions 3.5.0 and later also support the PLAIN mechanism. To use the PLAIN mechanism, set this parameter to `plain`.
         :param pulumi.Input[_builtins.str] sasl_password: Secure password you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
         :param pulumi.Input[_builtins.str] sasl_username: Secure user name you created when you first set up your MSK cluster to validate a client identity and make an encrypted connection between server and client using SASL-SSL authentication.
-        :param pulumi.Input[_builtins.str] security_protocol: Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        :param pulumi.Input[_builtins.str] security_protocol: Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         :param pulumi.Input[_builtins.str] ssl_ca_certificate_arn: ARN for the private certificate authority (CA) cert that AWS DMS uses to securely connect to your Kafka target endpoint.
         :param pulumi.Input[_builtins.str] ssl_client_certificate_arn: ARN of the client certificate used to securely connect to a Kafka target endpoint.
         :param pulumi.Input[_builtins.str] ssl_client_key_arn: ARN for the client private key used to securely connect to a Kafka target endpoint.
@@ -465,7 +2385,7 @@ class EndpointKafkaSettingsArgs:
     @pulumi.getter(name="securityProtocol")
     def security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
+        Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `sasl_username` and `sasl_password`.
         """
         return pulumi.get(self, "security_protocol")
 
@@ -2226,7 +4146,7 @@ class EndpointRedisSettingsArgsDict(TypedDict):
     """
     port: pulumi.Input[_builtins.int]
     """
-    Transmission Control Protocol (TCP) port for the endpoint.
+    TCP port for the endpoint.
     """
     server_name: pulumi.Input[_builtins.str]
     """
@@ -2242,11 +4162,11 @@ class EndpointRedisSettingsArgsDict(TypedDict):
     """
     ssl_ca_certificate_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+    ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
     """
     ssl_security_protocol: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+    The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
     """
 
 @pulumi.input_type
@@ -2261,12 +4181,12 @@ class EndpointRedisSettingsArgs:
                  ssl_security_protocol: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] auth_type: The type of authentication to perform when connecting to a Redis target. Options include `none`, `auth-token`, and `auth-role`. The `auth-token` option requires an `auth_password` value to be provided. The `auth-role` option requires `auth_user_name` and `auth_password` values to be provided.
-        :param pulumi.Input[_builtins.int] port: Transmission Control Protocol (TCP) port for the endpoint.
+        :param pulumi.Input[_builtins.int] port: TCP port for the endpoint.
         :param pulumi.Input[_builtins.str] server_name: Fully qualified domain name of the endpoint.
         :param pulumi.Input[_builtins.str] auth_password: The password provided with the auth-role and auth-token options of the AuthType setting for a Redis target endpoint.
         :param pulumi.Input[_builtins.str] auth_user_name: The username provided with the `auth-role` option of the AuthType setting for a Redis target endpoint.
-        :param pulumi.Input[_builtins.str] ssl_ca_certificate_arn: The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
-        :param pulumi.Input[_builtins.str] ssl_security_protocol: The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        :param pulumi.Input[_builtins.str] ssl_ca_certificate_arn: ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        :param pulumi.Input[_builtins.str] ssl_security_protocol: The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
         pulumi.set(__self__, "auth_type", auth_type)
         pulumi.set(__self__, "port", port)
@@ -2296,7 +4216,7 @@ class EndpointRedisSettingsArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[_builtins.int]:
         """
-        Transmission Control Protocol (TCP) port for the endpoint.
+        TCP port for the endpoint.
         """
         return pulumi.get(self, "port")
 
@@ -2344,7 +4264,7 @@ class EndpointRedisSettingsArgs:
     @pulumi.getter(name="sslCaCertificateArn")
     def ssl_ca_certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         """
         return pulumi.get(self, "ssl_ca_certificate_arn")
 
@@ -2356,7 +4276,7 @@ class EndpointRedisSettingsArgs:
     @pulumi.getter(name="sslSecurityProtocol")
     def ssl_security_protocol(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         """
         return pulumi.get(self, "ssl_security_protocol")
 
@@ -2384,7 +4304,7 @@ class EndpointRedshiftSettingsArgsDict(TypedDict):
     """
     service_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+    ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
     """
 
 @pulumi.input_type
@@ -2400,7 +4320,7 @@ class EndpointRedshiftSettingsArgs:
         :param pulumi.Input[_builtins.str] bucket_name: Custom S3 Bucket name for intermediate storage.
         :param pulumi.Input[_builtins.str] encryption_mode: The server-side encryption mode that you want to encrypt your intermediate .csv object files copied to S3. Defaults to `SSE_S3`. Valid values are `SSE_S3` and `SSE_KMS`.
         :param pulumi.Input[_builtins.str] server_side_encryption_kms_key_id: ARN or Id of KMS Key to use when `encryption_mode` is `SSE_KMS`.
-        :param pulumi.Input[_builtins.str] service_access_role_arn: Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        :param pulumi.Input[_builtins.str] service_access_role_arn: ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         if bucket_folder is not None:
             pulumi.set(__self__, "bucket_folder", bucket_folder)
@@ -2465,13 +4385,279 @@ class EndpointRedshiftSettingsArgs:
     @pulumi.getter(name="serviceAccessRoleArn")
     def service_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+        ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
         """
         return pulumi.get(self, "service_access_role_arn")
 
     @service_access_role_arn.setter
     def service_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_access_role_arn", value)
+
+
+class MigrationProjectSchemaConversionApplicationAttributesArgsDict(TypedDict):
+    s3_bucket_path: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    S3 bucket path that the application uses for exporting assessment reports.
+    """
+    s3_bucket_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role the application uses to access its S3 bucket.
+    """
+
+@pulumi.input_type
+class MigrationProjectSchemaConversionApplicationAttributesArgs:
+    def __init__(__self__, *,
+                 s3_bucket_path: pulumi.Input[Optional[_builtins.str]] = None,
+                 s3_bucket_role_arn: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] s3_bucket_path: S3 bucket path that the application uses for exporting assessment reports.
+        :param pulumi.Input[_builtins.str] s3_bucket_role_arn: ARN of the IAM role the application uses to access its S3 bucket.
+        """
+        if s3_bucket_path is not None:
+            pulumi.set(__self__, "s3_bucket_path", s3_bucket_path)
+        if s3_bucket_role_arn is not None:
+            pulumi.set(__self__, "s3_bucket_role_arn", s3_bucket_role_arn)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketPath")
+    def s3_bucket_path(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        S3 bucket path that the application uses for exporting assessment reports.
+        """
+        return pulumi.get(self, "s3_bucket_path")
+
+    @s3_bucket_path.setter
+    def s3_bucket_path(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_path", value)
+
+    @_builtins.property
+    @pulumi.getter(name="s3BucketRoleArn")
+    def s3_bucket_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role the application uses to access its S3 bucket.
+        """
+        return pulumi.get(self, "s3_bucket_role_arn")
+
+    @s3_bucket_role_arn.setter
+    def s3_bucket_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "s3_bucket_role_arn", value)
+
+
+class MigrationProjectSourceDataProviderDescriptorArgsDict(TypedDict):
+    data_provider_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the data provider.
+
+    The following arguments are optional:
+    """
+    data_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the source data provider.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access AWS Secrets Manager.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+    """
+
+@pulumi.input_type
+class MigrationProjectSourceDataProviderDescriptorArgs:
+    def __init__(__self__, *,
+                 data_provider_arn: pulumi.Input[_builtins.str],
+                 data_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] data_provider_arn: ARN of the data provider.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] data_provider_name: Name of the source data provider.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: ARN of the IAM role used to access AWS Secrets Manager.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        pulumi.set(__self__, "data_provider_arn", data_provider_arn)
+        if data_provider_name is not None:
+            pulumi.set(__self__, "data_provider_name", data_provider_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderArn")
+    def data_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the data provider.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "data_provider_arn")
+
+    @data_provider_arn.setter
+    def data_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderName")
+    def data_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the source data provider.
+        """
+        return pulumi.get(self, "data_provider_name")
+
+    @data_provider_name.setter
+    def data_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+class MigrationProjectTargetDataProviderDescriptorArgsDict(TypedDict):
+    data_provider_arn: pulumi.Input[_builtins.str]
+    """
+    ARN of the data provider.
+
+    The following arguments are optional:
+    """
+    data_provider_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Name of the target data provider.
+    """
+    secrets_manager_access_role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARN of the IAM role used to access AWS Secrets Manager.
+    """
+    secrets_manager_secret_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+    """
+
+@pulumi.input_type
+class MigrationProjectTargetDataProviderDescriptorArgs:
+    def __init__(__self__, *,
+                 data_provider_arn: pulumi.Input[_builtins.str],
+                 data_provider_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_access_role_arn: pulumi.Input[Optional[_builtins.str]] = None,
+                 secrets_manager_secret_id: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] data_provider_arn: ARN of the data provider.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] data_provider_name: Name of the target data provider.
+        :param pulumi.Input[_builtins.str] secrets_manager_access_role_arn: ARN of the IAM role used to access AWS Secrets Manager.
+        :param pulumi.Input[_builtins.str] secrets_manager_secret_id: Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        pulumi.set(__self__, "data_provider_arn", data_provider_arn)
+        if data_provider_name is not None:
+            pulumi.set(__self__, "data_provider_name", data_provider_name)
+        if secrets_manager_access_role_arn is not None:
+            pulumi.set(__self__, "secrets_manager_access_role_arn", secrets_manager_access_role_arn)
+        if secrets_manager_secret_id is not None:
+            pulumi.set(__self__, "secrets_manager_secret_id", secrets_manager_secret_id)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderArn")
+    def data_provider_arn(self) -> pulumi.Input[_builtins.str]:
+        """
+        ARN of the data provider.
+
+        The following arguments are optional:
+        """
+        return pulumi.get(self, "data_provider_arn")
+
+    @data_provider_arn.setter
+    def data_provider_arn(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_provider_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="dataProviderName")
+    def data_provider_name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the target data provider.
+        """
+        return pulumi.get(self, "data_provider_name")
+
+    @data_provider_name.setter
+    def data_provider_name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "data_provider_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerAccessRoleArn")
+    def secrets_manager_access_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARN of the IAM role used to access AWS Secrets Manager.
+        """
+        return pulumi.get(self, "secrets_manager_access_role_arn")
+
+    @secrets_manager_access_role_arn.setter
+    def secrets_manager_access_role_arn(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_access_role_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretsManagerSecretId")
+    def secrets_manager_secret_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+        """
+        return pulumi.get(self, "secrets_manager_secret_id")
+
+    @secrets_manager_secret_id.setter
+    def secrets_manager_secret_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "secrets_manager_secret_id", value)
+
+
+class MigrationProjectTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class MigrationProjectTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
 
 
 class ReplicationConfigComputeConfigArgsDict(TypedDict):
@@ -2489,7 +4675,7 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+    KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
     """
     max_capacity_units: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2514,7 +4700,7 @@ class ReplicationConfigComputeConfigArgsDict(TypedDict):
     """
     vpc_security_group_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+    VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
     """
 
 @pulumi.input_type
@@ -2533,7 +4719,7 @@ class ReplicationConfigComputeConfigArgs:
         :param pulumi.Input[_builtins.str] replication_subnet_group_id: Specifies a subnet group identifier to associate with the DMS Serverless replication.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the DMS Serverless replication to access your source or target database.
-        :param pulumi.Input[_builtins.str] kms_key_id: An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         :param pulumi.Input[_builtins.int] max_capacity_units: Specifies the maximum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. A single DCU is 2GB of RAM, with 1 DCUs as the minimum value allowed. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384.
         :param pulumi.Input[_builtins.int] min_capacity_units: Specifies the minimum value of the DMS capacity units (DCUs) for which a given DMS Serverless replication can be provisioned. The list of valid DCU values includes 1, 2, 4, 8, 16, 32, 64, 128, 192, 256, and 384. If this value isn't set DMS sets the lowest allowed value, 1.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
@@ -2543,7 +4729,7 @@ class ReplicationConfigComputeConfigArgs:
                - Format: `ddd:hh24:mi-ddd:hh24:mi`
                - Valid Days: `mon, tue, wed, thu, fri, sat, sun`
                - Constraints: Minimum 30-minute window.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_ids: VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         pulumi.set(__self__, "replication_subnet_group_id", replication_subnet_group_id)
         if availability_zone is not None:
@@ -2603,7 +4789,7 @@ class ReplicationConfigComputeConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2668,7 +4854,7 @@ class ReplicationConfigComputeConfigArgs:
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         """
         return pulumi.get(self, "vpc_security_group_ids")
 

@@ -34,9 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewStorageLensConfiguration(ctx, "example", &s3control.StorageLensConfigurationArgs{
-//				ConfigId: pulumi.String("example-1"),
 //				StorageLensConfiguration: &s3control.StorageLensConfigurationStorageLensConfigurationArgs{
-//					Enabled: pulumi.Bool(true),
 //					AccountLevel: &s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs{
 //						ActivityMetrics: &s3control.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs{
 //							Enabled: pulumi.Bool(true),
@@ -52,15 +50,15 @@ import (
 //							Enabled: pulumi.Bool(true),
 //						},
 //						S3BucketDestination: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs{
-//							AccountId:           pulumi.String(current.AccountId),
-//							Arn:                 pulumi.Any(target.Arn),
-//							Format:              pulumi.String("CSV"),
-//							OutputSchemaVersion: pulumi.String("V_1"),
 //							Encryption: &s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs{
 //								SseS3s: s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Array{
 //									&s3control.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args{},
 //								},
 //							},
+//							AccountId:           pulumi.String(current.AccountId),
+//							Arn:                 pulumi.Any(target.Arn),
+//							Format:              pulumi.String("CSV"),
+//							OutputSchemaVersion: pulumi.String("V_1"),
 //						},
 //					},
 //					Exclude: &s3control.StorageLensConfigurationStorageLensConfigurationExcludeArgs{
@@ -72,7 +70,9 @@ import (
 //							pulumi.String("us-east-2"),
 //						},
 //					},
+//					Enabled: pulumi.Bool(true),
 //				},
+//				ConfigId: pulumi.String("example-1"),
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +95,7 @@ type StorageLensConfiguration struct {
 
 	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+	// ARN of the S3 Storage Lens configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringOutput `pulumi:"configId"`
@@ -147,7 +147,7 @@ func GetStorageLensConfiguration(ctx *pulumi.Context,
 type storageLensConfigurationState struct {
 	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId *string `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+	// ARN of the S3 Storage Lens configuration.
 	Arn *string `pulumi:"arn"`
 	// ID of the S3 Storage Lens configuration.
 	ConfigId *string `pulumi:"configId"`
@@ -164,7 +164,7 @@ type storageLensConfigurationState struct {
 type StorageLensConfigurationState struct {
 	// AWS account ID for the S3 Storage Lens configuration. Defaults to automatically determined account ID of the AWS provider.
 	AccountId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+	// ARN of the S3 Storage Lens configuration.
 	Arn pulumi.StringPtrInput
 	// ID of the S3 Storage Lens configuration.
 	ConfigId pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (o StorageLensConfigurationOutput) AccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.AccountId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+// ARN of the S3 Storage Lens configuration.
 func (o StorageLensConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StorageLensConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

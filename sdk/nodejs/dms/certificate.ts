@@ -60,7 +60,7 @@ export class Certificate extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      */
     declare public /*out*/ readonly certificateArn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateState {
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      */
     certificateArn?: pulumi.Input<string | undefined>;
     /**

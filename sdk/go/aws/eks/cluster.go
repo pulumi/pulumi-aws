@@ -67,12 +67,9 @@ import (
 //				return err
 //			}
 //			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.35"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					SubnetIds: pulumi.StringArray{
 //						az1.Id,
@@ -80,6 +77,9 @@ import (
 //						az3.Id,
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: cluster.Arn,
+//				Version: pulumi.String("1.35"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				clusterAmazonEKSClusterPolicy,
 //			}))
@@ -198,13 +198,9 @@ import (
 //				return err
 //			}
 //			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn:                    cluster.Arn,
-//				Version:                    pulumi.String("1.35"),
-//				BootstrapSelfManagedAddons: pulumi.Bool(false),
 //				ComputeConfig: &eks.ClusterComputeConfigArgs{
 //					Enabled: pulumi.Bool(true),
 //					NodePools: pulumi.StringArray{
@@ -231,6 +227,10 @@ import (
 //						az3.Id,
 //					},
 //				},
+//				Name:                       pulumi.String("example"),
+//				RoleArn:                    cluster.Arn,
+//				Version:                    pulumi.String("1.35"),
+//				BootstrapSelfManagedAddons: pulumi.Bool(false),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				clusterAmazonEKSClusterPolicy,
 //				clusterAmazonEKSComputePolicy,
@@ -312,12 +312,9 @@ import (
 //				return err
 //			}
 //			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("API"),
 //				},
-//				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.35"),
 //				RemoteNetworkConfig: &eks.ClusterRemoteNetworkConfigArgs{
 //					RemoteNodeNetworks: &eks.ClusterRemoteNetworkConfigRemoteNodeNetworksArgs{
 //						Cidrs: pulumi.StringArray{
@@ -339,6 +336,9 @@ import (
 //						az3.Id,
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: cluster.Arn,
+//				Version: pulumi.String("1.35"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				clusterAmazonEKSClusterPolicy,
 //			}))
@@ -414,12 +414,9 @@ import (
 //				return err
 //			}
 //			_, err = eks.NewCluster(ctx, "example", &eks.ClusterArgs{
-//				Name: pulumi.String("example"),
 //				AccessConfig: &eks.ClusterAccessConfigArgs{
 //					AuthenticationMode: pulumi.String("CONFIG_MAP"),
 //				},
-//				RoleArn: cluster.Arn,
-//				Version: pulumi.String("1.35"),
 //				VpcConfig: &eks.ClusterVpcConfigArgs{
 //					EndpointPrivateAccess: pulumi.Bool(true),
 //					EndpointPublicAccess:  pulumi.Bool(false),
@@ -435,6 +432,9 @@ import (
 //						pulumi.String(example.Arn),
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: cluster.Arn,
+//				Version: pulumi.String("1.35"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				clusterAmazonEKSLocalOutpostClusterPolicy,
 //			}))

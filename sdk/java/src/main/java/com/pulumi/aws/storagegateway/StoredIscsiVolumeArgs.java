@@ -34,14 +34,14 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -64,14 +64,14 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * @return ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -223,7 +223,7 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class StoredIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
          * 
          * @return builder
          * 

@@ -84,11 +84,11 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewAccessPoint(ctx, "example", &s3.AccessPointArgs{
-//				Bucket: example.Arn,
-//				Name:   pulumi.String("example"),
 //				VpcConfiguration: &s3.AccessPointVpcConfigurationArgs{
 //					VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //				},
+//				Bucket: example.Arn,
+//				Name:   pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -121,10 +121,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String(available.ZoneIds[0]),
 //				},
+//				Bucket: pulumi.String("example--zoneId--x-s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -194,7 +194,7 @@ type AccessPoint struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+	// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 	VpcConfiguration AccessPointVpcConfigurationPtrOutput `pulumi:"vpcConfiguration"`
 }
 
@@ -263,7 +263,7 @@ type accessPointState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+	// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 	VpcConfiguration *AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -300,7 +300,7 @@ type AccessPointState struct {
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+	// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 	VpcConfiguration AccessPointVpcConfigurationPtrInput
 }
 
@@ -327,7 +327,7 @@ type accessPointArgs struct {
 	Region *string `pulumi:"region"`
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+	// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 	VpcConfiguration *AccessPointVpcConfiguration `pulumi:"vpcConfiguration"`
 }
 
@@ -351,7 +351,7 @@ type AccessPointArgs struct {
 	Region pulumi.StringPtrInput
 	// Map of tags to assign to the bucket. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+	// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 	VpcConfiguration AccessPointVpcConfigurationPtrInput
 }
 
@@ -521,7 +521,7 @@ func (o AccessPointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *AccessPoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
 func (o AccessPointOutput) VpcConfiguration() AccessPointVpcConfigurationPtrOutput {
 	return o.ApplyT(func(v *AccessPoint) AccessPointVpcConfigurationPtrOutput { return v.VpcConfiguration }).(AccessPointVpcConfigurationPtrOutput)
 }

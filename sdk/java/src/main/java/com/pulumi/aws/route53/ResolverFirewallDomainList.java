@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList")
 public class ResolverFirewallDomainList extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the domain list.
+     * ARN of the domain list.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the domain list.
+     * @return ARN of the domain list.
      * 
      */
     public Output<String> arn() {

@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("new policy")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("123456789012")
  *                     .build())
+ *                 .sid("new policy")
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "ecr:GetDownloadUrlForLayer",
  *                     "ecr:BatchGetImage",

@@ -169,7 +169,7 @@ class _WorkteamState:
         """
         Input properties used for looking up and filtering Workteam resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Workteam.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input['WorkteamMemberDefinitionArgs']]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input['WorkteamNotificationConfigurationArgs'] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
@@ -208,7 +208,7 @@ class _WorkteamState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        ARN assigned by AWS to this Workteam.
         """
         return pulumi.get(self, "arn")
 
@@ -364,16 +364,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ### Oidc Usage
@@ -383,14 +383,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ## Import
@@ -431,16 +431,16 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "cognito_member_definition": {
                     "client_id": example_aws_cognito_user_pool_client["id"],
                     "user_pool": example_aws_cognito_user_pool_domain["userPoolId"],
                     "user_group": example_aws_cognito_user_group["name"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ### Oidc Usage
@@ -450,14 +450,14 @@ class Workteam(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Workteam("example",
-            workteam_name="example",
-            workforce_name=example_aws_sagemaker_workforce["id"],
-            description="example",
             member_definitions=[{
                 "oidc_member_definition": {
                     "groups": ["example"],
                 },
-            }])
+            }],
+            workteam_name="example",
+            workforce_name=example_aws_sagemaker_workforce["id"],
+            description="example")
         ```
 
         ## Import
@@ -546,7 +546,7 @@ class Workteam(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Workteam.
         :param pulumi.Input[_builtins.str] description: A description of the work team.
         :param pulumi.Input[Sequence[pulumi.Input[Union['WorkteamMemberDefinitionArgs', 'WorkteamMemberDefinitionArgsDict']]]] member_definitions: A list of Member Definitions that contains objects that identify the workers that make up the work team. Workforces can be created using Amazon Cognito or your own OIDC Identity Provider (IdP). For private workforces created using Amazon Cognito use `cognito_member_definition`. For workforces created using your own OIDC identity provider (IdP) use `oidc_member_definition`. Do not provide input for both of these parameters in a single request. see Member Definition details below.
         :param pulumi.Input[Union['WorkteamNotificationConfigurationArgs', 'WorkteamNotificationConfigurationArgsDict']] notification_configuration: Configures notification of workers regarding available or expiring work items. see Notification Configuration details below.
@@ -579,7 +579,7 @@ class Workteam(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+        ARN assigned by AWS to this Workteam.
         """
         return pulumi.get(self, "arn")
 

@@ -20,14 +20,14 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
     public static final UserState Empty = new UserState();
 
     /**
-     * The Amazon Resource Name (ARN) of the user.
+     * ARN of the user.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the user.
+     * @return ARN of the user.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -269,7 +269,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the user.
+         * @param arn ARN of the user.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class UserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the user.
+         * @param arn ARN of the user.
          * 
          * @return builder
          * 

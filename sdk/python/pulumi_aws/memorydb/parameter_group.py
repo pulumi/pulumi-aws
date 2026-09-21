@@ -325,12 +325,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
-            name="my-parameter-group",
-            family="memorydb_redis6",
             parameters=[{
                 "name": "activedefrag",
                 "value": "yes",
-            }])
+            }],
+            name="my-parameter-group",
+            family="memorydb_redis6")
         ```
 
         ## Import
@@ -372,12 +372,12 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.memorydb.ParameterGroup("example",
-            name="my-parameter-group",
-            family="memorydb_redis6",
             parameters=[{
                 "name": "activedefrag",
                 "value": "yes",
-            }])
+            }],
+            name="my-parameter-group",
+            family="memorydb_redis6")
         ```
 
         ## Import

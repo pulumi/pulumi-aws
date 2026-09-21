@@ -56,7 +56,7 @@ namespace Pulumi.Aws.SesV2
         public Output<bool?> EmailForwardingEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.Aws.SesV2
         public Input<bool>? EmailForwardingEnabled { get; set; }
 
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.SesV2
         public Input<bool>? EmailForwardingEnabled { get; set; }
 
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }

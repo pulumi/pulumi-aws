@@ -76,12 +76,8 @@ type GetArnResult struct {
 }
 
 func GetArnOutput(ctx *pulumi.Context, args GetArnOutputArgs, opts ...pulumi.InvokeOption) GetArnResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetArnResultOutput, error) {
-			args := v.(GetArnArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getArn:getArn", args, GetArnResultOutput{}, options).(GetArnResultOutput), nil
-		}).(GetArnResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getArn:getArn", args, GetArnResultOutput{}, options).(GetArnResultOutput)
 }
 
 // A collection of arguments for invoking getArn.

@@ -313,8 +313,6 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
-            name="example_name",
-            description="example description",
             report_delivery_channel={
                 "formats": [
                     "CSV",
@@ -325,6 +323,8 @@ class ReportPlan(pulumi.CustomResource):
             report_setting={
                 "report_template": "RESTORE_JOB_REPORT",
             },
+            name="example_name",
+            description="example description",
             tags={
                 "Name": "Example Report Plan",
             })
@@ -364,8 +364,6 @@ class ReportPlan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.ReportPlan("example",
-            name="example_name",
-            description="example description",
             report_delivery_channel={
                 "formats": [
                     "CSV",
@@ -376,6 +374,8 @@ class ReportPlan(pulumi.CustomResource):
             report_setting={
                 "report_template": "RESTORE_JOB_REPORT",
             },
+            name="example_name",
+            description="example description",
             tags={
                 "Name": "Example Report Plan",
             })

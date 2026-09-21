@@ -61,7 +61,7 @@ export interface GetAccessEntryArgs {
  */
 export interface GetAccessEntryResult {
     /**
-     * Amazon Resource Name (ARN) of the Access Entry.
+     * ARN of the Access Entry.
      */
     readonly accessEntryArn: string;
     readonly clusterName: string;

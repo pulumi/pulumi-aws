@@ -337,7 +337,7 @@ class SigningProfileSigningMaterial(dict):
     def __init__(__self__, *,
                  certificate_arn: _builtins.str):
         """
-        :param _builtins.str certificate_arn: The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        :param _builtins.str certificate_arn: ARN of the certificates that is used to sign your code.
         """
         pulumi.set(__self__, "certificate_arn", certificate_arn)
 
@@ -345,7 +345,7 @@ class SigningProfileSigningMaterial(dict):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+        ARN of the certificates that is used to sign your code.
         """
         return pulumi.get(self, "certificate_arn")
 

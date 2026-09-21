@@ -237,7 +237,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+        - `arn` (String) ARN of the IAM OpenID Connect provider.
 
         Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 
@@ -293,7 +293,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM OpenID Connect provider.
+        - `arn` (String) ARN of the IAM OpenID Connect provider.
 
         Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 

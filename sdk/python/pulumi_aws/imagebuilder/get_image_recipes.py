@@ -115,11 +115,11 @@ def get_image_recipes(filters: Optional[Sequence[Union['GetImageRecipesFilterArg
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_image_recipes(owner="Self",
-        filters=[{
+    example = aws.imagebuilder.get_image_recipes(filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }])
+        }],
+        owner="Self")
     ```
 
 
@@ -154,11 +154,11 @@ def get_image_recipes_output(filters: pulumi.Input[Optional[Optional[Sequence[Un
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.imagebuilder.get_image_recipes(owner="Self",
-        filters=[{
+    example = aws.imagebuilder.get_image_recipes(filters=[{
             "name": "platform",
             "values": ["Linux"],
-        }])
+        }],
+        owner="Self")
     ```
 
 

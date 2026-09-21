@@ -47,12 +47,8 @@ type GetAttachmentsResult struct {
 }
 
 func GetAttachmentsOutput(ctx *pulumi.Context, args GetAttachmentsOutputArgs, opts ...pulumi.InvokeOption) GetAttachmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAttachmentsResultOutput, error) {
-			args := v.(GetAttachmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getAttachments:getAttachments", args, GetAttachmentsResultOutput{}, options).(GetAttachmentsResultOutput), nil
-		}).(GetAttachmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getAttachments:getAttachments", args, GetAttachmentsResultOutput{}, options).(GetAttachmentsResultOutput)
 }
 
 // A collection of arguments for invoking getAttachments.

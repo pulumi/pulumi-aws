@@ -73,7 +73,6 @@ import (
 //	"fmt"
 //
 //	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/securityhub"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -89,12 +88,14 @@ import (
 // if err != nil {
 // return err
 // }
+// forResult0 := map[string]*string{}
+// for _, entry := range %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:10,28-77) {
+// forResult0[entry] = entry
+// }
 // var iam1StandardsControlAssociation []*securityhub.StandardsControlAssociation
-// for key0, _ := range []interface{}(std.Toset(ctx, &std.TosetArgs{
-// Input: %!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:11,15-64),
-// }, nil).Result) {
+// for key0, _ := range forResult0 {
 // __res, err := securityhub.NewStandardsControlAssociation(ctx, fmt.Sprintf("iam_1-%v", key0), &securityhub.StandardsControlAssociationArgs{
-// StandardsArn: pulumi.Int(key0),
+// StandardsArn: pulumi.String(key0),
 // SecurityControlId: pulumi.String(iam1.SecurityControlId),
 // AssociationStatus: pulumi.String("DISABLED"),
 // UpdatedReason: pulumi.String("Not needed"),
@@ -137,7 +138,7 @@ type StandardsControlAssociation struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringOutput `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+	// ARN of the standard in which you want to update the control's enablement status.
 	//
 	// The following arguments are optional:
 	StandardsArn pulumi.StringOutput `pulumi:"standardsArn"`
@@ -190,7 +191,7 @@ type standardsControlAssociationState struct {
 	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId *string `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+	// ARN of the standard in which you want to update the control's enablement status.
 	//
 	// The following arguments are optional:
 	StandardsArn *string `pulumi:"standardsArn"`
@@ -205,7 +206,7 @@ type StandardsControlAssociationState struct {
 	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+	// ARN of the standard in which you want to update the control's enablement status.
 	//
 	// The following arguments are optional:
 	StandardsArn pulumi.StringPtrInput
@@ -224,7 +225,7 @@ type standardsControlAssociationArgs struct {
 	Region *string `pulumi:"region"`
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId string `pulumi:"securityControlId"`
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+	// ARN of the standard in which you want to update the control's enablement status.
 	//
 	// The following arguments are optional:
 	StandardsArn string `pulumi:"standardsArn"`
@@ -240,7 +241,7 @@ type StandardsControlAssociationArgs struct {
 	Region pulumi.StringPtrInput
 	// The unique identifier for the security control whose enablement status you want to update.
 	SecurityControlId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+	// ARN of the standard in which you want to update the control's enablement status.
 	//
 	// The following arguments are optional:
 	StandardsArn pulumi.StringInput
@@ -350,7 +351,7 @@ func (o StandardsControlAssociationOutput) SecurityControlId() pulumi.StringOutp
 	return o.ApplyT(func(v *StandardsControlAssociation) pulumi.StringOutput { return v.SecurityControlId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+// ARN of the standard in which you want to update the control's enablement status.
 //
 // The following arguments are optional:
 func (o StandardsControlAssociationOutput) StandardsArn() pulumi.StringOutput {

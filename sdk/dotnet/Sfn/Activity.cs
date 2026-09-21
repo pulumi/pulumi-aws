@@ -46,13 +46,13 @@ namespace Pulumi.Aws.Sfn
     /// {
     ///     var sfnActivity = new Aws.Sfn.Activity("sfn_activity", new()
     ///     {
-    ///         Name = "my-activity",
     ///         EncryptionConfiguration = new Aws.Sfn.Inputs.ActivityEncryptionConfigurationArgs
     ///         {
     ///             KmsKeyId = kmsKeyForSfn.Arn,
     ///             Type = "CUSTOMER_MANAGED_KMS_KEY",
     ///             KmsDataKeyReusePeriodSeconds = 900,
     ///         },
+    ///         Name = "my-activity",
     ///     });
     /// 
     /// });
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Sfn
     public partial class Activity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the activity.
+        /// ARN of the activity.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.Sfn
     public sealed class ActivityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the activity.
+        /// ARN of the activity.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

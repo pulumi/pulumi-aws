@@ -549,14 +549,21 @@ class Resolver(pulumi.CustomResource):
         }
         \"\"\")
         test_data_source = aws.appsync.DataSource("test",
-            api_id=test.id,
-            name="my_example",
-            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            })
+            },
+            api_id=test.id,
+            name="my_example",
+            type="HTTP")
         # UNIT type resolver (default)
         test_resolver = aws.appsync.Resolver("test",
+            caching_config={
+                "caching_keys": [
+                    "$context.identity.sub",
+                    "$context.arguments.id",
+                ],
+                "ttl": 60,
+            },
             api_id=test.id,
             field="singlePost",
             type="Query",
@@ -575,29 +582,22 @@ class Resolver(pulumi.CustomResource):
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\",
-            caching_config={
-                "caching_keys": [
-                    "$context.identity.sub",
-                    "$context.arguments.id",
-                ],
-                "ttl": 60,
-            })
+        \"\"\")
         # PIPELINE type resolver
         mutation_pipeline_test = aws.appsync.Resolver("Mutation_pipelineTest",
-            type="Mutation",
-            api_id=test.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
             pipeline_config={
                 "functions": [
                     test1["functionId"],
                     test2["functionId"],
                     test3["functionId"],
                 ],
-            })
+            },
+            type="Mutation",
+            api_id=test.id,
+            field="pipelineTest",
+            request_template="{}",
+            response_template="$util.toJson($ctx.result)",
+            kind="PIPELINE")
         ```
 
         ### Example Usage JS
@@ -608,18 +608,18 @@ class Resolver(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=test_aws_appsync_graphql_api["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
                 "runtime_version": "1.0.0",
             },
             pipeline_config={
                 "functions": [test["functionId"]],
-            })
+            },
+            type="Query",
+            api_id=test_aws_appsync_graphql_api["id"],
+            field="pipelineTest",
+            kind="PIPELINE",
+            code=std.file(input="some-code-dir").result)
         ```
 
         ## Import
@@ -685,14 +685,21 @@ class Resolver(pulumi.CustomResource):
         }
         \"\"\")
         test_data_source = aws.appsync.DataSource("test",
-            api_id=test.id,
-            name="my_example",
-            type="HTTP",
             http_config={
                 "endpoint": "http://example.com",
-            })
+            },
+            api_id=test.id,
+            name="my_example",
+            type="HTTP")
         # UNIT type resolver (default)
         test_resolver = aws.appsync.Resolver("test",
+            caching_config={
+                "caching_keys": [
+                    "$context.identity.sub",
+                    "$context.arguments.id",
+                ],
+                "ttl": 60,
+            },
             api_id=test.id,
             field="singlePost",
             type="Query",
@@ -711,29 +718,22 @@ class Resolver(pulumi.CustomResource):
         #else
             $utils.appendError($ctx.result.body, $ctx.result.statusCode)
         #end
-        \"\"\",
-            caching_config={
-                "caching_keys": [
-                    "$context.identity.sub",
-                    "$context.arguments.id",
-                ],
-                "ttl": 60,
-            })
+        \"\"\")
         # PIPELINE type resolver
         mutation_pipeline_test = aws.appsync.Resolver("Mutation_pipelineTest",
-            type="Mutation",
-            api_id=test.id,
-            field="pipelineTest",
-            request_template="{}",
-            response_template="$util.toJson($ctx.result)",
-            kind="PIPELINE",
             pipeline_config={
                 "functions": [
                     test1["functionId"],
                     test2["functionId"],
                     test3["functionId"],
                 ],
-            })
+            },
+            type="Mutation",
+            api_id=test.id,
+            field="pipelineTest",
+            request_template="{}",
+            response_template="$util.toJson($ctx.result)",
+            kind="PIPELINE")
         ```
 
         ### Example Usage JS
@@ -744,18 +744,18 @@ class Resolver(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.appsync.Resolver("example",
-            type="Query",
-            api_id=test_aws_appsync_graphql_api["id"],
-            field="pipelineTest",
-            kind="PIPELINE",
-            code=std.file(input="some-code-dir").result,
             runtime={
                 "name": "APPSYNC_JS",
                 "runtime_version": "1.0.0",
             },
             pipeline_config={
                 "functions": [test["functionId"]],
-            })
+            },
+            type="Query",
+            api_id=test_aws_appsync_graphql_api["id"],
+            field="pipelineTest",
+            kind="PIPELINE",
+            code=std.file(input="some-code-dir").result)
         ```
 
         ## Import

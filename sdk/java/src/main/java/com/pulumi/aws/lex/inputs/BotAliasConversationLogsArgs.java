@@ -19,14 +19,14 @@ public final class BotAliasConversationLogsArgs extends com.pulumi.resources.Res
     public static final BotAliasConversationLogsArgs Empty = new BotAliasConversationLogsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+     * ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
      * 
      */
     @Import(name="iamRoleArn", required=true)
     private Output<String> iamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+     * @return ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
      * 
      */
     public Output<String> iamRoleArn() {
@@ -74,7 +74,7 @@ public final class BotAliasConversationLogsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+         * @param iamRoleArn ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
          * 
          * @return builder
          * 
@@ -85,7 +85,7 @@ public final class BotAliasConversationLogsArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param iamRoleArn The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+         * @param iamRoleArn ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
          * 
          * @return builder
          * 

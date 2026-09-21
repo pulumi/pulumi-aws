@@ -18,11 +18,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, string>? CustomParameters;
         /// <summary>
-        /// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `GrantType` is `AUTHORIZATION_CODE`.
+        /// URL where the end user's browser is redirected after obtaining the authorization code. Required when `GrantType` is `AUTHORIZATION_CODE`.
         /// </summary>
         public readonly string? DefaultReturnUrl;
         /// <summary>
-        /// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
         /// </summary>
         public readonly string? GrantType;
         /// <summary>

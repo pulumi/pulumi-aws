@@ -619,7 +619,7 @@ func (o TableCommentPtrOutput) Message() pulumi.StringPtrOutput {
 }
 
 type TableEncryptionSpecification struct {
-	// The Amazon Resource Name (ARN) of the customer managed KMS key.
+	// ARN of the customer managed KMS key.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
 	Type *string `pulumi:"type"`
@@ -637,7 +637,7 @@ type TableEncryptionSpecificationInput interface {
 }
 
 type TableEncryptionSpecificationArgs struct {
-	// The Amazon Resource Name (ARN) of the customer managed KMS key.
+	// ARN of the customer managed KMS key.
 	KmsKeyIdentifier pulumi.StringPtrInput `pulumi:"kmsKeyIdentifier"`
 	// The encryption option specified for the table. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_MANAGED_KMS_KEY`. The default value is `AWS_OWNED_KMS_KEY`.
 	Type pulumi.StringPtrInput `pulumi:"type"`
@@ -720,7 +720,7 @@ func (o TableEncryptionSpecificationOutput) ToTableEncryptionSpecificationPtrOut
 	}).(TableEncryptionSpecificationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key.
+// ARN of the customer managed KMS key.
 func (o TableEncryptionSpecificationOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v TableEncryptionSpecification) *string { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -754,7 +754,7 @@ func (o TableEncryptionSpecificationPtrOutput) Elem() TableEncryptionSpecificati
 	}).(TableEncryptionSpecificationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the customer managed KMS key.
+// ARN of the customer managed KMS key.
 func (o TableEncryptionSpecificationPtrOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *TableEncryptionSpecification) *string {
 		if v == nil {

@@ -186,7 +186,7 @@ class _DataRepositoryAssociationState:
         """
         Input properties used for looking up and filtering DataRepositoryAssociation resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] association_id: Identifier of the data repository association.
         :param pulumi.Input[_builtins.bool] batch_import_meta_data_on_create: Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         :param pulumi.Input[_builtins.str] data_repository_path: Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
@@ -228,7 +228,7 @@ class _DataRepositoryAssociationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -406,9 +406,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
         example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
             s3={
                 "auto_export_policy": {
                     "events": [
@@ -424,7 +421,10 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                         "DELETED",
                     ],
                 },
-            })
+            },
+            file_system_id=example_lustre_file_system.id,
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
+            file_system_path="/my-bucket")
         ```
 
         ## Import
@@ -475,9 +475,6 @@ class DataRepositoryAssociation(pulumi.CustomResource):
             deployment_type="PERSISTENT_2",
             per_unit_storage_throughput=125)
         example_data_repository_association = aws.fsx.DataRepositoryAssociation("example",
-            file_system_id=example_lustre_file_system.id,
-            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
-            file_system_path="/my-bucket",
             s3={
                 "auto_export_policy": {
                     "events": [
@@ -493,7 +490,10 @@ class DataRepositoryAssociation(pulumi.CustomResource):
                         "DELETED",
                     ],
                 },
-            })
+            },
+            file_system_id=example_lustre_file_system.id,
+            data_repository_path=example.id.apply(lambda id: f"s3://{id}"),
+            file_system_path="/my-bucket")
         ```
 
         ## Import
@@ -585,7 +585,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] association_id: Identifier of the data repository association.
         :param pulumi.Input[_builtins.bool] batch_import_meta_data_on_create: Set to true to run an import data repository task to import metadata from the data repository to the file system after the data repository association is created. Defaults to `false`.
         :param pulumi.Input[_builtins.str] data_repository_path: Path to the Amazon S3 data repository that will be linked to the file system. The path must be an S3 bucket s3://myBucket/myPrefix/. This path specifies where in the S3 data repository files will be imported from or exported to. The same S3 bucket cannot be linked more than once to the same file system.
@@ -620,7 +620,7 @@ class DataRepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 

@@ -39,12 +39,9 @@ import * as utilities from "../utilities";
  *     role: cluster.name,
  * });
  * const example = new aws.eks.Cluster("example", {
- *     name: "example",
  *     accessConfig: {
  *         authenticationMode: "API",
  *     },
- *     roleArn: cluster.arn,
- *     version: "1.35",
  *     vpcConfig: {
  *         subnetIds: [
  *             az1.id,
@@ -52,6 +49,9 @@ import * as utilities from "../utilities";
  *             az3.id,
  *         ],
  *     },
+ *     name: "example",
+ *     roleArn: cluster.arn,
+ *     version: "1.35",
  * }, {
  *     dependsOn: [clusterAmazonEKSClusterPolicy],
  * });
@@ -115,13 +115,9 @@ import * as utilities from "../utilities";
  *     role: cluster.name,
  * });
  * const example = new aws.eks.Cluster("example", {
- *     name: "example",
  *     accessConfig: {
  *         authenticationMode: "API",
  *     },
- *     roleArn: cluster.arn,
- *     version: "1.35",
- *     bootstrapSelfManagedAddons: false,
  *     computeConfig: {
  *         enabled: true,
  *         nodePools: ["general-purpose"],
@@ -146,6 +142,10 @@ import * as utilities from "../utilities";
  *             az3.id,
  *         ],
  *     },
+ *     name: "example",
+ *     roleArn: cluster.arn,
+ *     version: "1.35",
+ *     bootstrapSelfManagedAddons: false,
  * }, {
  *     dependsOn: [
  *         clusterAmazonEKSClusterPolicy,
@@ -192,12 +192,9 @@ import * as utilities from "../utilities";
  *     role: cluster.name,
  * });
  * const example = new aws.eks.Cluster("example", {
- *     name: "example",
  *     accessConfig: {
  *         authenticationMode: "API",
  *     },
- *     roleArn: cluster.arn,
- *     version: "1.35",
  *     remoteNetworkConfig: {
  *         remoteNodeNetworks: {
  *             cidrs: ["172.16.0.0/18"],
@@ -215,6 +212,9 @@ import * as utilities from "../utilities";
  *             az3.id,
  *         ],
  *     },
+ *     name: "example",
+ *     roleArn: cluster.arn,
+ *     version: "1.35",
  * }, {
  *     dependsOn: [clusterAmazonEKSClusterPolicy],
  * });
@@ -255,12 +255,9 @@ import * as utilities from "../utilities";
  *     role: cluster.name,
  * });
  * const exampleCluster = new aws.eks.Cluster("example", {
- *     name: "example",
  *     accessConfig: {
  *         authenticationMode: "CONFIG_MAP",
  *     },
- *     roleArn: cluster.arn,
- *     version: "1.35",
  *     vpcConfig: {
  *         endpointPrivateAccess: true,
  *         endpointPublicAccess: false,
@@ -274,6 +271,9 @@ import * as utilities from "../utilities";
  *         controlPlaneInstanceType: "m5.large",
  *         outpostArns: [example.then(example => example.arn)],
  *     },
+ *     name: "example",
+ *     roleArn: cluster.arn,
+ *     version: "1.35",
  * }, {
  *     dependsOn: [clusterAmazonEKSLocalOutpostClusterPolicy],
  * });

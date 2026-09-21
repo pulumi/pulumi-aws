@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * });
  * const exampleVpcEndpoint = new aws.ec2.VpcEndpoint("example", {
  *     vpcId: testAlternate.id,
- *     serviceName: testAwsVpcEndpointService.serviceName,
+ *     serviceName: test.serviceName,
  *     vpcEndpointType: "Interface",
  *     privateDnsEnabled: false,
- *     securityGroupIds: [test.id],
+ *     securityGroupIds: [testAwsSecurityGroup.id],
  * });
  * const exampleVpcEndpointConnectionAccepter = new aws.ec2.VpcEndpointConnectionAccepter("example", {
  *     vpcEndpointServiceId: example.id,

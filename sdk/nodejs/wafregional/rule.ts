@@ -17,20 +17,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
+ *     name: "tfIPSet",
  * });
  * const wafrule = new aws.wafregional.Rule("wafrule", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
  *     predicates: [{
  *         type: "IPMatch",
  *         dataId: ipset.id,
  *         negated: false,
  *     }],
+ *     name: "tfWAFRule",
+ *     metricName: "tfWAFRule",
  * });
  * ```
  *

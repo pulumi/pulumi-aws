@@ -85,14 +85,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customSemantic = new aws.bedrock.AgentcoreMemoryStrategy("custom_semantic", {
- *     name: "custom-semantic-strategy",
- *     memoryId: example.id,
- *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Custom semantic processing strategy",
- *     namespaceTemplates: ["{sessionId}"],
  *     configuration: {
- *         type: "SEMANTIC_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Focus on extracting key semantic relationships and concepts",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -101,7 +94,14 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract and categorize semantic information",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "SEMANTIC_OVERRIDE",
  *     },
+ *     name: "custom-semantic-strategy",
+ *     memoryId: example.id,
+ *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Custom semantic processing strategy",
+ *     namespaceTemplates: ["{sessionId}"],
  * });
  * ```
  *
@@ -112,18 +112,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customSummary = new aws.bedrock.AgentcoreMemoryStrategy("custom_summary", {
+ *     configuration: {
+ *         consolidation: {
+ *             appendToPrompt: "Create concise summaries while preserving key details",
+ *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
+ *         },
+ *         type: "SUMMARY_OVERRIDE",
+ *     },
  *     name: "custom-summary-strategy",
  *     memoryId: example.id,
  *     type: "CUSTOM",
  *     description: "Custom summarization strategy",
  *     namespaceTemplates: ["summaries"],
- *     configuration: {
- *         type: "SUMMARY_OVERRIDE",
- *         consolidation: {
- *             appendToPrompt: "Create concise summaries while preserving key details",
- *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
- *         },
- *     },
  * });
  * ```
  *
@@ -134,13 +134,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customUserPref = new aws.bedrock.AgentcoreMemoryStrategy("custom_user_pref", {
- *     name: "custom-user-preference-strategy",
- *     memoryId: example.id,
- *     type: "CUSTOM",
- *     description: "Custom user preference tracking strategy",
- *     namespaceTemplates: ["user_prefs"],
  *     configuration: {
- *         type: "USER_PREFERENCE_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Consolidate user preferences and behavioral patterns",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -149,7 +143,13 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract user preferences and interaction patterns",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "USER_PREFERENCE_OVERRIDE",
  *     },
+ *     name: "custom-user-preference-strategy",
+ *     memoryId: example.id,
+ *     type: "CUSTOM",
+ *     description: "Custom user preference tracking strategy",
+ *     namespaceTemplates: ["user_prefs"],
  * });
  * ```
  *
@@ -160,14 +160,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const customEpisodic = new aws.bedrock.AgentcoreMemoryStrategy("custom_episodic", {
- *     name: "custom-episodic-strategy",
- *     memoryId: example.id,
- *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
- *     type: "CUSTOM",
- *     description: "Custom episodic processing strategy",
- *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
  *     configuration: {
- *         type: "EPISODIC_OVERRIDE",
  *         consolidation: {
  *             appendToPrompt: "Consolidate episodic memories into coherent narratives",
  *             modelId: "anthropic.claude-3-sonnet-20240229-v1:0",
@@ -176,16 +169,95 @@ import * as utilities from "../utilities";
  *             appendToPrompt: "Extract key events and episodes from interactions",
  *             modelId: "anthropic.claude-3-haiku-20240307-v1:0",
  *         },
+ *         type: "EPISODIC_OVERRIDE",
  *     },
+ *     name: "custom-episodic-strategy",
+ *     memoryId: example.id,
+ *     memoryExecutionRoleArn: example.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Custom episodic processing strategy",
+ *     namespaceTemplates: ["/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}"],
+ * });
+ * ```
+ *
+ * ### Custom Strategy with Self-Managed Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selfManaged = new aws.bedrock.AgentcoreMemoryStrategy("self_managed", {
+ *     configuration: {
+ *         selfManaged: [{
+ *             invocationConfiguration: [{
+ *                 topicArn: example.arn,
+ *                 payloadDeliveryBucketName: exampleAwsS3Bucket.bucket,
+ *             }],
+ *             triggerConditions: [{
+ *                 messageBasedTrigger: [{
+ *                     messageCount: 12,
+ *                 }],
+ *             }],
+ *             historicalContextWindowSize: 10,
+ *         }],
+ *         type: "SELF_MANAGED",
+ *     },
+ *     name: "self-managed-strategy",
+ *     memoryId: exampleAwsBedrockagentcoreMemory.id,
+ *     memoryExecutionRoleArn: exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Self-managed processing strategy",
+ * });
+ * ```
+ *
+ * ### Custom Strategy with Self-Managed Configuration
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const selfManaged = new aws.bedrock.AgentcoreMemoryStrategy("self_managed", {
+ *     configuration: {
+ *         selfManagedConfiguration: {
+ *             invocationConfiguration: {
+ *                 topicArn: example.arn,
+ *                 payloadDeliveryBucketName: exampleAwsS3Bucket.bucket,
+ *             },
+ *             triggerCondition: [{
+ *                 messageBasedTrigger: [{
+ *                     messageCount: 12,
+ *                 }],
+ *             }],
+ *             historicalContextWindowSize: 10,
+ *         },
+ *         type: "SELF_MANAGED",
+ *     },
+ *     name: "self-managed-strategy",
+ *     memoryId: exampleAwsBedrockagentcoreMemory.id,
+ *     memoryExecutionRoleArn: exampleAwsBedrockagentcoreMemory.memoryExecutionRoleArn,
+ *     type: "CUSTOM",
+ *     description: "Self-managed processing strategy",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore Memory Strategy using the `memory_id,strategy_id`. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `memoryId` (String) Memory ID.
+ * * `memoryStrategyId` (String) Memory strategy ID.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import memory strategies using `memoryId` and `memoryStrategyId` separated by a comma (`,`). For example:
  *
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example MEMORY1234567890,STRATEGY0987654321
+ * $ pulumi import aws:bedrock/agentcoreMemoryStrategy:AgentcoreMemoryStrategy example example_memory-5JcvKJ4GP0,example_memory_strategy-pblFzi8VyW
  * ```
  */
 export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
@@ -221,9 +293,9 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
      */
     declare public readonly configuration: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
-     * Description of the memory strategy.
+     * Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
      */
-    declare public readonly description: pulumi.Output<string | undefined>;
+    declare public readonly description: pulumi.Output<string>;
     /**
      * ARN of the IAM role that the memory service assumes to perform operations.
      *
@@ -235,15 +307,19 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
      */
     declare public readonly memoryId: pulumi.Output<string>;
     /**
+     * Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+     */
+    declare public readonly memoryRecordSchema: pulumi.Output<outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchema | undefined>;
+    /**
      * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
      */
     declare public /*out*/ readonly memoryStrategyId: pulumi.Output<string>;
     /**
-     * Name of the memory strategy.
+     * Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
      */
     declare public readonly namespaceTemplates: pulumi.Output<string[]>;
     /**
@@ -285,6 +361,7 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
             resourceInputs["description"] = state?.description;
             resourceInputs["memoryExecutionRoleArn"] = state?.memoryExecutionRoleArn;
             resourceInputs["memoryId"] = state?.memoryId;
+            resourceInputs["memoryRecordSchema"] = state?.memoryRecordSchema;
             resourceInputs["memoryStrategyId"] = state?.memoryStrategyId;
             resourceInputs["name"] = state?.name;
             resourceInputs["namespaceTemplates"] = state?.namespaceTemplates;
@@ -305,6 +382,7 @@ export class AgentcoreMemoryStrategy extends pulumi.CustomResource {
             resourceInputs["description"] = args?.description;
             resourceInputs["memoryExecutionRoleArn"] = args?.memoryExecutionRoleArn;
             resourceInputs["memoryId"] = args?.memoryId;
+            resourceInputs["memoryRecordSchema"] = args?.memoryRecordSchema;
             resourceInputs["name"] = args?.name;
             resourceInputs["namespaceTemplates"] = args?.namespaceTemplates;
             resourceInputs["namespaces"] = args?.namespaces;
@@ -328,7 +406,7 @@ export interface AgentcoreMemoryStrategyState {
      */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
-     * Description of the memory strategy.
+     * Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -342,15 +420,19 @@ export interface AgentcoreMemoryStrategyState {
      */
     memoryId?: pulumi.Input<string | undefined>;
     /**
+     * Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+     */
+    memoryRecordSchema?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchema | undefined>;
+    /**
      * Unique identifier of the Memory Strategy. This corresponds to the service `strategyId` identifier (AWS API / CloudFormation terminology).
      */
     memoryStrategyId?: pulumi.Input<string | undefined>;
     /**
-     * Name of the memory strategy.
+     * Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
      */
     namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -385,7 +467,7 @@ export interface AgentcoreMemoryStrategyArgs {
      */
     configuration?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyConfiguration | undefined>;
     /**
-     * Description of the memory strategy.
+     * Description of the memory strategy. Once set, a description cannot be removed via update because the service API ignores a null description and retains the previously stored value.
      */
     description?: pulumi.Input<string | undefined>;
     /**
@@ -399,11 +481,15 @@ export interface AgentcoreMemoryStrategyArgs {
      */
     memoryId: pulumi.Input<string>;
     /**
-     * Name of the memory strategy.
+     * Schema for metadata fields on records generated by this strategy. Valid for all strategy types. See `memoryRecordSchema` Block below.
+     */
+    memoryRecordSchema?: pulumi.Input<inputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchema | undefined>;
+    /**
+     * Name of the memory strategy. Changing this forces a new resource, because the service API does not support renaming a strategy.
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured.
+     * Set containing exactly one namespace template where this strategy applies (for example `/strategies/{memoryStrategyId}/actors/{actorId}/sessions/{sessionId}`). Namespace templates help organize and scope memory content. Exactly one of `namespaceTemplates` or `namespaces` must be configured for all strategies except `CUSTOM` strategies using `SELF_MANAGED` configuration.
      */
     namespaceTemplates?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

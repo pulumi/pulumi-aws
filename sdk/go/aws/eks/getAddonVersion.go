@@ -93,12 +93,8 @@ type GetAddonVersionResult struct {
 }
 
 func GetAddonVersionOutput(ctx *pulumi.Context, args GetAddonVersionOutputArgs, opts ...pulumi.InvokeOption) GetAddonVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAddonVersionResultOutput, error) {
-			args := v.(GetAddonVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getAddonVersion:getAddonVersion", args, GetAddonVersionResultOutput{}, options).(GetAddonVersionResultOutput), nil
-		}).(GetAddonVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getAddonVersion:getAddonVersion", args, GetAddonVersionResultOutput{}, options).(GetAddonVersionResultOutput)
 }
 
 // A collection of arguments for invoking getAddonVersion.

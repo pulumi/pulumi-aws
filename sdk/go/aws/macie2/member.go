@@ -64,7 +64,7 @@ type Member struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// The AWS account ID for the administrator account.
 	AdministratorAccountId pulumi.StringOutput `pulumi:"administratorAccountId"`
-	// The Amazon Resource Name (ARN) of the account.
+	// ARN of the account.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The email address for the account.
 	Email pulumi.StringOutput `pulumi:"email"`
@@ -131,7 +131,7 @@ type memberState struct {
 	AccountId *string `pulumi:"accountId"`
 	// The AWS account ID for the administrator account.
 	AdministratorAccountId *string `pulumi:"administratorAccountId"`
-	// The Amazon Resource Name (ARN) of the account.
+	// ARN of the account.
 	Arn *string `pulumi:"arn"`
 	// The email address for the account.
 	Email *string `pulumi:"email"`
@@ -163,7 +163,7 @@ type MemberState struct {
 	AccountId pulumi.StringPtrInput
 	// The AWS account ID for the administrator account.
 	AdministratorAccountId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the account.
+	// ARN of the account.
 	Arn pulumi.StringPtrInput
 	// The email address for the account.
 	Email pulumi.StringPtrInput
@@ -330,7 +330,7 @@ func (o MemberOutput) AdministratorAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.AdministratorAccountId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the account.
+// ARN of the account.
 func (o MemberOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Member) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

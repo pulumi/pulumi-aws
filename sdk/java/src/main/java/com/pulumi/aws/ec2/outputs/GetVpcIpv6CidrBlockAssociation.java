@@ -16,12 +16,12 @@ public final class GetVpcIpv6CidrBlockAssociation {
      */
     private String associationId;
     /**
-     * @return The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * @return Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
      * 
      */
     private String ipSource;
     /**
-     * @return Indicates whether the address is `public` or `private`.
+     * @return Whether the address is `public` or `private`.
      * 
      */
     private String ipv6AddressAttribute;
@@ -41,8 +41,7 @@ public final class GetVpcIpv6CidrBlockAssociation {
      */
     private String networkBorderGroup;
     /**
-     * @return Current state of the desired VPC.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
+     * @return Current state of the desired VPC. Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
     private String state;
@@ -56,14 +55,14 @@ public final class GetVpcIpv6CidrBlockAssociation {
         return this.associationId;
     }
     /**
-     * @return The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+     * @return Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
      * 
      */
     public String ipSource() {
         return this.ipSource;
     }
     /**
-     * @return Indicates whether the address is `public` or `private`.
+     * @return Whether the address is `public` or `private`.
      * 
      */
     public String ipv6AddressAttribute() {
@@ -91,8 +90,7 @@ public final class GetVpcIpv6CidrBlockAssociation {
         return this.networkBorderGroup;
     }
     /**
-     * @return Current state of the desired VPC.
-     * Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
+     * @return Current state of the desired VPC. Can be either `&#34;pending&#34;` or `&#34;available&#34;`.
      * 
      */
     public String state() {

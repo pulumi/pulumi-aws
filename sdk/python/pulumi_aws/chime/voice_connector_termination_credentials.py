@@ -164,11 +164,11 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             ],
             voice_connector_id=default.id)
         default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
-            voice_connector_id=default.id,
             credentials=[{
                 "username": "test",
                 "password": "test!",
             }],
+            voice_connector_id=default.id,
             opts = pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 
@@ -217,11 +217,11 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
             ],
             voice_connector_id=default.id)
         default_voice_connector_termination_credentials = aws.chime.VoiceConnectorTerminationCredentials("default",
-            voice_connector_id=default.id,
             credentials=[{
                 "username": "test",
                 "password": "test!",
             }],
+            voice_connector_id=default.id,
             opts = pulumi.ResourceOptions(depends_on=[default_voice_connector_termination]))
         ```
 

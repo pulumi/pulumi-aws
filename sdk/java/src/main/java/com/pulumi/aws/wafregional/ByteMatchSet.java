@@ -46,16 +46,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var byteSet = new ByteMatchSet("byteSet", ByteMatchSetArgs.builder()
- *             .name("my_waf_byte_match_set")
  *             .byteMatchTuples(ByteMatchSetByteMatchTupleArgs.builder()
- *                 .textTransformation("NONE")
- *                 .targetString("badrefer1")
- *                 .positionalConstraint("CONTAINS")
  *                 .fieldToMatch(ByteMatchSetByteMatchTupleFieldToMatchArgs.builder()
  *                     .type("HEADER")
  *                     .data("referer")
  *                     .build())
+ *                 .textTransformation("NONE")
+ *                 .targetString("badrefer1")
+ *                 .positionalConstraint("CONTAINS")
  *                 .build())
+ *             .name("my_waf_byte_match_set")
  *             .build());
  * 
  *     }

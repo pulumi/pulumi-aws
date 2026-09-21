@@ -224,7 +224,7 @@ class _SnapshotCopyState:
         """
         Input properties used for looking up and filtering SnapshotCopy resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input[_builtins.int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
@@ -285,7 +285,7 @@ class _SnapshotCopyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -694,7 +694,7 @@ class SnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input[_builtins.int] completion_duration_minutes: Specifies a completion duration to initiate a time-based snapshot copy. Time-based snapshot copy operations complete within the specified duration.  Value must be between 15 and 2880 minutes, in 15 minute increments only.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
@@ -741,7 +741,7 @@ class SnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 

@@ -62,10 +62,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--zoneId--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name(available.zoneIds()[0])
  *                 .build())
+ *             .bucket("example--zoneId--x-s3")
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
@@ -74,8 +74,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDirectoryBucketAccessPointScope = new DirectoryBucketAccessPointScope("exampleDirectoryBucketAccessPointScope", DirectoryBucketAccessPointScopeArgs.builder()
- *             .name("example--zoneId--xa-s3")
- *             .accountId("123456789012")
  *             .scope(DirectoryBucketAccessPointScopeScopeArgs.builder()
  *                 .permissions(                
  *                     "GetObject",
@@ -84,6 +82,8 @@ import javax.annotation.Nullable;
  *                     "myobject1.csv",
  *                     "myobject2*")
  *                 .build())
+ *             .name("example--zoneId--xa-s3")
+ *             .accountId("123456789012")
  *             .build());
  * 
  *     }

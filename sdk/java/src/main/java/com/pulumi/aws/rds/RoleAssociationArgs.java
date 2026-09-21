@@ -62,14 +62,14 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * ARN of the IAM Role to associate with the DB Instance.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * @return ARN of the IAM Role to associate with the DB Instance.
      * 
      */
     public Output<String> roleArn() {
@@ -167,7 +167,7 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+         * @param roleArn ARN of the IAM Role to associate with the DB Instance.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class RoleAssociationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+         * @param roleArn ARN of the IAM Role to associate with the DB Instance.
          * 
          * @return builder
          * 

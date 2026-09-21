@@ -120,7 +120,7 @@ class _TestGridProjectState:
         """
         Input properties used for looking up and filtering TestGridProject resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
+        :param pulumi.Input[_builtins.str] arn: ARN of this Test Grid Project.
         :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -147,7 +147,7 @@ class _TestGridProjectState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this Test Grid Project.
+        ARN of this Test Grid Project.
         """
         return pulumi.get(self, "arn")
 
@@ -252,12 +252,12 @@ class TestGridProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.TestGridProject("example",
-            name="example",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -266,7 +266,7 @@ class TestGridProject(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+        - `arn` (String) ARN of the Device Farm test grid project.
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
@@ -301,12 +301,12 @@ class TestGridProject(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.TestGridProject("example",
-            name="example",
             vpc_config={
                 "vpc_id": example_aws_vpc["id"],
                 "subnet_ids": [__item["id"] for __item in example_aws_subnet],
                 "security_group_ids": [__item["id"] for __item in example_aws_security_group],
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -315,7 +315,7 @@ class TestGridProject(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+        - `arn` (String) ARN of the Device Farm test grid project.
 
         Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 
@@ -384,7 +384,7 @@ class TestGridProject(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Test Grid Project.
+        :param pulumi.Input[_builtins.str] arn: ARN of this Test Grid Project.
         :param pulumi.Input[_builtins.str] description: Human-readable description of the project.
         :param pulumi.Input[_builtins.str] name: The name of the Selenium testing project.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -409,7 +409,7 @@ class TestGridProject(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this Test Grid Project.
+        ARN of this Test Grid Project.
         """
         return pulumi.get(self, "arn")
 

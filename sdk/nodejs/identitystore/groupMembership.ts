@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleUser = new aws.identitystore.User("example", {
- *     identityStoreId: example.then(example => example.identityStoreIds?.[0]),
- *     displayName: "John Doe",
- *     userName: "john.doe@example.com",
  *     name: {
  *         familyName: "Doe",
  *         givenName: "John",
  *     },
+ *     identityStoreId: example.then(example => example.identityStoreIds?.[0]),
+ *     displayName: "John Doe",
+ *     userName: "john.doe@example.com",
  * });
  * const exampleGroup = new aws.identitystore.Group("example", {
  *     identityStoreId: example.then(example => example.identityStoreIds?.[0]),

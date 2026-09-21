@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Cognito.Outputs
     public sealed class UserPoolLambdaConfigCustomEmailSender
     {
         /// <summary>
-        /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        /// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         /// </summary>
         public readonly string LambdaArn;
         /// <summary>

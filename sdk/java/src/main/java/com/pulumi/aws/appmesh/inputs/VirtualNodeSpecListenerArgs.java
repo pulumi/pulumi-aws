@@ -97,14 +97,14 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualNodeSpecListenerTlsArgs> tls;
 
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsArgs>> tls() {
@@ -246,7 +246,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class VirtualNodeSpecListenerArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 

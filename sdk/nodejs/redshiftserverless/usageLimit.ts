@@ -65,7 +65,7 @@ export class UsageLimit extends pulumi.CustomResource {
      */
     declare public readonly amount: pulumi.Output<number>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * ARN of the Redshift Serverless Usage Limit.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -81,7 +81,7 @@ export class UsageLimit extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
     /**
@@ -142,7 +142,7 @@ export interface UsageLimitState {
      */
     amount?: pulumi.Input<number | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * ARN of the Redshift Serverless Usage Limit.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface UsageLimitState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface UsageLimitArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      */
     resourceArn: pulumi.Input<string>;
     /**

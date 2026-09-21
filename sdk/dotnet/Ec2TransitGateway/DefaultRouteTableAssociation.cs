@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2TransitGateway
 {
     /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
+    /// Resource for managing an AWS EC2 Transit Gateway Default Route Table Association.
     /// 
     /// ## Example Usage
     /// 

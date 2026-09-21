@@ -29,11 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewCustomPermissions(ctx, "example", &quicksight.CustomPermissionsArgs{
-//				CustomPermissionsName: pulumi.String("example-permissions"),
 //				Capabilities: &quicksight.CustomPermissionsCapabilitiesArgs{
 //					PrintReports:    pulumi.String("DENY"),
 //					ShareDashboards: pulumi.String("DENY"),
 //				},
+//				CustomPermissionsName: pulumi.String("example-permissions"),
 //			})
 //			if err != nil {
 //				return err

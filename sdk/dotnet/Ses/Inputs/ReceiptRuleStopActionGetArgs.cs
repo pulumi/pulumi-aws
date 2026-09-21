@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ses.Inputs
     public sealed class ReceiptRuleStopActionGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The position of the action in the receipt rule
+        /// Position of the action in the receipt rule.
         /// </summary>
         [Input("position", required: true)]
         public Input<int> Position { get; set; } = null!;
 
         /// <summary>
-        /// The scope to apply. The only acceptable value is `RuleSet`.
+        /// Scope to apply. The only acceptable value is `RuleSet`.
         /// </summary>
         [Input("scope", required: true)]
         public Input<string> Scope { get; set; } = null!;
 
         /// <summary>
-        /// The ARN of an SNS topic to notify
+        /// ARN of an SNS topic to notify.
         /// </summary>
         [Input("topicArn")]
         public Input<string>? TopicArn { get; set; }

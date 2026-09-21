@@ -24,7 +24,7 @@ public final class GetVirtualNodeSpecListenerTl {
      */
     private String mode;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     private List<GetVirtualNodeSpecListenerTlValidation> validations;
@@ -45,7 +45,7 @@ public final class GetVirtualNodeSpecListenerTl {
         return this.mode;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public List<GetVirtualNodeSpecListenerTlValidation> validations() {

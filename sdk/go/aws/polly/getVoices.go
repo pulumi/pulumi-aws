@@ -102,12 +102,8 @@ type GetVoicesResult struct {
 }
 
 func GetVoicesOutput(ctx *pulumi.Context, args GetVoicesOutputArgs, opts ...pulumi.InvokeOption) GetVoicesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVoicesResultOutput, error) {
-			args := v.(GetVoicesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:polly/getVoices:getVoices", args, GetVoicesResultOutput{}, options).(GetVoicesResultOutput), nil
-		}).(GetVoicesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:polly/getVoices:getVoices", args, GetVoicesResultOutput{}, options).(GetVoicesResultOutput)
 }
 
 // A collection of arguments for invoking getVoices.

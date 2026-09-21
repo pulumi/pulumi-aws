@@ -324,14 +324,14 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
             filter_criterias=[{
                 "aws_account_ids": [{
                     "comparison": "EQUALS",
                     "value": "111222333444",
                 }],
-            }])
+            }],
+            name="test",
+            action="NONE")
         ```
 
         ## Import
@@ -340,7 +340,7 @@ class Filter(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+        - `arn` (String) ARN of the Inspector filter.
 
         Using `pulumi import`, import Inspector Filter using the `arn`. For example:
 
@@ -379,14 +379,14 @@ class Filter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector2.Filter("example",
-            name="test",
-            action="NONE",
             filter_criterias=[{
                 "aws_account_ids": [{
                     "comparison": "EQUALS",
                     "value": "111222333444",
                 }],
-            }])
+            }],
+            name="test",
+            action="NONE")
         ```
 
         ## Import
@@ -395,7 +395,7 @@ class Filter(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+        - `arn` (String) ARN of the Inspector filter.
 
         Using `pulumi import`, import Inspector Filter using the `arn`. For example:
 

@@ -101,14 +101,14 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * Resources to include in a monitor, which you provide as a set of ARNs.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * @return Resources to include in a monitor, which you provide as a set of ARNs.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -302,7 +302,7 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resources The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+         * @param resources Resources to include in a monitor, which you provide as a set of ARNs.
          * 
          * @return builder
          * 
@@ -313,7 +313,7 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resources The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+         * @param resources Resources to include in a monitor, which you provide as a set of ARNs.
          * 
          * @return builder
          * 
@@ -323,7 +323,7 @@ public final class InternetMonitorArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resources The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+         * @param resources Resources to include in a monitor, which you provide as a set of ARNs.
          * 
          * @return builder
          * 

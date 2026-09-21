@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Keyspaces.Inputs
     public sealed class TableEncryptionSpecificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer managed KMS key.
+        /// ARN of the customer managed KMS key.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }

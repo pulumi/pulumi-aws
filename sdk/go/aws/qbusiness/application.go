@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := qbusiness.NewApplication(ctx, "example", &qbusiness.ApplicationArgs{
-//				DisplayName:               pulumi.String("example-app"),
-//				IamServiceRoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
-//				IdentityCenterInstanceArn: pulumi.Any(exampleAwsSsoadminInstances.Arns[0]),
 //				AttachmentsConfiguration: &qbusiness.ApplicationAttachmentsConfigurationArgs{
 //					AttachmentsControlMode: pulumi.String("ENABLED"),
 //				},
+//				DisplayName:               pulumi.String("example-app"),
+//				IamServiceRoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
+//				IdentityCenterInstanceArn: pulumi.Any(exampleAwsSsoadminInstances.Arns[0]),
 //			})
 //			if err != nil {
 //				return err

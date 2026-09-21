@@ -492,14 +492,15 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
             }))
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/agentcore/my-agent-traces")
         example_agentcore_online_evaluation_config = aws.bedrock.AgentcoreOnlineEvaluationConfig("example",
-            online_evaluation_config_name="my_evaluation_config",
-            description="Continuous evaluation of agent performance",
-            enable_on_create=True,
-            evaluation_execution_role_arn=example.arn,
             data_source_config={
                 "cloudwatch_logs": {
                     "log_group_names": [example_log_group.name],
                     "service_names": ["my_agent_service"],
+                },
+            },
+            rule={
+                "sampling_config": {
+                    "sampling_percentage": float(10),
                 },
             },
             evaluators=[
@@ -510,11 +511,10 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
                     "evaluator_id": "Builtin.GoalSuccessRate",
                 },
             ],
-            rule={
-                "sampling_config": {
-                    "sampling_percentage": float(10),
-                },
-            })
+            online_evaluation_config_name="my_evaluation_config",
+            description="Continuous evaluation of agent performance",
+            enable_on_create=True,
+            evaluation_execution_role_arn=example.arn)
         ```
 
         ### With Filters and Session Config
@@ -524,33 +524,33 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         filtered = aws.bedrock.AgentcoreOnlineEvaluationConfig("filtered",
-            online_evaluation_config_name="filtered_evaluation",
-            enable_on_create=True,
-            evaluation_execution_role_arn=example_aws_iam_role["arn"],
             data_source_config={
                 "cloudwatch_logs": {
                     "log_group_names": [example["name"]],
                     "service_names": ["my_agent_service"],
                 },
             },
-            evaluators=[{
-                "evaluator_id": "Builtin.Helpfulness",
-            }],
             rule={
                 "sampling_config": {
                     "sampling_percentage": float(50),
                 },
-                "filters": [{
-                    "key": "environment",
-                    "operator": "Equals",
-                    "value": {
-                        "string_value": "production",
-                    },
-                }],
                 "session_config": {
                     "session_timeout_minutes": 30,
                 },
-            })
+                "filters": [{
+                    "value": {
+                        "string_value": "production",
+                    },
+                    "key": "environment",
+                    "operator": "Equals",
+                }],
+            },
+            evaluators=[{
+                "evaluator_id": "Builtin.Helpfulness",
+            }],
+            online_evaluation_config_name="filtered_evaluation",
+            enable_on_create=True,
+            evaluation_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -622,14 +622,15 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
             }))
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/agentcore/my-agent-traces")
         example_agentcore_online_evaluation_config = aws.bedrock.AgentcoreOnlineEvaluationConfig("example",
-            online_evaluation_config_name="my_evaluation_config",
-            description="Continuous evaluation of agent performance",
-            enable_on_create=True,
-            evaluation_execution_role_arn=example.arn,
             data_source_config={
                 "cloudwatch_logs": {
                     "log_group_names": [example_log_group.name],
                     "service_names": ["my_agent_service"],
+                },
+            },
+            rule={
+                "sampling_config": {
+                    "sampling_percentage": float(10),
                 },
             },
             evaluators=[
@@ -640,11 +641,10 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
                     "evaluator_id": "Builtin.GoalSuccessRate",
                 },
             ],
-            rule={
-                "sampling_config": {
-                    "sampling_percentage": float(10),
-                },
-            })
+            online_evaluation_config_name="my_evaluation_config",
+            description="Continuous evaluation of agent performance",
+            enable_on_create=True,
+            evaluation_execution_role_arn=example.arn)
         ```
 
         ### With Filters and Session Config
@@ -654,33 +654,33 @@ class AgentcoreOnlineEvaluationConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         filtered = aws.bedrock.AgentcoreOnlineEvaluationConfig("filtered",
-            online_evaluation_config_name="filtered_evaluation",
-            enable_on_create=True,
-            evaluation_execution_role_arn=example_aws_iam_role["arn"],
             data_source_config={
                 "cloudwatch_logs": {
                     "log_group_names": [example["name"]],
                     "service_names": ["my_agent_service"],
                 },
             },
-            evaluators=[{
-                "evaluator_id": "Builtin.Helpfulness",
-            }],
             rule={
                 "sampling_config": {
                     "sampling_percentage": float(50),
                 },
-                "filters": [{
-                    "key": "environment",
-                    "operator": "Equals",
-                    "value": {
-                        "string_value": "production",
-                    },
-                }],
                 "session_config": {
                     "session_timeout_minutes": 30,
                 },
-            })
+                "filters": [{
+                    "value": {
+                        "string_value": "production",
+                    },
+                    "key": "environment",
+                    "operator": "Equals",
+                }],
+            },
+            evaluators=[{
+                "evaluator_id": "Builtin.Helpfulness",
+            }],
+            online_evaluation_config_name="filtered_evaluation",
+            enable_on_create=True,
+            evaluation_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

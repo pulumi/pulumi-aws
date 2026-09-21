@@ -169,11 +169,11 @@ namespace Pulumi.Aws.Dms
         public readonly string MigrationType;
         public readonly string Region;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the replication instance.
+        /// ARN of the replication instance.
         /// </summary>
         public readonly string ReplicationInstanceArn;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the replication task.
+        /// ARN for the replication task.
         /// </summary>
         public readonly string ReplicationTaskArn;
         public readonly string ReplicationTaskId;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly string ReplicationTaskSettings;
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+        /// ARN string that uniquely identifies the source endpoint.
         /// </summary>
         public readonly string SourceEndpointArn;
         /// <summary>
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Dms
         public readonly string TableMappings;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+        /// ARN string that uniquely identifies the target endpoint.
         /// </summary>
         public readonly string TargetEndpointArn;
 

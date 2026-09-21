@@ -45,7 +45,7 @@ export interface GetEmailIdentityArgs {
  */
 export interface GetEmailIdentityResult {
     /**
-     * The ARN of the email identity.
+     * ARN of the email identity.
      */
     readonly arn: string;
     /**

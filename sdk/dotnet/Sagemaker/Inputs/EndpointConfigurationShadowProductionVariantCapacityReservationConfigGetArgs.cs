@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? CapacityReservationPreference { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        /// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
         /// </summary>
         [Input("mlReservationArn")]
         public Input<string>? MlReservationArn { get; set; }

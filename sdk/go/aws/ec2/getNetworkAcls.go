@@ -86,7 +86,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetNetworkAcls(ctx, &ec2.GetNetworkAclsArgs{
-//				VpcId: pulumi.StringRef(vpcId),
 //				Filters: []ec2.GetNetworkAclsFilter{
 //					{
 //						Name: "association.subnet-id",
@@ -95,6 +94,7 @@ import (
 //						},
 //					},
 //				},
+//				VpcId: pulumi.StringRef(vpcId),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -140,12 +140,8 @@ type GetNetworkAclsResult struct {
 }
 
 func GetNetworkAclsOutput(ctx *pulumi.Context, args GetNetworkAclsOutputArgs, opts ...pulumi.InvokeOption) GetNetworkAclsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetNetworkAclsResultOutput, error) {
-			args := v.(GetNetworkAclsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getNetworkAcls:getNetworkAcls", args, GetNetworkAclsResultOutput{}, options).(GetNetworkAclsResultOutput), nil
-		}).(GetNetworkAclsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getNetworkAcls:getNetworkAcls", args, GetNetworkAclsResultOutput{}, options).(GetNetworkAclsResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkAcls.

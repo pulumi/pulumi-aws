@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.FilesSynchronizationConfiguration("example", {
- *     fileSystemId: exampleAwsS3filesFileSystem.id,
+ *     expirationDataRules: [{
+ *         daysAfterLastAccess: 30,
+ *     }],
  *     importDataRules: [{
  *         prefix: "",
  *         sizeLessThan: 52673613135872,
  *         trigger: "ON_FILE_ACCESS",
  *     }],
- *     expirationDataRules: [{
- *         daysAfterLastAccess: 30,
- *     }],
+ *     fileSystemId: exampleAwsS3filesFileSystem.id,
  * });
  * ```
  *

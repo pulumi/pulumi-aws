@@ -669,7 +669,6 @@ class RegisteredDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53domains.RegisteredDomain("example",
-            domain_name="example.com",
             name_servers=[
                 {
                     "name": "ns-195.awsdns-24.com",
@@ -678,6 +677,7 @@ class RegisteredDomain(pulumi.CustomResource):
                     "name": "ns-874.awsdns-45.net",
                 },
             ],
+            domain_name="example.com",
             tags={
                 "Environment": "test",
             })
@@ -730,7 +730,6 @@ class RegisteredDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.route53domains.RegisteredDomain("example",
-            domain_name="example.com",
             name_servers=[
                 {
                     "name": "ns-195.awsdns-24.com",
@@ -739,6 +738,7 @@ class RegisteredDomain(pulumi.CustomResource):
                     "name": "ns-874.awsdns-45.net",
                 },
             ],
+            domain_name="example.com",
             tags={
                 "Environment": "test",
             })

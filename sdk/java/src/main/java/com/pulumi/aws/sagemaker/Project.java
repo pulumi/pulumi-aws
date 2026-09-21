@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Project("example", ProjectArgs.builder()
- *             .projectName("example")
  *             .serviceCatalogProvisioningDetails(ProjectServiceCatalogProvisioningDetailsArgs.builder()
  *                 .productId(exampleAwsServicecatalogProduct.id())
  *                 .build())
+ *             .projectName("example")
  *             .build());
  * 
  *     }
@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/project:Project")
 public class Project extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * ARN assigned by AWS to this Project.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Project.
+     * @return ARN assigned by AWS to this Project.
      * 
      */
     public Output<String> arn() {

@@ -68,12 +68,8 @@ type LookupAccountPublicAccessBlockResult struct {
 }
 
 func LookupAccountPublicAccessBlockOutput(ctx *pulumi.Context, args LookupAccountPublicAccessBlockOutputArgs, opts ...pulumi.InvokeOption) LookupAccountPublicAccessBlockResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccountPublicAccessBlockResultOutput, error) {
-			args := v.(LookupAccountPublicAccessBlockArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, LookupAccountPublicAccessBlockResultOutput{}, options).(LookupAccountPublicAccessBlockResultOutput), nil
-		}).(LookupAccountPublicAccessBlockResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args, LookupAccountPublicAccessBlockResultOutput{}, options).(LookupAccountPublicAccessBlockResultOutput)
 }
 
 // A collection of arguments for invoking getAccountPublicAccessBlock.

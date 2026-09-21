@@ -16,6 +16,7 @@ from .get_domain import *
 from .get_environment_blueprint import *
 from .glossary import *
 from .glossary_term import *
+from .policy_grant import *
 from .project import *
 from .user_profile import *
 from ._inputs import *

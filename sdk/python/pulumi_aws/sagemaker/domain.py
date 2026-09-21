@@ -42,7 +42,7 @@ class DomainArgs:
         :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See `default_user_settings` Block below.
         :param pulumi.Input[_builtins.str] domain_name: The domain name.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC that Studio uses for communication.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
@@ -131,7 +131,7 @@ class DomainArgs:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        ID of the VPC that Studio uses for communication.
 
         The following arguments are optional:
         """
@@ -279,7 +279,7 @@ class _DomainState:
 
         :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Domain.
         :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input['DomainDefaultSpaceSettingsArgs'] default_space_settings: The default space settings. See `default_space_settings` Block below.
         :param pulumi.Input['DomainDefaultUserSettingsArgs'] default_user_settings: The default user settings. See `default_user_settings` Block below.
@@ -297,7 +297,7 @@ class _DomainState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] url: The domain's URL.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC that Studio uses for communication.
                
                The following arguments are optional:
         """
@@ -372,7 +372,7 @@ class _DomainState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        ARN assigned by AWS to this Domain.
         """
         return pulumi.get(self, "arn")
 
@@ -588,7 +588,7 @@ class _DomainState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        ID of the VPC that Studio uses for communication.
 
         The following arguments are optional:
         """
@@ -632,24 +632,24 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
             path="/",
             assume_role_policy=example.json)
         example_domain = aws.sagemaker.Domain("example",
+            default_user_settings={
+                "execution_role": example_role.arn,
+            },
             domain_name="example",
             auth_mode="IAM",
             vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_role.arn,
-            })
+            subnet_ids=[example_aws_subnet["id"]])
         ```
 
         ### Using Custom Images
@@ -662,29 +662,29 @@ class Domain(pulumi.CustomResource):
             image_name="example",
             role_arn=example_aws_iam_role["arn"])
         example_app_image_config = aws.sagemaker.AppImageConfig("example",
-            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            })
+            },
+            app_image_config_name="example")
         example_image_version = aws.sagemaker.ImageVersion("example",
             image_name=example.id,
             base_image="base-image")
         example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings={
-                "execution_role": example_aws_iam_role["arn"],
                 "kernel_gateway_app_settings": {
                     "custom_images": [{
                         "app_image_config_name": example_app_image_config.app_image_config_name,
                         "image_name": example_image_version.image_name,
                     }],
                 },
-            })
+                "execution_role": example_aws_iam_role["arn"],
+            },
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]])
         ```
 
         ## Import
@@ -711,7 +711,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: The VPC subnets that Studio uses for communication.
         :param pulumi.Input[_builtins.str] tag_propagation: Indicates whether custom tag propagation is supported for the domain. Defaults to `DISABLED`. Valid values are: `ENABLED` and `DISABLED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC that Studio uses for communication.
                
                The following arguments are optional:
         """
@@ -733,24 +733,24 @@ class Domain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
             path="/",
             assume_role_policy=example.json)
         example_domain = aws.sagemaker.Domain("example",
+            default_user_settings={
+                "execution_role": example_role.arn,
+            },
             domain_name="example",
             auth_mode="IAM",
             vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
-            default_user_settings={
-                "execution_role": example_role.arn,
-            })
+            subnet_ids=[example_aws_subnet["id"]])
         ```
 
         ### Using Custom Images
@@ -763,29 +763,29 @@ class Domain(pulumi.CustomResource):
             image_name="example",
             role_arn=example_aws_iam_role["arn"])
         example_app_image_config = aws.sagemaker.AppImageConfig("example",
-            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            })
+            },
+            app_image_config_name="example")
         example_image_version = aws.sagemaker.ImageVersion("example",
             image_name=example.id,
             base_image="base-image")
         example_domain = aws.sagemaker.Domain("example",
-            domain_name="example",
-            auth_mode="IAM",
-            vpc_id=example_aws_vpc["id"],
-            subnet_ids=[example_aws_subnet["id"]],
             default_user_settings={
-                "execution_role": example_aws_iam_role["arn"],
                 "kernel_gateway_app_settings": {
                     "custom_images": [{
                         "app_image_config_name": example_app_image_config.app_image_config_name,
                         "image_name": example_image_version.image_name,
                     }],
                 },
-            })
+                "execution_role": example_aws_iam_role["arn"],
+            },
+            domain_name="example",
+            auth_mode="IAM",
+            vpc_id=example_aws_vpc["id"],
+            subnet_ids=[example_aws_subnet["id"]])
         ```
 
         ## Import
@@ -906,7 +906,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_network_access_type: Specifies the VPC used for non-EFS traffic. The default value is `PublicInternetOnly`. Valid values are `PublicInternetOnly` and `VpcOnly`.
         :param pulumi.Input[_builtins.str] app_security_group_management: The entity that creates and manages the required security groups for inter-app communication in `VPCOnly` mode. Valid values are `Service` and `Customer`.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Domain.
         :param pulumi.Input[_builtins.str] auth_mode: The mode of authentication that members use to access the domain. Valid values are `IAM` and `SSO`.
         :param pulumi.Input[Union['DomainDefaultSpaceSettingsArgs', 'DomainDefaultSpaceSettingsArgsDict']] default_space_settings: The default space settings. See `default_space_settings` Block below.
         :param pulumi.Input[Union['DomainDefaultUserSettingsArgs', 'DomainDefaultUserSettingsArgsDict']] default_user_settings: The default user settings. See `default_user_settings` Block below.
@@ -924,7 +924,7 @@ class Domain(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] url: The domain's URL.
-        :param pulumi.Input[_builtins.str] vpc_id: The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        :param pulumi.Input[_builtins.str] vpc_id: ID of the VPC that Studio uses for communication.
                
                The following arguments are optional:
         """
@@ -975,7 +975,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        ARN assigned by AWS to this Domain.
         """
         return pulumi.get(self, "arn")
 
@@ -1119,7 +1119,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        ID of the VPC that Studio uses for communication.
 
         The following arguments are optional:
         """

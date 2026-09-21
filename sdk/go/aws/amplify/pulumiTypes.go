@@ -846,7 +846,7 @@ func (o AppProductionBranchArrayOutput) Index(i pulumi.IntInput) AppProductionBr
 type DomainAssociationCertificateSettings struct {
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord *string `pulumi:"certificateVerificationDnsRecord"`
-	// The Amazon resource name (ARN) for the custom certificate.
+	// ARN for the custom certificate.
 	// Required when `type` is `CUSTOM`.
 	CustomCertificateArn *string `pulumi:"customCertificateArn"`
 	// The certificate type.
@@ -868,7 +868,7 @@ type DomainAssociationCertificateSettingsInput interface {
 type DomainAssociationCertificateSettingsArgs struct {
 	// DNS records for certificate verification in a space-delimited format (`<record> CNAME <target>`).
 	CertificateVerificationDnsRecord pulumi.StringPtrInput `pulumi:"certificateVerificationDnsRecord"`
-	// The Amazon resource name (ARN) for the custom certificate.
+	// ARN for the custom certificate.
 	// Required when `type` is `CUSTOM`.
 	CustomCertificateArn pulumi.StringPtrInput `pulumi:"customCertificateArn"`
 	// The certificate type.
@@ -958,7 +958,7 @@ func (o DomainAssociationCertificateSettingsOutput) CertificateVerificationDnsRe
 	return o.ApplyT(func(v DomainAssociationCertificateSettings) *string { return v.CertificateVerificationDnsRecord }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon resource name (ARN) for the custom certificate.
+// ARN for the custom certificate.
 // Required when `type` is `CUSTOM`.
 func (o DomainAssociationCertificateSettingsOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAssociationCertificateSettings) *string { return v.CustomCertificateArn }).(pulumi.StringPtrOutput)
@@ -1004,7 +1004,7 @@ func (o DomainAssociationCertificateSettingsPtrOutput) CertificateVerificationDn
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon resource name (ARN) for the custom certificate.
+// ARN for the custom certificate.
 // Required when `type` is `CUSTOM`.
 func (o DomainAssociationCertificateSettingsPtrOutput) CustomCertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainAssociationCertificateSettings) *string {

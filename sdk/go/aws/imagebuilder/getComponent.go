@@ -73,7 +73,7 @@ type LookupComponentResult struct {
 	Encrypted bool `pulumi:"encrypted"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// ARN of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name string `pulumi:"name"`
@@ -93,12 +93,8 @@ type LookupComponentResult struct {
 }
 
 func LookupComponentOutput(ctx *pulumi.Context, args LookupComponentOutputArgs, opts ...pulumi.InvokeOption) LookupComponentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupComponentResultOutput, error) {
-			args := v.(LookupComponentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getComponent:getComponent", args, LookupComponentResultOutput{}, options).(LookupComponentResultOutput), nil
-		}).(LookupComponentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getComponent:getComponent", args, LookupComponentResultOutput{}, options).(LookupComponentResultOutput)
 }
 
 // A collection of arguments for invoking getComponent.
@@ -164,7 +160,7 @@ func (o LookupComponentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN of the Key Management Service (KMS) Key used to encrypt the component.
+// ARN of the KMS Key used to encrypt the component.
 func (o LookupComponentResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupComponentResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

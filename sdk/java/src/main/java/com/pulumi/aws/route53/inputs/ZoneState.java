@@ -21,14 +21,14 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
     public static final ZoneState Empty = new ZoneState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     * ARN of the Hosted Zone.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Hosted Zone.
+     * @return ARN of the Hosted Zone.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -238,7 +238,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Hosted Zone.
+         * @param arn ARN of the Hosted Zone.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class ZoneState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Hosted Zone.
+         * @param arn ARN of the Hosted Zone.
          * 
          * @return builder
          * 

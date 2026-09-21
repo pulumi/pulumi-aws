@@ -83,12 +83,8 @@ type LookupWorkspaceResult struct {
 }
 
 func LookupWorkspaceOutput(ctx *pulumi.Context, args LookupWorkspaceOutputArgs, opts ...pulumi.InvokeOption) LookupWorkspaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupWorkspaceResultOutput, error) {
-			args := v.(LookupWorkspaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:amp/getWorkspace:getWorkspace", args, LookupWorkspaceResultOutput{}, options).(LookupWorkspaceResultOutput), nil
-		}).(LookupWorkspaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:amp/getWorkspace:getWorkspace", args, LookupWorkspaceResultOutput{}, options).(LookupWorkspaceResultOutput)
 }
 
 // A collection of arguments for invoking getWorkspace.

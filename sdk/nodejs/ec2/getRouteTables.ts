@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const rts = aws.ec2.getRouteTables({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "tag:kubernetes.io/kops/role",
  *         values: ["private*"],
  *     }],
+ *     vpcId: vpcId,
  * });
  * const r: aws.ec2.Route[] = [];
  * rts.then(rts => rts.ids).length.apply(rangeBody => {
@@ -104,11 +104,11 @@ export interface GetRouteTablesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const rts = aws.ec2.getRouteTables({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "tag:kubernetes.io/kops/role",
  *         values: ["private*"],
  *     }],
+ *     vpcId: vpcId,
  * });
  * const r: aws.ec2.Route[] = [];
  * rts.then(rts => rts.ids).length.apply(rangeBody => {

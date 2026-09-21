@@ -96,7 +96,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> AquaConfigurationStatus { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// Namespace ARN of the cluster
         /// </summary>
         [Output("clusterNamespaceArn")]
         public Output<string> ClusterNamespaceArn { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterRevisionNumber { get; private set; } = null!;
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Output("clusterSubnetGroupName")]
         public Output<string> ClusterSubnetGroupName { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> DatabaseName { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string> DefaultIamRoleArn { get; private set; } = null!;
@@ -243,9 +243,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string?> MaintenanceTrackName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Output("manageMasterPassword")]
         public Output<bool?> ManageMasterPassword { get; private set; } = null!;
@@ -257,11 +255,7 @@ namespace Pulumi.Aws.RedShift
         public Output<int?> ManualSnapshotRetentionPeriod { get; private set; } = null!;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         [Output("masterPassword")]
         public Output<string?> MasterPassword { get; private set; } = null!;
@@ -280,17 +274,13 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         [Output("masterPasswordWo")]
         public Output<string?> MasterPasswordWo { get; private set; } = null!;
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Output("masterPasswordWoVersion")]
         public Output<int?> MasterPasswordWoVersion { get; private set; } = null!;
@@ -393,7 +383,7 @@ namespace Pulumi.Aws.RedShift
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         [Output("vpcSecurityGroupIds")]
         public Output<ImmutableArray<string>> VpcSecurityGroupIds { get; private set; } = null!;
@@ -500,7 +490,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterParameterGroupName { get; set; }
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Input("clusterSubnetGroupName")]
         public Input<string>? ClusterSubnetGroupName { get; set; }
@@ -526,7 +516,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -581,9 +571,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -598,11 +586,7 @@ namespace Pulumi.Aws.RedShift
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -625,11 +609,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -642,7 +622,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -748,7 +728,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {
@@ -785,7 +765,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? AquaConfigurationStatus { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of cluster
+        /// ARN of cluster
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -815,7 +795,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The namespace Amazon Resource Name (ARN) of the cluster
+        /// Namespace ARN of the cluster
         /// </summary>
         [Input("clusterNamespaceArn")]
         public Input<string>? ClusterNamespaceArn { get; set; }
@@ -851,7 +831,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterRevisionNumber { get; set; }
 
         /// <summary>
-        /// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+        /// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
         /// </summary>
         [Input("clusterSubnetGroupName")]
         public Input<string>? ClusterSubnetGroupName { get; set; }
@@ -877,7 +857,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? DatabaseName { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -944,9 +924,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? MaintenanceTrackName { get; set; }
 
         /// <summary>
-        /// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-        /// Conflicts with `MasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
+        /// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `MasterPassword` and `MasterPasswordWo`. One of `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
         /// </summary>
         [Input("manageMasterPassword")]
         public Input<bool>? ManageMasterPassword { get; set; }
@@ -961,11 +939,7 @@ namespace Pulumi.Aws.RedShift
         private Input<string>? _masterPassword;
 
         /// <summary>
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPasswordWo`.
-        /// One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs, and it will be stored in the state file.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPasswordWo`. One of `MasterPassword`, `MasterPasswordWo` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
         /// </summary>
         public Input<string>? MasterPassword
         {
@@ -994,11 +968,7 @@ namespace Pulumi.Aws.RedShift
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the master DB user.
-        /// Conflicts with `ManageMasterPassword` and `MasterPassword`.
-        /// One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided.
-        /// Note that this may show up in logs.
-        /// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+        /// Password for the master DB user. Conflicts with `ManageMasterPassword` and `MasterPassword`. One of `MasterPasswordWo`, `MasterPassword` or `ManageMasterPassword` is required unless `SnapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `MasterPasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? MasterPasswordWo
         {
@@ -1011,7 +981,7 @@ namespace Pulumi.Aws.RedShift
         }
 
         /// <summary>
-        /// Used together with `MasterPasswordWo` to trigger an update. Increment this value when an update to the `MasterPasswordWo` is required.
+        /// Required when `MasterPasswordWo` is set. Changing this value triggers an update to `MasterPasswordWo`.
         /// </summary>
         [Input("masterPasswordWoVersion")]
         public Input<int>? MasterPasswordWoVersion { get; set; }
@@ -1129,7 +1099,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+        /// List of VPC security groups to be associated with the cluster.
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

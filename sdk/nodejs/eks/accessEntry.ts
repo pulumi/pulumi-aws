@@ -73,7 +73,7 @@ export class AccessEntry extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Access Entry.
+     * ARN of the Access Entry.
      */
     declare public /*out*/ readonly accessEntryArn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export class AccessEntry extends pulumi.CustomResource {
  */
 export interface AccessEntryState {
     /**
-     * Amazon Resource Name (ARN) of the Access Entry.
+     * ARN of the Access Entry.
      */
     accessEntryArn?: pulumi.Input<string | undefined>;
     /**

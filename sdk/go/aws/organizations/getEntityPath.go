@@ -62,12 +62,8 @@ type GetEntityPathResult struct {
 }
 
 func GetEntityPathOutput(ctx *pulumi.Context, args GetEntityPathOutputArgs, opts ...pulumi.InvokeOption) GetEntityPathResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEntityPathResultOutput, error) {
-			args := v.(GetEntityPathArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getEntityPath:getEntityPath", args, GetEntityPathResultOutput{}, options).(GetEntityPathResultOutput), nil
-		}).(GetEntityPathResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getEntityPath:getEntityPath", args, GetEntityPathResultOutput{}, options).(GetEntityPathResultOutput)
 }
 
 // A collection of arguments for invoking getEntityPath.

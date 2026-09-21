@@ -37,7 +37,7 @@ export function getConfigurationSet(args: GetConfigurationSetArgs, opts?: pulumi
  */
 export interface GetConfigurationSetArgs {
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     configurationSetName: string;
     /**
@@ -45,7 +45,7 @@ export interface GetConfigurationSetArgs {
      */
     region?: string;
     /**
-     * Key-value map of resource tags for the container recipe.
+     * Key-value map of resource tags.
      */
     tags?: {[key: string]: string};
 }
@@ -54,10 +54,13 @@ export interface GetConfigurationSetArgs {
  * A collection of values returned by getConfigurationSet.
  */
 export interface GetConfigurationSetResult {
+    /**
+     * ARN of the configuration set.
+     */
     readonly arn: string;
     readonly configurationSetName: string;
     /**
-     * An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+     * Object that defines the dedicated IP pool used to send emails with the configuration set.
      */
     readonly deliveryOptions: outputs.sesv2.GetConfigurationSetDeliveryOption[];
     /**
@@ -66,27 +69,27 @@ export interface GetConfigurationSetResult {
     readonly id: string;
     readonly region: string;
     /**
-     * An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+     * Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
      */
     readonly reputationOptions: outputs.sesv2.GetConfigurationSetReputationOption[];
     /**
-     * An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+     * Object that defines whether Amazon SES can send email sent with the configuration set.
      */
     readonly sendingOptions: outputs.sesv2.GetConfigurationSetSendingOption[];
     /**
-     * An object that contains information about the suppression list preferences for your account.
+     * Object that contains information about the suppression list preferences for your account.
      */
     readonly suppressionOptions: outputs.sesv2.GetConfigurationSetSuppressionOption[];
     /**
-     * Key-value map of resource tags for the container recipe.
+     * Key-value map of resource tags.
      */
     readonly tags: {[key: string]: string};
     /**
-     * An object that defines the open and click tracking options for emails that you send using the configuration set.
+     * Object that defines the open and click tracking options for emails sent with the configuration set.
      */
     readonly trackingOptions: outputs.sesv2.GetConfigurationSetTrackingOption[];
     /**
-     * An object that contains information about the VDM preferences for your configuration set.
+     * Object that contains information about the VDM preferences for your configuration set.
      */
     readonly vdmOptions: outputs.sesv2.GetConfigurationSetVdmOption[];
 }
@@ -120,7 +123,7 @@ export function getConfigurationSetOutput(args: GetConfigurationSetOutputArgs, o
  */
 export interface GetConfigurationSetOutputArgs {
     /**
-     * The name of the configuration set.
+     * Name of the configuration set.
      */
     configurationSetName: pulumi.Input<string>;
     /**
@@ -128,7 +131,7 @@ export interface GetConfigurationSetOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Key-value map of resource tags for the container recipe.
+     * Key-value map of resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

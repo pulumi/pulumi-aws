@@ -23,14 +23,14 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
     public static final PresetState Empty = new PresetState();
 
     /**
-     * Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * ARN of the Elastic Transcoder Preset.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+     * @return ARN of the Elastic Transcoder Preset.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -234,7 +234,7 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+         * @param arn ARN of the Elastic Transcoder Preset.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class PresetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Elastic Transcoder Preset.
+         * @param arn ARN of the Elastic Transcoder Preset.
          * 
          * @return builder
          * 

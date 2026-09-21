@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Kinesis
     public partial class StreamConsumer : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// ARN of the stream consumer.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Kinesis
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Output("streamArn")]
         public Output<string> StreamArn { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;
@@ -175,7 +175,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamConsumerState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the stream consumer.
+        /// ARN of the stream consumer.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Kinesis
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        /// ARN of the data stream the consumer is registered with.
         /// </summary>
         [Input("streamArn")]
         public Input<string>? StreamArn { get; set; }

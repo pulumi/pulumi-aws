@@ -96,7 +96,6 @@ namespace Pulumi.Aws.Cognito
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -108,6 +107,7 @@ namespace Pulumi.Aws.Cognito
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -124,8 +124,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var testUserPoolClient = new Aws.Cognito.UserPoolClient("test", new()
     ///     {
-    ///         Name = "pool_client",
-    ///         UserPoolId = testUserPool.Id,
     ///         AnalyticsConfiguration = new Aws.Cognito.Inputs.UserPoolClientAnalyticsConfigurationArgs
     ///         {
     ///             ApplicationId = testApp.ApplicationId,
@@ -133,6 +131,8 @@ namespace Pulumi.Aws.Cognito
     ///             RoleArn = testRole.Arn,
     ///             UserDataShared = true,
     ///         },
+    ///         Name = "pool_client",
+    ///         UserPoolId = testUserPool.Id,
     ///     });
     /// 
     ///     var current = Aws.GetCallerIdentity.Invoke();
@@ -227,16 +227,16 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var userpoolClient = new Aws.Cognito.UserPoolClient("userpool_client", new()
     ///     {
+    ///         RefreshTokenRotation = new Aws.Cognito.Inputs.UserPoolClientRefreshTokenRotationArgs
+    ///         {
+    ///             Feature = "ENABLED",
+    ///             RetryGracePeriodSeconds = 10,
+    ///         },
     ///         Name = "client",
     ///         UserPoolId = pool.Id,
     ///         ExplicitAuthFlows = new[]
     ///         {
     ///             "ADMIN_NO_SRP_AUTH",
-    ///         },
-    ///         RefreshTokenRotation = new Aws.Cognito.Inputs.UserPoolClientRefreshTokenRotationArgs
-    ///         {
-    ///             Feature = "ENABLED",
-    ///             RetryGracePeriodSeconds = 10,
     ///         },
     ///     });
     /// 

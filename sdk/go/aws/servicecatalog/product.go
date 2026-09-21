@@ -35,12 +35,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := servicecatalog.NewProduct(ctx, "example", &servicecatalog.ProductArgs{
-//				Name:  pulumi.String("example"),
-//				Owner: pulumi.String("example-owner"),
-//				Type:  pulumi.String("CLOUD_FORMATION_TEMPLATE"),
 //				ProvisioningArtifactParameters: &servicecatalog.ProductProvisioningArtifactParametersArgs{
 //					TemplateUrl: pulumi.String("https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json"),
 //				},
+//				Name:  pulumi.String("example"),
+//				Owner: pulumi.String("example-owner"),
+//				Type:  pulumi.String("CLOUD_FORMATION_TEMPLATE"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

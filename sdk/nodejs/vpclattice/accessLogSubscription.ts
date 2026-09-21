@@ -58,11 +58,11 @@ export class AccessLogSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the access log subscription.
+     * ARN of the access log subscription.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      */
     declare public readonly destinationArn: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class AccessLogSubscription extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the service network or service.
+     * ARN of the service network or service.
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
@@ -137,11 +137,11 @@ export class AccessLogSubscription extends pulumi.CustomResource {
  */
 export interface AccessLogSubscriptionState {
     /**
-     * Amazon Resource Name (ARN) of the access log subscription.
+     * ARN of the access log subscription.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      */
     destinationArn?: pulumi.Input<string | undefined>;
     /**
@@ -149,7 +149,7 @@ export interface AccessLogSubscriptionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service network or service.
+     * ARN of the service network or service.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface AccessLogSubscriptionState {
  */
 export interface AccessLogSubscriptionArgs {
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      */
     destinationArn: pulumi.Input<string>;
     /**

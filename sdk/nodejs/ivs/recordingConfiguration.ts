@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ivs.RecordingConfiguration("example", {
- *     name: "recording_configuration-1",
  *     destinationConfiguration: {
  *         s3: {
  *             bucketName: "ivs-stream-archive",
  *         },
  *     },
+ *     name: "recording_configuration-1",
  * });
  * ```
  *
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS recording configuration.
+ * - `arn` (String) ARN of the IVS recording configuration.
  *
  * Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
  *

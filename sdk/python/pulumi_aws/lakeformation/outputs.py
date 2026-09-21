@@ -1274,7 +1274,7 @@ class PermissionsDataLocation(dict):
                  arn: _builtins.str,
                  catalog_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        :param _builtins.str arn: ARN that uniquely identifies the data location resource.
                
                The following argument is optional:
         :param _builtins.str catalog_id: Identifier for the Data Catalog where the location is registered with Lake Formation. By default, it is the account ID of the caller.
@@ -1287,7 +1287,7 @@ class PermissionsDataLocation(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+        ARN that uniquely identifies the data location resource.
 
         The following argument is optional:
         """

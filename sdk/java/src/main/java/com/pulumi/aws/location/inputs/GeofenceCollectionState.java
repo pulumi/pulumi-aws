@@ -17,14 +17,14 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
     public static final GeofenceCollectionState Empty = new GeofenceCollectionState();
 
     /**
-     * The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Import(name="collectionArn")
     private @Nullable Output<String> collectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Optional<Output<String>> collectionArn() {
@@ -180,7 +180,7 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param collectionArn The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+         * @param collectionArn ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 
@@ -191,7 +191,7 @@ public final class GeofenceCollectionState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param collectionArn The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+         * @param collectionArn ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
          * 
          * @return builder
          * 

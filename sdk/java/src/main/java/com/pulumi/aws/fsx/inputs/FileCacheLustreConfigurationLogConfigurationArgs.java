@@ -16,14 +16,14 @@ public final class FileCacheLustreConfigurationLogConfigurationArgs extends com.
     public static final FileCacheLustreConfigurationLogConfigurationArgs Empty = new FileCacheLustreConfigurationLogConfigurationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the destination that receives the logs.
+     * ARN of the destination that receives the logs.
      * 
      */
     @Import(name="destination")
     private @Nullable Output<String> destination;
 
     /**
-     * @return Amazon Resource Name (ARN) of the destination that receives the logs.
+     * @return ARN of the destination that receives the logs.
      * 
      */
     public Optional<Output<String>> destination() {
@@ -71,7 +71,7 @@ public final class FileCacheLustreConfigurationLogConfigurationArgs extends com.
         }
 
         /**
-         * @param destination Amazon Resource Name (ARN) of the destination that receives the logs.
+         * @param destination ARN of the destination that receives the logs.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class FileCacheLustreConfigurationLogConfigurationArgs extends com.
         }
 
         /**
-         * @param destination Amazon Resource Name (ARN) of the destination that receives the logs.
+         * @param destination ARN of the destination that receives the logs.
          * 
          * @return builder
          * 

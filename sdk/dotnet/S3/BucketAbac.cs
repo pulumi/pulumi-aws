@@ -32,11 +32,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketAbac = new Aws.S3.BucketAbac("example", new()
     ///     {
-    ///         Bucket = example.BucketName,
     ///         AbacStatus = new Aws.S3.Inputs.BucketAbacAbacStatusArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = example.BucketName,
     ///     });
     /// 
     /// });

@@ -860,7 +860,7 @@ func (o ConnectorEgressConfigVpcLatticePtrOutput) ResourceConfigurationArn() pul
 type ConnectorSftpConfig struct {
 	// List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys []string `pulumi:"trustedHostKeys"`
-	// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
 	UserSecretId *string `pulumi:"userSecretId"`
 }
 
@@ -878,7 +878,7 @@ type ConnectorSftpConfigInput interface {
 type ConnectorSftpConfigArgs struct {
 	// List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
 	TrustedHostKeys pulumi.StringArrayInput `pulumi:"trustedHostKeys"`
-	// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+	// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
 	UserSecretId pulumi.StringPtrInput `pulumi:"userSecretId"`
 }
 
@@ -964,7 +964,7 @@ func (o ConnectorSftpConfigOutput) TrustedHostKeys() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) []string { return v.TrustedHostKeys }).(pulumi.StringArrayOutput)
 }
 
-// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
 func (o ConnectorSftpConfigOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConnectorSftpConfig) *string { return v.UserSecretId }).(pulumi.StringPtrOutput)
 }
@@ -1003,7 +1003,7 @@ func (o ConnectorSftpConfigPtrOutput) TrustedHostKeys() pulumi.StringArrayOutput
 	}).(pulumi.StringArrayOutput)
 }
 
-// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
 func (o ConnectorSftpConfigPtrOutput) UserSecretId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConnectorSftpConfig) *string {
 		if v == nil {
@@ -1022,7 +1022,7 @@ type ServerEndpointDetails struct {
 	SubnetIds []string `pulumi:"subnetIds"`
 	// ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
 	VpcEndpointId *string `pulumi:"vpcEndpointId"`
-	// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -1046,7 +1046,7 @@ type ServerEndpointDetailsArgs struct {
 	SubnetIds pulumi.StringArrayInput `pulumi:"subnetIds"`
 	// ID of the VPC endpoint. This property can only be used when `endpointType` is set to `VPC_ENDPOINT`
 	VpcEndpointId pulumi.StringPtrInput `pulumi:"vpcEndpointId"`
-	// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+	// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 	VpcId pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
@@ -1147,7 +1147,7 @@ func (o ServerEndpointDetailsOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcEndpointId }).(pulumi.StringPtrOutput)
 }
 
-// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServerEndpointDetails) *string { return v.VpcId }).(pulumi.StringPtrOutput)
 }
@@ -1216,7 +1216,7 @@ func (o ServerEndpointDetailsPtrOutput) VpcEndpointId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
 func (o ServerEndpointDetailsPtrOutput) VpcId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerEndpointDetails) *string {
 		if v == nil {

@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmcontacts.Plan("example", {
- *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  *     stages: [{
  *         durationInMinutes: 1,
  *     }],
+ *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  * });
  * ```
  *
@@ -37,10 +37,10 @@ import * as utilities from "../utilities";
  *     type: "PERSONAL",
  * });
  * const plan = new aws.ssmcontacts.Plan("plan", {
- *     contactId: contact.arn,
  *     stages: [{
  *         durationInMinutes: 1,
  *     }],
+ *     contactId: contact.arn,
  * });
  * ```
  *
@@ -63,9 +63,7 @@ import * as utilities from "../utilities";
  *     type: "PERSONAL",
  * });
  * const test = new aws.ssmcontacts.Plan("test", {
- *     contactId: escalationPlan.arn,
  *     stages: [{
- *         durationInMinutes: 0,
  *         targets: [
  *             {
  *                 contactTargetInfo: {
@@ -86,7 +84,9 @@ import * as utilities from "../utilities";
  *                 },
  *             },
  *         ],
+ *         durationInMinutes: 0,
  *     }],
+ *     contactId: escalationPlan.arn,
  * });
  * ```
  *
@@ -127,7 +127,7 @@ export class Plan extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     declare public readonly contactId: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class Plan extends pulumi.CustomResource {
  */
 export interface PlanState {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     contactId?: pulumi.Input<string | undefined>;
     /**
@@ -195,7 +195,7 @@ export interface PlanState {
  */
 export interface PlanArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     contactId: pulumi.Input<string>;
     /**

@@ -33,9 +33,9 @@ class TrafficPolicyArgs:
         :param pulumi.Input[_builtins.str] default_action: Default action for traffic that does not match any policy statement. Valid values are `ALLOW` and `DENY`.
         :param pulumi.Input[_builtins.int] max_message_size_bytes: Maximum message size, in bytes, allowed by the traffic policy.
         :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -80,6 +80,8 @@ class TrafficPolicyArgs:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the traffic policy.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -92,8 +94,6 @@ class TrafficPolicyArgs:
     def policy_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]]]:
         """
         Traffic policy statements. See `policy_statement` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_statements")
 
@@ -148,9 +148,9 @@ class _TrafficPolicyState:
         :param pulumi.Input[_builtins.str] last_updated_timestamp: Timestamp when the traffic policy was last updated.
         :param pulumi.Input[_builtins.int] max_message_size_bytes: Maximum message size, in bytes, allowed by the traffic policy.
         :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -241,6 +241,8 @@ class _TrafficPolicyState:
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         Name of the traffic policy.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -253,8 +255,6 @@ class _TrafficPolicyState:
     def policy_statements(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['TrafficPolicyPolicyStatementArgs']]]]:
         """
         Traffic policy statements. See `policy_statement` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_statements")
 
@@ -324,20 +324,20 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.TrafficPolicy("example",
-            default_action="ALLOW",
-            name="example",
             policy_statements=[{
-                "action": "DENY",
                 "conditions": [{
                     "ip_expression": {
-                        "operator": "CIDR_MATCHES",
-                        "values": ["192.0.2.0/24"],
                         "evaluate": {
                             "attribute": "SENDER_IP",
                         },
+                        "operator": "CIDR_MATCHES",
+                        "values": ["192.0.2.0/24"],
                     },
                 }],
-            }])
+                "action": "DENY",
+            }],
+            default_action="ALLOW",
+            name="example")
         ```
 
         ## Import
@@ -365,9 +365,9 @@ class TrafficPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] default_action: Default action for traffic that does not match any policy statement. Valid values are `ALLOW` and `DENY`.
         :param pulumi.Input[_builtins.int] max_message_size_bytes: Maximum message size, in bytes, allowed by the traffic policy.
         :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficPolicyPolicyStatementArgs', 'TrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficPolicyPolicyStatementArgs', 'TrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -389,20 +389,20 @@ class TrafficPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.TrafficPolicy("example",
-            default_action="ALLOW",
-            name="example",
             policy_statements=[{
-                "action": "DENY",
                 "conditions": [{
                     "ip_expression": {
-                        "operator": "CIDR_MATCHES",
-                        "values": ["192.0.2.0/24"],
                         "evaluate": {
                             "attribute": "SENDER_IP",
                         },
+                        "operator": "CIDR_MATCHES",
+                        "values": ["192.0.2.0/24"],
                     },
                 }],
-            }])
+                "action": "DENY",
+            }],
+            default_action="ALLOW",
+            name="example")
         ```
 
         ## Import
@@ -500,9 +500,9 @@ class TrafficPolicy(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] last_updated_timestamp: Timestamp when the traffic policy was last updated.
         :param pulumi.Input[_builtins.int] max_message_size_bytes: Maximum message size, in bytes, allowed by the traffic policy.
         :param pulumi.Input[_builtins.str] name: Name of the traffic policy.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficPolicyPolicyStatementArgs', 'TrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
                
                The following arguments are optional:
+        :param pulumi.Input[Sequence[pulumi.Input[Union['TrafficPolicyPolicyStatementArgs', 'TrafficPolicyPolicyStatementArgsDict']]]] policy_statements: Traffic policy statements. See `policy_statement` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -568,6 +568,8 @@ class TrafficPolicy(pulumi.CustomResource):
     def name(self) -> pulumi.Output[_builtins.str]:
         """
         Name of the traffic policy.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "name")
 
@@ -576,8 +578,6 @@ class TrafficPolicy(pulumi.CustomResource):
     def policy_statements(self) -> pulumi.Output[Optional[Sequence['outputs.TrafficPolicyPolicyStatement']]]:
         """
         Traffic policy statements. See `policy_statement` Block below.
-
-        The following arguments are optional:
         """
         return pulumi.get(self, "policy_statements")
 

@@ -116,12 +116,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewDataQualityRuleset(ctx, "example", &glue.DataQualityRulesetArgs{
-//				Name:    pulumi.String("example"),
-//				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //				TargetTable: &glue.DataQualityRulesetTargetTableArgs{
 //					DatabaseName: pulumi.Any(exampleAwsGlueCatalogDatabase.Name),
 //					TableName:    pulumi.Any(exampleAwsGlueCatalogTable.Name),
 //				},
+//				Name:    pulumi.String("example"),
+//				Ruleset: pulumi.String("Rules = [Completeness \"colA\" between 0.4 and 0.8]"),
 //			})
 //			if err != nil {
 //				return err

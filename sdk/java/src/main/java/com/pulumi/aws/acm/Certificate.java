@@ -65,12 +65,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cert = new Certificate("cert", CertificateArgs.builder()
- *             .domainName("testing.example.com")
- *             .validationMethod("EMAIL")
  *             .validationOptions(CertificateValidationOptionArgs.builder()
  *                 .domainName("testing.example.com")
  *                 .validationDomain("example.com")
  *                 .build())
+ *             .domainName("testing.example.com")
+ *             .validationMethod("EMAIL")
  *             .build());
  * 
  *     }
@@ -111,12 +111,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
- *             .keyAlgorithm("RSA")
- *             .privateKeyPem(example.privateKeyPem())
  *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
+ *             .keyAlgorithm("RSA")
+ *             .privateKeyPem(example.privateKeyPem())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 "key_encipherment",
@@ -167,12 +167,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSelfSignedCert = new SelfSignedCert("exampleSelfSignedCert", SelfSignedCertArgs.builder()
- *             .keyAlgorithm("RSA")
- *             .privateKeyPem(example.privateKeyPem())
  *             .subject(com.pulumi.tls.inputs.SelfSignedCertSubjectArgs.builder()
  *                 .commonName("example.com")
  *                 .organization("ACME Examples, Inc")
  *                 .build())
+ *             .keyAlgorithm("RSA")
+ *             .privateKeyPem(example.privateKeyPem())
  *             .validityPeriodHours(12)
  *             .allowedUses(            
  *                 "key_encipherment",

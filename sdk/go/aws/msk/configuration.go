@@ -54,7 +54,7 @@ import (
 type Configuration struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Description of the configuration.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -103,7 +103,7 @@ func GetConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Configuration resources.
 type configurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn *string `pulumi:"arn"`
 	// Description of the configuration.
 	Description *string `pulumi:"description"`
@@ -120,7 +120,7 @@ type configurationState struct {
 }
 
 type ConfigurationState struct {
-	// Amazon Resource Name (ARN) of the configuration.
+	// ARN of the configuration.
 	Arn pulumi.StringPtrInput
 	// Description of the configuration.
 	Description pulumi.StringPtrInput
@@ -254,7 +254,7 @@ func (o ConfigurationOutput) ToConfigurationOutputWithContext(ctx context.Contex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the configuration.
+// ARN of the configuration.
 func (o ConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Configuration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

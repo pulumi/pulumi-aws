@@ -59,7 +59,7 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * ARN of the Route 53 Resolver query logging configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class ResolverQueryLogConfig extends pulumi.CustomResource {
  */
 export interface ResolverQueryLogConfigState {
     /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * ARN of the Route 53 Resolver query logging configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

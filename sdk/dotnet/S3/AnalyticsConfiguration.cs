@@ -38,8 +38,6 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_entire_bucket = new Aws.S3.AnalyticsConfiguration("example-entire-bucket", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "EntireBucket",
     ///         StorageClassAnalysis = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisArgs
     ///         {
     ///             DataExport = new Aws.S3.Inputs.AnalyticsConfigurationStorageClassAnalysisDataExportArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "EntireBucket",
     ///     });
     /// 
     /// });
@@ -75,8 +75,6 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example_filtered = new Aws.S3.AnalyticsConfiguration("example-filtered", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "ImportantBlueDocuments",
     ///         Filter = new Aws.S3.Inputs.AnalyticsConfigurationFilterArgs
     ///         {
     ///             Prefix = "documents/",
@@ -86,6 +84,8 @@ namespace Pulumi.Aws.S3
     ///                 { "class", "blue" },
     ///             },
     ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "ImportantBlueDocuments",
     ///     });
     /// 
     /// });

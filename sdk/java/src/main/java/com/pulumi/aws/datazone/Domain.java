@@ -124,8 +124,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyArgs;
@@ -152,14 +152,6 @@ import javax.annotation.Nullable;
  *         // IAM role for Domain Execution
  *         final var assumeRoleDomainExecution = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "sts:AssumeRole",
- *                     "sts:TagSession",
- *                     "sts:SetContext")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("datazone.amazonaws.com")
- *                     .build())
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
@@ -171,6 +163,14 @@ import javax.annotation.Nullable;
  *                         .values("datazone*")
  *                         .variable("aws:TagKeys")
  *                         .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("datazone.amazonaws.com")
+ *                     .build())
+ *                 .actions(                
+ *                     "sts:AssumeRole",
+ *                     "sts:TagSession",
+ *                     "sts:SetContext")
  *                 .build())
  *             .build());
  * 
@@ -191,16 +191,16 @@ import javax.annotation.Nullable;
  *         // IAM role for Domain Service
  *         final var assumeRoleDomainService = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("datazone.amazonaws.com")
- *                     .build())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .values(current.accountId())
  *                     .variable("aws:SourceAccount")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("datazone.amazonaws.com")
+ *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 

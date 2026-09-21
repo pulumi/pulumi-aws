@@ -2591,11 +2591,11 @@ func (o GetClusterClusterNodeArrayOutput) Index(i pulumi.IntInput) GetClusterClu
 }
 
 type GetDataSharesDataShare struct {
-	// ARN (Amazon Resource Name) of the data share.
+	// ARN of the data share.
 	DataShareArn string `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy string `pulumi:"managedBy"`
-	// ARN (Amazon Resource Name) of the producer.
+	// ARN of the producer.
 	ProducerArn string `pulumi:"producerArn"`
 }
 
@@ -2611,11 +2611,11 @@ type GetDataSharesDataShareInput interface {
 }
 
 type GetDataSharesDataShareArgs struct {
-	// ARN (Amazon Resource Name) of the data share.
+	// ARN of the data share.
 	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// ARN (Amazon Resource Name) of the producer.
+	// ARN of the producer.
 	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
 }
 
@@ -2670,7 +2670,7 @@ func (o GetDataSharesDataShareOutput) ToGetDataSharesDataShareOutputWithContext(
 	return o
 }
 
-// ARN (Amazon Resource Name) of the data share.
+// ARN of the data share.
 func (o GetDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
 }
@@ -2680,7 +2680,7 @@ func (o GetDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) of the producer.
+// ARN of the producer.
 func (o GetDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDataSharesDataShare) string { return v.ProducerArn }).(pulumi.StringOutput)
 }
@@ -2706,11 +2706,11 @@ func (o GetDataSharesDataShareArrayOutput) Index(i pulumi.IntInput) GetDataShare
 }
 
 type GetProducerDataSharesDataShare struct {
-	// ARN (Amazon Resource Name) of the data share.
+	// ARN of the data share.
 	DataShareArn string `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy string `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	// ARN of the producer namespace that returns in the list of datashares.
 	//
 	// The following arguments are optional:
 	ProducerArn string `pulumi:"producerArn"`
@@ -2728,11 +2728,11 @@ type GetProducerDataSharesDataShareInput interface {
 }
 
 type GetProducerDataSharesDataShareArgs struct {
-	// ARN (Amazon Resource Name) of the data share.
+	// ARN of the data share.
 	DataShareArn pulumi.StringInput `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy pulumi.StringInput `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	// ARN of the producer namespace that returns in the list of datashares.
 	//
 	// The following arguments are optional:
 	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
@@ -2789,7 +2789,7 @@ func (o GetProducerDataSharesDataShareOutput) ToGetProducerDataSharesDataShareOu
 	return o
 }
 
-// ARN (Amazon Resource Name) of the data share.
+// ARN of the data share.
 func (o GetProducerDataSharesDataShareOutput) DataShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.DataShareArn }).(pulumi.StringOutput)
 }
@@ -2799,7 +2799,7 @@ func (o GetProducerDataSharesDataShareOutput) ManagedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesDataShare) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+// ARN of the producer namespace that returns in the list of datashares.
 //
 // The following arguments are optional:
 func (o GetProducerDataSharesDataShareOutput) ProducerArn() pulumi.StringOutput {

@@ -33,7 +33,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable Integer desiredVcpus;
     /**
-     * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations;
@@ -43,7 +43,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable String ec2KeyPair;
     /**
-     * @return The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+     * @return AMI ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
      * 
      */
     private @Nullable String imageId;
@@ -83,7 +83,7 @@ public final class ComputeEnvironmentComputeResources {
      */
     private @Nullable List<String> securityGroupIds;
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     private @Nullable String spotIamFleetRole;
@@ -126,7 +126,7 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.desiredVcpus);
     }
     /**
-     * @return Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
+     * @return Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn&#39;t specified, the default is ECS_AL2. This parameter isn&#39;t applicable to jobs that are running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public List<ComputeEnvironmentComputeResourcesEc2Configuration> ec2Configurations() {
@@ -140,7 +140,7 @@ public final class ComputeEnvironmentComputeResources {
         return Optional.ofNullable(this.ec2KeyPair);
     }
     /**
-     * @return The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+     * @return AMI ID used for instances launched in the compute environment. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
      * 
      */
     public Optional<String> imageId() {
@@ -196,7 +196,7 @@ public final class ComputeEnvironmentComputeResources {
         return this.securityGroupIds == null ? List.of() : this.securityGroupIds;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
+     * @return ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn&#39;t applicable to jobs running on Fargate resources, and shouldn&#39;t be specified.
      * 
      */
     public Optional<String> spotIamFleetRole() {

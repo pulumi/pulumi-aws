@@ -27,7 +27,7 @@ class BucketLifecycleConfigurationArgs:
         """
         The set of arguments for constructing a BucketLifecycleConfiguration resource.
 
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -40,7 +40,7 @@ class BucketLifecycleConfigurationArgs:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -82,7 +82,7 @@ class _BucketLifecycleConfigurationState:
         """
         Input properties used for looking up and filtering BucketLifecycleConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['BucketLifecycleConfigurationRuleArgs']]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
@@ -97,7 +97,7 @@ class _BucketLifecycleConfigurationState:
     @pulumi.getter
     def bucket(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 
@@ -154,7 +154,6 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=example_aws_s3control_bucket["arn"],
             rules=[
                 {
                     "expiration": {
@@ -174,12 +173,13 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                     },
                     "id": "temp",
                 },
-            ])
+            ],
+            bucket=example_aws_s3control_bucket["arn"])
         ```
 
         ## Import
 
-        Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -188,7 +188,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
@@ -212,7 +212,6 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3control.BucketLifecycleConfiguration("example",
-            bucket=example_aws_s3control_bucket["arn"],
             rules=[
                 {
                     "expiration": {
@@ -232,12 +231,13 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
                     },
                     "id": "temp",
                 },
-            ])
+            ],
+            bucket=example_aws_s3control_bucket["arn"])
         ```
 
         ## Import
 
-        Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Bucket Lifecycle Configurations using the ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucketLifecycleConfiguration:BucketLifecycleConfiguration example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -298,7 +298,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] bucket: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] bucket: ARN of the bucket.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['BucketLifecycleConfigurationRuleArgs', 'BucketLifecycleConfigurationRuleArgsDict']]]] rules: Configuration block(s) containing lifecycle rules for the bucket. See `rule` below.
         """
@@ -315,7 +315,7 @@ class BucketLifecycleConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def bucket(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "bucket")
 

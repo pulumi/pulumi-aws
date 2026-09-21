@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class AgentFlowDefinitionNodeConfigurationAgent {
     /**
-     * @return The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+     * @return ARN of the alias of the agent to invoke.
      * 
      */
     private String agentAliasArn;
 
     private AgentFlowDefinitionNodeConfigurationAgent() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+     * @return ARN of the alias of the agent to invoke.
      * 
      */
     public String agentAliasArn() {

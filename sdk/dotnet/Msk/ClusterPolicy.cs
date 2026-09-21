@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Msk
     public partial class ClusterPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// ARN that uniquely identifies the cluster.
         /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// ARN that uniquely identifies the cluster.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -171,7 +171,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ClusterPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        /// ARN that uniquely identifies the cluster.
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }

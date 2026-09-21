@@ -43,7 +43,7 @@ export interface GetAuthPolicyArgs {
      */
     region?: string;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      */
     resourceIdentifier: string;
     /**
@@ -110,7 +110,7 @@ export interface GetAuthPolicyOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+     * ID or ARN of the service network or service for which the policy is created.
      */
     resourceIdentifier: pulumi.Input<string>;
     /**

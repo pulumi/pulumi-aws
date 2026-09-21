@@ -19,14 +19,14 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
     public static final ProvisionedConcurrencyConfigArgs Empty = new ProvisionedConcurrencyConfigArgs();
 
     /**
-     * Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * Name or ARN of the Lambda Function.
      * 
      */
     @Import(name="functionName", required=true)
     private Output<String> functionName;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the Lambda Function.
+     * @return Name or ARN of the Lambda Function.
      * 
      */
     public Output<String> functionName() {
@@ -126,7 +126,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
+         * @param functionName Name or ARN of the Lambda Function.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ProvisionedConcurrencyConfigArgs extends com.pulumi.resources
         }
 
         /**
-         * @param functionName Name or Amazon Resource Name (ARN) of the Lambda Function.
+         * @param functionName Name or ARN of the Lambda Function.
          * 
          * @return builder
          * 

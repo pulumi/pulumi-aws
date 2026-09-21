@@ -58,7 +58,7 @@ type LookupLaunchConfigurationArgs struct {
 
 // A collection of values returned by getLaunchConfiguration.
 type LookupLaunchConfigurationResult struct {
-	// Amazon Resource Name of the launch configuration.
+	// ARN of the launch configuration.
 	Arn string `pulumi:"arn"`
 	// Whether a Public IP address is associated with the instance.
 	AssociatePublicIpAddress bool `pulumi:"associatePublicIpAddress"`
@@ -98,12 +98,8 @@ type LookupLaunchConfigurationResult struct {
 }
 
 func LookupLaunchConfigurationOutput(ctx *pulumi.Context, args LookupLaunchConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupLaunchConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLaunchConfigurationResultOutput, error) {
-			args := v.(LookupLaunchConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, LookupLaunchConfigurationResultOutput{}, options).(LookupLaunchConfigurationResultOutput), nil
-		}).(LookupLaunchConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getLaunchConfiguration:getLaunchConfiguration", args, LookupLaunchConfigurationResultOutput{}, options).(LookupLaunchConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getLaunchConfiguration.
@@ -133,7 +129,7 @@ func (o LookupLaunchConfigurationResultOutput) ToLookupLaunchConfigurationResult
 	return o
 }
 
-// Amazon Resource Name of the launch configuration.
+// ARN of the launch configuration.
 func (o LookupLaunchConfigurationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLaunchConfigurationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -59,8 +59,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var default_ = new ParameterGroup("default", ParameterGroupArgs.builder()
- *             .name("rds-pg")
- *             .family("mysql5.6")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("character_set_server")
@@ -70,6 +68,8 @@ import javax.annotation.Nullable;
  *                     .name("character_set_client")
  *                     .value("utf8")
  *                     .build())
+ *             .name("rds-pg")
+ *             .family("mysql5.6")
  *             .build());
  * 
  *     }
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("default_password_lifetime")
  *                 .value("0")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }
@@ -187,12 +187,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("default_password_lifetime")
  *                 .value("1")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }
@@ -228,13 +228,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ParameterGroup("test", ParameterGroupArgs.builder()
- *             .name("random-test-parameter")
- *             .family("mysql5.7")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .applyMethod("pending-reboot")
  *                 .name("default_password_lifetime")
  *                 .value("0")
  *                 .build())
+ *             .name("random-test-parameter")
+ *             .family("mysql5.7")
  *             .build());
  * 
  *     }
@@ -265,56 +265,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the db parameter group.
+     * ARN of the db parameter group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN of the db parameter group.
+     * @return ARN of the db parameter group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * Description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output<String> description;
 
     /**
-     * @return The description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
+     * @return Description of the DB parameter group. Defaults to &#34;Managed by Pulumi&#34;.
      * 
      */
     public Output<String> description() {
         return this.description;
     }
     /**
-     * The family of the DB parameter group.
+     * Family of the DB parameter group.
      * 
      */
     @Export(name="family", refs={String.class}, tree="[0]")
     private Output<String> family;
 
     /**
-     * @return The family of the DB parameter group.
+     * @return Family of the DB parameter group.
      * 
      */
     public Output<String> family() {
         return this.family;
     }
     /**
-     * The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+     * Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the DB parameter group. If omitted, this provider will assign a random, unique name.
+     * @return Name of the DB parameter group. If omitted, the provider will assign a random, unique name.
      * 
      */
     public Output<String> name() {
@@ -335,14 +335,14 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return this.namePrefix;
     }
     /**
-     * The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     @Export(name="parameters", refs={List.class,ParameterGroupParameter.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ParameterGroupParameter>> parameters;
 
     /**
-     * @return The DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
+     * @return DB parameters to apply. See `parameter` Block below for more details. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-parameters.html) after initial creation of the group.
      * 
      */
     public Output<Optional<List<ParameterGroupParameter>>> parameters() {
@@ -377,28 +377,28 @@ public class ParameterGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.skipDestroy);
     }
     /**
-     * A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -57,11 +57,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("scheduler.redshift.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -93,14 +93,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScheduledAction = new ScheduledAction("exampleScheduledAction", ScheduledActionArgs.builder()
- *             .name("tf-redshift-scheduled-action")
- *             .schedule("cron(00 23 * * ? *)")
- *             .iamRole(exampleRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
  *                 .pauseCluster(ScheduledActionTargetActionPauseClusterArgs.builder()
  *                     .clusterIdentifier("tf-redshift001")
  *                     .build())
  *                 .build())
+ *             .name("tf-redshift-scheduled-action")
+ *             .schedule("cron(00 23 * * ? *)")
+ *             .iamRole(exampleRole.arn())
  *             .build());
  * 
  *     }
@@ -135,9 +135,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ScheduledAction("example", ScheduledActionArgs.builder()
- *             .name("tf-redshift-scheduled-action")
- *             .schedule("cron(00 23 * * ? *)")
- *             .iamRole(exampleAwsIamRole.arn())
  *             .targetAction(ScheduledActionTargetActionArgs.builder()
  *                 .resizeCluster(ScheduledActionTargetActionResizeClusterArgs.builder()
  *                     .clusterIdentifier("tf-redshift001")
@@ -146,6 +143,9 @@ import javax.annotation.Nullable;
  *                     .numberOfNodes(2)
  *                     .build())
  *                 .build())
+ *             .name("tf-redshift-scheduled-action")
+ *             .schedule("cron(00 23 * * ? *)")
+ *             .iamRole(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

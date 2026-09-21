@@ -114,14 +114,14 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      * 
      */
     @Import(name="listenerArn", required=true)
     private Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the listener.
+     * @return ARN of the listener.
      * 
      */
     public Output<String> listenerArn() {
@@ -345,7 +345,7 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the listener.
+         * @param listenerArn ARN of the listener.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class EndpointGroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the listener.
+         * @param listenerArn ARN of the listener.
          * 
          * @return builder
          * 

@@ -64,7 +64,7 @@ type Tracker struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+	// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringOutput `pulumi:"trackerArn"`
 	// The name of the tracker resource.
 	//
@@ -121,7 +121,7 @@ type trackerState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+	// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn *string `pulumi:"trackerArn"`
 	// The name of the tracker resource.
 	//
@@ -146,7 +146,7 @@ type TrackerState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+	// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
 	TrackerArn pulumi.StringPtrInput
 	// The name of the tracker resource.
 	//
@@ -317,7 +317,7 @@ func (o TrackerOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+// ARN for the tracker resource. Used when you need to specify a resource across all AWS.
 func (o TrackerOutput) TrackerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tracker) pulumi.StringOutput { return v.TrackerArn }).(pulumi.StringOutput)
 }

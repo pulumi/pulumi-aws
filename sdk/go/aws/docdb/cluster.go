@@ -70,7 +70,7 @@ type Cluster struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
 	ApplyImmediately pulumi.BoolPtrOutput `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
 	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -101,9 +101,7 @@ type Cluster struct {
 	Engine pulumi.StringPtrOutput `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrOutput `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrOutput `pulumi:"globalClusterIdentifier"`
@@ -113,14 +111,12 @@ type Cluster struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 	ManageMasterUserPassword pulumi.BoolPtrOutput `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrOutput `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrOutput                `pulumi:"masterPasswordWoVersion"`
 	MasterUserSecrets       ClusterMasterUserSecretArrayOutput `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
@@ -209,7 +205,7 @@ type clusterState struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
 	ApplyImmediately *bool `pulumi:"applyImmediately"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn *string `pulumi:"arn"`
 	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
 	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -240,9 +236,7 @@ type clusterState struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
@@ -252,14 +246,12 @@ type clusterState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion *int                      `pulumi:"masterPasswordWoVersion"`
 	MasterUserSecrets       []ClusterMasterUserSecret `pulumi:"masterUserSecrets"`
 	// Username for the master DB user.
@@ -308,7 +300,7 @@ type ClusterState struct {
 	// are applied immediately, or during the next maintenance window. Default is
 	// `false`.
 	ApplyImmediately pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringPtrInput
 	// A list of EC2 Availability Zones that instances in the DB cluster can be created in.
 	// DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
@@ -339,9 +331,7 @@ type ClusterState struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrInput
@@ -351,14 +341,12 @@ type ClusterState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 	ManageMasterUserPassword pulumi.BoolPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	MasterUserSecrets       ClusterMasterUserSecretArrayInput
 	// Username for the master DB user.
@@ -436,9 +424,7 @@ type clusterArgs struct {
 	Engine *string `pulumi:"engine"`
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion *string `pulumi:"engineVersion"`
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier *string `pulumi:"finalSnapshotIdentifier"`
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier *string `pulumi:"globalClusterIdentifier"`
@@ -446,14 +432,12 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 	ManageMasterUserPassword *bool `pulumi:"manageMasterUserPassword"`
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -523,9 +507,7 @@ type ClusterArgs struct {
 	Engine pulumi.StringPtrInput
 	// The database engine version. Updating this argument results in an outage.
 	EngineVersion pulumi.StringPtrInput
-	// The name of your final DB snapshot
-	// when this DB cluster is deleted. If omitted, no final snapshot will be
-	// made.
+	// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 	FinalSnapshotIdentifier pulumi.StringPtrInput
 	// The global cluster identifier specified on `docdb.GlobalCluster`.
 	GlobalClusterIdentifier pulumi.StringPtrInput
@@ -533,14 +515,12 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `masterPassword` or `masterPasswordWo` is provided.
 	ManageMasterUserPassword pulumi.BoolPtrInput
-	// Password for the master DB user. Note that this may
-	// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 	MasterPassword pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user. Note that this may
-	// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+	// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -676,7 +656,7 @@ func (o ClusterOutput) ApplyImmediately() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ApplyImmediately }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster
+// ARN of cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -749,9 +729,7 @@ func (o ClusterOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
-// The name of your final DB snapshot
-// when this DB cluster is deleted. If omitted, no final snapshot will be
-// made.
+// The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
 func (o ClusterOutput) FinalSnapshotIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.FinalSnapshotIdentifier }).(pulumi.StringPtrOutput)
 }
@@ -776,20 +754,18 @@ func (o ClusterOutput) ManageMasterUserPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterUserPassword }).(pulumi.BoolPtrOutput)
 }
 
-// Password for the master DB user. Note that this may
-// show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+// Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the master DB user. Note that this may
-// show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+// Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
 func (o ClusterOutput) MasterPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 func (o ClusterOutput) MasterPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.MasterPasswordWoVersion }).(pulumi.IntPtrOutput)
 }

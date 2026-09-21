@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.cloudformation.CloudFormationType` using the type version Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.cloudformation.CloudFormationType` using the type version ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:cloudformation/cloudFormationType:CloudFormationType example arn:aws:cloudformation:us-east-1:123456789012:type/resource/ExampleCompany-ExampleService-ExampleType/1
@@ -47,7 +47,7 @@ export class CloudFormationType extends pulumi.CustomResource {
     }
 
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+     * (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -67,7 +67,7 @@ export class CloudFormationType extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly documentationUrl: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+     * ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      */
     declare public readonly executionRoleArn: pulumi.Output<string | undefined>;
     /**
@@ -103,7 +103,7 @@ export class CloudFormationType extends pulumi.CustomResource {
      */
     declare public readonly type: pulumi.Output<string>;
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+     * (Optional) ARN of the CloudFormation Type. See also `arn`.
      */
     declare public /*out*/ readonly typeArn: pulumi.Output<string>;
     /**
@@ -187,7 +187,7 @@ export class CloudFormationType extends pulumi.CustomResource {
  */
 export interface CloudFormationTypeState {
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type version. See also `typeArn`.
+     * (Optional) ARN of the CloudFormation Type version. See also `typeArn`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -207,7 +207,7 @@ export interface CloudFormationTypeState {
      */
     documentationUrl?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+     * ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -243,7 +243,7 @@ export interface CloudFormationTypeState {
      */
     type?: pulumi.Input<string | undefined>;
     /**
-     * (Optional) Amazon Resource Name (ARN) of the CloudFormation Type. See also `arn`.
+     * (Optional) ARN of the CloudFormation Type. See also `arn`.
      */
     typeArn?: pulumi.Input<string | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface CloudFormationTypeState {
  */
 export interface CloudFormationTypeArgs {
     /**
-     * Amazon Resource Name (ARN) of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
+     * ARN of the IAM Role for CloudFormation to assume when invoking the extension. If your extension calls AWS APIs in any of its handlers, you must create an IAM execution role that includes the necessary permissions to call those AWS APIs, and provision that execution role in your account. When CloudFormation needs to invoke the extension handler, CloudFormation assumes this execution role to create a temporary session token, which it then passes to the extension handler, thereby supplying your extension with the appropriate credentials.
      */
     executionRoleArn?: pulumi.Input<string | undefined>;
     /**

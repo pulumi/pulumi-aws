@@ -91,7 +91,7 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Input("resourceShareArn", required: true)]
         public Input<string> ResourceShareArn { get; set; } = null!;
@@ -181,7 +181,7 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource share.
+        /// ARN of the resource share.
         /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }

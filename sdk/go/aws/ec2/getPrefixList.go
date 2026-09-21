@@ -144,12 +144,8 @@ type GetPrefixListResult struct {
 }
 
 func GetPrefixListOutput(ctx *pulumi.Context, args GetPrefixListOutputArgs, opts ...pulumi.InvokeOption) GetPrefixListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPrefixListResultOutput, error) {
-			args := v.(GetPrefixListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getPrefixList:getPrefixList", args, GetPrefixListResultOutput{}, options).(GetPrefixListResultOutput), nil
-		}).(GetPrefixListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getPrefixList:getPrefixList", args, GetPrefixListResultOutput{}, options).(GetPrefixListResultOutput)
 }
 
 // A collection of arguments for invoking getPrefixList.

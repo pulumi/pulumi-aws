@@ -80,7 +80,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<bool> Activate { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+        /// ARN of the GuardDuty IPSet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -242,7 +242,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<bool>? Activate { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+        /// ARN of the GuardDuty IPSet.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

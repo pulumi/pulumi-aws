@@ -233,6 +233,9 @@ class GetSnapshotResult:
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
+        """
+        Port that the database engine was listening on at the time of the snapshot.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
@@ -371,25 +374,19 @@ def get_snapshot(db_instance_identifier: Optional[_builtins.str] = None,
     dev = aws.rds.Instance("dev",
         instance_class=aws.rds.InstanceType.T2_MICRO,
         db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id)
+        snapshot_identifier=latest_prod_snapshot.id,
+        opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))
     ```
 
 
-    :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
+    :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance.
     :param _builtins.str db_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param _builtins.bool include_public: Set this value to true to include manual DB snapshots that are public and can be
-           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-    :param _builtins.bool include_shared: Set this value to true to include shared manual DB snapshots from other
-           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-           The default is `false`.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent Snapshot.
+    :param _builtins.bool include_public: Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool include_shared: Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
-           value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB snapshot.
+    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
            
            > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """
@@ -470,25 +467,19 @@ def get_snapshot_output(db_instance_identifier: pulumi.Input[Optional[Optional[_
     dev = aws.rds.Instance("dev",
         instance_class=aws.rds.InstanceType.T2_MICRO,
         db_name="mydbdev",
-        snapshot_identifier=latest_prod_snapshot.id)
+        snapshot_identifier=latest_prod_snapshot.id,
+        opts = pulumi.ResourceOptions(ignore_changes=["snapshotIdentifier"]))
     ```
 
 
-    :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
+    :param _builtins.str db_instance_identifier: Returns the list of snapshots created by the specific db_instance.
     :param _builtins.str db_snapshot_identifier: Returns information on a specific snapshot_id.
-    :param _builtins.bool include_public: Set this value to true to include manual DB snapshots that are public and can be
-           copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
-    :param _builtins.bool include_shared: Set this value to true to include shared manual DB snapshots from other
-           AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-           The default is `false`.
-    :param _builtins.bool most_recent: If more than one result is returned, use the most
-           recent Snapshot.
+    :param _builtins.bool include_public: Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool include_shared: Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
+    :param _builtins.bool most_recent: If more than one result is returned, use the most recent Snapshot.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType
-           value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-           included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
-    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match
-           a pair on the desired DB snapshot.
+    :param _builtins.str snapshot_type: Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+    :param Mapping[str, _builtins.str] tags: Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
            
            > **NOTE:** One of either `db_instance_identifier` or `db_snapshot_identifier` is required.
     """

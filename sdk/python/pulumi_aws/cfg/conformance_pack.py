@@ -157,7 +157,7 @@ class _ConformancePackState:
         """
         Input properties used for looking up and filtering ConformancePack resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the conformance pack.
+        :param pulumi.Input[_builtins.str] arn: ARN of the conformance pack.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input['ConformancePackInputParameterArgs']]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
@@ -189,7 +189,7 @@ class _ConformancePackState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the conformance pack.
+        ARN of the conformance pack.
         """
         return pulumi.get(self, "arn")
 
@@ -317,11 +317,11 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -423,11 +423,11 @@ class ConformancePack(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cfg.ConformancePack("example",
-            name="example",
             input_parameters=[{
                 "parameter_name": "AccessKeysRotatedParameterMaxAccessKeyAge",
                 "parameter_value": "90",
             }],
+            name="example",
             template_body=\"\"\"Parameters:
           AccessKeysRotatedParameterMaxAccessKeyAge:
             Type: String
@@ -556,7 +556,7 @@ class ConformancePack(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the conformance pack.
+        :param pulumi.Input[_builtins.str] arn: ARN of the conformance pack.
         :param pulumi.Input[_builtins.str] delivery_s3_bucket: Amazon S3 bucket where AWS Config stores conformance pack templates. Maximum length of 63.
         :param pulumi.Input[_builtins.str] delivery_s3_key_prefix: The prefix for the Amazon S3 bucket. Maximum length of 1024.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConformancePackInputParameterArgs', 'ConformancePackInputParameterArgsDict']]]] input_parameters: Set of configuration blocks describing input parameters passed to the conformance pack template. Documented below. When configured, the parameters must also be included in the `template_body` or in the template stored in Amazon S3 if using `template_s3_uri`.
@@ -585,7 +585,7 @@ class ConformancePack(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the conformance pack.
+        ARN of the conformance pack.
         """
         return pulumi.get(self, "arn")
 

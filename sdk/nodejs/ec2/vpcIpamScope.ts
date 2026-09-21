@@ -62,7 +62,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -145,7 +145,7 @@ export class VpcIpamScope extends pulumi.CustomResource {
  */
 export interface VpcIpamScopeState {
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

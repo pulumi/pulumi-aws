@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRuleGroup = new RuleGroup("exampleRuleGroup", RuleGroupArgs.builder()
- *             .name("example")
- *             .metricName("example")
  *             .activatedRules(RuleGroupActivatedRuleArgs.builder()
  *                 .action(RuleGroupActivatedRuleActionArgs.builder()
  *                     .type("COUNT")
@@ -63,6 +61,8 @@ import javax.annotation.Nullable;
  *                 .priority(50)
  *                 .ruleId(example.id())
  *                 .build())
+ *             .name("example")
+ *             .metricName("example")
  *             .build());
  * 
  *     }

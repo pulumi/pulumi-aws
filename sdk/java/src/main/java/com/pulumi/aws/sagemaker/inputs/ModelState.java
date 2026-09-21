@@ -23,14 +23,14 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
     public static final ModelState Empty = new ModelState();
 
     /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
+     * ARN assigned by AWS to this model.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
+     * @return ARN assigned by AWS to this model.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -222,7 +222,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
+         * @param arn ARN assigned by AWS to this model.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class ModelState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) assigned by AWS to this model.
+         * @param arn ARN assigned by AWS to this model.
          * 
          * @return builder
          * 

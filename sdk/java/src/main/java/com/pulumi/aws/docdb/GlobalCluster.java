@@ -110,8 +110,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.docdb.Cluster;
+ * import com.pulumi.aws.docdb.ClusterArgs;
  * import com.pulumi.aws.docdb.GlobalCluster;
  * import com.pulumi.aws.docdb.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -125,7 +127,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
+ *         var example = new Cluster("example", ClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("globalClusterIdentifier")
+ *             .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .globalClusterIdentifier("example")
@@ -155,6 +159,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.docdb.GlobalCluster;
+ * import com.pulumi.aws.docdb.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -168,7 +174,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example");
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("sourceDbClusterIdentifier")
+ *             .build());
  * 
  *     }
  * }
@@ -179,14 +187,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:docdb/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Global Cluster Amazon Resource Name (ARN)
+     * Global Cluster ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Global Cluster Amazon Resource Name (ARN)
+     * @return Global Cluster ARN
      * 
      */
     public Output<String> arn() {
@@ -307,14 +315,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {

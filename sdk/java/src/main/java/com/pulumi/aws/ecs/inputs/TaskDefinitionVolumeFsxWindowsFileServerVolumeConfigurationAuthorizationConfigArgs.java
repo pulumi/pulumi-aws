@@ -15,14 +15,14 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
     public static final TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs Empty = new TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfigArgs();
 
     /**
-     * Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     @Import(name="credentialsParameter", required=true)
     private Output<String> credentialsParameter;
 
     /**
-     * @return Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+     * @return Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
      * 
      */
     public Output<String> credentialsParameter() {
@@ -70,7 +70,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAu
         }
 
         /**
-         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * @param credentialsParameter Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          * 
          * @return builder
          * 

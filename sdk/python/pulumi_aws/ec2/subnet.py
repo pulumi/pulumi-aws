@@ -65,7 +65,7 @@ class SubnetArgs:
         :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -337,7 +337,7 @@ class SubnetArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -436,7 +436,7 @@ class _SubnetState:
         :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -732,7 +732,7 @@ class _SubnetState:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -904,16 +904,16 @@ class Subnet(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.region,
+            source_ipam_pool_id=test_vpc_ipam_pool.id)
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
             ipam_pool_id=vpc.id,
             cidr=test_vpc.cidr_block)
@@ -967,7 +967,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1041,16 +1041,16 @@ class Subnet(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test.private_default_scope_id,
-            locale=current.region,
-            source_ipam_pool_id=test_vpc_ipam_pool.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test.private_default_scope_id,
+            locale=current.region,
+            source_ipam_pool_id=test_vpc_ipam_pool.id)
         vpc_vpc_ipam_pool_cidr = aws.ec2.VpcIpamPoolCidr("vpc",
             ipam_pool_id=vpc.id,
             cidr=test_vpc.cidr_block)
@@ -1221,7 +1221,7 @@ class Subnet(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ipv6_netmask_length: Netmask. Requires specifying a `ipv6_ipam_pool_id`. Valid values are from 44 to 64 in increments of 4.
         :param pulumi.Input[_builtins.bool] map_customer_owned_ip_on_launch: Specify `true` to indicate that network interfaces created in the subnet should be assigned a customer owned IP address. The `customer_owned_ipv4_pool` and `outpost_arn` arguments must be specified when set to `true`. Default is `false`.
         :param pulumi.Input[_builtins.bool] map_public_ip_on_launch: Specify true to indicate that instances launched into the subnet should be assigned a public IP address. Default is `false`.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the subnet.
         :param pulumi.Input[_builtins.str] private_dns_hostname_type_on_launch: The type of hostnames to assign to instances in the subnet at launch. For IPv6-only subnets, an instance DNS name must be based on the instance ID. For dual-stack and IPv4-only subnets, you can specify whether DNS names use the instance IPv4 address or the instance ID. Valid values: `ip-name`, `resource-name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -1420,7 +1420,7 @@ class Subnet(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 

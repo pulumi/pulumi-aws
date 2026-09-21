@@ -286,26 +286,26 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
-            workspace_id=example.id,
-            retention_period_in_days=60,
             limits_per_label_sets=[
                 {
-                    "label_set": {
-                        "env": "dev",
-                    },
                     "limits": {
                         "max_series": 100000,
                     },
+                    "label_set": {
+                        "env": "dev",
+                    },
                 },
                 {
-                    "label_set": {
-                        "env": "prod",
-                    },
                     "limits": {
                         "max_series": 400000,
                     },
+                    "label_set": {
+                        "env": "prod",
+                    },
                 },
-            ])
+            ],
+            workspace_id=example.id,
+            retention_period_in_days=60)
         ```
 
         ### Setting up default bucket
@@ -320,13 +320,13 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
-            workspace_id=example.id,
             limits_per_label_sets=[{
-                "label_set": {},
                 "limits": {
                     "max_series": 50000,
                 },
-            }])
+                "label_set": {},
+            }],
+            workspace_id=example.id)
         ```
 
         ### With out-of-order and rule query configuration
@@ -382,26 +382,26 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
-            workspace_id=example.id,
-            retention_period_in_days=60,
             limits_per_label_sets=[
                 {
-                    "label_set": {
-                        "env": "dev",
-                    },
                     "limits": {
                         "max_series": 100000,
                     },
+                    "label_set": {
+                        "env": "dev",
+                    },
                 },
                 {
-                    "label_set": {
-                        "env": "prod",
-                    },
                     "limits": {
                         "max_series": 400000,
                     },
+                    "label_set": {
+                        "env": "prod",
+                    },
                 },
-            ])
+            ],
+            workspace_id=example.id,
+            retention_period_in_days=60)
         ```
 
         ### Setting up default bucket
@@ -416,13 +416,13 @@ class WorkspaceConfiguration(pulumi.CustomResource):
 
         example = aws.amp.Workspace("example")
         example_workspace_configuration = aws.amp.WorkspaceConfiguration("example",
-            workspace_id=example.id,
             limits_per_label_sets=[{
-                "label_set": {},
                 "limits": {
                     "max_series": 50000,
                 },
-            }])
+                "label_set": {},
+            }],
+            workspace_id=example.id)
         ```
 
         ### With out-of-order and rule query configuration

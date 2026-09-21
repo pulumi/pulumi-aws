@@ -84,7 +84,7 @@ class GetOntapStorageVirtualMachineResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the SVM.
+        ARN of the SVM.
         """
         return pulumi.get(self, "arn")
 

@@ -35,15 +35,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.Alias("example", {
- *     name: "staging",
- *     description: "Staging environment with traffic splitting",
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     functionVersion: "2",
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "1": 0.1,
  *         },
  *     },
+ *     name: "staging",
+ *     description: "Staging environment with traffic splitting",
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     functionVersion: "2",
  * });
  * ```
  *
@@ -55,15 +55,15 @@ import * as utilities from "../utilities";
  *
  * // Alias for gradual rollout
  * const example = new aws.lambda.Alias("example", {
- *     name: "live",
- *     description: "Live traffic with gradual rollout to new version",
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     functionVersion: "5",
  *     routingConfig: {
  *         additionalVersionWeights: {
  *             "6": 0.05,
  *         },
  *     },
+ *     name: "live",
+ *     description: "Live traffic with gradual rollout to new version",
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     functionVersion: "5",
  * });
  * ```
  *
@@ -83,10 +83,22 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * For backwards compatibility, the following legacy `pulumi import` command is also supported:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `functionName` (String) Name or ARN of the Lambda function.
+ * * `name` (String) Name of the alias.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import Lambda Function Aliases using `function_name/alias`. For example:
  *
  * ```sh
- * $ pulumi import aws:lambda/alias:Alias example example/production
+ * $ pulumi import aws:lambda/alias:Alias example example-function/production
  * ```
  */
 export class Alias extends pulumi.CustomResource {

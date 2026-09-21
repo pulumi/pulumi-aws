@@ -27,7 +27,7 @@ class KeyvaluestoreKeysExclusiveArgs:
         """
         The set of arguments for constructing a KeyvaluestoreKeysExclusive resource.
 
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: ARN of the Key Value Store.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
@@ -44,7 +44,7 @@ class KeyvaluestoreKeysExclusiveArgs:
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        ARN of the Key Value Store.
 
         The following arguments are optional:
         """
@@ -90,7 +90,7 @@ class _KeyvaluestoreKeysExclusiveState:
         """
         Input properties used for looking up and filtering KeyvaluestoreKeysExclusive resources.
 
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: ARN of the Key Value Store.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
@@ -111,7 +111,7 @@ class _KeyvaluestoreKeysExclusiveState:
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        ARN of the Key Value Store.
 
         The following arguments are optional:
         """
@@ -188,11 +188,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
-            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }])
+            }],
+            key_value_store_arn=example.arn)
         ```
 
         ### Disallow Key Value Pairs
@@ -219,7 +219,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: ARN of the Key Value Store.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
@@ -251,11 +251,11 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         example_keyvaluestore_keys_exclusive = aws.cloudfront.KeyvaluestoreKeysExclusive("example",
-            key_value_store_arn=example.arn,
             resource_key_value_pairs=[{
                 "key": "Test Key",
                 "value": "Test Value",
-            }])
+            }],
+            key_value_store_arn=example.arn)
         ```
 
         ### Disallow Key Value Pairs
@@ -334,7 +334,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] key_value_store_arn: Amazon Resource Name (ARN) of the Key Value Store.
+        :param pulumi.Input[_builtins.str] key_value_store_arn: ARN of the Key Value Store.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.int] max_batch_size: Maximum resource key values pairs that will update in a single API request. AWS has a default quota of 50 keys or a 3 MB payload, whichever is reached first. Defaults to `50`.
@@ -356,7 +356,7 @@ class KeyvaluestoreKeysExclusive(pulumi.CustomResource):
     @pulumi.getter(name="keyValueStoreArn")
     def key_value_store_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Key Value Store.
+        ARN of the Key Value Store.
 
         The following arguments are optional:
         """

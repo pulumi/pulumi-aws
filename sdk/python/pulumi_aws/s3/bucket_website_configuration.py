@@ -360,7 +360,6 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
             index_document={
                 "suffix": "index.html",
             },
@@ -374,7 +373,8 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
                 "redirect": {
                     "replace_key_prefix_with": "documents/",
                 },
-            }])
+            }],
+            bucket=example_aws_s3_bucket["id"])
         ```
 
         ### With `routing_rules` configured
@@ -384,13 +384,13 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
             index_document={
                 "suffix": "index.html",
             },
             error_document={
                 "key": "error.html",
             },
+            bucket=example_aws_s3_bucket["id"],
             routing_rule_details=\"\"\"[{
             \\"Condition\\": {
                 \\"KeyPrefixEquals\\": \\"docs/\\"
@@ -463,7 +463,6 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
             index_document={
                 "suffix": "index.html",
             },
@@ -477,7 +476,8 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
                 "redirect": {
                     "replace_key_prefix_with": "documents/",
                 },
-            }])
+            }],
+            bucket=example_aws_s3_bucket["id"])
         ```
 
         ### With `routing_rules` configured
@@ -487,13 +487,13 @@ class BucketWebsiteConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketWebsiteConfiguration("example",
-            bucket=example_aws_s3_bucket["id"],
             index_document={
                 "suffix": "index.html",
             },
             error_document={
                 "key": "error.html",
             },
+            bucket=example_aws_s3_bucket["id"],
             routing_rule_details=\"\"\"[{
             \\"Condition\\": {
                 \\"KeyPrefixEquals\\": \\"docs/\\"

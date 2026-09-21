@@ -69,12 +69,8 @@ type LookupClusterParameterGroupResult struct {
 }
 
 func LookupClusterParameterGroupOutput(ctx *pulumi.Context, args LookupClusterParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupClusterParameterGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterParameterGroupResultOutput, error) {
-			args := v.(LookupClusterParameterGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args, LookupClusterParameterGroupResultOutput{}, options).(LookupClusterParameterGroupResultOutput), nil
-		}).(LookupClusterParameterGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getClusterParameterGroup:getClusterParameterGroup", args, LookupClusterParameterGroupResultOutput{}, options).(LookupClusterParameterGroupResultOutput)
 }
 
 // A collection of arguments for invoking getClusterParameterGroup.

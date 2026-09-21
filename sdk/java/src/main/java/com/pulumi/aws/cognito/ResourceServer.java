@@ -94,12 +94,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var resource = new ResourceServer("resource", ResourceServerArgs.builder()
- *             .identifier("https://example.com")
- *             .name("example")
  *             .scopes(ResourceServerScopeArgs.builder()
  *                 .scopeName("sample-scope")
  *                 .scopeDescription("a Sample Scope Description")
  *                 .build())
+ *             .identifier("https://example.com")
+ *             .name("example")
  *             .userPoolId(pool.id())
  *             .build());
  * 

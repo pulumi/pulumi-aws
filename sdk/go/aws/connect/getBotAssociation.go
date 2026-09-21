@@ -30,10 +30,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.LookupBotAssociation(ctx, &connect.LookupBotAssociationArgs{
-//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //				LexBot: connect.GetBotAssociationLexBot{
 //					Name: "Test",
 //				},
+//				InstanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -73,12 +73,8 @@ type LookupBotAssociationResult struct {
 }
 
 func LookupBotAssociationOutput(ctx *pulumi.Context, args LookupBotAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupBotAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBotAssociationResultOutput, error) {
-			args := v.(LookupBotAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getBotAssociation:getBotAssociation", args, LookupBotAssociationResultOutput{}, options).(LookupBotAssociationResultOutput), nil
-		}).(LookupBotAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getBotAssociation:getBotAssociation", args, LookupBotAssociationResultOutput{}, options).(LookupBotAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getBotAssociation.

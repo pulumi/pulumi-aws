@@ -107,12 +107,8 @@ type LookupCustomerGatewayResult struct {
 }
 
 func LookupCustomerGatewayOutput(ctx *pulumi.Context, args LookupCustomerGatewayOutputArgs, opts ...pulumi.InvokeOption) LookupCustomerGatewayResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomerGatewayResultOutput, error) {
-			args := v.(LookupCustomerGatewayArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getCustomerGateway:getCustomerGateway", args, LookupCustomerGatewayResultOutput{}, options).(LookupCustomerGatewayResultOutput), nil
-		}).(LookupCustomerGatewayResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getCustomerGateway:getCustomerGateway", args, LookupCustomerGatewayResultOutput{}, options).(LookupCustomerGatewayResultOutput)
 }
 
 // A collection of arguments for invoking getCustomerGateway.

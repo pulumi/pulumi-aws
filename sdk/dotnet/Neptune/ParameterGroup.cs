@@ -24,8 +24,6 @@ namespace Pulumi.Aws.Neptune
     /// {
     ///     var example = new Aws.Neptune.ParameterGroup("example", new()
     ///     {
-    ///         Family = "neptune1",
-    ///         Name = "example",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Neptune.Inputs.ParameterGroupParameterArgs
@@ -34,6 +32,8 @@ namespace Pulumi.Aws.Neptune
     ///                 Value = "25",
     ///             },
     ///         },
+    ///         Family = "neptune1",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Neptune
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// Neptune parameter group ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -213,7 +213,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Neptune parameter group Amazon Resource Name (ARN).
+        /// Neptune parameter group ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

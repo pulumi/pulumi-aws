@@ -187,7 +187,7 @@ class _ProfileState:
         Input properties used for looking up and filtering Profile resources.
 
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Profile
+        :param pulumi.Input[_builtins.str] arn: ARN of the Profile
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: A list of managed policy ARNs that apply to the vended session credentials.
@@ -237,7 +237,7 @@ class _ProfileState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Profile
+        ARN of the Profile
         """
         return pulumi.get(self, "arn")
 
@@ -545,7 +545,7 @@ class Profile(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] accept_role_session_name: Whether or not a custom role session name is accepted.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Profile
+        :param pulumi.Input[_builtins.str] arn: ARN of the Profile
         :param pulumi.Input[_builtins.int] duration_seconds: The number of seconds the vended session credentials are valid for. Defaults to 3600.
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Profile is enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] managed_policy_arns: A list of managed policy ARNs that apply to the vended session credentials.
@@ -585,7 +585,7 @@ class Profile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Profile
+        ARN of the Profile
         """
         return pulumi.get(self, "arn")
 

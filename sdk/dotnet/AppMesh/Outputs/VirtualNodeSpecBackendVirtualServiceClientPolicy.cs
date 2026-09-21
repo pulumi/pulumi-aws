@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
     public sealed class VirtualNodeSpecBackendVirtualServiceClientPolicy
     {
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        /// TLS properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTls? Tls;
 

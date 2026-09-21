@@ -13,6 +13,12 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class DirectoryWorkspaceAccessPropertiesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+        /// </summary>
+        [Input("accessEndpointConfig")]
+        public Input<Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigGetArgs>? AccessEndpointConfig { get; set; }
+
+        /// <summary>
         /// Indicates whether users can use Android devices to access their WorkSpaces.
         /// </summary>
         [Input("deviceTypeAndroid")]

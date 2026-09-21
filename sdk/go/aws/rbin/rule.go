@@ -31,18 +31,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description:  pulumi.String("Example tag-level retention rule"),
-//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
+//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
+//					RetentionPeriodValue: pulumi.Int(10),
+//					RetentionPeriodUnit:  pulumi.String("DAYS"),
+//				},
 //				ResourceTags: rbin.RuleResourceTagArray{
 //					&rbin.RuleResourceTagArgs{
 //						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
 //				},
-//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodValue: pulumi.Int(10),
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
-//				},
+//				Description:  pulumi.String("Example tag-level retention rule"),
+//				ResourceType: pulumi.String("EBS_SNAPSHOT"),
 //				Tags: pulumi.StringMap{
 //					"test_tag_key": pulumi.String("test_tag_value"),
 //				},
@@ -71,18 +71,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rbin.NewRule(ctx, "example", &rbin.RuleArgs{
-//				Description:  pulumi.String("Example region-level retention rule with exclusion tags"),
-//				ResourceType: pulumi.String("EC2_IMAGE"),
+//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
+//					RetentionPeriodValue: pulumi.Int(10),
+//					RetentionPeriodUnit:  pulumi.String("DAYS"),
+//				},
 //				ExcludeResourceTags: rbin.RuleExcludeResourceTagArray{
 //					&rbin.RuleExcludeResourceTagArgs{
 //						ResourceTagKey:   pulumi.String("tag_key"),
 //						ResourceTagValue: pulumi.String("tag_value"),
 //					},
 //				},
-//				RetentionPeriod: &rbin.RuleRetentionPeriodArgs{
-//					RetentionPeriodValue: pulumi.Int(10),
-//					RetentionPeriodUnit:  pulumi.String("DAYS"),
-//				},
+//				Description:  pulumi.String("Example region-level retention rule with exclusion tags"),
+//				ResourceType: pulumi.String("EC2_IMAGE"),
 //				Tags: pulumi.StringMap{
 //					"test_tag_key": pulumi.String("test_tag_value"),
 //				},

@@ -372,12 +372,12 @@ class InvoiceUnit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
             rules=[{
                 "linked_accounts": ["098765432109"],
             }],
+            name="example-unit",
+            description="Example invoice unit",
+            invoice_receiver="123456789012",
             tags={
                 "Environment": "production",
             })
@@ -389,7 +389,7 @@ class InvoiceUnit(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+        - `arn` (String) ARN of the invoice unit.
 
         Using `pulumi import`, import Invoice Units using the ARN. For example:
 
@@ -426,12 +426,12 @@ class InvoiceUnit(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.invoicing.InvoiceUnit("example",
-            name="example-unit",
-            description="Example invoice unit",
-            invoice_receiver="123456789012",
             rules=[{
                 "linked_accounts": ["098765432109"],
             }],
+            name="example-unit",
+            description="Example invoice unit",
+            invoice_receiver="123456789012",
             tags={
                 "Environment": "production",
             })
@@ -443,7 +443,7 @@ class InvoiceUnit(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+        - `arn` (String) ARN of the invoice unit.
 
         Using `pulumi import`, import Invoice Units using the ARN. For example:
 

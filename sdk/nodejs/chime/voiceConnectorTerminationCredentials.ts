@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  *     voiceConnectorId: _default.id,
  * });
  * const defaultVoiceConnectorTerminationCredentials = new aws.chime.VoiceConnectorTerminationCredentials("default", {
- *     voiceConnectorId: _default.id,
  *     credentials: [{
  *         username: "test",
  *         password: "test!",
  *     }],
+ *     voiceConnectorId: _default.id,
  * }, {
  *     dependsOn: [defaultVoiceConnectorTermination],
  * });

@@ -32,6 +32,11 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
      * 
      */
     private String tokenEndpoint;
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    private @Nullable List<String> tokenEndpointAuthMethods;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata() {}
     /**
@@ -62,6 +67,13 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     public String tokenEndpoint() {
         return this.tokenEndpoint;
     }
+    /**
+     * @return List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+     * 
+     */
+    public List<String> tokenEndpointAuthMethods() {
+        return this.tokenEndpointAuthMethods == null ? List.of() : this.tokenEndpointAuthMethods;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -76,6 +88,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
         private String issuer;
         private @Nullable List<String> responseTypes;
         private String tokenEndpoint;
+        private @Nullable List<String> tokenEndpointAuthMethods;
         public Builder() {}
         public Builder(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata defaults) {
     	      Objects.requireNonNull(defaults);
@@ -83,6 +96,7 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
     	      this.issuer = defaults.issuer;
     	      this.responseTypes = defaults.responseTypes;
     	      this.tokenEndpoint = defaults.tokenEndpoint;
+    	      this.tokenEndpointAuthMethods = defaults.tokenEndpointAuthMethods;
         }
 
         @CustomType.Setter
@@ -118,12 +132,22 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOa
             this.tokenEndpoint = tokenEndpoint;
             return this;
         }
+        @CustomType.Setter
+        public Builder tokenEndpointAuthMethods(@Nullable List<String> tokenEndpointAuthMethods) {
+
+            this.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
+            return this;
+        }
+        public Builder tokenEndpointAuthMethods(String... tokenEndpointAuthMethods) {
+            return tokenEndpointAuthMethods(List.of(tokenEndpointAuthMethods));
+        }
         public AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata build() {
             final var _resultValue = new AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata();
             _resultValue.authorizationEndpoint = authorizationEndpoint;
             _resultValue.issuer = issuer;
             _resultValue.responseTypes = responseTypes;
             _resultValue.tokenEndpoint = tokenEndpoint;
+            _resultValue.tokenEndpointAuthMethods = tokenEndpointAuthMethods;
             return _resultValue;
         }
     }

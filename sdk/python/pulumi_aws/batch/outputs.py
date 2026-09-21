@@ -166,16 +166,16 @@ class ComputeEnvironmentComputeResources(dict):
         :param _builtins.str allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param _builtins.int bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param _builtins.int desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        :param Sequence['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs'] ec2_configurations: Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param _builtins.str ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param _builtins.str image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        :param _builtins.str image_id: AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param _builtins.str instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Sequence[_builtins.str] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param 'ComputeEnvironmentComputeResourcesLaunchTemplateArgs' launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param _builtins.int min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param _builtins.str placement_group: The Amazon EC2 placement group to associate with your compute resources.
         :param Sequence[_builtins.str] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-        :param _builtins.str spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param _builtins.str spot_iam_fleet_role: ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param Mapping[str, _builtins.str] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         pulumi.set(__self__, "max_vcpus", max_vcpus)
@@ -262,7 +262,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="ec2Configurations")
     def ec2_configurations(self) -> Optional[Sequence['outputs.ComputeEnvironmentComputeResourcesEc2Configuration']]:
         """
-        Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "ec2_configurations")
 
@@ -278,7 +278,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="imageId")
     def image_id(self) -> Optional[_builtins.str]:
         """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         """
         return pulumi.get(self, "image_id")
 
@@ -334,7 +334,7 @@ class ComputeEnvironmentComputeResources(dict):
     @pulumi.getter(name="spotIamFleetRole")
     def spot_iam_fleet_role(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "spot_iam_fleet_role")
 
@@ -498,7 +498,7 @@ class ComputeEnvironmentEksConfiguration(dict):
                  eks_cluster_arn: _builtins.str,
                  kubernetes_namespace: _builtins.str):
         """
-        :param _builtins.str eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        :param _builtins.str eks_cluster_arn: ARN of the Amazon EKS cluster.
         :param _builtins.str kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         """
         pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
@@ -508,7 +508,7 @@ class ComputeEnvironmentEksConfiguration(dict):
     @pulumi.getter(name="eksClusterArn")
     def eks_cluster_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        ARN of the Amazon EKS cluster.
         """
         return pulumi.get(self, "eks_cluster_arn")
 
@@ -1870,7 +1870,7 @@ class JobQueueComputeEnvironmentOrder(dict):
                  compute_environment: _builtins.str,
                  order: _builtins.int):
         """
-        :param _builtins.str compute_environment: The Amazon Resource Name (ARN) of the compute environment.
+        :param _builtins.str compute_environment: ARN of the compute environment.
         :param _builtins.int order: The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
         """
         pulumi.set(__self__, "compute_environment", compute_environment)
@@ -1880,7 +1880,7 @@ class JobQueueComputeEnvironmentOrder(dict):
     @pulumi.getter(name="computeEnvironment")
     def compute_environment(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the compute environment.
+        ARN of the compute environment.
         """
         return pulumi.get(self, "compute_environment")
 
@@ -3069,11 +3069,11 @@ class GetJobDefinitionNodePropertyNodeRangePropertyContainerResult(dict):
         :param Sequence[_builtins.str] commands: Command that's passed to the container.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArgs'] environments: Environment variables to pass to a container. See `environment` below.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArgs'] ephemeral_storages: Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeral_storage` below.
-        :param _builtins.str execution_role_arn: Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+        :param _builtins.str execution_role_arn: ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArgs'] fargate_platform_configurations: Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter. See `fargate_platform_configuration` below.
         :param _builtins.str image: Image used to start a container.
         :param _builtins.str instance_type: Instance type to use for a multi-node parallel job.
-        :param _builtins.str job_role_arn: Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+        :param _builtins.str job_role_arn: ARN of the IAM role that the container can assume for AWS permissions.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArgs'] linux_parameters: Linux-specific modifications that are applied to the container. See `linux_parameters` below.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerLogConfigurationArgs'] log_configurations: Log configuration specification for the container. See `log_configuration` below.
         :param Sequence['GetJobDefinitionNodePropertyNodeRangePropertyContainerMountPointArgs'] mount_points: Mount points for data volumes in your container. See `mount_points` below.
@@ -3136,7 +3136,7 @@ class GetJobDefinitionNodePropertyNodeRangePropertyContainerResult(dict):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+        ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -3168,7 +3168,7 @@ class GetJobDefinitionNodePropertyNodeRangePropertyContainerResult(dict):
     @pulumi.getter(name="jobRoleArn")
     def job_role_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+        ARN of the IAM role that the container can assume for AWS permissions.
         """
         return pulumi.get(self, "job_role_arn")
 

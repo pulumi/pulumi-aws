@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import S3 Control Bucket Policies using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -70,7 +70,7 @@ export class BucketPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      */
     declare public readonly bucket: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class BucketPolicy extends pulumi.CustomResource {
  */
 export interface BucketPolicyState {
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      */
     bucket?: pulumi.Input<string | undefined>;
     /**
@@ -138,7 +138,7 @@ export interface BucketPolicyState {
  */
 export interface BucketPolicyArgs {
     /**
-     * Amazon Resource Name (ARN) of the bucket.
+     * ARN of the bucket.
      */
     bucket: pulumi.Input<string>;
     /**

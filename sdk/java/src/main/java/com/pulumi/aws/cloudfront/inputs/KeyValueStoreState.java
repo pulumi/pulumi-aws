@@ -18,14 +18,14 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
     public static final KeyValueStoreState Empty = new KeyValueStoreState();
 
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * ARN identifying your CloudFront KeyValueStore.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+     * @return ARN identifying your CloudFront KeyValueStore.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -141,7 +141,7 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+         * @param arn ARN identifying your CloudFront KeyValueStore.
          * 
          * @return builder
          * 
@@ -152,7 +152,7 @@ public final class KeyValueStoreState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+         * @param arn ARN identifying your CloudFront KeyValueStore.
          * 
          * @return builder
          * 

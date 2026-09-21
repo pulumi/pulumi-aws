@@ -74,12 +74,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
- *             .apiId(example.id())
- *             .name("example")
- *             .type("HTTP")
  *             .httpConfig(DataSourceHttpConfigArgs.builder()
  *                 .endpoint("http://example.com")
  *                 .build())
+ *             .apiId(example.id())
+ *             .name("example")
+ *             .type("HTTP")
  *             .build());
  * 
  *         var exampleFunction = new Function("exampleFunction", FunctionArgs.builder()
@@ -138,16 +138,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Function("example", FunctionArgs.builder()
+ *             .runtime(FunctionRuntimeArgs.builder()
+ *                 .name("APPSYNC_JS")
+ *                 .runtimeVersion("1.0.0")
+ *                 .build())
  *             .apiId(exampleAwsAppsyncGraphqlApi.id())
  *             .dataSource(exampleAwsAppsyncDatasource.name())
  *             .name("example")
  *             .code(StdFunctions.file(FileArgs.builder()
  *                 .input("some-code-dir")
  *                 .build()).result())
- *             .runtime(FunctionRuntimeArgs.builder()
- *                 .name("APPSYNC_JS")
- *                 .runtimeVersion("1.0.0")
- *                 .build())
  *             .build());
  * 
  *     }

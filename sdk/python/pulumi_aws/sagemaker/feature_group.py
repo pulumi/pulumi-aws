@@ -39,7 +39,7 @@ class FeatureGroupArgs:
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
         :param pulumi.Input[_builtins.str] feature_group_name: The name of the Feature Group. The name must be unique within an AWS Region in an AWS account.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input['FeatureGroupOfflineStoreConfigArgs'] offline_store_config: The Offline Feature Store Configuration. See Offline Store Config Below.
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
@@ -116,7 +116,7 @@ class FeatureGroupArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         """
         return pulumi.get(self, "role_arn")
 
@@ -213,7 +213,7 @@ class _FeatureGroupState:
         """
         Input properties used for looking up and filtering FeatureGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this feature_group.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
         :param pulumi.Input[Sequence[pulumi.Input['FeatureGroupFeatureDefinitionArgs']]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
@@ -222,7 +222,7 @@ class _FeatureGroupState:
         :param pulumi.Input['FeatureGroupOnlineStoreConfigArgs'] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -257,7 +257,7 @@ class _FeatureGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        ARN assigned by AWS to this feature_group.
         """
         return pulumi.get(self, "arn")
 
@@ -365,7 +365,7 @@ class _FeatureGroupState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         """
         return pulumi.get(self, "role_arn")
 
@@ -437,17 +437,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"],
+            online_store_config={
+                "enable_online_store": True,
+            },
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            online_store_config={
-                "enable_online_store": True,
-            })
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -469,7 +469,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -490,17 +490,17 @@ class FeatureGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.FeatureGroup("example",
-            feature_group_name="example",
-            record_identifier_feature_name="example",
-            event_time_feature_name="example",
-            role_arn=test["arn"],
+            online_store_config={
+                "enable_online_store": True,
+            },
             feature_definitions=[{
                 "feature_name": "example",
                 "feature_type": "String",
             }],
-            online_store_config={
-                "enable_online_store": True,
-            })
+            feature_group_name="example",
+            record_identifier_feature_name="example",
+            event_time_feature_name="example",
+            role_arn=test["arn"])
         ```
 
         ## Import
@@ -600,7 +600,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this feature_group.
         :param pulumi.Input[_builtins.str] description: A free-form description of a Feature Group.
         :param pulumi.Input[_builtins.str] event_time_feature_name: The name of the feature that stores the EventTime of a Record in a Feature Group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FeatureGroupFeatureDefinitionArgs', 'FeatureGroupFeatureDefinitionArgsDict']]]] feature_definitions: A list of Feature names and types. See Feature Definition Below.
@@ -609,7 +609,7 @@ class FeatureGroup(pulumi.CustomResource):
         :param pulumi.Input[Union['FeatureGroupOnlineStoreConfigArgs', 'FeatureGroupOnlineStoreConfigArgsDict']] online_store_config: The Online Feature Store Configuration. See Online Store Config Below.
         :param pulumi.Input[_builtins.str] record_identifier_feature_name: The name of the Feature whose value uniquely identifies a Record defined in the Feature Store. Only the latest record per identifier value will be stored in the Online Store.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of resource tags for the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -636,7 +636,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+        ARN assigned by AWS to this feature_group.
         """
         return pulumi.get(self, "arn")
 
@@ -708,7 +708,7 @@ class FeatureGroup(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
+        The ARN of the IAM execution role used to persist data into the Offline Store if an `offline_store_config` is provided.
         """
         return pulumi.get(self, "role_arn")
 

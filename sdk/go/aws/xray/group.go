@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewGroup(ctx, "example", &xray.GroupArgs{
-//				GroupName:        pulumi.String("example"),
-//				FilterExpression: pulumi.String("responsetime > 5"),
 //				InsightsConfiguration: &xray.GroupInsightsConfigurationArgs{
 //					InsightsEnabled:      pulumi.Bool(true),
 //					NotificationsEnabled: pulumi.Bool(true),
 //				},
+//				GroupName:        pulumi.String("example"),
+//				FilterExpression: pulumi.String("responsetime > 5"),
 //			})
 //			if err != nil {
 //				return err
@@ -51,7 +51,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+// - `arn` (String) ARN of the X-Ray group.
 //
 // Using `pulumi import`, import XRay Groups using the ARN. For example:
 //

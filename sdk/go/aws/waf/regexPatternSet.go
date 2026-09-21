@@ -53,7 +53,7 @@ import (
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the Regex Pattern Set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -91,7 +91,7 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type regexPatternSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// The name or description of the Regex Pattern Set.
 	Name *string `pulumi:"name"`
@@ -100,7 +100,7 @@ type regexPatternSetState struct {
 }
 
 type RegexPatternSetState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// The name or description of the Regex Pattern Set.
 	Name pulumi.StringPtrInput
@@ -214,7 +214,7 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

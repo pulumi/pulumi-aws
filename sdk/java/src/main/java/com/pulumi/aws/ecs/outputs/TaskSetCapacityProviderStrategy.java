@@ -19,7 +19,7 @@ public final class TaskSetCapacityProviderStrategy {
      */
     private @Nullable Integer base;
     /**
-     * @return Short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * @return Short name or full ARN of the capacity provider.
      * 
      */
     private String capacityProvider;
@@ -38,7 +38,7 @@ public final class TaskSetCapacityProviderStrategy {
         return Optional.ofNullable(this.base);
     }
     /**
-     * @return Short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * @return Short name or full ARN of the capacity provider.
      * 
      */
     public String capacityProvider() {

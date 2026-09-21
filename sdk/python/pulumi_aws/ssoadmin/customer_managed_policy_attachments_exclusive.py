@@ -240,12 +240,12 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
                 }],
             }))
         example_customer_managed_policy_attachments_exclusive = aws.ssoadmin.CustomerManagedPolicyAttachmentsExclusive("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
             customer_managed_policy_references=[{
                 "name": example_policy.name,
                 "path": "/",
-            }])
+            }],
+            instance_arn=example.arns[0],
+            permission_set_arn=example_permission_set.arn)
         ```
 
         ### Disallow Customer Managed Policy Attachments
@@ -333,12 +333,12 @@ class CustomerManagedPolicyAttachmentsExclusive(pulumi.CustomResource):
                 }],
             }))
         example_customer_managed_policy_attachments_exclusive = aws.ssoadmin.CustomerManagedPolicyAttachmentsExclusive("example",
-            instance_arn=example.arns[0],
-            permission_set_arn=example_permission_set.arn,
             customer_managed_policy_references=[{
                 "name": example_policy.name,
                 "path": "/",
-            }])
+            }],
+            instance_arn=example.arns[0],
+            permission_set_arn=example_permission_set.arn)
         ```
 
         ### Disallow Customer Managed Policy Attachments

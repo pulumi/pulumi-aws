@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new HumanTaskUI("example", HumanTaskUIArgs.builder()
- *             .humanTaskUiName("example")
  *             .uiTemplate(HumanTaskUIUiTemplateArgs.builder()
  *                 .content(StdFunctions.file(FileArgs.builder()
  *                     .input("sagemaker-human-task-ui-template.html")
  *                     .build()).result())
  *                 .build())
+ *             .humanTaskUiName("example")
  *             .build());
  * 
  *     }
@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/humanTaskUI:HumanTaskUI")
 public class HumanTaskUI extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * ARN assigned by AWS to this Human Task UI.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * @return ARN assigned by AWS to this Human Task UI.
      * 
      */
     public Output<String> arn() {

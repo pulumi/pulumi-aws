@@ -57,7 +57,7 @@ import (
 type Vocabulary struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the vocabulary.
+	// ARN of the vocabulary.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
 	Content pulumi.StringOutput `pulumi:"content"`
@@ -123,7 +123,7 @@ func GetVocabulary(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vocabulary resources.
 type vocabularyState struct {
-	// The Amazon Resource Name (ARN) of the vocabulary.
+	// ARN of the vocabulary.
 	Arn *string `pulumi:"arn"`
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
 	Content *string `pulumi:"content"`
@@ -151,7 +151,7 @@ type vocabularyState struct {
 }
 
 type VocabularyState struct {
-	// The Amazon Resource Name (ARN) of the vocabulary.
+	// ARN of the vocabulary.
 	Arn pulumi.StringPtrInput
 	// The content of the custom vocabulary in plain-text format with a table of values. Each row in the table represents a word or a phrase, described with Phrase, IPA, SoundsLike, and DisplayAs fields. Separate the fields with TAB characters. For more information, see [Create a custom vocabulary using a table](https://docs.aws.amazon.com/transcribe/latest/dg/custom-vocabulary.html#create-vocabulary-table). Minimum length of `1`. Maximum length of `60000`.
 	Content pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (o VocabularyOutput) ToVocabularyOutputWithContext(ctx context.Context) Voc
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the vocabulary.
+// ARN of the vocabulary.
 func (o VocabularyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Vocabulary) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

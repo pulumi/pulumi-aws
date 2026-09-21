@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        /// ARN of the Lambda function used for connection authorization.
         /// </summary>
         [Input("lambdaFunctionArn")]
         public Input<string>? LambdaFunctionArn { get; set; }

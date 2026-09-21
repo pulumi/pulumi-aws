@@ -119,7 +119,7 @@ class _VpnGatewayState:
         Input properties used for looking up and filtering VpnGateway resources.
 
         :param pulumi.Input[_builtins.str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Gateway.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPN Gateway.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone for the virtual private gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -157,7 +157,7 @@ class _VpnGatewayState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the VPN Gateway.
+        ARN of the VPN Gateway.
         """
         return pulumi.get(self, "arn")
 
@@ -363,7 +363,7 @@ class VpnGateway(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] amazon_side_asn: The Autonomous System Number (ASN) for the Amazon side of the gateway. If you don't specify an ASN, the virtual private gateway is created with the default ASN.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPN Gateway.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPN Gateway.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone for the virtual private gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -395,7 +395,7 @@ class VpnGateway(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the VPN Gateway.
+        ARN of the VPN Gateway.
         """
         return pulumi.get(self, "arn")
 

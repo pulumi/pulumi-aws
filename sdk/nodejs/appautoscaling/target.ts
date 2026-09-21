@@ -88,6 +88,8 @@ import * as utilities from "../utilities";
  *     resourceId: `service/${example.name}/${exampleAwsEcsService.name}`,
  *     scalableDimension: "ecs:service:DesiredCount",
  *     serviceNamespace: "ecs",
+ * }, {
+ *     ignoreChanges: [tagsAll],
  * });
  * ```
  *

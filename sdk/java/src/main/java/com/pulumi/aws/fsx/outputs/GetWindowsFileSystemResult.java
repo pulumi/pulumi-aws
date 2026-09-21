@@ -27,7 +27,7 @@ public final class GetWindowsFileSystemResult {
      */
     private List<String> aliases;
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     private String arn;
@@ -143,7 +143,7 @@ public final class GetWindowsFileSystemResult {
      */
     private Integer throughputCapacity;
     /**
-     * @return ID of the primary virtual private cloud (VPC) for the file system.
+     * @return ID of the primary VPC for the file system.
      * 
      */
     private String vpcId;
@@ -169,7 +169,7 @@ public final class GetWindowsFileSystemResult {
         return this.aliases;
     }
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public String arn() {
@@ -333,7 +333,7 @@ public final class GetWindowsFileSystemResult {
         return this.throughputCapacity;
     }
     /**
-     * @return ID of the primary virtual private cloud (VPC) for the file system.
+     * @return ID of the primary VPC for the file system.
      * 
      */
     public String vpcId() {

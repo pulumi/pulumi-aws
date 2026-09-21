@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreCodeInterpreter(ctx, "example", &bedrock.AgentcoreCodeInterpreterArgs{
-//				Name:        pulumi.String("example-code-interpreter"),
-//				Description: pulumi.String("Code interpreter for data analysis"),
 //				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
+//				Name:        pulumi.String("example-code-interpreter"),
+//				Description: pulumi.String("Code interpreter for data analysis"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,10 +64,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -75,6 +71,10 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -90,12 +90,12 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreCodeInterpreter(ctx, "example", &bedrock.AgentcoreCodeInterpreterArgs{
-//				Name:             pulumi.String("example-code-interpreter"),
-//				Description:      pulumi.String("Code interpreter with custom execution role"),
-//				ExecutionRoleArn: example.Arn,
 //				NetworkConfiguration: &bedrock.AgentcoreCodeInterpreterNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("SANDBOX"),
 //				},
+//				Name:             pulumi.String("example-code-interpreter"),
+//				Description:      pulumi.String("Code interpreter with custom execution role"),
+//				ExecutionRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

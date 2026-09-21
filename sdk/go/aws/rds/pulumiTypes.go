@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type ClusterMasterUserSecret struct {
 	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn *string `pulumi:"secretArn"`
 	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
@@ -36,7 +36,7 @@ type ClusterMasterUserSecretInput interface {
 type ClusterMasterUserSecretArgs struct {
 	// ARN for the KMS encryption key. When specifying `kmsKeyId`, `storageEncrypted` needs to be set to true.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
@@ -98,7 +98,7 @@ func (o ClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o ClusterMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -129,13 +129,11 @@ func (o ClusterMasterUserSecretArrayOutput) Index(i pulumi.IntInput) ClusterMast
 }
 
 type ClusterParameterGroupParameter struct {
-	// "immediate" (default), or "pending-reboot". Some
-	// engines can't apply some parameters without a reboot, and you will need to
-	// specify "pending-reboot" here.
+	// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// Name of the DB parameter.
 	Name string `pulumi:"name"`
-	// The value of the DB parameter.
+	// Value of the DB parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -151,13 +149,11 @@ type ClusterParameterGroupParameterInput interface {
 }
 
 type ClusterParameterGroupParameterArgs struct {
-	// "immediate" (default), or "pending-reboot". Some
-	// engines can't apply some parameters without a reboot, and you will need to
-	// specify "pending-reboot" here.
+	// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// Name of the DB parameter.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the DB parameter.
+	// Value of the DB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -212,19 +208,17 @@ func (o ClusterParameterGroupParameterOutput) ToClusterParameterGroupParameterOu
 	return o
 }
 
-// "immediate" (default), or "pending-reboot". Some
-// engines can't apply some parameters without a reboot, and you will need to
-// specify "pending-reboot" here.
+// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 func (o ClusterParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DB parameter.
+// Name of the DB parameter.
 func (o ClusterParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the DB parameter.
+// Value of the DB parameter.
 func (o ClusterParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -252,8 +246,7 @@ func (o ClusterParameterGroupParameterArrayOutput) Index(i pulumi.IntInput) Clus
 type ClusterRestoreToPointInTime struct {
 	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
 	RestoreToTime *string `pulumi:"restoreToTime"`
-	// Type of restore to be performed.
-	// Valid options are `full-copy` (default) and `copy-on-write`.
+	// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType *string `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 	SourceClusterIdentifier *string `pulumi:"sourceClusterIdentifier"`
@@ -277,8 +270,7 @@ type ClusterRestoreToPointInTimeInput interface {
 type ClusterRestoreToPointInTimeArgs struct {
 	// Date and time in UTC format to restore the database cluster to. Conflicts with `useLatestRestorableTime`.
 	RestoreToTime pulumi.StringPtrInput `pulumi:"restoreToTime"`
-	// Type of restore to be performed.
-	// Valid options are `full-copy` (default) and `copy-on-write`.
+	// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
 	RestoreType pulumi.StringPtrInput `pulumi:"restoreType"`
 	// Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
 	SourceClusterIdentifier pulumi.StringPtrInput `pulumi:"sourceClusterIdentifier"`
@@ -370,8 +362,7 @@ func (o ClusterRestoreToPointInTimeOutput) RestoreToTime() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreToTime }).(pulumi.StringPtrOutput)
 }
 
-// Type of restore to be performed.
-// Valid options are `full-copy` (default) and `copy-on-write`.
+// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
 func (o ClusterRestoreToPointInTimeOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterRestoreToPointInTime) *string { return v.RestoreType }).(pulumi.StringPtrOutput)
 }
@@ -425,8 +416,7 @@ func (o ClusterRestoreToPointInTimePtrOutput) RestoreToTime() pulumi.StringPtrOu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Type of restore to be performed.
-// Valid options are `full-copy` (default) and `copy-on-write`.
+// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
 func (o ClusterRestoreToPointInTimePtrOutput) RestoreType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterRestoreToPointInTime) *string {
 		if v == nil {
@@ -476,8 +466,6 @@ type ClusterS3Import struct {
 	// Source engine for the backup
 	SourceEngine string `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -502,8 +490,6 @@ type ClusterS3ImportArgs struct {
 	// Source engine for the backup
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
 	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -605,8 +591,6 @@ func (o ClusterS3ImportOutput) SourceEngine() pulumi.StringOutput {
 }
 
 // Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -676,8 +660,6 @@ func (o ClusterS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 }
 
 // Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
 func (o ClusterS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterS3Import) *string {
 		if v == nil {
@@ -1388,7 +1370,7 @@ func (o ExportTaskTimeoutsPtrOutput) Delete() pulumi.StringPtrOutput {
 }
 
 type GlobalClusterGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn *string `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter *bool `pulumi:"isWriter"`
@@ -1406,7 +1388,7 @@ type GlobalClusterGlobalClusterMemberInput interface {
 }
 
 type GlobalClusterGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster.
+	// ARN of member DB Cluster.
 	DbClusterArn pulumi.StringPtrInput `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster.
 	IsWriter pulumi.BoolPtrInput `pulumi:"isWriter"`
@@ -1463,7 +1445,7 @@ func (o GlobalClusterGlobalClusterMemberOutput) ToGlobalClusterGlobalClusterMemb
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster.
+// ARN of member DB Cluster.
 func (o GlobalClusterGlobalClusterMemberOutput) DbClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GlobalClusterGlobalClusterMember) *string { return v.DbClusterArn }).(pulumi.StringPtrOutput)
 }
@@ -1494,15 +1476,7 @@ func (o GlobalClusterGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) Gl
 }
 
 type InstanceBlueGreenUpdate struct {
-	// Enables low-downtime updates when `true`.
-	// Default is `false`.
-	//
-	// [instance-replication]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-	// [instance-maintenance]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-	// [blue-green]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+	// Enables low-downtime updates when `true`. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
 }
 
@@ -1518,15 +1492,7 @@ type InstanceBlueGreenUpdateInput interface {
 }
 
 type InstanceBlueGreenUpdateArgs struct {
-	// Enables low-downtime updates when `true`.
-	// Default is `false`.
-	//
-	// [instance-replication]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-	// [instance-maintenance]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-	// [blue-green]:
-	// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+	// Enables low-downtime updates when `true`. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
 }
 
@@ -1607,15 +1573,7 @@ func (o InstanceBlueGreenUpdateOutput) ToInstanceBlueGreenUpdatePtrOutputWithCon
 	}).(InstanceBlueGreenUpdatePtrOutput)
 }
 
-// Enables low-downtime updates when `true`.
-// Default is `false`.
-//
-// [instance-replication]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-// [instance-maintenance]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-// [blue-green]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+// Enables low-downtime updates when `true`. Default is `false`.
 func (o InstanceBlueGreenUpdateOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceBlueGreenUpdate) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
@@ -1644,15 +1602,7 @@ func (o InstanceBlueGreenUpdatePtrOutput) Elem() InstanceBlueGreenUpdateOutput {
 	}).(InstanceBlueGreenUpdateOutput)
 }
 
-// Enables low-downtime updates when `true`.
-// Default is `false`.
-//
-// [instance-replication]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-// [instance-maintenance]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-// [blue-green]:
-// https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+// Enables low-downtime updates when `true`. Default is `false`.
 func (o InstanceBlueGreenUpdatePtrOutput) Enabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceBlueGreenUpdate) *bool {
 		if v == nil {
@@ -1819,11 +1769,11 @@ func (o InstanceDesiredStateTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type InstanceListenerEndpoint struct {
-	// Specifies the DNS address of the DB instance.
+	// DNS address of the DB instance.
 	Address *string `pulumi:"address"`
-	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	// ID that Amazon Route 53 assigns when you create a hosted zone.
 	HostedZoneId *string `pulumi:"hostedZoneId"`
-	// The port on which the DB accepts connections.
+	// Port on which the DB accepts connections.
 	Port *int `pulumi:"port"`
 }
 
@@ -1839,11 +1789,11 @@ type InstanceListenerEndpointInput interface {
 }
 
 type InstanceListenerEndpointArgs struct {
-	// Specifies the DNS address of the DB instance.
+	// DNS address of the DB instance.
 	Address pulumi.StringPtrInput `pulumi:"address"`
-	// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+	// ID that Amazon Route 53 assigns when you create a hosted zone.
 	HostedZoneId pulumi.StringPtrInput `pulumi:"hostedZoneId"`
-	// The port on which the DB accepts connections.
+	// Port on which the DB accepts connections.
 	Port pulumi.IntPtrInput `pulumi:"port"`
 }
 
@@ -1898,17 +1848,17 @@ func (o InstanceListenerEndpointOutput) ToInstanceListenerEndpointOutputWithCont
 	return o
 }
 
-// Specifies the DNS address of the DB instance.
+// DNS address of the DB instance.
 func (o InstanceListenerEndpointOutput) Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceListenerEndpoint) *string { return v.Address }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+// ID that Amazon Route 53 assigns when you create a hosted zone.
 func (o InstanceListenerEndpointOutput) HostedZoneId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceListenerEndpoint) *string { return v.HostedZoneId }).(pulumi.StringPtrOutput)
 }
 
-// The port on which the DB accepts connections.
+// Port on which the DB accepts connections.
 func (o InstanceListenerEndpointOutput) Port() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v InstanceListenerEndpoint) *int { return v.Port }).(pulumi.IntPtrOutput)
 }
@@ -1934,12 +1884,11 @@ func (o InstanceListenerEndpointArrayOutput) Index(i pulumi.IntInput) InstanceLi
 }
 
 type InstanceMasterUserSecret struct {
-	// The ARN for the KMS encryption key. If creating an
-	// encrypted replica, set this to the destination KMS ARN.
+	// ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn *string `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus *string `pulumi:"secretStatus"`
 }
 
@@ -1955,12 +1904,11 @@ type InstanceMasterUserSecretInput interface {
 }
 
 type InstanceMasterUserSecretArgs struct {
-	// The ARN for the KMS encryption key. If creating an
-	// encrypted replica, set this to the destination KMS ARN.
+	// ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringPtrInput `pulumi:"secretStatus"`
 }
 
@@ -2015,18 +1963,17 @@ func (o InstanceMasterUserSecretOutput) ToInstanceMasterUserSecretOutputWithCont
 	return o
 }
 
-// The ARN for the KMS encryption key. If creating an
-// encrypted replica, set this to the destination KMS ARN.
+// ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
 func (o InstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o InstanceMasterUserSecretOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
 
-// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 func (o InstanceMasterUserSecretOutput) SecretStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceMasterUserSecret) *string { return v.SecretStatus }).(pulumi.StringPtrOutput)
 }
@@ -2052,15 +1999,15 @@ func (o InstanceMasterUserSecretArrayOutput) Index(i pulumi.IntInput) InstanceMa
 }
 
 type InstanceRestoreToPointInTime struct {
-	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	// Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime *string `pulumi:"restoreTime"`
-	// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+	// ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceAutomatedBackupsArn *string `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
-	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+	// Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceIdentifier *string `pulumi:"sourceDbInstanceIdentifier"`
-	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+	// Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 	SourceDbiResourceId *string `pulumi:"sourceDbiResourceId"`
-	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	// Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 	UseLatestRestorableTime *bool `pulumi:"useLatestRestorableTime"`
 }
 
@@ -2076,15 +2023,15 @@ type InstanceRestoreToPointInTimeInput interface {
 }
 
 type InstanceRestoreToPointInTimeArgs struct {
-	// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+	// Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 	RestoreTime pulumi.StringPtrInput `pulumi:"restoreTime"`
-	// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+	// ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceAutomatedBackupsArn pulumi.StringPtrInput `pulumi:"sourceDbInstanceAutomatedBackupsArn"`
-	// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+	// Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 	SourceDbInstanceIdentifier pulumi.StringPtrInput `pulumi:"sourceDbInstanceIdentifier"`
-	// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+	// Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 	SourceDbiResourceId pulumi.StringPtrInput `pulumi:"sourceDbiResourceId"`
-	// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+	// Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 	UseLatestRestorableTime pulumi.BoolPtrInput `pulumi:"useLatestRestorableTime"`
 }
 
@@ -2165,27 +2112,27 @@ func (o InstanceRestoreToPointInTimeOutput) ToInstanceRestoreToPointInTimePtrOut
 	}).(InstanceRestoreToPointInTimePtrOutput)
 }
 
-// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+// Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 func (o InstanceRestoreToPointInTimeOutput) RestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.RestoreTime }).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+// ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceAutomatedBackupsArn }).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+// Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimeOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbInstanceIdentifier }).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+// Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 func (o InstanceRestoreToPointInTimeOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *string { return v.SourceDbiResourceId }).(pulumi.StringPtrOutput)
 }
 
-// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+// Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 func (o InstanceRestoreToPointInTimeOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v InstanceRestoreToPointInTime) *bool { return v.UseLatestRestorableTime }).(pulumi.BoolPtrOutput)
 }
@@ -2214,7 +2161,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) Elem() InstanceRestoreToPointInTi
 	}).(InstanceRestoreToPointInTimeOutput)
 }
 
-// The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+// Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
 func (o InstanceRestoreToPointInTimePtrOutput) RestoreTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {
@@ -2224,7 +2171,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) RestoreTime() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+// ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceAutomatedBackupsArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {
@@ -2234,7 +2181,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceAutomatedBackupsA
 	}).(pulumi.StringPtrOutput)
 }
 
-// The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+// Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
 func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {
@@ -2244,7 +2191,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) SourceDbInstanceIdentifier() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+// Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
 func (o InstanceRestoreToPointInTimePtrOutput) SourceDbiResourceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *string {
 		if v == nil {
@@ -2254,7 +2201,7 @@ func (o InstanceRestoreToPointInTimePtrOutput) SourceDbiResourceId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+// Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
 func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *InstanceRestoreToPointInTime) *bool {
 		if v == nil {
@@ -2265,17 +2212,15 @@ func (o InstanceRestoreToPointInTimePtrOutput) UseLatestRestorableTime() pulumi.
 }
 
 type InstanceS3Import struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored.
 	BucketName string `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
+	// Can be blank, but is the path to your backup.
 	BucketPrefix *string `pulumi:"bucketPrefix"`
 	// Role applied to load the data.
 	IngestionRole string `pulumi:"ingestionRole"`
-	// Source engine for the backup
+	// Source engine for the backup.
 	SourceEngine string `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+	// Version of the source engine used to make the backup.
 	SourceEngineVersion string `pulumi:"sourceEngineVersion"`
 }
 
@@ -2291,17 +2236,15 @@ type InstanceS3ImportInput interface {
 }
 
 type InstanceS3ImportArgs struct {
-	// The bucket name where your backup is stored
+	// Bucket name where your backup is stored.
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
-	// Can be blank, but is the path to your backup
+	// Can be blank, but is the path to your backup.
 	BucketPrefix pulumi.StringPtrInput `pulumi:"bucketPrefix"`
 	// Role applied to load the data.
 	IngestionRole pulumi.StringInput `pulumi:"ingestionRole"`
-	// Source engine for the backup
+	// Source engine for the backup.
 	SourceEngine pulumi.StringInput `pulumi:"sourceEngine"`
-	// Version of the source engine used to make the backup
-	//
-	// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+	// Version of the source engine used to make the backup.
 	SourceEngineVersion pulumi.StringInput `pulumi:"sourceEngineVersion"`
 }
 
@@ -2382,12 +2325,12 @@ func (o InstanceS3ImportOutput) ToInstanceS3ImportPtrOutputWithContext(ctx conte
 	}).(InstanceS3ImportPtrOutput)
 }
 
-// The bucket name where your backup is stored
+// Bucket name where your backup is stored.
 func (o InstanceS3ImportOutput) BucketName() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.BucketName }).(pulumi.StringOutput)
 }
 
-// Can be blank, but is the path to your backup
+// Can be blank, but is the path to your backup.
 func (o InstanceS3ImportOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceS3Import) *string { return v.BucketPrefix }).(pulumi.StringPtrOutput)
 }
@@ -2397,14 +2340,12 @@ func (o InstanceS3ImportOutput) IngestionRole() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.IngestionRole }).(pulumi.StringOutput)
 }
 
-// Source engine for the backup
+// Source engine for the backup.
 func (o InstanceS3ImportOutput) SourceEngine() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngine }).(pulumi.StringOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+// Version of the source engine used to make the backup.
 func (o InstanceS3ImportOutput) SourceEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceS3Import) string { return v.SourceEngineVersion }).(pulumi.StringOutput)
 }
@@ -2433,7 +2374,7 @@ func (o InstanceS3ImportPtrOutput) Elem() InstanceS3ImportOutput {
 	}).(InstanceS3ImportOutput)
 }
 
-// The bucket name where your backup is stored
+// Bucket name where your backup is stored.
 func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2443,7 +2384,7 @@ func (o InstanceS3ImportPtrOutput) BucketName() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Can be blank, but is the path to your backup
+// Can be blank, but is the path to your backup.
 func (o InstanceS3ImportPtrOutput) BucketPrefix() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2463,7 +2404,7 @@ func (o InstanceS3ImportPtrOutput) IngestionRole() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Source engine for the backup
+// Source engine for the backup.
 func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2473,9 +2414,7 @@ func (o InstanceS3ImportPtrOutput) SourceEngine() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Version of the source engine used to make the backup
-//
-// This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+// Version of the source engine used to make the backup.
 func (o InstanceS3ImportPtrOutput) SourceEngineVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceS3Import) *string {
 		if v == nil {
@@ -2665,7 +2604,7 @@ type OptionGroupOption struct {
 	DbSecurityGroupMemberships []string `pulumi:"dbSecurityGroupMemberships"`
 	// Name of the option (e.g., MEMCACHED).
 	OptionName string `pulumi:"optionName"`
-	// The option settings to apply. See `optionSettings` Block below for more details.
+	// Option settings to apply. See `optionSettings` Block below for more details.
 	OptionSettings []OptionGroupOptionOptionSetting `pulumi:"optionSettings"`
 	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port *int `pulumi:"port"`
@@ -2691,7 +2630,7 @@ type OptionGroupOptionArgs struct {
 	DbSecurityGroupMemberships pulumi.StringArrayInput `pulumi:"dbSecurityGroupMemberships"`
 	// Name of the option (e.g., MEMCACHED).
 	OptionName pulumi.StringInput `pulumi:"optionName"`
-	// The option settings to apply. See `optionSettings` Block below for more details.
+	// Option settings to apply. See `optionSettings` Block below for more details.
 	OptionSettings OptionGroupOptionOptionSettingArrayInput `pulumi:"optionSettings"`
 	// Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
 	Port pulumi.IntPtrInput `pulumi:"port"`
@@ -2762,7 +2701,7 @@ func (o OptionGroupOptionOutput) OptionName() pulumi.StringOutput {
 	return o.ApplyT(func(v OptionGroupOption) string { return v.OptionName }).(pulumi.StringOutput)
 }
 
-// The option settings to apply. See `optionSettings` Block below for more details.
+// Option settings to apply. See `optionSettings` Block below for more details.
 func (o OptionGroupOptionOutput) OptionSettings() OptionGroupOptionOptionSettingArrayOutput {
 	return o.ApplyT(func(v OptionGroupOption) []OptionGroupOptionOptionSetting { return v.OptionSettings }).(OptionGroupOptionOptionSettingArrayOutput)
 }
@@ -2909,13 +2848,11 @@ func (o OptionGroupOptionOptionSettingArrayOutput) Index(i pulumi.IntInput) Opti
 }
 
 type ParameterGroupParameter struct {
-	// "immediate" (default), or "pending-reboot". Some
-	// engines can't apply some parameters without a reboot, and you will need to
-	// specify "pending-reboot" here.
+	// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 	ApplyMethod *string `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// Name of the DB parameter.
 	Name string `pulumi:"name"`
-	// The value of the DB parameter.
+	// Value of the DB parameter.
 	Value string `pulumi:"value"`
 }
 
@@ -2944,13 +2881,11 @@ type ParameterGroupParameterInput interface {
 }
 
 type ParameterGroupParameterArgs struct {
-	// "immediate" (default), or "pending-reboot". Some
-	// engines can't apply some parameters without a reboot, and you will need to
-	// specify "pending-reboot" here.
+	// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 	ApplyMethod pulumi.StringPtrInput `pulumi:"applyMethod"`
-	// The name of the DB parameter.
+	// Name of the DB parameter.
 	Name pulumi.StringInput `pulumi:"name"`
-	// The value of the DB parameter.
+	// Value of the DB parameter.
 	Value pulumi.StringInput `pulumi:"value"`
 }
 
@@ -3016,19 +2951,17 @@ func (o ParameterGroupParameterOutput) ToParameterGroupParameterOutputWithContex
 	return o
 }
 
-// "immediate" (default), or "pending-reboot". Some
-// engines can't apply some parameters without a reboot, and you will need to
-// specify "pending-reboot" here.
+// "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
 func (o ParameterGroupParameterOutput) ApplyMethod() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) *string { return v.ApplyMethod }).(pulumi.StringPtrOutput)
 }
 
-// The name of the DB parameter.
+// Name of the DB parameter.
 func (o ParameterGroupParameterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The value of the DB parameter.
+// Value of the DB parameter.
 func (o ParameterGroupParameterOutput) Value() pulumi.StringOutput {
 	return o.ApplyT(func(v ParameterGroupParameter) string { return v.Value }).(pulumi.StringOutput)
 }
@@ -3062,7 +2995,7 @@ type ProxyAuth struct {
 	Description *string `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth *string `pulumi:"iamAuth"`
-	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn *string `pulumi:"secretArn"`
 	// Name of the database user to which the proxy connects.
 	Username *string `pulumi:"username"`
@@ -3088,7 +3021,7 @@ type ProxyAuthArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
 	IamAuth pulumi.StringPtrInput `pulumi:"iamAuth"`
-	// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 	SecretArn pulumi.StringPtrInput `pulumi:"secretArn"`
 	// Name of the database user to which the proxy connects.
 	Username pulumi.StringPtrInput `pulumi:"username"`
@@ -3165,7 +3098,7 @@ func (o ProxyAuthOutput) IamAuth() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.IamAuth }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
 func (o ProxyAuthOutput) SecretArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ProxyAuth) *string { return v.SecretArn }).(pulumi.StringPtrOutput)
 }
@@ -3196,11 +3129,11 @@ func (o ProxyAuthArrayOutput) Index(i pulumi.IntInput) ProxyAuthOutput {
 }
 
 type ProxyDefaultTargetGroupConnectionPoolConfig struct {
-	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	// Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
 	ConnectionBorrowTimeout *int `pulumi:"connectionBorrowTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
 	InitQuery *string `pulumi:"initQuery"`
-	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	// Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxConnectionsPercent *int `pulumi:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxIdleConnectionsPercent *int `pulumi:"maxIdleConnectionsPercent"`
@@ -3220,11 +3153,11 @@ type ProxyDefaultTargetGroupConnectionPoolConfigInput interface {
 }
 
 type ProxyDefaultTargetGroupConnectionPoolConfigArgs struct {
-	// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+	// Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
 	ConnectionBorrowTimeout pulumi.IntPtrInput `pulumi:"connectionBorrowTimeout"`
 	// One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
 	InitQuery pulumi.StringPtrInput `pulumi:"initQuery"`
-	// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+	// Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxConnectionsPercent pulumi.IntPtrInput `pulumi:"maxConnectionsPercent"`
 	// Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 	MaxIdleConnectionsPercent pulumi.IntPtrInput `pulumi:"maxIdleConnectionsPercent"`
@@ -3309,7 +3242,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ToProxyDefaultTargetG
 	}).(ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput)
 }
 
-// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+// Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.ConnectionBorrowTimeout }).(pulumi.IntPtrOutput)
 }
@@ -3319,7 +3252,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) InitQuery() pulumi.St
 	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *string { return v.InitQuery }).(pulumi.StringPtrOutput)
 }
 
-// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+// Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ProxyDefaultTargetGroupConnectionPoolConfig) *int { return v.MaxConnectionsPercent }).(pulumi.IntPtrOutput)
 }
@@ -3358,7 +3291,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) Elem() ProxyDefaul
 	}).(ProxyDefaultTargetGroupConnectionPoolConfigOutput)
 }
 
-// The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+// Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) ConnectionBorrowTimeout() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
 		if v == nil {
@@ -3378,7 +3311,7 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) InitQuery() pulumi
 	}).(pulumi.StringPtrOutput)
 }
 
-// The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+// Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
 func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) MaxConnectionsPercent() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ProxyDefaultTargetGroupConnectionPoolConfig) *int {
 		if v == nil {
@@ -3409,7 +3342,9 @@ func (o ProxyDefaultTargetGroupConnectionPoolConfigPtrOutput) SessionPinningFilt
 }
 
 type ReservedInstanceRecurringCharge struct {
-	RecurringChargeAmount    *int    `pulumi:"recurringChargeAmount"`
+	// Amount of the recurring charge.
+	RecurringChargeAmount *int `pulumi:"recurringChargeAmount"`
+	// Frequency of the recurring charge.
 	RecurringChargeFrequency *string `pulumi:"recurringChargeFrequency"`
 }
 
@@ -3425,7 +3360,9 @@ type ReservedInstanceRecurringChargeInput interface {
 }
 
 type ReservedInstanceRecurringChargeArgs struct {
-	RecurringChargeAmount    pulumi.IntPtrInput    `pulumi:"recurringChargeAmount"`
+	// Amount of the recurring charge.
+	RecurringChargeAmount pulumi.IntPtrInput `pulumi:"recurringChargeAmount"`
+	// Frequency of the recurring charge.
 	RecurringChargeFrequency pulumi.StringPtrInput `pulumi:"recurringChargeFrequency"`
 }
 
@@ -3480,10 +3417,12 @@ func (o ReservedInstanceRecurringChargeOutput) ToReservedInstanceRecurringCharge
 	return o
 }
 
+// Amount of the recurring charge.
 func (o ReservedInstanceRecurringChargeOutput) RecurringChargeAmount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v ReservedInstanceRecurringCharge) *int { return v.RecurringChargeAmount }).(pulumi.IntPtrOutput)
 }
 
+// Frequency of the recurring charge.
 func (o ReservedInstanceRecurringChargeOutput) RecurringChargeFrequency() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReservedInstanceRecurringCharge) *string { return v.RecurringChargeFrequency }).(pulumi.StringPtrOutput)
 }
@@ -3684,8 +3623,11 @@ func (o ShardGroupTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type GetClusterMasterUserSecret struct {
-	KmsKeyId     string `pulumi:"kmsKeyId"`
-	SecretArn    string `pulumi:"secretArn"`
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// ARN of the secret.
+	SecretArn string `pulumi:"secretArn"`
+	// Status of the secret.
 	SecretStatus string `pulumi:"secretStatus"`
 }
 
@@ -3701,8 +3643,11 @@ type GetClusterMasterUserSecretInput interface {
 }
 
 type GetClusterMasterUserSecretArgs struct {
-	KmsKeyId     pulumi.StringInput `pulumi:"kmsKeyId"`
-	SecretArn    pulumi.StringInput `pulumi:"secretArn"`
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
+	// ARN of the secret.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Status of the secret.
 	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
 }
 
@@ -3757,14 +3702,17 @@ func (o GetClusterMasterUserSecretOutput) ToGetClusterMasterUserSecretOutputWith
 	return o
 }
 
+// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 func (o GetClusterMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// ARN of the secret.
 func (o GetClusterMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// Status of the secret.
 func (o GetClusterMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetClusterMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
 }
@@ -3896,7 +3844,9 @@ func (o GetClustersFilterArrayOutput) Index(i pulumi.IntInput) GetClustersFilter
 }
 
 type GetEngineVersionFilter struct {
-	Name   string   `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+	Name string `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values []string `pulumi:"values"`
 }
 
@@ -3912,7 +3862,9 @@ type GetEngineVersionFilterInput interface {
 }
 
 type GetEngineVersionFilterArgs struct {
-	Name   pulumi.StringInput      `pulumi:"name"`
+	// Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+	Name pulumi.StringInput `pulumi:"name"`
+	// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 	Values pulumi.StringArrayInput `pulumi:"values"`
 }
 
@@ -3967,10 +3919,12 @@ func (o GetEngineVersionFilterOutput) ToGetEngineVersionFilterOutputWithContext(
 	return o
 }
 
+// Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
 func (o GetEngineVersionFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEngineVersionFilter) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
 func (o GetEngineVersionFilterOutput) Values() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetEngineVersionFilter) []string { return v.Values }).(pulumi.StringArrayOutput)
 }
@@ -3995,8 +3949,150 @@ func (o GetEngineVersionFilterArrayOutput) Index(i pulumi.IntInput) GetEngineVer
 	}).(GetEngineVersionFilterOutput)
 }
 
+type GetEventsEvent struct {
+	// Date and time of the event, in RFC3339 format.
+	Date string `pulumi:"date"`
+	// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+	EventCategories []string `pulumi:"eventCategories"`
+	// Text of the event.
+	Message string `pulumi:"message"`
+	// ARN of the event source.
+	SourceArn string `pulumi:"sourceArn"`
+	// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+	SourceIdentifier string `pulumi:"sourceIdentifier"`
+	// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+	SourceType string `pulumi:"sourceType"`
+}
+
+// GetEventsEventInput is an input type that accepts GetEventsEventArgs and GetEventsEventOutput values.
+// You can construct a concrete instance of `GetEventsEventInput` via:
+//
+//	GetEventsEventArgs{...}
+type GetEventsEventInput interface {
+	pulumi.Input
+
+	ToGetEventsEventOutput() GetEventsEventOutput
+	ToGetEventsEventOutputWithContext(context.Context) GetEventsEventOutput
+}
+
+type GetEventsEventArgs struct {
+	// Date and time of the event, in RFC3339 format.
+	Date pulumi.StringInput `pulumi:"date"`
+	// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+	EventCategories pulumi.StringArrayInput `pulumi:"eventCategories"`
+	// Text of the event.
+	Message pulumi.StringInput `pulumi:"message"`
+	// ARN of the event source.
+	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
+	// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+	SourceIdentifier pulumi.StringInput `pulumi:"sourceIdentifier"`
+	// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+	SourceType pulumi.StringInput `pulumi:"sourceType"`
+}
+
+func (GetEventsEventArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventsEvent)(nil)).Elem()
+}
+
+func (i GetEventsEventArgs) ToGetEventsEventOutput() GetEventsEventOutput {
+	return i.ToGetEventsEventOutputWithContext(context.Background())
+}
+
+func (i GetEventsEventArgs) ToGetEventsEventOutputWithContext(ctx context.Context) GetEventsEventOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventsEventOutput)
+}
+
+// GetEventsEventArrayInput is an input type that accepts GetEventsEventArray and GetEventsEventArrayOutput values.
+// You can construct a concrete instance of `GetEventsEventArrayInput` via:
+//
+//	GetEventsEventArray{ GetEventsEventArgs{...} }
+type GetEventsEventArrayInput interface {
+	pulumi.Input
+
+	ToGetEventsEventArrayOutput() GetEventsEventArrayOutput
+	ToGetEventsEventArrayOutputWithContext(context.Context) GetEventsEventArrayOutput
+}
+
+type GetEventsEventArray []GetEventsEventInput
+
+func (GetEventsEventArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventsEvent)(nil)).Elem()
+}
+
+func (i GetEventsEventArray) ToGetEventsEventArrayOutput() GetEventsEventArrayOutput {
+	return i.ToGetEventsEventArrayOutputWithContext(context.Background())
+}
+
+func (i GetEventsEventArray) ToGetEventsEventArrayOutputWithContext(ctx context.Context) GetEventsEventArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetEventsEventArrayOutput)
+}
+
+type GetEventsEventOutput struct{ *pulumi.OutputState }
+
+func (GetEventsEventOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetEventsEvent)(nil)).Elem()
+}
+
+func (o GetEventsEventOutput) ToGetEventsEventOutput() GetEventsEventOutput {
+	return o
+}
+
+func (o GetEventsEventOutput) ToGetEventsEventOutputWithContext(ctx context.Context) GetEventsEventOutput {
+	return o
+}
+
+// Date and time of the event, in RFC3339 format.
+func (o GetEventsEventOutput) Date() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.Date }).(pulumi.StringOutput)
+}
+
+// Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+func (o GetEventsEventOutput) EventCategories() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetEventsEvent) []string { return v.EventCategories }).(pulumi.StringArrayOutput)
+}
+
+// Text of the event.
+func (o GetEventsEventOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.Message }).(pulumi.StringOutput)
+}
+
+// ARN of the event source.
+func (o GetEventsEventOutput) SourceArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceArn }).(pulumi.StringOutput)
+}
+
+// Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+func (o GetEventsEventOutput) SourceIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceIdentifier }).(pulumi.StringOutput)
+}
+
+// Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+func (o GetEventsEventOutput) SourceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetEventsEvent) string { return v.SourceType }).(pulumi.StringOutput)
+}
+
+type GetEventsEventArrayOutput struct{ *pulumi.OutputState }
+
+func (GetEventsEventArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetEventsEvent)(nil)).Elem()
+}
+
+func (o GetEventsEventArrayOutput) ToGetEventsEventArrayOutput() GetEventsEventArrayOutput {
+	return o
+}
+
+func (o GetEventsEventArrayOutput) ToGetEventsEventArrayOutputWithContext(ctx context.Context) GetEventsEventArrayOutput {
+	return o
+}
+
+func (o GetEventsEventArrayOutput) Index(i pulumi.IntInput) GetEventsEventOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetEventsEvent {
+		return vs[0].([]GetEventsEvent)[vs[1].(int)]
+	}).(GetEventsEventOutput)
+}
+
 type GetGlobalClusterMember struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// ARN of member DB Cluster
 	DbClusterArn string `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster
 	IsWriter bool `pulumi:"isWriter"`
@@ -4014,7 +4110,7 @@ type GetGlobalClusterMemberInput interface {
 }
 
 type GetGlobalClusterMemberArgs struct {
-	// Amazon Resource Name (ARN) of member DB Cluster
+	// ARN of member DB Cluster
 	DbClusterArn pulumi.StringInput `pulumi:"dbClusterArn"`
 	// Whether the member is the primary DB Cluster
 	IsWriter pulumi.BoolInput `pulumi:"isWriter"`
@@ -4071,7 +4167,7 @@ func (o GetGlobalClusterMemberOutput) ToGetGlobalClusterMemberOutputWithContext(
 	return o
 }
 
-// Amazon Resource Name (ARN) of member DB Cluster
+// ARN of member DB Cluster
 func (o GetGlobalClusterMemberOutput) DbClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetGlobalClusterMember) string { return v.DbClusterArn }).(pulumi.StringOutput)
 }
@@ -4102,11 +4198,11 @@ func (o GetGlobalClusterMemberArrayOutput) Index(i pulumi.IntInput) GetGlobalClu
 }
 
 type GetInstanceMasterUserSecret struct {
-	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn string `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus string `pulumi:"secretStatus"`
 }
 
@@ -4122,11 +4218,11 @@ type GetInstanceMasterUserSecretInput interface {
 }
 
 type GetInstanceMasterUserSecretArgs struct {
-	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the secret.
+	// ARN of the secret.
 	SecretArn pulumi.StringInput `pulumi:"secretArn"`
-	// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+	// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 	SecretStatus pulumi.StringInput `pulumi:"secretStatus"`
 }
 
@@ -4181,17 +4277,17 @@ func (o GetInstanceMasterUserSecretOutput) ToGetInstanceMasterUserSecretOutputWi
 	return o
 }
 
-// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 func (o GetInstanceMasterUserSecretOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the secret.
+// ARN of the secret.
 func (o GetInstanceMasterUserSecretOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
-// The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+// Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
 func (o GetInstanceMasterUserSecretOutput) SecretStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceMasterUserSecret) string { return v.SecretStatus }).(pulumi.StringOutput)
 }
@@ -4323,12 +4419,18 @@ func (o GetInstancesFilterArrayOutput) Index(i pulumi.IntInput) GetInstancesFilt
 }
 
 type GetProxyAuth struct {
-	AuthScheme             string `pulumi:"authScheme"`
+	// Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+	AuthScheme string `pulumi:"authScheme"`
+	// Type of authentication the proxy uses for connections from clients.
 	ClientPasswordAuthType string `pulumi:"clientPasswordAuthType"`
-	Description            string `pulumi:"description"`
-	IamAuth                string `pulumi:"iamAuth"`
-	SecretArn              string `pulumi:"secretArn"`
-	Username               string `pulumi:"username"`
+	// User-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description string `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	IamAuth string `pulumi:"iamAuth"`
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	SecretArn string `pulumi:"secretArn"`
+	// Name of the database user to which the proxy connects.
+	Username string `pulumi:"username"`
 }
 
 // GetProxyAuthInput is an input type that accepts GetProxyAuthArgs and GetProxyAuthOutput values.
@@ -4343,12 +4445,18 @@ type GetProxyAuthInput interface {
 }
 
 type GetProxyAuthArgs struct {
-	AuthScheme             pulumi.StringInput `pulumi:"authScheme"`
+	// Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+	AuthScheme pulumi.StringInput `pulumi:"authScheme"`
+	// Type of authentication the proxy uses for connections from clients.
 	ClientPasswordAuthType pulumi.StringInput `pulumi:"clientPasswordAuthType"`
-	Description            pulumi.StringInput `pulumi:"description"`
-	IamAuth                pulumi.StringInput `pulumi:"iamAuth"`
-	SecretArn              pulumi.StringInput `pulumi:"secretArn"`
-	Username               pulumi.StringInput `pulumi:"username"`
+	// User-specified description about the authentication used by a proxy to log in as a specific database user.
+	Description pulumi.StringInput `pulumi:"description"`
+	// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+	IamAuth pulumi.StringInput `pulumi:"iamAuth"`
+	// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+	SecretArn pulumi.StringInput `pulumi:"secretArn"`
+	// Name of the database user to which the proxy connects.
+	Username pulumi.StringInput `pulumi:"username"`
 }
 
 func (GetProxyAuthArgs) ElementType() reflect.Type {
@@ -4402,26 +4510,32 @@ func (o GetProxyAuthOutput) ToGetProxyAuthOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Type of authentication that the proxy uses for connections from the proxy to the underlying database.
 func (o GetProxyAuthOutput) AuthScheme() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.AuthScheme }).(pulumi.StringOutput)
 }
 
+// Type of authentication the proxy uses for connections from clients.
 func (o GetProxyAuthOutput) ClientPasswordAuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.ClientPasswordAuthType }).(pulumi.StringOutput)
 }
 
+// User-specified description about the authentication used by a proxy to log in as a specific database user.
 func (o GetProxyAuthOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.Description }).(pulumi.StringOutput)
 }
 
+// Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
 func (o GetProxyAuthOutput) IamAuth() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.IamAuth }).(pulumi.StringOutput)
 }
 
+// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
 func (o GetProxyAuthOutput) SecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.SecretArn }).(pulumi.StringOutput)
 }
 
+// Name of the database user to which the proxy connects.
 func (o GetProxyAuthOutput) Username() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProxyAuth) string { return v.Username }).(pulumi.StringOutput)
 }
@@ -4997,6 +5111,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetClustersFilterArrayInput)(nil)).Elem(), GetClustersFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterInput)(nil)).Elem(), GetEngineVersionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetEngineVersionFilterArrayInput)(nil)).Elem(), GetEngineVersionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventsEventInput)(nil)).Elem(), GetEventsEventArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetEventsEventArrayInput)(nil)).Elem(), GetEventsEventArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberInput)(nil)).Elem(), GetGlobalClusterMemberArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGlobalClusterMemberArrayInput)(nil)).Elem(), GetGlobalClusterMemberArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetInstanceMasterUserSecretInput)(nil)).Elem(), GetInstanceMasterUserSecretArgs{})
@@ -5063,6 +5179,8 @@ func init() {
 	pulumi.RegisterOutputType(GetClustersFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterOutput{})
 	pulumi.RegisterOutputType(GetEngineVersionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetEventsEventOutput{})
+	pulumi.RegisterOutputType(GetEventsEventArrayOutput{})
 	pulumi.RegisterOutputType(GetGlobalClusterMemberOutput{})
 	pulumi.RegisterOutputType(GetGlobalClusterMemberArrayOutput{})
 	pulumi.RegisterOutputType(GetInstanceMasterUserSecretOutput{})

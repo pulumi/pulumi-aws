@@ -73,12 +73,8 @@ type LookupResolverFirewallConfigResult struct {
 }
 
 func LookupResolverFirewallConfigOutput(ctx *pulumi.Context, args LookupResolverFirewallConfigOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallConfigResultOutput, error) {
-			args := v.(LookupResolverFirewallConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, LookupResolverFirewallConfigResultOutput{}, options).(LookupResolverFirewallConfigResultOutput), nil
-		}).(LookupResolverFirewallConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallConfig:getResolverFirewallConfig", args, LookupResolverFirewallConfigResultOutput{}, options).(LookupResolverFirewallConfigResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallConfig.

@@ -72,7 +72,7 @@ export interface GetSubnetGroupResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * VPC identifier (VPC ID) of the cache subnet group.
      */
     readonly vpcId: string;
 }

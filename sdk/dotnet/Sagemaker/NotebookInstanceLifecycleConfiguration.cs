@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class NotebookInstanceLifecycleConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        /// ARN assigned by AWS to this lifecycle configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -185,7 +185,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class NotebookInstanceLifecycleConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        /// ARN assigned by AWS to this lifecycle configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

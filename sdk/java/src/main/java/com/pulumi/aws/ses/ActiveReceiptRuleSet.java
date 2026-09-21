@@ -61,14 +61,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet")
 public class ActiveReceiptRuleSet extends com.pulumi.resources.CustomResource {
     /**
-     * The SES receipt rule set ARN.
+     * SES receipt rule set ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The SES receipt rule set ARN.
+     * @return SES receipt rule set ARN.
      * 
      */
     public Output<String> arn() {
@@ -89,14 +89,14 @@ public class ActiveReceiptRuleSet extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The name of the rule set
+     * Name of the rule set
      * 
      */
     @Export(name="ruleSetName", refs={String.class}, tree="[0]")
     private Output<String> ruleSetName;
 
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set
      * 
      */
     public Output<String> ruleSetName() {

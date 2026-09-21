@@ -31,14 +31,14 @@ public final class DataSourcePermissionArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the principal.
+     * ARN of the principal.
      * 
      */
     @Import(name="principal", required=true)
     private Output<String> principal;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the principal.
+     * @return ARN of the principal.
      * 
      */
     public Output<String> principal() {
@@ -102,7 +102,7 @@ public final class DataSourcePermissionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param principal The Amazon Resource Name (ARN) of the principal.
+         * @param principal ARN of the principal.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class DataSourcePermissionArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param principal The Amazon Resource Name (ARN) of the principal.
+         * @param principal ARN of the principal.
          * 
          * @return builder
          * 

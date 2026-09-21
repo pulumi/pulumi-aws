@@ -16,14 +16,14 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetPlanPlainArgs Empty = new GetPlanPlainArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * ARN of the contact or escalation plan.
      * 
      */
     @Import(name="contactId", required=true)
     private String contactId;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return ARN of the contact or escalation plan.
      * 
      */
     public String contactId() {
@@ -71,7 +71,7 @@ public final class GetPlanPlainArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * @param contactId ARN of the contact or escalation plan.
          * 
          * @return builder
          * 

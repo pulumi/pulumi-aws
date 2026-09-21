@@ -307,7 +307,7 @@ class _LocationHdfsState:
         Input properties used for looking up and filtering LocationHdfs resources.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
@@ -380,7 +380,7 @@ class _LocationHdfsState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -625,13 +625,13 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
-            }])
+            }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="SIMPLE",
+            simple_user="example")
         ```
 
         ### Kerberos Authentication
@@ -642,12 +642,12 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
             }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
             kerberos_principal="user@example.com",
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)
@@ -659,9 +659,9 @@ class LocationHdfs(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
+        - `arn` (String) ARN of the DataSync HDFS location.
 
-        Using `pulumi import`, import `datasync.LocationHdfs` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationHdfs` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -705,13 +705,13 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="SIMPLE",
-            simple_user="example",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
-            }])
+            }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="SIMPLE",
+            simple_user="example")
         ```
 
         ### Kerberos Authentication
@@ -722,12 +722,12 @@ class LocationHdfs(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.datasync.LocationHdfs("example",
-            agent_arns=[example_aws_datasync_agent["arn"]],
-            authentication_type="KERBEROS",
             name_nodes=[{
                 "hostname": example_aws_instance["privateDns"],
                 "port": 80,
             }],
+            agent_arns=[example_aws_datasync_agent["arn"]],
+            authentication_type="KERBEROS",
             kerberos_principal="user@example.com",
             kerberos_keytab_base64=std.filebase64(input="user.keytab").result,
             kerberos_krb5_conf=std.file(input="krb5.conf").result)
@@ -739,9 +739,9 @@ class LocationHdfs(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
+        - `arn` (String) ARN of the DataSync HDFS location.
 
-        Using `pulumi import`, import `datasync.LocationHdfs` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.LocationHdfs` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -848,7 +848,7 @@ class LocationHdfs(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: A list of DataSync Agent ARNs with which this location will be associated.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] authentication_type: The type of authentication used to determine the identity of the user. Valid values are `SIMPLE` and `KERBEROS`.
         :param pulumi.Input[_builtins.int] block_size: The size of data blocks to write into the HDFS cluster. The block size must be a multiple of 512 bytes. The default block size is 128 mebibytes (MiB).
         :param pulumi.Input[_builtins.str] kerberos_keytab: The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
@@ -903,7 +903,7 @@ class LocationHdfs(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
@@ -33,9 +33,6 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
- *     name: "example-gateway",
- *     roleArn: example.arn,
- *     authorizerType: "CUSTOM_JWT",
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
  *             discoveryUrl: "https://accounts.google.com/.well-known/openid-configuration",
@@ -45,6 +42,9 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     name: "example-gateway",
+ *     roleArn: example.arn,
+ *     authorizerType: "CUSTOM_JWT",
  *     protocolType: "MCP",
  * });
  * ```
@@ -56,10 +56,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreGateway("example", {
- *     name: "mcp-gateway",
- *     description: "Gateway for MCP communication",
- *     roleArn: exampleAwsIamRole.arn,
- *     authorizerType: "CUSTOM_JWT",
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
  *             discoveryUrl: "https://auth.example.com/.well-known/openid-configuration",
@@ -77,17 +73,21 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
- *     protocolType: "MCP",
  *     protocolConfiguration: {
  *         mcp: {
  *             instructions: "Gateway for handling MCP requests",
- *             searchType: "HYBRID",
+ *             searchType: "SEMANTIC",
  *             supportedVersions: [
  *                 "2025-03-26",
  *                 "2025-06-18",
  *             ],
  *         },
  *     },
+ *     name: "mcp-gateway",
+ *     description: "Gateway for MCP communication",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     authorizerType: "CUSTOM_JWT",
+ *     protocolType: "MCP",
  * });
  * ```
  *
@@ -105,15 +105,7 @@ import * as utilities from "../utilities";
  *     runtime: aws.lambda.Runtime.Python3d12,
  * });
  * const example = new aws.bedrock.AgentcoreGateway("example", {
- *     name: "gateway-with-interceptor",
- *     roleArn: exampleAwsIamRole.arn,
- *     authorizerType: "AWS_IAM",
- *     protocolType: "MCP",
  *     interceptorConfigurations: [{
- *         interceptionPoints: [
- *             "REQUEST",
- *             "RESPONSE",
- *         ],
  *         interceptor: {
  *             lambda: {
  *                 arn: interceptor.arn,
@@ -122,7 +114,15 @@ import * as utilities from "../utilities";
  *         inputConfiguration: {
  *             passRequestHeaders: true,
  *         },
+ *         interceptionPoints: [
+ *             "REQUEST",
+ *             "RESPONSE",
+ *         ],
  *     }],
+ *     name: "gateway-with-interceptor",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     authorizerType: "AWS_IAM",
+ *     protocolType: "MCP",
  * });
  * ```
  *
@@ -167,7 +167,7 @@ export class AgentcoreGateway extends pulumi.CustomResource {
      */
     declare public readonly authorizerConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     declare public readonly authorizerType: pulumi.Output<string>;
     /**
@@ -312,7 +312,7 @@ export interface AgentcoreGatewayState {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     authorizerType?: pulumi.Input<string | undefined>;
     /**
@@ -393,7 +393,7 @@ export interface AgentcoreGatewayArgs {
      */
     authorizerConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayAuthorizerConfiguration | undefined>;
     /**
-     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
+     * Type of authorizer to use. Valid values: `CUSTOM_JWT`, `AWS_IAM`, `NONE`, `AUTHENTICATE_ONLY`. When set to `CUSTOM_JWT`, `authorizerConfiguration` block is required.
      */
     authorizerType: pulumi.Input<string>;
     /**

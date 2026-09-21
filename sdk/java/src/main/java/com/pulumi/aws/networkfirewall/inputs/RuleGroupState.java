@@ -20,14 +20,14 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
     public static final RuleGroupState Empty = new RuleGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the rule group.
+     * ARN that identifies the rule group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the rule group.
+     * @return ARN that identifies the rule group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -235,7 +235,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the rule group.
+         * @param arn ARN that identifies the rule group.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class RuleGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the rule group.
+         * @param arn ARN that identifies the rule group.
          * 
          * @return builder
          * 

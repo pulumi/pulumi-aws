@@ -141,14 +141,14 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * ARN of an analysis or template that was used to create this template.
      * 
      */
     @Import(name="sourceEntityArn")
     private @Nullable Output<String> sourceEntityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+     * @return ARN of an analysis or template that was used to create this template.
      * 
      */
     public Optional<Output<String>> sourceEntityArn() {
@@ -466,7 +466,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+         * @param sourceEntityArn ARN of an analysis or template that was used to create this template.
          * 
          * @return builder
          * 
@@ -477,7 +477,7 @@ public final class TemplateState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+         * @param sourceEntityArn ARN of an analysis or template that was used to create this template.
          * 
          * @return builder
          * 

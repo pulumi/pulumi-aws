@@ -75,12 +75,8 @@ type LookupResourceResult struct {
 }
 
 func LookupResourceOutput(ctx *pulumi.Context, args LookupResourceOutputArgs, opts ...pulumi.InvokeOption) LookupResourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourceResultOutput, error) {
-			args := v.(LookupResourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lakeformation/getResource:getResource", args, LookupResourceResultOutput{}, options).(LookupResourceResultOutput), nil
-		}).(LookupResourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lakeformation/getResource:getResource", args, LookupResourceResultOutput{}, options).(LookupResourceResultOutput)
 }
 
 // A collection of arguments for invoking getResource.

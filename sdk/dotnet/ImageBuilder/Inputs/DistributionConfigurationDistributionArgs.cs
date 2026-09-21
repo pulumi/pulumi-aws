@@ -13,7 +13,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
     public sealed class DistributionConfigurationDistributionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        /// Configuration block with AMI distribution settings. Detailed below.
         /// </summary>
         [Input("amiDistributionConfiguration")]
         public Input<Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs>? AmiDistributionConfiguration { get; set; }
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         private InputList<string>? _licenseConfigurationArns;
 
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        /// Set of ARNs of License Manager License Configurations.
         /// </summary>
         public InputList<string> LicenseConfigurationArns
         {

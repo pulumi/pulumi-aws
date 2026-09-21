@@ -62,7 +62,7 @@ export class PermissionSet extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -74,7 +74,7 @@ export class PermissionSet extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export class PermissionSet extends pulumi.CustomResource {
  */
 export interface PermissionSetState {
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export interface PermissionSetState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
@@ -201,7 +201,7 @@ export interface PermissionSetArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn: pulumi.Input<string>;
     /**

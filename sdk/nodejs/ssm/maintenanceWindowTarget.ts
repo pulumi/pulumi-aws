@@ -25,14 +25,14 @@ import * as utilities from "../utilities";
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     name: "maintenance-window-target",
- *     description: "This is a maintenance window target",
- *     resourceType: "INSTANCE",
  *     targets: [{
  *         key: "tag:Name",
  *         values: ["acceptance_test"],
  *     }],
+ *     windowId: window.id,
+ *     name: "maintenance-window-target",
+ *     description: "This is a maintenance window target",
+ *     resourceType: "INSTANCE",
  * });
  * ```
  *
@@ -49,14 +49,14 @@ import * as utilities from "../utilities";
  *     cutoff: 1,
  * });
  * const target1 = new aws.ssm.MaintenanceWindowTarget("target1", {
- *     windowId: window.id,
- *     name: "maintenance-window-target",
- *     description: "This is a maintenance window target",
- *     resourceType: "RESOURCE_GROUP",
  *     targets: [{
  *         key: "resource-groups:ResourceTypeFilters",
  *         values: ["AWS::EC2::Instance"],
  *     }],
+ *     windowId: window.id,
+ *     name: "maintenance-window-target",
+ *     description: "This is a maintenance window target",
+ *     resourceType: "RESOURCE_GROUP",
  * });
  * ```
  *

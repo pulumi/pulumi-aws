@@ -31,8 +31,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.bedrock.AgentcoreResourcePolicy;
  * import com.pulumi.aws.bedrock.AgentcoreResourcePolicyArgs;
  * import java.util.ArrayList;
@@ -52,19 +52,19 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AllowOAuthFromVPC")
- *                 .effect("Allow")
- *                 .actions("bedrock-agentcore:InvokeAgentRuntime")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .resources(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .variable("aws:SourceVpc")
  *                     .values("vpc-1a2b3c4d")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("AllowOAuthFromVPC")
+ *                 .effect("Allow")
+ *                 .actions("bedrock-agentcore:InvokeAgentRuntime")
+ *                 .resources(exampleAgentcoreAgentRuntime.agentRuntimeArn())
  *                 .build())
  *             .build());
  * 
@@ -124,7 +124,7 @@ public class AgentcoreResourcePolicy extends com.pulumi.resources.CustomResource
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * ARN of the resource for which to create or update the resource policy.
      * 
      * The following arguments are optional:
      * 
@@ -133,7 +133,7 @@ public class AgentcoreResourcePolicy extends com.pulumi.resources.CustomResource
     private Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * @return ARN of the resource for which to create or update the resource policy.
      * 
      * The following arguments are optional:
      * 

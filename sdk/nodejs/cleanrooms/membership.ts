@@ -19,10 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testMembership = new aws.cleanrooms.Membership("test_membership", {
- *     collaborationId: "1234abcd-12ab-34cd-56ef-1234567890ab",
- *     queryLogStatus: "DISABLED",
  *     defaultResultConfiguration: {
- *         roleArn: "arn:aws:iam::123456789012:role/role-name",
  *         outputConfiguration: {
  *             s3: {
  *                 bucket: "test-bucket",
@@ -30,7 +27,10 @@ import * as utilities from "../utilities";
  *                 keyPrefix: "test-prefix",
  *             },
  *         },
+ *         roleArn: "arn:aws:iam::123456789012:role/role-name",
  *     },
+ *     collaborationId: "1234abcd-12ab-34cd-56ef-1234567890ab",
+ *     queryLogStatus: "DISABLED",
  *     tags: {
  *         Project: "Terraform",
  *     },

@@ -48,14 +48,14 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Amazon Resource Name (ARN) of the task execution role override for the task.
+     * ARN of the task execution role override for the task.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
+     * @return ARN of the task execution role override for the task.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -78,14 +78,14 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
     }
 
     /**
-     * Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * ARN of the role that containers in this task can assume.
      * 
      */
     @Import(name="taskRoleArn")
     private @Nullable Output<String> taskRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * @return ARN of the role that containers in this task can assume.
      * 
      */
     public Optional<Output<String>> taskRoleArn() {
@@ -173,7 +173,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the task execution role override for the task.
+         * @param executionRoleArn ARN of the task execution role override for the task.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param executionRoleArn Amazon Resource Name (ARN) of the task execution role override for the task.
+         * @param executionRoleArn ARN of the task execution role override for the task.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param taskRoleArn Amazon Resource Name (ARN) of the role that containers in this task can assume.
+         * @param taskRoleArn ARN of the role that containers in this task can assume.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class GetTaskExecutionOverridesArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param taskRoleArn Amazon Resource Name (ARN) of the role that containers in this task can assume.
+         * @param taskRoleArn ARN of the role that containers in this task can assume.
          * 
          * @return builder
          * 

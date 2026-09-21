@@ -96,7 +96,7 @@ type LookupUserArgs struct {
 
 // A collection of values returned by getUser.
 type LookupUserResult struct {
-	// The Amazon Resource Name (ARN) of the User.
+	// ARN of the User.
 	Arn string `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management.
 	DirectoryUserId string `pulumi:"directoryUserId"`
@@ -122,12 +122,8 @@ type LookupUserResult struct {
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserResultOutput, error) {
-			args := v.(LookupUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getUser:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput), nil
-		}).(LookupUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getUser:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput)
 }
 
 // A collection of arguments for invoking getUser.
@@ -165,7 +161,7 @@ func (o LookupUserResultOutput) ToLookupUserResultOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the User.
+// ARN of the User.
 func (o LookupUserResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupUserResult) string { return v.Arn }).(pulumi.StringOutput)
 }

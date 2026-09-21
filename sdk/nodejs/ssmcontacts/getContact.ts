@@ -34,7 +34,7 @@ export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): P
  */
 export interface GetContactArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * ARN of the contact or escalation plan.
      */
     arn: string;
     /**
@@ -104,7 +104,7 @@ export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.Invok
  */
 export interface GetContactOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * ARN of the contact or escalation plan.
      */
     arn: pulumi.Input<string>;
     /**

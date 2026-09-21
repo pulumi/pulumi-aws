@@ -63,14 +63,14 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * ARN for the map resource. Used to specify a resource across all AWS.
      * 
      */
     @Import(name="mapArn")
     private @Nullable Output<String> mapArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * @return ARN for the map resource. Used to specify a resource across all AWS.
      * 
      */
     public Optional<Output<String>> mapArn() {
@@ -252,7 +252,7 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapArn The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+         * @param mapArn ARN for the map resource. Used to specify a resource across all AWS.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class MapState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param mapArn The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+         * @param mapArn ARN for the map resource. Used to specify a resource across all AWS.
          * 
          * @return builder
          * 

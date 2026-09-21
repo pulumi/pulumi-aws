@@ -24,11 +24,6 @@ import * as utilities from "../utilities";
  *
  * // Request a Spot fleet
  * const cheapCompute = new aws.ec2.SpotFleetRequest("cheap_compute", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     spotPrice: "0.03",
- *     allocationStrategy: "diversified",
- *     targetCapacity: 6,
- *     validUntil: "2019-11-04T20:44:20Z",
  *     launchSpecifications: [
  *         {
  *             instanceType: "m4.10xlarge",
@@ -38,6 +33,10 @@ import * as utilities from "../utilities";
  *             iamInstanceProfileArn: example.arn,
  *         },
  *         {
+ *             rootBlockDevices: [{
+ *                 volumeSize: 300,
+ *                 volumeType: "gp2",
+ *             }],
  *             instanceType: "m4.4xlarge",
  *             ami: "ami-5678",
  *             keyName: "my-key",
@@ -46,15 +45,16 @@ import * as utilities from "../utilities";
  *             availabilityZone: "us-west-1a",
  *             subnetId: "subnet-1234",
  *             weightedCapacity: "35",
- *             rootBlockDevices: [{
- *                 volumeSize: 300,
- *                 volumeType: "gp2",
- *             }],
  *             tags: {
  *                 Name: "spot-fleet-example",
  *             },
  *         },
  *     ],
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.03",
+ *     allocationStrategy: "diversified",
+ *     targetCapacity: 6,
+ *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
  *
@@ -71,16 +71,16 @@ import * as utilities from "../utilities";
  *     keyName: "some-key",
  * });
  * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("foo", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     spotPrice: "0.005",
- *     targetCapacity: 2,
- *     validUntil: "2019-11-04T20:44:20Z",
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
  *             version: foo.latestVersion.apply(x =>String(x)),
  *         },
  *     }],
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
  * }, {
  *     dependsOn: [test_attach],
  * });
@@ -96,10 +96,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ec2.SpotFleetRequest("foo", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     spotPrice: "0.005",
- *     targetCapacity: 2,
- *     validUntil: "2019-11-04T20:44:20Z",
  *     launchSpecifications: [
  *         {
  *             instanceType: "m1.small",
@@ -114,6 +110,10 @@ import * as utilities from "../utilities";
  *             availabilityZone: "us-west-2a",
  *         },
  *     ],
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
  * });
  * ```
  *
@@ -128,16 +128,16 @@ import * as utilities from "../utilities";
  * const example = new aws.ec2.SpotFleetRequest("example", {
  *     launchSpecifications: .map(s => ({
  *         subnetId: s[1],
- *     })).map((v, k) => ({key: k, value: v})).map(entry => ({
- *         ami: "ami-1234",
- *         instanceType: "m4.4xlarge",
- *         subnetId: entry.value.subnetId,
- *         vpcSecurityGroupIds: "sg-123456",
+ *     })).map(entry => ({
  *         rootBlockDevices: [{
  *             volumeSize: 8,
  *             volumeType: "gp2",
  *             deleteOnTermination: true,
  *         }],
+ *         ami: "ami-1234",
+ *         instanceType: "m4.4xlarge",
+ *         subnetId: entry.subnetId,
+ *         vpcSecurityGroupIds: "sg-123456",
  *         tags: {
  *             Name: "Spot Node",
  *             tag_builder: "builder",
@@ -172,10 +172,6 @@ import * as utilities from "../utilities";
  *     keyName: "some-key",
  * });
  * const fooSpotFleetRequest = new aws.ec2.SpotFleetRequest("foo", {
- *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
- *     spotPrice: "0.005",
- *     targetCapacity: 2,
- *     validUntil: "2019-11-04T20:44:20Z",
  *     launchTemplateConfigs: [{
  *         launchTemplateSpecification: {
  *             id: foo.id,
@@ -193,6 +189,10 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }],
+ *     iamFleetRole: "arn:aws:iam::12345678:role/spot-fleet",
+ *     spotPrice: "0.005",
+ *     targetCapacity: 2,
+ *     validUntil: "2019-11-04T20:44:20Z",
  * }, {
  *     dependsOn: [test_attach],
  * });

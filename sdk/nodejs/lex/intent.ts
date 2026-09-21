@@ -19,15 +19,12 @@ import * as utilities from "../utilities";
  *
  * const orderFlowersIntent = new aws.lex.Intent("order_flowers_intent", {
  *     confirmationPrompt: {
- *         maxAttempts: 2,
  *         messages: [{
  *             content: "Okay, your {FlowerType} will be ready for pickup by {PickupTime} on {PickupDate}.  Does this sound okay?",
  *             contentType: "PlainText",
  *         }],
+ *         maxAttempts: 2,
  *     },
- *     createVersion: false,
- *     name: "OrderFlowers",
- *     description: "Intent to order a bouquet of flowers for pick up",
  *     fulfillmentActivity: {
  *         type: "ReturnIntent",
  *     },
@@ -37,12 +34,15 @@ import * as utilities from "../utilities";
  *             contentType: "PlainText",
  *         }],
  *     },
- *     sampleUtterances: [
- *         "I would like to order some flowers",
- *         "I would like to pick up flowers",
- *     ],
  *     slots: [
  *         {
+ *             valueElicitationPrompt: {
+ *                 messages: [{
+ *                     content: "What type of flowers would you like to order?",
+ *                     contentType: "PlainText",
+ *                 }],
+ *                 maxAttempts: 2,
+ *             },
  *             description: "The type of flowers to pick up",
  *             name: "FlowerType",
  *             priority: 1,
@@ -50,15 +50,15 @@ import * as utilities from "../utilities";
  *             slotConstraint: "Required",
  *             slotType: "FlowerTypes",
  *             slotTypeVersion: "$$LATEST",
- *             valueElicitationPrompt: {
- *                 maxAttempts: 2,
- *                 messages: [{
- *                     content: "What type of flowers would you like to order?",
- *                     contentType: "PlainText",
- *                 }],
- *             },
  *         },
  *         {
+ *             valueElicitationPrompt: {
+ *                 messages: [{
+ *                     content: "What day do you want the {FlowerType} to be picked up?",
+ *                     contentType: "PlainText",
+ *                 }],
+ *                 maxAttempts: 2,
+ *             },
  *             description: "The date to pick up the flowers",
  *             name: "PickupDate",
  *             priority: 2,
@@ -66,15 +66,15 @@ import * as utilities from "../utilities";
  *             slotConstraint: "Required",
  *             slotType: "AMAZON.DATE",
  *             slotTypeVersion: "$$LATEST",
- *             valueElicitationPrompt: {
- *                 maxAttempts: 2,
- *                 messages: [{
- *                     content: "What day do you want the {FlowerType} to be picked up?",
- *                     contentType: "PlainText",
- *                 }],
- *             },
  *         },
  *         {
+ *             valueElicitationPrompt: {
+ *                 messages: [{
+ *                     content: "Pick up the {FlowerType} at what time on {PickupDate}?",
+ *                     contentType: "PlainText",
+ *                 }],
+ *                 maxAttempts: 2,
+ *             },
  *             description: "The time to pick up the flowers",
  *             name: "PickupTime",
  *             priority: 3,
@@ -82,14 +82,14 @@ import * as utilities from "../utilities";
  *             slotConstraint: "Required",
  *             slotType: "AMAZON.TIME",
  *             slotTypeVersion: "$$LATEST",
- *             valueElicitationPrompt: {
- *                 maxAttempts: 2,
- *                 messages: [{
- *                     content: "Pick up the {FlowerType} at what time on {PickupDate}?",
- *                     contentType: "PlainText",
- *                 }],
- *             },
  *         },
+ *     ],
+ *     createVersion: false,
+ *     name: "OrderFlowers",
+ *     description: "Intent to order a bouquet of flowers for pick up",
+ *     sampleUtterances: [
+ *         "I would like to order some flowers",
+ *         "I would like to pick up flowers",
  *     ],
  * });
  * ```

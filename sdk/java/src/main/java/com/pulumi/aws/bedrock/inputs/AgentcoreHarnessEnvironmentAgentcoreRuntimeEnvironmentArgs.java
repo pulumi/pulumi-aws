@@ -67,16 +67,12 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
     /**
      * Filesystem configurations. See `filesystemConfiguration` Block below.
      * 
-     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
-     * 
      */
     @Import(name="filesystemConfigurations")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>> filesystemConfigurations;
 
     /**
      * @return Filesystem configurations. See `filesystemConfiguration` Block below.
-     * 
-     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfigurationArgs>>> filesystemConfigurations() {
@@ -101,12 +97,16 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
     /**
      * Network configuration. See `networkConfiguration` Block below.
      * 
+     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+     * 
      */
     @Import(name="networkConfigurations")
     private @Nullable Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>> networkConfigurations;
 
     /**
      * @return Network configuration. See `networkConfiguration` Block below.
+     * 
+     * The following attributes are exported under `agentcoreRuntimeEnvironment`:
      * 
      */
     public Optional<Output<List<AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfigurationArgs>>> networkConfigurations() {
@@ -208,8 +208,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
-         * 
          * @return builder
          * 
          */
@@ -221,8 +219,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
          * 
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
-         * 
          * @return builder
          * 
          */
@@ -232,8 +228,6 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
 
         /**
          * @param filesystemConfigurations Filesystem configurations. See `filesystemConfiguration` Block below.
-         * 
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          * 
          * @return builder
          * 
@@ -276,6 +270,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         /**
          * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
          * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * 
          * @return builder
          * 
          */
@@ -287,6 +283,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
         /**
          * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
          * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
+         * 
          * @return builder
          * 
          */
@@ -296,6 +294,8 @@ public final class AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentArgs ex
 
         /**
          * @param networkConfigurations Network configuration. See `networkConfiguration` Block below.
+         * 
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          * 
          * @return builder
          * 

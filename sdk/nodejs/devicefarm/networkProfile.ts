@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+ * - `arn` (String) ARN of the Device Farm network profile.
  *
  * Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
  *
@@ -65,7 +65,7 @@ export class NetworkProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of this network profile.
+     * ARN of this network profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export class NetworkProfile extends pulumi.CustomResource {
  */
 export interface NetworkProfileState {
     /**
-     * The Amazon Resource Name of this network profile.
+     * ARN of this network profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Macie2
         public Output<string> AdministratorAccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account.
+        /// ARN of the account.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -261,7 +261,7 @@ namespace Pulumi.Aws.Macie2
         public Input<string>? AdministratorAccountId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account.
+        /// ARN of the account.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

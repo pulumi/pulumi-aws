@@ -4,9 +4,10 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreHarnessSystemPrompt {
@@ -14,15 +15,15 @@ public final class AgentcoreHarnessSystemPrompt {
      * @return Text content of the system prompt.
      * 
      */
-    private String text;
+    private @Nullable String text;
 
     private AgentcoreHarnessSystemPrompt() {}
     /**
      * @return Text content of the system prompt.
      * 
      */
-    public String text() {
-        return this.text;
+    public Optional<String> text() {
+        return Optional.ofNullable(this.text);
     }
 
     public static Builder builder() {
@@ -34,7 +35,7 @@ public final class AgentcoreHarnessSystemPrompt {
     }
     @CustomType.Builder
     public static final class Builder {
-        private String text;
+        private @Nullable String text;
         public Builder() {}
         public Builder(AgentcoreHarnessSystemPrompt defaults) {
     	      Objects.requireNonNull(defaults);
@@ -42,10 +43,8 @@ public final class AgentcoreHarnessSystemPrompt {
         }
 
         @CustomType.Setter
-        public Builder text(String text) {
-            if (text == null) {
-              throw new MissingRequiredPropertyException("AgentcoreHarnessSystemPrompt", "text");
-            }
+        public Builder text(@Nullable String text) {
+
             this.text = text;
             return this;
         }

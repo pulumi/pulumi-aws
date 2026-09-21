@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  * const app = new aws.pinpoint.App("app", {});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["pinpoint.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

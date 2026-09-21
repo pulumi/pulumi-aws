@@ -15,7 +15,7 @@ import java.util.Objects;
 @CustomType
 public final class GetReplicationSetResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the replication set.
+     * @return ARN of the replication set.
      * 
      */
     private String arn;
@@ -67,7 +67,7 @@ public final class GetReplicationSetResult {
 
     private GetReplicationSetResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the replication set.
+     * @return ARN of the replication set.
      * 
      */
     public String arn() {

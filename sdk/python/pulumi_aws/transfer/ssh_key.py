@@ -206,11 +206,11 @@ class SshKey(pulumi.CustomResource):
                 "NAME": "tf-acc-test-transfer-server",
             })
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -281,11 +281,11 @@ class SshKey(pulumi.CustomResource):
                 "NAME": "tf-acc-test-transfer-server",
             })
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transfer.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",

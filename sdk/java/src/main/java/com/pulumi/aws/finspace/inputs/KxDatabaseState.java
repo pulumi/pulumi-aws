@@ -17,14 +17,14 @@ public final class KxDatabaseState extends com.pulumi.resources.ResourceArgs {
     public static final KxDatabaseState Empty = new KxDatabaseState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX database.
+     * ARN identifier of the KX database.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX database.
+     * @return ARN identifier of the KX database.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -188,7 +188,7 @@ public final class KxDatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX database.
+         * @param arn ARN identifier of the KX database.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class KxDatabaseState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX database.
+         * @param arn ARN identifier of the KX database.
          * 
          * @return builder
          * 

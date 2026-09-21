@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Kms
     public partial class Alias : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the key alias.
+        /// ARN of the key alias.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -83,7 +83,7 @@ namespace Pulumi.Aws.Kms
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target key identifier.
+        /// ARN of the target key identifier.
         /// </summary>
         [Output("targetKeyArn")]
         public Output<string> TargetKeyArn { get; private set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Kms
     public sealed class AliasState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the key alias.
+        /// ARN of the key alias.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Kms
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target key identifier.
+        /// ARN of the target key identifier.
         /// </summary>
         [Input("targetKeyArn")]
         public Input<string>? TargetKeyArn { get; set; }

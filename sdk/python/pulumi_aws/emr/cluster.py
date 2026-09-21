@@ -66,7 +66,7 @@ class ClusterArgs:
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -273,7 +273,7 @@ class ClusterArgs:
     @pulumi.getter
     def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
@@ -656,7 +656,7 @@ class _ClusterState:
         :param pulumi.Input['ClusterAutoTerminationPolicyArgs'] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterBootstrapActionArgs']]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -874,7 +874,7 @@ class _ClusterState:
     @pulumi.getter
     def configurations(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 
@@ -1310,18 +1310,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
-            name="emr-test-arn",
-            release_label="emr-4.6.0",
-            applications=["Spark"],
-            additional_info=\"\"\"{
-          \\"instanceAwsClientConfiguration\\": {
-            \\"proxyPort\\": 8099,
-            \\"proxyHost\\": \\"myproxy.example.com\\"
-          }
-        }
-        \"\"\",
-            termination_protection=False,
-            keep_job_flow_alive_when_no_steps=True,
             ec2_attributes={
                 "subnet_id": main["id"],
                 "emr_managed_master_security_group": sg["id"],
@@ -1332,13 +1320,13 @@ class Cluster(pulumi.CustomResource):
                 "instance_type": "m4.large",
             },
             core_instance_group={
-                "instance_type": "c4.large",
-                "instance_count": 1,
                 "ebs_configs": [{
                     "size": 40,
                     "type": "gp2",
                     "volumes_per_instance": 1,
                 }],
+                "instance_type": "c4.large",
+                "instance_count": 1,
                 "bid_price": "0.30",
                 "autoscaling_policy": \"\"\"{
         \\"Constraints\\": {
@@ -1373,11 +1361,6 @@ class Cluster(pulumi.CustomResource):
         }
         \"\"\",
             },
-            ebs_root_volume_size=100,
-            tags={
-                "role": "rolename",
-                "env": "env",
-            },
             bootstrap_actions=[{
                 "path": "s3://elasticmapreduce/bootstrap-actions/run-if",
                 "name": "runif",
@@ -1386,6 +1369,23 @@ class Cluster(pulumi.CustomResource):
                     "echo running on master node",
                 ],
             }],
+            name="emr-test-arn",
+            release_label="emr-4.6.0",
+            applications=["Spark"],
+            additional_info=\"\"\"{
+          \\"instanceAwsClientConfiguration\\": {
+            \\"proxyPort\\": 8099,
+            \\"proxyHost\\": \\"myproxy.example.com\\"
+          }
+        }
+        \"\"\",
+            termination_protection=False,
+            keep_job_flow_alive_when_no_steps=True,
+            ebs_root_volume_size=100,
+            tags={
+                "role": "rolename",
+                "env": "env",
+            },
             configurations_json=\"\"\"  [
             {
               \\"Classification\\": \\"hadoop-env\\",
@@ -1434,38 +1434,6 @@ class Cluster(pulumi.CustomResource):
                 "target_on_demand_capacity": 1,
             },
             core_instance_fleet={
-                "instance_type_configs": [
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(80),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m3.xlarge",
-                        "weighted_capacity": 1,
-                    },
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(100),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m4.xlarge",
-                        "weighted_capacity": 1,
-                    },
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(100),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m4.2xlarge",
-                        "weighted_capacity": 2,
-                    },
-                ],
                 "launch_specifications": {
                     "spot_specifications": [{
                         "allocation_strategy": "capacity-optimized",
@@ -1474,34 +1442,43 @@ class Cluster(pulumi.CustomResource):
                         "timeout_duration_minutes": 10,
                     }],
                 },
+                "instance_type_configs": [
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
+                        "instance_type": "m3.xlarge",
+                        "weighted_capacity": 1,
+                    },
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
+                        "instance_type": "m4.xlarge",
+                        "weighted_capacity": 1,
+                    },
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
+                        "instance_type": "m4.2xlarge",
+                        "weighted_capacity": 2,
+                    },
+                ],
                 "name": "core fleet",
                 "target_on_demand_capacity": 2,
                 "target_spot_capacity": 2,
             })
         task = aws.emr.InstanceFleet("task",
-            cluster_id=example.id,
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -1510,6 +1487,29 @@ class Cluster(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
+            instance_type_configs=[
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
+            cluster_id=example.id,
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -1524,13 +1524,14 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emr.Cluster("example", steps=[{
-            "action_on_failure": "TERMINATE_CLUSTER",
-            "name": "Setup Hadoop Debugging",
             "hadoop_jar_step": {
                 "jar": "command-runner.jar",
                 "args": ["state-pusher-script"],
             },
-        }])
+            "action_on_failure": "TERMINATE_CLUSTER",
+            "name": "Setup Hadoop Debugging",
+        }],
+        opts = pulumi.ResourceOptions(ignore_changes=["steps"]))
         ```
 
         ### Multiple Node Master Instance Group
@@ -1546,15 +1547,15 @@ class Cluster(pulumi.CustomResource):
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
         example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
         example_cluster = aws.emr.Cluster("example",
-            release_label="emr-5.24.1",
-            termination_protection=True,
             ec2_attributes={
                 "subnet_id": example.id,
             },
             master_instance_group={
                 "instance_count": 3,
             },
-            core_instance_group={})
+            core_instance_group={},
+            release_label="emr-5.24.1",
+            termination_protection=True)
         ```
 
         ## Import
@@ -1571,7 +1572,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.Cluster("example")
+        example = aws.emr.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["kerberosAttributes"]))
         ```
 
 
@@ -1582,7 +1583,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -1656,18 +1657,6 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         cluster = aws.emr.Cluster("cluster",
-            name="emr-test-arn",
-            release_label="emr-4.6.0",
-            applications=["Spark"],
-            additional_info=\"\"\"{
-          \\"instanceAwsClientConfiguration\\": {
-            \\"proxyPort\\": 8099,
-            \\"proxyHost\\": \\"myproxy.example.com\\"
-          }
-        }
-        \"\"\",
-            termination_protection=False,
-            keep_job_flow_alive_when_no_steps=True,
             ec2_attributes={
                 "subnet_id": main["id"],
                 "emr_managed_master_security_group": sg["id"],
@@ -1678,13 +1667,13 @@ class Cluster(pulumi.CustomResource):
                 "instance_type": "m4.large",
             },
             core_instance_group={
-                "instance_type": "c4.large",
-                "instance_count": 1,
                 "ebs_configs": [{
                     "size": 40,
                     "type": "gp2",
                     "volumes_per_instance": 1,
                 }],
+                "instance_type": "c4.large",
+                "instance_count": 1,
                 "bid_price": "0.30",
                 "autoscaling_policy": \"\"\"{
         \\"Constraints\\": {
@@ -1719,11 +1708,6 @@ class Cluster(pulumi.CustomResource):
         }
         \"\"\",
             },
-            ebs_root_volume_size=100,
-            tags={
-                "role": "rolename",
-                "env": "env",
-            },
             bootstrap_actions=[{
                 "path": "s3://elasticmapreduce/bootstrap-actions/run-if",
                 "name": "runif",
@@ -1732,6 +1716,23 @@ class Cluster(pulumi.CustomResource):
                     "echo running on master node",
                 ],
             }],
+            name="emr-test-arn",
+            release_label="emr-4.6.0",
+            applications=["Spark"],
+            additional_info=\"\"\"{
+          \\"instanceAwsClientConfiguration\\": {
+            \\"proxyPort\\": 8099,
+            \\"proxyHost\\": \\"myproxy.example.com\\"
+          }
+        }
+        \"\"\",
+            termination_protection=False,
+            keep_job_flow_alive_when_no_steps=True,
+            ebs_root_volume_size=100,
+            tags={
+                "role": "rolename",
+                "env": "env",
+            },
             configurations_json=\"\"\"  [
             {
               \\"Classification\\": \\"hadoop-env\\",
@@ -1780,38 +1781,6 @@ class Cluster(pulumi.CustomResource):
                 "target_on_demand_capacity": 1,
             },
             core_instance_fleet={
-                "instance_type_configs": [
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(80),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m3.xlarge",
-                        "weighted_capacity": 1,
-                    },
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(100),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m4.xlarge",
-                        "weighted_capacity": 1,
-                    },
-                    {
-                        "bid_price_as_percentage_of_on_demand_price": float(100),
-                        "ebs_configs": [{
-                            "size": 100,
-                            "type": "gp2",
-                            "volumes_per_instance": 1,
-                        }],
-                        "instance_type": "m4.2xlarge",
-                        "weighted_capacity": 2,
-                    },
-                ],
                 "launch_specifications": {
                     "spot_specifications": [{
                         "allocation_strategy": "capacity-optimized",
@@ -1820,34 +1789,43 @@ class Cluster(pulumi.CustomResource):
                         "timeout_duration_minutes": 10,
                     }],
                 },
+                "instance_type_configs": [
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(80),
+                        "instance_type": "m3.xlarge",
+                        "weighted_capacity": 1,
+                    },
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
+                        "instance_type": "m4.xlarge",
+                        "weighted_capacity": 1,
+                    },
+                    {
+                        "ebs_configs": [{
+                            "size": 100,
+                            "type": "gp2",
+                            "volumes_per_instance": 1,
+                        }],
+                        "bid_price_as_percentage_of_on_demand_price": float(100),
+                        "instance_type": "m4.2xlarge",
+                        "weighted_capacity": 2,
+                    },
+                ],
                 "name": "core fleet",
                 "target_on_demand_capacity": 2,
                 "target_spot_capacity": 2,
             })
         task = aws.emr.InstanceFleet("task",
-            cluster_id=example.id,
-            instance_type_configs=[
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.xlarge",
-                    "weighted_capacity": 1,
-                },
-                {
-                    "bid_price_as_percentage_of_on_demand_price": float(100),
-                    "ebs_configs": [{
-                        "size": 100,
-                        "type": "gp2",
-                        "volumes_per_instance": 1,
-                    }],
-                    "instance_type": "m4.2xlarge",
-                    "weighted_capacity": 2,
-                },
-            ],
             launch_specifications={
                 "spot_specifications": [{
                     "allocation_strategy": "capacity-optimized",
@@ -1856,6 +1834,29 @@ class Cluster(pulumi.CustomResource):
                     "timeout_duration_minutes": 10,
                 }],
             },
+            instance_type_configs=[
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.xlarge",
+                    "weighted_capacity": 1,
+                },
+                {
+                    "ebs_configs": [{
+                        "size": 100,
+                        "type": "gp2",
+                        "volumes_per_instance": 1,
+                    }],
+                    "bid_price_as_percentage_of_on_demand_price": float(100),
+                    "instance_type": "m4.2xlarge",
+                    "weighted_capacity": 2,
+                },
+            ],
+            cluster_id=example.id,
             name="task fleet",
             target_on_demand_capacity=1,
             target_spot_capacity=1)
@@ -1870,13 +1871,14 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emr.Cluster("example", steps=[{
-            "action_on_failure": "TERMINATE_CLUSTER",
-            "name": "Setup Hadoop Debugging",
             "hadoop_jar_step": {
                 "jar": "command-runner.jar",
                 "args": ["state-pusher-script"],
             },
-        }])
+            "action_on_failure": "TERMINATE_CLUSTER",
+            "name": "Setup Hadoop Debugging",
+        }],
+        opts = pulumi.ResourceOptions(ignore_changes=["steps"]))
         ```
 
         ### Multiple Node Master Instance Group
@@ -1892,15 +1894,15 @@ class Cluster(pulumi.CustomResource):
         # Map public IP on launch must be enabled for public (Internet accessible) subnets
         example = aws.ec2.Subnet("example", map_public_ip_on_launch=True)
         example_cluster = aws.emr.Cluster("example",
-            release_label="emr-5.24.1",
-            termination_protection=True,
             ec2_attributes={
                 "subnet_id": example.id,
             },
             master_instance_group={
                 "instance_count": 3,
             },
-            core_instance_group={})
+            core_instance_group={},
+            release_label="emr-5.24.1",
+            termination_protection=True)
         ```
 
         ## Import
@@ -1917,7 +1919,7 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.emr.Cluster("example")
+        example = aws.emr.Cluster("example", opts = pulumi.ResourceOptions(ignore_changes=["kerberosAttributes"]))
         ```
 
 
@@ -2079,7 +2081,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[Union['ClusterAutoTerminationPolicyArgs', 'ClusterAutoTerminationPolicyArgsDict']] auto_termination_policy: An auto-termination policy for an Amazon EMR cluster. An auto-termination policy defines the amount of idle time in seconds after which a cluster automatically terminates. See Auto Termination Policy Below.
         :param pulumi.Input[_builtins.str] autoscaling_role: IAM role for automatic scaling policies. The IAM role provides permissions that the automatic scaling feature requires to launch and terminate EC2 instances in an instance group.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ClusterBootstrapActionArgs', 'ClusterBootstrapActionArgsDict']]]] bootstrap_actions: Ordered list of bootstrap actions that will be run before Hadoop is started on the cluster nodes. See below.
-        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        :param pulumi.Input[_builtins.str] configurations: List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         :param pulumi.Input[_builtins.str] configurations_json: JSON string for supplying list of configurations for the EMR cluster.
                
                > **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `"Configurations": []`.
@@ -2237,7 +2239,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        List of configurations supplied for the EMR cluster you are creating. Supply a configuration object for applications to override their default configuration. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
+        List of configurations supplied for the EMR cluster you are creating, expressed as a string: an HTTP(S) URL to a JSON file, a path to a local `.json` file, or a raw JSON string. To supply configuration objects using Pulumi syntax instead, use `configurations_json`. See [AWS Documentation](https://docs.aws.amazon.com/emr/latest/ReleaseGuide/emr-configure-apps.html) for more information.
         """
         return pulumi.get(self, "configurations")
 

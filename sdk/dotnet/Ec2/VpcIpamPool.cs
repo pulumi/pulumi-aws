@@ -150,10 +150,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var vpc = new Aws.Ec2.VpcIpamPool("vpc", new()
     ///     {
-    ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///         SourceIpamPoolId = test.Id,
     ///         SourceResource = new Aws.Ec2.Inputs.VpcIpamPoolSourceResourceArgs
     ///         {
     ///             ResourceId = testVpc.Id,
@@ -161,6 +157,10 @@ namespace Pulumi.Aws.Ec2
     ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             ResourceType = "vpc",
     ///         },
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = testAwsVpcIpam.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///         SourceIpamPoolId = test.Id,
     ///     });
     /// 
     /// });
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableDictionary<string, string>?> AllocationResourceTags { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -510,7 +510,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of IPAM
+        /// ARN of IPAM
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

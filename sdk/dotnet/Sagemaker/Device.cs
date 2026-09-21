@@ -26,11 +26,11 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Device("example", new()
     ///     {
-    ///         DeviceFleetName = exampleAwsSagemakerDeviceFleet.DeviceFleetName,
     ///         DeviceDetails = new Aws.Sagemaker.Inputs.DeviceDeviceArgs
     ///         {
     ///             DeviceName = "example",
     ///         },
+    ///         DeviceFleetName = exampleAwsSagemakerDeviceFleet.DeviceFleetName,
     ///     });
     /// 
     /// });
@@ -51,7 +51,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AgentVersion { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+        /// ARN assigned by AWS to this Device.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -150,7 +150,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AgentVersion { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device.
+        /// ARN assigned by AWS to this Device.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

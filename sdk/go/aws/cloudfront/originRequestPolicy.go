@@ -29,32 +29,32 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewOriginRequestPolicy(ctx, "example", &cloudfront.OriginRequestPolicyArgs{
-//				Name:    pulumi.String("example-policy"),
-//				Comment: pulumi.String("example comment"),
 //				CookiesConfig: &cloudfront.OriginRequestPolicyCookiesConfigArgs{
-//					CookieBehavior: pulumi.String("whitelist"),
 //					Cookies: &cloudfront.OriginRequestPolicyCookiesConfigCookiesArgs{
 //						Items: pulumi.StringArray{
 //							pulumi.String("example"),
 //						},
 //					},
+//					CookieBehavior: pulumi.String("whitelist"),
 //				},
 //				HeadersConfig: &cloudfront.OriginRequestPolicyHeadersConfigArgs{
-//					HeaderBehavior: pulumi.String("whitelist"),
 //					Headers: &cloudfront.OriginRequestPolicyHeadersConfigHeadersArgs{
 //						Items: pulumi.StringArray{
 //							pulumi.String("example"),
 //						},
 //					},
+//					HeaderBehavior: pulumi.String("whitelist"),
 //				},
 //				QueryStringsConfig: &cloudfront.OriginRequestPolicyQueryStringsConfigArgs{
-//					QueryStringBehavior: pulumi.String("whitelist"),
 //					QueryStrings: &cloudfront.OriginRequestPolicyQueryStringsConfigQueryStringsArgs{
 //						Items: pulumi.StringArray{
 //							pulumi.String("example"),
 //						},
 //					},
+//					QueryStringBehavior: pulumi.String("whitelist"),
 //				},
+//				Name:    pulumi.String("example-policy"),
+//				Comment: pulumi.String("example comment"),
 //			})
 //			if err != nil {
 //				return err

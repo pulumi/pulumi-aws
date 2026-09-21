@@ -25,7 +25,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfiguration {
      */
     private @Nullable IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration groupConfiguration;
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+     * @return ARN of the Amazon Cognito user pool that contains the identities to be authorized.
      * 
      */
     private String userPoolArn;
@@ -46,7 +46,7 @@ public final class IdentitySourceConfigurationCognitoUserPoolConfiguration {
         return Optional.ofNullable(this.groupConfiguration);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+     * @return ARN of the Amazon Cognito user pool that contains the identities to be authorized.
      * 
      */
     public String userPoolArn() {

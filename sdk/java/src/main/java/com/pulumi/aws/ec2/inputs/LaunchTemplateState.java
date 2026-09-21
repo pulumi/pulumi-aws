@@ -39,14 +39,14 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
     public static final LaunchTemplateState Empty = new LaunchTemplateState();
 
     /**
-     * Amazon Resource Name (ARN) of the launch template.
+     * ARN of the launch template.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the launch template.
+     * @return ARN of the launch template.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -728,7 +728,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the launch template.
+         * @param arn ARN of the launch template.
          * 
          * @return builder
          * 
@@ -739,7 +739,7 @@ public final class LaunchTemplateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the launch template.
+         * @param arn ARN of the launch template.
          * 
          * @return builder
          * 

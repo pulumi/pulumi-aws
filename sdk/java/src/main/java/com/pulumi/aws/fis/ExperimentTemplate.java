@@ -40,9 +40,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fis.ExperimentTemplate;
  * import com.pulumi.aws.fis.ExperimentTemplateArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
  * import java.util.ArrayList;
@@ -59,28 +59,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ExperimentTemplate("example", ExperimentTemplateArgs.builder()
- *             .description("example")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
- *                 .source("none")
- *                 .build())
  *             .actions(ExperimentTemplateActionArgs.builder()
- *                 .name("example-action")
- *                 .actionId("aws:ec2:terminate-instances")
  *                 .target(ExperimentTemplateActionTargetArgs.builder()
  *                     .key("Instances")
  *                     .value("example-target")
  *                     .build())
+ *                 .name("example-action")
+ *                 .actionId("aws:ec2:terminate-instances")
+ *                 .build())
+ *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
+ *                 .source("none")
  *                 .build())
  *             .targets(ExperimentTemplateTargetArgs.builder()
- *                 .name("example-target")
- *                 .resourceType("aws:ec2:instance")
- *                 .selectionMode("COUNT(1)")
  *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
  *                     .key("env")
  *                     .value("example")
  *                     .build())
+ *                 .name("example-target")
+ *                 .resourceType("aws:ec2:instance")
+ *                 .selectionMode("COUNT(1)")
  *                 .build())
+ *             .description("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -110,16 +110,16 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.RolePolicyAttachmentArgs;
  * import com.pulumi.aws.fis.ExperimentTemplate;
  * import com.pulumi.aws.fis.ExperimentTemplateArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
- * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsArgs;
  * import com.pulumi.aws.fis.inputs.ExperimentTemplateExperimentReportConfigurationOutputsS3ConfigurationArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateActionTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateStopConditionArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetArgs;
+ * import com.pulumi.aws.fis.inputs.ExperimentTemplateTargetResourceTagArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -153,7 +153,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var reportAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
- *             .version("2012-10-17")
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
  *                     .sid("logsDelivery")
@@ -181,6 +180,7 @@ import javax.annotation.Nullable;
  *                     .actions("cloudwatch:getMetricWidgetImage")
  *                     .resources("*")
  *                     .build())
+ *             .version("2012-10-17")
  *             .build());
  * 
  *         var reportAccessPolicy = new Policy("reportAccessPolicy", PolicyArgs.builder()
@@ -194,28 +194,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExperimentTemplate = new ExperimentTemplate("exampleExperimentTemplate", ExperimentTemplateArgs.builder()
- *             .description("example")
- *             .roleArn(example.arn())
- *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
- *                 .source("none")
- *                 .build())
- *             .actions(ExperimentTemplateActionArgs.builder()
- *                 .name("example-action")
- *                 .actionId("aws:ec2:terminate-instances")
- *                 .target(ExperimentTemplateActionTargetArgs.builder()
- *                     .key("Instances")
- *                     .value("example-target")
- *                     .build())
- *                 .build())
- *             .targets(ExperimentTemplateTargetArgs.builder()
- *                 .name("example-target")
- *                 .resourceType("aws:ec2:instance")
- *                 .selectionMode("COUNT(1)")
- *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
- *                     .key("env")
- *                     .value("example")
- *                     .build())
- *                 .build())
  *             .experimentReportConfiguration(ExperimentTemplateExperimentReportConfigurationArgs.builder()
  *                 .dataSources(ExperimentTemplateExperimentReportConfigurationDataSourcesArgs.builder()
  *                     .cloudwatchDashboards(ExperimentTemplateExperimentReportConfigurationDataSourcesCloudwatchDashboardArgs.builder()
@@ -231,6 +209,28 @@ import javax.annotation.Nullable;
  *                 .postExperimentDuration("PT10M")
  *                 .preExperimentDuration("PT10M")
  *                 .build())
+ *             .actions(ExperimentTemplateActionArgs.builder()
+ *                 .target(ExperimentTemplateActionTargetArgs.builder()
+ *                     .key("Instances")
+ *                     .value("example-target")
+ *                     .build())
+ *                 .name("example-action")
+ *                 .actionId("aws:ec2:terminate-instances")
+ *                 .build())
+ *             .stopConditions(ExperimentTemplateStopConditionArgs.builder()
+ *                 .source("none")
+ *                 .build())
+ *             .targets(ExperimentTemplateTargetArgs.builder()
+ *                 .resourceTags(ExperimentTemplateTargetResourceTagArgs.builder()
+ *                     .key("env")
+ *                     .value("example")
+ *                     .build())
+ *                 .name("example-target")
+ *                 .resourceType("aws:ec2:instance")
+ *                 .selectionMode("COUNT(1)")
+ *                 .build())
+ *             .description("example")
+ *             .roleArn(example.arn())
  *             .tags(Map.of("Name", "example"))
  *             .build());
  * 

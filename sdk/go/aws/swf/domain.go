@@ -54,7 +54,7 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -105,7 +105,7 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn *string `pulumi:"arn"`
 	// The domain description.
 	Description *string `pulumi:"description"`
@@ -124,7 +124,7 @@ type domainState struct {
 }
 
 type DomainState struct {
-	// Amazon Resource Name (ARN)
+	// ARN
 	Arn pulumi.StringPtrInput
 	// The domain description.
 	Description pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN)
+// ARN
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -60,10 +60,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lambda.NewFunctionUrl(ctx, "example", &lambda.FunctionUrlArgs{
-//				FunctionName:      pulumi.Any(exampleAwsLambdaFunction.FunctionName),
-//				Qualifier:         pulumi.String("my_alias"),
-//				AuthorizationType: pulumi.String("AWS_IAM"),
-//				InvokeMode:        pulumi.String("RESPONSE_STREAM"),
 //				Cors: &lambda.FunctionUrlCorsArgs{
 //					AllowCredentials: pulumi.Bool(true),
 //					AllowOrigins: pulumi.StringArray{
@@ -83,6 +79,10 @@ import (
 //					},
 //					MaxAge: pulumi.Int(86400),
 //				},
+//				FunctionName:      pulumi.Any(exampleAwsLambdaFunction.FunctionName),
+//				Qualifier:         pulumi.String("my_alias"),
+//				AuthorizationType: pulumi.String("AWS_IAM"),
+//				InvokeMode:        pulumi.String("RESPONSE_STREAM"),
 //			})
 //			if err != nil {
 //				return err

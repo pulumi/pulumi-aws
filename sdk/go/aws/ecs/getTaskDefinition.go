@@ -143,12 +143,8 @@ type LookupTaskDefinitionResult struct {
 }
 
 func LookupTaskDefinitionOutput(ctx *pulumi.Context, args LookupTaskDefinitionOutputArgs, opts ...pulumi.InvokeOption) LookupTaskDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupTaskDefinitionResultOutput, error) {
-			args := v.(LookupTaskDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecs/getTaskDefinition:getTaskDefinition", args, LookupTaskDefinitionResultOutput{}, options).(LookupTaskDefinitionResultOutput), nil
-		}).(LookupTaskDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecs/getTaskDefinition:getTaskDefinition", args, LookupTaskDefinitionResultOutput{}, options).(LookupTaskDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getTaskDefinition.

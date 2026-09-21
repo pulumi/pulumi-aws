@@ -26,9 +26,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "API_KEY",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             ApiKey = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersApiKeyArgs
@@ -37,6 +34,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Value = "1234",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "API_KEY",
     ///     });
     /// 
     /// });
@@ -54,9 +54,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -65,6 +62,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Password = "Pass1234!",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///     });
     /// 
     /// });
@@ -82,15 +82,10 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
     ///             {
-    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
-    ///                 HttpMethod = "GET",
     ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
     ///                 {
     ///                     ClientId = "1234567890",
@@ -126,8 +121,13 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 AuthorizationEndpoint = "https://auth.url.com/endpoint",
+    ///                 HttpMethod = "GET",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///     });
     /// 
     /// });
@@ -145,9 +145,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -192,6 +189,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///     });
     /// 
     /// });
@@ -209,9 +209,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var test = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "private-api-connection",
-    ///         Description = "A connection to a private API",
-    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             ConnectivityParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersConnectivityParametersArgs
@@ -223,8 +220,6 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///             Oauth = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthArgs
     ///             {
-    ///                 AuthorizationEndpoint = "https://private-api.example.com/auth",
-    ///                 HttpMethod = "POST",
     ///                 ClientParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersOauthClientParametersArgs
     ///                 {
     ///                     ClientId = "1234567890",
@@ -242,8 +237,13 @@ namespace Pulumi.Aws.CloudWatch
     ///                         },
     ///                     },
     ///                 },
+    ///                 AuthorizationEndpoint = "https://private-api.example.com/auth",
+    ///                 HttpMethod = "POST",
     ///             },
     ///         },
+    ///         Name = "private-api-connection",
+    ///         Description = "A connection to a private API",
+    ///         AuthorizationType = "OAUTH_CLIENT_CREDENTIALS",
     ///     });
     /// 
     /// });
@@ -331,9 +331,6 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var testEventConnection = new Aws.CloudWatch.EventConnection("test", new()
     ///     {
-    ///         Name = "ngrok-connection",
-    ///         Description = "A connection description",
-    ///         AuthorizationType = "BASIC",
     ///         AuthParameters = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersArgs
     ///         {
     ///             Basic = new Aws.CloudWatch.Inputs.EventConnectionAuthParametersBasicArgs
@@ -342,6 +339,9 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Password = "Pass1234!",
     ///             },
     ///         },
+    ///         Name = "ngrok-connection",
+    ///         Description = "A connection description",
+    ///         AuthorizationType = "BASIC",
     ///         KmsKeyIdentifier = example.Id,
     ///     });
     /// 
@@ -371,7 +371,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class EventConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<Outputs.EventConnectionInvocationConnectivityParameters?> InvocationConnectivityParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Output("secretArn")]
         public Output<string> SecretArn { get; private set; } = null!;
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionInvocationConnectivityParametersArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class EventConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the connection.
+        /// ARN of the connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -551,7 +551,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<Inputs.EventConnectionInvocationConnectivityParametersGetArgs>? InvocationConnectivityParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -569,7 +569,7 @@ namespace Pulumi.Aws.CloudWatch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+        /// ARN of the secret created from the authorization parameters specified for the connection.
         /// </summary>
         [Input("secretArn")]
         public Input<string>? SecretArn { get; set; }

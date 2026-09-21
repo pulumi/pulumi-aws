@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class TemplateSourceEntitySourceAnalysis {
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      */
     private String arn;
@@ -25,7 +25,7 @@ public final class TemplateSourceEntitySourceAnalysis {
 
     private TemplateSourceEntitySourceAnalysis() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      */
     public String arn() {

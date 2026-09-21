@@ -82,8 +82,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Folder("example", FolderArgs.builder()
- *             .folderId("example-id")
- *             .name("example-name")
  *             .permissions(FolderPermissionArgs.builder()
  *                 .actions(                
  *                     "quicksight:CreateFolder",
@@ -96,6 +94,8 @@ import javax.annotation.Nullable;
  *                     "quicksight:UpdateFolderPermissions")
  *                 .principal(exampleAwsQuicksightUser.arn())
  *                 .build())
+ *             .folderId("example-id")
+ *             .name("example-name")
  *             .build());
  * 
  *     }
@@ -271,14 +271,14 @@ public class Folder extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * ARN for the parent folder. If not set, creates a root-level folder.
      * 
      */
     @Export(name="parentFolderArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> parentFolderArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * @return ARN for the parent folder. If not set, creates a root-level folder.
      * 
      */
     public Output<Optional<String>> parentFolderArn() {

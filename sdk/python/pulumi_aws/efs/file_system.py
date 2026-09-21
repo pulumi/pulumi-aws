@@ -234,7 +234,7 @@ class _FileSystemState:
         """
         Input properties used for looking up and filtering FileSystem resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         :param pulumi.Input[_builtins.str] availability_zone_name: the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         :param pulumi.Input[_builtins.str] creation_token: A unique name (a maximum of 64 characters are allowed)
@@ -300,7 +300,7 @@ class _FileSystemState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -571,10 +571,10 @@ class FileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
-            creation_token="my-product",
             lifecycle_policies=[{
                 "transition_to_ia": "AFTER_30_DAYS",
-            }])
+            }],
+            creation_token="my-product")
         ```
 
         ## Import
@@ -634,10 +634,10 @@ class FileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo_with_lifecyle_policy = aws.efs.FileSystem("foo_with_lifecyle_policy",
-            creation_token="my-product",
             lifecycle_policies=[{
                 "transition_to_ia": "AFTER_30_DAYS",
-            }])
+            }],
+            creation_token="my-product")
         ```
 
         ## Import
@@ -739,7 +739,7 @@ class FileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] availability_zone_id: The identifier of the Availability Zone in which the file system's One Zone storage classes exist.
         :param pulumi.Input[_builtins.str] availability_zone_name: the AWS Availability Zone in which to create the file system. Used to create a file system that uses One Zone storage classes. See [user guide](https://docs.aws.amazon.com/efs/latest/ug/availability-durability.html) for more information.
         :param pulumi.Input[_builtins.str] creation_token: A unique name (a maximum of 64 characters are allowed)
@@ -791,7 +791,7 @@ class FileSystem(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 

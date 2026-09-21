@@ -16,14 +16,14 @@ public final class ConfigurationSetVdmOptionsDashboardOptionsArgs extends com.pu
     public static final ConfigurationSetVdmOptionsDashboardOptionsArgs Empty = new ConfigurationSetVdmOptionsDashboardOptionsArgs();
 
     /**
-     * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+     * Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     @Import(name="engagementMetrics")
     private @Nullable Output<String> engagementMetrics;
 
     /**
-     * @return Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Optional<Output<String>> engagementMetrics() {
@@ -55,7 +55,7 @@ public final class ConfigurationSetVdmOptionsDashboardOptionsArgs extends com.pu
         }
 
         /**
-         * @param engagementMetrics Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         * @param engagementMetrics Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class ConfigurationSetVdmOptionsDashboardOptionsArgs extends com.pu
         }
 
         /**
-         * @param engagementMetrics Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         * @param engagementMetrics Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
          * 
          * @return builder
          * 

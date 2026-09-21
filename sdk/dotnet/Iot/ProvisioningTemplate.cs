@@ -29,10 +29,6 @@ namespace Pulumi.Aws.Iot
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -43,6 +39,10 @@ namespace Pulumi.Aws.Iot
     ///                             "iot.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },

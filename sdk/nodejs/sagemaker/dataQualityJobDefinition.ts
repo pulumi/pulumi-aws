@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.DataQualityJobDefinition("test", {
- *     name: "my-data-quality-job-definition",
  *     dataQualityAppSpecification: {
  *         imageUri: monitor.registryPath,
  *     },
@@ -42,6 +41,7 @@ import * as utilities from "../utilities";
  *             volumeSizeInGb: 20,
  *         },
  *     },
+ *     name: "my-data-quality-job-definition",
  *     roleArn: myRole.arn,
  * });
  * ```
@@ -83,7 +83,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * ARN assigned by AWS to this data quality job definition.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export class DataQualityJobDefinition extends pulumi.CustomResource {
  */
 export interface DataQualityJobDefinitionState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * ARN assigned by AWS to this data quality job definition.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -238,7 +238,7 @@ export interface DataQualityJobDefinitionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -292,7 +292,7 @@ export interface DataQualityJobDefinitionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

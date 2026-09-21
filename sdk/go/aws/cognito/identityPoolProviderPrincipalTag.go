@@ -55,8 +55,6 @@ import (
 //				return err
 //			}
 //			exampleIdentityPool, err := cognito.NewIdentityPool(ctx, "example", &cognito.IdentityPoolArgs{
-//				IdentityPoolName:               pulumi.String("identity pool"),
-//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
 //				CognitoIdentityProviders: cognito.IdentityPoolCognitoIdentityProviderArray{
 //					&cognito.IdentityPoolCognitoIdentityProviderArgs{
 //						ClientId:             exampleUserPoolClient.ID().ToIDOutput().ToStringOutput(),
@@ -64,6 +62,8 @@ import (
 //						ServerSideTokenCheck: pulumi.Bool(false),
 //					},
 //				},
+//				IdentityPoolName:               pulumi.String("identity pool"),
+//				AllowUnauthenticatedIdentities: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err

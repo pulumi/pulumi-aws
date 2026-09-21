@@ -95,10 +95,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleV2Policy = new V2Policy("exampleV2Policy", V2PolicyArgs.builder()
- *             .name("example-policy")
  *             .availabilitySlo(V2PolicyAvailabilitySloArgs.builder()
  *                 .target(99.9)
  *                 .build())
+ *             .name("example-policy")
  *             .build());
  * 
  *         var exampleV2UserJourney = new V2UserJourney("exampleV2UserJourney", V2UserJourneyArgs.builder()

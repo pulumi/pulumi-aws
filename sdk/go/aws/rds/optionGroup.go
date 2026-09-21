@@ -34,33 +34,33 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewOptionGroup(ctx, "example", &rds.OptionGroupArgs{
-//				Name:                   pulumi.String("option-group-test"),
-//				OptionGroupDescription: pulumi.String("Option Group"),
-//				EngineName:             pulumi.String("sqlserver-ee"),
-//				MajorEngineVersion:     pulumi.String("11.00"),
 //				Options: rds.OptionGroupOptionArray{
 //					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("Timezone"),
 //						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
 //							&rds.OptionGroupOptionOptionSettingArgs{
 //								Name:  pulumi.String("TIME_ZONE"),
 //								Value: pulumi.String("UTC"),
 //							},
 //						},
+//						OptionName: pulumi.String("Timezone"),
 //					},
 //					&rds.OptionGroupOptionArgs{
-//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
 //						OptionSettings: rds.OptionGroupOptionOptionSettingArray{
 //							&rds.OptionGroupOptionOptionSettingArgs{
 //								Name:  pulumi.String("IAM_ROLE_ARN"),
 //								Value: pulumi.Any(exampleAwsIamRole.Arn),
 //							},
 //						},
+//						OptionName: pulumi.String("SQLSERVER_BACKUP_RESTORE"),
 //					},
 //					&rds.OptionGroupOptionArgs{
 //						OptionName: pulumi.String("TDE"),
 //					},
 //				},
+//				Name:                   pulumi.String("option-group-test"),
+//				OptionGroupDescription: pulumi.String("Option Group"),
+//				EngineName:             pulumi.String("sqlserver-ee"),
+//				MajorEngineVersion:     pulumi.String("11.00"),
 //			})
 //			if err != nil {
 //				return err
@@ -93,9 +93,9 @@ type OptionGroup struct {
 
 	// ARN of the DB option group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Specifies the name of the engine that this option group should be associated with.
+	// Name of the engine that this option group should be associated with.
 	EngineName pulumi.StringOutput `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
+	// Major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringOutput `pulumi:"majorEngineVersion"`
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -103,7 +103,7 @@ type OptionGroup struct {
 	NamePrefix pulumi.StringOutput `pulumi:"namePrefix"`
 	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringOutput `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
+	// Options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayOutput `pulumi:"options"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -156,9 +156,9 @@ func GetOptionGroup(ctx *pulumi.Context,
 type optionGroupState struct {
 	// ARN of the DB option group.
 	Arn *string `pulumi:"arn"`
-	// Specifies the name of the engine that this option group should be associated with.
+	// Name of the engine that this option group should be associated with.
 	EngineName *string `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
+	// Major version of the engine that this option group should be associated with.
 	MajorEngineVersion *string `pulumi:"majorEngineVersion"`
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name *string `pulumi:"name"`
@@ -166,7 +166,7 @@ type optionGroupState struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
+	// Options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -181,9 +181,9 @@ type optionGroupState struct {
 type OptionGroupState struct {
 	// ARN of the DB option group.
 	Arn pulumi.StringPtrInput
-	// Specifies the name of the engine that this option group should be associated with.
+	// Name of the engine that this option group should be associated with.
 	EngineName pulumi.StringPtrInput
-	// Specifies the major version of the engine that this option group should be associated with.
+	// Major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringPtrInput
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringPtrInput
@@ -191,7 +191,7 @@ type OptionGroupState struct {
 	NamePrefix pulumi.StringPtrInput
 	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringPtrInput
-	// The options to apply. See `option` Block below for more details.
+	// Options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -208,9 +208,9 @@ func (OptionGroupState) ElementType() reflect.Type {
 }
 
 type optionGroupArgs struct {
-	// Specifies the name of the engine that this option group should be associated with.
+	// Name of the engine that this option group should be associated with.
 	EngineName string `pulumi:"engineName"`
-	// Specifies the major version of the engine that this option group should be associated with.
+	// Major version of the engine that this option group should be associated with.
 	MajorEngineVersion string `pulumi:"majorEngineVersion"`
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name *string `pulumi:"name"`
@@ -218,7 +218,7 @@ type optionGroupArgs struct {
 	NamePrefix *string `pulumi:"namePrefix"`
 	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription *string `pulumi:"optionGroupDescription"`
-	// The options to apply. See `option` Block below for more details.
+	// Options to apply. See `option` Block below for more details.
 	Options []OptionGroupOption `pulumi:"options"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -230,9 +230,9 @@ type optionGroupArgs struct {
 
 // The set of arguments for constructing a OptionGroup resource.
 type OptionGroupArgs struct {
-	// Specifies the name of the engine that this option group should be associated with.
+	// Name of the engine that this option group should be associated with.
 	EngineName pulumi.StringInput
-	// Specifies the major version of the engine that this option group should be associated with.
+	// Major version of the engine that this option group should be associated with.
 	MajorEngineVersion pulumi.StringInput
 	// Name of the option group. If omitted, the provider will assign a random, unique name. Must be lowercase, to match as it is stored in AWS.
 	Name pulumi.StringPtrInput
@@ -240,7 +240,7 @@ type OptionGroupArgs struct {
 	NamePrefix pulumi.StringPtrInput
 	// Description of the option group. Defaults to "Managed by Pulumi".
 	OptionGroupDescription pulumi.StringPtrInput
-	// The options to apply. See `option` Block below for more details.
+	// Options to apply. See `option` Block below for more details.
 	Options OptionGroupOptionArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -342,12 +342,12 @@ func (o OptionGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Specifies the name of the engine that this option group should be associated with.
+// Name of the engine that this option group should be associated with.
 func (o OptionGroupOutput) EngineName() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.EngineName }).(pulumi.StringOutput)
 }
 
-// Specifies the major version of the engine that this option group should be associated with.
+// Major version of the engine that this option group should be associated with.
 func (o OptionGroupOutput) MajorEngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.MajorEngineVersion }).(pulumi.StringOutput)
 }
@@ -367,7 +367,7 @@ func (o OptionGroupOutput) OptionGroupDescription() pulumi.StringOutput {
 	return o.ApplyT(func(v *OptionGroup) pulumi.StringOutput { return v.OptionGroupDescription }).(pulumi.StringOutput)
 }
 
-// The options to apply. See `option` Block below for more details.
+// Options to apply. See `option` Block below for more details.
 func (o OptionGroupOutput) Options() OptionGroupOptionArrayOutput {
 	return o.ApplyT(func(v *OptionGroup) OptionGroupOptionArrayOutput { return v.Options }).(OptionGroupOptionArrayOutput)
 }

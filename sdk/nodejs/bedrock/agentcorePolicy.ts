@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcorePolicy("example", {
- *     name: "example_policy",
- *     policyEngineId: exampleAwsBedrockagentcorePolicyEngine.policyEngineId,
- *     description: "Allow read access to example resources",
  *     definition: {
  *         cedar: {
  *             statement: "permit(principal, action == Action::\\\"Read\\\", resource);\n",
  *         },
  *     },
+ *     name: "example_policy",
+ *     policyEngineId: exampleAwsBedrockagentcorePolicyEngine.policyEngineId,
+ *     description: "Allow read access to example resources",
  * });
  * ```
  *

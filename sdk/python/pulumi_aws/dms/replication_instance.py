@@ -53,7 +53,7 @@ class ReplicationInstanceArgs:
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs'] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -224,7 +224,7 @@ class ReplicationInstanceArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -366,13 +366,13 @@ class _ReplicationInstanceState:
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input['ReplicationInstanceKerberosAuthenticationSettingsArgs'] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[_builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
+        :param pulumi.Input[_builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[_builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[_builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
@@ -529,7 +529,7 @@ class _ReplicationInstanceState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -601,7 +601,7 @@ class _ReplicationInstanceState:
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the replication instance.
+        ARN of the replication instance.
         """
         return pulumi.get(self, "replication_instance_arn")
 
@@ -750,11 +750,11 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "identifiers": ["dms.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
@@ -818,7 +818,7 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
@@ -854,11 +854,11 @@ class ReplicationInstance(pulumi.CustomResource):
         #  * dms-cloudwatch-logs-role
         #  * dms-access-for-endpoint
         dms_assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "identifiers": ["dms.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         dms_access_for_endpoint = aws.iam.Role("dms-access-for-endpoint",
             assume_role_policy=dms_assume_role.json,
@@ -1030,13 +1030,13 @@ class ReplicationInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dns_name_servers: A list of custom DNS name servers supported for the replication instance to access your on-premise source or target database. This list overrides the default name servers supported by the replication instance. You can specify a comma-separated list of internet addresses for up to four on-premise DNS name servers.
         :param pulumi.Input[_builtins.str] engine_version: The engine version number of the replication instance.
         :param pulumi.Input[Union['ReplicationInstanceKerberosAuthenticationSettingsArgs', 'ReplicationInstanceKerberosAuthenticationSettingsArgsDict']] kerberos_authentication_settings: Configuration block for settings required for Kerberos authentication. See below.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         :param pulumi.Input[_builtins.bool] multi_az: Specifies if the replication instance is a multi-az deployment. You cannot set the `availability_zone` parameter if the `multi_az` parameter is set to `true`.
         :param pulumi.Input[_builtins.str] network_type: The type of IP address protocol used by a replication instance. Valid values: `IPV4`, `DUAL`.
         :param pulumi.Input[_builtins.str] preferred_maintenance_window: The weekly time range during which system maintenance can occur, in Universal Coordinated Time (UTC).
         :param pulumi.Input[_builtins.bool] publicly_accessible: Specifies the accessibility options for the replication instance. A value of true represents an instance with a public IP address. A value of false represents an instance with a private IP address.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] replication_instance_arn: The Amazon Resource Name (ARN) of the replication instance.
+        :param pulumi.Input[_builtins.str] replication_instance_arn: ARN of the replication instance.
         :param pulumi.Input[_builtins.str] replication_instance_class: The compute and memory capacity of the replication instance as specified by the replication instance class. See [AWS DMS User Guide](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_ReplicationInstance.Types.html) for available instance sizes and advice on which one to choose.
         :param pulumi.Input[_builtins.str] replication_instance_id: The replication instance identifier. This parameter is stored as a lowercase string.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] replication_instance_private_ips: A list of the private IP addresses of the replication instance.
@@ -1143,7 +1143,7 @@ class ReplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
+        ARN for the KMS key that will be used to encrypt the connection parameters. If you do not specify a value for `kms_key_arn`, then AWS DMS will use your default encryption key. AWS KMS creates the default encryption key for your AWS account. Your AWS account has a different default encryption key for each AWS region.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1191,7 +1191,7 @@ class ReplicationInstance(pulumi.CustomResource):
     @pulumi.getter(name="replicationInstanceArn")
     def replication_instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the replication instance.
+        ARN of the replication instance.
         """
         return pulumi.get(self, "replication_instance_arn")
 

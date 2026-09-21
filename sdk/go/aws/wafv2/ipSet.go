@@ -53,6 +53,19 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `id` (String) Unique identifier for the IP set.
+// * `name` (String) Name of the IP set.
+// * `scope` (String) Whether this is for a global (`CLOUDFRONT`) or regional (`REGIONAL`) application.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
 //
 // ```sh
@@ -63,7 +76,7 @@ type IpSet struct {
 
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayOutput `pulumi:"addresses"`
-	// The Amazon Resource Name (ARN) of the IP set.
+	// ARN of the IP set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -122,7 +135,7 @@ func GetIpSet(ctx *pulumi.Context,
 type ipSetState struct {
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses []string `pulumi:"addresses"`
-	// The Amazon Resource Name (ARN) of the IP set.
+	// ARN of the IP set.
 	Arn *string `pulumi:"arn"`
 	// A friendly description of the IP set.
 	Description *string `pulumi:"description"`
@@ -146,7 +159,7 @@ type ipSetState struct {
 type IpSetState struct {
 	// Contains an array of strings that specifies zero or more IP addresses or blocks of IP addresses. All addresses must be specified using Classless Inter-Domain Routing (CIDR) notation. WAF supports all IPv4 and IPv6 CIDR ranges except for `/0`.
 	Addresses pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) of the IP set.
+	// ARN of the IP set.
 	Arn pulumi.StringPtrInput
 	// A friendly description of the IP set.
 	Description pulumi.StringPtrInput
@@ -302,7 +315,7 @@ func (o IpSetOutput) Addresses() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringArrayOutput { return v.Addresses }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP set.
+// ARN of the IP set.
 func (o IpSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IpSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

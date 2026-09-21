@@ -16,14 +16,14 @@ public final class ApplicationDataSourceArgs extends com.pulumi.resources.Resour
     public static final ApplicationDataSourceArgs Empty = new ApplicationDataSourceArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+     * ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
      * 
      */
     @Import(name="dataSourceArn")
     private @Nullable Output<String> dataSourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+     * @return ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
      * 
      */
     public Optional<Output<String>> dataSourceArn() {
@@ -71,7 +71,7 @@ public final class ApplicationDataSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataSourceArn The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+         * @param dataSourceArn ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ApplicationDataSourceArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param dataSourceArn The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+         * @param dataSourceArn ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
          * 
          * @return builder
          * 

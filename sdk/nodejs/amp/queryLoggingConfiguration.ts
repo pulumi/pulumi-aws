@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * const example = new aws.amp.Workspace("example", {alias: "example"});
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/aws/prometheus/query-logs/example"});
  * const exampleQueryLoggingConfiguration = new aws.amp.QueryLoggingConfiguration("example", {
- *     workspaceId: example.id,
  *     destinations: [{
  *         cloudwatchLogs: {
  *             logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             qspThreshold: 1000,
  *         },
  *     }],
+ *     workspaceId: example.id,
  * });
  * ```
  */

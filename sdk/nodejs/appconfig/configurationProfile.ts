@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appconfig.ConfigurationProfile("example", {
- *     applicationId: exampleAwsAppconfigApplication.id,
- *     description: "Example Configuration Profile",
- *     name: "example-configuration-profile-tf",
- *     locationUri: "hosted",
  *     validators: [{
  *         content: exampleAwsLambdaFunction.arn,
  *         type: "LAMBDA",
  *     }],
+ *     applicationId: exampleAwsAppconfigApplication.id,
+ *     description: "Example Configuration Profile",
+ *     name: "example-configuration-profile-tf",
+ *     locationUri: "hosted",
  *     tags: {
  *         Type: "AppConfig Configuration Profile",
  *     },
@@ -84,7 +84,7 @@ export class ConfigurationProfile extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -194,7 +194,7 @@ export interface ConfigurationProfileState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -244,7 +244,7 @@ export interface ConfigurationProfileArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+     * Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**

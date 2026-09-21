@@ -63,9 +63,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var foo = new Aws.Ec2.VpcPeeringConnection("foo", new()
     ///     {
-    ///         PeerOwnerId = peerOwnerId,
-    ///         PeerVpcId = bar.Id,
-    ///         VpcId = fooAwsVpc.Id,
     ///         Accepter = new Aws.Ec2.Inputs.VpcPeeringConnectionAccepterArgs
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
@@ -74,6 +71,9 @@ namespace Pulumi.Aws.Ec2
     ///         {
     ///             AllowRemoteVpcDnsResolution = true,
     ///         },
+    ///         PeerOwnerId = peerOwnerId,
+    ///         PeerVpcId = bar.Id,
+    ///         VpcId = fooAwsVpc.Id,
     ///     });
     /// 
     /// });

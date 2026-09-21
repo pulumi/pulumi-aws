@@ -28,10 +28,16 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<string>? SourceKafkaClusterAlias { get; set; }
 
         /// <summary>
-        /// The ARN of the source Kafka cluster.
+        /// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
-        [Input("sourceKafkaClusterArn", required: true)]
-        public Input<string> SourceKafkaClusterArn { get; set; } = null!;
+        [Input("sourceKafkaClusterArn")]
+        public Input<string>? SourceKafkaClusterArn { get; set; }
+
+        /// <summary>
+        /// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// </summary>
+        [Input("sourceKafkaClusterId")]
+        public Input<string>? SourceKafkaClusterId { get; set; }
 
         /// <summary>
         /// The type of compression to use writing records to target Kafka cluster.
@@ -43,10 +49,16 @@ namespace Pulumi.Aws.Msk.Inputs
         public Input<string>? TargetKafkaClusterAlias { get; set; }
 
         /// <summary>
-        /// The ARN of the target Kafka cluster.
+        /// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
-        [Input("targetKafkaClusterArn", required: true)]
-        public Input<string> TargetKafkaClusterArn { get; set; } = null!;
+        [Input("targetKafkaClusterArn")]
+        public Input<string>? TargetKafkaClusterArn { get; set; }
+
+        /// <summary>
+        /// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// </summary>
+        [Input("targetKafkaClusterId")]
+        public Input<string>? TargetKafkaClusterId { get; set; }
 
         [Input("topicReplications", required: true)]
         private InputList<Inputs.ReplicatorReplicationInfoListTopicReplicationArgs>? _topicReplications;

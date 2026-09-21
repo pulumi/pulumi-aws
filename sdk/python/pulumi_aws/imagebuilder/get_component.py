@@ -133,7 +133,7 @@ class GetComponentResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        ARN of the Key Management Service (KMS) Key used to encrypt the component.
+        ARN of the KMS Key used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 

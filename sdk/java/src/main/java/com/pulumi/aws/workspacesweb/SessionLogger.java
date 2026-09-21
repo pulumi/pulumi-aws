@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("workspaces-web.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("s3:PutObject")
  *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
@@ -82,7 +82,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
- *             .displayName("example-session-logger")
  *             .eventFilter(SessionLoggerEventFilterArgs.builder()
  *                 .all(SessionLoggerEventFilterAllArgs.builder()
  *                     .build())
@@ -94,6 +93,7 @@ import javax.annotation.Nullable;
  *                     .logFileFormat("Json")
  *                     .build())
  *                 .build())
+ *             .displayName("example-session-logger")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketPolicy)
  *                 .build());
@@ -151,11 +151,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("workspaces-web.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("s3:PutObject")
  *                 .resources(                
  *                     exampleBucket.arn(),
@@ -204,12 +204,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
- *             .displayName("example-session-logger")
- *             .customerManagedKey(exampleKey.arn())
- *             .additionalEncryptionContext(Map.ofEntries(
- *                 Map.entry("Environment", "Production"),
- *                 Map.entry("Application", "WorkSpacesWeb")
- *             ))
  *             .eventFilter(SessionLoggerEventFilterArgs.builder()
  *                 .includes(                
  *                     "SessionStart",
@@ -224,6 +218,12 @@ import javax.annotation.Nullable;
  *                     .logFileFormat("JsonLines")
  *                     .build())
  *                 .build())
+ *             .displayName("example-session-logger")
+ *             .customerManagedKey(exampleKey.arn())
+ *             .additionalEncryptionContext(Map.ofEntries(
+ *                 Map.entry("Environment", "Production"),
+ *                 Map.entry("Application", "WorkSpacesWeb")
+ *             ))
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example-session-logger"),
  *                 Map.entry("Environment", "Production")

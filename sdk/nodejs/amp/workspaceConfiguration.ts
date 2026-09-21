@@ -20,26 +20,26 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.amp.Workspace("example", {});
  * const exampleWorkspaceConfiguration = new aws.amp.WorkspaceConfiguration("example", {
- *     workspaceId: example.id,
- *     retentionPeriodInDays: 60,
  *     limitsPerLabelSets: [
  *         {
- *             labelSet: {
- *                 env: "dev",
- *             },
  *             limits: {
  *                 maxSeries: 100000,
  *             },
+ *             labelSet: {
+ *                 env: "dev",
+ *             },
  *         },
  *         {
- *             labelSet: {
- *                 env: "prod",
- *             },
  *             limits: {
  *                 maxSeries: 400000,
  *             },
+ *             labelSet: {
+ *                 env: "prod",
+ *             },
  *         },
  *     ],
+ *     workspaceId: example.id,
+ *     retentionPeriodInDays: 60,
  * });
  * ```
  *
@@ -55,13 +55,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.amp.Workspace("example", {});
  * const exampleWorkspaceConfiguration = new aws.amp.WorkspaceConfiguration("example", {
- *     workspaceId: example.id,
  *     limitsPerLabelSets: [{
- *         labelSet: {},
  *         limits: {
  *             maxSeries: 50000,
  *         },
+ *         labelSet: {},
  *     }],
+ *     workspaceId: example.id,
  * });
  * ```
  *

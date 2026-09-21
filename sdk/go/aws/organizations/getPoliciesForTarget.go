@@ -45,12 +45,8 @@ type GetPoliciesForTargetResult struct {
 }
 
 func GetPoliciesForTargetOutput(ctx *pulumi.Context, args GetPoliciesForTargetOutputArgs, opts ...pulumi.InvokeOption) GetPoliciesForTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPoliciesForTargetResultOutput, error) {
-			args := v.(GetPoliciesForTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, GetPoliciesForTargetResultOutput{}, options).(GetPoliciesForTargetResultOutput), nil
-		}).(GetPoliciesForTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getPoliciesForTarget:getPoliciesForTarget", args, GetPoliciesForTargetResultOutput{}, options).(GetPoliciesForTargetResultOutput)
 }
 
 // A collection of arguments for invoking getPoliciesForTarget.

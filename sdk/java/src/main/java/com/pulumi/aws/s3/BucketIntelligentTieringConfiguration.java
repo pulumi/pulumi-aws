@@ -56,8 +56,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_entire_bucket = new BucketIntelligentTieringConfiguration("example-entire-bucket", BucketIntelligentTieringConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("EntireBucket")
  *             .tierings(            
  *                 BucketIntelligentTieringConfigurationTieringArgs.builder()
  *                     .accessTier("DEEP_ARCHIVE_ACCESS")
@@ -67,6 +65,8 @@ import javax.annotation.Nullable;
  *                     .accessTier("ARCHIVE_ACCESS")
  *                     .days(125)
  *                     .build())
+ *             .bucket(example.id())
+ *             .name("EntireBucket")
  *             .build());
  * 
  *     }
@@ -107,9 +107,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_filtered = new BucketIntelligentTieringConfiguration("example-filtered", BucketIntelligentTieringConfigurationArgs.builder()
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
- *             .status("Disabled")
  *             .filter(BucketIntelligentTieringConfigurationFilterArgs.builder()
  *                 .prefix("documents/")
  *                 .tags(Map.ofEntries(
@@ -121,6 +118,9 @@ import javax.annotation.Nullable;
  *                 .accessTier("ARCHIVE_ACCESS")
  *                 .days(125)
  *                 .build())
+ *             .bucket(example.id())
+ *             .name("ImportantBlueDocuments")
+ *             .status("Disabled")
  *             .build());
  * 
  *     }

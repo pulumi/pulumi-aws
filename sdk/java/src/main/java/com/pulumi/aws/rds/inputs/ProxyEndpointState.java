@@ -19,14 +19,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     public static final ProxyEndpointState Empty = new ProxyEndpointState();
 
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the proxy endpoint.
+     * @return ARN for the proxy endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     @Import(name="dbProxyEndpointName")
     private @Nullable Output<String> dbProxyEndpointName;
 
     /**
-     * @return The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+     * @return Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
      * 
      */
     public Optional<Output<String>> dbProxyEndpointName() {
@@ -49,14 +49,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * Name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
     @Import(name="dbProxyName")
     private @Nullable Output<String> dbProxyName;
 
     /**
-     * @return The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * @return Name of the DB proxy associated with the DB proxy endpoint that you create.
      * 
      */
     public Optional<Output<String>> dbProxyName() {
@@ -64,14 +64,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * @return Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -79,14 +79,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * Whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
     @Import(name="isDefault")
     private @Nullable Output<Boolean> isDefault;
 
     /**
-     * @return Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * @return Whether this endpoint is the default endpoint for the associated DB proxy.
      * 
      */
     public Optional<Output<Boolean>> isDefault() {
@@ -109,14 +109,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource.
+     * @return Map of tags to assign to the resource.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,14 +131,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
     @Import(name="targetRole")
     private @Nullable Output<String> targetRole;
 
     /**
-     * @return Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * @return Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      * 
      */
     public Optional<Output<String>> targetRole() {
@@ -146,14 +146,14 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The VPC ID of the DB proxy endpoint.
+     * VPC ID of the DB proxy endpoint.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC ID of the DB proxy endpoint.
+     * @return VPC ID of the DB proxy endpoint.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -226,7 +226,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
+         * @param arn ARN for the proxy endpoint.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the proxy endpoint.
+         * @param arn ARN for the proxy endpoint.
          * 
          * @return builder
          * 
@@ -247,7 +247,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbProxyEndpointName The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+         * @param dbProxyEndpointName Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
          * 
          * @return builder
          * 
@@ -258,7 +258,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbProxyEndpointName The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
+         * @param dbProxyEndpointName Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can&#39;t end with a hyphen or contain two consecutive hyphens.
          * 
          * @return builder
          * 
@@ -268,7 +268,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbProxyName The name of the DB proxy associated with the DB proxy endpoint that you create.
+         * @param dbProxyName Name of the DB proxy associated with the DB proxy endpoint that you create.
          * 
          * @return builder
          * 
@@ -279,7 +279,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param dbProxyName The name of the DB proxy associated with the DB proxy endpoint that you create.
+         * @param dbProxyName Name of the DB proxy associated with the DB proxy endpoint that you create.
          * 
          * @return builder
          * 
@@ -289,7 +289,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+         * @param endpoint Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param endpoint The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+         * @param endpoint Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
          * 
          * @return builder
          * 
@@ -310,7 +310,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isDefault Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+         * @param isDefault Whether this endpoint is the default endpoint for the associated DB proxy.
          * 
          * @return builder
          * 
@@ -321,7 +321,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param isDefault Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+         * @param isDefault Whether this endpoint is the default endpoint for the associated DB proxy.
          * 
          * @return builder
          * 
@@ -352,7 +352,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags Map of tags to assign to the resource.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A mapping of tags to assign to the resource.
+         * @param tags Map of tags to assign to the resource.
          * 
          * @return builder
          * 
@@ -382,7 +382,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param targetRole Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+         * @param targetRole Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
          * 
          * @return builder
          * 
@@ -393,7 +393,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param targetRole Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+         * @param targetRole Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
          * 
          * @return builder
          * 
@@ -403,7 +403,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vpcId The VPC ID of the DB proxy endpoint.
+         * @param vpcId VPC ID of the DB proxy endpoint.
          * 
          * @return builder
          * 
@@ -414,7 +414,7 @@ public final class ProxyEndpointState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param vpcId The VPC ID of the DB proxy endpoint.
+         * @param vpcId VPC ID of the DB proxy endpoint.
          * 
          * @return builder
          * 

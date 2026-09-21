@@ -34,17 +34,32 @@ namespace Pulumi.Aws.AutoScaling
     ///     });
     /// 
     ///     var exampleTag = new List&lt;Aws.AutoScaling.Tag&gt;();
-    ///     foreach (var range in )
+    ///     foreach (var range in Std.Flatten.Invoke(new()
+    ///     {
+    ///         Input = example.Resources.Apply(resources =&gt; resources.Select(resources =&gt; 
+    ///         {
+    ///             return resources.AutoscalingGroups;
+    ///         }).ToList()),
+    ///     }).Apply(invoke =&gt; .Select(asg =&gt; 
+    ///     {
+    ///         return asg.Name;
+    ///     }).ToList().ToDictionary(item =&gt; {
+    ///         var entry = item.Value;
+    ///         return entry;
+    ///     }, item =&gt; {
+    ///         var entry = item.Value;
+    ///         return entry;
+    ///     })).Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
     ///         exampleTag.Add(new Aws.AutoScaling.Tag($"example-{range.Key}", new()
     ///         {
-    ///             AutoscalingGroupName = range.Value,
     ///             TagDetails = new Aws.AutoScaling.Inputs.TagTagArgs
     ///             {
     ///                 Key = "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
     ///                 Value = "SPOT",
     ///                 PropagateAtLaunch = false,
     ///             },
+    ///             AutoscalingGroupName = range.Value,
     ///         }));
     ///     }
     /// });

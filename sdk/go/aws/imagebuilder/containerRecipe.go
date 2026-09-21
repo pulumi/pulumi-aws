@@ -29,17 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewContainerRecipe(ctx, "example", &imagebuilder.ContainerRecipeArgs{
-//				Name:          pulumi.String("example"),
-//				Version:       pulumi.String("1.0.0"),
-//				ContainerType: pulumi.String("DOCKER"),
-//				ParentImage:   pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				TargetRepository: &imagebuilder.ContainerRecipeTargetRepositoryArgs{
 //					RepositoryName: pulumi.Any(exampleAwsEcrRepository.Name),
 //					Service:        pulumi.String("ECR"),
 //				},
 //				Components: imagebuilder.ContainerRecipeComponentArray{
 //					&imagebuilder.ContainerRecipeComponentArgs{
-//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //						Parameters: imagebuilder.ContainerRecipeComponentParameterArray{
 //							&imagebuilder.ContainerRecipeComponentParameterArgs{
 //								Name:  pulumi.String("Parameter1"),
@@ -50,8 +45,13 @@ import (
 //								Value: pulumi.String("Value2"),
 //							},
 //						},
+//						ComponentArn: pulumi.Any(exampleAwsImagebuilderComponent.Arn),
 //					},
 //				},
+//				Name:                   pulumi.String("example"),
+//				Version:                pulumi.String("1.0.0"),
+//				ContainerType:          pulumi.String("DOCKER"),
+//				ParentImage:            pulumi.String("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x"),
 //				DockerfileTemplateData: pulumi.String("FROM {{{ imagebuilder:parentImage }}}\n{{{ imagebuilder:environments }}}\n{{{ imagebuilder:components }}}\n"),
 //			})
 //			if err != nil {
@@ -69,9 +69,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
+// - `arn` (String) ARN of the Image Builder container recipe.
 //
-// Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -79,7 +79,7 @@ import (
 type ContainerRecipe struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
+	// (Required) ARN of the container recipe.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Ordered configuration block(s) with components for the container recipe. Detailed below.
 	Components ContainerRecipeComponentArrayOutput `pulumi:"components"`
@@ -170,7 +170,7 @@ func GetContainerRecipe(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContainerRecipe resources.
 type containerRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
+	// (Required) ARN of the container recipe.
 	Arn *string `pulumi:"arn"`
 	// Ordered configuration block(s) with components for the container recipe. Detailed below.
 	Components []ContainerRecipeComponent `pulumi:"components"`
@@ -217,7 +217,7 @@ type containerRecipeState struct {
 }
 
 type ContainerRecipeState struct {
-	// (Required) Amazon Resource Name (ARN) of the container recipe.
+	// (Required) ARN of the container recipe.
 	Arn pulumi.StringPtrInput
 	// Ordered configuration block(s) with components for the container recipe. Detailed below.
 	Components ContainerRecipeComponentArrayInput
@@ -425,7 +425,7 @@ func (o ContainerRecipeOutput) ToContainerRecipeOutputWithContext(ctx context.Co
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the container recipe.
+// (Required) ARN of the container recipe.
 func (o ContainerRecipeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContainerRecipe) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

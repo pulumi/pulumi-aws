@@ -279,9 +279,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             })
         # Complete event invoke configuration
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            maximum_event_age_in_seconds=300,
-            maximum_retry_attempts=1,
             destination_config={
                 "on_failure": {
                     "destination": dlq.arn,
@@ -289,7 +286,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": success.arn,
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            maximum_event_age_in_seconds=300,
+            maximum_retry_attempts=1)
         ```
 
         ### Error Handling Only
@@ -316,15 +316,15 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             function_version=example_aws_lambda_function["version"])
         example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier=example.name,
-            maximum_event_age_in_seconds=1800,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": production_dlq["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example.name,
+            maximum_event_age_in_seconds=1800,
+            maximum_retry_attempts=2)
         ```
 
         ### Configuration for Published Version
@@ -334,10 +334,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier=example_aws_lambda_function["version"],
-            maximum_event_age_in_seconds=21600,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": version_dlq["arn"],
@@ -345,7 +341,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": version_success["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example_aws_lambda_function["version"],
+            maximum_event_age_in_seconds=21600,
+            maximum_retry_attempts=2)
         ```
 
         ### Configuration for Latest Version
@@ -355,15 +355,15 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier="$LATEST",
-            maximum_event_age_in_seconds=120,
-            maximum_retry_attempts=0,
             destination_config={
                 "on_failure": {
                     "destination": dev_dlq["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier="$LATEST",
+            maximum_event_age_in_seconds=120,
+            maximum_retry_attempts=0)
         ```
 
         ### Multiple Destination Types
@@ -377,7 +377,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # EventBridge custom bus for failed events
         lambda_failures = aws.cloudwatch.EventBus("lambda_failures", name="lambda-failure-events")
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
             destination_config={
                 "on_failure": {
                     "destination": lambda_failures.arn,
@@ -385,7 +384,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": lambda_success_archive.arn,
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"])
         ```
 
         ## Import
@@ -471,9 +471,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             })
         # Complete event invoke configuration
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            maximum_event_age_in_seconds=300,
-            maximum_retry_attempts=1,
             destination_config={
                 "on_failure": {
                     "destination": dlq.arn,
@@ -481,7 +478,10 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": success.arn,
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            maximum_event_age_in_seconds=300,
+            maximum_retry_attempts=1)
         ```
 
         ### Error Handling Only
@@ -508,15 +508,15 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             function_version=example_aws_lambda_function["version"])
         example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier=example.name,
-            maximum_event_age_in_seconds=1800,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": production_dlq["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example.name,
+            maximum_event_age_in_seconds=1800,
+            maximum_retry_attempts=2)
         ```
 
         ### Configuration for Published Version
@@ -526,10 +526,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier=example_aws_lambda_function["version"],
-            maximum_event_age_in_seconds=21600,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": version_dlq["arn"],
@@ -537,7 +533,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": version_success["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier=example_aws_lambda_function["version"],
+            maximum_event_age_in_seconds=21600,
+            maximum_retry_attempts=2)
         ```
 
         ### Configuration for Latest Version
@@ -547,15 +547,15 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier="$LATEST",
-            maximum_event_age_in_seconds=120,
-            maximum_retry_attempts=0,
             destination_config={
                 "on_failure": {
                     "destination": dev_dlq["arn"],
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier="$LATEST",
+            maximum_event_age_in_seconds=120,
+            maximum_retry_attempts=0)
         ```
 
         ### Multiple Destination Types
@@ -569,7 +569,6 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         # EventBridge custom bus for failed events
         lambda_failures = aws.cloudwatch.EventBus("lambda_failures", name="lambda-failure-events")
         example = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example_aws_lambda_function["functionName"],
             destination_config={
                 "on_failure": {
                     "destination": lambda_failures.arn,
@@ -577,7 +576,8 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 "on_success": {
                     "destination": lambda_success_archive.arn,
                 },
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"])
         ```
 
         ## Import

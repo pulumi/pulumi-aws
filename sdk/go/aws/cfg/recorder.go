@@ -36,7 +36,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -45,6 +44,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -89,10 +89,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
-//					AllSupported: pulumi.Bool(false),
 //					ExclusionByResourceTypes: cfg.RecorderRecordingGroupExclusionByResourceTypeArray{
 //						&cfg.RecorderRecordingGroupExclusionByResourceTypeArgs{
 //							ResourceTypes: pulumi.StringArray{
@@ -105,7 +102,10 @@ import (
 //							UseOnly: pulumi.String("EXCLUSION_BY_RESOURCE_TYPES"),
 //						},
 //					},
+//					AllSupported: pulumi.Bool(false),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -131,8 +131,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRecorder(ctx, "foo", &cfg.RecorderArgs{
-//				Name:    pulumi.String("example"),
-//				RoleArn: pulumi.Any(r.Arn),
 //				RecordingGroup: &cfg.RecorderRecordingGroupArgs{
 //					AllSupported:               pulumi.Bool(false),
 //					IncludeGlobalResourceTypes: pulumi.Bool(false),
@@ -142,7 +140,6 @@ import (
 //					},
 //				},
 //				RecordingMode: &cfg.RecorderRecordingModeArgs{
-//					RecordingFrequency: pulumi.String("CONTINUOUS"),
 //					RecordingModeOverride: &cfg.RecorderRecordingModeRecordingModeOverrideArgs{
 //						Description: pulumi.String("Only record EC2 network interfaces daily"),
 //						ResourceTypes: pulumi.StringArray{
@@ -150,7 +147,10 @@ import (
 //						},
 //						RecordingFrequency: pulumi.String("DAILY"),
 //					},
+//					RecordingFrequency: pulumi.String("CONTINUOUS"),
 //				},
+//				Name:    pulumi.String("example"),
+//				RoleArn: pulumi.Any(r.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -190,7 +190,7 @@ type Recorder struct {
 	RecordingMode RecorderRecordingModeOutput `pulumi:"recordingMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 }
 
@@ -235,7 +235,7 @@ type recorderState struct {
 	RecordingMode *RecorderRecordingMode `pulumi:"recordingMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn *string `pulumi:"roleArn"`
 }
 
@@ -248,7 +248,7 @@ type RecorderState struct {
 	RecordingMode RecorderRecordingModePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringPtrInput
 }
 
@@ -265,7 +265,7 @@ type recorderArgs struct {
 	RecordingMode *RecorderRecordingMode `pulumi:"recordingMode"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -279,7 +279,7 @@ type RecorderArgs struct {
 	RecordingMode RecorderRecordingModePtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+	// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 	RoleArn pulumi.StringInput
 }
 
@@ -390,7 +390,7 @@ func (o RecorderOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Recorder) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
 func (o RecorderOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Recorder) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

@@ -20,13 +20,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.emrcontainers.VirtualCluster("example", {
  *     containerProvider: {
- *         id: exampleAwsEksCluster.name,
- *         type: "EKS",
  *         info: {
  *             eksInfo: {
  *                 namespace: "default",
  *             },
  *         },
+ *         id: exampleAwsEksCluster.name,
+ *         type: "EKS",
  *     },
  *     name: "example",
  * });

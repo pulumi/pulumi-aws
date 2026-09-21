@@ -96,6 +96,21 @@ public final class IngressPointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    @Import(name="statusToUpdate")
+    private @Nullable Output<String> statusToUpdate;
+
+    /**
+     * @return Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    public Optional<Output<String>> statusToUpdate() {
+        return Optional.ofNullable(this.statusToUpdate);
+    }
+
+    /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
@@ -174,6 +189,7 @@ public final class IngressPointArgs extends com.pulumi.resources.ResourceArgs {
         this.networkConfiguration = $.networkConfiguration;
         this.region = $.region;
         this.ruleSetId = $.ruleSetId;
+        this.statusToUpdate = $.statusToUpdate;
         this.tags = $.tags;
         this.timeouts = $.timeouts;
         this.tlsPolicy = $.tlsPolicy;
@@ -302,6 +318,27 @@ public final class IngressPointArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder ruleSetId(String ruleSetId) {
             return ruleSetId(Output.of(ruleSetId));
+        }
+
+        /**
+         * @param statusToUpdate Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusToUpdate(@Nullable Output<String> statusToUpdate) {
+            $.statusToUpdate = statusToUpdate;
+            return this;
+        }
+
+        /**
+         * @param statusToUpdate Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder statusToUpdate(String statusToUpdate) {
+            return statusToUpdate(Output.of(statusToUpdate));
         }
 
         /**

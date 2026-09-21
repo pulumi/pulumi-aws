@@ -233,7 +233,7 @@ type EventArchive struct {
 	EventPattern pulumi.StringPtrOutput `pulumi:"eventPattern"`
 	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 	EventSourceArn pulumi.StringOutput `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrOutput `pulumi:"kmsKeyIdentifier"`
 	// Name of the archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -284,7 +284,7 @@ type eventArchiveState struct {
 	EventPattern *string `pulumi:"eventPattern"`
 	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 	EventSourceArn *string `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the archive. The archive name cannot exceed 48 characters.
 	Name *string `pulumi:"name"`
@@ -303,7 +303,7 @@ type EventArchiveState struct {
 	EventPattern pulumi.StringPtrInput
 	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 	EventSourceArn pulumi.StringPtrInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringPtrInput
@@ -324,7 +324,7 @@ type eventArchiveArgs struct {
 	EventPattern *string `pulumi:"eventPattern"`
 	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 	EventSourceArn string `pulumi:"eventSourceArn"`
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier *string `pulumi:"kmsKeyIdentifier"`
 	// Name of the archive. The archive name cannot exceed 48 characters.
 	Name *string `pulumi:"name"`
@@ -342,7 +342,7 @@ type EventArchiveArgs struct {
 	EventPattern pulumi.StringPtrInput
 	// ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
 	EventSourceArn pulumi.StringInput
-	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+	// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 	KmsKeyIdentifier pulumi.StringPtrInput
 	// Name of the archive. The archive name cannot exceed 48 characters.
 	Name pulumi.StringPtrInput
@@ -459,7 +459,7 @@ func (o EventArchiveOutput) EventSourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringOutput { return v.EventSourceArn }).(pulumi.StringOutput)
 }
 
-// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
 func (o EventArchiveOutput) KmsKeyIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventArchive) pulumi.StringPtrOutput { return v.KmsKeyIdentifier }).(pulumi.StringPtrOutput)
 }

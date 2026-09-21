@@ -80,12 +80,8 @@ type LookupDistributionConfigurationResult struct {
 }
 
 func LookupDistributionConfigurationOutput(ctx *pulumi.Context, args LookupDistributionConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupDistributionConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDistributionConfigurationResultOutput, error) {
-			args := v.(LookupDistributionConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, LookupDistributionConfigurationResultOutput{}, options).(LookupDistributionConfigurationResultOutput), nil
-		}).(LookupDistributionConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getDistributionConfiguration:getDistributionConfiguration", args, LookupDistributionConfigurationResultOutput{}, options).(LookupDistributionConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getDistributionConfiguration.

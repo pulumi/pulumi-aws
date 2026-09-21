@@ -34,6 +34,12 @@ namespace Pulumi.Aws.BedrockFoundation
     ///     {
     ///         ModelId = example.Apply(getModelAgreementOffersResult =&gt; getModelAgreementOffersResult.ModelId),
     ///         OfferToken = example.Apply(getModelAgreementOffersResult =&gt; getModelAgreementOffersResult.Offers[0]?.OfferToken),
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "offerToken",
+    ///         },
     ///     });
     /// 
     /// });

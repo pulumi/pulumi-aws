@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetGlobalClusterMember {
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
+     * @return ARN of member DB Cluster
      * 
      */
     private String dbClusterArn;
@@ -24,7 +24,7 @@ public final class GetGlobalClusterMember {
 
     private GetGlobalClusterMember() {}
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster
+     * @return ARN of member DB Cluster
      * 
      */
     public String dbClusterArn() {

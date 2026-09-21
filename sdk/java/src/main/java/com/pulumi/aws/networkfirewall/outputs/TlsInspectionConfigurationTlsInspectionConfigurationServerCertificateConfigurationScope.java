@@ -27,7 +27,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
      */
     private List<TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination> destinations;
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
      */
     private List<Integer> protocols;
@@ -58,7 +58,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         return this.destinations;
     }
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
      */
     public List<Integer> protocols() {

@@ -743,22 +743,7 @@ class MultitenantDistribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.MultitenantDistribution("example",
-            comment="Multi-tenant distribution for my application",
-            enabled=True,
-            origins=[{
-                "domain_name": "example.com",
-                "id": "example-origin",
-                "custom_origin_configs": [{
-                    "http_port": 80,
-                    "https_port": 443,
-                    "origin_protocol_policy": "https-only",
-                    "origin_ssl_protocols": ["TLSv1.2"],
-                }],
-            }],
             default_cache_behavior={
-                "target_origin_id": "example-origin",
-                "viewer_protocol_policy": "redirect-to-https",
-                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
                 "allowed_methods": {
                     "items": [
                         "DELETE",
@@ -774,6 +759,9 @@ class MultitenantDistribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                 },
+                "target_origin_id": "example-origin",
+                "viewer_protocol_policy": "redirect-to-https",
+                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
             },
             restrictions={
                 "geo_restriction": {
@@ -786,15 +774,27 @@ class MultitenantDistribution(pulumi.CustomResource):
             },
             tenant_config={
                 "parameter_definitions": [{
-                    "name": "origin_domain",
                     "definitions": [{
                         "string_schemas": [{
                             "required": True,
                             "comment": "Origin domain parameter for tenants",
                         }],
                     }],
+                    "name": "origin_domain",
                 }],
             },
+            origins=[{
+                "custom_origin_configs": [{
+                    "http_port": 80,
+                    "https_port": 443,
+                    "origin_protocol_policy": "https-only",
+                    "origin_ssl_protocols": ["TLSv1.2"],
+                }],
+                "domain_name": "example.com",
+                "id": "example-origin",
+            }],
+            comment="Multi-tenant distribution for my application",
+            enabled=True,
             tags={
                 "Environment": "production",
             })
@@ -874,22 +874,7 @@ class MultitenantDistribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.MultitenantDistribution("example",
-            comment="Multi-tenant distribution for my application",
-            enabled=True,
-            origins=[{
-                "domain_name": "example.com",
-                "id": "example-origin",
-                "custom_origin_configs": [{
-                    "http_port": 80,
-                    "https_port": 443,
-                    "origin_protocol_policy": "https-only",
-                    "origin_ssl_protocols": ["TLSv1.2"],
-                }],
-            }],
             default_cache_behavior={
-                "target_origin_id": "example-origin",
-                "viewer_protocol_policy": "redirect-to-https",
-                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
                 "allowed_methods": {
                     "items": [
                         "DELETE",
@@ -905,6 +890,9 @@ class MultitenantDistribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                 },
+                "target_origin_id": "example-origin",
+                "viewer_protocol_policy": "redirect-to-https",
+                "cache_policy_id": example_aws_cloudfront_cache_policy["id"],
             },
             restrictions={
                 "geo_restriction": {
@@ -917,15 +905,27 @@ class MultitenantDistribution(pulumi.CustomResource):
             },
             tenant_config={
                 "parameter_definitions": [{
-                    "name": "origin_domain",
                     "definitions": [{
                         "string_schemas": [{
                             "required": True,
                             "comment": "Origin domain parameter for tenants",
                         }],
                     }],
+                    "name": "origin_domain",
                 }],
             },
+            origins=[{
+                "custom_origin_configs": [{
+                    "http_port": 80,
+                    "https_port": 443,
+                    "origin_protocol_policy": "https-only",
+                    "origin_ssl_protocols": ["TLSv1.2"],
+                }],
+                "domain_name": "example.com",
+                "id": "example-origin",
+            }],
+            comment="Multi-tenant distribution for my application",
+            enabled=True,
             tags={
                 "Environment": "production",
             })

@@ -1315,7 +1315,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgsDict(TypedDict)
     target: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     target_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+    Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
     """
 
 @pulumi.input_type
@@ -1329,7 +1329,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
                  target: pulumi.Input[Optional[_builtins.str]] = None,
                  target_region: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] target_region: Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        :param pulumi.Input[_builtins.str] target_region: Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
         """
         pulumi.set(__self__, "encrypted", encrypted)
         if cmk_arn is not None:
@@ -1403,7 +1403,7 @@ class LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleArgs:
     @pulumi.getter(name="targetRegion")
     def target_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
         """
         return pulumi.get(self, "target_region")
 

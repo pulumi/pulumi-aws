@@ -58,7 +58,7 @@ type GetAccessPointsArgs struct {
 
 // A collection of values returned by getAccessPoints.
 type GetAccessPointsResult struct {
-	// Set of Amazon Resource Names (ARNs).
+	// Set of ARNs.
 	Arns         []string `pulumi:"arns"`
 	FileSystemId string   `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -69,12 +69,8 @@ type GetAccessPointsResult struct {
 }
 
 func GetAccessPointsOutput(ctx *pulumi.Context, args GetAccessPointsOutputArgs, opts ...pulumi.InvokeOption) GetAccessPointsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccessPointsResultOutput, error) {
-			args := v.(GetAccessPointsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:efs/getAccessPoints:getAccessPoints", args, GetAccessPointsResultOutput{}, options).(GetAccessPointsResultOutput), nil
-		}).(GetAccessPointsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:efs/getAccessPoints:getAccessPoints", args, GetAccessPointsResultOutput{}, options).(GetAccessPointsResultOutput)
 }
 
 // A collection of arguments for invoking getAccessPoints.
@@ -104,7 +100,7 @@ func (o GetAccessPointsResultOutput) ToGetAccessPointsResultOutputWithContext(ct
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
+// Set of ARNs.
 func (o GetAccessPointsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessPointsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

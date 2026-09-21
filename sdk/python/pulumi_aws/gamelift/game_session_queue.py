@@ -349,12 +349,6 @@ class GameSessionQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.gamelift.GameSessionQueue("test",
-            name="example-session-queue",
-            destinations=[
-                us_west2_fleet["arn"],
-                eu_central1_fleet["arn"],
-            ],
-            notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 {
                     "maximum_individual_player_latency_milliseconds": 100,
@@ -364,6 +358,12 @@ class GameSessionQueue(pulumi.CustomResource):
                     "maximum_individual_player_latency_milliseconds": 200,
                 },
             ],
+            name="example-session-queue",
+            destinations=[
+                us_west2_fleet["arn"],
+                eu_central1_fleet["arn"],
+            ],
+            notification_target=game_session_queue_notifications["arn"],
             timeout_in_seconds=60)
         ```
 
@@ -403,12 +403,6 @@ class GameSessionQueue(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.gamelift.GameSessionQueue("test",
-            name="example-session-queue",
-            destinations=[
-                us_west2_fleet["arn"],
-                eu_central1_fleet["arn"],
-            ],
-            notification_target=game_session_queue_notifications["arn"],
             player_latency_policies=[
                 {
                     "maximum_individual_player_latency_milliseconds": 100,
@@ -418,6 +412,12 @@ class GameSessionQueue(pulumi.CustomResource):
                     "maximum_individual_player_latency_milliseconds": 200,
                 },
             ],
+            name="example-session-queue",
+            destinations=[
+                us_west2_fleet["arn"],
+                eu_central1_fleet["arn"],
+            ],
+            notification_target=game_session_queue_notifications["arn"],
             timeout_in_seconds=60)
         ```
 

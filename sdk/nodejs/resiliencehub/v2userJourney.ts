@@ -32,10 +32,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.resiliencehub.V2System("example", {name: "example-system"});
  * const exampleV2Policy = new aws.resiliencehub.V2Policy("example", {
- *     name: "example-policy",
  *     availabilitySlo: {
  *         target: 99.9,
  *     },
+ *     name: "example-policy",
  * });
  * const exampleV2UserJourney = new aws.resiliencehub.V2UserJourney("example", {
  *     systemArn: example.arn,

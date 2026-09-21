@@ -117,7 +117,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly carrierGatewayId: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      */
     declare public readonly coreNetworkArn: pulumi.Output<string | undefined>;
     /**
@@ -163,7 +163,7 @@ export class Route extends pulumi.CustomResource {
      */
     declare public readonly networkInterfaceId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an ODB network.
+     * ARN of an ODB network.
      */
     declare public readonly odbNetworkArn: pulumi.Output<string | undefined>;
     /**
@@ -272,7 +272,7 @@ export interface RouteState {
      */
     carrierGatewayId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      */
     coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
@@ -318,7 +318,7 @@ export interface RouteState {
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an ODB network.
+     * ARN of an ODB network.
      */
     odbNetworkArn?: pulumi.Input<string | undefined>;
     /**
@@ -364,7 +364,7 @@ export interface RouteArgs {
      */
     carrierGatewayId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      */
     coreNetworkArn?: pulumi.Input<string | undefined>;
     /**
@@ -402,7 +402,7 @@ export interface RouteArgs {
      */
     networkInterfaceId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an ODB network.
+     * ARN of an ODB network.
      */
     odbNetworkArn?: pulumi.Input<string | undefined>;
     /**

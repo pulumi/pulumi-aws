@@ -23,14 +23,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     public static final WorkgroupState Empty = new WorkgroupState();
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * ARN of the Redshift Serverless Workgroup.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+     * @return ARN of the Redshift Serverless Workgroup.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -83,14 +83,14 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     @Import(name="enhancedVpcRouting")
     private @Nullable Output<Boolean> enhancedVpcRouting;
 
     /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * @return Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     public Optional<Output<Boolean>> enhancedVpcRouting() {
@@ -338,7 +338,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+         * @param arn ARN of the Redshift Serverless Workgroup.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Workgroup.
+         * @param arn ARN of the Redshift Serverless Workgroup.
          * 
          * @return builder
          * 
@@ -442,7 +442,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * @param enhancedVpcRouting Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
          * 
          * @return builder
          * 
@@ -453,7 +453,7 @@ public final class WorkgroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * @param enhancedVpcRouting Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
          * 
          * @return builder
          * 

@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+        /// ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

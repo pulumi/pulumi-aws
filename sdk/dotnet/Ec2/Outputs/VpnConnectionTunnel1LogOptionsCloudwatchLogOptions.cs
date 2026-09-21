@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? BgpLogEnabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+        /// ARN of the CloudWatch log group to send BGP logs to.
         /// </summary>
         public readonly string? BgpLogGroupArn;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly bool? LogEnabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+        /// ARN of the CloudWatch log group to send logs to.
         /// </summary>
         public readonly string? LogGroupArn;
         /// <summary>

@@ -31,16 +31,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example"),
-//				ReadCapacity:  pulumi.Int(1),
-//				WriteCapacity: pulumi.Int(1),
-//				HashKey:       pulumi.String("UserId"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("UserId"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				Name:          pulumi.String("example"),
+//				ReadCapacity:  pulumi.Int(1),
+//				WriteCapacity: pulumi.Int(1),
+//				HashKey:       pulumi.String("UserId"),
 //			})
 //			if err != nil {
 //				return err
@@ -48,7 +48,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -57,6 +56,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -102,13 +102,13 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
+//				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
+//					TableName: exampleTable.Name,
+//				},
 //				ApiId:          exampleGraphQLApi.ID().ToIDOutput().ToStringOutput(),
 //				Name:           pulumi.String("my_appsync_example"),
 //				ServiceRoleArn: exampleRole.Arn,
 //				Type:           pulumi.String("AMAZON_DYNAMODB"),
-//				DynamodbConfig: &appsync.DataSourceDynamodbConfigArgs{
-//					TableName: exampleTable.Name,
-//				},
 //			})
 //			if err != nil {
 //				return err

@@ -75,14 +75,14 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewCustomerManagedPolicyAttachmentsExclusive(ctx, "example", &ssoadmin.CustomerManagedPolicyAttachmentsExclusiveArgs{
-//				InstanceArn:      pulumi.String(example.Arns[0]),
-//				PermissionSetArn: examplePermissionSet.Arn,
 //				CustomerManagedPolicyReferences: ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArray{
 //					&ssoadmin.CustomerManagedPolicyAttachmentsExclusiveCustomerManagedPolicyReferenceArgs{
 //						Name: examplePolicy.Name,
 //						Path: pulumi.String("/"),
 //					},
 //				},
+//				InstanceArn:      pulumi.String(example.Arns[0]),
+//				PermissionSetArn: examplePermissionSet.Arn,
 //			})
 //			if err != nil {
 //				return err

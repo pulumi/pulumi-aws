@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         }
 
         /// <summary>
-        /// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        /// Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
         /// </summary>
         [Input("userSecretId")]
         public Input<string>? UserSecretId { get; set; }

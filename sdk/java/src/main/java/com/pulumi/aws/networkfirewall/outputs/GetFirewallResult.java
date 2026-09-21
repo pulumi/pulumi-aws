@@ -48,7 +48,7 @@ public final class GetFirewallResult {
      */
     private List<String> enabledAnalysisTypes;
     /**
-     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     * @return KMS encryption settings for the firewall.
      * 
      */
     private List<GetFirewallEncryptionConfiguration> encryptionConfigurations;
@@ -158,7 +158,7 @@ public final class GetFirewallResult {
         return this.enabledAnalysisTypes;
     }
     /**
-     * @return AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     * @return KMS encryption settings for the firewall.
      * 
      */
     public List<GetFirewallEncryptionConfiguration> encryptionConfigurations() {

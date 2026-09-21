@@ -26,12 +26,10 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     ///     var exampleInstanceAccessControlAttributes = new Aws.SsoAdmin.InstanceAccessControlAttributes("example", new()
     ///     {
-    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///         Attributes = new[]
     ///         {
     ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
     ///             {
-    ///                 Key = "name",
     ///                 Values = new[]
     ///                 {
     ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
@@ -42,10 +40,10 @@ namespace Pulumi.Aws.SsoAdmin
     ///                         },
     ///                     },
     ///                 },
+    ///                 Key = "name",
     ///             },
     ///             new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeArgs
     ///             {
-    ///                 Key = "last",
     ///                 Values = new[]
     ///                 {
     ///                     new Aws.SsoAdmin.Inputs.InstanceAccessControlAttributesAttributeValueArgs
@@ -56,8 +54,10 @@ namespace Pulumi.Aws.SsoAdmin
     ///                         },
     ///                     },
     ///                 },
+    ///                 Key = "last",
     ///             },
     ///         },
+    ///         InstanceArn = example.Apply(getInstancesResult =&gt; getInstancesResult.Arns[0]),
     ///     });
     /// 
     /// });
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<ImmutableArray<Outputs.InstanceAccessControlAttributesAttribute>> Attributes { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.SsoAdmin
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance.
+        /// ARN of the SSO Instance.
         /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }

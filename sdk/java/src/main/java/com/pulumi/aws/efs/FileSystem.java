@@ -87,10 +87,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var fooWithLifecylePolicy = new FileSystem("fooWithLifecylePolicy", FileSystemArgs.builder()
- *             .creationToken("my-product")
  *             .lifecyclePolicies(FileSystemLifecyclePolicyArgs.builder()
  *                 .transitionToIa("AFTER_30_DAYS")
  *                 .build())
+ *             .creationToken("my-product")
  *             .build());
  * 
  *     }
@@ -110,14 +110,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:efs/fileSystem:FileSystem")
 public class FileSystem extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> arn() {

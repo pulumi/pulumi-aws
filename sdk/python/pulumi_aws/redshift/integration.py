@@ -405,19 +405,23 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example",
+            point_in_time_recovery={
+                "enabled": True,
+            },
             attributes=[{
                 "name": "example",
                 "type": "S",
             }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
+            name="dynamodb-table-example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="example")
         example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }],
             namespace_name=example_namespace.namespace_name,
             workgroup_name="example-workgroup",
             base_capacity=8,
@@ -426,11 +430,7 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
+            ])
         example_integration = aws.redshift.Integration("example",
             integration_name="example",
             source_arn=example.arn,
@@ -498,7 +498,7 @@ class Integration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Redshift integration.
+        - `arn` (String) ARN of the Redshift integration.
 
         Using `pulumi import`, import Redshift Integration using the `arn`. For example:
 
@@ -544,19 +544,23 @@ class Integration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.Table("example",
-            name="dynamodb-table-example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="example",
+            point_in_time_recovery={
+                "enabled": True,
+            },
             attributes=[{
                 "name": "example",
                 "type": "S",
             }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
+            name="dynamodb-table-example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="example")
         example_namespace = aws.redshiftserverless.Namespace("example", namespace_name="redshift-example")
         example_workgroup = aws.redshiftserverless.Workgroup("example",
+            config_parameters=[{
+                "parameter_key": "enable_case_sensitive_identifier",
+                "parameter_value": "true",
+            }],
             namespace_name=example_namespace.namespace_name,
             workgroup_name="example-workgroup",
             base_capacity=8,
@@ -565,11 +569,7 @@ class Integration(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
                 example3["id"],
-            ],
-            config_parameters=[{
-                "parameter_key": "enable_case_sensitive_identifier",
-                "parameter_value": "true",
-            }])
+            ])
         example_integration = aws.redshift.Integration("example",
             integration_name="example",
             source_arn=example.arn,
@@ -637,7 +637,7 @@ class Integration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Redshift integration.
+        - `arn` (String) ARN of the Redshift integration.
 
         Using `pulumi import`, import Redshift Integration using the `arn`. For example:
 

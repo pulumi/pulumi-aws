@@ -33,7 +33,7 @@ class AppAuthorizationArgs:
         The set of arguments for constructing a AppAuthorization resource.
 
         :param pulumi.Input[_builtins.str] app: Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] auth_type: Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
         :param pulumi.Input['AppAuthorizationCredentialArgs'] credential: Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
         :param pulumi.Input[Sequence[pulumi.Input['AppAuthorizationTenantArgs']]] tenants: Information about an application tenant, such as the application display name and identifier. See `tenant` Block for details.
@@ -70,7 +70,7 @@ class AppAuthorizationArgs:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -171,7 +171,7 @@ class _AppAuthorizationState:
         Input properties used for looking up and filtering AppAuthorization resources.
 
         :param pulumi.Input[_builtins.str] app: Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the App Authorization.
         :param pulumi.Input[_builtins.str] auth_type: Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
         :param pulumi.Input[_builtins.str] auth_url: Application URL for the OAuth flow.
@@ -231,7 +231,7 @@ class _AppAuthorizationState:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -410,9 +410,6 @@ class AppAuthorization(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.AppAuthorization("example",
-            app="TERRAFORMCLOUD",
-            app_bundle_arn=arn,
-            auth_type="apiKey",
             credential={
                 "api_key_credentials": [{
                     "api_key": "exampleapikeytoken",
@@ -421,14 +418,17 @@ class AppAuthorization(pulumi.CustomResource):
             tenants=[{
                 "tenant_display_name": "example",
                 "tenant_identifier": "example",
-            }])
+            }],
+            app="TERRAFORMCLOUD",
+            app_bundle_arn=arn,
+            auth_type="apiKey")
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] auth_type: Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
         :param pulumi.Input[Union['AppAuthorizationCredentialArgs', 'AppAuthorizationCredentialArgsDict']] credential: Credentials for the application, such as an API key or OAuth2 client ID and secret. Specify credentials that match the authorization type for your request. For example, if the authorization type for your request is OAuth2 (`oauth2`), then you should provide only the OAuth2 credentials. See `credential` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -455,9 +455,6 @@ class AppAuthorization(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.AppAuthorization("example",
-            app="TERRAFORMCLOUD",
-            app_bundle_arn=arn,
-            auth_type="apiKey",
             credential={
                 "api_key_credentials": [{
                     "api_key": "exampleapikeytoken",
@@ -466,7 +463,10 @@ class AppAuthorization(pulumi.CustomResource):
             tenants=[{
                 "tenant_display_name": "example",
                 "tenant_identifier": "example",
-            }])
+            }],
+            app="TERRAFORMCLOUD",
+            app_bundle_arn=arn,
+            auth_type="apiKey")
         ```
 
 
@@ -558,7 +558,7 @@ class AppAuthorization(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: Name of the application. For valid values, see the [CreateAppAuthorization API reference](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateAppAuthorization.html).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the App Authorization.
         :param pulumi.Input[_builtins.str] auth_type: Authorization type for the app authorization. Valid values are `oauth2` and `apiKey`.
         :param pulumi.Input[_builtins.str] auth_url: Application URL for the OAuth flow.
@@ -605,7 +605,7 @@ class AppAuthorization(pulumi.CustomResource):
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 

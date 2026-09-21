@@ -26,14 +26,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     public static final ReceiptRuleArgs Empty = new ReceiptRuleArgs();
 
     /**
-     * A list of Add Header Action blocks. Documented below.
+     * Configuration block for adding a header to received emails. Detailed below.
      * 
      */
     @Import(name="addHeaderActions")
     private @Nullable Output<List<ReceiptRuleAddHeaderActionArgs>> addHeaderActions;
 
     /**
-     * @return A list of Add Header Action blocks. Documented below.
+     * @return Configuration block for adding a header to received emails. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleAddHeaderActionArgs>>> addHeaderActions() {
@@ -41,14 +41,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the rule to place this rule after
+     * Name of the rule to place this rule after.
      * 
      */
     @Import(name="after")
     private @Nullable Output<String> after;
 
     /**
-     * @return The name of the rule to place this rule after
+     * @return Name of the rule to place this rule after.
      * 
      */
     public Optional<Output<String>> after() {
@@ -56,14 +56,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Bounce Action blocks. Documented below.
+     * Configuration block for rejecting received emails. Detailed below.
      * 
      */
     @Import(name="bounceActions")
     private @Nullable Output<List<ReceiptRuleBounceActionArgs>> bounceActions;
 
     /**
-     * @return A list of Bounce Action blocks. Documented below.
+     * @return Configuration block for rejecting received emails. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleBounceActionArgs>>> bounceActions() {
@@ -71,14 +71,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, the rule will be enabled
+     * If true, the rule will be enabled.
      * 
      */
     @Import(name="enabled")
     private @Nullable Output<Boolean> enabled;
 
     /**
-     * @return If true, the rule will be enabled
+     * @return If true, the rule will be enabled.
      * 
      */
     public Optional<Output<Boolean>> enabled() {
@@ -86,14 +86,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Lambda Action blocks. Documented below.
+     * Configuration block for calling an AWS Lambda function. Detailed below.
      * 
      */
     @Import(name="lambdaActions")
     private @Nullable Output<List<ReceiptRuleLambdaActionArgs>> lambdaActions;
 
     /**
-     * @return A list of Lambda Action blocks. Documented below.
+     * @return Configuration block for calling an AWS Lambda function. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleLambdaActionArgs>>> lambdaActions() {
@@ -101,14 +101,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the rule
+     * Name of the rule.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the rule
+     * @return Name of the rule.
      * 
      */
     public Optional<Output<String>> name() {
@@ -116,14 +116,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of email addresses
+     * List of email addresses.
      * 
      */
     @Import(name="recipients")
     private @Nullable Output<List<String>> recipients;
 
     /**
-     * @return A list of email addresses
+     * @return List of email addresses.
      * 
      */
     public Optional<Output<List<String>>> recipients() {
@@ -146,14 +146,18 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the rule set
+     * Name of the rule set.
+     * 
+     * The following arguments are optional:
      * 
      */
     @Import(name="ruleSetName", required=true)
     private Output<String> ruleSetName;
 
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Output<String> ruleSetName() {
@@ -161,14 +165,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of S3 Action blocks. Documented below.
+     * Configuration block for storing received emails in an S3 bucket. Detailed below.
      * 
      */
     @Import(name="s3Actions")
     private @Nullable Output<List<ReceiptRuleS3ActionArgs>> s3Actions;
 
     /**
-     * @return A list of S3 Action blocks. Documented below.
+     * @return Configuration block for storing received emails in an S3 bucket. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleS3ActionArgs>>> s3Actions() {
@@ -176,14 +180,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If true, incoming emails will be scanned for spam and viruses
+     * If true, incoming emails will be scanned for spam and viruses.
      * 
      */
     @Import(name="scanEnabled")
     private @Nullable Output<Boolean> scanEnabled;
 
     /**
-     * @return If true, incoming emails will be scanned for spam and viruses
+     * @return If true, incoming emails will be scanned for spam and viruses.
      * 
      */
     public Optional<Output<Boolean>> scanEnabled() {
@@ -191,14 +195,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of SNS Action blocks. Documented below.
+     * Configuration block for publishing to an SNS topic. Detailed below.
      * 
      */
     @Import(name="snsActions")
     private @Nullable Output<List<ReceiptRuleSnsActionArgs>> snsActions;
 
     /**
-     * @return A list of SNS Action blocks. Documented below.
+     * @return Configuration block for publishing to an SNS topic. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleSnsActionArgs>>> snsActions() {
@@ -206,14 +210,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Stop Action blocks. Documented below.
+     * Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      * 
      */
     @Import(name="stopActions")
     private @Nullable Output<List<ReceiptRuleStopActionArgs>> stopActions;
 
     /**
-     * @return A list of Stop Action blocks. Documented below.
+     * @return Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleStopActionArgs>>> stopActions() {
@@ -221,14 +225,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * `Require` or `Optional`
+     * `Require` or `Optional`.
      * 
      */
     @Import(name="tlsPolicy")
     private @Nullable Output<String> tlsPolicy;
 
     /**
-     * @return `Require` or `Optional`
+     * @return `Require` or `Optional`.
      * 
      */
     public Optional<Output<String>> tlsPolicy() {
@@ -236,14 +240,14 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of WorkMail Action blocks. Documented below.
+     * Configuration block for calling Amazon WorkMail. Detailed below.
      * 
      */
     @Import(name="workmailActions")
     private @Nullable Output<List<ReceiptRuleWorkmailActionArgs>> workmailActions;
 
     /**
-     * @return A list of WorkMail Action blocks. Documented below.
+     * @return Configuration block for calling Amazon WorkMail. Detailed below.
      * 
      */
     public Optional<Output<List<ReceiptRuleWorkmailActionArgs>>> workmailActions() {
@@ -289,7 +293,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addHeaderActions A list of Add Header Action blocks. Documented below.
+         * @param addHeaderActions Configuration block for adding a header to received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -300,7 +304,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addHeaderActions A list of Add Header Action blocks. Documented below.
+         * @param addHeaderActions Configuration block for adding a header to received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -310,7 +314,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param addHeaderActions A list of Add Header Action blocks. Documented below.
+         * @param addHeaderActions Configuration block for adding a header to received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -320,7 +324,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param after The name of the rule to place this rule after
+         * @param after Name of the rule to place this rule after.
          * 
          * @return builder
          * 
@@ -331,7 +335,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param after The name of the rule to place this rule after
+         * @param after Name of the rule to place this rule after.
          * 
          * @return builder
          * 
@@ -341,7 +345,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bounceActions A list of Bounce Action blocks. Documented below.
+         * @param bounceActions Configuration block for rejecting received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -352,7 +356,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bounceActions A list of Bounce Action blocks. Documented below.
+         * @param bounceActions Configuration block for rejecting received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -362,7 +366,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bounceActions A list of Bounce Action blocks. Documented below.
+         * @param bounceActions Configuration block for rejecting received emails. Detailed below.
          * 
          * @return builder
          * 
@@ -372,7 +376,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled If true, the rule will be enabled
+         * @param enabled If true, the rule will be enabled.
          * 
          * @return builder
          * 
@@ -383,7 +387,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enabled If true, the rule will be enabled
+         * @param enabled If true, the rule will be enabled.
          * 
          * @return builder
          * 
@@ -393,7 +397,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaActions A list of Lambda Action blocks. Documented below.
+         * @param lambdaActions Configuration block for calling an AWS Lambda function. Detailed below.
          * 
          * @return builder
          * 
@@ -404,7 +408,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaActions A list of Lambda Action blocks. Documented below.
+         * @param lambdaActions Configuration block for calling an AWS Lambda function. Detailed below.
          * 
          * @return builder
          * 
@@ -414,7 +418,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param lambdaActions A list of Lambda Action blocks. Documented below.
+         * @param lambdaActions Configuration block for calling an AWS Lambda function. Detailed below.
          * 
          * @return builder
          * 
@@ -424,7 +428,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the rule
+         * @param name Name of the rule.
          * 
          * @return builder
          * 
@@ -435,7 +439,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the rule
+         * @param name Name of the rule.
          * 
          * @return builder
          * 
@@ -445,7 +449,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recipients A list of email addresses
+         * @param recipients List of email addresses.
          * 
          * @return builder
          * 
@@ -456,7 +460,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recipients A list of email addresses
+         * @param recipients List of email addresses.
          * 
          * @return builder
          * 
@@ -466,7 +470,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param recipients A list of email addresses
+         * @param recipients List of email addresses.
          * 
          * @return builder
          * 
@@ -497,7 +501,9 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -508,7 +514,9 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -518,7 +526,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Actions A list of S3 Action blocks. Documented below.
+         * @param s3Actions Configuration block for storing received emails in an S3 bucket. Detailed below.
          * 
          * @return builder
          * 
@@ -529,7 +537,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Actions A list of S3 Action blocks. Documented below.
+         * @param s3Actions Configuration block for storing received emails in an S3 bucket. Detailed below.
          * 
          * @return builder
          * 
@@ -539,7 +547,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3Actions A list of S3 Action blocks. Documented below.
+         * @param s3Actions Configuration block for storing received emails in an S3 bucket. Detailed below.
          * 
          * @return builder
          * 
@@ -549,7 +557,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scanEnabled If true, incoming emails will be scanned for spam and viruses
+         * @param scanEnabled If true, incoming emails will be scanned for spam and viruses.
          * 
          * @return builder
          * 
@@ -560,7 +568,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param scanEnabled If true, incoming emails will be scanned for spam and viruses
+         * @param scanEnabled If true, incoming emails will be scanned for spam and viruses.
          * 
          * @return builder
          * 
@@ -570,7 +578,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsActions A list of SNS Action blocks. Documented below.
+         * @param snsActions Configuration block for publishing to an SNS topic. Detailed below.
          * 
          * @return builder
          * 
@@ -581,7 +589,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsActions A list of SNS Action blocks. Documented below.
+         * @param snsActions Configuration block for publishing to an SNS topic. Detailed below.
          * 
          * @return builder
          * 
@@ -591,7 +599,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param snsActions A list of SNS Action blocks. Documented below.
+         * @param snsActions Configuration block for publishing to an SNS topic. Detailed below.
          * 
          * @return builder
          * 
@@ -601,7 +609,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stopActions A list of Stop Action blocks. Documented below.
+         * @param stopActions Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
          * 
          * @return builder
          * 
@@ -612,7 +620,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stopActions A list of Stop Action blocks. Documented below.
+         * @param stopActions Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
          * 
          * @return builder
          * 
@@ -622,7 +630,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param stopActions A list of Stop Action blocks. Documented below.
+         * @param stopActions Configuration block for terminating the evaluation of the receipt rule set. Detailed below.
          * 
          * @return builder
          * 
@@ -632,7 +640,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsPolicy `Require` or `Optional`
+         * @param tlsPolicy `Require` or `Optional`.
          * 
          * @return builder
          * 
@@ -643,7 +651,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tlsPolicy `Require` or `Optional`
+         * @param tlsPolicy `Require` or `Optional`.
          * 
          * @return builder
          * 
@@ -653,7 +661,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workmailActions A list of WorkMail Action blocks. Documented below.
+         * @param workmailActions Configuration block for calling Amazon WorkMail. Detailed below.
          * 
          * @return builder
          * 
@@ -664,7 +672,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workmailActions A list of WorkMail Action blocks. Documented below.
+         * @param workmailActions Configuration block for calling Amazon WorkMail. Detailed below.
          * 
          * @return builder
          * 
@@ -674,7 +682,7 @@ public final class ReceiptRuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param workmailActions A list of WorkMail Action blocks. Documented below.
+         * @param workmailActions Configuration block for calling Amazon WorkMail. Detailed below.
          * 
          * @return builder
          * 

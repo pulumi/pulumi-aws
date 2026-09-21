@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePackage = new Package("examplePackage", PackageArgs.builder()
- *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())
  *                 .s3Key(example.key())
  *                 .build())
+ *             .packageName("example-txt")
  *             .packageType("TXT-DICTIONARY")
  *             .build());
  * 

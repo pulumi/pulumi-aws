@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["apigateway.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

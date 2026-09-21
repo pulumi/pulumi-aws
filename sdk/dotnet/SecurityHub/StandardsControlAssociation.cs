@@ -62,7 +62,6 @@ namespace Pulumi.Aws.SecurityHub
     /// using System.Threading.Tasks;
     /// using Pulumi;
     /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(async() =&gt; 
     /// {
@@ -74,7 +73,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     });
     /// 
     ///     var iam1StandardsControlAssociation = new List&lt;Aws.SecurityHub.StandardsControlAssociation&gt;();
-    ///     foreach (var range in )
+    ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
     ///     {
     ///         iam1StandardsControlAssociation.Add(new Aws.SecurityHub.StandardsControlAssociation($"iam_1-{range.Key}", new()
     ///         {
@@ -129,7 +128,7 @@ namespace Pulumi.Aws.SecurityHub
         public Output<string> SecurityControlId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -207,7 +206,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string> SecurityControlId { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -247,7 +246,7 @@ namespace Pulumi.Aws.SecurityHub
         public Input<string>? SecurityControlId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the standard in which you want to update the control's enablement status.
+        /// ARN of the standard in which you want to update the control's enablement status.
         /// 
         /// The following arguments are optional:
         /// </summary>

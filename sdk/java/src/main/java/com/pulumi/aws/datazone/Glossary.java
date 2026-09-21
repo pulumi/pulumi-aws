@@ -52,6 +52,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
+ *             .inlinePolicies(RoleInlinePolicyArgs.builder()
+ *                 .name("example_name")
+ *                 .policy(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "datazone:*", 
+ *                                 "ram:*", 
+ *                                 "sso:*", 
+ *                                 "kms:*"
+ *                             )),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Resource", "*")
+ *                         )))
+ *                     )))
+ *                 .build())
  *             .name("example_name")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -79,23 +96,6 @@ import javax.annotation.Nullable;
  *                         )
  *                     ))
  *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example_name")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
  *             .build());
  * 
  *         var test = new Domain("test", DomainArgs.builder()

@@ -60,7 +60,7 @@ type LookupEventConnectionArgs struct {
 
 // A collection of values returned by getEventConnection.
 type LookupEventConnectionResult struct {
-	// ARN (Amazon Resource Name) of the connection.
+	// ARN of the connection.
 	Arn string `pulumi:"arn"`
 	// Type of authorization specified for the connection. One of `API_KEY`,`BASIC`,`OAUTH_CLIENT_CREDENTIALS`.
 	AuthorizationType string `pulumi:"authorizationType"`
@@ -75,12 +75,8 @@ type LookupEventConnectionResult struct {
 }
 
 func LookupEventConnectionOutput(ctx *pulumi.Context, args LookupEventConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupEventConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEventConnectionResultOutput, error) {
-			args := v.(LookupEventConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getEventConnection:getEventConnection", args, LookupEventConnectionResultOutput{}, options).(LookupEventConnectionResultOutput), nil
-		}).(LookupEventConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getEventConnection:getEventConnection", args, LookupEventConnectionResultOutput{}, options).(LookupEventConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getEventConnection.
@@ -110,7 +106,7 @@ func (o LookupEventConnectionResultOutput) ToLookupEventConnectionResultOutputWi
 	return o
 }
 
-// ARN (Amazon Resource Name) of the connection.
+// ARN of the connection.
 func (o LookupEventConnectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEventConnectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -20,14 +20,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     public static final GlobalClusterState Empty = new GlobalClusterState();
 
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN).
+     * @return RDS Global Cluster ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -95,14 +95,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     @Import(name="engineLifecycleSupport")
     private @Nullable Output<String> engineLifecycleSupport;
 
     /**
-     * @return The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * @return Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     public Optional<Output<String>> engineLifecycleSupport() {
@@ -124,9 +124,17 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         return Optional.ofNullable(this.engineVersion);
     }
 
+    /**
+     * Running version of the database engine.
+     * 
+     */
     @Import(name="engineVersionActual")
     private @Nullable Output<String> engineVersionActual;
 
+    /**
+     * @return Running version of the database engine.
+     * 
+     */
     public Optional<Output<String>> engineVersionActual() {
         return Optional.ofNullable(this.engineVersionActual);
     }
@@ -211,14 +219,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     @Import(name="sourceDbClusterIdentifier")
     private @Nullable Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     public Optional<Output<String>> sourceDbClusterIdentifier() {
@@ -226,14 +234,14 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -241,7 +249,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
@@ -250,7 +258,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
@@ -315,7 +323,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
+         * @param arn RDS Global Cluster ARN.
          * 
          * @return builder
          * 
@@ -326,7 +334,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn RDS Global Cluster Amazon Resource Name (ARN).
+         * @param arn RDS Global Cluster ARN.
          * 
          * @return builder
          * 
@@ -420,7 +428,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * @param engineLifecycleSupport Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
          * 
          * @return builder
          * 
@@ -431,7 +439,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param engineLifecycleSupport The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+         * @param engineLifecycleSupport Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
          * 
          * @return builder
          * 
@@ -461,11 +469,23 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
             return engineVersion(Output.of(engineVersion));
         }
 
+        /**
+         * @param engineVersionActual Running version of the database engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersionActual(@Nullable Output<String> engineVersionActual) {
             $.engineVersionActual = engineVersionActual;
             return this;
         }
 
+        /**
+         * @param engineVersionActual Running version of the database engine.
+         * 
+         * @return builder
+         * 
+         */
         public Builder engineVersionActual(String engineVersionActual) {
             return engineVersionActual(Output.of(engineVersionActual));
         }
@@ -590,7 +610,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 
@@ -601,7 +621,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param sourceDbClusterIdentifier Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+         * @param sourceDbClusterIdentifier ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
          * 
          * @return builder
          * 
@@ -611,7 +631,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -622,7 +642,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+         * @param storageEncrypted Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
          * 
          * @return builder
          * 
@@ -632,7 +652,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
          * 
@@ -645,7 +665,7 @@ public final class GlobalClusterState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
          * 

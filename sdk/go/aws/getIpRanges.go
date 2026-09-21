@@ -41,7 +41,6 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecurityGroup(ctx, "from_europe", &ec2.SecurityGroupArgs{
-//				Name: pulumi.String("from_europe"),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						FromPort:       pulumi.Int(443),
@@ -51,6 +50,7 @@ import (
 //						Ipv6CidrBlocks: toPulumiStringArray(europeanEc2.Ipv6CidrBlocks),
 //					},
 //				},
+//				Name: pulumi.String("from_europe"),
 //				Tags: pulumi.StringMap{
 //					"CreateDate": pulumi.String(europeanEc2.CreateDate),
 //					"SyncToken":  pulumi.Int(europeanEc2.SyncToken),
@@ -122,12 +122,8 @@ type GetIpRangesResult struct {
 }
 
 func GetIpRangesOutput(ctx *pulumi.Context, args GetIpRangesOutputArgs, opts ...pulumi.InvokeOption) GetIpRangesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpRangesResultOutput, error) {
-			args := v.(GetIpRangesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getIpRanges:getIpRanges", args, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput), nil
-		}).(GetIpRangesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getIpRanges:getIpRanges", args, GetIpRangesResultOutput{}, options).(GetIpRangesResultOutput)
 }
 
 // A collection of arguments for invoking getIpRanges.

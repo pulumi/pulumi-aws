@@ -31,7 +31,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         public Input<int>? Iops { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        /// ARN of the KMS Key for encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

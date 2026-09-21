@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.MonitoringSubscription("example", {
- *     distributionId: exampleAwsCloudfrontDistribution.id,
  *     monitoringSubscription: {
  *         realtimeMetricsSubscriptionConfig: {
  *             realtimeMetricsSubscriptionStatus: "Enabled",
  *         },
  *     },
+ *     distributionId: exampleAwsCloudfrontDistribution.id,
  * });
  * ```
  *

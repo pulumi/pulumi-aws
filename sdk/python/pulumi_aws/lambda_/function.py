@@ -83,7 +83,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
         :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
@@ -102,7 +102,7 @@ class FunctionArgs:
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -378,7 +378,7 @@ class FunctionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -606,7 +606,7 @@ class FunctionArgs:
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 
@@ -761,7 +761,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionImageConfigArgs'] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[_builtins.str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input['FunctionLoggingConfigArgs'] logging_config: Configuration block for advanced logging settings. See below.
@@ -790,7 +790,7 @@ class _FunctionState:
         :param pulumi.Input['FunctionSnapStartArgs'] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['FunctionTenancyConfigArgs'] tenancy_config: Configuration block for Tenancy. See below.
@@ -1101,7 +1101,7 @@ class _FunctionState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1427,7 +1427,7 @@ class _FunctionState:
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 
@@ -1600,14 +1600,14 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            name="example_container_function",
-            role=example_aws_iam_role["arn"],
-            package_type="Image",
-            image_uri=f"{example_aws_ecr_repository['repositoryUrl']}:latest",
             image_config={
                 "entry_points": ["/lambda-entrypoint.sh"],
                 "commands": ["app.handler"],
             },
+            name="example_container_function",
+            role=example_aws_iam_role["arn"],
+            package_type="Image",
+            image_uri=f"{example_aws_ecr_repository['repositoryUrl']}:latest",
             memory_size=512,
             timeout=30,
             architectures=["arm64"])
@@ -1636,15 +1636,15 @@ class Function(pulumi.CustomResource):
             ])
         # Function using the layer
         example_function = aws.lambda_.Function("example",
+            tracing_config={
+                "mode": "Active",
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example_layered_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            layers=[example.arn],
-            tracing_config={
-                "mode": "Active",
-            })
+            layers=[example.arn])
         ```
 
         ### VPC Function with Enhanced Networking
@@ -1654,13 +1654,6 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_vpc_function",
-            role=example_aws_iam_role["arn"],
-            handler="app.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            memory_size=1024,
-            timeout=30,
             vpc_config={
                 "subnet_ids": [
                     example_private1["id"],
@@ -1674,7 +1667,14 @@ class Function(pulumi.CustomResource):
             },
             snap_start={
                 "apply_on": "PublishedVersions",
-            })
+            },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_vpc_function",
+            role=example_aws_iam_role["arn"],
+            handler="app.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
+            memory_size=1024,
+            timeout=30)
         ```
 
         ### Function with EFS Integration
@@ -1707,26 +1707,21 @@ class Function(pulumi.CustomResource):
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",
-            file_system_id=example.id,
             root_directory={
-                "path": "/lambda",
                 "creation_info": {
                     "owner_gid": 1000,
                     "owner_uid": 1000,
                     "permissions": "755",
                 },
+                "path": "/lambda",
             },
             posix_user={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            file_system_id=example.id)
         # Lambda function with EFS
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_efs_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": subnet_ids,
                 "security_group_ids": [lambda_["id"]],
@@ -1735,6 +1730,11 @@ class Function(pulumi.CustomResource):
                 "arn": example_access_point.arn,
                 "local_mount_path": "/mnt/data",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_efs_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[example_mount_target]))
         ```
 
@@ -1750,28 +1750,28 @@ class Function(pulumi.CustomResource):
             bucket=f"example-{current.account_id}-{current_get_region.name}-an",
             bucket_namespace="account-regional")
         lambda_file_system_bucket_versioning = aws.s3.BucketVersioning("lambda_file_system",
-            bucket=lambda_file_system.bucket,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=lambda_file_system.bucket)
         for_lambda = aws.s3.FilesFileSystem("for_lambda",
             bucket=lambda_file_system.arn,
             role_arn=s3files["arn"],
             opts = pulumi.ResourceOptions(depends_on=[lambda_file_system_bucket_versioning]))
         for_lambda_files_access_point = aws.s3.FilesAccessPoint("for_lambda",
-            file_system_id=for_lambda.id,
+            posix_users=[{
+                "gid": 1000,
+                "uid": 1000,
+            }],
             root_directories=[{
-                "path": "/lambda",
                 "creation_permissions": [{
                     "owner_gid": 1000,
                     "owner_uid": 1000,
                     "permissions": "755",
                 }],
+                "path": "/lambda",
             }],
-            posix_users=[{
-                "gid": 1000,
-                "uid": 1000,
-            }])
+            file_system_id=for_lambda.id)
         s3files_mount_targets = aws.ec2.SecurityGroup("s3files_mount_targets",
             name="example-s3files-mount-targets-sg",
             vpc_id=vpc_for_lambda["id"])
@@ -1791,11 +1791,6 @@ class Function(pulumi.CustomResource):
             to_port=2049,
             referenced_security_group_id=s3files_mount_targets.id)
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_s3files_function",
-            role=iam_for_lambda["arn"],
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": [subnet_for_lambda_az1["id"]],
                 "security_group_ids": [lambda_s3files.id],
@@ -1804,6 +1799,11 @@ class Function(pulumi.CustomResource):
                 "arn": for_lambda_files_access_point.arn,
                 "local_mount_path": "/mnt/s3files",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_s3files_function",
+            role=iam_for_lambda["arn"],
+            handler="exports.example",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[for_lambda_aws_s3files_mount_target]))
         ```
 
@@ -1821,16 +1821,16 @@ class Function(pulumi.CustomResource):
                 "Application": "example",
             })
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
                 "system_log_level": "WARN",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -1868,12 +1868,12 @@ class Function(pulumi.CustomResource):
             name=f"/aws/lambda/{lambda_function_name}",
             log_group_class="DELIVERY")
         logs_assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["logs.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         logs_log_export = aws.iam.Role("logs_log_export",
             name=f"{lambda_function_name}-lambda-log-export-role",
@@ -1893,15 +1893,15 @@ class Function(pulumi.CustomResource):
             destination_arn=lambda_log_export_bucket.arn,
             role_arn=logs_log_export.arn)
         log_export = aws.lambda_.Function("log_export",
+            logging_config={
+                "log_format": "Text",
+                "log_group": export.name,
+            },
             name=lambda_function_name,
             handler="index.lambda_handler",
             runtime=aws.lambda_.Runtime.PYTHON3D13,
             role=example["arn"],
             code=pulumi.FileArchive("function.zip"),
-            logging_config={
-                "log_format": "Text",
-                "log_group": export.name,
-            },
             opts = pulumi.ResourceOptions(depends_on=[export]))
         ```
 
@@ -1913,19 +1913,16 @@ class Function(pulumi.CustomResource):
 
         # Main Lambda function
         example = aws.lambda_.Function("example",
+            dead_letter_config={
+                "target_arn": dlq["arn"],
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            dead_letter_config={
-                "target_arn": dlq["arn"],
-            })
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         # Event invoke configuration for retries
         example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example.name,
-            maximum_event_age_in_seconds=60,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": dlq["arn"],
@@ -1933,7 +1930,10 @@ class Function(pulumi.CustomResource):
                 "on_success": {
                     "destination": success["arn"],
                 },
-            })
+            },
+            function_name=example.name,
+            maximum_event_age_in_seconds=60,
+            maximum_retry_attempts=2)
         ```
 
         ### CloudWatch Logging and Permissions
@@ -1992,16 +1992,16 @@ class Function(pulumi.CustomResource):
             policy_arn=lambda_logging.arn)
         # Lambda function with logging
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name=function_name,
-            role=example_role.arn,
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
                 "system_log_level": "WARN",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name=function_name,
+            role=example_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,
                     example,
@@ -2017,13 +2017,6 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_durable_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            memory_size=512,
-            timeout=30,
             durable_config={
                 "execution_timeout": 3600,
                 "retention_period": 7,
@@ -2033,10 +2026,18 @@ class Function(pulumi.CustomResource):
                     "DURABLE_MODE": "enabled",
                 },
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_durable_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
+            memory_size=512,
+            timeout=30,
             tags={
                 "Environment": "production",
                 "Type": "durable",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
         ```
 
         ### Capacity Provider Configuration
@@ -2046,27 +2047,27 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_capacity_provider = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         example = aws.lambda_.Function("example",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example_capacity_provider.arn,
+                },
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             memory_size=2048,
-            publish=True,
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example_capacity_provider.arn,
-                },
-            })
+            publish=True)
         ```
 
         See the `lambda.CapacityProvider` resource for more details, such as configuring instance requirements and the scaling policy.
@@ -2112,7 +2113,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] handler: Function entry point in your code. Required if `package_type` is `Zip`.
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
         :param pulumi.Input[_builtins.int] memory_size: Amount of memory in MB your Lambda Function can use at runtime. Valid value between 128 MB to 32,768 MB (32 GB), in 1 MB increments. Defaults to 128.
@@ -2134,7 +2135,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version of a previously deployed Lambda Layer. Default is `false`.
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
         :param pulumi.Input[_builtins.int] timeout: Amount of time your Lambda Function has to run in seconds. Defaults to 3. Valid between 1 and 900.
@@ -2168,14 +2169,14 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            name="example_container_function",
-            role=example_aws_iam_role["arn"],
-            package_type="Image",
-            image_uri=f"{example_aws_ecr_repository['repositoryUrl']}:latest",
             image_config={
                 "entry_points": ["/lambda-entrypoint.sh"],
                 "commands": ["app.handler"],
             },
+            name="example_container_function",
+            role=example_aws_iam_role["arn"],
+            package_type="Image",
+            image_uri=f"{example_aws_ecr_repository['repositoryUrl']}:latest",
             memory_size=512,
             timeout=30,
             architectures=["arm64"])
@@ -2204,15 +2205,15 @@ class Function(pulumi.CustomResource):
             ])
         # Function using the layer
         example_function = aws.lambda_.Function("example",
+            tracing_config={
+                "mode": "Active",
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example_layered_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            layers=[example.arn],
-            tracing_config={
-                "mode": "Active",
-            })
+            layers=[example.arn])
         ```
 
         ### VPC Function with Enhanced Networking
@@ -2222,13 +2223,6 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_vpc_function",
-            role=example_aws_iam_role["arn"],
-            handler="app.handler",
-            runtime=aws.lambda_.Runtime.PYTHON3D12,
-            memory_size=1024,
-            timeout=30,
             vpc_config={
                 "subnet_ids": [
                     example_private1["id"],
@@ -2242,7 +2236,14 @@ class Function(pulumi.CustomResource):
             },
             snap_start={
                 "apply_on": "PublishedVersions",
-            })
+            },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_vpc_function",
+            role=example_aws_iam_role["arn"],
+            handler="app.handler",
+            runtime=aws.lambda_.Runtime.PYTHON3D12,
+            memory_size=1024,
+            timeout=30)
         ```
 
         ### Function with EFS Integration
@@ -2275,26 +2276,21 @@ class Function(pulumi.CustomResource):
                 security_groups=[efs["id"]]))
         # Access point for Lambda
         example_access_point = aws.efs.AccessPoint("example",
-            file_system_id=example.id,
             root_directory={
-                "path": "/lambda",
                 "creation_info": {
                     "owner_gid": 1000,
                     "owner_uid": 1000,
                     "permissions": "755",
                 },
+                "path": "/lambda",
             },
             posix_user={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            file_system_id=example.id)
         # Lambda function with EFS
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_efs_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": subnet_ids,
                 "security_group_ids": [lambda_["id"]],
@@ -2303,6 +2299,11 @@ class Function(pulumi.CustomResource):
                 "arn": example_access_point.arn,
                 "local_mount_path": "/mnt/data",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_efs_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[example_mount_target]))
         ```
 
@@ -2318,28 +2319,28 @@ class Function(pulumi.CustomResource):
             bucket=f"example-{current.account_id}-{current_get_region.name}-an",
             bucket_namespace="account-regional")
         lambda_file_system_bucket_versioning = aws.s3.BucketVersioning("lambda_file_system",
-            bucket=lambda_file_system.bucket,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=lambda_file_system.bucket)
         for_lambda = aws.s3.FilesFileSystem("for_lambda",
             bucket=lambda_file_system.arn,
             role_arn=s3files["arn"],
             opts = pulumi.ResourceOptions(depends_on=[lambda_file_system_bucket_versioning]))
         for_lambda_files_access_point = aws.s3.FilesAccessPoint("for_lambda",
-            file_system_id=for_lambda.id,
+            posix_users=[{
+                "gid": 1000,
+                "uid": 1000,
+            }],
             root_directories=[{
-                "path": "/lambda",
                 "creation_permissions": [{
                     "owner_gid": 1000,
                     "owner_uid": 1000,
                     "permissions": "755",
                 }],
+                "path": "/lambda",
             }],
-            posix_users=[{
-                "gid": 1000,
-                "uid": 1000,
-            }])
+            file_system_id=for_lambda.id)
         s3files_mount_targets = aws.ec2.SecurityGroup("s3files_mount_targets",
             name="example-s3files-mount-targets-sg",
             vpc_id=vpc_for_lambda["id"])
@@ -2359,11 +2360,6 @@ class Function(pulumi.CustomResource):
             to_port=2049,
             referenced_security_group_id=s3files_mount_targets.id)
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_s3files_function",
-            role=iam_for_lambda["arn"],
-            handler="exports.example",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             vpc_config={
                 "subnet_ids": [subnet_for_lambda_az1["id"]],
                 "security_group_ids": [lambda_s3files.id],
@@ -2372,6 +2368,11 @@ class Function(pulumi.CustomResource):
                 "arn": for_lambda_files_access_point.arn,
                 "local_mount_path": "/mnt/s3files",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_s3files_function",
+            role=iam_for_lambda["arn"],
+            handler="exports.example",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[for_lambda_aws_s3files_mount_target]))
         ```
 
@@ -2389,16 +2390,16 @@ class Function(pulumi.CustomResource):
                 "Application": "example",
             })
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
                 "system_log_level": "WARN",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -2436,12 +2437,12 @@ class Function(pulumi.CustomResource):
             name=f"/aws/lambda/{lambda_function_name}",
             log_group_class="DELIVERY")
         logs_assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["logs.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         logs_log_export = aws.iam.Role("logs_log_export",
             name=f"{lambda_function_name}-lambda-log-export-role",
@@ -2461,15 +2462,15 @@ class Function(pulumi.CustomResource):
             destination_arn=lambda_log_export_bucket.arn,
             role_arn=logs_log_export.arn)
         log_export = aws.lambda_.Function("log_export",
+            logging_config={
+                "log_format": "Text",
+                "log_group": export.name,
+            },
             name=lambda_function_name,
             handler="index.lambda_handler",
             runtime=aws.lambda_.Runtime.PYTHON3D13,
             role=example["arn"],
             code=pulumi.FileArchive("function.zip"),
-            logging_config={
-                "log_format": "Text",
-                "log_group": export.name,
-            },
             opts = pulumi.ResourceOptions(depends_on=[export]))
         ```
 
@@ -2481,19 +2482,16 @@ class Function(pulumi.CustomResource):
 
         # Main Lambda function
         example = aws.lambda_.Function("example",
+            dead_letter_config={
+                "target_arn": dlq["arn"],
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example_function",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            dead_letter_config={
-                "target_arn": dlq["arn"],
-            })
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X)
         # Event invoke configuration for retries
         example_function_event_invoke_config = aws.lambda_.FunctionEventInvokeConfig("example",
-            function_name=example.name,
-            maximum_event_age_in_seconds=60,
-            maximum_retry_attempts=2,
             destination_config={
                 "on_failure": {
                     "destination": dlq["arn"],
@@ -2501,7 +2499,10 @@ class Function(pulumi.CustomResource):
                 "on_success": {
                     "destination": success["arn"],
                 },
-            })
+            },
+            function_name=example.name,
+            maximum_event_age_in_seconds=60,
+            maximum_retry_attempts=2)
         ```
 
         ### CloudWatch Logging and Permissions
@@ -2560,16 +2561,16 @@ class Function(pulumi.CustomResource):
             policy_arn=lambda_logging.arn)
         # Lambda function with logging
         example_function = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name=function_name,
-            role=example_role.arn,
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             logging_config={
                 "log_format": "JSON",
                 "application_log_level": "INFO",
                 "system_log_level": "WARN",
             },
+            code=pulumi.FileArchive("function.zip"),
+            name=function_name,
+            role=example_role.arn,
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             opts = pulumi.ResourceOptions(depends_on=[
                     lambda_logs,
                     example,
@@ -2585,13 +2586,6 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Function("example",
-            code=pulumi.FileArchive("function.zip"),
-            name="example_durable_function",
-            role=example_aws_iam_role["arn"],
-            handler="index.handler",
-            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
-            memory_size=512,
-            timeout=30,
             durable_config={
                 "execution_timeout": 3600,
                 "retention_period": 7,
@@ -2601,10 +2595,18 @@ class Function(pulumi.CustomResource):
                     "DURABLE_MODE": "enabled",
                 },
             },
+            code=pulumi.FileArchive("function.zip"),
+            name="example_durable_function",
+            role=example_aws_iam_role["arn"],
+            handler="index.handler",
+            runtime=aws.lambda_.Runtime.NODE_JS24D_X,
+            memory_size=512,
+            timeout=30,
             tags={
                 "Environment": "production",
                 "Type": "durable",
-            })
+            },
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="60m")))
         ```
 
         ### Capacity Provider Configuration
@@ -2614,27 +2616,27 @@ class Function(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_capacity_provider = aws.lambda_.CapacityProvider("example",
-            name="example",
             vpc_config={
                 "subnet_ids": [example_aws_subnet["id"]],
                 "security_group_ids": [example_aws_security_group["id"]],
             },
             permissions_config={
                 "capacity_provider_operator_role_arn": example_aws_iam_role["arn"],
-            })
+            },
+            name="example")
         example = aws.lambda_.Function("example",
+            capacity_provider_config={
+                "lambda_managed_instances_capacity_provider_config": {
+                    "capacity_provider_arn": example_capacity_provider.arn,
+                },
+            },
             code=pulumi.FileArchive("function.zip"),
             name="example",
             role=example_aws_iam_role["arn"],
             handler="index.handler",
             runtime=aws.lambda_.Runtime.NODE_JS24D_X,
             memory_size=2048,
-            publish=True,
-            capacity_provider_config={
-                "lambda_managed_instances_capacity_provider_config": {
-                    "capacity_provider_arn": example_capacity_provider.arn,
-                },
-            })
+            publish=True)
         ```
 
         See the `lambda.CapacityProvider` resource for more details, such as configuring instance requirements and the scaling policy.
@@ -2868,7 +2870,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionImageConfigArgs', 'FunctionImageConfigArgsDict']] image_config: Container image configuration values. See below.
         :param pulumi.Input[_builtins.str] image_uri: ECR image URI containing the function's deployment package. Conflicts with `filename` and `s3_bucket`. One of `filename`, `image_uri`, or `s3_bucket` must be specified.
         :param pulumi.Input[_builtins.str] invoke_arn: ARN to be used for invoking Lambda Function from API Gateway - to be used in `apigateway.Integration`'s `uri`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] layers: List of Lambda Layer Version ARNs (maximum of 5) to attach to your Lambda Function.
         :param pulumi.Input[Union['FunctionLoggingConfigArgs', 'FunctionLoggingConfigArgsDict']] logging_config: Configuration block for advanced logging settings. See below.
@@ -2897,7 +2899,7 @@ class Function(pulumi.CustomResource):
         :param pulumi.Input[Union['FunctionSnapStartArgs', 'FunctionSnapStartArgsDict']] snap_start: Configuration block for snap start settings. See below.
         :param pulumi.Input[_builtins.str] source_code_hash: User-defined hash of the source code package file. Use this argument to trigger updates when the local function source code changes. This is a synthetic argument tracked only by the AWS provider and does not need to match the hashing algorithm used by Lambda to compute the `CodeSha256` response value. Out-of-band changes to the source code _will not_ be captured by this argument. To include out-of-band source code changes as an update trigger, use the `code_sha256` argument instead.
         :param pulumi.Input[_builtins.int] source_code_size: Size in bytes of the function .zip file.
-        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        :param pulumi.Input[_builtins.str] source_kms_key_arn: ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of tags for the Lambda function. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['FunctionTenancyConfigArgs', 'FunctionTenancyConfigArgsDict']] tenancy_config: Configuration block for Tenancy. See below.
@@ -3097,7 +3099,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
+        ARN of the KMS key used to encrypt environment variables. If not provided when environment variables are in use, AWS Lambda uses a default service key. If provided when environment variables are not in use, the AWS Lambda API does not save this configuration.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -3315,7 +3317,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package. Conflicts with `image_uri`.
         """
         return pulumi.get(self, "source_kms_key_arn")
 

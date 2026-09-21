@@ -13,19 +13,19 @@ namespace Pulumi.Aws.Ses.Inputs
     public sealed class ReceiptRuleAddHeaderActionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The name of the header to add
+        /// Name of the header to add.
         /// </summary>
         [Input("headerName", required: true)]
         public Input<string> HeaderName { get; set; } = null!;
 
         /// <summary>
-        /// The value of the header to add
+        /// Value of the header to add.
         /// </summary>
         [Input("headerValue", required: true)]
         public Input<string> HeaderValue { get; set; } = null!;
 
         /// <summary>
-        /// The position of the action in the receipt rule
+        /// Position of the action in the receipt rule.
         /// </summary>
         [Input("position", required: true)]
         public Input<int> Position { get; set; } = null!;

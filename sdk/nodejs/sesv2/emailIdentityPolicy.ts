@@ -81,7 +81,7 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The email identity.
+     * Email identity.
      */
     declare public readonly emailIdentity: pulumi.Output<string>;
     /**
@@ -140,7 +140,7 @@ export class EmailIdentityPolicy extends pulumi.CustomResource {
  */
 export interface EmailIdentityPolicyState {
     /**
-     * The email identity.
+     * Email identity.
      */
     emailIdentity?: pulumi.Input<string | undefined>;
     /**
@@ -162,7 +162,7 @@ export interface EmailIdentityPolicyState {
  */
 export interface EmailIdentityPolicyArgs {
     /**
-     * The email identity.
+     * Email identity.
      */
     emailIdentity: pulumi.Input<string>;
     /**

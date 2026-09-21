@@ -35,12 +35,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
 //					LoggingLevel: pulumi.String("OFF"),
 //				},
+//				RestApi:    pulumi.Any(example.Id),
+//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
+//				MethodPath: pulumi.String("path1/GET"),
 //			})
 //			if err != nil {
 //				return err
@@ -66,14 +66,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
 //					LoggingLevel:     pulumi.String("ERROR"),
 //					MetricsEnabled:   pulumi.Bool(true),
 //					DataTraceEnabled: pulumi.Bool(false),
 //				},
+//				RestApi:    pulumi.Any(example.Id),
+//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
+//				MethodPath: pulumi.String("path1/GET"),
 //			})
 //			if err != nil {
 //				return err
@@ -99,14 +99,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
 //					LoggingLevel:     pulumi.String("INFO"),
 //					MetricsEnabled:   pulumi.Bool(true),
 //					DataTraceEnabled: pulumi.Bool(false),
 //				},
+//				RestApi:    pulumi.Any(example.Id),
+//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
+//				MethodPath: pulumi.String("path1/GET"),
 //			})
 //			if err != nil {
 //				return err
@@ -132,14 +132,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewMethodSettings(ctx, "path_specific", &apigateway.MethodSettingsArgs{
-//				RestApi:    pulumi.Any(example.Id),
-//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
-//				MethodPath: pulumi.String("path1/GET"),
 //				Settings: &apigateway.MethodSettingsSettingsArgs{
 //					LoggingLevel:     pulumi.String("INFO"),
 //					MetricsEnabled:   pulumi.Bool(true),
 //					DataTraceEnabled: pulumi.Bool(true),
 //				},
+//				RestApi:    pulumi.Any(example.Id),
+//				StageName:  pulumi.Any(exampleAwsApiGatewayStage.StageName),
+//				MethodPath: pulumi.String("path1/GET"),
 //			})
 //			if err != nil {
 //				return err

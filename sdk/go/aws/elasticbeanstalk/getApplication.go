@@ -72,12 +72,8 @@ type LookupApplicationResult struct {
 }
 
 func LookupApplicationOutput(ctx *pulumi.Context, args LookupApplicationOutputArgs, opts ...pulumi.InvokeOption) LookupApplicationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupApplicationResultOutput, error) {
-			args := v.(LookupApplicationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:elasticbeanstalk/getApplication:getApplication", args, LookupApplicationResultOutput{}, options).(LookupApplicationResultOutput), nil
-		}).(LookupApplicationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:elasticbeanstalk/getApplication:getApplication", args, LookupApplicationResultOutput{}, options).(LookupApplicationResultOutput)
 }
 
 // A collection of arguments for invoking getApplication.

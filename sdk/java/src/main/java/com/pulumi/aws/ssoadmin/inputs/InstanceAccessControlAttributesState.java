@@ -33,14 +33,14 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      * 
      */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * @return ARN of the SSO Instance.
      * 
      */
     public Optional<Output<String>> instanceArn() {
@@ -136,7 +136,7 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
+         * @param instanceArn ARN of the SSO Instance.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class InstanceAccessControlAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
+         * @param instanceArn ARN of the SSO Instance.
          * 
          * @return builder
          * 

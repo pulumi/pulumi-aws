@@ -51,15 +51,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var testStream = new Stream("testStream", StreamArgs.builder()
+ *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
+ *                 .streamMode("PROVISIONED")
+ *                 .build())
  *             .name("kinesis-test")
  *             .shardCount(1)
  *             .retentionPeriod(48)
  *             .shardLevelMetrics(            
  *                 "IncomingBytes",
  *                 "OutgoingBytes")
- *             .streamModeDetails(StreamStreamModeDetailsArgs.builder()
- *                 .streamMode("PROVISIONED")
- *                 .build())
  *             .tags(Map.of("Environment", "test"))
  *             .build());
  * 
@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/stream:Stream")
 public class Stream extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * ARN specifying the stream (same as `id`).
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * @return ARN specifying the stream (same as `id`).
      * 
      */
     public Output<String> arn() {

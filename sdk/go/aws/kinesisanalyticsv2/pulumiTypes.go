@@ -2776,7 +2776,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputType str
 	InputStartingPositionConfigurations []ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfiguration `pulumi:"inputStartingPositionConfigurations"`
 	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 	KinesisFirehoseInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+	// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
 	KinesisStreamsInput *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput `pulumi:"kinesisStreamsInput"`
 	// The name prefix to use when creating an in-application stream.
 	NamePrefix string `pulumi:"namePrefix"`
@@ -2807,7 +2807,7 @@ type ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeArgs
 	InputStartingPositionConfigurations ApplicationApplicationConfigurationSqlApplicationConfigurationInputInputStartingPositionConfigurationArrayInput `pulumi:"inputStartingPositionConfigurations"`
 	// If the streaming source is a Kinesis Data Firehose delivery stream, identifies the delivery stream's ARN.
 	KinesisFirehoseInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrInput `pulumi:"kinesisFirehoseInput"`
-	// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+	// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
 	KinesisStreamsInput ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrInput `pulumi:"kinesisStreamsInput"`
 	// The name prefix to use when creating an in-application stream.
 	NamePrefix pulumi.StringInput `pulumi:"namePrefix"`
@@ -2938,7 +2938,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeO
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		return v.KinesisStreamsInput
@@ -3045,7 +3045,7 @@ func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypeP
 	}).(ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInputPtrOutput)
 }
 
-// If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+// If the streaming source is a Kinesis data stream, identifies the stream's ARN.
 func (o ApplicationApplicationConfigurationSqlApplicationConfigurationInputTypePtrOutput) KinesisStreamsInput() ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInputPtrOutput {
 	return o.ApplyT(func(v *ApplicationApplicationConfigurationSqlApplicationConfigurationInputType) *ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput {
 		if v == nil {

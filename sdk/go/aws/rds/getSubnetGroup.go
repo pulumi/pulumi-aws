@@ -68,21 +68,17 @@ type LookupSubnetGroupResult struct {
 	Region string `pulumi:"region"`
 	// Provides the status of the DB subnet group.
 	Status string `pulumi:"status"`
-	// Contains a list of subnet identifiers.
+	// List of subnet identifiers.
 	SubnetIds []string `pulumi:"subnetIds"`
-	// The network type of the DB subnet group.
+	// Network type of the DB subnet group.
 	SupportedNetworkTypes []string `pulumi:"supportedNetworkTypes"`
 	// Provides the VPC ID of the DB subnet group.
 	VpcId string `pulumi:"vpcId"`
 }
 
 func LookupSubnetGroupOutput(ctx *pulumi.Context, args LookupSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubnetGroupResultOutput, error) {
-			args := v.(LookupSubnetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getSubnetGroup:getSubnetGroup", args, LookupSubnetGroupResultOutput{}, options).(LookupSubnetGroupResultOutput), nil
-		}).(LookupSubnetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getSubnetGroup:getSubnetGroup", args, LookupSubnetGroupResultOutput{}, options).(LookupSubnetGroupResultOutput)
 }
 
 // A collection of arguments for invoking getSubnetGroup.
@@ -140,12 +136,12 @@ func (o LookupSubnetGroupResultOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
-// Contains a list of subnet identifiers.
+// List of subnet identifiers.
 func (o LookupSubnetGroupResultOutput) SubnetIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SubnetIds }).(pulumi.StringArrayOutput)
 }
 
-// The network type of the DB subnet group.
+// Network type of the DB subnet group.
 func (o LookupSubnetGroupResultOutput) SupportedNetworkTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSubnetGroupResult) []string { return v.SupportedNetworkTypes }).(pulumi.StringArrayOutput)
 }

@@ -178,7 +178,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
                  transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
+        Resource for managing an AWS EC2 Transit Gateway Default Route Table Propagation.
 
         ## Example Usage
 
@@ -207,7 +207,7 @@ class DefaultRouteTablePropagation(pulumi.CustomResource):
                  args: DefaultRouteTablePropagationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Propagation.
+        Resource for managing an AWS EC2 Transit Gateway Default Route Table Propagation.
 
         ## Example Usage
 

@@ -18,19 +18,19 @@ import * as utilities from "../utilities";
  * const exampleAgentcoreAgentRuntime = new aws.bedrock.AgentcoreAgentRuntime("example", {});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "AllowOAuthFromVPC",
- *         effect: "Allow",
- *         actions: ["bedrock-agentcore:InvokeAgentRuntime"],
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         resources: [exampleAgentcoreAgentRuntime.agentRuntimeArn],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "aws:SourceVpc",
  *             values: ["vpc-1a2b3c4d"],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "AllowOAuthFromVPC",
+ *         effect: "Allow",
+ *         actions: ["bedrock-agentcore:InvokeAgentRuntime"],
+ *         resources: [exampleAgentcoreAgentRuntime.agentRuntimeArn],
  *     }],
  * });
  * const exampleAgentcoreResourcePolicy = new aws.bedrock.AgentcoreResourcePolicy("example", {
@@ -90,7 +90,7 @@ export class AgentcoreResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * ARN of the resource for which to create or update the resource policy.
      *
      * The following arguments are optional:
      */
@@ -142,7 +142,7 @@ export interface AgentcoreResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * ARN of the resource for which to create or update the resource policy.
      *
      * The following arguments are optional:
      */
@@ -162,7 +162,7 @@ export interface AgentcoreResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource for which to create or update the resource policy.
+     * ARN of the resource for which to create or update the resource policy.
      *
      * The following arguments are optional:
      */

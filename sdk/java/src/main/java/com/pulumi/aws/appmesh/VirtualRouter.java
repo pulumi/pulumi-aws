@@ -49,8 +49,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var serviceb = new VirtualRouter("serviceb", VirtualRouterArgs.builder()
- *             .name("serviceB")
- *             .meshName(simple.id())
  *             .spec(VirtualRouterSpecArgs.builder()
  *                 .listeners(VirtualRouterSpecListenerArgs.builder()
  *                     .portMapping(VirtualRouterSpecListenerPortMappingArgs.builder()
@@ -59,6 +57,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("serviceB")
+ *             .meshName(simple.id())
  *             .build());
  * 
  *     }

@@ -188,18 +188,18 @@ class Instance(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example_private_dns_namespace.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example_private_dns_namespace.id,
                 "routing_policy": "MULTIVALUE",
             },
             health_check_custom_config={
                 "failure_threshold": 1,
-            })
+            },
+            name="example")
         example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,
@@ -267,18 +267,18 @@ class Instance(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example_private_dns_namespace.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example_private_dns_namespace.id,
                 "routing_policy": "MULTIVALUE",
             },
             health_check_custom_config={
                 "failure_threshold": 1,
-            })
+            },
+            name="example")
         example_instance = aws.servicediscovery.Instance("example",
             instance_id="example-instance-id",
             service_id=example_service.id,

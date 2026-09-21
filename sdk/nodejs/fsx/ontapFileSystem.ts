@@ -88,7 +88,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.OntapFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]});
+ * const example = new aws.fsx.OntapFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]}, {
+ *     ignoreChanges: ["securityGroupIds"],
+ * });
  * ```
  */
 export class OntapFileSystem extends pulumi.CustomResource {
@@ -120,7 +122,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -176,7 +178,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      */
     declare public readonly preferredSubnetId: pulumi.Output<string>;
     /**
@@ -220,7 +222,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
      */
     declare public readonly throughputCapacityPerHaPair: pulumi.Output<number>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -322,7 +324,7 @@ export class OntapFileSystem extends pulumi.CustomResource {
  */
 export interface OntapFileSystemState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -378,7 +380,7 @@ export interface OntapFileSystemState {
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      */
     preferredSubnetId?: pulumi.Input<string | undefined>;
     /**
@@ -422,7 +424,7 @@ export interface OntapFileSystemState {
      */
     throughputCapacityPerHaPair?: pulumi.Input<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
@@ -472,7 +474,7 @@ export interface OntapFileSystemArgs {
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
-     * ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+     * ID for a subnet. A subnet is a range of IP addresses in your VPC.
      */
     preferredSubnetId: pulumi.Input<string>;
     /**

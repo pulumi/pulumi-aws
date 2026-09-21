@@ -14,11 +14,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codebuild.ReportGroup("example", {
- *     name: "example",
- *     type: "TEST",
  *     exportConfig: {
  *         type: "NO_EXPORT",
  *     },
+ *     name: "example",
+ *     type: "TEST",
  * });
  * const current = aws.getPartition({});
  * const currentGetCallerIdentity = aws.getCallerIdentity({});
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+ * - `resourceArn` (String) ARN of the CodeBuild resource.
  *
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  *

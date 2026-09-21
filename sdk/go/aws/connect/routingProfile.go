@@ -30,24 +30,20 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewRoutingProfile(ctx, "example", &connect.RoutingProfileArgs{
-//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:                   pulumi.String("example"),
-//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
-//				Description:            pulumi.String("example description"),
 //				MediaConcurrencies: connect.RoutingProfileMediaConcurrencyArray{
 //					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("VOICE"),
-//						Concurrency: pulumi.Int(1),
 //						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
 //							BehaviorType: pulumi.String("ROUTE_ANY_CHANNEL"),
 //						},
+//						Channel:     pulumi.String("VOICE"),
+//						Concurrency: pulumi.Int(1),
 //					},
 //					&connect.RoutingProfileMediaConcurrencyArgs{
-//						Channel:     pulumi.String("CHAT"),
-//						Concurrency: pulumi.Int(3),
 //						CrossChannelBehavior: &connect.RoutingProfileMediaConcurrencyCrossChannelBehaviorArgs{
 //							BehaviorType: pulumi.String("ROUTE_CURRENT_CHANNEL_ONLY"),
 //						},
+//						Channel:     pulumi.String("CHAT"),
+//						Concurrency: pulumi.Int(3),
 //					},
 //				},
 //				QueueConfigs: connect.RoutingProfileQueueConfigArray{
@@ -58,6 +54,10 @@ import (
 //						QueueId:  pulumi.String("12345678-1234-1234-1234-123456789012"),
 //					},
 //				},
+//				InstanceId:             pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:                   pulumi.String("example"),
+//				DefaultOutboundQueueId: pulumi.String("12345678-1234-1234-1234-123456789012"),
+//				Description:            pulumi.String("example description"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Routing Profile"),
 //				},
@@ -81,7 +81,7 @@ import (
 type RoutingProfile struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringOutput `pulumi:"defaultOutboundQueueId"`
@@ -148,7 +148,7 @@ func GetRoutingProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RoutingProfile resources.
 type routingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn *string `pulumi:"arn"`
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId *string `pulumi:"defaultOutboundQueueId"`
@@ -174,7 +174,7 @@ type routingProfileState struct {
 }
 
 type RoutingProfileState struct {
-	// Amazon Resource Name (ARN) of the Routing Profile.
+	// ARN of the Routing Profile.
 	Arn pulumi.StringPtrInput
 	// Specifies the default outbound queue for the Routing Profile.
 	DefaultOutboundQueueId pulumi.StringPtrInput
@@ -331,7 +331,7 @@ func (o RoutingProfileOutput) ToRoutingProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Routing Profile.
+// ARN of the Routing Profile.
 func (o RoutingProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RoutingProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

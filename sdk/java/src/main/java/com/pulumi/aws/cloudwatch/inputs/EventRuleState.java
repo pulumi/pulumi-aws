@@ -18,14 +18,14 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     public static final EventRuleState Empty = new EventRuleState();
 
     /**
-     * The Amazon Resource Name (ARN) of the rule.
+     * ARN of the rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rule.
+     * @return ARN of the rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -161,14 +161,14 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * ARN associated with the role that is used for target invocation.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+     * @return ARN associated with the role that is used for target invocation.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -277,7 +277,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rule.
+         * @param arn ARN of the rule.
          * 
          * @return builder
          * 
@@ -288,7 +288,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rule.
+         * @param arn ARN of the rule.
          * 
          * @return builder
          * 
@@ -474,7 +474,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+         * @param roleArn ARN associated with the role that is used for target invocation.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class EventRuleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) associated with the role that is used for target invocation.
+         * @param roleArn ARN associated with the role that is used for target invocation.
          * 
          * @return builder
          * 

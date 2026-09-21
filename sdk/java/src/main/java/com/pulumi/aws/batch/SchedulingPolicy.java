@@ -46,10 +46,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SchedulingPolicy("example", SchedulingPolicyArgs.builder()
- *             .name("example")
  *             .fairSharePolicy(SchedulingPolicyFairSharePolicyArgs.builder()
- *                 .computeReservation(1)
- *                 .shareDecaySeconds(3600)
  *                 .shareDistributions(                
  *                     SchedulingPolicyFairSharePolicyShareDistributionArgs.builder()
  *                         .shareIdentifier("A1*")
@@ -59,7 +56,10 @@ import javax.annotation.Nullable;
  *                         .shareIdentifier("A2")
  *                         .weightFactor(0.2)
  *                         .build())
+ *                 .computeReservation(1)
+ *                 .shareDecaySeconds(3600)
  *                 .build())
+ *             .name("example")
  *             .tags(Map.of("Name", "Example Batch Scheduling Policy"))
  *             .build());
  * 
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/schedulingPolicy:SchedulingPolicy")
 public class SchedulingPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the scheduling policy.
+     * @return ARN of the scheduling policy.
      * 
      */
     public Output<String> arn() {

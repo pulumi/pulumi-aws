@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayRule(ctx, "example", &bedrock.AgentcoreGatewayRuleArgs{
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Priority:          pulumi.Int(100),
-//				Description:       pulumi.String("Route all requests to the primary target"),
 //				Actions: bedrock.AgentcoreGatewayRuleActionArray{
 //					&bedrock.AgentcoreGatewayRuleActionArgs{
 //						RouteToTarget: &bedrock.AgentcoreGatewayRuleActionRouteToTargetArgs{
@@ -43,6 +40,9 @@ import (
 //						},
 //					},
 //				},
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Priority:          pulumi.Int(100),
+//				Description:       pulumi.String("Route all requests to the primary target"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,8 +68,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayRule(ctx, "canary", &bedrock.AgentcoreGatewayRuleArgs{
-//				GatewayIdentifier: pulumi.Any(example.GatewayId),
-//				Priority:          pulumi.Int(100),
 //				Actions: bedrock.AgentcoreGatewayRuleActionArray{
 //					&bedrock.AgentcoreGatewayRuleActionArgs{
 //						RouteToTarget: &bedrock.AgentcoreGatewayRuleActionRouteToTargetArgs{
@@ -90,6 +88,8 @@ import (
 //						},
 //					},
 //				},
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
+//				Priority:          pulumi.Int(100),
 //			})
 //			if err != nil {
 //				return err
@@ -124,8 +124,6 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreGatewayRule(ctx, "restricted", &bedrock.AgentcoreGatewayRuleArgs{
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Priority:          pulumi.Int(50),
 //				Actions: bedrock.AgentcoreGatewayRuleActionArray{
 //					&bedrock.AgentcoreGatewayRuleActionArgs{
 //						RouteToTarget: &bedrock.AgentcoreGatewayRuleActionRouteToTargetArgs{
@@ -156,6 +154,8 @@ import (
 //						},
 //					},
 //				},
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Priority:          pulumi.Int(50),
 //			})
 //			if err != nil {
 //				return err

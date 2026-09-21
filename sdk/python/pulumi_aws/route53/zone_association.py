@@ -176,10 +176,11 @@ class ZoneAssociation(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         example = aws.route53.Zone("example",
-            name="example.com",
             vpcs=[{
                 "vpc_id": primary.id,
-            }])
+            }],
+            name="example.com",
+            opts = pulumi.ResourceOptions(ignore_changes=["vpcs"]))
         secondary_zone_association = aws.route53.ZoneAssociation("secondary",
             zone_id=example.zone_id,
             vpc_id=secondary.id)
@@ -250,10 +251,11 @@ class ZoneAssociation(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         example = aws.route53.Zone("example",
-            name="example.com",
             vpcs=[{
                 "vpc_id": primary.id,
-            }])
+            }],
+            name="example.com",
+            opts = pulumi.ResourceOptions(ignore_changes=["vpcs"]))
         secondary_zone_association = aws.route53.ZoneAssociation("secondary",
             zone_id=example.zone_id,
             vpc_id=secondary.id)

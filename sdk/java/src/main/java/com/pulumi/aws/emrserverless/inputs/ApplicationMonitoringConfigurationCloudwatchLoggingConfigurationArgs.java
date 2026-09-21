@@ -35,14 +35,14 @@ public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurat
     }
 
     /**
-     * The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+     * KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
      * 
      */
     @Import(name="encryptionKeyArn")
     private @Nullable Output<String> encryptionKeyArn;
 
     /**
-     * @return The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+     * @return KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
      * 
      */
     public Optional<Output<String>> encryptionKeyArn() {
@@ -144,7 +144,7 @@ public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurat
         }
 
         /**
-         * @param encryptionKeyArn The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+         * @param encryptionKeyArn KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurat
         }
 
         /**
-         * @param encryptionKeyArn The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+         * @param encryptionKeyArn KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
          * 
          * @return builder
          * 

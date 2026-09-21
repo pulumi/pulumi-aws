@@ -17,7 +17,7 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
      */
     private @Nullable String jobBookmarksEncryptionMode;
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -31,7 +31,7 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
         return Optional.ofNullable(this.jobBookmarksEncryptionMode);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     public Optional<String> kmsKeyArn() {

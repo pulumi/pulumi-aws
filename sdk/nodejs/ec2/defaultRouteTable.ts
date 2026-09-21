@@ -23,7 +23,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2.DefaultRouteTable("example", {
- *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
  *     routes: [
  *         {
  *             cidrBlock: "10.0.1.0/24",
@@ -34,6 +33,7 @@ import * as utilities from "../utilities";
  *             egressOnlyGatewayId: exampleAwsEgressOnlyInternetGateway.id,
  *         },
  *     ],
+ *     defaultRouteTableId: exampleAwsVpc.defaultRouteTableId,
  *     tags: {
  *         Name: "example",
  *     },

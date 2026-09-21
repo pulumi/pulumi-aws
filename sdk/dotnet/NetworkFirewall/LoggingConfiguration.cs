@@ -26,7 +26,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -43,6 +42,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });
@@ -60,7 +60,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -76,6 +75,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });
@@ -93,7 +93,6 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.LoggingConfiguration("example", new()
     ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///         LoggingConfig = new Aws.NetworkFirewall.Inputs.LoggingConfigurationLoggingConfigurationArgs
     ///         {
     ///             LogDestinationConfigs = new[]
@@ -109,6 +108,7 @@ namespace Pulumi.Aws.NetworkFirewall
     ///                 },
     ///             },
     ///         },
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
     ///     });
     /// 
     /// });
@@ -132,7 +132,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<bool> EnableMonitoringDashboard { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// ARN of the Network Firewall firewall.
         /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<bool>? EnableMonitoringDashboard { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// ARN of the Network Firewall firewall.
         /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<bool>? EnableMonitoringDashboard { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Network Firewall firewall.
+        /// ARN of the Network Firewall firewall.
         /// </summary>
         [Input("firewallArn")]
         public Input<string>? FirewallArn { get; set; }

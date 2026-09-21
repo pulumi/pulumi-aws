@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContactList("example", ContactListArgs.builder()
- *             .contactListName("example")
- *             .description("description")
  *             .topics(ContactListTopicArgs.builder()
  *                 .defaultSubscriptionStatus("OPT_IN")
  *                 .description("topic description")
  *                 .displayName("Example Topic")
  *                 .topicName("example-topic")
  *                 .build())
+ *             .contactListName("example")
+ *             .description("description")
  *             .build());
  * 
  *     }
@@ -107,9 +107,17 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="aws:sesv2/contactList:ContactList")
 public class ContactList extends com.pulumi.resources.CustomResource {
+    /**
+     * ARN of the contact list.
+     * 
+     */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
+    /**
+     * @return ARN of the contact list.
+     * 
+     */
     public Output<String> arn() {
         return this.arn;
     }

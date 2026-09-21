@@ -5,7 +5,7 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+ * Resource for managing an exclusive set of AWS VPC Security Group Rules.
  *
  * This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
  *

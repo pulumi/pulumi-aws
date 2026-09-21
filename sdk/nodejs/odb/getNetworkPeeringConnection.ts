@@ -51,7 +51,7 @@ export interface GetNetworkPeeringConnectionArgs {
  */
 export interface GetNetworkPeeringConnectionResult {
     /**
-     * Amazon Resource Name (ARN) for the  ODB network peering connection.
+     * ARN for the  ODB network peering connection.
      */
     readonly arn: string;
     /**

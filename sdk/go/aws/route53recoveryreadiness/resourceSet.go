@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoveryreadiness.NewResourceSet(ctx, "example", &route53recoveryreadiness.ResourceSetArgs{
-//				ResourceSetName: pulumi.Any(my_cw_alarm_set),
-//				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
 //				Resources: route53recoveryreadiness.ResourceSetResourceArray{
 //					&route53recoveryreadiness.ResourceSetResourceArgs{
 //						ResourceArn: pulumi.Any(exampleAwsCloudwatchMetricAlarm.Arn),
 //					},
 //				},
+//				ResourceSetName: pulumi.Any(my_cw_alarm_set),
+//				ResourceSetType: pulumi.String("AWS::CloudWatch::Alarm"),
 //			})
 //			if err != nil {
 //				return err

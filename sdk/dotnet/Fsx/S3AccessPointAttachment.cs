@@ -24,21 +24,21 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var example = new Aws.Fsx.S3AccessPointAttachment("example", new()
     ///     {
-    ///         Name = "example-attachment",
-    ///         Type = "OPENZFS",
     ///         OpenzfsConfiguration = new Aws.Fsx.Inputs.S3AccessPointAttachmentOpenzfsConfigurationArgs
     ///         {
-    ///             VolumeId = exampleAwsFsxOpenzfsVolume.Id,
     ///             FileSystemIdentity = new Aws.Fsx.Inputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityArgs
     ///             {
-    ///                 Type = "POSIX",
     ///                 PosixUser = new Aws.Fsx.Inputs.S3AccessPointAttachmentOpenzfsConfigurationFileSystemIdentityPosixUserArgs
     ///                 {
     ///                     Uid = 1001,
     ///                     Gid = 1001,
     ///                 },
+    ///                 Type = "POSIX",
     ///             },
+    ///             VolumeId = exampleAwsFsxOpenzfsVolume.Id,
     ///         },
+    ///         Name = "example-attachment",
+    ///         Type = "OPENZFS",
     ///     });
     /// 
     /// });

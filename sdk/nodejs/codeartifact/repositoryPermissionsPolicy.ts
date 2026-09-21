@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "*",
  *             identifiers: ["*"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["codeartifact:ReadFromRepository"],
  *         resources: [exampleRepository.arn],
  *     }],
@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+ * - `resourceArn` (String) ARN of the CodeArtifact repository.
  *
  * Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
  *

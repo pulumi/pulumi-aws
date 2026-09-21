@@ -50,7 +50,7 @@ import (
 type InstanceConnectEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+	// ARN of the EC2 Instance Connect Endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Availability Zone of the EC2 Instance Connect Endpoint.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -114,7 +114,7 @@ func GetInstanceConnectEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceConnectEndpoint resources.
 type instanceConnectEndpointState struct {
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+	// ARN of the EC2 Instance Connect Endpoint.
 	Arn *string `pulumi:"arn"`
 	// The Availability Zone of the EC2 Instance Connect Endpoint.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -146,7 +146,7 @@ type instanceConnectEndpointState struct {
 }
 
 type InstanceConnectEndpointState struct {
-	// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+	// ARN of the EC2 Instance Connect Endpoint.
 	Arn pulumi.StringPtrInput
 	// The Availability Zone of the EC2 Instance Connect Endpoint.
 	AvailabilityZone pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (o InstanceConnectEndpointOutput) ToInstanceConnectEndpointOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+// ARN of the EC2 Instance Connect Endpoint.
 func (o InstanceConnectEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceConnectEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -92,8 +92,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .prefix("documents/")
  *                 .tags(Map.ofEntries(
@@ -101,6 +99,8 @@ import javax.annotation.Nullable;
  *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
+ *             .bucket(example.id())
+ *             .name("ImportantBlueDocuments")
  *             .build());
  * 
  *     }
@@ -147,8 +147,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_filtered = new BucketMetric("example-filtered", BucketMetricArgs.builder()
- *             .bucket(example.id())
- *             .name("ImportantBlueDocuments")
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .accessPoint(example_access_point.arn())
  *                 .tags(Map.ofEntries(
@@ -156,6 +154,8 @@ import javax.annotation.Nullable;
  *                     Map.entry("class", "blue")
  *                 ))
  *                 .build())
+ *             .bucket(example.id())
+ *             .name("ImportantBlueDocuments")
  *             .build());
  * 
  *     }
@@ -200,10 +200,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--zoneId--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name(available.zoneIds()[0])
  *                 .build())
+ *             .bucket("example--zoneId--x-s3")
  *             .build());
  * 
  *         var example_access_point = new AccessPoint("example-access-point", AccessPointArgs.builder()
@@ -212,12 +212,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_bucket_metric = new BucketMetric("example-bucket-metric", BucketMetricArgs.builder()
- *             .bucket(example.id())
- *             .name("ExampleBucketMetricForDirectoryBuckets")
  *             .filter(BucketMetricFilterArgs.builder()
  *                 .accessPoint(example_access_point.arn())
  *                 .prefix("documents/")
  *                 .build())
+ *             .bucket(example.id())
+ *             .name("ExampleBucketMetricForDirectoryBuckets")
  *             .build());
  * 
  *     }

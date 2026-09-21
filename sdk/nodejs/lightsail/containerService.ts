@@ -61,11 +61,11 @@ import * as utilities from "../utilities";
  * }});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [exampleContainerService.privateRegistryAccess.apply(privateRegistryAccess => privateRegistryAccess.ecrImagePullerRole?.principalArn)],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "ecr:BatchGetImage",
  *             "ecr:GetDownloadUrlForLayer",
@@ -147,7 +147,7 @@ export class ContainerService extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly principalArn: pulumi.Output<string>;
     /**
-     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      */
     declare public /*out*/ readonly privateDomainName: pulumi.Output<string>;
     /**
@@ -289,7 +289,7 @@ export interface ContainerServiceState {
      */
     principalArn?: pulumi.Input<string | undefined>;
     /**
-     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      */
     privateDomainName?: pulumi.Input<string | undefined>;
     /**

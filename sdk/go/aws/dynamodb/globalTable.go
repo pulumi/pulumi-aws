@@ -33,41 +33,40 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			us_east_1, err := dynamodb.NewTable(ctx, "us-east-1", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("myAttribute"),
-//				Name:           pulumi.String("myTable"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				ReadCapacity:   pulumi.Int(1),
-//				WriteCapacity:  pulumi.Int(1),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("myAttribute"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				HashKey:        pulumi.String("myAttribute"),
+//				Name:           pulumi.String("myTable"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				ReadCapacity:   pulumi.Int(1),
+//				WriteCapacity:  pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			us_west_2, err := dynamodb.NewTable(ctx, "us-west-2", &dynamodb.TableArgs{
-//				HashKey:        pulumi.String("myAttribute"),
-//				Name:           pulumi.String("myTable"),
-//				StreamEnabled:  pulumi.Bool(true),
-//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
-//				ReadCapacity:   pulumi.Int(1),
-//				WriteCapacity:  pulumi.Int(1),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("myAttribute"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				HashKey:        pulumi.String("myAttribute"),
+//				Name:           pulumi.String("myTable"),
+//				StreamEnabled:  pulumi.Bool(true),
+//				StreamViewType: pulumi.String("NEW_AND_OLD_IMAGES"),
+//				ReadCapacity:   pulumi.Int(1),
+//				WriteCapacity:  pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dynamodb.NewGlobalTable(ctx, "myTable", &dynamodb.GlobalTableArgs{
-//				Name: pulumi.String("myTable"),
 //				Replicas: dynamodb.GlobalTableReplicaArray{
 //					&dynamodb.GlobalTableReplicaArgs{
 //						RegionName: pulumi.String("us-east-1"),
@@ -76,6 +75,7 @@ import (
 //						RegionName: pulumi.String("us-west-2"),
 //					},
 //				},
+//				Name: pulumi.String("myTable"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				us_east_1,
 //				us_west_2,

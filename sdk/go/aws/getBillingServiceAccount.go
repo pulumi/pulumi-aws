@@ -51,7 +51,6 @@ import (
 //			allowBillingLogging := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -60,6 +59,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:GetBucketAcl"),
 //							pulumi.String("s3:GetBucketPolicy"),
@@ -69,7 +69,6 @@ import (
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -78,6 +77,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("s3:PutObject"),
 //						},
@@ -126,12 +126,8 @@ type GetBillingServiceAccountResult struct {
 }
 
 func GetBillingServiceAccountOutput(ctx *pulumi.Context, args GetBillingServiceAccountOutputArgs, opts ...pulumi.InvokeOption) GetBillingServiceAccountResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetBillingServiceAccountResultOutput, error) {
-			args := v.(GetBillingServiceAccountArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getBillingServiceAccount:getBillingServiceAccount", args, GetBillingServiceAccountResultOutput{}, options).(GetBillingServiceAccountResultOutput), nil
-		}).(GetBillingServiceAccountResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getBillingServiceAccount:getBillingServiceAccount", args, GetBillingServiceAccountResultOutput{}, options).(GetBillingServiceAccountResultOutput)
 }
 
 // A collection of arguments for invoking getBillingServiceAccount.

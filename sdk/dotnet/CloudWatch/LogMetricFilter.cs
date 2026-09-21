@@ -29,15 +29,15 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var yada = new Aws.CloudWatch.LogMetricFilter("yada", new()
     ///     {
-    ///         Name = "MyAppAccessCount",
-    ///         Pattern = "",
-    ///         LogGroupName = dada.Name,
     ///         MetricTransformation = new Aws.CloudWatch.Inputs.LogMetricFilterMetricTransformationArgs
     ///         {
     ///             Name = "EventCount",
     ///             Namespace = "YourNamespace",
     ///             Value = "1",
     ///         },
+    ///         Name = "MyAppAccessCount",
+    ///         Pattern = "",
+    ///         LogGroupName = dada.Name,
     ///     });
     /// 
     /// });

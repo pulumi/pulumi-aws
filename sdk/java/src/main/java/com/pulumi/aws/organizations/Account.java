@@ -92,6 +92,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.organizations.Account;
  * import com.pulumi.aws.organizations.AccountArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -109,7 +110,9 @@ import javax.annotation.Nullable;
  *             .name("my_new_account")
  *             .email("john}{@literal @}{@code doe.org")
  *             .roleName("myOrganizationRole")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("roleName")
+ *                 .build());
  * 
  *     }}{@code
  * }}{@code

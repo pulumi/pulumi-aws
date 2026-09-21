@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePermissionsBoundaryAttachment = new PermissionsBoundaryAttachment("examplePermissionsBoundaryAttachment", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(examplePermissionSet.instanceArn())
- *             .permissionSetArn(examplePermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .customerManagedPolicyReference(PermissionsBoundaryAttachmentPermissionsBoundaryCustomerManagedPolicyReferenceArgs.builder()
  *                     .name(examplePolicy.name())
  *                     .path("/")
  *                     .build())
  *                 .build())
+ *             .instanceArn(examplePermissionSet.instanceArn())
+ *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
  * 
  *     }
@@ -118,11 +118,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PermissionsBoundaryAttachment("example", PermissionsBoundaryAttachmentArgs.builder()
- *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
- *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .permissionsBoundary(PermissionsBoundaryAttachmentPermissionsBoundaryArgs.builder()
  *                 .managedPolicyArn("arn:aws:iam::aws:policy/ReadOnlyAccess")
  *                 .build())
+ *             .instanceArn(exampleAwsSsoadminPermissionSet.instanceArn())
+ *             .permissionSetArn(exampleAwsSsoadminPermissionSet.arn())
  *             .build());
  * 
  *     }
@@ -142,28 +142,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment")
 public class PermissionsBoundaryAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Output<String> permissionSetArn() {

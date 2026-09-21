@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class GetConfigurationSetVdmOptionResult
     {
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        /// Additional settings for your VDM configuration as applicable to the Dashboard.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetVdmOptionDashboardOptionResult> DashboardOptions;
         /// <summary>
-        /// Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        /// Additional settings for your VDM configuration as applicable to the Guardian.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetVdmOptionGuardianOptionResult> GuardianOptions;
 

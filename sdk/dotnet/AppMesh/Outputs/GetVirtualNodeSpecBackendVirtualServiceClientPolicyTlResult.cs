@@ -26,7 +26,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly ImmutableArray<int> Ports;
         /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        /// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationResult> Validations;
 

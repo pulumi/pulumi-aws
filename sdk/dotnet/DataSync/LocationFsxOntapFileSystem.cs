@@ -26,12 +26,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var test = new Aws.DataSync.LocationFsxOntapFileSystem("test", new()
     ///     {
-    ///         FsxFilesystemArn = testAwsFsxOntapFileSystem.Arn,
-    ///         SecurityGroupArns = new[]
-    ///         {
-    ///             testAwsSecurityGroup.Arn,
-    ///         },
-    ///         StorageVirtualMachineArn = testAwsFsxOntapStorageVirtualMachine.Arn,
     ///         Protocol = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolArgs
     ///         {
     ///             Nfs = new Aws.DataSync.Inputs.LocationFsxOntapFileSystemProtocolNfsArgs
@@ -42,6 +36,12 @@ namespace Pulumi.Aws.DataSync
     ///                 },
     ///             },
     ///         },
+    ///         FsxFilesystemArn = testAwsFsxOntapFileSystem.Arn,
+    ///         SecurityGroupArns = new[]
+    ///         {
+    ///             testAwsSecurityGroup.Arn,
+    ///         },
+    ///         StorageVirtualMachineArn = testAwsFsxOntapStorageVirtualMachine.Arn,
     ///     });
     /// 
     /// });

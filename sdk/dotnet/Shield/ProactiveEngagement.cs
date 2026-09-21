@@ -55,7 +55,6 @@ namespace Pulumi.Aws.Shield
     /// 
     ///     var example = new Aws.Shield.ProactiveEngagement("example", new()
     ///     {
-    ///         Enabled = true,
     ///         EmergencyContacts = new[]
     ///         {
     ///             new Aws.Shield.Inputs.ProactiveEngagementEmergencyContactArgs
@@ -71,6 +70,7 @@ namespace Pulumi.Aws.Shield
     ///                 PhoneNumber = "+12358132134",
     ///             },
     ///         },
+    ///         Enabled = true,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

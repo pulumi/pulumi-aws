@@ -16,7 +16,15 @@ public final class GetEmailIdentityDkimSigningAttribute {
      * 
      */
     private String currentSigningKeyLength;
+    /**
+     * @return [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+     * 
+     */
     private String domainSigningPrivateKey;
+    /**
+     * @return [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+     * 
+     */
     private String domainSigningSelector;
     /**
      * @return [Easy DKIM] The last time a key pair was generated for this identity.
@@ -29,12 +37,12 @@ public final class GetEmailIdentityDkimSigningAttribute {
      */
     private String nextSigningKeyLength;
     /**
-     * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * @return String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     private String signingAttributesOrigin;
     /**
-     * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * @return Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     private String status;
@@ -52,9 +60,17 @@ public final class GetEmailIdentityDkimSigningAttribute {
     public String currentSigningKeyLength() {
         return this.currentSigningKeyLength;
     }
+    /**
+     * @return [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+     * 
+     */
     public String domainSigningPrivateKey() {
         return this.domainSigningPrivateKey;
     }
+    /**
+     * @return [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+     * 
+     */
     public String domainSigningSelector() {
         return this.domainSigningSelector;
     }
@@ -73,14 +89,14 @@ public final class GetEmailIdentityDkimSigningAttribute {
         return this.nextSigningKeyLength;
     }
     /**
-     * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * @return String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     public String signingAttributesOrigin() {
         return this.signingAttributesOrigin;
     }
     /**
-     * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * @return Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     public String status() {

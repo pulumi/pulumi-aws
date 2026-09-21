@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
     public sealed class GetReplicationSetRegionResult
     {
         /// <summary>
-        /// The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+        /// ARN of the KMS encryption key.
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>

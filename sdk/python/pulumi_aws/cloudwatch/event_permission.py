@@ -270,13 +270,13 @@ class EventPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
-            principal="*",
-            statement_id="OrganizationAccess",
             condition={
                 "key": "aws:PrincipalOrgID",
                 "type": "StringEquals",
                 "value": example["id"],
-            })
+            },
+            principal="*",
+            statement_id="OrganizationAccess")
         ```
 
         ## Import
@@ -342,13 +342,13 @@ class EventPermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         organization_access = aws.cloudwatch.EventPermission("OrganizationAccess",
-            principal="*",
-            statement_id="OrganizationAccess",
             condition={
                 "key": "aws:PrincipalOrgID",
                 "type": "StringEquals",
                 "value": example["id"],
-            })
+            },
+            principal="*",
+            statement_id="OrganizationAccess")
         ```
 
         ## Import

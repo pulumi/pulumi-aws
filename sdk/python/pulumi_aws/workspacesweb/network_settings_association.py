@@ -159,11 +159,11 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={
@@ -232,11 +232,11 @@ class NetworkSettingsAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
         import pulumi_std as std
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.ec2.Vpc("example",
             cidr_block="10.0.0.0/16",
             tags={

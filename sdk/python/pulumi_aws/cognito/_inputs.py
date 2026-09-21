@@ -1172,7 +1172,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationActionsMediumActionArgs:
 class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgsDict(TypedDict):
     source_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+    ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
     """
     block_email: NotRequired[pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgsDict']]]
     """
@@ -1205,7 +1205,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
                  no_action_email: pulumi.Input[Optional['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailArgs']] = None,
                  reply_to: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] source_arn: The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        :param pulumi.Input[_builtins.str] source_arn: ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationBlockEmailArgs'] block_email: Email template used when a detected risk event is blocked. See notify email type below.
         :param pulumi.Input[_builtins.str] from_: The email address that is sending the email. The address must be either individually verified with Amazon Simple Email Service, or from a domain that has been verified with Amazon SES.
         :param pulumi.Input['RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationMfaEmailArgs'] mfa_email: The multi-factor authentication (MFA) email template used when MFA is challenged as part of a detected risk. See notify email type below.
@@ -1228,7 +1228,7 @@ class RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs:
     @pulumi.getter(name="sourceArn")
     def source_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
         """
         return pulumi.get(self, "source_arn")
 
@@ -2282,7 +2282,7 @@ class UserPoolLambdaConfigArgsDict(TypedDict):
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+    ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
     """
     post_authentication: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2340,7 +2340,7 @@ class UserPoolLambdaConfigArgs:
         :param pulumi.Input[_builtins.str] custom_message: Custom Message AWS Lambda trigger.
         :param pulumi.Input['UserPoolLambdaConfigCustomSmsSenderArgs'] custom_sms_sender: A custom SMS sender AWS Lambda trigger. See custom_sms_sender Below.
         :param pulumi.Input[_builtins.str] define_auth_challenge: Defines the authentication challenge.
-        :param pulumi.Input[_builtins.str] kms_key_id: The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         :param pulumi.Input[_builtins.str] post_authentication: Post-authentication AWS Lambda trigger.
         :param pulumi.Input[_builtins.str] post_confirmation: Post-confirmation AWS Lambda trigger.
         :param pulumi.Input[_builtins.str] pre_authentication: Pre-authentication AWS Lambda trigger.
@@ -2443,7 +2443,7 @@ class UserPoolLambdaConfigArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+        ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2551,7 +2551,7 @@ class UserPoolLambdaConfigArgs:
 class UserPoolLambdaConfigCustomEmailSenderArgsDict(TypedDict):
     lambda_arn: pulumi.Input[_builtins.str]
     """
-    The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+    Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
     """
     lambda_version: pulumi.Input[_builtins.str]
     """
@@ -2564,7 +2564,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
                  lambda_arn: pulumi.Input[_builtins.str],
                  lambda_version: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        :param pulumi.Input[_builtins.str] lambda_arn: Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         :param pulumi.Input[_builtins.str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -2574,7 +2574,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         """
         return pulumi.get(self, "lambda_arn")
 
@@ -2598,7 +2598,7 @@ class UserPoolLambdaConfigCustomEmailSenderArgs:
 class UserPoolLambdaConfigCustomSmsSenderArgsDict(TypedDict):
     lambda_arn: pulumi.Input[_builtins.str]
     """
-    The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+    Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
     """
     lambda_version: pulumi.Input[_builtins.str]
     """
@@ -2611,7 +2611,7 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
                  lambda_arn: pulumi.Input[_builtins.str],
                  lambda_version: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] lambda_arn: The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        :param pulumi.Input[_builtins.str] lambda_arn: Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         :param pulumi.Input[_builtins.str] lambda_version: The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
         """
         pulumi.set(__self__, "lambda_arn", lambda_arn)
@@ -2621,7 +2621,7 @@ class UserPoolLambdaConfigCustomSmsSenderArgs:
     @pulumi.getter(name="lambdaArn")
     def lambda_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+        Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
         """
         return pulumi.get(self, "lambda_arn")
 

@@ -64,15 +64,15 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly availabilityZones: pulumi.Output<string[]>;
     /**
-     * The DB Cluster Identifier from which to take the snapshot.
+     * DB Cluster Identifier from which to take the snapshot.
      */
     declare public readonly dbClusterIdentifier: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      */
     declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     declare public readonly dbClusterSnapshotIdentifier: pulumi.Output<string>;
     /**
@@ -103,10 +103,16 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
+    /**
+     * Type of the DB cluster snapshot.
+     */
     declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
+    /**
+     * DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     */
     declare public /*out*/ readonly sourceDbClusterSnapshotArn: pulumi.Output<string>;
     /**
-     * The status of this DB Cluster Snapshot.
+     * Status of this DB Cluster Snapshot.
      */
     declare public /*out*/ readonly status: pulumi.Output<string>;
     /**
@@ -114,15 +120,15 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The VPC ID associated with the DB cluster snapshot.
+     * VPC ID associated with the DB cluster snapshot.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
 
@@ -204,15 +210,15 @@ export interface ClusterSnapshotState {
      */
     availabilityZones?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The DB Cluster Identifier from which to take the snapshot.
+     * DB Cluster Identifier from which to take the snapshot.
      */
     dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      */
     dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     dbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -243,10 +249,16 @@ export interface ClusterSnapshotState {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Type of the DB cluster snapshot.
+     */
     snapshotType?: pulumi.Input<string | undefined>;
+    /**
+     * DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     */
     sourceDbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**
-     * The status of this DB Cluster Snapshot.
+     * Status of this DB Cluster Snapshot.
      */
     status?: pulumi.Input<string | undefined>;
     /**
@@ -254,15 +266,15 @@ export interface ClusterSnapshotState {
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The VPC ID associated with the DB cluster snapshot.
+     * VPC ID associated with the DB cluster snapshot.
      */
     vpcId?: pulumi.Input<string | undefined>;
 }
@@ -272,11 +284,11 @@ export interface ClusterSnapshotState {
  */
 export interface ClusterSnapshotArgs {
     /**
-     * The DB Cluster Identifier from which to take the snapshot.
+     * DB Cluster Identifier from which to take the snapshot.
      */
     dbClusterIdentifier: pulumi.Input<string>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     dbClusterSnapshotIdentifier: pulumi.Input<string>;
     /**
@@ -288,7 +300,7 @@ export interface ClusterSnapshotArgs {
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

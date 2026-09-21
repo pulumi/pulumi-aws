@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class PipeLogConfigurationFirehoseLogDestination {
     /**
-     * @return Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+     * @return ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
      * 
      */
     private String deliveryStreamArn;
 
     private PipeLogConfigurationFirehoseLogDestination() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+     * @return ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
      * 
      */
     public String deliveryStreamArn() {

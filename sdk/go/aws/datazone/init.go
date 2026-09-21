@@ -37,6 +37,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Glossary{}
 	case "aws:datazone/glossaryTerm:GlossaryTerm":
 		r = &GlossaryTerm{}
+	case "aws:datazone/policyGrant:PolicyGrant":
+		r = &PolicyGrant{}
 	case "aws:datazone/project:Project":
 		r = &Project{}
 	case "aws:datazone/userProfile:UserProfile":
@@ -92,6 +94,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"datazone/glossaryTerm",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"datazone/policyGrant",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

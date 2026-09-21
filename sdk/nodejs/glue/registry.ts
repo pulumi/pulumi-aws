@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Glue registry.
+ * - `arn` (String) ARN of the Glue registry.
  *
  * Using `pulumi import`, import Glue Registries using `arn`. For example:
  *
@@ -59,7 +59,7 @@ export class Registry extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Glue Registry.
+     * ARN of Glue Registry.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class Registry extends pulumi.CustomResource {
  */
 export interface RegistryState {
     /**
-     * Amazon Resource Name (ARN) of Glue Registry.
+     * ARN of Glue Registry.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

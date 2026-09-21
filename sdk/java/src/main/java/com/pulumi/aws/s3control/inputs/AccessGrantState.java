@@ -19,14 +19,14 @@ public final class AccessGrantState extends com.pulumi.resources.ResourceArgs {
     public static final AccessGrantState Empty = new AccessGrantState();
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grant.
+     * ARN of the S3 Access Grant.
      * 
      */
     @Import(name="accessGrantArn")
     private @Nullable Output<String> accessGrantArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grant.
+     * @return ARN of the S3 Access Grant.
      * 
      */
     public Optional<Output<String>> accessGrantArn() {
@@ -234,7 +234,7 @@ public final class AccessGrantState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantArn Amazon Resource Name (ARN) of the S3 Access Grant.
+         * @param accessGrantArn ARN of the S3 Access Grant.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class AccessGrantState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessGrantArn Amazon Resource Name (ARN) of the S3 Access Grant.
+         * @param accessGrantArn ARN of the S3 Access Grant.
          * 
          * @return builder
          * 

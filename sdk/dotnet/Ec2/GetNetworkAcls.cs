@@ -72,7 +72,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
@@ -84,6 +83,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         /// });
@@ -153,7 +153,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
@@ -165,6 +164,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         /// });
@@ -234,7 +234,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetNetworkAcls.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNetworkAclsFilterInputArgs
@@ -246,6 +245,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         /// });

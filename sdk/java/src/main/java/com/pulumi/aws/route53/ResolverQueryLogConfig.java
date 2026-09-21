@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")
 public class ResolverQueryLogConfig extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * ARN of the Route 53 Resolver query logging configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * @return ARN of the Route 53 Resolver query logging configuration.
      * 
      */
     public Output<String> arn() {

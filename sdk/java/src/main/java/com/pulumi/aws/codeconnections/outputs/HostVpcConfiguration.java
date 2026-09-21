@@ -24,7 +24,7 @@ public final class HostVpcConfiguration {
      */
     private List<String> subnetIds;
     /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+     * @return Value of the TLS certificate associated with the infrastructure where your provider type is installed.
      * 
      */
     private @Nullable String tlsCertificate;
@@ -50,7 +50,7 @@ public final class HostVpcConfiguration {
         return this.subnetIds;
     }
     /**
-     * @return The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+     * @return Value of the TLS certificate associated with the infrastructure where your provider type is installed.
      * 
      */
     public Optional<String> tlsCertificate() {

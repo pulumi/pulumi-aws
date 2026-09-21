@@ -345,8 +345,6 @@ class SlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         flower_types = aws.lex.SlotType("flower_types",
-            create_version=True,
-            description="Types of flowers to order",
             enumeration_values=[
                 {
                     "synonyms": [
@@ -363,6 +361,8 @@ class SlotType(pulumi.CustomResource):
                     "value": "tulips",
                 },
             ],
+            create_version=True,
+            description="Types of flowers to order",
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```
@@ -409,8 +409,6 @@ class SlotType(pulumi.CustomResource):
         import pulumi_aws as aws
 
         flower_types = aws.lex.SlotType("flower_types",
-            create_version=True,
-            description="Types of flowers to order",
             enumeration_values=[
                 {
                     "synonyms": [
@@ -427,6 +425,8 @@ class SlotType(pulumi.CustomResource):
                     "value": "tulips",
                 },
             ],
+            create_version=True,
+            description="Types of flowers to order",
             name="FlowerTypes",
             value_selection_strategy="ORIGINAL_VALUE")
         ```

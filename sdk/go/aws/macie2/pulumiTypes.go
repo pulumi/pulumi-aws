@@ -18,7 +18,7 @@ type ClassificationExportConfigurationS3Destination struct {
 	BucketName string `pulumi:"bucketName"`
 	// The object key for the bucket in which Amazon Macie exports the data classification results.
 	KeyPrefix *string `pulumi:"keyPrefix"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	//
 	// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
@@ -40,7 +40,7 @@ type ClassificationExportConfigurationS3DestinationArgs struct {
 	BucketName pulumi.StringInput `pulumi:"bucketName"`
 	// The object key for the bucket in which Amazon Macie exports the data classification results.
 	KeyPrefix pulumi.StringPtrInput `pulumi:"keyPrefix"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	//
 	// Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
@@ -133,7 +133,7 @@ func (o ClassificationExportConfigurationS3DestinationOutput) KeyPrefix() pulumi
 	return o.ApplyT(func(v ClassificationExportConfigurationS3Destination) *string { return v.KeyPrefix }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 //
 // Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 func (o ClassificationExportConfigurationS3DestinationOutput) KmsKeyArn() pulumi.StringOutput {
@@ -184,7 +184,7 @@ func (o ClassificationExportConfigurationS3DestinationPtrOutput) KeyPrefix() pul
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 //
 // Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
 func (o ClassificationExportConfigurationS3DestinationPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {

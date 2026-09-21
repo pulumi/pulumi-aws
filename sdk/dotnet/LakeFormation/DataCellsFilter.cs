@@ -28,6 +28,10 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         TableData = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataArgs
     ///         {
+    ///             RowFilter = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataRowFilterArgs
+    ///             {
+    ///                 FilterExpression = "my_column='example'",
+    ///             },
     ///             DatabaseName = exampleAwsGlueCatalogDatabase.Name,
     ///             Name = "example",
     ///             TableCatalogId = current.AccountId,
@@ -35,10 +39,6 @@ namespace Pulumi.Aws.LakeFormation
     ///             ColumnNames = new[]
     ///             {
     ///                 "my_column",
-    ///             },
-    ///             RowFilter = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataRowFilterArgs
-    ///             {
-    ///                 FilterExpression = "my_column='example'",
     ///             },
     ///         },
     ///     });
@@ -62,10 +62,6 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         TableData = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataArgs
     ///         {
-    ///             DatabaseName = example.Name,
-    ///             Name = "exclude-pii",
-    ///             TableCatalogId = current.AccountId,
-    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///             ColumnWildcard = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataColumnWildcardArgs
     ///             {
     ///                 ExcludedColumnNames = new[]
@@ -78,6 +74,10 @@ namespace Pulumi.Aws.LakeFormation
     ///             {
     ///                 AllRowsWildcard = null,
     ///             },
+    ///             DatabaseName = example.Name,
+    ///             Name = "exclude-pii",
+    ///             TableCatalogId = current.AccountId,
+    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
     ///     });
     /// 
@@ -98,10 +98,6 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         TableData = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataArgs
     ///         {
-    ///             DatabaseName = example.Name,
-    ///             Name = "marketing-filtered",
-    ///             TableCatalogId = current.AccountId,
-    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///             ColumnWildcard = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataColumnWildcardArgs
     ///             {
     ///                 ExcludedColumnNames = new[]
@@ -114,6 +110,10 @@ namespace Pulumi.Aws.LakeFormation
     ///             {
     ///                 FilterExpression = "department = 'Marketing'",
     ///             },
+    ///             DatabaseName = example.Name,
+    ///             Name = "marketing-filtered",
+    ///             TableCatalogId = current.AccountId,
+    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
     ///     });
     /// 
@@ -136,10 +136,6 @@ namespace Pulumi.Aws.LakeFormation
     ///     {
     ///         TableData = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataArgs
     ///         {
-    ///             DatabaseName = example.Name,
-    ///             Name = "regional-filter",
-    ///             TableCatalogId = current.AccountId,
-    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///             ColumnWildcard = new Aws.LakeFormation.Inputs.DataCellsFilterTableDataColumnWildcardArgs
     ///             {
     ///                 ExcludedColumnNames = new() { },
@@ -148,6 +144,10 @@ namespace Pulumi.Aws.LakeFormation
     ///             {
     ///                 FilterExpression = "region = 'US-WEST'",
     ///             },
+    ///             DatabaseName = example.Name,
+    ///             Name = "regional-filter",
+    ///             TableCatalogId = current.AccountId,
+    ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
     ///     });
     /// 

@@ -79,7 +79,7 @@ class ClusterMasterUserSecretArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the secret.
+    ARN of the secret.
     """
     secret_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -94,7 +94,7 @@ class ClusterMasterUserSecretArgs:
                  secret_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
-        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) of the secret.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
         :param pulumi.Input[_builtins.str] secret_status: Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         if kms_key_id is not None:
@@ -120,7 +120,7 @@ class ClusterMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -144,17 +144,15 @@ class ClusterMasterUserSecretArgs:
 class ClusterParameterGroupParameterArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the DB parameter.
+    Name of the DB parameter.
     """
     value: pulumi.Input[_builtins.str]
     """
-    The value of the DB parameter.
+    Value of the DB parameter.
     """
     apply_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    "immediate" (default), or "pending-reboot". Some
-    engines can't apply some parameters without a reboot, and you will need to
-    specify "pending-reboot" here.
+    "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
     """
 
 @pulumi.input_type
@@ -164,11 +162,9 @@ class ClusterParameterGroupParameterArgs:
                  value: pulumi.Input[_builtins.str],
                  apply_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the DB parameter.
-        :param pulumi.Input[_builtins.str] apply_method: "immediate" (default), or "pending-reboot". Some
-               engines can't apply some parameters without a reboot, and you will need to
-               specify "pending-reboot" here.
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter.
+        :param pulumi.Input[_builtins.str] value: Value of the DB parameter.
+        :param pulumi.Input[_builtins.str] apply_method: "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -179,7 +175,7 @@ class ClusterParameterGroupParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the DB parameter.
+        Name of the DB parameter.
         """
         return pulumi.get(self, "name")
 
@@ -191,7 +187,7 @@ class ClusterParameterGroupParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The value of the DB parameter.
+        Value of the DB parameter.
         """
         return pulumi.get(self, "value")
 
@@ -203,9 +199,7 @@ class ClusterParameterGroupParameterArgs:
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        "immediate" (default), or "pending-reboot". Some
-        engines can't apply some parameters without a reboot, and you will need to
-        specify "pending-reboot" here.
+        "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
         """
         return pulumi.get(self, "apply_method")
 
@@ -221,8 +215,7 @@ class ClusterRestoreToPointInTimeArgsDict(TypedDict):
     """
     restore_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Type of restore to be performed.
-    Valid options are `full-copy` (default) and `copy-on-write`.
+    Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
     """
     source_cluster_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -247,8 +240,7 @@ class ClusterRestoreToPointInTimeArgs:
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         :param pulumi.Input[_builtins.str] restore_to_time: Date and time in UTC format to restore the database cluster to. Conflicts with `use_latest_restorable_time`.
-        :param pulumi.Input[_builtins.str] restore_type: Type of restore to be performed.
-               Valid options are `full-copy` (default) and `copy-on-write`.
+        :param pulumi.Input[_builtins.str] restore_type: Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
         :param pulumi.Input[_builtins.str] source_cluster_identifier: Identifier of the source database cluster from which to restore. When restoring from a cluster in another AWS account, the identifier is the ARN of that cluster.
         :param pulumi.Input[_builtins.str] source_cluster_resource_id: Cluster resource ID of the source database cluster from which to restore. To be used for restoring a deleted cluster in the same account which still has a retained automatic backup available.
         :param pulumi.Input[_builtins.bool] use_latest_restorable_time: Set to true to restore the database cluster to the latest restorable backup time. Defaults to false. Conflicts with `restore_to_time`.
@@ -280,8 +272,7 @@ class ClusterRestoreToPointInTimeArgs:
     @pulumi.getter(name="restoreType")
     def restore_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Type of restore to be performed.
-        Valid options are `full-copy` (default) and `copy-on-write`.
+        Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
         """
         return pulumi.get(self, "restore_type")
 
@@ -342,8 +333,6 @@ class ClusterS3ImportArgsDict(TypedDict):
     source_engine_version: pulumi.Input[_builtins.str]
     """
     Version of the source engine used to make the backup
-
-    This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
     """
     bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -363,8 +352,6 @@ class ClusterS3ImportArgs:
         :param pulumi.Input[_builtins.str] ingestion_role: Role applied to load the data.
         :param pulumi.Input[_builtins.str] source_engine: Source engine for the backup
         :param pulumi.Input[_builtins.str] source_engine_version: Version of the source engine used to make the backup
-               
-               This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         :param pulumi.Input[_builtins.str] bucket_prefix: Can be blank, but is the path to your backup
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
@@ -415,8 +402,6 @@ class ClusterS3ImportArgs:
     def source_engine_version(self) -> pulumi.Input[_builtins.str]:
         """
         Version of the source engine used to make the backup
-
-        This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
         """
         return pulumi.get(self, "source_engine_version")
 
@@ -714,7 +699,7 @@ class ExportTaskTimeoutsArgs:
 class GlobalClusterGlobalClusterMemberArgsDict(TypedDict):
     db_cluster_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of member DB Cluster.
+    ARN of member DB Cluster.
     """
     is_writer: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
@@ -727,7 +712,7 @@ class GlobalClusterGlobalClusterMemberArgs:
                  db_cluster_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  is_writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] db_cluster_arn: Amazon Resource Name (ARN) of member DB Cluster.
+        :param pulumi.Input[_builtins.str] db_cluster_arn: ARN of member DB Cluster.
         :param pulumi.Input[_builtins.bool] is_writer: Whether the member is the primary DB Cluster.
         """
         if db_cluster_arn is not None:
@@ -739,7 +724,7 @@ class GlobalClusterGlobalClusterMemberArgs:
     @pulumi.getter(name="dbClusterArn")
     def db_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of member DB Cluster.
+        ARN of member DB Cluster.
         """
         return pulumi.get(self, "db_cluster_arn")
 
@@ -763,15 +748,7 @@ class GlobalClusterGlobalClusterMemberArgs:
 class InstanceBlueGreenUpdateArgsDict(TypedDict):
     enabled: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    Enables low-downtime updates when `true`.
-    Default is `false`.
-
-    [instance-replication]:
-    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-    [instance-maintenance]:
-    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-    [blue-green]:
-    https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+    Enables low-downtime updates when `true`. Default is `false`.
     """
 
 @pulumi.input_type
@@ -779,15 +756,7 @@ class InstanceBlueGreenUpdateArgs:
     def __init__(__self__, *,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.bool] enabled: Enables low-downtime updates when `true`.
-               Default is `false`.
-               
-               [instance-replication]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-               [instance-maintenance]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-               [blue-green]:
-               https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+        :param pulumi.Input[_builtins.bool] enabled: Enables low-downtime updates when `true`. Default is `false`.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -796,15 +765,7 @@ class InstanceBlueGreenUpdateArgs:
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Enables low-downtime updates when `true`.
-        Default is `false`.
-
-        [instance-replication]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-        [instance-maintenance]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-        [blue-green]:
-        https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+        Enables low-downtime updates when `true`. Default is `false`.
         """
         return pulumi.get(self, "enabled")
 
@@ -865,15 +826,15 @@ class InstanceDesiredStateTimeoutsArgs:
 class InstanceListenerEndpointArgsDict(TypedDict):
     address: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the DNS address of the DB instance.
+    DNS address of the DB instance.
     """
     hosted_zone_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+    ID that Amazon Route 53 assigns when you create a hosted zone.
     """
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The port on which the DB accepts connections.
+    Port on which the DB accepts connections.
     """
 
 @pulumi.input_type
@@ -883,9 +844,9 @@ class InstanceListenerEndpointArgs:
                  hosted_zone_id: pulumi.Input[Optional[_builtins.str]] = None,
                  port: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] address: Specifies the DNS address of the DB instance.
-        :param pulumi.Input[_builtins.str] hosted_zone_id: Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
-        :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections.
+        :param pulumi.Input[_builtins.str] address: DNS address of the DB instance.
+        :param pulumi.Input[_builtins.str] hosted_zone_id: ID that Amazon Route 53 assigns when you create a hosted zone.
+        :param pulumi.Input[_builtins.int] port: Port on which the DB accepts connections.
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
@@ -898,7 +859,7 @@ class InstanceListenerEndpointArgs:
     @pulumi.getter
     def address(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the DNS address of the DB instance.
+        DNS address of the DB instance.
         """
         return pulumi.get(self, "address")
 
@@ -910,7 +871,7 @@ class InstanceListenerEndpointArgs:
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+        ID that Amazon Route 53 assigns when you create a hosted zone.
         """
         return pulumi.get(self, "hosted_zone_id")
 
@@ -922,7 +883,7 @@ class InstanceListenerEndpointArgs:
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The port on which the DB accepts connections.
+        Port on which the DB accepts connections.
         """
         return pulumi.get(self, "port")
 
@@ -934,16 +895,15 @@ class InstanceListenerEndpointArgs:
 class InstanceMasterUserSecretArgsDict(TypedDict):
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN for the KMS encryption key. If creating an
-    encrypted replica, set this to the destination KMS ARN.
+    ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the secret.
+    ARN of the secret.
     """
     secret_status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+    Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
     """
 
 @pulumi.input_type
@@ -953,10 +913,9 @@ class InstanceMasterUserSecretArgs:
                  secret_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  secret_status: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. If creating an
-               encrypted replica, set this to the destination KMS ARN.
-        :param pulumi.Input[_builtins.str] secret_arn: The Amazon Resource Name (ARN) of the secret.
-        :param pulumi.Input[_builtins.str] secret_status: The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN of the secret.
+        :param pulumi.Input[_builtins.str] secret_status: Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         if kms_key_id is not None:
             pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -969,8 +928,7 @@ class InstanceMasterUserSecretArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN for the KMS encryption key. If creating an
-        encrypted replica, set this to the destination KMS ARN.
+        ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -982,7 +940,7 @@ class InstanceMasterUserSecretArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the secret.
+        ARN of the secret.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -994,7 +952,7 @@ class InstanceMasterUserSecretArgs:
     @pulumi.getter(name="secretStatus")
     def secret_status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+        Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
         """
         return pulumi.get(self, "secret_status")
 
@@ -1006,23 +964,23 @@ class InstanceMasterUserSecretArgs:
 class InstanceRestoreToPointInTimeArgsDict(TypedDict):
     restore_time: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+    Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
     """
     source_db_instance_automated_backups_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+    ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
     """
     source_db_instance_identifier: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+    Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
     """
     source_dbi_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+    Resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
     """
     use_latest_restorable_time: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
     """
-    A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+    Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
     """
 
 @pulumi.input_type
@@ -1034,11 +992,11 @@ class InstanceRestoreToPointInTimeArgs:
                  source_dbi_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
                  use_latest_restorable_time: pulumi.Input[Optional[_builtins.bool]] = None):
         """
-        :param pulumi.Input[_builtins.str] restore_time: The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
-        :param pulumi.Input[_builtins.str] source_db_instance_automated_backups_arn: The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
-        :param pulumi.Input[_builtins.str] source_db_instance_identifier: The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
-        :param pulumi.Input[_builtins.str] source_dbi_resource_id: The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
-        :param pulumi.Input[_builtins.bool] use_latest_restorable_time: A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+        :param pulumi.Input[_builtins.str] restore_time: Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        :param pulumi.Input[_builtins.str] source_db_instance_automated_backups_arn: ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        :param pulumi.Input[_builtins.str] source_db_instance_identifier: Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+        :param pulumi.Input[_builtins.str] source_dbi_resource_id: Resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+        :param pulumi.Input[_builtins.bool] use_latest_restorable_time: Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
         """
         if restore_time is not None:
             pulumi.set(__self__, "restore_time", restore_time)
@@ -1055,7 +1013,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="restoreTime")
     def restore_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
+        Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `use_latest_restorable_time`.
         """
         return pulumi.get(self, "restore_time")
 
@@ -1067,7 +1025,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="sourceDbInstanceAutomatedBackupsArn")
     def source_db_instance_automated_backups_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
+        ARN of the automated backup from which to restore. Required if `source_db_instance_identifier` or `source_dbi_resource_id` is not specified.
         """
         return pulumi.get(self, "source_db_instance_automated_backups_arn")
 
@@ -1079,7 +1037,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="sourceDbInstanceIdentifier")
     def source_db_instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
+        Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `source_db_instance_automated_backups_arn` or `source_dbi_resource_id` is not specified.
         """
         return pulumi.get(self, "source_db_instance_identifier")
 
@@ -1091,7 +1049,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="sourceDbiResourceId")
     def source_dbi_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
+        Resource ID of the source DB instance from which to restore. Required if `source_db_instance_identifier` or `source_db_instance_automated_backups_arn` is not specified.
         """
         return pulumi.get(self, "source_dbi_resource_id")
 
@@ -1103,7 +1061,7 @@ class InstanceRestoreToPointInTimeArgs:
     @pulumi.getter(name="useLatestRestorableTime")
     def use_latest_restorable_time(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
+        Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restore_time`.
         """
         return pulumi.get(self, "use_latest_restorable_time")
 
@@ -1115,7 +1073,7 @@ class InstanceRestoreToPointInTimeArgs:
 class InstanceS3ImportArgsDict(TypedDict):
     bucket_name: pulumi.Input[_builtins.str]
     """
-    The bucket name where your backup is stored
+    Bucket name where your backup is stored.
     """
     ingestion_role: pulumi.Input[_builtins.str]
     """
@@ -1123,17 +1081,15 @@ class InstanceS3ImportArgsDict(TypedDict):
     """
     source_engine: pulumi.Input[_builtins.str]
     """
-    Source engine for the backup
+    Source engine for the backup.
     """
     source_engine_version: pulumi.Input[_builtins.str]
     """
-    Version of the source engine used to make the backup
-
-    This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+    Version of the source engine used to make the backup.
     """
     bucket_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Can be blank, but is the path to your backup
+    Can be blank, but is the path to your backup.
     """
 
 @pulumi.input_type
@@ -1145,13 +1101,11 @@ class InstanceS3ImportArgs:
                  source_engine_version: pulumi.Input[_builtins.str],
                  bucket_prefix: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bucket_name: The bucket name where your backup is stored
+        :param pulumi.Input[_builtins.str] bucket_name: Bucket name where your backup is stored.
         :param pulumi.Input[_builtins.str] ingestion_role: Role applied to load the data.
-        :param pulumi.Input[_builtins.str] source_engine: Source engine for the backup
-        :param pulumi.Input[_builtins.str] source_engine_version: Version of the source engine used to make the backup
-               
-               This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
-        :param pulumi.Input[_builtins.str] bucket_prefix: Can be blank, but is the path to your backup
+        :param pulumi.Input[_builtins.str] source_engine: Source engine for the backup.
+        :param pulumi.Input[_builtins.str] source_engine_version: Version of the source engine used to make the backup.
+        :param pulumi.Input[_builtins.str] bucket_prefix: Can be blank, but is the path to your backup.
         """
         pulumi.set(__self__, "bucket_name", bucket_name)
         pulumi.set(__self__, "ingestion_role", ingestion_role)
@@ -1164,7 +1118,7 @@ class InstanceS3ImportArgs:
     @pulumi.getter(name="bucketName")
     def bucket_name(self) -> pulumi.Input[_builtins.str]:
         """
-        The bucket name where your backup is stored
+        Bucket name where your backup is stored.
         """
         return pulumi.get(self, "bucket_name")
 
@@ -1188,7 +1142,7 @@ class InstanceS3ImportArgs:
     @pulumi.getter(name="sourceEngine")
     def source_engine(self) -> pulumi.Input[_builtins.str]:
         """
-        Source engine for the backup
+        Source engine for the backup.
         """
         return pulumi.get(self, "source_engine")
 
@@ -1200,9 +1154,7 @@ class InstanceS3ImportArgs:
     @pulumi.getter(name="sourceEngineVersion")
     def source_engine_version(self) -> pulumi.Input[_builtins.str]:
         """
-        Version of the source engine used to make the backup
-
-        This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+        Version of the source engine used to make the backup.
         """
         return pulumi.get(self, "source_engine_version")
 
@@ -1214,7 +1166,7 @@ class InstanceS3ImportArgs:
     @pulumi.getter(name="bucketPrefix")
     def bucket_prefix(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Can be blank, but is the path to your backup
+        Can be blank, but is the path to your backup.
         """
         return pulumi.get(self, "bucket_prefix")
 
@@ -1303,7 +1255,7 @@ class OptionGroupOptionArgsDict(TypedDict):
     """
     option_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgsDict']]]]]
     """
-    The option settings to apply. See `option_settings` Block below for more details.
+    Option settings to apply. See `option_settings` Block below for more details.
     """
     port: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -1330,7 +1282,7 @@ class OptionGroupOptionArgs:
         """
         :param pulumi.Input[_builtins.str] option_name: Name of the option (e.g., MEMCACHED).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] db_security_group_memberships: List of DB Security Groups for which the option is enabled.
-        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: The option settings to apply. See `option_settings` Block below for more details.
+        :param pulumi.Input[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]] option_settings: Option settings to apply. See `option_settings` Block below for more details.
         :param pulumi.Input[_builtins.int] port: Port number when connecting to the option (e.g., 11211). Leaving out or removing `port` from your configuration does not remove or clear a port from the option in AWS. AWS may assign a default port. Not including `port` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any port changes.
         :param pulumi.Input[_builtins.str] version: Version of the option (e.g., 13.1.0.0). Leaving out or removing `version` from your configuration does not remove or clear a version from the option in AWS. AWS may assign a default version. Not including `version` in your configuration means that the AWS provider will ignore a previously set value, a value set by AWS, and any version changes.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] vpc_security_group_memberships: List of VPC Security Groups for which the option is enabled.
@@ -1375,7 +1327,7 @@ class OptionGroupOptionArgs:
     @pulumi.getter(name="optionSettings")
     def option_settings(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['OptionGroupOptionOptionSettingArgs']]]]:
         """
-        The option settings to apply. See `option_settings` Block below for more details.
+        Option settings to apply. See `option_settings` Block below for more details.
         """
         return pulumi.get(self, "option_settings")
 
@@ -1470,17 +1422,15 @@ class OptionGroupOptionOptionSettingArgs:
 class ParameterGroupParameterArgsDict(TypedDict):
     name: pulumi.Input[_builtins.str]
     """
-    The name of the DB parameter.
+    Name of the DB parameter.
     """
     value: pulumi.Input[_builtins.str]
     """
-    The value of the DB parameter.
+    Value of the DB parameter.
     """
     apply_method: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    "immediate" (default), or "pending-reboot". Some
-    engines can't apply some parameters without a reboot, and you will need to
-    specify "pending-reboot" here.
+    "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
     """
 
 @pulumi.input_type
@@ -1490,11 +1440,9 @@ class ParameterGroupParameterArgs:
                  value: pulumi.Input[_builtins.str],
                  apply_method: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] name: The name of the DB parameter.
-        :param pulumi.Input[_builtins.str] value: The value of the DB parameter.
-        :param pulumi.Input[_builtins.str] apply_method: "immediate" (default), or "pending-reboot". Some
-               engines can't apply some parameters without a reboot, and you will need to
-               specify "pending-reboot" here.
+        :param pulumi.Input[_builtins.str] name: Name of the DB parameter.
+        :param pulumi.Input[_builtins.str] value: Value of the DB parameter.
+        :param pulumi.Input[_builtins.str] apply_method: "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "value", value)
@@ -1507,7 +1455,7 @@ class ParameterGroupParameterArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[_builtins.str]:
         """
-        The name of the DB parameter.
+        Name of the DB parameter.
         """
         return pulumi.get(self, "name")
 
@@ -1519,7 +1467,7 @@ class ParameterGroupParameterArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The value of the DB parameter.
+        Value of the DB parameter.
         """
         return pulumi.get(self, "value")
 
@@ -1531,9 +1479,7 @@ class ParameterGroupParameterArgs:
     @pulumi.getter(name="applyMethod")
     def apply_method(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        "immediate" (default), or "pending-reboot". Some
-        engines can't apply some parameters without a reboot, and you will need to
-        specify "pending-reboot" here.
+        "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
         """
         return pulumi.get(self, "apply_method")
 
@@ -1561,7 +1507,7 @@ class ProxyAuthArgsDict(TypedDict):
     """
     secret_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+    ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
     """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1582,7 +1528,7 @@ class ProxyAuthArgs:
         :param pulumi.Input[_builtins.str] client_password_auth_type: Type of authentication the proxy uses for connections from clients. Valid values are `MYSQL_CACHING_SHA2_PASSWORD`, `MYSQL_NATIVE_PASSWORD`, `POSTGRES_SCRAM_SHA_256`, `POSTGRES_MD5`, and `SQL_SERVER_AUTHENTICATION`.
         :param pulumi.Input[_builtins.str] description: User-specified description about the authentication used by a proxy to log in as a specific database user.
         :param pulumi.Input[_builtins.str] iam_auth: Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy. One of `DISABLED`, `REQUIRED`.
-        :param pulumi.Input[_builtins.str] secret_arn: Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        :param pulumi.Input[_builtins.str] secret_arn: ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         :param pulumi.Input[_builtins.str] username: Name of the database user to which the proxy connects.
         """
         if auth_scheme is not None:
@@ -1650,7 +1596,7 @@ class ProxyAuthArgs:
     @pulumi.getter(name="secretArn")
     def secret_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         """
         return pulumi.get(self, "secret_arn")
 
@@ -1674,7 +1620,7 @@ class ProxyAuthArgs:
 class ProxyDefaultTargetGroupConnectionPoolConfigArgsDict(TypedDict):
     connection_borrow_timeout: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+    Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
     """
     init_query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1682,7 +1628,7 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgsDict(TypedDict):
     """
     max_connections_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
-    The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+    Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
     """
     max_idle_connections_percent: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -1702,9 +1648,9 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
                  max_idle_connections_percent: pulumi.Input[Optional[_builtins.int]] = None,
                  session_pinning_filters: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
-        :param pulumi.Input[_builtins.int] connection_borrow_timeout: The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+        :param pulumi.Input[_builtins.int] connection_borrow_timeout: Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
         :param pulumi.Input[_builtins.str] init_query: One or more SQL statements for the proxy to run when opening each new database connection. Typically used with `SET` statements to make sure that each connection has identical settings such as time zone and character set. This setting is empty by default. For multiple statements, use semicolons as the separator. You can also include multiple variables in a single `SET` statement, such as `SET x=1, y=2`.
-        :param pulumi.Input[_builtins.int] max_connections_percent: The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        :param pulumi.Input[_builtins.int] max_connections_percent: Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         :param pulumi.Input[_builtins.int] max_idle_connections_percent: Controls how actively the proxy closes idle database connections in the connection pool. A high value enables the proxy to leave a high percentage of idle connections open. A low value causes the proxy to close idle client connections and return the underlying database connections to the connection pool. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] session_pinning_filters: Each item in the list represents a class of SQL operations that normally cause all later statements in a session using a proxy to be pinned to the same underlying database connection. Including an item in the list exempts that class of SQL operations from the pinning behavior. This setting is only supported for MySQL engine family databases. Currently, the only allowed value is `EXCLUDE_VARIABLE_SETS`.
         """
@@ -1723,7 +1669,7 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
     @pulumi.getter(name="connectionBorrowTimeout")
     def connection_borrow_timeout(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+        Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
         """
         return pulumi.get(self, "connection_borrow_timeout")
 
@@ -1747,7 +1693,7 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
     @pulumi.getter(name="maxConnectionsPercent")
     def max_connections_percent(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+        Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the max_connections setting for the RDS DB instance or Aurora DB cluster used by the target group.
         """
         return pulumi.get(self, "max_connections_percent")
 
@@ -1782,13 +1728,23 @@ class ProxyDefaultTargetGroupConnectionPoolConfigArgs:
 
 class ReservedInstanceRecurringChargeArgsDict(TypedDict):
     recurring_charge_amount: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Amount of the recurring charge.
+    """
     recurring_charge_frequency: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Frequency of the recurring charge.
+    """
 
 @pulumi.input_type
 class ReservedInstanceRecurringChargeArgs:
     def __init__(__self__, *,
                  recurring_charge_amount: pulumi.Input[Optional[_builtins.int]] = None,
                  recurring_charge_frequency: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] recurring_charge_amount: Amount of the recurring charge.
+        :param pulumi.Input[_builtins.str] recurring_charge_frequency: Frequency of the recurring charge.
+        """
         if recurring_charge_amount is not None:
             pulumi.set(__self__, "recurring_charge_amount", recurring_charge_amount)
         if recurring_charge_frequency is not None:
@@ -1797,6 +1753,9 @@ class ReservedInstanceRecurringChargeArgs:
     @_builtins.property
     @pulumi.getter(name="recurringChargeAmount")
     def recurring_charge_amount(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Amount of the recurring charge.
+        """
         return pulumi.get(self, "recurring_charge_amount")
 
     @recurring_charge_amount.setter
@@ -1806,6 +1765,9 @@ class ReservedInstanceRecurringChargeArgs:
     @_builtins.property
     @pulumi.getter(name="recurringChargeFrequency")
     def recurring_charge_frequency(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Frequency of the recurring charge.
+        """
         return pulumi.get(self, "recurring_charge_frequency")
 
     @recurring_charge_frequency.setter
@@ -1931,19 +1893,32 @@ class GetClustersFilterArgs:
 
 class GetEngineVersionFilterArgsDict(TypedDict):
     name: _builtins.str
+    """
+    Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    """
     values: Sequence[_builtins.str]
+    """
+    Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+    """
 
 @pulumi.input_type
 class GetEngineVersionFilterArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  values: Sequence[_builtins.str]):
+        """
+        :param _builtins.str name: Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        :param Sequence[_builtins.str] values: Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "values", values)
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
+        """
+        Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -1953,6 +1928,9 @@ class GetEngineVersionFilterArgs:
     @_builtins.property
     @pulumi.getter
     def values(self) -> Sequence[_builtins.str]:
+        """
+        Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+        """
         return pulumi.get(self, "values")
 
     @values.setter

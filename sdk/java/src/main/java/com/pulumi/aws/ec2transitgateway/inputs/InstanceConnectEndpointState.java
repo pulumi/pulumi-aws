@@ -20,14 +20,14 @@ public final class InstanceConnectEndpointState extends com.pulumi.resources.Res
     public static final InstanceConnectEndpointState Empty = new InstanceConnectEndpointState();
 
     /**
-     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * ARN of the EC2 Instance Connect Endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * @return ARN of the EC2 Instance Connect Endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -275,7 +275,7 @@ public final class InstanceConnectEndpointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+         * @param arn ARN of the EC2 Instance Connect Endpoint.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class InstanceConnectEndpointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+         * @param arn ARN of the EC2 Instance Connect Endpoint.
          * 
          * @return builder
          * 

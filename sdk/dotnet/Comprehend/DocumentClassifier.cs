@@ -28,13 +28,13 @@ namespace Pulumi.Aws.Comprehend
     /// 
     ///     var example = new Aws.Comprehend.DocumentClassifier("example", new()
     ///     {
-    ///         Name = "example",
-    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
-    ///         LanguageCode = "en",
     ///         InputDataConfig = new Aws.Comprehend.Inputs.DocumentClassifierInputDataConfigArgs
     ///         {
     ///             S3Uri = documents.Key.Apply(key =&gt; $"s3://{test.Bucket}/{key}"),
     ///         },
+    ///         Name = "example",
+    ///         DataAccessRoleArn = exampleAwsIamRole.Arn,
+    ///         LanguageCode = "en",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+    /// - `Arn` (String) ARN of the Comprehend document classifier.
     /// 
     /// Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
     /// 

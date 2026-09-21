@@ -40,8 +40,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -50,6 +48,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("EnableAnotherAWSAccountToReadTheSecret"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"secretsmanager:GetSecretValue",
 //						},
@@ -81,9 +81,9 @@ import (
 //
 // #### Required
 //
-// - `secretArn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+// - `secretArn` (String) ARN of the Secrets Manager secret.
 //
-// Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456

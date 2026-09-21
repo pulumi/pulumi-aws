@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.Lambda
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -56,7 +56,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.CapacityProvider("example", new()
     ///     {
-    ///         Name = "example",
     ///         VpcConfig = new Aws.Lambda.Inputs.CapacityProviderVpcConfigArgs
     ///         {
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
@@ -68,21 +67,6 @@ namespace Pulumi.Aws.Lambda
     ///         PermissionsConfig = new Aws.Lambda.Inputs.CapacityProviderPermissionsConfigArgs
     ///         {
     ///             CapacityProviderOperatorRoleArn = exampleAwsIamRole.Arn,
-    ///         },
-    ///         InstanceRequirements = new[]
-    ///         {
-    ///             new Aws.Lambda.Inputs.CapacityProviderInstanceRequirementArgs
-    ///             {
-    ///                 Architectures = new[]
-    ///                 {
-    ///                     "x86_64",
-    ///                 },
-    ///                 AllowedInstanceTypes = new[]
-    ///                 {
-    ///                     "c6i.2xlarge",
-    ///                     "c7i.2xlarge",
-    ///                 },
-    ///             },
     ///         },
     ///         CapacityProviderScalingConfigs = new[]
     ///         {
@@ -99,6 +83,22 @@ namespace Pulumi.Aws.Lambda
     ///                 },
     ///             },
     ///         },
+    ///         InstanceRequirements = new[]
+    ///         {
+    ///             new Aws.Lambda.Inputs.CapacityProviderInstanceRequirementArgs
+    ///             {
+    ///                 Architectures = new[]
+    ///                 {
+    ///                     "x86_64",
+    ///                 },
+    ///                 AllowedInstanceTypes = new[]
+    ///                 {
+    ///                     "c6i.2xlarge",
+    ///                     "c7i.2xlarge",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -145,21 +145,19 @@ namespace Pulumi.Aws.Lambda
         public Output<ImmutableArray<Outputs.CapacityProviderInstanceRequirement>> InstanceRequirements { get; private set; } = null!;
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// ARN of the KMS key used to encrypt the Capacity Provider.
         /// </summary>
         [Output("kmsKeyArn")]
         public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Capacity Provider.
+        /// Name of the Capacity Provider.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("permissionsConfig")]
         public Output<Outputs.CapacityProviderPermissionsConfig> PermissionsConfig { get; private set; } = null!;
@@ -187,6 +185,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Configuration block for VPC settings. See VPC Config below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("vpcConfig")]
         public Output<Outputs.CapacityProviderVpcConfig> VpcConfig { get; private set; } = null!;
@@ -262,21 +262,19 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// ARN of the KMS key used to encrypt the Capacity Provider.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The name of the Capacity Provider.
+        /// Name of the Capacity Provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("permissionsConfig", required: true)]
         public Input<Inputs.CapacityProviderPermissionsConfigArgs> PermissionsConfig { get; set; } = null!;
@@ -304,6 +302,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Configuration block for VPC settings. See VPC Config below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfig", required: true)]
         public Input<Inputs.CapacityProviderVpcConfigArgs> VpcConfig { get; set; } = null!;
@@ -347,21 +347,19 @@ namespace Pulumi.Aws.Lambda
         }
 
         /// <summary>
-        /// ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+        /// ARN of the KMS key used to encrypt the Capacity Provider.
         /// </summary>
         [Input("kmsKeyArn")]
         public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
-        /// The name of the Capacity Provider.
+        /// Name of the Capacity Provider.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Configuration block for permissions settings. See Permissions Config below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("permissionsConfig")]
         public Input<Inputs.CapacityProviderPermissionsConfigGetArgs>? PermissionsConfig { get; set; }
@@ -401,6 +399,8 @@ namespace Pulumi.Aws.Lambda
 
         /// <summary>
         /// Configuration block for VPC settings. See VPC Config below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("vpcConfig")]
         public Input<Inputs.CapacityProviderVpcConfigGetArgs>? VpcConfig { get; set; }

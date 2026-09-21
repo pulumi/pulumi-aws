@@ -158,14 +158,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * ARN of the rule group or firewall policy.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * @return ARN of the rule group or firewall policy.
      * 
      */
     public Output<String> resourceArn() {

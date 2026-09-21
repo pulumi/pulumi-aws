@@ -36,9 +36,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := ec2.GetInstances(ctx, &ec2.GetInstancesArgs{
-//				InstanceTags: map[string]string{
-//					"Role": "HardWorker",
-//				},
 //				Filters: []ec2.GetInstancesFilter{
 //					{
 //						Name: "instance.group-id",
@@ -46,6 +43,9 @@ import (
 //							"sg-12345678",
 //						},
 //					},
+//				},
+//				InstanceTags: map[string]string{
+//					"Role": "HardWorker",
 //				},
 //				InstanceStateNames: []string{
 //					"running",
@@ -117,12 +117,8 @@ type GetInstancesResult struct {
 }
 
 func GetInstancesOutput(ctx *pulumi.Context, args GetInstancesOutputArgs, opts ...pulumi.InvokeOption) GetInstancesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInstancesResultOutput, error) {
-			args := v.(GetInstancesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getInstances:getInstances", args, GetInstancesResultOutput{}, options).(GetInstancesResultOutput), nil
-		}).(GetInstancesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getInstances:getInstances", args, GetInstancesResultOutput{}, options).(GetInstancesResultOutput)
 }
 
 // A collection of arguments for invoking getInstances.

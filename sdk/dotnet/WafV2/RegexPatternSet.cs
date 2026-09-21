@@ -24,9 +24,6 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.RegexPatternSet("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Example regex pattern set",
-    ///         Scope = "REGIONAL",
     ///         RegularExpressions = new[]
     ///         {
     ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
@@ -38,6 +35,9 @@ namespace Pulumi.Aws.WafV2
     ///                 RegexString = "two",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Example regex pattern set",
+    ///         Scope = "REGIONAL",
     ///         Tags = 
     ///         {
     ///             { "Tag1", "Value1" },
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.WafV2
     public partial class RegexPatternSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the cluster.
+        /// ARN that identifies the cluster.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.WafV2
     public sealed class RegexPatternSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the cluster.
+        /// ARN that identifies the cluster.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

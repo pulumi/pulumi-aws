@@ -87,7 +87,7 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class OpenZfsSnapshot extends pulumi.CustomResource {
  */
 export interface OpenZfsSnapshotState {
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

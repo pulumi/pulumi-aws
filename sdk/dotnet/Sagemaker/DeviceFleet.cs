@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.DeviceFleet("example", new()
     ///     {
-    ///         DeviceFleetName = "example",
-    ///         RoleArn = test.Arn,
     ///         OutputConfig = new Aws.Sagemaker.Inputs.DeviceFleetOutputConfigArgs
     ///         {
     ///             S3OutputLocation = $"s3://{exampleAwsS3Bucket.Bucket}/prefix/",
     ///         },
+    ///         DeviceFleetName = "example",
+    ///         RoleArn = test.Arn,
     ///     });
     /// 
     /// });
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class DeviceFleet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        /// ARN assigned by AWS to this Device Fleet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -88,7 +88,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        /// ARN that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        /// ARN that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class DeviceFleetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Device Fleet.
+        /// ARN assigned by AWS to this Device Fleet.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that has access to AWS Internet of Things (IoT).
+        /// ARN that has access to AWS Internet of Things (IoT).
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

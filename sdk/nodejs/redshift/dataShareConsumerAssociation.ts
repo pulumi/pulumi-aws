@@ -78,7 +78,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
      */
     declare public readonly associateEntireAccount: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
     declare public readonly consumerArn: pulumi.Output<string | undefined>;
     /**
@@ -86,7 +86,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
      */
     declare public readonly consumerRegion: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      *
      * The following arguments are optional:
      */
@@ -96,7 +96,7 @@ export class DataShareConsumerAssociation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      */
     declare public /*out*/ readonly producerArn: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface DataShareConsumerAssociationState {
      */
     associateEntireAccount?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
     consumerArn?: pulumi.Input<string | undefined>;
     /**
@@ -165,7 +165,7 @@ export interface DataShareConsumerAssociationState {
      */
     consumerRegion?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      *
      * The following arguments are optional:
      */
@@ -175,7 +175,7 @@ export interface DataShareConsumerAssociationState {
      */
     managedBy?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      */
     producerArn?: pulumi.Input<string | undefined>;
     /**
@@ -197,7 +197,7 @@ export interface DataShareConsumerAssociationArgs {
      */
     associateEntireAccount?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      */
     consumerArn?: pulumi.Input<string | undefined>;
     /**
@@ -205,7 +205,7 @@ export interface DataShareConsumerAssociationArgs {
      */
     consumerRegion?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      *
      * The following arguments are optional:
      */

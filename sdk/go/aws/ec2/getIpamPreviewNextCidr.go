@@ -41,7 +41,9 @@ import (
 //			_, err = ec2.NewVpcIpamPoolCidrAllocation(ctx, "test", &ec2.VpcIpamPoolCidrAllocationArgs{
 //				IpamPoolId: pulumi.Any(testAwsVpcIpamPool.Id),
 //				Cidr:       pulumi.String(test.Cidr),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"cidr",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -85,12 +87,8 @@ type GetIpamPreviewNextCidrResult struct {
 }
 
 func GetIpamPreviewNextCidrOutput(ctx *pulumi.Context, args GetIpamPreviewNextCidrOutputArgs, opts ...pulumi.InvokeOption) GetIpamPreviewNextCidrResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpamPreviewNextCidrResultOutput, error) {
-			args := v.(GetIpamPreviewNextCidrArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, GetIpamPreviewNextCidrResultOutput{}, options).(GetIpamPreviewNextCidrResultOutput), nil
-		}).(GetIpamPreviewNextCidrResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getIpamPreviewNextCidr:getIpamPreviewNextCidr", args, GetIpamPreviewNextCidrResultOutput{}, options).(GetIpamPreviewNextCidrResultOutput)
 }
 
 // A collection of arguments for invoking getIpamPreviewNextCidr.

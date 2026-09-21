@@ -17,12 +17,12 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
      */
     private @Nullable String instanceType;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     private @Nullable String lifecycleConfigArn;
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+     * @return ARN of the SageMaker AI image created on the instance.
      * 
      */
     private @Nullable String sagemakerImageArn;
@@ -46,14 +46,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         return Optional.ofNullable(this.instanceType);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     public Optional<String> lifecycleConfigArn() {
         return Optional.ofNullable(this.lifecycleConfigArn);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+     * @return ARN of the SageMaker AI image created on the instance.
      * 
      */
     public Optional<String> sagemakerImageArn() {

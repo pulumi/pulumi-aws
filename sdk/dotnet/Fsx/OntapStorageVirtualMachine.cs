@@ -48,11 +48,8 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OntapStorageVirtualMachine("test", new()
     ///     {
-    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
-    ///         Name = "mysvm",
     ///         ActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs
     ///         {
-    ///             NetbiosName = "mysvm",
     ///             SelfManagedActiveDirectoryConfiguration = new Aws.Fsx.Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs
     ///             {
     ///                 DnsIps = new[]
@@ -64,7 +61,10 @@ namespace Pulumi.Aws.Fsx
     ///                 Password = "avoid-plaintext-passwords",
     ///                 Username = "Admin",
     ///             },
+    ///             NetbiosName = "mysvm",
     ///         },
+    ///         FileSystemId = testAwsFsxOntapFileSystem.Id,
+    ///         Name = "mysvm",
     ///     });
     /// 
     /// });
@@ -91,6 +91,12 @@ namespace Pulumi.Aws.Fsx
     ///     var example = new Aws.Fsx.OntapStorageVirtualMachine("example", new()
     ///     {
     ///         SvmAdminPassword = "avoid-plaintext-passwords",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "svmAdminPassword",
+    ///         },
     ///     });
     /// 
     /// });
@@ -106,7 +112,7 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.OntapStorageVirtualMachineActiveDirectoryConfiguration?> ActiveDirectoryConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
+        /// ARN of the storage virtual machine.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -294,7 +300,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OntapStorageVirtualMachineActiveDirectoryConfigurationGetArgs>? ActiveDirectoryConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the storage virtual machine.
+        /// ARN of the storage virtual machine.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

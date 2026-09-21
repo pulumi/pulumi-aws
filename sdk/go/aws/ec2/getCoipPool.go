@@ -63,12 +63,8 @@ type GetCoipPoolResult struct {
 }
 
 func GetCoipPoolOutput(ctx *pulumi.Context, args GetCoipPoolOutputArgs, opts ...pulumi.InvokeOption) GetCoipPoolResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCoipPoolResultOutput, error) {
-			args := v.(GetCoipPoolArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getCoipPool:getCoipPool", args, GetCoipPoolResultOutput{}, options).(GetCoipPoolResultOutput), nil
-		}).(GetCoipPoolResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getCoipPool:getCoipPool", args, GetCoipPoolResultOutput{}, options).(GetCoipPoolResultOutput)
 }
 
 // A collection of arguments for invoking getCoipPool.

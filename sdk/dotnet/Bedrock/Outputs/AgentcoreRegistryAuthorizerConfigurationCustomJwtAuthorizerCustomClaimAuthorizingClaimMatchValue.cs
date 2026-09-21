@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue
     {
+        /// <summary>
+        /// Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `InboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `InboundTokenClaimValueType` is `STRING_ARRAY`.
+        /// </summary>
         public readonly string ClaimMatchOperator;
+        /// <summary>
+        /// Value or values to match for. See `ClaimMatchValue` below.
+        /// </summary>
         public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue ClaimMatchValue;
 
         [OutputConstructor]

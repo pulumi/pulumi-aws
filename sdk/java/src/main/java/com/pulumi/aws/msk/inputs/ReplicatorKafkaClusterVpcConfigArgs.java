@@ -20,6 +20,8 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
     /**
      * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
      * 
+     * &gt; **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator&#39;s network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+     * 
      */
     @Import(name="securityGroupsIds")
     private @Nullable Output<List<String>> securityGroupsIds;
@@ -27,20 +29,22 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
     /**
      * @return The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
      * 
+     * &gt; **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator&#39;s network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+     * 
      */
     public Optional<Output<List<String>>> securityGroupsIds() {
         return Optional.ofNullable(this.securityGroupsIds);
     }
 
     /**
-     * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
     /**
-     * @return The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+     * @return List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
      * 
      */
     public Output<List<String>> subnetIds() {
@@ -75,6 +79,8 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         /**
          * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
          * 
+         * &gt; **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator&#39;s network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+         * 
          * @return builder
          * 
          */
@@ -86,6 +92,8 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         /**
          * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
          * 
+         * &gt; **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator&#39;s network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+         * 
          * @return builder
          * 
          */
@@ -96,6 +104,8 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         /**
          * @param securityGroupsIds The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
          * 
+         * &gt; **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator&#39;s network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
+         * 
          * @return builder
          * 
          */
@@ -104,7 +114,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 
@@ -115,7 +125,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 
@@ -125,7 +135,7 @@ public final class ReplicatorKafkaClusterVpcConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param subnetIds The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * @param subnetIds List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          * 
          * @return builder
          * 

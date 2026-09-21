@@ -76,20 +76,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apigatewayv2.Integration("example", {
- *     apiId: exampleAwsApigatewayv2Api.id,
- *     credentialsArn: exampleAwsIamRole.arn,
- *     description: "Example with a load balancer",
- *     integrationType: "HTTP_PROXY",
- *     integrationUri: exampleAwsLbListener.arn,
- *     integrationMethod: "ANY",
- *     connectionType: "VPC_LINK",
- *     connectionId: exampleAwsApigatewayv2VpcLink.id,
  *     tlsConfig: {
  *         serverNameToVerify: "example.com",
- *     },
- *     requestParameters: {
- *         "append:header.authforintegration": "$context.authorizer.authorizerResponse",
- *         "overwrite:path": "staticValueForIntegration",
  *     },
  *     responseParameters: [
  *         {
@@ -105,10 +93,34 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
+ *     apiId: exampleAwsApigatewayv2Api.id,
+ *     credentialsArn: exampleAwsIamRole.arn,
+ *     description: "Example with a load balancer",
+ *     integrationType: "HTTP_PROXY",
+ *     integrationUri: exampleAwsLbListener.arn,
+ *     integrationMethod: "ANY",
+ *     connectionType: "VPC_LINK",
+ *     connectionId: exampleAwsApigatewayv2VpcLink.id,
+ *     requestParameters: {
+ *         "append:header.authforintegration": "$context.authorizer.authorizerResponse",
+ *         "overwrite:path": "staticValueForIntegration",
+ *     },
  * });
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `apiId` (String) API identifier.
+ * * `id` (String) Integration identifier.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import `aws.apigatewayv2.Integration` using the API identifier and integration identifier. For example:
  *
@@ -116,7 +128,7 @@ import * as utilities from "../utilities";
  * $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
  * ```
  *
- * > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+ * > **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  */
 export class Integration extends pulumi.CustomResource {
     /**

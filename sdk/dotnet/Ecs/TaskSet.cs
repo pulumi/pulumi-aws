@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.TaskSet("example", new()
     ///     {
-    ///         Service = exampleAwsEcsService.Id,
-    ///         Cluster = exampleAwsEcsCluster.Id,
-    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
     ///         LoadBalancers = new[]
     ///         {
     ///             new Aws.Ecs.Inputs.TaskSetLoadBalancerArgs
@@ -38,6 +35,9 @@ namespace Pulumi.Aws.Ecs
     ///                 ContainerPort = 8080,
     ///             },
     ///         },
+    ///         Service = exampleAwsEcsService.Id,
+    ///         Cluster = exampleAwsEcsCluster.Id,
+    ///         TaskDefinition = exampleAwsEcsTaskDefinition.Arn,
     ///     });
     /// 
     /// });
@@ -61,6 +61,12 @@ namespace Pulumi.Aws.Ecs
     ///         {
     ///             Value = 50,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "scale",
+    ///         },
     ///     });
     /// 
     /// });
@@ -78,7 +84,7 @@ namespace Pulumi.Aws.Ecs
     public partial class TaskSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) that identifies the task set.
+        /// ARN that identifies the task set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -376,7 +382,7 @@ namespace Pulumi.Aws.Ecs
     public sealed class TaskSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) that identifies the task set.
+        /// ARN that identifies the task set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -31,12 +31,12 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
      */
     private @Nullable List<DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     private @Nullable List<String> lifecycleConfigArns;
@@ -64,14 +64,14 @@ public final class DomainDefaultUserSettingsCodeEditorAppSettings {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec> defaultResourceSpec() {
         return Optional.ofNullable(this.defaultResourceSpec);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public List<String> lifecycleConfigArns() {

@@ -42,13 +42,13 @@ namespace Pulumi.Aws.Ses
     public partial class EmailIdentity : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the email identity.
+        /// ARN of the email identity.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The email address to assign to SES.
+        /// Email address to assign to SES.
         /// </summary>
         [Output("email")]
         public Output<string> Email { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ses
     public sealed class EmailIdentityArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email address to assign to SES.
+        /// Email address to assign to SES.
         /// </summary>
         [Input("email", required: true)]
         public Input<string> Email { get; set; } = null!;
@@ -126,13 +126,13 @@ namespace Pulumi.Aws.Ses
     public sealed class EmailIdentityState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the email identity.
+        /// ARN of the email identity.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The email address to assign to SES.
+        /// Email address to assign to SES.
         /// </summary>
         [Input("email")]
         public Input<string>? Email { get; set; }

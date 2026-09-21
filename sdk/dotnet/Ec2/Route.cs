@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> CarrierGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Output("coreNetworkArn")]
         public Output<string?> CoreNetworkArn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> NetworkInterfaceId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// ARN of an ODB network.
         /// </summary>
         [Output("odbNetworkArn")]
         public Output<string?> OdbNetworkArn { get; private set; } = null!;
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CarrierGatewayId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// ARN of an ODB network.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }
@@ -401,7 +401,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? CarrierGatewayId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a core network.
+        /// ARN of a core network.
         /// </summary>
         [Input("coreNetworkArn")]
         public Input<string>? CoreNetworkArn { get; set; }
@@ -469,7 +469,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? NetworkInterfaceId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an ODB network.
+        /// ARN of an ODB network.
         /// </summary>
         [Input("odbNetworkArn")]
         public Input<string>? OdbNetworkArn { get; set; }

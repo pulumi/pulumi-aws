@@ -32,7 +32,7 @@ type LookupPolicyArgs struct {
 
 // A collection of values returned by getPolicy.
 type LookupPolicyResult struct {
-	// The Amazon Resource Name of the policy.
+	// ARN of the policy.
 	Arn string `pulumi:"arn"`
 	// Indicates if a policy is an AWS managed policy.
 	AwsManaged bool `pulumi:"awsManaged"`
@@ -50,12 +50,8 @@ type LookupPolicyResult struct {
 }
 
 func LookupPolicyOutput(ctx *pulumi.Context, args LookupPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyResultOutput, error) {
-			args := v.(LookupPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getPolicy:getPolicy", args, LookupPolicyResultOutput{}, options).(LookupPolicyResultOutput), nil
-		}).(LookupPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getPolicy:getPolicy", args, LookupPolicyResultOutput{}, options).(LookupPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getPolicy.
@@ -83,7 +79,7 @@ func (o LookupPolicyResultOutput) ToLookupPolicyResultOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name of the policy.
+// ARN of the policy.
 func (o LookupPolicyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPolicyResult) string { return v.Arn }).(pulumi.StringOutput)
 }

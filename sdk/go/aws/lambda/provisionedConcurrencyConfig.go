@@ -84,7 +84,7 @@ import (
 type ProvisionedConcurrencyConfig struct {
 	pulumi.CustomResourceState
 
-	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	// Name or ARN of the Lambda Function.
 	FunctionName pulumi.StringOutput `pulumi:"functionName"`
 	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntOutput `pulumi:"provisionedConcurrentExecutions"`
@@ -137,7 +137,7 @@ func GetProvisionedConcurrencyConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
 type provisionedConcurrencyConfigState struct {
-	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	// Name or ARN of the Lambda Function.
 	FunctionName *string `pulumi:"functionName"`
 	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions *int `pulumi:"provisionedConcurrentExecutions"`
@@ -152,7 +152,7 @@ type provisionedConcurrencyConfigState struct {
 }
 
 type ProvisionedConcurrencyConfigState struct {
-	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	// Name or ARN of the Lambda Function.
 	FunctionName pulumi.StringPtrInput
 	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntPtrInput
@@ -171,7 +171,7 @@ func (ProvisionedConcurrencyConfigState) ElementType() reflect.Type {
 }
 
 type provisionedConcurrencyConfigArgs struct {
-	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	// Name or ARN of the Lambda Function.
 	FunctionName string `pulumi:"functionName"`
 	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions int `pulumi:"provisionedConcurrentExecutions"`
@@ -187,7 +187,7 @@ type provisionedConcurrencyConfigArgs struct {
 
 // The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
 type ProvisionedConcurrencyConfigArgs struct {
-	// Name or Amazon Resource Name (ARN) of the Lambda Function.
+	// Name or ARN of the Lambda Function.
 	FunctionName pulumi.StringInput
 	// Amount of capacity to allocate. Must be greater than or equal to 1.
 	ProvisionedConcurrentExecutions pulumi.IntInput
@@ -288,7 +288,7 @@ func (o ProvisionedConcurrencyConfigOutput) ToProvisionedConcurrencyConfigOutput
 	return o
 }
 
-// Name or Amazon Resource Name (ARN) of the Lambda Function.
+// Name or ARN of the Lambda Function.
 func (o ProvisionedConcurrencyConfigOutput) FunctionName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProvisionedConcurrencyConfig) pulumi.StringOutput { return v.FunctionName }).(pulumi.StringOutput)
 }

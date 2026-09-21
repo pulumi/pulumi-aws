@@ -26,28 +26,10 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         MaxConcurrency = "2",
-    ///         MaxErrors = "1",
-    ///         Priority = 1,
-    ///         TaskArn = "AWS-RestartEC2Instance",
-    ///         TaskType = "AUTOMATION",
-    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
-    ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
-    ///                 {
-    ///                     exampleAwsInstance.Id,
-    ///                 },
-    ///             },
-    ///         },
     ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///         {
     ///             AutomationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersArgs
     ///             {
-    ///                 DocumentVersion = "$LATEST",
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersAutomationParametersParameterArgs
@@ -59,8 +41,26 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                     },
     ///                 },
+    ///                 DocumentVersion = "$LATEST",
     ///             },
     ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     exampleAwsInstance.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = "AWS-RestartEC2Instance",
+    ///         TaskType = "AUTOMATION",
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///     });
     /// 
     /// });
@@ -79,23 +79,6 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         MaxConcurrency = "2",
-    ///         MaxErrors = "1",
-    ///         Priority = 1,
-    ///         TaskArn = exampleAwsLambdaFunction.Arn,
-    ///         TaskType = "LAMBDA",
-    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
-    ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
-    ///                 {
-    ///                     exampleAwsInstance.Id,
-    ///                 },
-    ///             },
-    ///         },
     ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///         {
     ///             LambdaParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersLambdaParametersArgs
@@ -107,6 +90,23 @@ namespace Pulumi.Aws.Ssm
     ///                 Payload = "{\"key1\":\"value1\"}",
     ///             },
     ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     exampleAwsInstance.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = exampleAwsLambdaFunction.Arn,
+    ///         TaskType = "LAMBDA",
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///     });
     /// 
     /// });
@@ -124,31 +124,10 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         MaxConcurrency = "2",
-    ///         MaxErrors = "1",
-    ///         Priority = 1,
-    ///         TaskArn = "AWS-RunShellScript",
-    ///         TaskType = "RUN_COMMAND",
-    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
-    ///         Targets = new[]
-    ///         {
-    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
-    ///             {
-    ///                 Key = "InstanceIds",
-    ///                 Values = new[]
-    ///                 {
-    ///                     exampleAwsInstance.Id,
-    ///                 },
-    ///             },
-    ///         },
     ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
     ///         {
     ///             RunCommandParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs
     ///             {
-    ///                 OutputS3Bucket = exampleAwsS3Bucket.Id,
-    ///                 OutputS3KeyPrefix = "output",
-    ///                 ServiceRoleArn = exampleAwsIamRole.Arn,
-    ///                 TimeoutSeconds = 600,
     ///                 NotificationConfig = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs
     ///                 {
     ///                     NotificationArn = exampleAwsSnsTopic.Arn,
@@ -169,8 +148,29 @@ namespace Pulumi.Aws.Ssm
     ///                         },
     ///                     },
     ///                 },
+    ///                 OutputS3Bucket = exampleAwsS3Bucket.Id,
+    ///                 OutputS3KeyPrefix = "output",
+    ///                 ServiceRoleArn = exampleAwsIamRole.Arn,
+    ///                 TimeoutSeconds = 600,
     ///             },
     ///         },
+    ///         Targets = new[]
+    ///         {
+    ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
+    ///             {
+    ///                 Key = "InstanceIds",
+    ///                 Values = new[]
+    ///                 {
+    ///                     exampleAwsInstance.Id,
+    ///                 },
+    ///             },
+    ///         },
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = "AWS-RunShellScript",
+    ///         TaskType = "RUN_COMMAND",
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///     });
     /// 
     /// });
@@ -188,12 +188,14 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.MaintenanceWindowTask("example", new()
     ///     {
-    ///         MaxConcurrency = "2",
-    ///         MaxErrors = "1",
-    ///         Priority = 1,
-    ///         TaskArn = exampleAwsSfnActivity.Id,
-    ///         TaskType = "STEP_FUNCTIONS",
-    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
+    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
+    ///         {
+    ///             StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
+    ///             {
+    ///                 Input = "{\"key1\":\"value1\"}",
+    ///                 Name = "example",
+    ///             },
+    ///         },
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.MaintenanceWindowTaskTargetArgs
@@ -205,14 +207,12 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
-    ///         TaskInvocationParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersArgs
-    ///         {
-    ///             StepFunctionsParameters = new Aws.Ssm.Inputs.MaintenanceWindowTaskTaskInvocationParametersStepFunctionsParametersArgs
-    ///             {
-    ///                 Input = "{\"key1\":\"value1\"}",
-    ///                 Name = "example",
-    ///             },
-    ///         },
+    ///         MaxConcurrency = "2",
+    ///         MaxErrors = "1",
+    ///         Priority = 1,
+    ///         TaskArn = exampleAwsSfnActivity.Id,
+    ///         TaskType = "STEP_FUNCTIONS",
+    ///         WindowId = exampleAwsSsmMaintenanceWindow.Id,
     ///     });
     /// 
     /// });

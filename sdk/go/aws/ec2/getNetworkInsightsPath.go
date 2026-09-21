@@ -98,12 +98,8 @@ type LookupNetworkInsightsPathResult struct {
 }
 
 func LookupNetworkInsightsPathOutput(ctx *pulumi.Context, args LookupNetworkInsightsPathOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInsightsPathResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInsightsPathResultOutput, error) {
-			args := v.(LookupNetworkInsightsPathArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, LookupNetworkInsightsPathResultOutput{}, options).(LookupNetworkInsightsPathResultOutput), nil
-		}).(LookupNetworkInsightsPathResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getNetworkInsightsPath:getNetworkInsightsPath", args, LookupNetworkInsightsPathResultOutput{}, options).(LookupNetworkInsightsPathResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkInsightsPath.

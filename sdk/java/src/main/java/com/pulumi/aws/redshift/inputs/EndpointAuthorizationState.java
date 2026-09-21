@@ -139,14 +139,14 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
     }
 
     /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
     @Import(name="vpcIds")
     private @Nullable Output<List<String>> vpcIds;
 
     /**
-     * @return The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * @return VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
     public Optional<Output<List<String>>> vpcIds() {
@@ -354,7 +354,7 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+         * @param vpcIds VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+         * @param vpcIds VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class EndpointAuthorizationState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param vpcIds The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+         * @param vpcIds VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
          * 
          * @return builder
          * 

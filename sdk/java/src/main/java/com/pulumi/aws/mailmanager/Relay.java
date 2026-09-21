@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Relay("example", RelayArgs.builder()
- *             .name("example")
- *             .serverName("smtp.example.com")
- *             .serverPort(25)
  *             .authentication(RelayAuthenticationArgs.builder()
  *                 .noAuthentication(RelayAuthenticationNoAuthenticationArgs.builder()
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .serverName("smtp.example.com")
+ *             .serverPort(25)
  *             .build());
  * 
  *     }
@@ -107,12 +107,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRelay = new Relay("exampleRelay", RelayArgs.builder()
- *             .name("example")
- *             .serverName("smtp.example.com")
- *             .serverPort(587)
  *             .authentication(RelayAuthenticationArgs.builder()
  *                 .secretArn(exampleSecretVersion.arn())
  *                 .build())
+ *             .name("example")
+ *             .serverName("smtp.example.com")
+ *             .serverPort(587)
  *             .build());
  * 
  *     }

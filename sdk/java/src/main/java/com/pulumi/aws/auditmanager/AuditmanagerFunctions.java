@@ -96,20 +96,20 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
-     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example.id())
      *                         .build())
+     *                     .name("example")
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example2.id())
      *                         .build())
+     *                     .name("example2")
      *                     .build())
+     *             .name("example")
      *             .build());
      * 
      *     }
@@ -199,20 +199,20 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
-     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example.id())
      *                         .build())
+     *                     .name("example")
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example2.id())
      *                         .build())
+     *                     .name("example2")
      *                     .build())
+     *             .name("example")
      *             .build());
      * 
      *     }
@@ -302,20 +302,20 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
-     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example.id())
      *                         .build())
+     *                     .name("example")
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example2.id())
      *                         .build())
+     *                     .name("example2")
      *                     .build())
+     *             .name("example")
      *             .build());
      * 
      *     }
@@ -405,20 +405,20 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
-     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example.id())
      *                         .build())
+     *                     .name("example")
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example2.id())
      *                         .build())
+     *                     .name("example2")
      *                     .build())
+     *             .name("example")
      *             .build());
      * 
      *     }
@@ -508,20 +508,20 @@ public final class AuditmanagerFunctions {
      *             .build());
      * 
      *         var exampleFramework = new Framework("exampleFramework", FrameworkArgs.builder()
-     *             .name("example")
      *             .controlSets(            
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example.id())
      *                         .build())
+     *                     .name("example")
      *                     .build(),
      *                 FrameworkControlSetArgs.builder()
-     *                     .name("example2")
      *                     .controls(FrameworkControlSetControlArgs.builder()
      *                         .id(example2.id())
      *                         .build())
+     *                     .name("example2")
      *                     .build())
+     *             .name("example")
      *             .build());
      * 
      *     }

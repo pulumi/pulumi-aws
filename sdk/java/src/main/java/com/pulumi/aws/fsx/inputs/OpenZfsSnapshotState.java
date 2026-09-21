@@ -17,14 +17,14 @@ public final class OpenZfsSnapshotState extends com.pulumi.resources.ResourceArg
     public static final OpenZfsSnapshotState Empty = new OpenZfsSnapshotState();
 
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class OpenZfsSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class OpenZfsSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 

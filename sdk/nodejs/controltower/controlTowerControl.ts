@@ -23,12 +23,12 @@ import * as utilities from "../utilities";
  *     parentId: example.roots?.[0]?.id,
  * }));
  * const exampleControlTowerControl = new aws.controltower.ControlTowerControl("example", {
- *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.region}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
- *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
  *     parameters: [{
  *         key: "AllowedRegions",
  *         value: JSON.stringify(["us-east-1"]),
  *     }],
+ *     controlIdentifier: current.then(current => `arn:aws:controltower:${current.region}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK`),
+ *     targetIdentifier: exampleGetOrganizationalUnits.then(exampleGetOrganizationalUnits => .filter(x => x.name == "Infrastructure").map(x => (x.arn))[0]),
  * });
  * ```
  *

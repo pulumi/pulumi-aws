@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  *     name: "AWSReadOnlyAccess",
  * }));
  * const exampleGetGroup = example.then(example => aws.identitystore.getGroup({
- *     identityStoreId: example.identityStoreIds?.[0],
  *     alternateIdentifier: {
  *         uniqueAttribute: {
  *             attributePath: "DisplayName",
  *             attributeValue: "ExampleGroup",
  *         },
  *     },
+ *     identityStoreId: example.identityStoreIds?.[0],
  * }));
  * const exampleAccountAssignment = new aws.ssoadmin.AccountAssignment("example", {
  *     instanceArn: example.then(example => example.arns?.[0]),
@@ -127,11 +127,11 @@ export class AccountAssignment extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -213,11 +213,11 @@ export class AccountAssignment extends pulumi.CustomResource {
  */
 export interface AccountAssignmentState {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     permissionSetArn?: pulumi.Input<string | undefined>;
     /**
@@ -247,11 +247,11 @@ export interface AccountAssignmentState {
  */
 export interface AccountAssignmentArgs {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      */
     permissionSetArn: pulumi.Input<string>;
     /**

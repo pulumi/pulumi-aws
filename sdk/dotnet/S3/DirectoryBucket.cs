@@ -26,11 +26,11 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.DirectoryBucket("example", new()
     ///     {
-    ///         Bucket = "example--usw2-az1--x-s3",
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = "usw2-az1",
     ///         },
+    ///         Bucket = "example--usw2-az1--x-s3",
     ///     });
     /// 
     /// });
@@ -48,12 +48,12 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var exampleLocalZone = new Aws.S3.DirectoryBucket("example_local_zone", new()
     ///     {
-    ///         Bucket = "example--usw2-xxx-lz1--x-s3",
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = "usw2-xxx-lz1",
     ///             Type = "LocalZone",
     ///         },
+    ///         Bucket = "example--usw2-xxx-lz1--x-s3",
     ///     });
     /// 
     /// });

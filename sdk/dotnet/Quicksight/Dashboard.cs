@@ -26,14 +26,10 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Dashboard("example", new()
     ///     {
-    ///         DashboardId = "example-id",
-    ///         Name = "example-name",
-    ///         VersionDescription = "version",
     ///         SourceEntity = new Aws.Quicksight.Inputs.DashboardSourceEntityArgs
     ///         {
     ///             SourceTemplate = new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateArgs
     ///             {
-    ///                 Arn = source.Arn,
     ///                 DataSetReferences = new[]
     ///                 {
     ///                     new Aws.Quicksight.Inputs.DashboardSourceEntitySourceTemplateDataSetReferenceArgs
@@ -42,8 +38,12 @@ namespace Pulumi.Aws.Quicksight
     ///                         DataSetPlaceholder = "1",
     ///                     },
     ///                 },
+    ///                 Arn = source.Arn,
     ///             },
     ///         },
+    ///         DashboardId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
     ///     });
     /// 
     /// });
@@ -61,9 +61,6 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Dashboard("example", new()
     ///     {
-    ///         DashboardId = "example-id",
-    ///         Name = "example-name",
-    ///         VersionDescription = "version",
     ///         Definition = 
     ///         {
     ///             { "dataSetIdentifiersDeclarations", new[]
@@ -78,15 +75,12 @@ namespace Pulumi.Aws.Quicksight
     ///             {
     ///                 
     ///                 {
-    ///                     { "title", "Example" },
-    ///                     { "sheetId", "Example1" },
     ///                     { "visuals", new[]
     ///                     {
     ///                         
     ///                         {
     ///                             { "lineChartVisual", 
     ///                             {
-    ///                                 { "visualId", "LineChart" },
     ///                                 { "title", 
     ///                                 {
     ///                                     { "formatText", 
@@ -106,12 +100,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "categoricalDimensionField", 
     ///                                                     {
-    ///                                                         { "fieldId", "1" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "dataSetIdentifier", "1" },
     ///                                                             { "columnName", "Column1" },
     ///                                                         } },
+    ///                                                         { "fieldId", "1" },
     ///                                                     } },
     ///                                                 },
     ///                                             } },
@@ -121,12 +115,12 @@ namespace Pulumi.Aws.Quicksight
     ///                                                 {
     ///                                                     { "categoricalMeasureField", 
     ///                                                     {
-    ///                                                         { "fieldId", "2" },
     ///                                                         { "column", 
     ///                                                         {
     ///                                                             { "dataSetIdentifier", "1" },
     ///                                                             { "columnName", "Column1" },
     ///                                                         } },
+    ///                                                         { "fieldId", "2" },
     ///                                                         { "aggregationFunction", "COUNT" },
     ///                                                     } },
     ///                                                 },
@@ -134,12 +128,18 @@ namespace Pulumi.Aws.Quicksight
     ///                                         } },
     ///                                     } },
     ///                                 } },
+    ///                                 { "visualId", "LineChart" },
     ///                             } },
     ///                         },
     ///                     } },
+    ///                     { "title", "Example" },
+    ///                     { "sheetId", "Example1" },
     ///                 },
     ///             } },
     ///         },
+    ///         DashboardId = "example-id",
+    ///         Name = "example-name",
+    ///         VersionDescription = "version",
     ///     });
     /// 
     /// });
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<Outputs.DashboardSourceEntity?> SourceEntity { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        /// ARN of a template that was used to create this dashboard.
         /// </summary>
         [Output("sourceEntityArn")]
         public Output<string> SourceEntityArn { get; private set; } = null!;
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.Quicksight
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Output("themeArn")]
         public Output<string?> ThemeArn { get; private set; } = null!;
@@ -382,7 +382,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }
@@ -479,7 +479,7 @@ namespace Pulumi.Aws.Quicksight
         public Input<Inputs.DashboardSourceEntityGetArgs>? SourceEntity { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        /// ARN of a template that was used to create this dashboard.
         /// </summary>
         [Input("sourceEntityArn")]
         public Input<string>? SourceEntityArn { get; set; }
@@ -515,7 +515,7 @@ namespace Pulumi.Aws.Quicksight
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        /// ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         /// </summary>
         [Input("themeArn")]
         public Input<string>? ThemeArn { get; set; }

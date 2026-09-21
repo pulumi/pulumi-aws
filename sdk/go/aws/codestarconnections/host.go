@@ -50,7 +50,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connections host.
+// - `arn` (String) ARN of the CodeStar connections host.
 //
 // Using `pulumi import`, import CodeStar Host using the ARN. For example:
 //

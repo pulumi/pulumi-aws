@@ -30,7 +30,7 @@ type CloudExadataInfrastructure struct {
 	ActivatedStorageCount pulumi.IntOutput `pulumi:"activatedStorageCount"`
 	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount pulumi.IntOutput `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) of the Exadata infrastructure.
+	// ARN of the Exadata infrastructure.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -156,7 +156,7 @@ type cloudExadataInfrastructureState struct {
 	ActivatedStorageCount *int `pulumi:"activatedStorageCount"`
 	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount *int `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) of the Exadata infrastructure.
+	// ARN of the Exadata infrastructure.
 	Arn *string `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -241,7 +241,7 @@ type CloudExadataInfrastructureState struct {
 	ActivatedStorageCount pulumi.IntPtrInput
 	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount pulumi.IntPtrInput
-	// Amazon Resource Name (ARN) of the Exadata infrastructure.
+	// ARN of the Exadata infrastructure.
 	Arn pulumi.StringPtrInput
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
 	AvailabilityZone pulumi.StringPtrInput
@@ -483,7 +483,7 @@ func (o CloudExadataInfrastructureOutput) AdditionalStorageCount() pulumi.IntOut
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.IntOutput { return v.AdditionalStorageCount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) of the Exadata infrastructure.
+// ARN of the Exadata infrastructure.
 func (o CloudExadataInfrastructureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudExadataInfrastructure) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

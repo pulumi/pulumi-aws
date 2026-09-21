@@ -16,12 +16,12 @@ import java.util.Objects;
 public final class GetAccessPointResult {
     private String accessPointId;
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     private String arn;
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     private String fileSystemArn;
@@ -58,14 +58,14 @@ public final class GetAccessPointResult {
         return this.accessPointId;
     }
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public String arn() {
         return this.arn;
     }
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public String fileSystemArn() {

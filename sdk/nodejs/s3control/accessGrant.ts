@@ -26,8 +26,6 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleAccessGrant = new aws.s3control.AccessGrant("example", {
- *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
- *     permission: "READ",
  *     accessGrantsLocationConfiguration: {
  *         s3SubPrefix: "prefixB*",
  *     },
@@ -35,6 +33,8 @@ import * as utilities from "../utilities";
  *         granteeType: "IAM",
  *         granteeIdentifier: exampleAwsIamUser.arn,
  *     },
+ *     accessGrantsLocationId: exampleAccessGrantsLocation.accessGrantsLocationId,
+ *     permission: "READ",
  * });
  * ```
  *
@@ -75,7 +75,7 @@ export class AccessGrant extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grant.
+     * ARN of the S3 Access Grant.
      */
     declare public /*out*/ readonly accessGrantArn: pulumi.Output<string>;
     /**
@@ -182,7 +182,7 @@ export class AccessGrant extends pulumi.CustomResource {
  */
 export interface AccessGrantState {
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grant.
+     * ARN of the S3 Access Grant.
      */
     accessGrantArn?: pulumi.Input<string | undefined>;
     /**

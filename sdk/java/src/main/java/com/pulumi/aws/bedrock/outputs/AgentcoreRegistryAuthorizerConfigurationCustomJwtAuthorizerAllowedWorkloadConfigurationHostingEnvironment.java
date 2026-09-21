@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+    /**
+     * @return ARN of the hosting environment.
+     * 
+     */
     private String arn;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment() {}
+    /**
+     * @return ARN of the hosting environment.
+     * 
+     */
     public String arn() {
         return this.arn;
     }

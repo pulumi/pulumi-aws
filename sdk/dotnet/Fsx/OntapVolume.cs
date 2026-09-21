@@ -51,16 +51,16 @@ namespace Pulumi.Aws.Fsx
     /// {
     ///     var test = new Aws.Fsx.OntapVolume("test", new()
     ///     {
-    ///         Name = "test",
-    ///         JunctionPath = "/test",
-    ///         SizeInMegabytes = 1024,
-    ///         StorageEfficiencyEnabled = true,
-    ///         StorageVirtualMachineId = testAwsFsxOntapStorageVirtualMachine.Id,
     ///         TieringPolicy = new Aws.Fsx.Inputs.OntapVolumeTieringPolicyArgs
     ///         {
     ///             Name = "AUTO",
     ///             CoolingPeriod = 31,
     ///         },
+    ///         Name = "test",
+    ///         JunctionPath = "/test",
+    ///         SizeInMegabytes = 1024,
+    ///         StorageEfficiencyEnabled = true,
+    ///         StorageVirtualMachineId = testAwsFsxOntapStorageVirtualMachine.Id,
     ///     });
     /// 
     /// });
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.Fsx
         public Output<Outputs.OntapVolumeAggregateConfiguration?> AggregateConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the volune.
+        /// ARN of the volune.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Fsx
         public Input<Inputs.OntapVolumeAggregateConfigurationGetArgs>? AggregateConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the volune.
+        /// ARN of the volune.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

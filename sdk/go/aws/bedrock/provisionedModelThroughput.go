@@ -49,7 +49,7 @@ import (
 //
 // #### Required
 //
-// - `provisionedModelArn` (String) Amazon Resource Name (ARN) of the Bedrock provisioned model throughput.
+// - `provisionedModelArn` (String) ARN of the Bedrock provisioned model throughput.
 //
 // Using `pulumi import`, import Provisioned Throughput using the `provisionedModelArn`. For example:
 //

@@ -63,12 +63,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("cloudformation.amazonaws.com")
  *                     .type("Service")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
+ *                 .effect("Allow")
  *                 .build())
  *             .build());
  * 
@@ -160,14 +160,14 @@ public class StackSet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.administrationRoleArn);
     }
     /**
-     * Amazon Resource Name (ARN) of the StackSet.
+     * ARN of the StackSet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the StackSet.
+     * @return ARN of the StackSet.
      * 
      */
     public Output<String> arn() {

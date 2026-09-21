@@ -24,8 +24,6 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var sample = new Aws.Emr.Cluster("sample", new()
     ///     {
-    ///         Name = "emr-sample-cluster",
-    ///         ReleaseLabel = "emr-5.30.0",
     ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
     ///         {
     ///             InstanceType = "m4.large",
@@ -34,11 +32,12 @@ namespace Pulumi.Aws.Emr
     ///         {
     ///             InstanceType = "c4.large",
     ///         },
+    ///         Name = "emr-sample-cluster",
+    ///         ReleaseLabel = "emr-5.30.0",
     ///     });
     /// 
     ///     var samplepolicy = new Aws.Emr.ManagedScalingPolicy("samplepolicy", new()
     ///     {
-    ///         ClusterId = sample.Id,
     ///         ComputeLimits = new[]
     ///         {
     ///             new Aws.Emr.Inputs.ManagedScalingPolicyComputeLimitArgs
@@ -50,6 +49,7 @@ namespace Pulumi.Aws.Emr
     ///                 MaximumCoreCapacityUnits = 10,
     ///             },
     ///         },
+    ///         ClusterId = sample.Id,
     ///     });
     /// 
     /// });

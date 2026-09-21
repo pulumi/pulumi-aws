@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *         var example = new Account("example");
  * 
  *         var test = new FindingsFilter("test", FindingsFilterArgs.builder()
- *             .name("NAME OF THE FINDINGS FILTER")
- *             .description("DESCRIPTION")
- *             .position(1)
- *             .action("ARCHIVE")
  *             .findingCriteria(FindingsFilterFindingCriteriaArgs.builder()
  *                 .criterions(FindingsFilterFindingCriteriaCriterionArgs.builder()
  *                     .field("region")
  *                     .eqs(current.region())
  *                     .build())
  *                 .build())
+ *             .name("NAME OF THE FINDINGS FILTER")
+ *             .description("DESCRIPTION")
+ *             .position(1)
+ *             .action("ARCHIVE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(testAwsMacie2Account)
  *                 .build());
@@ -96,14 +96,14 @@ public class FindingsFilter extends com.pulumi.resources.CustomResource {
         return this.action;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Findings Filter.
+     * @return ARN of the Findings Filter.
      * 
      */
     public Output<String> arn() {

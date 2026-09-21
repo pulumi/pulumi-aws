@@ -45,14 +45,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stream("example", StreamArgs.builder()
- *             .ledgerName("existing-ledger-name")
- *             .streamName("sample-ledger-stream")
- *             .roleArn("sample-role-arn")
- *             .inclusiveStartTime("2021-01-01T00:00:00Z")
  *             .kinesisConfiguration(StreamKinesisConfigurationArgs.builder()
  *                 .aggregationEnabled(false)
  *                 .streamArn("arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream")
  *                 .build())
+ *             .ledgerName("existing-ledger-name")
+ *             .streamName("sample-ledger-stream")
+ *             .roleArn("sample-role-arn")
+ *             .inclusiveStartTime("2021-01-01T00:00:00Z")
  *             .tags(Map.of("example", "tag"))
  *             .build());
  * 
@@ -149,14 +149,14 @@ public class Stream extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+     * ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+     * @return ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      * 
      */
     public Output<String> roleArn() {

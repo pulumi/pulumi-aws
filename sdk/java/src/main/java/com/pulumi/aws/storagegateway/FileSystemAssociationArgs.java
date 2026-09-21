@@ -19,14 +19,14 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
     public static final FileSystemAssociationArgs Empty = new FileSystemAssociationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * ARN of the storage used for the audit logs.
      * 
      */
     @Import(name="auditDestinationArn")
     private @Nullable Output<String> auditDestinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the storage used for the audit logs.
+     * @return ARN of the storage used for the audit logs.
      * 
      */
     public Optional<Output<String>> auditDestinationArn() {
@@ -49,14 +49,14 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -64,14 +64,14 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
     @Import(name="locationArn", required=true)
     private Output<String> locationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+     * @return ARN of the Amazon FSx file system to associate with the FSx File Gateway.
      * 
      */
     public Output<String> locationArn() {
@@ -170,7 +170,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for the audit logs.
+         * @param auditDestinationArn ARN of the storage used for the audit logs.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for the audit logs.
+         * @param auditDestinationArn ARN of the storage used for the audit logs.
          * 
          * @return builder
          * 
@@ -212,7 +212,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param locationArn The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+         * @param locationArn ARN of the Amazon FSx file system to associate with the FSx File Gateway.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class FileSystemAssociationArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param locationArn The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+         * @param locationArn ARN of the Amazon FSx file system to associate with the FSx File Gateway.
          * 
          * @return builder
          * 

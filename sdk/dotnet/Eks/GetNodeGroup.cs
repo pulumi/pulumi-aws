@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetNodeGroupResult
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+        /// Type of AMI associated with the EKS Node Group.
         /// </summary>
         public readonly string AmiType;
         /// <summary>

@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearchingest.NewPipelineEndpoint(ctx, "example", &opensearchingest.PipelineEndpointArgs{
-//				PipelineArn: pulumi.Any(exampleAwsOsisPipeline.PipelineArn),
 //				VpcOptions: &opensearchingest.PipelineEndpointVpcOptionsArgs{
 //					SecurityGroupIds: pulumi.StringArray{
 //						exampleAwsSecurityGroup.Id,
@@ -40,6 +39,7 @@ import (
 //						exampleAwsSubnet.Id,
 //					},
 //				},
+//				PipelineArn: pulumi.Any(exampleAwsOsisPipeline.PipelineArn),
 //			})
 //			if err != nil {
 //				return err

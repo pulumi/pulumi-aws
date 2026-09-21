@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly Outputs.DomainDomainSettingsRStudioServerProDomainSettings? RStudioServerProDomainSettings;
         /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        /// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
         /// </summary>
         public readonly ImmutableArray<string> SecurityGroupIds;
         /// <summary>

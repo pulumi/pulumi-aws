@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverRuleResult {
     /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN for the resolver rule.
      * 
      */
     private String arn;
@@ -53,7 +53,7 @@ public final class GetResolverRuleResult {
 
     private GetResolverRuleResult() {}
     /**
-     * @return ARN (Amazon Resource Name) for the resolver rule.
+     * @return ARN for the resolver rule.
      * 
      */
     public String arn() {

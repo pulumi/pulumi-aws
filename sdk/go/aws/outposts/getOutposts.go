@@ -64,7 +64,7 @@ type GetOutpostsArgs struct {
 
 // A collection of values returned by getOutposts.
 type GetOutpostsResult struct {
-	// Set of Amazon Resource Names (ARNs).
+	// Set of ARNs.
 	Arns               []string `pulumi:"arns"`
 	AvailabilityZone   string   `pulumi:"availabilityZone"`
 	AvailabilityZoneId string   `pulumi:"availabilityZoneId"`
@@ -78,12 +78,8 @@ type GetOutpostsResult struct {
 }
 
 func GetOutpostsOutput(ctx *pulumi.Context, args GetOutpostsOutputArgs, opts ...pulumi.InvokeOption) GetOutpostsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOutpostsResultOutput, error) {
-			args := v.(GetOutpostsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:outposts/getOutposts:getOutposts", args, GetOutpostsResultOutput{}, options).(GetOutpostsResultOutput), nil
-		}).(GetOutpostsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:outposts/getOutposts:getOutposts", args, GetOutpostsResultOutput{}, options).(GetOutpostsResultOutput)
 }
 
 // A collection of arguments for invoking getOutposts.
@@ -119,7 +115,7 @@ func (o GetOutpostsResultOutput) ToGetOutpostsResultOutputWithContext(ctx contex
 	return o
 }
 
-// Set of Amazon Resource Names (ARNs).
+// Set of ARNs.
 func (o GetOutpostsResultOutput) Arns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetOutpostsResult) []string { return v.Arns }).(pulumi.StringArrayOutput)
 }

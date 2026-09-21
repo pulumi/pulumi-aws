@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var test = new Aws.Sagemaker.MonitoringSchedule("test", new()
     ///     {
-    ///         Name = "my-monitoring-schedule",
     ///         MonitoringScheduleConfig = new Aws.Sagemaker.Inputs.MonitoringScheduleMonitoringScheduleConfigArgs
     ///         {
     ///             MonitoringJobDefinitionName = testAwsSagemakerDataQualityJobDefinition.Name,
     ///             MonitoringType = "DataQuality",
     ///         },
+    ///         Name = "my-monitoring-schedule",
     ///     });
     /// 
     /// });
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class MonitoringSchedule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        /// ARN assigned by AWS to this monitoring schedule.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -169,7 +169,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class MonitoringScheduleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        /// ARN assigned by AWS to this monitoring schedule.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

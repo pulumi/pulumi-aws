@@ -142,7 +142,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly minUnits: pulumi.Output<number>;
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * ARN of the pipeline.
      */
     declare public /*out*/ readonly pipelineArn: pulumi.Output<string>;
     /**
@@ -266,7 +266,7 @@ export interface PipelineState {
      */
     minUnits?: pulumi.Input<number | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * ARN of the pipeline.
      */
     pipelineArn?: pulumi.Input<string | undefined>;
     /**

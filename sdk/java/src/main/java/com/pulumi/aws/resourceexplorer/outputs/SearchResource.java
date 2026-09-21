@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class SearchResource {
     /**
-     * @return Amazon resource name of resource.
+     * @return ARN of resource.
      * 
      */
     private String arn;
@@ -50,7 +50,7 @@ public final class SearchResource {
 
     private SearchResource() {}
     /**
-     * @return Amazon resource name of resource.
+     * @return ARN of resource.
      * 
      */
     public String arn() {

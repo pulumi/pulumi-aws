@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SecurityConfiguration("example", SecurityConfigurationArgs.builder()
- *             .name("example")
  *             .encryptionConfiguration(SecurityConfigurationEncryptionConfigurationArgs.builder()
  *                 .cloudwatchEncryption(SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs.builder()
  *                     .cloudwatchEncryptionMode("DISABLED")
@@ -59,6 +58,7 @@ import javax.annotation.Nullable;
  *                     .s3EncryptionMode("SSE-KMS")
  *                     .build())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

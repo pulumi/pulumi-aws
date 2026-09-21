@@ -55,7 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()
- *             .name("example")
  *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
  *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
  *                     .data("User-Agent")
@@ -64,6 +63,7 @@ import javax.annotation.Nullable;
  *                 .regexPatternSetId(exampleRegexPatternSet.id())
  *                 .textTransformation("NONE")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -83,14 +83,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/regexMatchSet:RegexMatchSet")
 public class RegexMatchSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Output<String> arn() {

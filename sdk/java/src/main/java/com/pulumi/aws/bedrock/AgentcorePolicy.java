@@ -48,9 +48,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcorePolicy("example", AgentcorePolicyArgs.builder()
- *             .name("example_policy")
- *             .policyEngineId(exampleAwsBedrockagentcorePolicyEngine.policyEngineId())
- *             .description("Allow read access to example resources")
  *             .definition(AgentcorePolicyDefinitionArgs.builder()
  *                 .cedar(AgentcorePolicyDefinitionCedarArgs.builder()
  *                     .statement("""
@@ -58,6 +55,9 @@ import javax.annotation.Nullable;
  *                     """)
  *                     .build())
  *                 .build())
+ *             .name("example_policy")
+ *             .policyEngineId(exampleAwsBedrockagentcorePolicyEngine.policyEngineId())
+ *             .description("Allow read access to example resources")
  *             .build());
  * 
  *     }

@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/accessEntry:AccessEntry")
 public class AccessEntry extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Access Entry.
+     * ARN of the Access Entry.
      * 
      */
     @Export(name="accessEntryArn", refs={String.class}, tree="[0]")
     private Output<String> accessEntryArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
+     * @return ARN of the Access Entry.
      * 
      */
     public Output<String> accessEntryArn() {

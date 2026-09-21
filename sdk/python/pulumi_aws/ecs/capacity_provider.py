@@ -296,17 +296,17 @@ class CapacityProvider(pulumi.CustomResource):
             "propagate_at_launch": True,
         }])
         example_capacity_provider = aws.ecs.CapacityProvider("example",
-            name="example",
             auto_scaling_group_provider={
-                "auto_scaling_group_arn": example.arn,
-                "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
                     "minimum_scaling_step_size": 1,
                     "status": "ENABLED",
                     "target_capacity": 10,
                 },
-            })
+                "auto_scaling_group_arn": example.arn,
+                "managed_termination_protection": "ENABLED",
+            },
+            name="example")
         ```
 
         ### Managed Instances Provider
@@ -316,14 +316,8 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.CapacityProvider("example",
-            name="example",
-            cluster="my-cluster",
             managed_instances_provider={
-                "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
-                    "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],
@@ -346,8 +340,14 @@ class CapacityProvider(pulumi.CustomResource):
                             "amd",
                         ],
                     },
+                    "ec2_instance_profile_arn": ecs_instance["arn"],
+                    "monitoring": "DETAILED",
                 },
-            })
+                "infrastructure_role_arn": ecs_infrastructure["arn"],
+                "propagate_tags": "CAPACITY_PROVIDER",
+            },
+            name="example",
+            cluster="my-cluster")
         ```
 
         ## Import
@@ -356,7 +356,7 @@ class CapacityProvider(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
+        - `arn` (String) ARN of the ECS capacity provider.
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 
@@ -403,17 +403,17 @@ class CapacityProvider(pulumi.CustomResource):
             "propagate_at_launch": True,
         }])
         example_capacity_provider = aws.ecs.CapacityProvider("example",
-            name="example",
             auto_scaling_group_provider={
-                "auto_scaling_group_arn": example.arn,
-                "managed_termination_protection": "ENABLED",
                 "managed_scaling": {
                     "maximum_scaling_step_size": 1000,
                     "minimum_scaling_step_size": 1,
                     "status": "ENABLED",
                     "target_capacity": 10,
                 },
-            })
+                "auto_scaling_group_arn": example.arn,
+                "managed_termination_protection": "ENABLED",
+            },
+            name="example")
         ```
 
         ### Managed Instances Provider
@@ -423,14 +423,8 @@ class CapacityProvider(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.CapacityProvider("example",
-            name="example",
-            cluster="my-cluster",
             managed_instances_provider={
-                "infrastructure_role_arn": ecs_infrastructure["arn"],
-                "propagate_tags": "CAPACITY_PROVIDER",
                 "instance_launch_template": {
-                    "ec2_instance_profile_arn": ecs_instance["arn"],
-                    "monitoring": "DETAILED",
                     "network_configuration": {
                         "subnets": [example_aws_subnet["id"]],
                         "security_groups": [example_aws_security_group["id"]],
@@ -453,8 +447,14 @@ class CapacityProvider(pulumi.CustomResource):
                             "amd",
                         ],
                     },
+                    "ec2_instance_profile_arn": ecs_instance["arn"],
+                    "monitoring": "DETAILED",
                 },
-            })
+                "infrastructure_role_arn": ecs_infrastructure["arn"],
+                "propagate_tags": "CAPACITY_PROVIDER",
+            },
+            name="example",
+            cluster="my-cluster")
         ```
 
         ## Import
@@ -463,7 +463,7 @@ class CapacityProvider(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ECS capacity provider.
+        - `arn` (String) ARN of the ECS capacity provider.
 
         Using `pulumi import`, import ECS Capacity Providers using the `arn`. For example:
 

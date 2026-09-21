@@ -29,21 +29,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codebuild.NewFleet(ctx, "test", &codebuild.FleetArgs{
-//				BaseCapacity:     pulumi.Int(2),
-//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
-//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
-//				Name:             pulumi.String("full-example-codebuild-fleet"),
-//				OverflowBehavior: pulumi.String("QUEUE"),
 //				ScalingConfiguration: &codebuild.FleetScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Int(5),
-//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //					TargetTrackingScalingConfigs: codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArray{
 //						&codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArgs{
 //							MetricType:  pulumi.String("FLEET_UTILIZATION_RATE"),
 //							TargetValue: pulumi.Float64(97.5),
 //						},
 //					},
+//					MaxCapacity: pulumi.Int(5),
+//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //				},
+//				BaseCapacity:     pulumi.Int(2),
+//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
+//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
+//				Name:             pulumi.String("full-example-codebuild-fleet"),
+//				OverflowBehavior: pulumi.String("QUEUE"),
 //			})
 //			if err != nil {
 //				return err
@@ -86,7 +86,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+// - `arn` (String) ARN of the CodeBuild fleet.
 //
 // Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 //
@@ -112,7 +112,7 @@ type Fleet struct {
 	EnvironmentType pulumi.StringOutput `pulumi:"environmentType"`
 	// The service role associated with the compute fleet.
 	FleetServiceRole pulumi.StringPtrOutput `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId pulumi.StringPtrOutput `pulumi:"imageId"`
 	// Last modification time of the fleet.
 	LastModified pulumi.StringOutput `pulumi:"lastModified"`
@@ -188,7 +188,7 @@ type fleetState struct {
 	EnvironmentType *string `pulumi:"environmentType"`
 	// The service role associated with the compute fleet.
 	FleetServiceRole *string `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId *string `pulumi:"imageId"`
 	// Last modification time of the fleet.
 	LastModified *string `pulumi:"lastModified"`
@@ -226,7 +226,7 @@ type FleetState struct {
 	EnvironmentType pulumi.StringPtrInput
 	// The service role associated with the compute fleet.
 	FleetServiceRole pulumi.StringPtrInput
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId pulumi.StringPtrInput
 	// Last modification time of the fleet.
 	LastModified pulumi.StringPtrInput
@@ -264,7 +264,7 @@ type fleetArgs struct {
 	EnvironmentType string `pulumi:"environmentType"`
 	// The service role associated with the compute fleet.
 	FleetServiceRole *string `pulumi:"fleetServiceRole"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId *string `pulumi:"imageId"`
 	// Fleet name.
 	Name *string `pulumi:"name"`
@@ -294,7 +294,7 @@ type FleetArgs struct {
 	EnvironmentType pulumi.StringInput
 	// The service role associated with the compute fleet.
 	FleetServiceRole pulumi.StringPtrInput
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId pulumi.StringPtrInput
 	// Fleet name.
 	Name pulumi.StringPtrInput
@@ -434,7 +434,7 @@ func (o FleetOutput) FleetServiceRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.FleetServiceRole }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) of the compute fleet.
+// AMI of the compute fleet.
 func (o FleetOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Fleet) pulumi.StringPtrOutput { return v.ImageId }).(pulumi.StringPtrOutput)
 }

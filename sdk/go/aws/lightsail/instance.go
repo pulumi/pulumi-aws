@@ -98,15 +98,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lightsail.NewInstance(ctx, "example", &lightsail.InstanceArgs{
-//				Name:             pulumi.String("example"),
-//				AvailabilityZone: pulumi.String("us-east-1b"),
-//				BlueprintId:      pulumi.String("amazon_linux_2"),
-//				BundleId:         pulumi.String("nano_3_0"),
 //				AddOn: &lightsail.InstanceAddOnArgs{
 //					Type:         pulumi.String("AutoSnapshot"),
 //					SnapshotTime: pulumi.String("06:00"),
 //					Status:       pulumi.String("Enabled"),
 //				},
+//				Name:             pulumi.String("example"),
+//				AvailabilityZone: pulumi.String("us-east-1b"),
+//				BlueprintId:      pulumi.String("amazon_linux_2"),
+//				BundleId:         pulumi.String("nano_3_0"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},

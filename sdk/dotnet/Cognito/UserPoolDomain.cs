@@ -67,9 +67,6 @@ namespace Pulumi.Aws.Cognito
     /// 
     ///     var auth_cognito_A = new Aws.Route53.Record("auth-cognito-A", new()
     ///     {
-    ///         Name = main.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -79,6 +76,9 @@ namespace Pulumi.Aws.Cognito
     ///                 ZoneId = main.CloudfrontDistributionZoneId,
     ///             },
     ///         },
+    ///         Name = main.Domain,
+    ///         Type = Aws.Route53.RecordType.A,
+    ///         ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
     ///     });
     /// 
     /// });

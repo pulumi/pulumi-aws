@@ -187,7 +187,7 @@ class _ModelState:
         """
         Input properties used for looking up and filtering Model resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) assigned by AWS to this model.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this model.
         :param pulumi.Input[Sequence[pulumi.Input['ModelContainerArgs']]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
@@ -226,7 +226,7 @@ class _ModelState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) assigned by AWS to this model.
+        ARN assigned by AWS to this model.
         """
         return pulumi.get(self, "arn")
 
@@ -383,20 +383,20 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example = aws.sagemaker.Model("example",
-            name="my-model",
-            execution_role_arn=example_role.arn,
             primary_container={
                 "image": test.registry_path,
-            })
+            },
+            name="my-model",
+            execution_role_arn=example_role.arn)
         ```
 
         ## Import
@@ -438,20 +438,20 @@ class Model(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["sagemaker.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example", assume_role_policy=assume_role.json)
         test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="kmeans")
         example = aws.sagemaker.Model("example",
-            name="my-model",
-            execution_role_arn=example_role.arn,
             primary_container={
                 "image": test.registry_path,
-            })
+            },
+            name="my-model",
+            execution_role_arn=example_role.arn)
         ```
 
         ## Import
@@ -537,7 +537,7 @@ class Model(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) assigned by AWS to this model.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this model.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ModelContainerArgs', 'ModelContainerArgsDict']]]] containers: Specifies containers in the inference pipeline. If not specified, the `primary_container` argument is required. Fields are documented below.
         :param pulumi.Input[_builtins.bool] enable_network_isolation: Isolates the model container. No inbound or outbound network calls can be made to or from the model container.
         :param pulumi.Input[_builtins.str] execution_role_arn: A role that SageMaker AI can assume to access model artifacts and docker images for deployment.
@@ -570,7 +570,7 @@ class Model(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) assigned by AWS to this model.
+        ARN assigned by AWS to this model.
         """
         return pulumi.get(self, "arn")
 

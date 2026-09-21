@@ -463,7 +463,6 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.Service("example",
-            service_name="example",
             source_configuration={
                 "authentication_configuration": {
                     "connection_arn": example_aws_apprunner_connection["arn"],
@@ -478,11 +477,11 @@ class Service(pulumi.CustomResource):
                         },
                         "configuration_source": "API",
                     },
-                    "repository_url": "https://github.com/example/my-example-python-app",
                     "source_code_version": {
                         "type": "BRANCH",
                         "value": "main",
                     },
+                    "repository_url": "https://github.com/example/my-example-python-app",
                 },
             },
             network_configuration={
@@ -491,6 +490,7 @@ class Service(pulumi.CustomResource):
                     "vpc_connector_arn": connector["arn"],
                 },
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -503,7 +503,6 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.Service("example",
-            service_name="example",
             source_configuration={
                 "image_repository": {
                     "image_configuration": {
@@ -514,6 +513,7 @@ class Service(pulumi.CustomResource):
                 },
                 "auto_deployments_enabled": False,
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -526,12 +526,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_observability_configuration = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
             trace_configuration={
                 "vendor": "AWSXRAY",
-            })
+            },
+            observability_configuration_name="example")
         example = aws.apprunner.Service("example",
-            service_name="example",
             observability_configuration={
                 "observability_configuration_arn": example_observability_configuration.arn,
                 "observability_enabled": True,
@@ -546,6 +545,7 @@ class Service(pulumi.CustomResource):
                 },
                 "auto_deployments_enabled": False,
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -557,7 +557,7 @@ class Service(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner service.
+        - `arn` (String) ARN of the App Runner service.
 
         Using `pulumi import`, import App Runner Services using the `arn`. For example:
 
@@ -597,7 +597,6 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.Service("example",
-            service_name="example",
             source_configuration={
                 "authentication_configuration": {
                     "connection_arn": example_aws_apprunner_connection["arn"],
@@ -612,11 +611,11 @@ class Service(pulumi.CustomResource):
                         },
                         "configuration_source": "API",
                     },
-                    "repository_url": "https://github.com/example/my-example-python-app",
                     "source_code_version": {
                         "type": "BRANCH",
                         "value": "main",
                     },
+                    "repository_url": "https://github.com/example/my-example-python-app",
                 },
             },
             network_configuration={
@@ -625,6 +624,7 @@ class Service(pulumi.CustomResource):
                     "vpc_connector_arn": connector["arn"],
                 },
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -637,7 +637,6 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.apprunner.Service("example",
-            service_name="example",
             source_configuration={
                 "image_repository": {
                     "image_configuration": {
@@ -648,6 +647,7 @@ class Service(pulumi.CustomResource):
                 },
                 "auto_deployments_enabled": False,
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -660,12 +660,11 @@ class Service(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_observability_configuration = aws.apprunner.ObservabilityConfiguration("example",
-            observability_configuration_name="example",
             trace_configuration={
                 "vendor": "AWSXRAY",
-            })
+            },
+            observability_configuration_name="example")
         example = aws.apprunner.Service("example",
-            service_name="example",
             observability_configuration={
                 "observability_configuration_arn": example_observability_configuration.arn,
                 "observability_enabled": True,
@@ -680,6 +679,7 @@ class Service(pulumi.CustomResource):
                 },
                 "auto_deployments_enabled": False,
             },
+            service_name="example",
             tags={
                 "Name": "example-apprunner-service",
             })
@@ -691,7 +691,7 @@ class Service(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the App Runner service.
+        - `arn` (String) ARN of the App Runner service.
 
         Using `pulumi import`, import App Runner Services using the `arn`. For example:
 

@@ -60,6 +60,8 @@ import (
 // ```sh
 // $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
 // ```
+//
+// > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
 type TransitVirtualInterface struct {
 	pulumi.CustomResourceState
 
@@ -72,8 +74,10 @@ type TransitVirtualInterface struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringOutput `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrOutput `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrOutput `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringOutput `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -89,6 +93,12 @@ type TransitVirtualInterface struct {
 	Mtu pulumi.IntPtrOutput `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntOutput `pulumi:"prefixPoolAllocatedCountIpv6"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringOutput `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
@@ -110,9 +120,6 @@ func NewTransitVirtualInterface(ctx *pulumi.Context,
 
 	if args.AddressFamily == nil {
 		return nil, errors.New("invalid value for required argument 'AddressFamily'")
-	}
-	if args.BgpAsn == nil {
-		return nil, errors.New("invalid value for required argument 'BgpAsn'")
 	}
 	if args.ConnectionId == nil {
 		return nil, errors.New("invalid value for required argument 'ConnectionId'")
@@ -155,8 +162,10 @@ type transitVirtualInterfaceState struct {
 	Arn *string `pulumi:"arn"`
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice *string `pulumi:"awsDevice"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -172,6 +181,12 @@ type transitVirtualInterfaceState struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 *int `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 *int `pulumi:"prefixPoolAllocatedCountIpv6"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit *string `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
@@ -194,8 +209,10 @@ type TransitVirtualInterfaceState struct {
 	Arn pulumi.StringPtrInput
 	// The Direct Connect endpoint on which the virtual interface terminates.
 	AwsDevice pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
 	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -211,6 +228,12 @@ type TransitVirtualInterfaceState struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntPtrInput
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
@@ -232,8 +255,10 @@ type transitVirtualInterfaceArgs struct {
 	AddressFamily string `pulumi:"addressFamily"`
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress *string `pulumi:"amazonAddress"`
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn *int `pulumi:"bgpAsn"`
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong *string `pulumi:"bgpAsnLong"`
 	// The authentication key for BGP configuration.
 	BgpAuthKey *string `pulumi:"bgpAuthKey"`
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -247,6 +272,12 @@ type transitVirtualInterfaceArgs struct {
 	Mtu *int `pulumi:"mtu"`
 	// The name for the virtual interface.
 	Name *string `pulumi:"name"`
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 *int `pulumi:"prefixPoolAllocatedCountIpv4"`
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 *int `pulumi:"prefixPoolAllocatedCountIpv6"`
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit *string `pulumi:"rateLimit"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// Indicates whether to enable or disable SiteLink.
@@ -263,8 +294,10 @@ type TransitVirtualInterfaceArgs struct {
 	AddressFamily pulumi.StringInput
 	// The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
 	AmazonAddress pulumi.StringPtrInput
-	// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-	BgpAsn pulumi.IntInput
+	// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsn pulumi.IntPtrInput
+	// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+	BgpAsnLong pulumi.StringPtrInput
 	// The authentication key for BGP configuration.
 	BgpAuthKey pulumi.StringPtrInput
 	// The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
@@ -278,6 +311,12 @@ type TransitVirtualInterfaceArgs struct {
 	Mtu pulumi.IntPtrInput
 	// The name for the virtual interface.
 	Name pulumi.StringPtrInput
+	// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv4 pulumi.IntPtrInput
+	// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+	PrefixPoolAllocatedCountIpv6 pulumi.IntPtrInput
+	// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+	RateLimit pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// Indicates whether to enable or disable SiteLink.
@@ -399,9 +438,14 @@ func (o TransitVirtualInterfaceOutput) AwsDevice() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringOutput { return v.AwsDevice }).(pulumi.StringOutput)
 }
 
-// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
-func (o TransitVirtualInterfaceOutput) BgpAsn() pulumi.IntOutput {
-	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.IntOutput { return v.BgpAsn }).(pulumi.IntOutput)
+// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o TransitVirtualInterfaceOutput) BgpAsn() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.IntPtrOutput { return v.BgpAsn }).(pulumi.IntPtrOutput)
+}
+
+// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+func (o TransitVirtualInterfaceOutput) BgpAsnLong() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringPtrOutput { return v.BgpAsnLong }).(pulumi.StringPtrOutput)
 }
 
 // The authentication key for BGP configuration.
@@ -438,6 +482,21 @@ func (o TransitVirtualInterfaceOutput) Mtu() pulumi.IntPtrOutput {
 // The name for the virtual interface.
 func (o TransitVirtualInterfaceOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+func (o TransitVirtualInterfaceOutput) PrefixPoolAllocatedCountIpv4() pulumi.IntOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv4 }).(pulumi.IntOutput)
+}
+
+// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+func (o TransitVirtualInterfaceOutput) PrefixPoolAllocatedCountIpv6() pulumi.IntOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.IntOutput { return v.PrefixPoolAllocatedCountIpv6 }).(pulumi.IntOutput)
+}
+
+// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+func (o TransitVirtualInterfaceOutput) RateLimit() pulumi.StringOutput {
+	return o.ApplyT(func(v *TransitVirtualInterface) pulumi.StringOutput { return v.RateLimit }).(pulumi.StringOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

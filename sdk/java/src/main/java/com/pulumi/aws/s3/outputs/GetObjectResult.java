@@ -147,7 +147,7 @@ public final class GetObjectResult {
      */
     private String serverSideEncryption;
     /**
-     * @return If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+     * @return If present, specifies the ID of the KMS master encryption key that was used for the object.
      * 
      */
     private String sseKmsKeyId;
@@ -367,7 +367,7 @@ public final class GetObjectResult {
         return this.serverSideEncryption;
     }
     /**
-     * @return If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+     * @return If present, specifies the ID of the KMS master encryption key that was used for the object.
      * 
      */
     public String sseKmsKeyId() {

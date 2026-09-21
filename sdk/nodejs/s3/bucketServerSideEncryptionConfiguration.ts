@@ -26,13 +26,13 @@ import * as utilities from "../utilities";
  * });
  * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
  * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
- *     bucket: mybucket.id,
  *     rules: [{
  *         applyServerSideEncryptionByDefault: {
  *             kmsMasterKeyId: mykey.arn,
  *             sseAlgorithm: "aws:kms",
  *         },
  *     }],
+ *     bucket: mybucket.id,
  * });
  * ```
  *
@@ -48,7 +48,6 @@ import * as utilities from "../utilities";
  * });
  * const mybucket = new aws.s3.Bucket("mybucket", {bucket: "mybucket"});
  * const example = new aws.s3.BucketServerSideEncryptionConfiguration("example", {
- *     bucket: mybucket.id,
  *     rules: [{
  *         applyServerSideEncryptionByDefault: {
  *             kmsMasterKeyId: mykey.arn,
@@ -57,6 +56,7 @@ import * as utilities from "../utilities";
  *         bucketKeyEnabled: true,
  *         blockedEncryptionTypes: ["SSE-C"],
  *     }],
+ *     bucket: mybucket.id,
  * });
  * ```
  *

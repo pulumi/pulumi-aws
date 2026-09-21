@@ -47,7 +47,7 @@ export interface GetServiceArgs {
      */
     region?: string;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      */
     serviceIdentifier?: string;
     /**
@@ -69,7 +69,7 @@ export interface GetServiceResult {
      */
     readonly authType: string;
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      */
     readonly certificateArn: string;
     /**
@@ -140,7 +140,7 @@ export interface GetServiceOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      */
     serviceIdentifier?: pulumi.Input<string | undefined>;
     /**

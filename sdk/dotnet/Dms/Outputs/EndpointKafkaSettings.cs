@@ -66,7 +66,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? SaslUsername;
         /// <summary>
-        /// Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `SaslUsername` and `SaslPassword`.
+        /// Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `SaslUsername` and `SaslPassword`.
         /// </summary>
         public readonly string? SecurityProtocol;
         /// <summary>

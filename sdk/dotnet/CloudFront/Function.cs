@@ -30,19 +30,19 @@ namespace Pulumi.Aws.CloudFront
     public partial class Function : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront Function.
+        /// ARN identifying your CloudFront Function.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Source code of the function
+        /// Source code of the function. Must be between 1 and 40960 bytes.
         /// </summary>
         [Output("code")]
         public Output<string> Code { get; private set; } = null!;
 
         /// <summary>
-        /// Comment.
+        /// Comment. Must not exceed 128 characters.
         /// </summary>
         [Output("comment")]
         public Output<string?> Comment { get; private set; } = null!;
@@ -66,7 +66,7 @@ namespace Pulumi.Aws.CloudFront
         public Output<string> LiveStageEtag { get; private set; } = null!;
 
         /// <summary>
-        /// Unique name for your CloudFront Function.
+        /// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -150,13 +150,13 @@ namespace Pulumi.Aws.CloudFront
     public sealed class FunctionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Source code of the function
+        /// Source code of the function. Must be between 1 and 40960 bytes.
         /// </summary>
         [Input("code", required: true)]
         public Input<string> Code { get; set; } = null!;
 
         /// <summary>
-        /// Comment.
+        /// Comment. Must not exceed 128 characters.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.CloudFront
         }
 
         /// <summary>
-        /// Unique name for your CloudFront Function.
+        /// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -214,19 +214,19 @@ namespace Pulumi.Aws.CloudFront
     public sealed class FunctionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront Function.
+        /// ARN identifying your CloudFront Function.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Source code of the function
+        /// Source code of the function. Must be between 1 and 40960 bytes.
         /// </summary>
         [Input("code")]
         public Input<string>? Code { get; set; }
 
         /// <summary>
-        /// Comment.
+        /// Comment. Must not exceed 128 characters.
         /// </summary>
         [Input("comment")]
         public Input<string>? Comment { get; set; }
@@ -256,7 +256,7 @@ namespace Pulumi.Aws.CloudFront
         public Input<string>? LiveStageEtag { get; set; }
 
         /// <summary>
-        /// Unique name for your CloudFront Function.
+        /// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

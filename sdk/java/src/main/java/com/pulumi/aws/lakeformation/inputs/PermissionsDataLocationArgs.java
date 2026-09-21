@@ -17,7 +17,7 @@ public final class PermissionsDataLocationArgs extends com.pulumi.resources.Reso
     public static final PermissionsDataLocationArgs Empty = new PermissionsDataLocationArgs();
 
     /**
-     * Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * ARN that uniquely identifies the data location resource.
      * 
      * The following argument is optional:
      * 
@@ -26,7 +26,7 @@ public final class PermissionsDataLocationArgs extends com.pulumi.resources.Reso
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+     * @return ARN that uniquely identifies the data location resource.
      * 
      * The following argument is optional:
      * 
@@ -76,7 +76,7 @@ public final class PermissionsDataLocationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * @param arn ARN that uniquely identifies the data location resource.
          * 
          * The following argument is optional:
          * 
@@ -89,7 +89,7 @@ public final class PermissionsDataLocationArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * @param arn ARN that uniquely identifies the data location resource.
          * 
          * The following argument is optional:
          * 

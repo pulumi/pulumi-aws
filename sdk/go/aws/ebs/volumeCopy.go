@@ -75,7 +75,7 @@ import (
 type VolumeCopy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the copied EBS volume.
+	// ARN of the copied EBS volume.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Availability Zone for the copied volume.
 	AvailabilityZone pulumi.StringOutput `pulumi:"availabilityZone"`
@@ -133,7 +133,7 @@ func GetVolumeCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VolumeCopy resources.
 type volumeCopyState struct {
-	// Amazon Resource Name (ARN) of the copied EBS volume.
+	// ARN of the copied EBS volume.
 	Arn *string `pulumi:"arn"`
 	// Availability Zone for the copied volume.
 	AvailabilityZone *string `pulumi:"availabilityZone"`
@@ -159,7 +159,7 @@ type volumeCopyState struct {
 }
 
 type VolumeCopyState struct {
-	// Amazon Resource Name (ARN) of the copied EBS volume.
+	// ARN of the copied EBS volume.
 	Arn pulumi.StringPtrInput
 	// Availability Zone for the copied volume.
 	AvailabilityZone pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (o VolumeCopyOutput) ToVolumeCopyOutputWithContext(ctx context.Context) Vol
 	return o
 }
 
-// Amazon Resource Name (ARN) of the copied EBS volume.
+// ARN of the copied EBS volume.
 func (o VolumeCopyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

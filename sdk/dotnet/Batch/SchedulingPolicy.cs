@@ -24,11 +24,8 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
     ///             ShareDistributions = new[]
     ///             {
     ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
@@ -42,7 +39,10 @@ namespace Pulumi.Aws.Batch
     ///                     WeightFactor = 0.2,
     ///                 },
     ///             },
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
     ///         },
+    ///         Name = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Batch Scheduling Policy" },
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Batch
     public partial class SchedulingPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -178,7 +178,7 @@ namespace Pulumi.Aws.Batch
     public sealed class SchedulingPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the scheduling policy.
+        /// ARN of the scheduling policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

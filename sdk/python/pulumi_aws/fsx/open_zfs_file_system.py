@@ -69,7 +69,7 @@ class OpenZfsFileSystemArgs:
         :param pulumi.Input['OpenZfsFileSystemReadCacheConfigurationArgs'] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
@@ -347,7 +347,7 @@ class OpenZfsFileSystemArgs:
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -467,7 +467,7 @@ class _OpenZfsFileSystemState:
         """
         Input properties used for looking up and filtering OpenZfsFileSystem resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
         :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether tags for the file system should be copied to backups. Default value is false.
@@ -489,7 +489,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['OpenZfsFileSystemRootVolumeConfigurationArgs'] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[_builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
@@ -500,7 +500,7 @@ class _OpenZfsFileSystemState:
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if arn is not None:
@@ -574,7 +574,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -838,7 +838,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -948,7 +948,7 @@ class _OpenZfsFileSystemState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -1032,7 +1032,8 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1054,7 +1055,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Union['OpenZfsFileSystemReadCacheConfigurationArgs', 'OpenZfsFileSystemReadCacheConfigurationArgsDict']] read_cache_configuration: Configuration block for optional provisioned SSD read cache on file systems that use the Intelligent-Tiering storage class. Required when `storage_type` is set to `INTELLIGENT_TIERING`. See `read_cache_configuration` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
@@ -1103,7 +1104,8 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.OpenZfsFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1245,7 +1247,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
         :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether tags for the file system should be copied to backups. Default value is false.
@@ -1267,7 +1269,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['OpenZfsFileSystemRootVolumeConfigurationArgs', 'OpenZfsFileSystemRootVolumeConfigurationArgsDict']] root_volume_configuration: Configuration for the root volume of the file system. All other volumes are children or the root volume. See `root_volume_configuration` Block for details.
         :param pulumi.Input[_builtins.str] root_volume_id: Identifier of the root volume, e.g., `fsvol-12345678`
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
         :param pulumi.Input[_builtins.bool] skip_final_backup: When enabled, will skip the default final backup taken when the file system is deleted. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Valid values between `64` and `524288`. Required when `storage_type` is set to `SSD`. Must not be set when `storage_type` is set to `INTELLIGENT_TIERING`.
@@ -1278,7 +1280,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput (MB/s) of the file system. Valid values depend on `deployment_type`. Must be one of `64`, `128`, `256`, `512`, `1024`, `2048`, `3072`, `4096` for `SINGLE_AZ_1`. Must be one of `160`, `320`, `640`, `1280`, `2560`, `3840`, `5120`, `7680`, `10240` for `SINGLE_AZ_2`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1324,7 +1326,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -1500,7 +1502,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="routeTableIds")
     def route_table_ids(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
+        (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         """
         return pulumi.get(self, "route_table_ids")
 
@@ -1574,7 +1576,7 @@ class OpenZfsFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 

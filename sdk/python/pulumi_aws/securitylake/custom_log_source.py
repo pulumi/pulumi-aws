@@ -260,9 +260,6 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.CustomLogSource("example",
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
             configuration={
                 "crawler_configuration": {
                     "role_arn": custom_log["arn"],
@@ -272,6 +269,9 @@ class CustomLogSource(pulumi.CustomResource):
                     "principal": "123456789012",
                 },
             },
+            source_name="example-name",
+            source_version="1.0",
+            event_classes=["FILE_ACTIVITY"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -314,9 +314,6 @@ class CustomLogSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.CustomLogSource("example",
-            source_name="example-name",
-            source_version="1.0",
-            event_classes=["FILE_ACTIVITY"],
             configuration={
                 "crawler_configuration": {
                     "role_arn": custom_log["arn"],
@@ -326,6 +323,9 @@ class CustomLogSource(pulumi.CustomResource):
                     "principal": "123456789012",
                 },
             },
+            source_name="example-name",
+            source_version="1.0",
+            event_classes=["FILE_ACTIVITY"],
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 

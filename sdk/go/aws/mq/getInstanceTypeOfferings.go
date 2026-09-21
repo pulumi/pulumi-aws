@@ -105,12 +105,8 @@ type GetInstanceTypeOfferingsResult struct {
 }
 
 func GetInstanceTypeOfferingsOutput(ctx *pulumi.Context, args GetInstanceTypeOfferingsOutputArgs, opts ...pulumi.InvokeOption) GetInstanceTypeOfferingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInstanceTypeOfferingsResultOutput, error) {
-			args := v.(GetInstanceTypeOfferingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, GetInstanceTypeOfferingsResultOutput{}, options).(GetInstanceTypeOfferingsResultOutput), nil
-		}).(GetInstanceTypeOfferingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:mq/getInstanceTypeOfferings:getInstanceTypeOfferings", args, GetInstanceTypeOfferingsResultOutput{}, options).(GetInstanceTypeOfferingsResultOutput)
 }
 
 // A collection of arguments for invoking getInstanceTypeOfferings.

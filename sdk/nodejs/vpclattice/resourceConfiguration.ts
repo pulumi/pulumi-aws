@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ResourceConfiguration("example", {
- *     name: "Example",
- *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
- *     portRanges: ["80"],
- *     protocol: "TCP",
  *     resourceConfigurationDefinition: {
  *         dnsResource: {
  *             domainName: "example.com",
  *             ipAddressType: "IPV4",
  *         },
  *     },
+ *     name: "Example",
+ *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
+ *     portRanges: ["80"],
+ *     protocol: "TCP",
  *     tags: {
  *         Environment: "Example",
  *     },
@@ -42,15 +42,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ResourceConfiguration("example", {
- *     name: "Example",
- *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
- *     portRanges: ["80"],
- *     protocol: "TCP",
  *     resourceConfigurationDefinition: {
  *         ipResource: {
  *             ipAddress: "10.0.0.1",
  *         },
  *     },
+ *     name: "Example",
+ *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
+ *     portRanges: ["80"],
+ *     protocol: "TCP",
  *     tags: {
  *         Environment: "Example",
  *     },
@@ -65,18 +65,18 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.vpclattice.DomainVerification("example", {domainName: "example.com"});
  * const exampleResourceConfiguration = new aws.vpclattice.ResourceConfiguration("example", {
- *     name: "Example",
- *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
- *     customDomainName: "custom.example.com",
- *     domainVerificationId: example.id,
- *     portRanges: ["443"],
- *     protocol: "TCP",
  *     resourceConfigurationDefinition: {
  *         dnsResource: {
  *             domainName: "test.example.com",
  *             ipAddressType: "IPV4",
  *         },
  *     },
+ *     name: "Example",
+ *     resourceGatewayIdentifier: exampleAwsVpclatticeResourceGateway.id,
+ *     customDomainName: "custom.example.com",
+ *     domainVerificationId: example.id,
+ *     portRanges: ["443"],
+ *     protocol: "TCP",
  *     tags: {
  *         Environment: "Example",
  *     },
@@ -90,14 +90,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpclattice.ResourceConfiguration("test", {
- *     name: "Example",
- *     resourceGatewayIdentifier: testAwsVpclatticeResourceGateway.id,
- *     type: "ARN",
  *     resourceConfigurationDefinition: {
  *         arnResource: {
  *             arn: example.arn,
  *         },
  *     },
+ *     name: "Example",
+ *     resourceGatewayIdentifier: testAwsVpclatticeResourceGateway.id,
+ *     type: "ARN",
  * });
  * ```
  *

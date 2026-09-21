@@ -650,17 +650,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="MyCatalogTable",
-            database_name="MyCatalogDatabase",
-            table_type="EXTERNAL_TABLE",
-            parameters={
-                "EXTERNAL": "TRUE",
-                "parquet.compression": "SNAPPY",
-            },
             storage_descriptor={
-                "location": "s3://my-bucket/event-streams/my-stream",
-                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
                 "ser_de_info": {
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -693,6 +683,16 @@ class CatalogTable(pulumi.CustomResource):
                         "comment": "",
                     },
                 ],
+                "location": "s3://my-bucket/event-streams/my-stream",
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+            },
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
+            parameters={
+                "EXTERNAL": "TRUE",
+                "parquet.compression": "SNAPPY",
             })
         ```
 
@@ -703,17 +703,10 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="transactiontable1",
-            database_name="bankdata_icebergdb",
             open_table_format_input={
                 "iceberg_input": {
-                    "metadata_operation": "CREATE",
-                    "version": "2",
                     "iceberg_table_input": {
-                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                         "schema": {
-                            "schema_id": 0,
-                            "type": "struct",
                             "fields": [
                                 {
                                     "id": 1,
@@ -734,6 +727,8 @@ class CatalogTable(pulumi.CustomResource):
                                     "type": "            \\\\\\"float\\\\\\"\\n",
                                 },
                             ],
+                            "schema_id": 0,
+                            "type": "struct",
                         },
                         "partition_spec": {
                             "fields": [{
@@ -752,9 +747,14 @@ class CatalogTable(pulumi.CustomResource):
                             }],
                             "order_id": 1,
                         },
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                     },
+                    "metadata_operation": "CREATE",
+                    "version": "2",
                 },
-            })
+            },
+            name="transactiontable1",
+            database_name="bankdata_icebergdb")
         ```
 
         ### Protected View
@@ -764,21 +764,34 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="multidialect_view",
-            database_name="catalog_database",
-            table_type="VIRTUAL_VIEW",
             view_definition={
-                "is_protected": True,
                 "representations": [{
                     "dialect": "ATHENA",
                     "dialect_version": "3",
                     "view_original_text": "SELECT * FROM catalog_database.base_table",
                     "validation_connection": example_aws_glue_connection["name"],
                 }],
-            })
+                "is_protected": True,
+            },
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW")
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` - (String) ID of the Glue Catalog.
+        * `database_name` - (String) Name of the Glue Catalog Database.
+        * `name` - (String) Name of the Glue Catalog Table.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
@@ -838,17 +851,7 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="MyCatalogTable",
-            database_name="MyCatalogDatabase",
-            table_type="EXTERNAL_TABLE",
-            parameters={
-                "EXTERNAL": "TRUE",
-                "parquet.compression": "SNAPPY",
-            },
             storage_descriptor={
-                "location": "s3://my-bucket/event-streams/my-stream",
-                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
-                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
                 "ser_de_info": {
                     "name": "my-stream",
                     "serialization_library": "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -881,6 +884,16 @@ class CatalogTable(pulumi.CustomResource):
                         "comment": "",
                     },
                 ],
+                "location": "s3://my-bucket/event-streams/my-stream",
+                "input_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+                "output_format": "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+            },
+            name="MyCatalogTable",
+            database_name="MyCatalogDatabase",
+            table_type="EXTERNAL_TABLE",
+            parameters={
+                "EXTERNAL": "TRUE",
+                "parquet.compression": "SNAPPY",
             })
         ```
 
@@ -891,17 +904,10 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="transactiontable1",
-            database_name="bankdata_icebergdb",
             open_table_format_input={
                 "iceberg_input": {
-                    "metadata_operation": "CREATE",
-                    "version": "2",
                     "iceberg_table_input": {
-                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                         "schema": {
-                            "schema_id": 0,
-                            "type": "struct",
                             "fields": [
                                 {
                                     "id": 1,
@@ -922,6 +928,8 @@ class CatalogTable(pulumi.CustomResource):
                                     "type": "            \\\\\\"float\\\\\\"\\n",
                                 },
                             ],
+                            "schema_id": 0,
+                            "type": "struct",
                         },
                         "partition_spec": {
                             "fields": [{
@@ -940,9 +948,14 @@ class CatalogTable(pulumi.CustomResource):
                             }],
                             "order_id": 1,
                         },
+                        "location": "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
                     },
+                    "metadata_operation": "CREATE",
+                    "version": "2",
                 },
-            })
+            },
+            name="transactiontable1",
+            database_name="bankdata_icebergdb")
         ```
 
         ### Protected View
@@ -952,21 +965,34 @@ class CatalogTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogTable("example",
-            name="multidialect_view",
-            database_name="catalog_database",
-            table_type="VIRTUAL_VIEW",
             view_definition={
-                "is_protected": True,
                 "representations": [{
                     "dialect": "ATHENA",
                     "dialect_version": "3",
                     "view_original_text": "SELECT * FROM catalog_database.base_table",
                     "validation_connection": example_aws_glue_connection["name"],
                 }],
-            })
+                "is_protected": True,
+            },
+            name="multidialect_view",
+            database_name="catalog_database",
+            table_type="VIRTUAL_VIEW")
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `catalog_id` - (String) ID of the Glue Catalog.
+        * `database_name` - (String) Name of the Glue Catalog Database.
+        * `name` - (String) Name of the Glue Catalog Table.
+
+        #### Optional
+
+        * `account_id` - (String) AWS Account where this resource is managed.
+        * `region` - (String) Region where this resource is managed.
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
@@ -1240,7 +1266,7 @@ class CatalogTable(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="viewDefinition")
-    def view_definition(self) -> pulumi.Output[Optional['outputs.CatalogTableViewDefinition']]:
+    def view_definition(self) -> pulumi.Output['outputs.CatalogTableViewDefinition']:
         """
         Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `view_definition` below.
         """

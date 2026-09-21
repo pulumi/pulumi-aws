@@ -24,7 +24,13 @@ namespace Pulumi.Aws.S3
     /// {
     ///     var example = new Aws.S3.FilesSynchronizationConfiguration("example", new()
     ///     {
-    ///         FileSystemId = exampleAwsS3filesFileSystem.Id,
+    ///         ExpirationDataRules = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.FilesSynchronizationConfigurationExpirationDataRuleArgs
+    ///             {
+    ///                 DaysAfterLastAccess = 30,
+    ///             },
+    ///         },
     ///         ImportDataRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.FilesSynchronizationConfigurationImportDataRuleArgs
@@ -34,13 +40,7 @@ namespace Pulumi.Aws.S3
     ///                 Trigger = "ON_FILE_ACCESS",
     ///             },
     ///         },
-    ///         ExpirationDataRules = new[]
-    ///         {
-    ///             new Aws.S3.Inputs.FilesSynchronizationConfigurationExpirationDataRuleArgs
-    ///             {
-    ///                 DaysAfterLastAccess = 30,
-    ///             },
-    ///         },
+    ///         FileSystemId = exampleAwsS3filesFileSystem.Id,
     ///     });
     /// 
     /// });

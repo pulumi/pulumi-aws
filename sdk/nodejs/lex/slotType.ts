@@ -18,8 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const flowerTypes = new aws.lex.SlotType("flower_types", {
- *     createVersion: true,
- *     description: "Types of flowers to order",
  *     enumerationValues: [
  *         {
  *             synonyms: [
@@ -36,6 +34,8 @@ import * as utilities from "../utilities";
  *             value: "tulips",
  *         },
  *     ],
+ *     createVersion: true,
+ *     description: "Types of flowers to order",
  *     name: "FlowerTypes",
  *     valueSelectionStrategy: "ORIGINAL_VALUE",
  * });

@@ -25,7 +25,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         }
 
         /// <summary>
-        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        /// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `ServiceEnabled` is set to true. See below.
         /// </summary>
         [Input("securityControlsConfiguration")]
         public Input<Inputs.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs>? SecurityControlsConfiguration { get; set; }

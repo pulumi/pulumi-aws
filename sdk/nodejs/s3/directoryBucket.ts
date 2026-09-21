@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.DirectoryBucket("example", {
- *     bucket: "example--usw2-az1--x-s3",
  *     location: {
  *         name: "usw2-az1",
  *     },
+ *     bucket: "example--usw2-az1--x-s3",
  * });
  * ```
  *
@@ -33,11 +33,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleLocalZone = new aws.s3.DirectoryBucket("example_local_zone", {
- *     bucket: "example--usw2-xxx-lz1--x-s3",
  *     location: {
  *         name: "usw2-xxx-lz1",
  *         type: "LocalZone",
  *     },
+ *     bucket: "example--usw2-xxx-lz1--x-s3",
  * });
  * ```
  *

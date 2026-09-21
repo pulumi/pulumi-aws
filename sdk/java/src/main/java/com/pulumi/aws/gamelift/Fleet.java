@@ -50,16 +50,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Fleet("example", FleetArgs.builder()
- *             .buildId(exampleAwsGameliftBuild.id())
- *             .ec2InstanceType("t2.micro")
- *             .fleetType("ON_DEMAND")
- *             .name("example-fleet-name")
  *             .runtimeConfiguration(FleetRuntimeConfigurationArgs.builder()
  *                 .serverProcesses(FleetRuntimeConfigurationServerProcessArgs.builder()
  *                     .concurrentExecutions(1)
  *                     .launchPath("C:\\game\\GomokuServer.exe")
  *                     .build())
  *                 .build())
+ *             .buildId(exampleAwsGameliftBuild.id())
+ *             .ec2InstanceType("t2.micro")
+ *             .fleetType("ON_DEMAND")
+ *             .name("example-fleet-name")
  *             .build());
  * 
  *     }

@@ -67,7 +67,7 @@ class GetOpenZfsSnapshotResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -177,11 +177,11 @@ def get_open_zfs_snapshot(filters: Optional[Sequence[Union['GetOpenZfsSnapshotFi
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[{
+    example = aws.fsx.get_open_zfs_snapshot(filters=[{
             "name": "volume-id",
             "values": ["fsvol-073a32b6098a73feb"],
-        }])
+        }],
+        most_recent=True)
     ```
 
 
@@ -232,11 +232,11 @@ def get_open_zfs_snapshot_output(filters: pulumi.Input[Optional[Optional[Sequenc
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.fsx.get_open_zfs_snapshot(most_recent=True,
-        filters=[{
+    example = aws.fsx.get_open_zfs_snapshot(filters=[{
             "name": "volume-id",
             "values": ["fsvol-073a32b6098a73feb"],
-        }])
+        }],
+        most_recent=True)
     ```
 
 

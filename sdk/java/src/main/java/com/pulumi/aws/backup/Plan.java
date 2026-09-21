@@ -33,9 +33,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.backup.Plan;
  * import com.pulumi.aws.backup.PlanArgs;
+ * import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
  * import com.pulumi.aws.backup.inputs.PlanRuleArgs;
  * import com.pulumi.aws.backup.inputs.PlanRuleLifecycleArgs;
- * import com.pulumi.aws.backup.inputs.PlanAdvancedBackupSettingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -50,19 +50,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Plan("example", PlanArgs.builder()
- *             .name("my_example_backup_plan")
- *             .rules(PlanRuleArgs.builder()
- *                 .ruleName("my_example_backup_rule")
- *                 .targetVaultName(test.name())
- *                 .schedule("cron(0 12 * * ? *)")
- *                 .lifecycle(PlanRuleLifecycleArgs.builder()
- *                     .deleteAfter(14)
- *                     .build())
- *                 .build())
  *             .advancedBackupSettings(PlanAdvancedBackupSettingArgs.builder()
  *                 .backupOptions(Map.of("WindowsVSS", "enabled"))
  *                 .resourceType("EC2")
  *                 .build())
+ *             .rules(PlanRuleArgs.builder()
+ *                 .lifecycle(PlanRuleLifecycleArgs.builder()
+ *                     .deleteAfter(14)
+ *                     .build())
+ *                 .ruleName("my_example_backup_rule")
+ *                 .targetVaultName(test.name())
+ *                 .schedule("cron(0 12 * * ? *)")
+ *                 .build())
+ *             .name("my_example_backup_plan")
  *             .build());
  * 
  *     }

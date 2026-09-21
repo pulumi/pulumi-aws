@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CloudFront
     public partial class KeyValueStore : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        /// ARN identifying your CloudFront KeyValueStore.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class KeyValueStoreState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifying your CloudFront KeyValueStore.
+        /// ARN identifying your CloudFront KeyValueStore.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -83,10 +83,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()
- *             .name("some-configuration-set-test")
  *             .deliveryOptions(ConfigurationSetDeliveryOptionsArgs.builder()
  *                 .tlsPolicy("Require")
  *                 .build())
+ *             .name("some-configuration-set-test")
  *             .build());
  * 
  *     }
@@ -120,10 +120,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ConfigurationSet("test", ConfigurationSetArgs.builder()
- *             .name("some-configuration-set-test")
  *             .trackingOptions(ConfigurationSetTrackingOptionsArgs.builder()
  *                 .customRedirectDomain("sub.example.com")
  *                 .build())
+ *             .name("some-configuration-set-test")
  *             .build());
  * 
  *     }

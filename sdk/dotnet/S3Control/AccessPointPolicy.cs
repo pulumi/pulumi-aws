@@ -32,14 +32,20 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
     ///     {
-    ///         Bucket = example.Id,
-    ///         Name = "example",
     ///         PublicAccessBlockConfiguration = new Aws.S3.Inputs.AccessPointPublicAccessBlockConfigurationArgs
     ///         {
     ///             BlockPublicAcls = true,
     ///             BlockPublicPolicy = false,
     ///             IgnorePublicAcls = true,
     ///             RestrictPublicBuckets = false,
+    ///         },
+    ///         Bucket = example.Id,
+    ///         Name = "example",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "policy",
     ///         },
     ///     });
     /// 

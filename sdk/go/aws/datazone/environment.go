@@ -31,11 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := datazone.NewEnvironment(ctx, "example", &datazone.EnvironmentArgs{
-//				Name:                pulumi.String("example"),
-//				BlueprintIdentifier: pulumi.Any(test.EnvironmentBlueprintId),
-//				ProfileIdentifier:   pulumi.Any(testAwsDatazoneEnvironmentProfile.Id),
-//				ProjectIdentifier:   pulumi.Any(testAwsDatazoneProject.Id),
-//				DomainIdentifier:    pulumi.Any(testAwsDatazoneDomain.Id),
 //				UserParameters: datazone.EnvironmentUserParameterArray{
 //					&datazone.EnvironmentUserParameterArgs{
 //						Name:  pulumi.String("consumerGlueDbName"),
@@ -50,6 +45,11 @@ import (
 //						Value: pulumi.String("workgroup"),
 //					},
 //				},
+//				Name:                pulumi.String("example"),
+//				BlueprintIdentifier: pulumi.Any(test.EnvironmentBlueprintId),
+//				ProfileIdentifier:   pulumi.Any(testAwsDatazoneEnvironmentProfile.Id),
+//				ProjectIdentifier:   pulumi.Any(testAwsDatazoneProject.Id),
+//				DomainIdentifier:    pulumi.Any(testAwsDatazoneDomain.Id),
 //			})
 //			if err != nil {
 //				return err

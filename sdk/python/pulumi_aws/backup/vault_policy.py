@@ -166,11 +166,11 @@ class VaultPolicy(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [current.account_id],
             }],
+            "effect": "Allow",
             "actions": [
                 "backup:DescribeBackupVault",
                 "backup:DeleteBackupVault",
@@ -221,11 +221,11 @@ class VaultPolicy(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example_vault = aws.backup.Vault("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [current.account_id],
             }],
+            "effect": "Allow",
             "actions": [
                 "backup:DescribeBackupVault",
                 "backup:DeleteBackupVault",

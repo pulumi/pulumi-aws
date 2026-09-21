@@ -17,8 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const bar = new aws.redshift.ParameterGroup("bar", {
- *     name: "parameter-group-test",
- *     family: "redshift-1.0",
  *     parameters: [
  *         {
  *             name: "require_ssl",
@@ -33,6 +31,8 @@ import * as utilities from "../utilities";
  *             value: "true",
  *         },
  *     ],
+ *     name: "parameter-group-test",
+ *     family: "redshift-1.0",
  * });
  * ```
  *
@@ -73,7 +73,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class ParameterGroup extends pulumi.CustomResource {
  */
 export interface ParameterGroupState {
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      */
     arn?: pulumi.Input<string | undefined>;
     /**

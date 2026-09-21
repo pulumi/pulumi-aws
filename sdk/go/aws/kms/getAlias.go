@@ -60,7 +60,7 @@ type LookupAliasArgs struct {
 
 // A collection of values returned by getAlias.
 type LookupAliasResult struct {
-	// Amazon Resource Name(ARN) of the key alias.
+	// ARN of the key alias.
 	Arn string `pulumi:"arn"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -74,12 +74,8 @@ type LookupAliasResult struct {
 }
 
 func LookupAliasOutput(ctx *pulumi.Context, args LookupAliasOutputArgs, opts ...pulumi.InvokeOption) LookupAliasResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAliasResultOutput, error) {
-			args := v.(LookupAliasArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kms/getAlias:getAlias", args, LookupAliasResultOutput{}, options).(LookupAliasResultOutput), nil
-		}).(LookupAliasResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kms/getAlias:getAlias", args, LookupAliasResultOutput{}, options).(LookupAliasResultOutput)
 }
 
 // A collection of arguments for invoking getAlias.
@@ -109,7 +105,7 @@ func (o LookupAliasResultOutput) ToLookupAliasResultOutputWithContext(ctx contex
 	return o
 }
 
-// Amazon Resource Name(ARN) of the key alias.
+// ARN of the key alias.
 func (o LookupAliasResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAliasResult) string { return v.Arn }).(pulumi.StringOutput)
 }

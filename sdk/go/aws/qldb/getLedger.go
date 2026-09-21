@@ -71,12 +71,8 @@ type LookupLedgerResult struct {
 }
 
 func LookupLedgerOutput(ctx *pulumi.Context, args LookupLedgerOutputArgs, opts ...pulumi.InvokeOption) LookupLedgerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupLedgerResultOutput, error) {
-			args := v.(LookupLedgerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:qldb/getLedger:getLedger", args, LookupLedgerResultOutput{}, options).(LookupLedgerResultOutput), nil
-		}).(LookupLedgerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:qldb/getLedger:getLedger", args, LookupLedgerResultOutput{}, options).(LookupLedgerResultOutput)
 }
 
 // A collection of arguments for invoking getLedger.

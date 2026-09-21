@@ -36,7 +36,7 @@ export function getContactsRotation(args: GetContactsRotationArgs, opts?: pulumi
  */
 export interface GetContactsRotationArgs {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     arn: string;
     /**
@@ -51,7 +51,7 @@ export interface GetContactsRotationArgs {
 export interface GetContactsRotationResult {
     readonly arn: string;
     /**
-     * The Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     readonly contactIds: string[];
     readonly id: string;
@@ -106,7 +106,7 @@ export function getContactsRotationOutput(args: GetContactsRotationOutputArgs, o
  */
 export interface GetContactsRotationOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     arn: pulumi.Input<string>;
     /**

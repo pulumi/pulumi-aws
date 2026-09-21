@@ -46,20 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xssMatchSet = new XssMatchSet("xssMatchSet", XssMatchSetArgs.builder()
- *             .name("xss_match_set")
  *             .xssMatchTuples(            
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type("URI")
  *                         .build())
+ *                     .textTransformation("NONE")
  *                     .build(),
  *                 XssMatchSetXssMatchTupleArgs.builder()
- *                     .textTransformation("NONE")
  *                     .fieldToMatch(XssMatchSetXssMatchTupleFieldToMatchArgs.builder()
  *                         .type("QUERY_STRING")
  *                         .build())
+ *                     .textTransformation("NONE")
  *                     .build())
+ *             .name("xss_match_set")
  *             .build());
  * 
  *     }
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/xssMatchSet:XssMatchSet")
 public class XssMatchSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN)
+     * @return ARN
      * 
      */
     public Output<String> arn() {

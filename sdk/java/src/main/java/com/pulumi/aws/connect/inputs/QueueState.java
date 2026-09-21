@@ -20,14 +20,14 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
     public static final QueueState Empty = new QueueState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Queue.
+     * @return ARN of the Queue.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -251,7 +251,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Queue.
+         * @param arn ARN of the Queue.
          * 
          * @return builder
          * 
@@ -262,7 +262,7 @@ public final class QueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Queue.
+         * @param arn ARN of the Queue.
          * 
          * @return builder
          * 

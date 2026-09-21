@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.qbusiness.Application("example", {
- *     displayName: "example-app",
- *     iamServiceRoleArn: exampleAwsIamRole.arn,
- *     identityCenterInstanceArn: exampleAwsSsoadminInstances.arns[0],
  *     attachmentsConfiguration: {
  *         attachmentsControlMode: "ENABLED",
  *     },
+ *     displayName: "example-app",
+ *     iamServiceRoleArn: exampleAwsIamRole.arn,
+ *     identityCenterInstanceArn: exampleAwsSsoadminInstances.arns[0],
  * });
  * ```
  *

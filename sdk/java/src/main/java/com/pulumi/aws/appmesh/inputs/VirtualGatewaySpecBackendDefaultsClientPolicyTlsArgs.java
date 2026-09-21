@@ -66,14 +66,14 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs extends 
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context.
+     * Listener&#39;s TLS validation context.
      * 
      */
     @Import(name="validation", required=true)
     private Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     public Output<VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs> validation() {
@@ -181,7 +181,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs extends 
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s TLS validation context.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs extends 
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context.
+         * @param validation Listener&#39;s TLS validation context.
          * 
          * @return builder
          * 

@@ -16,12 +16,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
  *     filters: [{
  *         name: "name",
  *         values: ["amzn-ami-vpc-nat*"],
  *     }],
+ *     mostRecent: true,
+ *     owners: ["amazon"],
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: example.then(example => example.id),

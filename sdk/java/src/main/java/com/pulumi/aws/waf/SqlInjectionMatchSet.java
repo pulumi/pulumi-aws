@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sqlInjectionMatchSet = new SqlInjectionMatchSet("sqlInjectionMatchSet", SqlInjectionMatchSetArgs.builder()
- *             .name("tf-sql_injection_match_set")
  *             .sqlInjectionMatchTuples(SqlInjectionMatchSetSqlInjectionMatchTupleArgs.builder()
- *                 .textTransformation("URL_DECODE")
  *                 .fieldToMatch(SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs.builder()
  *                     .type("QUERY_STRING")
  *                     .build())
+ *                 .textTransformation("URL_DECODE")
  *                 .build())
+ *             .name("tf-sql_injection_match_set")
  *             .build());
  * 
  *     }
@@ -72,14 +72,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/sqlInjectionMatchSet:SqlInjectionMatchSet")
 public class SqlInjectionMatchSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * ARN of the SQL injection match set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the SQL injection match set.
+     * @return ARN of the SQL injection match set.
      * 
      */
     public Output<String> arn() {

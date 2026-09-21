@@ -17,10 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     nodeGroupName: "example",
- *     nodeRoleArn: exampleAwsIamRole.arn,
- *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *     scalingConfig: {
  *         desiredSize: 1,
  *         maxSize: 2,
@@ -29,6 +25,10 @@ import * as utilities from "../utilities";
  *     updateConfig: {
  *         maxUnavailable: 1,
  *     },
+ *     clusterName: exampleAwsEksCluster.name,
+ *     nodeGroupName: "example",
+ *     nodeRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
  * }, {
  *     dependsOn: [
  *         example_AmazonEKSWorkerNodePolicy,
@@ -48,7 +48,30 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.eks.NodeGroup("example", {scalingConfig: {
  *     desiredSize: 2,
- * }});
+ * }}, {
+ *     ignoreChanges: ["scalingConfig.desiredSize"],
+ * });
+ * ```
+ *
+ * ### Tracking the latest EKS Node Group AMI releases
+ *
+ * You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `standard` in the parameter name below with `nvidia` to retrieve the accelerated AMI version. Replace `x8664` in the parameter name below with `arm64` to retrieve the ARM version.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const eksAmiReleaseVersion = aws.ssm.getParameter({
+ *     name: `/aws/service/eks/optimized-ami/${exampleAwsEksCluster.version}/amazon-linux-2023/x86_64/standard/recommended/release_version`,
+ * });
+ * const example = new aws.eks.NodeGroup("example", {
+ *     clusterName: exampleAwsEksCluster.name,
+ *     nodeGroupName: "example",
+ *     version: exampleAwsEksCluster.version,
+ *     releaseVersion: pulumi.unsecret(eksAmiReleaseVersion.then(eksAmiReleaseVersion => eksAmiReleaseVersion.value)),
+ *     nodeRoleArn: exampleAwsIamRole.arn,
+ *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
+ * });
  * ```
  *
  * ### Example IAM Role for EKS Node Group
@@ -157,11 +180,11 @@ export class NodeGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      */
     declare public readonly amiType: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the EKS Node Group.
+     * ARN of the EKS Node Group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -205,7 +228,7 @@ export class NodeGroup extends pulumi.CustomResource {
      */
     declare public readonly nodeRepairConfig: pulumi.Output<outputs.eks.NodeGroupNodeRepairConfig>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
     declare public readonly nodeRoleArn: pulumi.Output<string>;
     /**
@@ -353,11 +376,11 @@ export class NodeGroup extends pulumi.CustomResource {
  */
 export interface NodeGroupState {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      */
     amiType?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the EKS Node Group.
+     * ARN of the EKS Node Group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -401,7 +424,7 @@ export interface NodeGroupState {
      */
     nodeRepairConfig?: pulumi.Input<inputs.eks.NodeGroupNodeRepairConfig | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
     nodeRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -465,7 +488,7 @@ export interface NodeGroupState {
  */
 export interface NodeGroupArgs {
     /**
-     * Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+     * Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
      */
     amiType?: pulumi.Input<string | undefined>;
     /**
@@ -509,7 +532,7 @@ export interface NodeGroupArgs {
      */
     nodeRepairConfig?: pulumi.Input<inputs.eks.NodeGroupNodeRepairConfig | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+     * ARN of the IAM Role that provides permissions for the EKS Node Group.
      */
     nodeRoleArn: pulumi.Input<string>;
     /**

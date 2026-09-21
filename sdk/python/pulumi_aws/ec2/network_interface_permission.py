@@ -223,13 +223,13 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.NetworkInterface("example",
-            subnet_id=example_aws_subnet["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[example_aws_security_group["id"]],
             attachments=[{
                 "instance": example_aws_instance["id"],
                 "device_index": 1,
-            }])
+            }],
+            subnet_id=example_aws_subnet["id"],
+            private_ips=["10.0.0.50"],
+            security_groups=[example_aws_security_group["id"]])
         example_network_interface_permission = aws.ec2.NetworkInterfacePermission("example",
             network_interface_id=example.id,
             aws_account_id="123456789012",
@@ -268,13 +268,13 @@ class NetworkInterfacePermission(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.NetworkInterface("example",
-            subnet_id=example_aws_subnet["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[example_aws_security_group["id"]],
             attachments=[{
                 "instance": example_aws_instance["id"],
                 "device_index": 1,
-            }])
+            }],
+            subnet_id=example_aws_subnet["id"],
+            private_ips=["10.0.0.50"],
+            security_groups=[example_aws_security_group["id"]])
         example_network_interface_permission = aws.ec2.NetworkInterfacePermission("example",
             network_interface_id=example.id,
             aws_account_id="123456789012",

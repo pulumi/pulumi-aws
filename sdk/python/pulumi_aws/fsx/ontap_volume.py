@@ -382,7 +382,7 @@ class _OntapVolumeState:
         Input properties used for looking up and filtering OntapVolume resources.
 
         :param pulumi.Input['OntapVolumeAggregateConfigurationArgs'] aggregate_configuration: Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the volune.
+        :param pulumi.Input[_builtins.str] arn: ARN of the volune.
         :param pulumi.Input[_builtins.bool] bypass_snaplock_enterprise_retention: Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether tags for the volume should be copied to backups. This value defaults to `false`.
         :param pulumi.Input[_builtins.str] file_system_id: File system for the volume, e.g. `fs-12345679`
@@ -476,7 +476,7 @@ class _OntapVolumeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the volune.
+        ARN of the volune.
         """
         return pulumi.get(self, "arn")
 
@@ -819,15 +819,15 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            tiering_policy={
+                "name": "AUTO",
+                "cooling_period": 31,
+            },
             name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
-            tiering_policy={
-                "name": "AUTO",
-                "cooling_period": 31,
-            })
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
 
         ## Import
@@ -899,15 +899,15 @@ class OntapVolume(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.fsx.OntapVolume("test",
+            tiering_policy={
+                "name": "AUTO",
+                "cooling_period": 31,
+            },
             name="test",
             junction_path="/test",
             size_in_megabytes=1024,
             storage_efficiency_enabled=True,
-            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"],
-            tiering_policy={
-                "name": "AUTO",
-                "cooling_period": 31,
-            })
+            storage_virtual_machine_id=test_aws_fsx_ontap_storage_virtual_machine["id"])
         ```
 
         ## Import
@@ -1033,7 +1033,7 @@ class OntapVolume(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['OntapVolumeAggregateConfigurationArgs', 'OntapVolumeAggregateConfigurationArgsDict']] aggregate_configuration: Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregate_configuration` Block] for details.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the volune.
+        :param pulumi.Input[_builtins.str] arn: ARN of the volune.
         :param pulumi.Input[_builtins.bool] bypass_snaplock_enterprise_retention: Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] copy_tags_to_backups: Whether tags for the volume should be copied to backups. This value defaults to `false`.
         :param pulumi.Input[_builtins.str] file_system_id: File system for the volume, e.g. `fs-12345679`
@@ -1103,7 +1103,7 @@ class OntapVolume(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the volune.
+        ARN of the volune.
         """
         return pulumi.get(self, "arn")
 

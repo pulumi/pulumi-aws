@@ -60,18 +60,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()
- *             .name("example")
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
- *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions("GetObject")
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
  *                             .functionArn(exampleAwsLambdaFunction.arn())
  *                             .build())
  *                         .build())
+ *                     .actions("GetObject")
  *                     .build())
+ *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -119,14 +119,14 @@ public class ObjectLambdaAccessPoint extends com.pulumi.resources.CustomResource
         return this.alias;
     }
     /**
-     * Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * ARN of the Object Lambda Access Point.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * @return ARN of the Object Lambda Access Point.
      * 
      */
     public Output<String> arn() {

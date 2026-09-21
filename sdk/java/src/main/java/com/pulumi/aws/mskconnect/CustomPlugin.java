@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomPlugin = new CustomPlugin("exampleCustomPlugin", CustomPluginArgs.builder()
- *             .name("debezium-example")
- *             .contentType("ZIP")
  *             .location(CustomPluginLocationArgs.builder()
  *                 .s3(CustomPluginLocationS3Args.builder()
  *                     .bucketArn(example.arn())
  *                     .fileKey(exampleBucketObjectv2.key())
  *                     .build())
  *                 .build())
+ *             .name("debezium-example")
+ *             .contentType("ZIP")
  *             .build());
  * 
  *     }
@@ -91,14 +91,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/customPlugin:CustomPlugin")
 public class CustomPlugin extends com.pulumi.resources.CustomResource {
     /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
+     * the ARN of the custom plugin.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return the Amazon Resource Name (ARN) of the custom plugin.
+     * @return the ARN of the custom plugin.
      * 
      */
     public Output<String> arn() {

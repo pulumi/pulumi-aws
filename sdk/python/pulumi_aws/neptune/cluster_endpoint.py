@@ -150,7 +150,7 @@ class _ClusterEndpointState:
         """
         Input properties used for looking up and filtering ClusterEndpoint resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: Neptune Cluster Endpoint ARN.
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the endpoint.
@@ -186,7 +186,7 @@ class _ClusterEndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        Neptune Cluster Endpoint ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -455,7 +455,7 @@ class ClusterEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: Neptune Cluster Endpoint ARN.
         :param pulumi.Input[_builtins.str] cluster_endpoint_identifier: The identifier of the endpoint.
         :param pulumi.Input[_builtins.str] cluster_identifier: The DB cluster identifier of the DB cluster associated with the endpoint.
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the endpoint.
@@ -486,7 +486,7 @@ class ClusterEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        Neptune Cluster Endpoint ARN.
         """
         return pulumi.get(self, "arn")
 

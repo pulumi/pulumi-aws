@@ -206,15 +206,15 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
+            "origin_ssl_protocols": {
+                "items": ["TLSv1.2"],
+                "quantity": 1,
+            },
             "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,
             "origin_protocol_policy": "https-only",
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
         })
         ```
 
@@ -257,15 +257,15 @@ class VpcOrigin(pulumi.CustomResource):
         import pulumi_aws as aws
 
         alb = aws.cloudfront.VpcOrigin("alb", vpc_origin_endpoint_config={
+            "origin_ssl_protocols": {
+                "items": ["TLSv1.2"],
+                "quantity": 1,
+            },
             "name": "example-vpc-origin",
             "arn": this["arn"],
             "http_port": 8080,
             "https_port": 8443,
             "origin_protocol_policy": "https-only",
-            "origin_ssl_protocols": {
-                "items": ["TLSv1.2"],
-                "quantity": 1,
-            },
         })
         ```
 

@@ -59,15 +59,15 @@ export class Template extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the SES template
+     * ARN of the SES template
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     * HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
     declare public readonly html: pulumi.Output<string | undefined>;
     /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     * Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -75,11 +75,11 @@ export class Template extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The subject line of the email.
+     * Subject line of the email.
      */
     declare public readonly subject: pulumi.Output<string | undefined>;
     /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     * Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
     declare public readonly text: pulumi.Output<string | undefined>;
 
@@ -121,15 +121,15 @@ export class Template extends pulumi.CustomResource {
  */
 export interface TemplateState {
     /**
-     * The ARN of the SES template
+     * ARN of the SES template
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     * HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
     html?: pulumi.Input<string | undefined>;
     /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     * Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -137,11 +137,11 @@ export interface TemplateState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The subject line of the email.
+     * Subject line of the email.
      */
     subject?: pulumi.Input<string | undefined>;
     /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     * Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
     text?: pulumi.Input<string | undefined>;
 }
@@ -151,11 +151,11 @@ export interface TemplateState {
  */
 export interface TemplateArgs {
     /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     * HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      */
     html?: pulumi.Input<string | undefined>;
     /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     * Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -163,11 +163,11 @@ export interface TemplateArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The subject line of the email.
+     * Subject line of the email.
      */
     subject?: pulumi.Input<string | undefined>;
     /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     * Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      */
     text?: pulumi.Input<string | undefined>;
 }

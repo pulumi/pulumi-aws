@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sqlInjectionMatchSet = new aws.waf.SqlInjectionMatchSet("sql_injection_match_set", {
- *     name: "tf-sql_injection_match_set",
  *     sqlInjectionMatchTuples: [{
- *         textTransformation: "URL_DECODE",
  *         fieldToMatch: {
  *             type: "QUERY_STRING",
  *         },
+ *         textTransformation: "URL_DECODE",
  *     }],
+ *     name: "tf-sql_injection_match_set",
  * });
  * ```
  *
@@ -64,7 +64,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * ARN of the SQL injection match set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -108,7 +108,7 @@ export class SqlInjectionMatchSet extends pulumi.CustomResource {
  */
 export interface SqlInjectionMatchSetState {
     /**
-     * Amazon Resource Name (ARN) of the SQL injection match set.
+     * ARN of the SQL injection match set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

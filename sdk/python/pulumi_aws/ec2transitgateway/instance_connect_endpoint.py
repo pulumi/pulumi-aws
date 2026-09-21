@@ -155,7 +155,7 @@ class _InstanceConnectEndpointState:
         """
         Input properties used for looking up and filtering InstanceConnectEndpoint resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] fips_dns_name: The DNS name of the EC2 Instance Connect FIPS Endpoint.
@@ -205,7 +205,7 @@ class _InstanceConnectEndpointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        ARN of the EC2 Instance Connect Endpoint.
         """
         return pulumi.get(self, "arn")
 
@@ -530,7 +530,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] availability_zone: The Availability Zone of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the EC2 Instance Connect Endpoint.
         :param pulumi.Input[_builtins.str] fips_dns_name: The DNS name of the EC2 Instance Connect FIPS Endpoint.
@@ -570,7 +570,7 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        ARN of the EC2 Instance Connect Endpoint.
         """
         return pulumi.get(self, "arn")
 

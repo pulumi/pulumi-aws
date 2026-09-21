@@ -57,10 +57,8 @@ type GetZonesResult struct {
 }
 
 func GetZonesOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetZonesResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetZonesResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:route53/getZones:getZones", nil, GetZonesResultOutput{}, options).(GetZonesResultOutput), nil
-	}).(GetZonesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getZones:getZones", nil, GetZonesResultOutput{}, options).(GetZonesResultOutput)
 }
 
 // A collection of values returned by getZones.

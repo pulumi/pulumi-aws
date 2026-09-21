@@ -96,12 +96,8 @@ type GetServiceNetworkServiceAssociationsResult struct {
 }
 
 func GetServiceNetworkServiceAssociationsOutput(ctx *pulumi.Context, args GetServiceNetworkServiceAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetServiceNetworkServiceAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetServiceNetworkServiceAssociationsResultOutput, error) {
-			args := v.(GetServiceNetworkServiceAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpclattice/getServiceNetworkServiceAssociations:getServiceNetworkServiceAssociations", args, GetServiceNetworkServiceAssociationsResultOutput{}, options).(GetServiceNetworkServiceAssociationsResultOutput), nil
-		}).(GetServiceNetworkServiceAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpclattice/getServiceNetworkServiceAssociations:getServiceNetworkServiceAssociations", args, GetServiceNetworkServiceAssociationsResultOutput{}, options).(GetServiceNetworkServiceAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getServiceNetworkServiceAssociations.

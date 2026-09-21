@@ -144,14 +144,14 @@ public class ApprovalRuleTemplate extends com.pulumi.resources.CustomResource {
         return this.lastModifiedDate;
     }
     /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
     @Export(name="lastModifiedUser", refs={String.class}, tree="[0]")
     private Output<String> lastModifiedUser;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * @return ARN of the user who made the most recent changes to the approval rule template.
      * 
      */
     public Output<String> lastModifiedUser() {

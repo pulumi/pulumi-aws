@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreHarnessModelGeminiModelConfig
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+        /// </summary>
+        public readonly string? AdditionalParams;
+        /// <summary>
         /// ARN of the secret containing the API key.
         /// </summary>
         public readonly string ApiKeyArn;
@@ -40,6 +44,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
         [OutputConstructor]
         private AgentcoreHarnessModelGeminiModelConfig(
+            string? additionalParams,
+
             string apiKeyArn,
 
             int? maxTokens,
@@ -52,6 +58,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             double? topP)
         {
+            AdditionalParams = additionalParams;
             ApiKeyArn = apiKeyArn;
             MaxTokens = maxTokens;
             ModelId = modelId;

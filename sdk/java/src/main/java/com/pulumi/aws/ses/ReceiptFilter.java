@@ -63,42 +63,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/receiptFilter:ReceiptFilter")
 public class ReceiptFilter extends com.pulumi.resources.CustomResource {
     /**
-     * The SES receipt filter ARN.
+     * SES receipt filter ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The SES receipt filter ARN.
+     * @return SES receipt filter ARN.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The IP address or address range to filter, in CIDR notation
+     * IP address or address range to filter, in CIDR notation
      * 
      */
     @Export(name="cidr", refs={String.class}, tree="[0]")
     private Output<String> cidr;
 
     /**
-     * @return The IP address or address range to filter, in CIDR notation
+     * @return IP address or address range to filter, in CIDR notation
      * 
      */
     public Output<String> cidr() {
         return this.cidr;
     }
     /**
-     * The name of the filter
+     * Name of the filter
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the filter
+     * @return Name of the filter
      * 
      */
     public Output<String> name() {

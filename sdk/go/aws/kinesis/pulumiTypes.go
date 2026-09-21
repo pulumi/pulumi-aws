@@ -15329,7 +15329,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfiguration struct {
 	ProcessingConfiguration *FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfiguration `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration *int `pulumi:"retryDuration"`
-	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 	RoleArn string `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode *string `pulumi:"s3BackupMode"`
@@ -15365,7 +15365,7 @@ type FirehoseDeliveryStreamOpensearchserverlessConfigurationArgs struct {
 	ProcessingConfiguration FirehoseDeliveryStreamOpensearchserverlessConfigurationProcessingConfigurationPtrInput `pulumi:"processingConfiguration"`
 	// After an initial failure to deliver to the Serverless offering for Amazon OpenSearch Service, the total amount of time, in seconds between 0 to 7200, during which Kinesis Data Firehose retries delivery (including the first attempt).  After this time has elapsed, the failed documents are written to Amazon S3.  The default value is 300s.  There will be no retry if the value is 0.
 	RetryDuration pulumi.IntPtrInput `pulumi:"retryDuration"`
-	// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+	// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// Defines how documents should be delivered to Amazon S3.  Valid values are `FailedDocumentsOnly` and `AllDocuments`.  Default value is `FailedDocumentsOnly`.
 	S3BackupMode pulumi.StringPtrInput `pulumi:"s3BackupMode"`
@@ -15491,7 +15491,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) RetryDura
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) *int { return v.RetryDuration }).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamOpensearchserverlessConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -15609,7 +15609,7 @@ func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) RetryD
 	}).(pulumi.IntPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+// ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
 func (o FirehoseDeliveryStreamOpensearchserverlessConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamOpensearchserverlessConfiguration) *string {
 		if v == nil {
@@ -18989,7 +18989,7 @@ func (o FirehoseDeliveryStreamRedshiftConfigurationSecretsManagerConfigurationPt
 type FirehoseDeliveryStreamServerSideEncryption struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled *bool `pulumi:"enabled"`
-	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+	// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn *string `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType *string `pulumi:"keyType"`
@@ -19009,7 +19009,7 @@ type FirehoseDeliveryStreamServerSideEncryptionInput interface {
 type FirehoseDeliveryStreamServerSideEncryptionArgs struct {
 	// Whether to enable encryption at rest. Default is `false`.
 	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
-	// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+	// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 	KeyArn pulumi.StringPtrInput `pulumi:"keyArn"`
 	// Type of encryption key. Default is `AWS_OWNED_CMK`. Valid values are `AWS_OWNED_CMK` and `CUSTOMER_MANAGED_CMK`
 	KeyType pulumi.StringPtrInput `pulumi:"keyType"`
@@ -19097,7 +19097,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionOutput) Enabled() pulumi.BoolP
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v FirehoseDeliveryStreamServerSideEncryption) *string { return v.KeyArn }).(pulumi.StringPtrOutput)
 }
@@ -19141,7 +19141,7 @@ func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) Enabled() pulumi.Bo
 	}).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+// ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
 func (o FirehoseDeliveryStreamServerSideEncryptionPtrOutput) KeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FirehoseDeliveryStreamServerSideEncryption) *string {
 		if v == nil {

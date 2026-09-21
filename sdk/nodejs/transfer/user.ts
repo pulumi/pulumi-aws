@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["transfer.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -52,14 +52,14 @@ import * as utilities from "../utilities";
  *     policy: foo.then(foo => foo.json),
  * });
  * const fooUser = new aws.transfer.User("foo", {
- *     serverId: fooServer.id,
- *     userName: "tftestuser",
- *     role: fooRole.arn,
- *     homeDirectoryType: "LOGICAL",
  *     homeDirectoryMappings: [{
  *         entry: "/test.pdf",
  *         target: "/bucket3/test-path/tftestuser.pdf",
  *     }],
+ *     serverId: fooServer.id,
+ *     userName: "tftestuser",
+ *     role: fooRole.arn,
+ *     homeDirectoryType: "LOGICAL",
  * });
  * ```
  *
@@ -70,11 +70,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.User("example", {
- *     homeDirectoryType: "LOGICAL",
  *     homeDirectoryMappings: [{
  *         entry: "/",
  *         target: `/${foo.id}/${Transfer:UserName}`,
  *     }],
+ *     homeDirectoryType: "LOGICAL",
  * });
  * ```
  *
@@ -115,7 +115,7 @@ export class User extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Transfer User
+     * ARN of Transfer User
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -143,7 +143,7 @@ export class User extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
     declare public readonly role: pulumi.Output<string>;
     /**
@@ -222,7 +222,7 @@ export class User extends pulumi.CustomResource {
  */
 export interface UserState {
     /**
-     * Amazon Resource Name (ARN) of Transfer User
+     * ARN of Transfer User
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface UserState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
     role?: pulumi.Input<string | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface UserArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      */
     role: pulumi.Input<string>;
     /**

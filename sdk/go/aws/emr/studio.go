@@ -91,7 +91,7 @@ type Studio struct {
 	Url pulumi.StringOutput `pulumi:"url"`
 	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrOutput `pulumi:"userRole"`
-	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+	// ID of the VPC to associate with the Studio.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
 	//
@@ -181,7 +181,7 @@ type studioState struct {
 	Url *string `pulumi:"url"`
 	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
-	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+	// ID of the VPC to associate with the Studio.
 	VpcId *string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
 	//
@@ -221,7 +221,7 @@ type StudioState struct {
 	Url pulumi.StringPtrInput
 	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
-	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+	// ID of the VPC to associate with the Studio.
 	VpcId pulumi.StringPtrInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
 	//
@@ -260,7 +260,7 @@ type studioArgs struct {
 	Tags map[string]string `pulumi:"tags"`
 	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole *string `pulumi:"userRole"`
-	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+	// ID of the VPC to associate with the Studio.
 	VpcId string `pulumi:"vpcId"`
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
 	//
@@ -296,7 +296,7 @@ type StudioArgs struct {
 	Tags pulumi.StringMapInput
 	// The IAM user role that users and groups assume when logged in to an Amazon EMR Studio. Only specify a User Role when you use Amazon Web Services SSO authentication. The permissions attached to the User Role can be scoped down for each user or group using session policies.
 	UserRole pulumi.StringPtrInput
-	// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+	// ID of the VPC to associate with the Studio.
 	VpcId pulumi.StringInput
 	// The ID of the Amazon EMR Studio Workspace security group. The Workspace security group allows outbound network traffic to resources in the Engine security group, and it must be in the same VPC specified by `vpcId`.
 	//
@@ -470,7 +470,7 @@ func (o StudioOutput) UserRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringPtrOutput { return v.UserRole }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+// ID of the VPC to associate with the Studio.
 func (o StudioOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Studio) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

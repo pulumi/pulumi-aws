@@ -47,7 +47,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+// - `arn` (String) ARN of the Device Farm instance profile.
 //
 // Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 //
@@ -57,7 +57,7 @@ import (
 type InstanceProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this instance profile.
+	// ARN of this instance profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the instance profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -107,7 +107,7 @@ func GetInstanceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InstanceProfile resources.
 type instanceProfileState struct {
-	// The Amazon Resource Name of this instance profile.
+	// ARN of this instance profile.
 	Arn *string `pulumi:"arn"`
 	// The description of the instance profile.
 	Description *string `pulumi:"description"`
@@ -128,7 +128,7 @@ type instanceProfileState struct {
 }
 
 type InstanceProfileState struct {
-	// The Amazon Resource Name of this instance profile.
+	// ARN of this instance profile.
 	Arn pulumi.StringPtrInput
 	// The description of the instance profile.
 	Description pulumi.StringPtrInput
@@ -274,7 +274,7 @@ func (o InstanceProfileOutput) ToInstanceProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name of this instance profile.
+// ARN of this instance profile.
 func (o InstanceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InstanceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

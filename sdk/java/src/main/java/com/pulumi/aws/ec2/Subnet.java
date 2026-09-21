@@ -170,16 +170,16 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
- *             .addressFamily("ipv4")
- *             .ipamScopeId(test.privateDefaultScopeId())
- *             .locale(current.region())
- *             .sourceIpamPoolId(testVpcIpamPool.id())
  *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
  *                 .resourceId(testVpc.id())
  *                 .resourceOwner(currentAwsCallerIdentity.accountId())
  *                 .resourceRegion(current.region())
  *                 .resourceType("vpc")
  *                 .build())
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(test.privateDefaultScopeId())
+ *             .locale(current.region())
+ *             .sourceIpamPoolId(testVpcIpamPool.id())
  *             .build());
  * 
  *         var vpcVpcIpamPoolCidr = new VpcIpamPoolCidr("vpcVpcIpamPoolCidr", VpcIpamPoolCidrArgs.builder()
@@ -496,14 +496,14 @@ public class Subnet extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.mapPublicIpOnLaunch);
     }
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost.
+     * @return ARN of the Outpost.
      * 
      */
     public Output<Optional<String>> outpostArn() {

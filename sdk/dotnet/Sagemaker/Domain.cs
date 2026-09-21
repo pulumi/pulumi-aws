@@ -30,10 +30,6 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -44,6 +40,10 @@ namespace Pulumi.Aws.Sagemaker
     ///                             "sagemaker.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -58,16 +58,16 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
+    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
+    ///         {
+    ///             ExecutionRole = exampleRole.Arn,
+    ///         },
     ///         DomainName = "example",
     ///         AuthMode = "IAM",
     ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetIds = new[]
     ///         {
     ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
-    ///         {
-    ///             ExecutionRole = exampleRole.Arn,
     ///         },
     ///     });
     /// 
@@ -92,7 +92,6 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleAppImageConfig = new Aws.Sagemaker.AppImageConfig("example", new()
     ///     {
-    ///         AppImageConfigName = "example",
     ///         KernelGatewayImageConfig = new Aws.Sagemaker.Inputs.AppImageConfigKernelGatewayImageConfigArgs
     ///         {
     ///             KernelSpecs = new[]
@@ -103,6 +102,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 },
     ///             },
     ///         },
+    ///         AppImageConfigName = "example",
     ///     });
     /// 
     ///     var exampleImageVersion = new Aws.Sagemaker.ImageVersion("example", new()
@@ -113,16 +113,8 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleDomain = new Aws.Sagemaker.Domain("example", new()
     ///     {
-    ///         DomainName = "example",
-    ///         AuthMode = "IAM",
-    ///         VpcId = exampleAwsVpc.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
     ///         DefaultUserSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsArgs
     ///         {
-    ///             ExecutionRole = exampleAwsIamRole.Arn,
     ///             KernelGatewayAppSettings = new Aws.Sagemaker.Inputs.DomainDefaultUserSettingsKernelGatewayAppSettingsArgs
     ///             {
     ///                 CustomImages = new[]
@@ -134,6 +126,14 @@ namespace Pulumi.Aws.Sagemaker
     ///                     },
     ///                 },
     ///             },
+    ///             ExecutionRole = exampleAwsIamRole.Arn,
+    ///         },
+    ///         DomainName = "example",
+    ///         AuthMode = "IAM",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleAwsSubnet.Id,
     ///         },
     ///     });
     /// 
@@ -164,7 +164,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string?> AppSecurityGroupManagement { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        /// ARN assigned by AWS to this Domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Url { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -444,7 +444,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppSecurityGroupManagement { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+        /// ARN assigned by AWS to this Domain.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -570,7 +570,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Url { get; set; }
 
         /// <summary>
-        /// The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+        /// ID of the VPC that Studio uses for communication.
         /// 
         /// The following arguments are optional:
         /// </summary>

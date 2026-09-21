@@ -181,84 +181,84 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpc:Vpc")
 public class Vpc extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of VPC
+     * ARN of VPC.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of VPC
+     * @return ARN of VPC.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
      * 
      */
     @Export(name="assignGeneratedIpv6CidrBlock", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> assignGeneratedIpv6CidrBlock;
 
     /**
-     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
+     * @return Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
      * 
      */
     public Output<Optional<Boolean>> assignGeneratedIpv6CidrBlock() {
         return Codegen.optional(this.assignGeneratedIpv6CidrBlock);
     }
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
+     * IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     @Export(name="cidrBlock", refs={String.class}, tree="[0]")
     private Output<String> cidrBlock;
 
     /**
-     * @return The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
+     * @return IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      * 
      */
     public Output<String> cidrBlock() {
         return this.cidrBlock;
     }
     /**
-     * The ID of the network ACL created by default on VPC creation
+     * ID of the network ACL created by default on VPC creation.
      * 
      */
     @Export(name="defaultNetworkAclId", refs={String.class}, tree="[0]")
     private Output<String> defaultNetworkAclId;
 
     /**
-     * @return The ID of the network ACL created by default on VPC creation
+     * @return ID of the network ACL created by default on VPC creation.
      * 
      */
     public Output<String> defaultNetworkAclId() {
         return this.defaultNetworkAclId;
     }
     /**
-     * The ID of the route table created by default on VPC creation
+     * ID of the route table created by default on VPC creation.
      * 
      */
     @Export(name="defaultRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> defaultRouteTableId;
 
     /**
-     * @return The ID of the route table created by default on VPC creation
+     * @return ID of the route table created by default on VPC creation.
      * 
      */
     public Output<String> defaultRouteTableId() {
         return this.defaultRouteTableId;
     }
     /**
-     * The ID of the security group created by default on VPC creation
+     * ID of the security group created by default on VPC creation.
      * 
      */
     @Export(name="defaultSecurityGroupId", refs={String.class}, tree="[0]")
     private Output<String> defaultSecurityGroupId;
 
     /**
-     * @return The ID of the security group created by default on VPC creation
+     * @return ID of the security group created by default on VPC creation.
      * 
      */
     public Output<String> defaultSecurityGroupId() {
@@ -279,98 +279,98 @@ public class Vpc extends com.pulumi.resources.CustomResource {
         return this.dhcpOptionsId;
     }
     /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     * Whether to enable DNS hostnames in the VPC. Defaults to `false`.
      * 
      */
     @Export(name="enableDnsHostnames", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableDnsHostnames;
 
     /**
-     * @return A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     * @return Whether to enable DNS hostnames in the VPC. Defaults to `false`.
      * 
      */
     public Output<Boolean> enableDnsHostnames() {
         return this.enableDnsHostnames;
     }
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+     * Whether to enable DNS support in the VPC. Defaults to `true`.
      * 
      */
     @Export(name="enableDnsSupport", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableDnsSupport;
 
     /**
-     * @return A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+     * @return Whether to enable DNS support in the VPC. Defaults to `true`.
      * 
      */
     public Output<Optional<Boolean>> enableDnsSupport() {
         return Codegen.optional(this.enableDnsSupport);
     }
     /**
-     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     * Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
      * 
      */
     @Export(name="enableNetworkAddressUsageMetrics", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> enableNetworkAddressUsageMetrics;
 
     /**
-     * @return Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     * @return Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
      * 
      */
     public Output<Boolean> enableNetworkAddressUsageMetrics() {
         return this.enableNetworkAddressUsageMetrics;
     }
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+     * Tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      * 
      */
     @Export(name="instanceTenancy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> instanceTenancy;
 
     /**
-     * @return A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+     * @return Tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      * 
      */
     public Output<Optional<String>> instanceTenancy() {
         return Codegen.optional(this.instanceTenancy);
     }
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     * ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
     @Export(name="ipv4IpamPoolId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> ipv4IpamPoolId;
 
     /**
-     * @return The ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     * @return ID of an IPv4 IPAM pool you want to use for allocating this VPC&#39;s CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      * 
      */
     public Output<Optional<String>> ipv4IpamPoolId() {
         return Codegen.optional(this.ipv4IpamPoolId);
     }
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     * Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     @Export(name="ipv4NetmaskLength", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> ipv4NetmaskLength;
 
     /**
-     * @return The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     * @return Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      * 
      */
     public Output<Optional<Integer>> ipv4NetmaskLength() {
         return Codegen.optional(this.ipv4NetmaskLength);
     }
     /**
-     * The association ID for the IPv6 CIDR block.
+     * Association ID for the IPv6 CIDR block.
      * 
      */
     @Export(name="ipv6AssociationId", refs={String.class}, tree="[0]")
     private Output<String> ipv6AssociationId;
 
     /**
-     * @return The association ID for the IPv6 CIDR block.
+     * @return Association ID for the IPv6 CIDR block.
      * 
      */
     public Output<String> ipv6AssociationId() {
@@ -433,32 +433,28 @@ public class Vpc extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.ipv6NetmaskLength);
     }
     /**
-     * The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC&#39;s main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`.
+     * ID of the main route table associated with this VPC. Note that you can change a VPC&#39;s main route table by using an `aws.ec2.MainRouteTableAssociation`.
      * 
      */
     @Export(name="mainRouteTableId", refs={String.class}, tree="[0]")
     private Output<String> mainRouteTableId;
 
     /**
-     * @return The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC&#39;s main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`.
+     * @return ID of the main route table associated with this VPC. Note that you can change a VPC&#39;s main route table by using an `aws.ec2.MainRouteTableAssociation`.
      * 
      */
     public Output<String> mainRouteTableId() {
         return this.mainRouteTableId;
     }
     /**
-     * The ID of the AWS account that owns the VPC.
+     * ID of the AWS account that owns the VPC.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return The ID of the AWS account that owns the VPC.
+     * @return ID of the AWS account that owns the VPC.
      * 
      */
     public Output<String> ownerId() {
@@ -479,28 +475,28 @@ public class Vpc extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

@@ -127,14 +127,14 @@ public class NotificationConfiguration extends com.pulumi.resources.CustomResour
         return this.aggregationDuration;
     }
     /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * ARN of the NotificationConfiguration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * @return ARN of the NotificationConfiguration.
      * 
      */
     public Output<String> arn() {

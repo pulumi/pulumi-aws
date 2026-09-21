@@ -98,7 +98,7 @@ type LookupSecretResult struct {
 	Description string `pulumi:"description"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
-	// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+	// KMS Customer Master Key (CMK) associated with the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Last updated date of the secret in UTC.
 	LastChangedDate string `pulumi:"lastChangedDate"`
@@ -113,12 +113,8 @@ type LookupSecretResult struct {
 }
 
 func LookupSecretOutput(ctx *pulumi.Context, args LookupSecretOutputArgs, opts ...pulumi.InvokeOption) LookupSecretResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecretResultOutput, error) {
-			args := v.(LookupSecretArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:secretsmanager/getSecret:getSecret", args, LookupSecretResultOutput{}, options).(LookupSecretResultOutput), nil
-		}).(LookupSecretResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:secretsmanager/getSecret:getSecret", args, LookupSecretResultOutput{}, options).(LookupSecretResultOutput)
 }
 
 // A collection of arguments for invoking getSecret.
@@ -172,7 +168,7 @@ func (o LookupSecretResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+// KMS Customer Master Key (CMK) associated with the secret.
 func (o LookupSecretResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

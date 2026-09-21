@@ -24,26 +24,26 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var xssMatchSet = new Aws.Waf.XssMatchSet("xss_match_set", new()
     ///     {
-    ///         Name = "xss_match_set",
     ///         XssMatchTuples = new[]
     ///         {
     ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "URI",
     ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
     ///             new Aws.Waf.Inputs.XssMatchSetXssMatchTupleArgs
     ///             {
-    ///                 TextTransformation = "NONE",
     ///                 FieldToMatch = new Aws.Waf.Inputs.XssMatchSetXssMatchTupleFieldToMatchArgs
     ///                 {
     ///                     Type = "QUERY_STRING",
     ///                 },
+    ///                 TextTransformation = "NONE",
     ///             },
     ///         },
+    ///         Name = "xss_match_set",
     ///     });
     /// 
     /// });
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Waf
     public partial class XssMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Waf
     public sealed class XssMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

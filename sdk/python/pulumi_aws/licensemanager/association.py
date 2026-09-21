@@ -149,12 +149,12 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
+        example = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["amzn-ami-vpc-nat*"],
-            }])
+            }],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
             instance_type=aws.ec2.InstanceType.T2_MICRO)
@@ -198,12 +198,12 @@ class Association(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
+        example = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["amzn-ami-vpc-nat*"],
-            }])
+            }],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
             instance_type=aws.ec2.InstanceType.T2_MICRO)

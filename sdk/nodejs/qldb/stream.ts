@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.qldb.Stream("example", {
- *     ledgerName: "existing-ledger-name",
- *     streamName: "sample-ledger-stream",
- *     roleArn: "sample-role-arn",
- *     inclusiveStartTime: "2021-01-01T00:00:00Z",
  *     kinesisConfiguration: {
  *         aggregationEnabled: false,
  *         streamArn: "arn:aws:kinesis:us-east-1:xxxxxxxxxxxx:stream/example-kinesis-stream",
  *     },
+ *     ledgerName: "existing-ledger-name",
+ *     streamName: "sample-ledger-stream",
+ *     roleArn: "sample-role-arn",
+ *     inclusiveStartTime: "2021-01-01T00:00:00Z",
  *     tags: {
  *         example: "tag",
  *     },
@@ -84,7 +84,7 @@ export class Stream extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+     * ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -185,7 +185,7 @@ export interface StreamState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+     * ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -227,7 +227,7 @@ export interface StreamArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
+     * ARN of the IAM role that grants QLDB permissions for a journal stream to write data records to a Kinesis Data Streams resource.
      */
     roleArn: pulumi.Input<string>;
     /**

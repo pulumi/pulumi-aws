@@ -13,7 +13,7 @@ namespace Pulumi.Aws.LB.Inputs
     public sealed class ListenerRuleActionForwardTargetGroupGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// ARN of the target group.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

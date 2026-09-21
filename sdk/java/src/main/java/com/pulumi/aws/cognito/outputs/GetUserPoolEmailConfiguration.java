@@ -31,7 +31,7 @@ public final class GetUserPoolEmailConfiguration {
      */
     private String replyToEmailAddress;
     /**
-     * @return - Source Amazon Resource Name (ARN) for emails.
+     * @return - Source ARN for emails.
      * 
      */
     private String sourceArn;
@@ -66,7 +66,7 @@ public final class GetUserPoolEmailConfiguration {
         return this.replyToEmailAddress;
     }
     /**
-     * @return - Source Amazon Resource Name (ARN) for emails.
+     * @return - Source ARN for emails.
      * 
      */
     public String sourceArn() {

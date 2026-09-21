@@ -81,16 +81,16 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.Queue("test", new()
     ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Example Name",
-    ///         Description = "Example Description",
-    ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
     ///         OutboundCallerConfig = new Aws.Connect.Inputs.QueueOutboundCallerConfigArgs
     ///         {
     ///             OutboundCallerIdName = "example",
     ///             OutboundCallerIdNumberId = "12345678-abcd-1234-abcd-123456789012",
     ///             OutboundFlowId = "87654321-defg-1234-defg-987654321234",
     ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
+    ///         Description = "Example Description",
+    ///         HoursOfOperationId = "12345678-1234-1234-1234-123456789012",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Queue with Outbound Caller Config" },
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Connect
     public partial class Queue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Queue.
+        /// ARN of the Queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.Connect
     public sealed class QueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Queue.
+        /// ARN of the Queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

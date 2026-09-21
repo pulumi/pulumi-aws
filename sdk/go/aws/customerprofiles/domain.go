@@ -162,7 +162,7 @@ import (
 type Domain struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+	// ARN of the Customer Profiles Domain.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	DeadLetterQueueUrl pulumi.StringPtrOutput `pulumi:"deadLetterQueueUrl"`
@@ -222,7 +222,7 @@ func GetDomain(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Domain resources.
 type domainState struct {
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+	// ARN of the Customer Profiles Domain.
 	Arn *string `pulumi:"arn"`
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	DeadLetterQueueUrl *string `pulumi:"deadLetterQueueUrl"`
@@ -247,7 +247,7 @@ type domainState struct {
 }
 
 type DomainState struct {
-	// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+	// ARN of the Customer Profiles Domain.
 	Arn pulumi.StringPtrInput
 	// The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
 	DeadLetterQueueUrl pulumi.StringPtrInput
@@ -405,7 +405,7 @@ func (o DomainOutput) ToDomainOutputWithContext(ctx context.Context) DomainOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+// ARN of the Customer Profiles Domain.
 func (o DomainOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

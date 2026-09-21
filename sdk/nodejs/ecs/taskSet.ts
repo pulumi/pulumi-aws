@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.TaskSet("example", {
- *     service: exampleAwsEcsService.id,
- *     cluster: exampleAwsEcsCluster.id,
- *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
  *     loadBalancers: [{
  *         targetGroupArn: exampleAwsLbTargetGroup.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
+ *     service: exampleAwsEcsService.id,
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
  * });
  * ```
  *
@@ -40,7 +40,9 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ecs.TaskSet("example", {scale: {
  *     value: 50,
- * }});
+ * }}, {
+ *     ignoreChanges: ["scale"],
+ * });
  * ```
  *
  * ## Import
@@ -80,7 +82,7 @@ export class TaskSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -243,7 +245,7 @@ export class TaskSet extends pulumi.CustomResource {
  */
 export interface TaskSetState {
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -24,8 +24,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var dnsResolver = new Aws.Ec2.VpcDhcpOptionsAssociation("dns_resolver", new()
     ///     {
-    ///         VpcId = fooAwsVpc.Id,
-    ///         DhcpOptionsId = foo.Id,
+    ///         VpcId = foo.Id,
+    ///         DhcpOptionsId = fooAwsVpcDhcpOptions.Id,
     ///     });
     /// 
     /// });

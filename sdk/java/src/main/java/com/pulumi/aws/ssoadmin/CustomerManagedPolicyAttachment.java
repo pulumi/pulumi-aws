@@ -76,12 +76,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCustomerManagedPolicyAttachment = new CustomerManagedPolicyAttachment("exampleCustomerManagedPolicyAttachment", CustomerManagedPolicyAttachmentArgs.builder()
- *             .instanceArn(examplePermissionSet.instanceArn())
- *             .permissionSetArn(examplePermissionSet.arn())
  *             .customerManagedPolicyReference(CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs.builder()
  *                 .name(examplePolicy.name())
  *                 .path("/")
  *                 .build())
+ *             .instanceArn(examplePermissionSet.instanceArn())
+ *             .permissionSetArn(examplePermissionSet.arn())
  *             .build());
  * 
  *     }
@@ -115,28 +115,28 @@ public class CustomerManagedPolicyAttachment extends com.pulumi.resources.Custom
         return this.customerManagedPolicyReference;
     }
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Output<String> permissionSetArn() {

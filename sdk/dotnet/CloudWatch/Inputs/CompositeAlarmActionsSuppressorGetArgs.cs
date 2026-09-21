@@ -13,7 +13,7 @@ namespace Pulumi.Aws.CloudWatch.Inputs
     public sealed class CompositeAlarmActionsSuppressorGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+        /// Can be an AlarmName or an ARN from an existing alarm.
         /// </summary>
         [Input("alarm", required: true)]
         public Input<string> Alarm { get; set; } = null!;

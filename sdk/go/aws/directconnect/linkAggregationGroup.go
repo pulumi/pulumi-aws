@@ -75,6 +75,8 @@ type LinkAggregationGroup struct {
 	OwnerAccountId pulumi.StringOutput `pulumi:"ownerAccountId"`
 	// The name of the service provider associated with the LAG.
 	ProviderName pulumi.StringOutput `pulumi:"providerName"`
+	// Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses LinkAggregationGroupRateLimiterStatusArrayOutput `pulumi:"rateLimiterStatuses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -139,6 +141,8 @@ type linkAggregationGroupState struct {
 	OwnerAccountId *string `pulumi:"ownerAccountId"`
 	// The name of the service provider associated with the LAG.
 	ProviderName *string `pulumi:"providerName"`
+	// Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses []LinkAggregationGroupRateLimiterStatus `pulumi:"rateLimiterStatuses"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -168,6 +172,8 @@ type LinkAggregationGroupState struct {
 	OwnerAccountId pulumi.StringPtrInput
 	// The name of the service provider associated with the LAG.
 	ProviderName pulumi.StringPtrInput
+	// Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+	RateLimiterStatuses LinkAggregationGroupRateLimiterStatusArrayInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -354,6 +360,13 @@ func (o LinkAggregationGroupOutput) OwnerAccountId() pulumi.StringOutput {
 // The name of the service provider associated with the LAG.
 func (o LinkAggregationGroupOutput) ProviderName() pulumi.StringOutput {
 	return o.ApplyT(func(v *LinkAggregationGroup) pulumi.StringOutput { return v.ProviderName }).(pulumi.StringOutput)
+}
+
+// Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+func (o LinkAggregationGroupOutput) RateLimiterStatuses() LinkAggregationGroupRateLimiterStatusArrayOutput {
+	return o.ApplyT(func(v *LinkAggregationGroup) LinkAggregationGroupRateLimiterStatusArrayOutput {
+		return v.RateLimiterStatuses
+	}).(LinkAggregationGroupRateLimiterStatusArrayOutput)
 }
 
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

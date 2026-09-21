@@ -49,7 +49,7 @@ import (
 type CidrCollection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the CIDR collection.
+	// ARN of the CIDR collection.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Unique name for the CIDR collection.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -87,7 +87,7 @@ func GetCidrCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CidrCollection resources.
 type cidrCollectionState struct {
-	// The Amazon Resource Name (ARN) of the CIDR collection.
+	// ARN of the CIDR collection.
 	Arn *string `pulumi:"arn"`
 	// Unique name for the CIDR collection.
 	Name *string `pulumi:"name"`
@@ -96,7 +96,7 @@ type cidrCollectionState struct {
 }
 
 type CidrCollectionState struct {
-	// The Amazon Resource Name (ARN) of the CIDR collection.
+	// ARN of the CIDR collection.
 	Arn pulumi.StringPtrInput
 	// Unique name for the CIDR collection.
 	Name pulumi.StringPtrInput
@@ -206,7 +206,7 @@ func (o CidrCollectionOutput) ToCidrCollectionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the CIDR collection.
+// ARN of the CIDR collection.
 func (o CidrCollectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CidrCollection) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -38,7 +38,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -47,6 +46,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -71,11 +71,11 @@ import (
 //				return err
 //			}
 //			_, err = cfg.NewRule(ctx, "r", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
 //					Owner:            pulumi.String("AWS"),
 //					SourceIdentifier: pulumi.String("S3_BUCKET_VERSIONING_ENABLED"),
 //				},
+//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				foo,
 //			}))
@@ -114,7 +114,7 @@ import (
 //
 // ### Custom Rules
 //
-// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the ARN of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
 //
 // ```go
 // package main
@@ -179,14 +179,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cfg.NewRule(ctx, "example", &cfg.RuleArgs{
-//				Name: pulumi.String("example"),
 //				Source: &cfg.RuleSourceArgs{
-//					Owner: pulumi.String("CUSTOM_POLICY"),
-//					SourceDetails: cfg.RuleSourceSourceDetailArray{
-//						&cfg.RuleSourceSourceDetailArgs{
-//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
-//						},
-//					},
 //					CustomPolicyDetails: &cfg.RuleSourceCustomPolicyDetailsArgs{
 //						PolicyRuntime: pulumi.String("guard-2.x.x"),
 //						PolicyText: pulumi.String(`\t  rule tableisactive when
@@ -203,7 +196,14 @@ import (
 // `),
 //
 //					},
+//					SourceDetails: cfg.RuleSourceSourceDetailArray{
+//						&cfg.RuleSourceSourceDetailArgs{
+//							MessageType: pulumi.String("ConfigurationItemChangeNotification"),
+//						},
+//					},
+//					Owner: pulumi.String("CUSTOM_POLICY"),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

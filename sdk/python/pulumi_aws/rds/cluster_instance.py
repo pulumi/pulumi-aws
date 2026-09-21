@@ -45,29 +45,29 @@ class ClusterInstanceArgs:
                  promotion_tier: pulumi.Input[Optional[_builtins.int]] = None,
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
-                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
+                 tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a ClusterInstance resource.
 
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
-        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
-               Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_class: Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[_builtins.bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[_builtins.str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input[_builtins.str] db_subnet_group_name: DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[_builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `rds.ClusterInstance` will not update the `engine_version`.
         :param pulumi.Input[_builtins.bool] force_destroy: Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
         :param pulumi.Input[_builtins.str] identifier: Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] identifier_prefix: Creates a unique identifier beginning with the specified prefix. Conflicts with `identifier`.
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[_builtins.int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
@@ -76,9 +76,7 @@ class ClusterInstanceArgs:
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         pulumi.set(__self__, "cluster_identifier", cluster_identifier)
         pulumi.set(__self__, "engine", engine)
@@ -129,6 +127,8 @@ class ClusterInstanceArgs:
             pulumi.set(__self__, "region", region)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
 
     @_builtins.property
     @pulumi.getter(name="clusterIdentifier")
@@ -146,8 +146,7 @@ class ClusterInstanceArgs:
     @pulumi.getter
     def engine(self) -> pulumi.Input['EngineType']:
         """
-        Name of the database engine to be used for the RDS cluster instance.
-        Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         """
         return pulumi.get(self, "engine")
 
@@ -171,7 +170,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -183,7 +182,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -219,7 +218,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
@@ -255,7 +254,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -339,7 +338,7 @@ class ClusterInstanceArgs:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -436,15 +435,24 @@ class ClusterInstanceArgs:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
     @tags.setter
     def tags(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
 
 @pulumi.input_type
@@ -485,24 +493,24 @@ class _ClusterInstanceState:
                  storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  writer: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         Input properties used for looking up and filtering ClusterInstance resources.
 
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[_builtins.bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster instance
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[_builtins.str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input[_builtins.str] db_subnet_group_name: DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[_builtins.str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[_builtins.str] endpoint: DNS address for this instance. May not be writable
-        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
-               Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `rds.ClusterInstance` will not update the `engine_version`.
         :param pulumi.Input[_builtins.str] engine_version_actual: Database engine version
         :param pulumi.Input[_builtins.bool] force_destroy: Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
@@ -513,7 +521,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance.
-        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[_builtins.int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[_builtins.int] port: Database port
@@ -522,12 +530,10 @@ class _ClusterInstanceState:
         :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
+        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         if apply_immediately is not None:
@@ -600,6 +606,8 @@ class _ClusterInstanceState:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
             pulumi.set(__self__, "tags_all", tags_all)
+        if warning_event_categories is not None:
+            pulumi.set(__self__, "warning_event_categories", warning_event_categories)
         if writer is not None:
             pulumi.set(__self__, "writer", writer)
 
@@ -607,7 +615,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -619,7 +627,7 @@ class _ClusterInstanceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster instance
+        ARN of cluster instance
         """
         return pulumi.get(self, "arn")
 
@@ -631,7 +639,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -679,7 +687,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
@@ -715,7 +723,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -751,8 +759,7 @@ class _ClusterInstanceState:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional['EngineType']]:
         """
-        Name of the database engine to be used for the RDS cluster instance.
-        Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         """
         return pulumi.get(self, "engine")
 
@@ -884,7 +891,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -992,7 +999,7 @@ class _ClusterInstanceState:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the DB cluster is encrypted.
+        Whether the DB cluster is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -1005,9 +1012,6 @@ class _ClusterInstanceState:
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -1026,6 +1030,18 @@ class _ClusterInstanceState:
     @tags_all.setter
     def tags_all(self, value: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "tags_all", value)
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
+
+    @warning_event_categories.setter
+    def warning_event_categories(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "warning_event_categories", value)
 
     @_builtins.property
     @pulumi.getter
@@ -1072,6 +1088,7 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
         Provides an RDS Cluster Instance Resource. A Cluster Instance Resource defines
@@ -1120,6 +1137,17 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Identifier of the RDS Cluster Instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
 
         ```sh
@@ -1129,17 +1157,16 @@ class ClusterInstance(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[_builtins.bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[_builtins.str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
-        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
-               Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input[_builtins.str] db_subnet_group_name: DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `rds.ClusterInstance` will not update the `engine_version`.
         :param pulumi.Input[_builtins.bool] force_destroy: Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
         :param pulumi.Input[_builtins.str] identifier: Identifier for the RDS instance, if omitted, Pulumi will assign a random, unique identifier.
@@ -1147,7 +1174,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_class: Instance class to use. For details on CPU and memory, see [Scaling Aurora DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Aurora.Managing.html). Aurora uses `db.*` instance classes/types. Please see [AWS Documentation](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Concepts.DBInstanceClass.html) for currently available instance classes and complete details. For Aurora Serverless v2 use `db.serverless`.
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
-        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[_builtins.int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[_builtins.str] preferred_backup_window: Daily time range during which automated backups are created if automated backups are enabled. Eg: "04:00-09:00". **NOTE:** If `preferred_backup_window` is set at the cluster level, this argument **must** be omitted.
@@ -1156,9 +1183,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         """
         ...
     @overload
@@ -1213,6 +1238,17 @@ class ClusterInstance(pulumi.CustomResource):
 
         ## Import
 
+        ### Identity Schema
+
+        #### Required
+
+        * `identifier` (String) Identifier of the RDS Cluster Instance.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
         Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
 
         ```sh
@@ -1261,6 +1297,7 @@ class ClusterInstance(pulumi.CustomResource):
                  publicly_accessible: pulumi.Input[Optional[_builtins.bool]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+                 warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -1302,6 +1339,7 @@ class ClusterInstance(pulumi.CustomResource):
             __props__.__dict__["publicly_accessible"] = publicly_accessible
             __props__.__dict__["region"] = region
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["warning_event_categories"] = warning_event_categories
             __props__.__dict__["arn"] = None
             __props__.__dict__["dbi_resource_id"] = None
             __props__.__dict__["endpoint"] = None
@@ -1357,6 +1395,7 @@ class ClusterInstance(pulumi.CustomResource):
             storage_encrypted: pulumi.Input[Optional[_builtins.bool]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
+            warning_event_categories: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             writer: pulumi.Input[Optional[_builtins.bool]] = None) -> 'ClusterInstance':
         """
         Get an existing ClusterInstance resource's state with the given name, id, and optional extra
@@ -1365,20 +1404,19 @@ class ClusterInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster instance
-        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        :param pulumi.Input[_builtins.bool] apply_immediately: Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster instance
+        :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         :param pulumi.Input[_builtins.str] availability_zone: EC2 Availability Zone that the DB instance is created in. See [docs](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) about the details.
         :param pulumi.Input[_builtins.str] ca_cert_identifier: Identifier of the CA certificate for the DB instance.
         :param pulumi.Input[_builtins.str] cluster_identifier: Identifier of the `rds.Cluster` in which to launch this instance.
-        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        :param pulumi.Input[_builtins.bool] copy_tags_to_snapshot: Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         :param pulumi.Input[_builtins.str] custom_iam_instance_profile: Instance profile associated with the underlying Amazon EC2 instance of an RDS Custom DB instance.
         :param pulumi.Input[_builtins.str] db_parameter_group_name: Name of the DB parameter group to associate with this instance.
-        :param pulumi.Input[_builtins.str] db_subnet_group_name: Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        :param pulumi.Input[_builtins.str] db_subnet_group_name: DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         :param pulumi.Input[_builtins.str] dbi_resource_id: Region-unique, immutable identifier for the DB instance.
         :param pulumi.Input[_builtins.str] endpoint: DNS address for this instance. May not be writable
-        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance.
-               Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        :param pulumi.Input['EngineType'] engine: Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         :param pulumi.Input[_builtins.str] engine_version: Database engine version. Please note that to upgrade the `engine_version` of the instance, it must be done on the `rds.Cluster` `engine_version`. Trying to upgrade in `rds.ClusterInstance` will not update the `engine_version`.
         :param pulumi.Input[_builtins.str] engine_version_actual: Database engine version
         :param pulumi.Input[_builtins.bool] force_destroy: Forces an instance to be destroyed when a part of a read replica cluster. **Note:** will promote the read replica to a standalone cluster before instance deletion.
@@ -1389,7 +1427,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] monitoring_interval: Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance. To disable collecting Enhanced Monitoring metrics, specify 0. The default is 0. Valid Values: 0, 1, 5, 10, 15, 30, 60.
         :param pulumi.Input[_builtins.str] monitoring_role_arn: ARN for the IAM role that permits RDS to send enhanced monitoring metrics to CloudWatch Logs. You can find more information on the [AWS Documentation](http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Monitoring.html) what IAM permissions are needed to allow Enhanced Monitoring for RDS Instances.
         :param pulumi.Input[_builtins.str] network_type: Network type of the DB instance.
-        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        :param pulumi.Input[_builtins.bool] performance_insights_enabled: Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         :param pulumi.Input[_builtins.str] performance_insights_kms_key_id: ARN for the KMS key to encrypt Performance Insights data. When specifying `performance_insights_kms_key_id`, `performance_insights_enabled` needs to be set to true.
         :param pulumi.Input[_builtins.int] performance_insights_retention_period: Amount of time in days to retain Performance Insights data. Valid values are `7`, `731` (2 years) or a multiple of `31`. When specifying `performance_insights_retention_period`, `performance_insights_enabled` needs to be set to true. Defaults to '7'.
         :param pulumi.Input[_builtins.int] port: Database port
@@ -1398,12 +1436,10 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] promotion_tier: Default 0. Failover Priority setting on instance level. The reader who has lower tier has higher priority to get promoted to writer.
         :param pulumi.Input[_builtins.bool] publicly_accessible: Bool to control if instance is publicly accessible. Default `false`. See the documentation on [Creating DB Instances](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html) for more details on controlling this property.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster is encrypted.
+        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster is encrypted.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-               
-               For more detailed documentation about each argument, refer to
-               the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] warning_event_categories: Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
         :param pulumi.Input[_builtins.bool] writer: Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1445,6 +1481,7 @@ class ClusterInstance(pulumi.CustomResource):
         __props__.__dict__["storage_encrypted"] = storage_encrypted
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
+        __props__.__dict__["warning_event_categories"] = warning_event_categories
         __props__.__dict__["writer"] = writer
         return ClusterInstance(resource_name, opts=opts, __props__=__props__)
 
@@ -1452,7 +1489,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="applyImmediately")
     def apply_immediately(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+        Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
         """
         return pulumi.get(self, "apply_immediately")
 
@@ -1460,7 +1497,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster instance
+        ARN of cluster instance
         """
         return pulumi.get(self, "arn")
 
@@ -1468,7 +1505,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+        Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -1500,7 +1537,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="copyTagsToSnapshot")
     def copy_tags_to_snapshot(self) -> pulumi.Output[Optional[_builtins.bool]]:
         """
-        Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+        Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
         """
         return pulumi.get(self, "copy_tags_to_snapshot")
 
@@ -1524,7 +1561,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
+        DB subnet group to associate with this DB instance. The default behavior varies depending on whether `db_subnet_group_name` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `db_subnet_group_name` and `publicly_accessible` parameters affect DB instance behaviour. **NOTE:** This must match the `db_subnet_group_name` of the attached `rds.Cluster`.
         """
         return pulumi.get(self, "db_subnet_group_name")
 
@@ -1548,8 +1585,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output['EngineType']:
         """
-        Name of the database engine to be used for the RDS cluster instance.
-        Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+        Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         """
         return pulumi.get(self, "engine")
 
@@ -1637,7 +1673,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="performanceInsightsEnabled")
     def performance_insights_enabled(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+        Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
         """
         return pulumi.get(self, "performance_insights_enabled")
 
@@ -1709,7 +1745,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the DB cluster is encrypted.
+        Whether the DB cluster is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -1718,9 +1754,6 @@ class ClusterInstance(pulumi.CustomResource):
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
         Map of tags to assign to the instance. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-
-        For more detailed documentation about each argument, refer to
-        the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
         """
         return pulumi.get(self, "tags")
 
@@ -1731,6 +1764,14 @@ class ClusterInstance(pulumi.CustomResource):
         Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
+
+    @_builtins.property
+    @pulumi.getter(name="warningEventCategories")
+    def warning_event_categories(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
+        """
+        Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `rds_get_events` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+        """
+        return pulumi.get(self, "warning_event_categories")
 
     @_builtins.property
     @pulumi.getter

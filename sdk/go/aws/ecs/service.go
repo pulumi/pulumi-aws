@@ -32,22 +32,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "mongo", &ecs.ServiceArgs{
-//				Name:           pulumi.String("mongodb"),
-//				Cluster:        pulumi.Any(fooAwsEcsCluster.Id),
-//				TaskDefinition: pulumi.Any(mongoAwsEcsTaskDefinition.Arn),
-//				DesiredCount:   pulumi.Int(3),
-//				IamRole:        pulumi.Any(fooAwsIamRole.Arn),
-//				OrderedPlacementStrategies: ecs.ServiceOrderedPlacementStrategyArray{
-//					&ecs.ServiceOrderedPlacementStrategyArgs{
-//						Type:  pulumi.String("binpack"),
-//						Field: pulumi.String("cpu"),
-//					},
-//				},
 //				LoadBalancers: ecs.ServiceLoadBalancerArray{
 //					&ecs.ServiceLoadBalancerArgs{
 //						TargetGroupArn: pulumi.Any(fooAwsLbTargetGroup.Arn),
 //						ContainerName:  pulumi.String("mongo"),
 //						ContainerPort:  pulumi.Int(8080),
+//					},
+//				},
+//				OrderedPlacementStrategies: ecs.ServiceOrderedPlacementStrategyArray{
+//					&ecs.ServiceOrderedPlacementStrategyArgs{
+//						Type:  pulumi.String("binpack"),
+//						Field: pulumi.String("cpu"),
 //					},
 //				},
 //				PlacementConstraints: ecs.ServicePlacementConstraintArray{
@@ -56,6 +51,11 @@ import (
 //						Expression: pulumi.String("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]"),
 //					},
 //				},
+//				Name:           pulumi.String("mongodb"),
+//				Cluster:        pulumi.Any(fooAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(mongoAwsEcsTaskDefinition.Arn),
+//				DesiredCount:   pulumi.Int(3),
+//				IamRole:        pulumi.Any(fooAwsIamRole.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				foo,
 //			}))
@@ -86,7 +86,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
 //				DesiredCount: pulumi.Int(2),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"desiredCount",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -140,8 +142,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				Alarms: &ecs.ServiceAlarmsArgs{
 //					Enable:   pulumi.Bool(true),
 //					Rollback: pulumi.Bool(true),
@@ -149,6 +149,8 @@ import (
 //						exampleAwsCloudwatchMetricAlarm.AlarmName,
 //					},
 //				},
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -174,11 +176,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				DeploymentController: &ecs.ServiceDeploymentControllerArgs{
 //					Type: pulumi.String("EXTERNAL"),
 //				},
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -204,11 +206,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				DeploymentConfiguration: &ecs.ServiceDeploymentConfigurationArgs{
 //					Strategy: pulumi.String("BLUE_GREEN"),
 //				},
+//				Name:               pulumi.String("example"),
+//				Cluster:            pulumi.Any(exampleAwsEcsCluster.Id),
 //				SigintRollback:     pulumi.Bool(true),
 //				WaitForSteadyState: pulumi.Bool(true),
 //			})
@@ -236,16 +238,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				DeploymentConfiguration: &ecs.ServiceDeploymentConfigurationArgs{
-//					Strategy:          pulumi.String("LINEAR"),
-//					BakeTimeInMinutes: pulumi.String("10"),
 //					LinearConfiguration: &ecs.ServiceDeploymentConfigurationLinearConfigurationArgs{
 //						StepPercent:           pulumi.Float64(25),
 //						StepBakeTimeInMinutes: pulumi.String("5"),
 //					},
+//					Strategy:          pulumi.String("LINEAR"),
+//					BakeTimeInMinutes: pulumi.String("10"),
 //				},
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -271,16 +273,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:    pulumi.String("example"),
-//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //				DeploymentConfiguration: &ecs.ServiceDeploymentConfigurationArgs{
-//					Strategy:          pulumi.String("CANARY"),
-//					BakeTimeInMinutes: pulumi.String("15"),
 //					CanaryConfiguration: &ecs.ServiceDeploymentConfigurationCanaryConfigurationArgs{
 //						CanaryPercent:           pulumi.Float64(10),
 //						CanaryBakeTimeInMinutes: pulumi.String("5"),
 //					},
+//					Strategy:          pulumi.String("CANARY"),
+//					BakeTimeInMinutes: pulumi.String("15"),
 //				},
+//				Name:    pulumi.String("example"),
+//				Cluster: pulumi.Any(exampleAwsEcsCluster.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -349,13 +351,7 @@ import (
 //				return err
 //			}
 //			_, err = ecs.NewService(ctx, "example", &ecs.ServiceArgs{
-//				Name:           pulumi.String("example"),
-//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
-//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
-//				DesiredCount:   pulumi.Int(1),
 //				ServiceConnectConfiguration: &ecs.ServiceServiceConnectConfigurationArgs{
-//					Enabled:   pulumi.Bool(true),
-//					Namespace: pulumi.Any(exampleAwsServiceDiscoveryHttpNamespace.Arn),
 //					LogConfiguration: &ecs.ServiceServiceConnectConfigurationLogConfigurationArgs{
 //						LogDriver: pulumi.String("awslogs"),
 //						Options: pulumi.StringMap{
@@ -370,15 +366,21 @@ import (
 //					},
 //					Services: ecs.ServiceServiceConnectConfigurationServiceArray{
 //						&ecs.ServiceServiceConnectConfigurationServiceArgs{
-//							PortName:      pulumi.String("http"),
-//							DiscoveryName: pulumi.String("example"),
 //							ClientAlias: ecs.ServiceServiceConnectConfigurationServiceClientAliasArray{
 //								DnsName: "example",
 //								Port:    8080,
 //							},
+//							PortName:      pulumi.String("http"),
+//							DiscoveryName: pulumi.String("example"),
 //						},
 //					},
+//					Enabled:   pulumi.Bool(true),
+//					Namespace: pulumi.Any(exampleAwsServiceDiscoveryHttpNamespace.Arn),
 //				},
+//				Name:           pulumi.String("example"),
+//				Cluster:        pulumi.Any(exampleAwsEcsCluster.Id),
+//				TaskDefinition: pulumi.Any(exampleAwsEcsTaskDefinition.Arn),
+//				DesiredCount:   pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err

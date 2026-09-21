@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class PlanStageTargetChannelTargetInfo {
     /**
-     * @return The Amazon Resource Name (ARN) of the contact channel.
+     * @return The ARN of the contact channel.
      * 
      */
     private String contactChannelId;
@@ -26,7 +26,7 @@ public final class PlanStageTargetChannelTargetInfo {
 
     private PlanStageTargetChannelTargetInfo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the contact channel.
+     * @return The ARN of the contact channel.
      * 
      */
     public String contactChannelId() {

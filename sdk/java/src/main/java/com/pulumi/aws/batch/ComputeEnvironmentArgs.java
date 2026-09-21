@@ -96,14 +96,14 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -309,7 +309,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceRole The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+         * @param serviceRole Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
          * 
          * @return builder
          * 
@@ -320,7 +320,7 @@ public final class ComputeEnvironmentArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param serviceRole The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+         * @param serviceRole Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
          * 
          * @return builder
          * 

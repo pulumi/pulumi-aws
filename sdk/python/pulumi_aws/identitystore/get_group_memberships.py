@@ -99,13 +99,13 @@ def get_group_memberships(group_id: Optional[_builtins.str] = None,
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
+    example_get_group = aws.identitystore.get_group(alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "DisplayName",
                 "attribute_value": "ExampleGroup",
             },
-        })
+        },
+        identity_store_id=example.identity_store_ids[0])
     example_get_group_memberships = aws.identitystore.get_group_memberships(identity_store_id=example.identity_store_ids[0],
         group_id=example_get_group.group_id)
     ```
@@ -143,13 +143,13 @@ def get_group_memberships_output(group_id: pulumi.Input[Optional[_builtins.str]]
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
+    example_get_group = aws.identitystore.get_group(alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "DisplayName",
                 "attribute_value": "ExampleGroup",
             },
-        })
+        },
+        identity_store_id=example.identity_store_ids[0])
     example_get_group_memberships = aws.identitystore.get_group_memberships(identity_store_id=example.identity_store_ids[0],
         group_id=example_get_group.group_id)
     ```

@@ -39,7 +39,6 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.Transfer
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -94,10 +94,6 @@ namespace Pulumi.Aws.Transfer
     /// 
     ///     var fooUser = new Aws.Transfer.User("foo", new()
     ///     {
-    ///         ServerId = fooServer.Id,
-    ///         UserName = "tftestuser",
-    ///         Role = fooRole.Arn,
-    ///         HomeDirectoryType = "LOGICAL",
     ///         HomeDirectoryMappings = new[]
     ///         {
     ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
@@ -106,6 +102,10 @@ namespace Pulumi.Aws.Transfer
     ///                 Target = "/bucket3/test-path/tftestuser.pdf",
     ///             },
     ///         },
+    ///         ServerId = fooServer.Id,
+    ///         UserName = "tftestuser",
+    ///         Role = fooRole.Arn,
+    ///         HomeDirectoryType = "LOGICAL",
     ///     });
     /// 
     /// });
@@ -123,7 +123,6 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var example = new Aws.Transfer.User("example", new()
     ///     {
-    ///         HomeDirectoryType = "LOGICAL",
     ///         HomeDirectoryMappings = new[]
     ///         {
     ///             new Aws.Transfer.Inputs.UserHomeDirectoryMappingArgs
@@ -132,6 +131,7 @@ namespace Pulumi.Aws.Transfer
     ///                 Target = $"/{foo.Id}/${{Transfer:UserName}}",
     ///             },
     ///         },
+    ///         HomeDirectoryType = "LOGICAL",
     ///     });
     /// 
     /// });
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Transfer
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Transfer User
+        /// ARN of Transfer User
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
         public Output<string> Role { get; private set; } = null!;
@@ -309,7 +309,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role", required: true)]
         public Input<string> Role { get; set; } = null!;
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Transfer
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Transfer User
+        /// ARN of Transfer User
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -395,7 +395,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

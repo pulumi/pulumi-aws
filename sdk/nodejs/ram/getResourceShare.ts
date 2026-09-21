@@ -29,11 +29,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tagFilter = aws.ram.getResourceShare({
- *     resourceOwner: "SELF",
  *     filters: [{
  *         name: "NameOfTag",
  *         values: ["exampleNameTagValue"],
  *     }],
+ *     resourceOwner: "SELF",
  * });
  * ```
  */
@@ -135,11 +135,11 @@ export interface GetResourceShareResult {
  * import * as aws from "@pulumi/aws";
  *
  * const tagFilter = aws.ram.getResourceShare({
- *     resourceOwner: "SELF",
  *     filters: [{
  *         name: "NameOfTag",
  *         values: ["exampleNameTagValue"],
  *     }],
+ *     resourceOwner: "SELF",
  * });
  * ```
  */

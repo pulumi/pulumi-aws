@@ -32,8 +32,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.efs.FileSystemPolicy;
  * import com.pulumi.aws.efs.FileSystemPolicyArgs;
  * import java.util.ArrayList;
@@ -55,21 +55,21 @@ import javax.annotation.Nullable;
  * 
  *         final var policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("ExampleStatement01")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions(                
- *                     "elasticfilesystem:ClientMount",
- *                     "elasticfilesystem:ClientWrite")
- *                 .resources(fs.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("Bool")
  *                     .variable("aws:SecureTransport")
  *                     .values("true")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("ExampleStatement01")
+ *                 .effect("Allow")
+ *                 .actions(                
+ *                     "elasticfilesystem:ClientMount",
+ *                     "elasticfilesystem:ClientWrite")
+ *                 .resources(fs.arn())
  *                 .build())
  *             .build());
  * 

@@ -19,7 +19,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     public static final FrameworkState Empty = new FrameworkState();
 
     /**
-     * Amazon Resource Name (ARN) of the framework.
+     * ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
@@ -27,7 +27,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the framework.
+     * @return ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      * 
      */
@@ -184,7 +184,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the framework.
+         * @param arn ARN of the framework.
          * * `control_sets[*].id` - Unique identifier for the framework control set.
          * 
          * @return builder
@@ -196,7 +196,7 @@ public final class FrameworkState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the framework.
+         * @param arn ARN of the framework.
          * * `control_sets[*].id` - Unique identifier for the framework control set.
          * 
          * @return builder

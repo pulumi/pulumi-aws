@@ -511,7 +511,6 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_role = aws.iam.Role("example",
-            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -538,6 +537,7 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -549,8 +549,6 @@ class StreamProcessor(pulumi.CustomResource):
                 }],
             }))
         example_stream_processor = aws.rekognition.StreamProcessor("example",
-            role_arn=example_role.arn,
-            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
             },
@@ -574,7 +572,9 @@ class StreamProcessor(pulumi.CustomResource):
             },
             notification_channel={
                 "sns_topic_arn": example_topic.arn,
-            })
+            },
+            role_arn=example_role.arn,
+            name="example-processor")
         ```
 
         ### Face Detection Usage
@@ -593,7 +593,6 @@ class StreamProcessor(pulumi.CustomResource):
             name="pulumi-kinesis-example",
             shard_count=1)
         example_role = aws.iam.Role("example",
-            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -615,6 +614,7 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -627,10 +627,23 @@ class StreamProcessor(pulumi.CustomResource):
             }))
         example_collection = aws.rekognition.Collection("example", collection_id="example-collection")
         example_stream_processor = aws.rekognition.StreamProcessor("example",
-            role_arn=example_role.arn,
-            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
+            },
+            input={
+                "kinesis_video_stream": {
+                    "arn": example.arn,
+                },
+            },
+            output={
+                "kinesis_data_stream": {
+                    "arn": example_stream.arn,
+                },
+            },
+            settings={
+                "face_search": {
+                    "collection_id": example_collection.id,
+                },
             },
             regions_of_interests=[{
                 "polygons": [
@@ -648,21 +661,8 @@ class StreamProcessor(pulumi.CustomResource):
                     },
                 ],
             }],
-            input={
-                "kinesis_video_stream": {
-                    "arn": example.arn,
-                },
-            },
-            output={
-                "kinesis_data_stream": {
-                    "arn": example_stream.arn,
-                },
-            },
-            settings={
-                "face_search": {
-                    "collection_id": example_collection.id,
-                },
-            })
+            role_arn=example_role.arn,
+            name="example-processor")
         ```
 
         ## Import
@@ -731,7 +731,6 @@ class StreamProcessor(pulumi.CustomResource):
             device_name="kinesis-video-device-name",
             media_type="video/h264")
         example_role = aws.iam.Role("example",
-            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -758,6 +757,7 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -769,8 +769,6 @@ class StreamProcessor(pulumi.CustomResource):
                 }],
             }))
         example_stream_processor = aws.rekognition.StreamProcessor("example",
-            role_arn=example_role.arn,
-            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
             },
@@ -794,7 +792,9 @@ class StreamProcessor(pulumi.CustomResource):
             },
             notification_channel={
                 "sns_topic_arn": example_topic.arn,
-            })
+            },
+            role_arn=example_role.arn,
+            name="example-processor")
         ```
 
         ### Face Detection Usage
@@ -813,7 +813,6 @@ class StreamProcessor(pulumi.CustomResource):
             name="pulumi-kinesis-example",
             shard_count=1)
         example_role = aws.iam.Role("example",
-            name="example-role",
             inline_policies=[{
                 "name": "Rekognition-Access",
                 "policy": pulumi.Output.json_dumps({
@@ -835,6 +834,7 @@ class StreamProcessor(pulumi.CustomResource):
                     ],
                 }),
             }],
+            name="example-role",
             assume_role_policy=json.dumps({
                 "Version": "2012-10-17",
                 "Statement": [{
@@ -847,10 +847,23 @@ class StreamProcessor(pulumi.CustomResource):
             }))
         example_collection = aws.rekognition.Collection("example", collection_id="example-collection")
         example_stream_processor = aws.rekognition.StreamProcessor("example",
-            role_arn=example_role.arn,
-            name="example-processor",
             data_sharing_preference={
                 "opt_in": False,
+            },
+            input={
+                "kinesis_video_stream": {
+                    "arn": example.arn,
+                },
+            },
+            output={
+                "kinesis_data_stream": {
+                    "arn": example_stream.arn,
+                },
+            },
+            settings={
+                "face_search": {
+                    "collection_id": example_collection.id,
+                },
             },
             regions_of_interests=[{
                 "polygons": [
@@ -868,21 +881,8 @@ class StreamProcessor(pulumi.CustomResource):
                     },
                 ],
             }],
-            input={
-                "kinesis_video_stream": {
-                    "arn": example.arn,
-                },
-            },
-            output={
-                "kinesis_data_stream": {
-                    "arn": example_stream.arn,
-                },
-            },
-            settings={
-                "face_search": {
-                    "collection_id": example_collection.id,
-                },
-            })
+            role_arn=example_role.arn,
+            name="example-processor")
         ```
 
         ## Import

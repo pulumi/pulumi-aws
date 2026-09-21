@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
 //					Runtime: pulumi.String("cloudfront-js-2.0"),
 //					Comment: pulumi.String("Example connection function"),
 //				},
+//				Name:                   pulumi.String("example-connection-function"),
+//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //			})
 //			if err != nil {
 //				return err
@@ -62,13 +62,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
 //					Runtime: pulumi.String("cloudfront-js-2.0"),
 //					Comment: pulumi.String("Example connection function"),
 //				},
-//				Publish: pulumi.Bool(true),
+//				Name:                   pulumi.String("example-connection-function"),
+//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
+//				Publish:                pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -101,15 +101,15 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
-//					Runtime: pulumi.String("cloudfront-js-2.0"),
-//					Comment: pulumi.String("Example connection function"),
 //					KeyValueStoreAssociation: &cloudfront.ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs{
 //						KeyValueStoreArn: example.Arn,
 //					},
+//					Runtime: pulumi.String("cloudfront-js-2.0"),
+//					Comment: pulumi.String("Example connection function"),
 //				},
+//				Name:                   pulumi.String("example-connection-function"),
+//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //			})
 //			if err != nil {
 //				return err
@@ -135,12 +135,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewConnectionFunction(ctx, "example", &cloudfront.ConnectionFunctionArgs{
-//				Name:                   pulumi.String("example-connection-function"),
-//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //				ConnectionFunctionConfig: &cloudfront.ConnectionFunctionConnectionFunctionConfigArgs{
 //					Runtime: pulumi.String("cloudfront-js-2.0"),
 //					Comment: pulumi.String("Example connection function"),
 //				},
+//				Name:                   pulumi.String("example-connection-function"),
+//				ConnectionFunctionCode: pulumi.String("function handler(event) { return event.request; }"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Team":        pulumi.String("web"),

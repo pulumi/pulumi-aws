@@ -34,14 +34,14 @@ public final class IntentDialogCodeHookArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lambda function.
+     * ARN of the Lambda function.
      * 
      */
     @Import(name="uri", required=true)
     private Output<String> uri;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lambda function.
+     * @return ARN of the Lambda function.
      * 
      */
     public Output<String> uri() {
@@ -99,7 +99,7 @@ public final class IntentDialogCodeHookArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param uri The Amazon Resource Name (ARN) of the Lambda function.
+         * @param uri ARN of the Lambda function.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class IntentDialogCodeHookArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param uri The Amazon Resource Name (ARN) of the Lambda function.
+         * @param uri ARN of the Lambda function.
          * 
          * @return builder
          * 

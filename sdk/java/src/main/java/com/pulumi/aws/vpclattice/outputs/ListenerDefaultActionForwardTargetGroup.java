@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ListenerDefaultActionForwardTargetGroup {
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     private @Nullable String targetGroupIdentifier;
@@ -25,7 +25,7 @@ public final class ListenerDefaultActionForwardTargetGroup {
 
     private ListenerDefaultActionForwardTargetGroup() {}
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     public Optional<String> targetGroupIdentifier() {

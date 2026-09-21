@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/securityProfile:SecurityProfile")
 public class SecurityProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Security Profile.
+     * ARN of the Security Profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Security Profile.
+     * @return ARN of the Security Profile.
      * 
      */
     public Output<String> arn() {

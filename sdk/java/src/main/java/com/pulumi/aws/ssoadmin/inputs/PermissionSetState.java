@@ -17,14 +17,14 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
     public static final PermissionSetState Empty = new PermissionSetState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -62,14 +62,14 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Optional<Output<String>> instanceArn() {
@@ -200,7 +200,7 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param arn ARN of the Permission Set.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param arn ARN of the Permission Set.
          * 
          * @return builder
          * 
@@ -263,7 +263,7 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class PermissionSetState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 

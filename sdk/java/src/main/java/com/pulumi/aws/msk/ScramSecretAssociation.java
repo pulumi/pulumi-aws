@@ -72,12 +72,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .clusterName("example")
  *             .clientAuthentication(ClusterClientAuthenticationArgs.builder()
  *                 .sasl(ClusterClientAuthenticationSaslArgs.builder()
  *                     .scram(true)
  *                     .build())
  *                 .build())
+ *             .clusterName("example")
  *             .build());
  * 
  *         var exampleKey = new Key("exampleKey", KeyArgs.builder()
@@ -107,12 +107,12 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("AWSKafkaResourcePolicy")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("kafka.amazonaws.com")
  *                     .build())
+ *                 .sid("AWSKafkaResourcePolicy")
+ *                 .effect("Allow")
  *                 .actions("secretsmanager:getSecretValue")
  *                 .resources(exampleSecret.arn())
  *                 .build())
@@ -140,14 +140,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/scramSecretAssociation:ScramSecretAssociation")
 public class ScramSecretAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      * 
      */
     @Export(name="clusterArn", refs={String.class}, tree="[0]")
     private Output<String> clusterArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK cluster.
+     * @return ARN of the MSK cluster.
      * 
      */
     public Output<String> clusterArn() {

@@ -31,11 +31,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +41,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -81,8 +81,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreHarness = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "example_harness",
-    ///         ExecutionRoleArn = example.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
@@ -97,6 +95,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 Text = "You are a helpful assistant.",
     ///             },
     ///         },
+    ///         HarnessName = "example_harness",
+    ///         ExecutionRoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -115,8 +115,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "example_with_tools",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
@@ -133,19 +131,10 @@ namespace Pulumi.Aws.Bedrock
     ///                 Text = "You are a coding assistant.",
     ///             },
     ///         },
-    ///         AllowedTools = new[]
-    ///         {
-    ///             "*",
-    ///         },
-    ///         MaxIterations = 10,
-    ///         MaxTokens = 4096,
-    ///         TimeoutSeconds = 300,
     ///         Tools = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreHarnessToolArgs
     ///             {
-    ///                 Type = "inline_function",
-    ///                 Name = "get_weather",
     ///                 Config = new Aws.Bedrock.Inputs.AgentcoreHarnessToolConfigArgs
     ///                 {
     ///                     InlineFunction = new Aws.Bedrock.Inputs.AgentcoreHarnessToolConfigInlineFunctionArgs
@@ -169,13 +158,14 @@ namespace Pulumi.Aws.Bedrock
     ///                         }),
     ///                     },
     ///                 },
+    ///                 Type = "inline_function",
+    ///                 Name = "get_weather",
     ///             },
     ///         },
     ///         Truncations = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreHarnessTruncationArgs
     ///             {
-    ///                 Strategy = "sliding_window",
     ///                 Config = new[]
     ///                 {
     ///                     
@@ -189,8 +179,18 @@ namespace Pulumi.Aws.Bedrock
     ///                         } },
     ///                     },
     ///                 },
+    ///                 Strategy = "sliding_window",
     ///             },
     ///         },
+    ///         HarnessName = "example_with_tools",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         AllowedTools = new[]
+    ///         {
+    ///             "*",
+    ///         },
+    ///         MaxIterations = 10,
+    ///         MaxTokens = 4096,
+    ///         TimeoutSeconds = 300,
     ///     });
     /// 
     /// });
@@ -208,20 +208,11 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreHarness("example", new()
     ///     {
-    ///         HarnessName = "my_harness",
-    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///         Model = new Aws.Bedrock.Inputs.AgentcoreHarnessModelArgs
     ///         {
     ///             BedrockModelConfig = new Aws.Bedrock.Inputs.AgentcoreHarnessModelBedrockModelConfigArgs
     ///             {
     ///                 ModelId = "anthropic.claude-sonnet-4-20250514",
-    ///             },
-    ///         },
-    ///         SystemPrompts = new[]
-    ///         {
-    ///             new Aws.Bedrock.Inputs.AgentcoreHarnessSystemPromptArgs
-    ///             {
-    ///                 Text = "You are a helpful assistant.",
     ///             },
     ///         },
     ///         Memory = new Aws.Bedrock.Inputs.AgentcoreHarnessMemoryArgs
@@ -236,6 +227,15 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         SystemPrompts = new[]
+    ///         {
+    ///             new Aws.Bedrock.Inputs.AgentcoreHarnessSystemPromptArgs
+    ///             {
+    ///                 Text = "You are a helpful assistant.",
+    ///             },
+    ///         },
+    ///         HarnessName = "my_harness",
+    ///         ExecutionRoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Bedrock
         /// Maximum number of tokens in the model response.
         /// </summary>
         [Output("maxTokens")]
-        public Output<int?> MaxTokens { get; private set; } = null!;
+        public Output<int> MaxTokens { get; private set; } = null!;
 
         /// <summary>
         /// Memory configuration. See `Memory` Block below. If not specified, configured values can be found in `MemoryActual`. Clearing this value will reset the memory configuration to default values.
@@ -349,8 +349,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("model")]
         public Output<Outputs.AgentcoreHarnessModel> Model { get; private set; } = null!;
@@ -369,6 +367,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("systemPrompts")]
         public Output<ImmutableArray<Outputs.AgentcoreHarnessSystemPrompt>> SystemPrompts { get; private set; } = null!;
@@ -540,8 +540,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("model", required: true)]
         public Input<Inputs.AgentcoreHarnessModelArgs> Model { get; set; } = null!;
@@ -564,11 +562,13 @@ namespace Pulumi.Aws.Bedrock
             set => _skills = value;
         }
 
-        [Input("systemPrompts")]
+        [Input("systemPrompts", required: true)]
         private InputList<Inputs.AgentcoreHarnessSystemPromptArgs>? _systemPrompts;
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptArgs> SystemPrompts
         {
@@ -749,8 +749,6 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// Model configuration for the harness. See `Model` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("model")]
         public Input<Inputs.AgentcoreHarnessModelGetArgs>? Model { get; set; }
@@ -778,6 +776,8 @@ namespace Pulumi.Aws.Bedrock
 
         /// <summary>
         /// System prompt blocks for the harness. See `SystemPrompt` Block below.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.AgentcoreHarnessSystemPromptGetArgs> SystemPrompts
         {

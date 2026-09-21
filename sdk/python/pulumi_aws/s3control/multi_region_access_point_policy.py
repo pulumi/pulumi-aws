@@ -190,10 +190,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [{
                 "bucket": foo_bucket.id,
             }],
+            "name": "example",
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",
@@ -254,10 +254,10 @@ class MultiRegionAccessPointPolicy(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [{
                 "bucket": foo_bucket.id,
             }],
+            "name": "example",
         })
         example_multi_region_access_point_policy = aws.s3control.MultiRegionAccessPointPolicy("example", details={
             "name": std.split_output(separator=":",

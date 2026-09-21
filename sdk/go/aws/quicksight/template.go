@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				SourceEntity: &quicksight.TemplateSourceEntityArgs{
 //					SourceTemplate: &quicksight.TemplateSourceEntitySourceTemplateArgs{
 //						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,9 +64,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTemplate(ctx, "example", &quicksight.TemplateArgs{
-//				TemplateId:         pulumi.String("example-id"),
-//				Name:               pulumi.String("example-name"),
-//				VersionDescription: pulumi.String("version"),
 //				Definition: map[string][]map[string]interface{}{
 //					"dataSetConfigurations": []map[string]interface{}{
 //						map[string]interface{}{
@@ -87,30 +84,26 @@ import (
 //					},
 //					"sheets": []map[string]interface{}{
 //						map[string]interface{}{
-//							"title":   "Test",
-//							"sheetId": "Test1",
 //							"visuals": []map[string]map[string]interface{}{
 //								map[string]map[string]interface{}{
 //									"barChartVisual": map[string]interface{}{
-//										"visualId": "BarChart",
 //										"chartConfiguration": map[string]map[string]map[string][]map[string]map[string]interface{}{
 //											"fieldWells": map[string]map[string][]map[string]map[string]interface{}{
 //												"barChartAggregatedFieldWells": map[string][]map[string]map[string]interface{}{
 //													"categories": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
 //																"column": map[string]string{
 //																	"columnName":        "Column1",
 //																	"dataSetIdentifier": "1",
 //																},
+//																"fieldId": "1",
 //															},
 //														},
 //													},
 //													"values": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"numericalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
 //																"column": map[string]string{
 //																	"columnName":        "Column2",
 //																	"dataSetIdentifier": "1",
@@ -118,18 +111,25 @@ import (
 //																"aggregationFunction": map[string]string{
 //																	"simpleNumericalAggregation": "SUM",
 //																},
+//																"fieldId": "2",
 //															},
 //														},
 //													},
 //												},
 //											},
 //										},
+//										"visualId": "BarChart",
 //									},
 //								},
 //							},
+//							"title":   "Test",
+//							"sheetId": "Test1",
 //						},
 //					},
 //				},
+//				TemplateId:         pulumi.String("example-id"),
+//				Name:               pulumi.String("example-name"),
+//				VersionDescription: pulumi.String("version"),
 //			})
 //			if err != nil {
 //				return err
@@ -166,7 +166,7 @@ type Template struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrOutput `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn pulumi.StringOutput `pulumi:"sourceEntityArn"`
 	// The template creation status.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -236,7 +236,7 @@ type templateState struct {
 	Region *string `pulumi:"region"`
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity *TemplateSourceEntity `pulumi:"sourceEntity"`
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn *string `pulumi:"sourceEntityArn"`
 	// The template creation status.
 	Status *string `pulumi:"status"`
@@ -271,7 +271,7 @@ type TemplateState struct {
 	Region pulumi.StringPtrInput
 	// The entity that you are using as a source when you create the template (analysis or template). Only one of `definition` or `sourceEntity` should be configured. See source_entity.
 	SourceEntity TemplateSourceEntityPtrInput
-	// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+	// ARN of an analysis or template that was used to create this template.
 	SourceEntityArn pulumi.StringPtrInput
 	// The template creation status.
 	Status pulumi.StringPtrInput
@@ -463,7 +463,7 @@ func (o TemplateOutput) SourceEntity() TemplateSourceEntityPtrOutput {
 	return o.ApplyT(func(v *Template) TemplateSourceEntityPtrOutput { return v.SourceEntity }).(TemplateSourceEntityPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an analysis or template that was used to create this template.
+// ARN of an analysis or template that was used to create this template.
 func (o TemplateOutput) SourceEntityArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Template) pulumi.StringOutput { return v.SourceEntityArn }).(pulumi.StringOutput)
 }

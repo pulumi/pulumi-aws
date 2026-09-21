@@ -33,9 +33,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewServerlessCollectionGroup(ctx, "example", &opensearch.ServerlessCollectionGroupArgs{
-//				Name:            pulumi.String("example-group"),
-//				Description:     pulumi.String("Shared compute for production collections"),
-//				StandbyReplicas: pulumi.String("ENABLED"),
 //				CapacityLimits: opensearch.ServerlessCollectionGroupCapacityLimitArray{
 //					&opensearch.ServerlessCollectionGroupCapacityLimitArgs{
 //						MinIndexingCapacityInOcu: pulumi.Float64(2),
@@ -44,6 +41,9 @@ import (
 //						MaxSearchCapacityInOcu:   pulumi.Float64(16),
 //					},
 //				},
+//				Name:            pulumi.String("example-group"),
+//				Description:     pulumi.String("Shared compute for production collections"),
+//				StandbyReplicas: pulumi.String("ENABLED"),
 //			})
 //			if err != nil {
 //				return err
@@ -75,7 +75,7 @@ import (
 type ServerlessCollectionGroup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
 	CapacityLimits ServerlessCollectionGroupCapacityLimitArrayOutput `pulumi:"capacityLimits"`
@@ -132,7 +132,7 @@ func GetServerlessCollectionGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCollectionGroup resources.
 type serverlessCollectionGroupState struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn *string `pulumi:"arn"`
 	// Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
 	CapacityLimits []ServerlessCollectionGroupCapacityLimit `pulumi:"capacityLimits"`
@@ -157,7 +157,7 @@ type serverlessCollectionGroupState struct {
 }
 
 type ServerlessCollectionGroupState struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn pulumi.StringPtrInput
 	// Configuration block for the collection group's indexing and search capacity limits. See `capacityLimits` below for details.
 	CapacityLimits ServerlessCollectionGroupCapacityLimitArrayInput
@@ -311,7 +311,7 @@ func (o ServerlessCollectionGroupOutput) ToServerlessCollectionGroupOutputWithCo
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection group.
+// ARN of the collection group.
 func (o ServerlessCollectionGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCollectionGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

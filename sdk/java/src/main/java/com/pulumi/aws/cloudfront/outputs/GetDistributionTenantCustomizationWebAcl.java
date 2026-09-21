@@ -12,7 +12,7 @@ import java.util.Objects;
 public final class GetDistributionTenantCustomizationWebAcl {
     private String action;
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     private String arn;
@@ -22,7 +22,7 @@ public final class GetDistributionTenantCustomizationWebAcl {
         return this.action;
     }
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     public String arn() {

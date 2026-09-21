@@ -60,7 +60,7 @@ import (
 type AccessGrantsLocation struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the S3 Access Grants location.
+	// ARN of the S3 Access Grants location.
 	AccessGrantsLocationArn pulumi.StringOutput `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringOutput `pulumi:"accessGrantsLocationId"`
@@ -114,7 +114,7 @@ func GetAccessGrantsLocation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AccessGrantsLocation resources.
 type accessGrantsLocationState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grants location.
+	// ARN of the S3 Access Grants location.
 	AccessGrantsLocationArn *string `pulumi:"accessGrantsLocationArn"`
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId *string `pulumi:"accessGrantsLocationId"`
@@ -133,7 +133,7 @@ type accessGrantsLocationState struct {
 }
 
 type AccessGrantsLocationState struct {
-	// Amazon Resource Name (ARN) of the S3 Access Grants location.
+	// ARN of the S3 Access Grants location.
 	AccessGrantsLocationArn pulumi.StringPtrInput
 	// Unique ID of the S3 Access Grants location.
 	AccessGrantsLocationId pulumi.StringPtrInput
@@ -269,7 +269,7 @@ func (o AccessGrantsLocationOutput) ToAccessGrantsLocationOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the S3 Access Grants location.
+// ARN of the S3 Access Grants location.
 func (o AccessGrantsLocationOutput) AccessGrantsLocationArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccessGrantsLocation) pulumi.StringOutput { return v.AccessGrantsLocationArn }).(pulumi.StringOutput)
 }

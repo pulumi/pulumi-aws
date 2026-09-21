@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Connect
     public partial class Instance : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the instance.
+        /// ARN of the instance.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -342,7 +342,7 @@ namespace Pulumi.Aws.Connect
     public sealed class InstanceState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the instance.
+        /// ARN of the instance.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

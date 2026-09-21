@@ -88,25 +88,36 @@ import (
 // return err
 // }
 // test, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
+// AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
+// {
+// Action: {
+// AssociationMethod: pulumi.StringRef("constant"),
+// Segment: pulumi.StringRef("shared"),
+// },
+// Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
+// {
+// Type: "tag-value",
+// Operator: pulumi.StringRef("equals"),
+// Key: pulumi.StringRef("segment"),
+// Value: pulumi.StringRef("shared"),
+// },
+// },
+// RuleNumber: 1,
+// ConditionLogic: pulumi.StringRef("or"),
+// },
+// },
 // CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
 // {
-// VpnEcmpSupport: pulumi.BoolRef(false),
-// AsnRanges: []string{
-// "64512-64555",
-// },
 // EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 // {
 // Location: current.Region,
 // Asn: pulumi.StringRef("64512"),
 // },
 // },
+// VpnEcmpSupport: pulumi.BoolRef(false),
+// AsnRanges: []string{
+// "64512-64555",
 // },
-// },
-// Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
-// {
-// Name: "shared",
-// Description: pulumi.StringRef("SegmentForSharedServices"),
-// RequireAttachmentAcceptance: pulumi.BoolRef(true),
 // },
 // },
 // SegmentActions: []networkmanager.GetCoreNetworkPolicyDocumentSegmentAction{
@@ -119,22 +130,11 @@ import (
 // },
 // },
 // },
-// AttachmentPolicies: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicy{
+// Segments: []networkmanager.GetCoreNetworkPolicyDocumentSegment{
 // {
-// RuleNumber: 1,
-// ConditionLogic: pulumi.StringRef("or"),
-// Conditions: []networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyCondition{
-// {
-// Type: "tag-value",
-// Operator: pulumi.StringRef("equals"),
-// Key: pulumi.StringRef("segment"),
-// Value: pulumi.StringRef("shared"),
-// },
-// },
-// Action: {
-// AssociationMethod: pulumi.StringRef("constant"),
-// Segment: pulumi.StringRef("shared"),
-// },
+// Name: "shared",
+// Description: pulumi.StringRef("SegmentForSharedServices"),
+// RequireAttachmentAcceptance: pulumi.BoolRef(true),
 // },
 // },
 // }, nil);

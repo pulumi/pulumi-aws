@@ -60,13 +60,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
+//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
+//					Type: pulumi.String("iam"),
+//				},
 //				UserId:       pulumi.String("testUserId"),
 //				UserName:     pulumi.String("testUserName"),
 //				AccessString: pulumi.String("on ~* +@all"),
 //				Engine:       pulumi.String("redis"),
-//				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
-//					Type: pulumi.String("iam"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -90,10 +90,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewUser(ctx, "test", &elasticache.UserArgs{
-//				UserId:       pulumi.String("testUserId"),
-//				UserName:     pulumi.String("testUserName"),
-//				AccessString: pulumi.String("on ~* +@all"),
-//				Engine:       pulumi.String("redis"),
 //				AuthenticationMode: &elasticache.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
@@ -101,6 +97,10 @@ import (
 //						pulumi.String("password2"),
 //					},
 //				},
+//				UserId:       pulumi.String("testUserId"),
+//				UserName:     pulumi.String("testUserName"),
+//				AccessString: pulumi.String("on ~* +@all"),
+//				Engine:       pulumi.String("redis"),
 //			})
 //			if err != nil {
 //				return err
@@ -165,9 +165,9 @@ type User struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayOutput `pulumi:"passwords"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 	PasswordsWo pulumi.StringPtrOutput `pulumi:"passwordsWo"`
-	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 	PasswordsWoVersion pulumi.IntPtrOutput `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -248,9 +248,9 @@ type userState struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 	PasswordsWo *string `pulumi:"passwordsWo"`
-	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 	PasswordsWoVersion *int `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -279,9 +279,9 @@ type UserState struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 	PasswordsWo pulumi.StringPtrInput
-	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 	PasswordsWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -312,9 +312,9 @@ type userArgs struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords []string `pulumi:"passwords"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 	PasswordsWo *string `pulumi:"passwordsWo"`
-	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 	PasswordsWoVersion *int `pulumi:"passwordsWoVersion"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -341,9 +341,9 @@ type UserArgs struct {
 	// Passwords used for this user. You can create up to two passwords for each user.
 	Passwords pulumi.StringArrayInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+	// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 	PasswordsWo pulumi.StringPtrInput
-	// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+	// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 	PasswordsWoVersion pulumi.IntPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -475,12 +475,12 @@ func (o UserOutput) Passwords() pulumi.StringArrayOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+// Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authenticationMode`. If set, requires `passwordsWoVersion` to be set.
 func (o UserOutput) PasswordsWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.StringPtrOutput { return v.PasswordsWo }).(pulumi.StringPtrOutput)
 }
 
-// Version number for `passwordsWo`. Increment this value to trigger a password update. Required when using `passwordsWo`.
+// Required when `passwordsWo` is set. Changing this value triggers an update to `passwordsWo`.
 func (o UserOutput) PasswordsWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *User) pulumi.IntPtrOutput { return v.PasswordsWoVersion }).(pulumi.IntPtrOutput)
 }

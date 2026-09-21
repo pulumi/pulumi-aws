@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        /// Owner account ID of the VPC for a configuration for DNSSEC validation.
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Route53
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        /// ID of the VPC that you're updating the DNSSEC validation status for.
         /// </summary>
         [Output("resourceId")]
         public Output<string> ResourceId { get; private set; } = null!;
@@ -131,7 +131,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        /// ID of the VPC that you're updating the DNSSEC validation status for.
         /// </summary>
         [Input("resourceId", required: true)]
         public Input<string> ResourceId { get; set; } = null!;
@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+        /// Owner account ID of the VPC for a configuration for DNSSEC validation.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+        /// ID of the VPC that you're updating the DNSSEC validation status for.
         /// </summary>
         [Input("resourceId")]
         public Input<string>? ResourceId { get; set; }

@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Signer
     /// {
     ///     var prodSp = new Aws.Signer.SigningProfile("prod_sp", new()
     ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         NamePrefix = "prod_sp_",
     ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
     ///         {
     ///             Value = 5,
     ///             Type = "YEARS",
     ///         },
+    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///         NamePrefix = "prod_sp_",
     ///         Tags = 
     ///         {
     ///             { "tag1", "value1" },

@@ -1179,10 +1179,10 @@ class BucketObjectv2(pulumi.CustomResource):
             bucket=examplebucket.id,
             acl="private")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=examplebucket.id)
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
@@ -1207,16 +1207,16 @@ class BucketObjectv2(pulumi.CustomResource):
 
         examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
+            override_provider={
+                "default_tags": {
+                    "tags": {},
+                },
+            },
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             tags={
                 "Env": "test",
-            },
-            override_provider={
-                "default_tags": {
-                    "tags": {},
-                },
             })
         ```
 
@@ -1381,10 +1381,10 @@ class BucketObjectv2(pulumi.CustomResource):
             bucket=examplebucket.id,
             acl="private")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=examplebucket.id)
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
             key="someobject",
             bucket=examplebucket.id,
@@ -1409,16 +1409,16 @@ class BucketObjectv2(pulumi.CustomResource):
 
         examplebucket = aws.s3.Bucket("examplebucket", bucket="examplebuckettftest")
         examplebucket_object = aws.s3.BucketObjectv2("examplebucket_object",
+            override_provider={
+                "default_tags": {
+                    "tags": {},
+                },
+            },
             key="someobject",
             bucket=examplebucket.id,
             source=pulumi.FileAsset("important.txt"),
             tags={
                 "Env": "test",
-            },
-            override_provider={
-                "default_tags": {
-                    "tags": {},
-                },
             })
         ```
 

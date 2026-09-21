@@ -83,7 +83,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly applyImmediately: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -142,9 +142,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly engineVersion: pulumi.Output<string>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     declare public readonly finalSnapshotIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -164,18 +162,16 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly manageMasterUserPassword: pulumi.Output<boolean | undefined>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     declare public readonly masterPassword: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      */
     declare public readonly masterPasswordWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
     declare public /*out*/ readonly masterUserSecrets: pulumi.Output<outputs.docdb.ClusterMasterUserSecret[]>;
@@ -369,7 +365,7 @@ export interface ClusterState {
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -428,9 +424,7 @@ export interface ClusterState {
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -450,18 +444,16 @@ export interface ClusterState {
      */
     manageMasterUserPassword?: pulumi.Input<boolean | undefined>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      */
     masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     masterUserSecrets?: pulumi.Input<pulumi.Input<inputs.docdb.ClusterMasterUserSecret>[] | undefined>;
@@ -598,9 +590,7 @@ export interface ClusterArgs {
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      */
     finalSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -616,18 +606,16 @@ export interface ClusterArgs {
      */
     manageMasterUserPassword?: pulumi.Input<boolean | undefined>;
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      */
     masterPassword?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      */
     masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**

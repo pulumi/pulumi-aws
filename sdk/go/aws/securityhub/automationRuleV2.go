@@ -67,21 +67,21 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = securityhub.NewAutomationRuleV2(ctx, "example", &securityhub.AutomationRuleV2Args{
-//				RuleName:    pulumi.String("suppress-guardduty-low"),
-//				Description: pulumi.String("Suppress low severity GuardDuty findings"),
-//				RuleOrder:   pulumi.Float64(100),
-//				RuleStatus:  pulumi.String("ENABLED"),
 //				Criteria: &securityhub.AutomationRuleV2CriteriaArgs{
 //					OcsfFindingCriteriaJson: pulumi.String(json0),
 //				},
 //				Action: &securityhub.AutomationRuleV2ActionArgs{
-//					Type: pulumi.String("FINDING_FIELDS_UPDATE"),
 //					FindingFieldsUpdate: &securityhub.AutomationRuleV2ActionFindingFieldsUpdateArgs{
 //						SeverityId: pulumi.Int(99),
 //						StatusId:   pulumi.Int(3),
 //						Comment:    pulumi.String("Low severity GuardDuty finding suppressed"),
 //					},
+//					Type: pulumi.String("FINDING_FIELDS_UPDATE"),
 //				},
+//				RuleName:    pulumi.String("suppress-guardduty-low"),
+//				Description: pulumi.String("Suppress low severity GuardDuty findings"),
+//				RuleOrder:   pulumi.Float64(100),
+//				RuleStatus:  pulumi.String("ENABLED"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAggregatorV2,
 //			}))
@@ -100,7 +100,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 automation rule.
+// - `arn` (String) ARN of the Security Hub V2 automation rule.
 //
 // Using `pulumi import`, import Security Hub V2 automation rules using `arn`. For example:
 //

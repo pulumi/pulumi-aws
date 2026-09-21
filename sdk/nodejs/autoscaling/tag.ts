@@ -25,21 +25,19 @@ import * as utilities from "../utilities";
  *     clusterName: "example",
  *     nodeGroupName: "example",
  * });
- * const exampleTag: aws.autoscaling.Tag[] = [];
- * std.tosetOutput({
- *     input: std.flattenOutput({
- *         input: example.resources.apply(resources => resources.map(resources => (resources.autoscalingGroups))),
- *     }).apply(invoke => .map(asg => (asg.name))),
- * }).result.apply(rangeBody => {
- *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
- *         exampleTag.push(new aws.autoscaling.Tag(`example-${range.key}`, {
- *             autoscalingGroupName: range.value,
+ * const exampleTag: {[key: string]: aws.autoscaling.Tag} = {};
+ * std.flattenOutput({
+ *     input: example.resources.apply(resources => resources.map(resources => (resources.autoscalingGroups))),
+ * }).apply(invoke => {
+ *     for (const range of Object.entries(.map(asg => (asg.name)).reduce((__obj, entry) => ({ ...__obj, [String(entry)]: entry }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
+ *         exampleTag[range.key] = new aws.autoscaling.Tag(`example-${range.key}`, {
  *             tag: {
  *                 key: "k8s.io/cluster-autoscaler/node-template/label/eks.amazonaws.com/capacityType",
  *                 value: "SPOT",
  *                 propagateAtLaunch: false,
  *             },
- *         }));
+ *             autoscalingGroupName: range.value,
+ *         });
  *     }
  * });
  * ```

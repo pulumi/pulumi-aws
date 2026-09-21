@@ -47,11 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new GameSessionQueue("test", GameSessionQueueArgs.builder()
- *             .name("example-session-queue")
- *             .destinations(            
- *                 usWest2Fleet.arn(),
- *                 euCentral1Fleet.arn())
- *             .notificationTarget(gameSessionQueueNotifications.arn())
  *             .playerLatencyPolicies(            
  *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
  *                     .maximumIndividualPlayerLatencyMilliseconds(100)
@@ -60,6 +55,11 @@ import javax.annotation.Nullable;
  *                 GameSessionQueuePlayerLatencyPolicyArgs.builder()
  *                     .maximumIndividualPlayerLatencyMilliseconds(200)
  *                     .build())
+ *             .name("example-session-queue")
+ *             .destinations(            
+ *                 usWest2Fleet.arn(),
+ *                 euCentral1Fleet.arn())
+ *             .notificationTarget(gameSessionQueueNotifications.arn())
  *             .timeoutInSeconds(60)
  *             .build());
  * 

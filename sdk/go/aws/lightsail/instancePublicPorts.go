@@ -34,7 +34,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-//				State: pulumi.StringRef("available"),
 //				Filters: []aws.GetAvailabilityZonesFilter{
 //					{
 //						Name: "opt-in-status",
@@ -43,6 +42,7 @@ import (
 //						},
 //					},
 //				},
+//				State: pulumi.StringRef("available"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -57,7 +57,6 @@ import (
 //				return err
 //			}
 //			_, err = lightsail.NewInstancePublicPorts(ctx, "example", &lightsail.InstancePublicPortsArgs{
-//				InstanceName: example.Name,
 //				PortInfos: lightsail.InstancePublicPortsPortInfoArray{
 //					&lightsail.InstancePublicPortsPortInfoArgs{
 //						Protocol: pulumi.String("tcp"),
@@ -73,6 +72,7 @@ import (
 //						},
 //					},
 //				},
+//				InstanceName: example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -75,12 +75,8 @@ type GetEventSourceResult struct {
 }
 
 func GetEventSourceOutput(ctx *pulumi.Context, args GetEventSourceOutputArgs, opts ...pulumi.InvokeOption) GetEventSourceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEventSourceResultOutput, error) {
-			args := v.(GetEventSourceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getEventSource:getEventSource", args, GetEventSourceResultOutput{}, options).(GetEventSourceResultOutput), nil
-		}).(GetEventSourceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getEventSource:getEventSource", args, GetEventSourceResultOutput{}, options).(GetEventSourceResultOutput)
 }
 
 // A collection of arguments for invoking getEventSource.

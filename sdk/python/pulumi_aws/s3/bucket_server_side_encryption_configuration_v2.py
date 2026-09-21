@@ -204,13 +204,13 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfiguration("example",
-            bucket=mybucket.id,
             rules=[{
                 "apply_server_side_encryption_by_default": {
                     "kms_master_key_id": mykey.arn,
                     "sse_algorithm": "aws:kms",
                 },
-            }])
+            }],
+            bucket=mybucket.id)
         ```
 
         ### Blocking SSE-C Uploads
@@ -224,7 +224,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfiguration("example",
-            bucket=mybucket.id,
             rules=[{
                 "apply_server_side_encryption_by_default": {
                     "kms_master_key_id": mykey.arn,
@@ -232,7 +231,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                 },
                 "bucket_key_enabled": True,
                 "blocked_encryption_types": ["SSE-C"],
-            }])
+            }],
+            bucket=mybucket.id)
         ```
 
         ## Import
@@ -296,13 +296,13 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfiguration("example",
-            bucket=mybucket.id,
             rules=[{
                 "apply_server_side_encryption_by_default": {
                     "kms_master_key_id": mykey.arn,
                     "sse_algorithm": "aws:kms",
                 },
-            }])
+            }],
+            bucket=mybucket.id)
         ```
 
         ### Blocking SSE-C Uploads
@@ -316,7 +316,6 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
             deletion_window_in_days=10)
         mybucket = aws.s3.Bucket("mybucket", bucket="mybucket")
         example = aws.s3.BucketServerSideEncryptionConfiguration("example",
-            bucket=mybucket.id,
             rules=[{
                 "apply_server_side_encryption_by_default": {
                     "kms_master_key_id": mykey.arn,
@@ -324,7 +323,8 @@ class BucketServerSideEncryptionConfigurationV2(pulumi.CustomResource):
                 },
                 "bucket_key_enabled": True,
                 "blocked_encryption_types": ["SSE-C"],
-            }])
+            }],
+            bucket=mybucket.id)
         ```
 
         ## Import

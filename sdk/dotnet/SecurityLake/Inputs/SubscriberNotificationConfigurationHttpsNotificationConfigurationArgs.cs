@@ -49,7 +49,7 @@ namespace Pulumi.Aws.SecurityLake.Inputs
         public Input<string>? HttpMethod { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+        /// ARN of the EventBridge API destinations IAM role that you created.
         /// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
         /// </summary>
         [Input("targetRoleArn", required: true)]

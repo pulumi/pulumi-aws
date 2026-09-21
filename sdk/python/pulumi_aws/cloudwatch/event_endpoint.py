@@ -316,16 +316,6 @@ class EventEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         this = aws.cloudwatch.EventEndpoint("this",
-            name="global-endpoint",
-            role_arn=replication["arn"],
-            event_buses=[
-                {
-                    "event_bus_arn": primary["arn"],
-                },
-                {
-                    "event_bus_arn": secondary["arn"],
-                },
-            ],
             replication_config={
                 "state": "DISABLED",
             },
@@ -338,7 +328,17 @@ class EventEndpoint(pulumi.CustomResource):
                         "route": "us-east-2",
                     },
                 },
-            })
+            },
+            event_buses=[
+                {
+                    "event_bus_arn": primary["arn"],
+                },
+                {
+                    "event_bus_arn": secondary["arn"],
+                },
+            ],
+            name="global-endpoint",
+            role_arn=replication["arn"])
         ```
 
         ## Import
@@ -389,16 +389,6 @@ class EventEndpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         this = aws.cloudwatch.EventEndpoint("this",
-            name="global-endpoint",
-            role_arn=replication["arn"],
-            event_buses=[
-                {
-                    "event_bus_arn": primary["arn"],
-                },
-                {
-                    "event_bus_arn": secondary["arn"],
-                },
-            ],
             replication_config={
                 "state": "DISABLED",
             },
@@ -411,7 +401,17 @@ class EventEndpoint(pulumi.CustomResource):
                         "route": "us-east-2",
                     },
                 },
-            })
+            },
+            event_buses=[
+                {
+                    "event_bus_arn": primary["arn"],
+                },
+                {
+                    "event_bus_arn": secondary["arn"],
+                },
+            ],
+            name="global-endpoint",
+            role_arn=replication["arn"])
         ```
 
         ## Import

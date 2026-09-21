@@ -904,17 +904,23 @@ class DbCluster(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
+            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_cluster = aws.timestreaminfluxdb.DbCluster("example",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -926,13 +932,7 @@ class DbCluster(pulumi.CustomResource):
                 example2["id"],
             ],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-cluster",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            })
+            name="example-db-cluster")
         ```
 
         ### Usage with InfluxDB V3
@@ -944,6 +944,10 @@ class DbCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreaminfluxdb.DbCluster("example",
+            maintenance_schedule={
+                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
+                "timezone": "America/New_York",
+            },
             name="example-v3-cluster",
             db_instance_type="db.influx.large",
             db_parameter_group_identifier="InfluxDBV3Core",
@@ -951,11 +955,7 @@ class DbCluster(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
             ],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            maintenance_schedule={
-                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
-                "timezone": "America/New_York",
-            })
+            vpc_security_group_ids=[example_aws_security_group["id"]])
         ```
 
         ### Cluster Type Requirements
@@ -1110,17 +1110,23 @@ class DbCluster(pulumi.CustomResource):
             bucket="example-s3-bucket",
             force_destroy=True)
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["s3:PutObject"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["timestream-influxdb.amazonaws.com"],
             }],
+            "actions": ["s3:PutObject"],
             "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.id,
             policy=example.json)
         example_db_cluster = aws.timestreaminfluxdb.DbCluster("example",
+            log_delivery_configuration={
+                "s3_configuration": {
+                    "bucket_name": example_bucket.bucket,
+                    "enabled": True,
+                },
+            },
             allocated_storage=20,
             bucket="example-bucket-name",
             db_instance_type="db.influx.medium",
@@ -1132,13 +1138,7 @@ class DbCluster(pulumi.CustomResource):
                 example2["id"],
             ],
             vpc_security_group_ids=[example_aws_security_group["id"]],
-            name="example-db-cluster",
-            log_delivery_configuration={
-                "s3_configuration": {
-                    "bucket_name": example_bucket.bucket,
-                    "enabled": True,
-                },
-            })
+            name="example-db-cluster")
         ```
 
         ### Usage with InfluxDB V3
@@ -1150,6 +1150,10 @@ class DbCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.timestreaminfluxdb.DbCluster("example",
+            maintenance_schedule={
+                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
+                "timezone": "America/New_York",
+            },
             name="example-v3-cluster",
             db_instance_type="db.influx.large",
             db_parameter_group_identifier="InfluxDBV3Core",
@@ -1157,11 +1161,7 @@ class DbCluster(pulumi.CustomResource):
                 example1["id"],
                 example2["id"],
             ],
-            vpc_security_group_ids=[example_aws_security_group["id"]],
-            maintenance_schedule={
-                "preferred_maintenance_window": "Sun:02:00-Sun:06:00",
-                "timezone": "America/New_York",
-            })
+            vpc_security_group_ids=[example_aws_security_group["id"]])
         ```
 
         ### Cluster Type Requirements

@@ -37,14 +37,14 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the OpenSearch application.
+     * ARN of the OpenSearch application.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the OpenSearch application.
+     * @return ARN of the OpenSearch application.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -244,7 +244,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the OpenSearch application.
+         * @param arn ARN of the OpenSearch application.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ApplicationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the OpenSearch application.
+         * @param arn ARN of the OpenSearch application.
          * 
          * @return builder
          * 

@@ -69,7 +69,7 @@ export class LocalGatewayRouteTableVirtualInterfaceGroupAssociation extends pulu
      */
     declare public /*out*/ readonly localGatewayId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * ARN of the EC2 Local Gateway Route Table.
      */
     declare public /*out*/ readonly localGatewayRouteTableArn: pulumi.Output<string>;
     /**
@@ -157,7 +157,7 @@ export interface LocalGatewayRouteTableVirtualInterfaceGroupAssociationState {
      */
     localGatewayId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * ARN of the EC2 Local Gateway Route Table.
      */
     localGatewayRouteTableArn?: pulumi.Input<string | undefined>;
     /**

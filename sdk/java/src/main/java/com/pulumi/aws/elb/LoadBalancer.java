@@ -46,8 +46,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elb.LoadBalancer;
  * import com.pulumi.aws.elb.LoadBalancerArgs;
  * import com.pulumi.aws.elb.inputs.LoadBalancerAccessLogsArgs;
- * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import com.pulumi.aws.elb.inputs.LoadBalancerHealthCheckArgs;
+ * import com.pulumi.aws.elb.inputs.LoadBalancerListenerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -63,15 +63,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Create a new load balancer
  *         var bar = new LoadBalancer("bar", LoadBalancerArgs.builder()
- *             .name("foobar-elb")
- *             .availabilityZones(            
- *                 "us-west-2a",
- *                 "us-west-2b",
- *                 "us-west-2c")
  *             .accessLogs(LoadBalancerAccessLogsArgs.builder()
  *                 .bucket("foo")
  *                 .bucketPrefix("bar")
  *                 .interval(60)
+ *                 .build())
+ *             .healthCheck(LoadBalancerHealthCheckArgs.builder()
+ *                 .healthyThreshold(2)
+ *                 .unhealthyThreshold(2)
+ *                 .timeout(3)
+ *                 .target("HTTP:8000/")
+ *                 .interval(30)
  *                 .build())
  *             .listeners(            
  *                 LoadBalancerListenerArgs.builder()
@@ -87,13 +89,11 @@ import javax.annotation.Nullable;
  *                     .lbProtocol("https")
  *                     .sslCertificateId("arn:aws:iam::123456789012:server-certificate/certName")
  *                     .build())
- *             .healthCheck(LoadBalancerHealthCheckArgs.builder()
- *                 .healthyThreshold(2)
- *                 .unhealthyThreshold(2)
- *                 .timeout(3)
- *                 .target("HTTP:8000/")
- *                 .interval(30)
- *                 .build())
+ *             .name("foobar-elb")
+ *             .availabilityZones(            
+ *                 "us-west-2a",
+ *                 "us-west-2b",
+ *                 "us-west-2c")
  *             .instances(foo.id())
  *             .crossZoneLoadBalancing(true)
  *             .idleTimeout(400)

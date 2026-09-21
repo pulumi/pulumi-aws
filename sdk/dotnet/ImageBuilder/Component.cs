@@ -37,7 +37,7 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -49,7 +49,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class Component : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the component.
+        /// (Required) ARN of the component.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<bool> Encrypted { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        /// ARN of the KMS Key used to encrypt the component.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string?> KmsKeyId { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        /// ARN of the KMS Key used to encrypt the component.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -303,7 +303,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ComponentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the component.
+        /// (Required) ARN of the component.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -339,7 +339,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? Encrypted { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        /// ARN of the KMS Key used to encrypt the component.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

@@ -34,13 +34,13 @@ import (
 //				return err
 //			}
 //			exampleUser, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("john.doe@example.com"),
 //				Name: &identitystore.UserNameArgs{
 //					FamilyName: pulumi.String("Doe"),
 //					GivenName:  pulumi.String("John"),
 //				},
+//				IdentityStoreId: pulumi.String(example.IdentityStoreIds[0]),
+//				DisplayName:     pulumi.String("John Doe"),
+//				UserName:        pulumi.String("john.doe@example.com"),
 //			})
 //			if err != nil {
 //				return err

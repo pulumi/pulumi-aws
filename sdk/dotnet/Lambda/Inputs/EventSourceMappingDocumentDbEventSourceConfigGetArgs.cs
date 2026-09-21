@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Lambda.Inputs
         public Input<string> DatabaseName { get; set; } = null!;
 
         /// <summary>
-        /// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+        /// DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
         /// </summary>
         [Input("fullDocument")]
         public Input<string>? FullDocument { get; set; }

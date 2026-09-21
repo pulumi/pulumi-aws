@@ -54,7 +54,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> ClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Output("defaultIamRoleArn")]
         public Output<string> DefaultIamRoleArn { get; private set; } = null!;
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string> ClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.RedShift
         public Input<string>? ClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+        /// ARN for the IAM role that was set as default for the cluster when the cluster was created.
         /// </summary>
         [Input("defaultIamRoleArn")]
         public Input<string>? DefaultIamRoleArn { get; set; }

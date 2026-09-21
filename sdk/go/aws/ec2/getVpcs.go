@@ -80,12 +80,8 @@ type GetVpcsResult struct {
 }
 
 func GetVpcsOutput(ctx *pulumi.Context, args GetVpcsOutputArgs, opts ...pulumi.InvokeOption) GetVpcsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetVpcsResultOutput, error) {
-			args := v.(GetVpcsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpcs:getVpcs", args, GetVpcsResultOutput{}, options).(GetVpcsResultOutput), nil
-		}).(GetVpcsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpcs:getVpcs", args, GetVpcsResultOutput{}, options).(GetVpcsResultOutput)
 }
 
 // A collection of arguments for invoking getVpcs.

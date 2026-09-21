@@ -18,14 +18,14 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
     public static final ReceiptRuleLambdaActionArgs Empty = new ReceiptRuleLambdaActionArgs();
 
     /**
-     * The ARN of the Lambda function to invoke
+     * ARN of the Lambda function to invoke.
      * 
      */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
     /**
-     * @return The ARN of the Lambda function to invoke
+     * @return ARN of the Lambda function to invoke.
      * 
      */
     public Output<String> functionArn() {
@@ -33,14 +33,14 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * `Event` or `RequestResponse`
+     * `Event` or `RequestResponse`.
      * 
      */
     @Import(name="invocationType")
     private @Nullable Output<String> invocationType;
 
     /**
-     * @return `Event` or `RequestResponse`
+     * @return `Event` or `RequestResponse`.
      * 
      */
     public Optional<Output<String>> invocationType() {
@@ -48,14 +48,14 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The position of the action in the receipt rule
+     * Position of the action in the receipt rule.
      * 
      */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Output<Integer> position() {
@@ -63,14 +63,14 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The ARN of an SNS topic to notify
+     * ARN of an SNS topic to notify.
      * 
      */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     public Optional<Output<String>> topicArn() {
@@ -105,7 +105,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionArn The ARN of the Lambda function to invoke
+         * @param functionArn ARN of the Lambda function to invoke.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param functionArn The ARN of the Lambda function to invoke
+         * @param functionArn ARN of the Lambda function to invoke.
          * 
          * @return builder
          * 
@@ -126,7 +126,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param invocationType `Event` or `RequestResponse`
+         * @param invocationType `Event` or `RequestResponse`.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param invocationType `Event` or `RequestResponse`
+         * @param invocationType `Event` or `RequestResponse`.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class ReceiptRuleLambdaActionArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 

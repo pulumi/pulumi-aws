@@ -132,17 +132,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection("example", ConnectionArgs.builder()
+ *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
+ *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
+ *                 .subnetId(exampleAwsSubnet.id())
+ *                 .build())
  *             .name("example")
  *             .connectionProperties(Map.ofEntries(
  *                 Map.entry("JDBC_CONNECTION_URL", String.format("jdbc:mysql://%s/exampledatabase", exampleAwsRdsCluster.endpoint())),
  *                 Map.entry("PASSWORD", "examplepassword"),
  *                 Map.entry("USERNAME", "exampleusername")
  *             ))
- *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
- *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
- *                 .subnetId(exampleAwsSubnet.id())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -599,6 +599,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Connection("example", ConnectionArgs.builder()
+ *             .authenticationConfiguration(ConnectionAuthenticationConfigurationArgs.builder()
+ *                 .authenticationType("BASIC")
+ *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
+ *                 .build())
+ *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
+ *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
+ *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
+ *                 .subnetId(exampleAwsSubnet.id())
+ *                 .build())
  *             .name("athenafederatedcatalog_mysql")
  *             .connectionType("MYSQL")
  *             .athenaProperties(Map.ofEntries(
@@ -610,15 +619,6 @@ import javax.annotation.Nullable;
  *                 Map.entry("PORT", exampleAwsRdsCluster.port()),
  *                 Map.entry("DATABASE", exampleAwsRdsCluster.databaseName())
  *             ))
- *             .authenticationConfiguration(ConnectionAuthenticationConfigurationArgs.builder()
- *                 .authenticationType("BASIC")
- *                 .secretArn(exampleAwsSecretsmanagerSecret.arn())
- *                 .build())
- *             .physicalConnectionRequirements(ConnectionPhysicalConnectionRequirementsArgs.builder()
- *                 .availabilityZone(exampleAwsSubnet.availabilityZone())
- *                 .securityGroupIdLists(exampleAwsSecurityGroup.id())
- *                 .subnetId(exampleAwsSubnet.id())
- *                 .build())
  *             .build());
  * 
  *     }

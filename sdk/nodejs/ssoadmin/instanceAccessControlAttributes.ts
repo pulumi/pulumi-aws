@@ -18,21 +18,21 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleInstanceAccessControlAttributes = new aws.ssoadmin.InstanceAccessControlAttributes("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
  *     attributes: [
  *         {
- *             key: "name",
  *             values: [{
  *                 sources: ["${path:name.givenName}"],
  *             }],
+ *             key: "name",
  *         },
  *         {
- *             key: "last",
  *             values: [{
  *                 sources: ["${path:name.familyName}"],
  *             }],
+ *             key: "last",
  *         },
  *     ],
+ *     instanceArn: example.then(example => example.arns?.[0]),
  * });
  * ```
  *
@@ -77,7 +77,7 @@ export class InstanceAccessControlAttributes extends pulumi.CustomResource {
      */
     declare public readonly attributes: pulumi.Output<outputs.ssoadmin.InstanceAccessControlAttributesAttribute[]>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
@@ -133,7 +133,7 @@ export interface InstanceAccessControlAttributesState {
      */
     attributes?: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface InstanceAccessControlAttributesArgs {
      */
     attributes: pulumi.Input<pulumi.Input<inputs.ssoadmin.InstanceAccessControlAttributesAttribute>[]>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      */
     instanceArn: pulumi.Input<string>;
     /**

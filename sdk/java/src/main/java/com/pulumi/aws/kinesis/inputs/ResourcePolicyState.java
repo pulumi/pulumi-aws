@@ -46,14 +46,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
+     * ARN of the data stream or consumer.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the data stream or consumer.
+     * @return ARN of the data stream or consumer.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -129,7 +129,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the data stream or consumer.
+         * @param resourceArn ARN of the data stream or consumer.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the data stream or consumer.
+         * @param resourceArn ARN of the data stream or consumer.
          * 
          * @return builder
          * 

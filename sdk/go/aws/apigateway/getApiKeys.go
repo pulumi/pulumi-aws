@@ -69,12 +69,8 @@ type GetApiKeysResult struct {
 }
 
 func GetApiKeysOutput(ctx *pulumi.Context, args GetApiKeysOutputArgs, opts ...pulumi.InvokeOption) GetApiKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetApiKeysResultOutput, error) {
-			args := v.(GetApiKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getApiKeys:getApiKeys", args, GetApiKeysResultOutput{}, options).(GetApiKeysResultOutput), nil
-		}).(GetApiKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getApiKeys:getApiKeys", args, GetApiKeysResultOutput{}, options).(GetApiKeysResultOutput)
 }
 
 // A collection of arguments for invoking getApiKeys.

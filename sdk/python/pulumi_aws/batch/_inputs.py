@@ -106,7 +106,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
     """
     ec2_configurations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgsDict']]]]]
     """
-    Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+    Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
     """
     ec2_key_pair: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -114,7 +114,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
     """
     image_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+    AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
     """
     instance_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -142,7 +142,7 @@ class ComputeEnvironmentComputeResourcesArgsDict(TypedDict):
     """
     spot_iam_fleet_role: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+    ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
     """
     tags: NotRequired[pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]]
     """
@@ -176,16 +176,16 @@ class ComputeEnvironmentComputeResourcesArgs:
         :param pulumi.Input[_builtins.str] allocation_strategy: The allocation strategy to use for the compute resource in case not enough instances of the best fitting instance type can be allocated. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/batch/latest/APIReference/API_ComputeResource.html#Batch-Type-ComputeResource-allocationStrategy). Defaults to `BEST_FIT`. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[_builtins.int] bid_percentage: Integer of maximum percentage that a Spot Instance price can be when compared with the On-Demand price for that instance type before instances are launched. For example, if your bid percentage is 20% (`20`), then the Spot price must be below 20% of the current On-Demand price for that EC2 instance. If you leave this field empty, the default value is 100% of the On-Demand price. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[_builtins.int] desired_vcpus: The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs']]] ec2_configurations: Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs']]] ec2_configurations: Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[_builtins.str] ec2_key_pair: The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        :param pulumi.Input[_builtins.str] image_id: AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         :param pulumi.Input[_builtins.str] instance_role: The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] instance_types: A list of instance types that may be launched. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input['ComputeEnvironmentComputeResourcesLaunchTemplateArgs'] launch_template: The launch template to use for your compute resources. See details below. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[_builtins.int] min_vcpus: The minimum number of EC2 vCPUs that an environment should maintain. For `EC2` or `SPOT` compute environments, if the parameter is not explicitly defined, a `0` default value will be set. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[_builtins.str] placement_group: The Amazon EC2 placement group to associate with your compute resources.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
-        :param pulumi.Input[_builtins.str] spot_iam_fleet_role: The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        :param pulumi.Input[_builtins.str] spot_iam_fleet_role: ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pair tags to be applied to resources that are launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         pulumi.set(__self__, "max_vcpus", max_vcpus)
@@ -296,7 +296,7 @@ class ComputeEnvironmentComputeResourcesArgs:
     @pulumi.getter(name="ec2Configurations")
     def ec2_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ComputeEnvironmentComputeResourcesEc2ConfigurationArgs']]]]:
         """
-        Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+        Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "ec2_configurations")
 
@@ -320,7 +320,7 @@ class ComputeEnvironmentComputeResourcesArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
+        AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2_configuration` `image_id_override` instead)
         """
         return pulumi.get(self, "image_id")
 
@@ -404,7 +404,7 @@ class ComputeEnvironmentComputeResourcesArgs:
     @pulumi.getter(name="spotIamFleetRole")
     def spot_iam_fleet_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+        ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
         """
         return pulumi.get(self, "spot_iam_fleet_role")
 
@@ -566,7 +566,7 @@ class ComputeEnvironmentComputeResourcesLaunchTemplateArgs:
 class ComputeEnvironmentEksConfigurationArgsDict(TypedDict):
     eks_cluster_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+    ARN of the Amazon EKS cluster.
     """
     kubernetes_namespace: pulumi.Input[_builtins.str]
     """
@@ -579,7 +579,7 @@ class ComputeEnvironmentEksConfigurationArgs:
                  eks_cluster_arn: pulumi.Input[_builtins.str],
                  kubernetes_namespace: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] eks_cluster_arn: The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        :param pulumi.Input[_builtins.str] eks_cluster_arn: ARN of the Amazon EKS cluster.
         :param pulumi.Input[_builtins.str] kubernetes_namespace: The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
         """
         pulumi.set(__self__, "eks_cluster_arn", eks_cluster_arn)
@@ -589,7 +589,7 @@ class ComputeEnvironmentEksConfigurationArgs:
     @pulumi.getter(name="eksClusterArn")
     def eks_cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        ARN of the Amazon EKS cluster.
         """
         return pulumi.get(self, "eks_cluster_arn")
 
@@ -2274,7 +2274,7 @@ class JobDefinitionTimeoutArgs:
 class JobQueueComputeEnvironmentOrderArgsDict(TypedDict):
     compute_environment: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the compute environment.
+    ARN of the compute environment.
     """
     order: pulumi.Input[_builtins.int]
     """
@@ -2287,7 +2287,7 @@ class JobQueueComputeEnvironmentOrderArgs:
                  compute_environment: pulumi.Input[_builtins.str],
                  order: pulumi.Input[_builtins.int]):
         """
-        :param pulumi.Input[_builtins.str] compute_environment: The Amazon Resource Name (ARN) of the compute environment.
+        :param pulumi.Input[_builtins.str] compute_environment: ARN of the compute environment.
         :param pulumi.Input[_builtins.int] order: The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
         """
         pulumi.set(__self__, "compute_environment", compute_environment)
@@ -2297,7 +2297,7 @@ class JobQueueComputeEnvironmentOrderArgs:
     @pulumi.getter(name="computeEnvironment")
     def compute_environment(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the compute environment.
+        ARN of the compute environment.
         """
         return pulumi.get(self, "compute_environment")
 

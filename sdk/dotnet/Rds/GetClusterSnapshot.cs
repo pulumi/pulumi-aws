@@ -40,6 +40,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
@@ -84,6 +90,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
@@ -128,6 +140,12 @@ namespace Pulumi.Aws.Rds
         ///         ClusterIdentifier = "development_cluster",
         ///         SnapshotIdentifier = developmentFinalSnapshot.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),
         ///         DbSubnetGroupName = "my_db_subnet_group",
+        ///     }, new CustomResourceOptions
+        ///     {
+        ///         IgnoreChanges =
+        ///         {
+        ///             "snapshotIdentifier",
+        ///         },
         ///     });
         /// 
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
@@ -160,16 +178,13 @@ namespace Pulumi.Aws.Rds
         public string? DbClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Set this value to true to include manual DB Cluster Snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
+        /// Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public bool? IncludePublic { get; set; }
 
         /// <summary>
-        /// Set this value to true to include shared manual DB Cluster Snapshots from other
-        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `False`.
+        /// Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public bool? IncludeShared { get; set; }
@@ -187,9 +202,7 @@ namespace Pulumi.Aws.Rds
         public string? Region { get; set; }
 
         /// <summary>
-        /// Type of snapshots to be returned. If you don't specify a SnapshotType
-        /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public string? SnapshotType { get; set; }
@@ -198,8 +211,7 @@ namespace Pulumi.Aws.Rds
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB cluster snapshot.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -228,16 +240,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbClusterSnapshotIdentifier { get; set; }
 
         /// <summary>
-        /// Set this value to true to include manual DB Cluster Snapshots that are public and can be
-        /// copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
+        /// Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includePublic")]
         public Input<bool>? IncludePublic { get; set; }
 
         /// <summary>
-        /// Set this value to true to include shared manual DB Cluster Snapshots from other
-        /// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-        /// The default is `False`.
+        /// Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `False`.
         /// </summary>
         [Input("includeShared")]
         public Input<bool>? IncludeShared { get; set; }
@@ -255,9 +264,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Type of snapshots to be returned. If you don't specify a SnapshotType
-        /// value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-        /// included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
+        /// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `Automated`, `Manual`, `Shared`, `Public` and `Awsbackup`.
         /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
@@ -266,8 +273,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Mapping of tags, each pair of which must exactly match
-        /// a pair on the desired DB cluster snapshot.
+        /// Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -294,11 +300,11 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly ImmutableArray<string> AvailabilityZones;
         /// <summary>
-        /// Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+        /// DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
         /// </summary>
         public readonly string? DbClusterIdentifier;
         /// <summary>
-        /// The ARN for the DB Cluster Snapshot.
+        /// ARN for the DB Cluster Snapshot.
         /// </summary>
         public readonly string DbClusterSnapshotArn;
         public readonly string? DbClusterSnapshotIdentifier;
@@ -335,6 +341,9 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string SnapshotCreateTime;
         public readonly string? SnapshotType;
+        /// <summary>
+        /// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        /// </summary>
         public readonly string SourceDbClusterSnapshotArn;
         /// <summary>
         /// Status of this DB Cluster Snapshot.

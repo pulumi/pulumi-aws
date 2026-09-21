@@ -46,14 +46,14 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
     @Import(name="resourceGroupArn")
     private @Nullable Output<String> resourceGroupArn;
 
     /**
-     * @return Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+     * @return Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
      * 
      */
     public Optional<Output<String>> resourceGroupArn() {
@@ -129,7 +129,7 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupArn Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+         * @param resourceGroupArn Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class AssessmentTargetArgs extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param resourceGroupArn Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+         * @param resourceGroupArn Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
          * 
          * @return builder
          * 

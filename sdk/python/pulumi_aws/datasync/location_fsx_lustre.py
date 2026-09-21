@@ -27,8 +27,8 @@ class LocationFsxLustreArgs:
         """
         The set of arguments for constructing a LocationFsxLustre resource.
 
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN for the FSx for Lustre file system.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -46,7 +46,7 @@ class LocationFsxLustreArgs:
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        ARN for the FSx for Lustre file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
@@ -58,7 +58,7 @@ class LocationFsxLustreArgs:
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -118,11 +118,11 @@ class _LocationFsxLustreState:
         """
         Input properties used for looking up and filtering LocationFsxLustre resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] creation_time: The time that the FSx for Lustre location was created.
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN for the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -151,7 +151,7 @@ class _LocationFsxLustreState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -175,7 +175,7 @@ class _LocationFsxLustreState:
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        ARN for the FSx for Lustre file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
@@ -199,7 +199,7 @@ class _LocationFsxLustreState:
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -293,9 +293,9 @@ class LocationFsxLustre(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN for the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -396,11 +396,11 @@ class LocationFsxLustre(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[_builtins.str] creation_time: The time that the FSx for Lustre location was created.
-        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        :param pulumi.Input[_builtins.str] fsx_filesystem_arn: ARN for the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         :param pulumi.Input[_builtins.str] subdirectory: Subdirectory to perform actions as source or destination.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Location. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -425,7 +425,7 @@ class LocationFsxLustre(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -441,7 +441,7 @@ class LocationFsxLustre(pulumi.CustomResource):
     @pulumi.getter(name="fsxFilesystemArn")
     def fsx_filesystem_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+        ARN for the FSx for Lustre file system.
         """
         return pulumi.get(self, "fsx_filesystem_arn")
 
@@ -457,7 +457,7 @@ class LocationFsxLustre(pulumi.CustomResource):
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+        ARNs of the security groups that are to use to configure the FSx for Lustre file system.
         """
         return pulumi.get(self, "security_group_arns")
 

@@ -42,7 +42,7 @@ class GraphArgs:
         :param pulumi.Input[_builtins.str] graph_name: Contains a user-supplied name for the Graph. If omitted, Terraform will assign a random, unique identifier.
         :param pulumi.Input[_builtins.str] graph_name_prefix: Allows user to specify name prefix and have remainder of name automatically generated.
         :param pulumi.Input[_builtins.str] kms_key_identifier: The ARN for the KMS encryption key. By Default, Neptune Analytics will use an AWS provided key ("AWS_OWNED_KEY"). This parameter is used if you want to encrypt the graph using a KMS Customer Managed Key (CMK).
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -136,7 +136,7 @@ class GraphArgs:
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 
@@ -231,7 +231,7 @@ class _GraphState:
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -357,7 +357,7 @@ class _GraphState:
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 
@@ -468,15 +468,15 @@ class Graph(pulumi.CustomResource):
 
         # Create Neptune Graph
         example = aws.neptunegraph.Graph("example",
+            vector_search_configuration={
+                "vector_search_dimension": 128,
+            },
             graph_name="example-graph-test-20250203",
             provisioned_memory=16,
             deletion_protection=False,
             public_connectivity=False,
             replica_count=1,
             kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
             tags={
                 "Environment": "Development",
                 "ModifiedBy": "AWS",
@@ -501,7 +501,7 @@ class Graph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -528,15 +528,15 @@ class Graph(pulumi.CustomResource):
 
         # Create Neptune Graph
         example = aws.neptunegraph.Graph("example",
+            vector_search_configuration={
+                "vector_search_dimension": 128,
+            },
             graph_name="example-graph-test-20250203",
             provisioned_memory=16,
             deletion_protection=False,
             public_connectivity=False,
             replica_count=1,
             kms_key_identifier="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012",
-            vector_search_configuration={
-                "vector_search_dimension": 128,
-            },
             tags={
                 "Environment": "Development",
                 "ModifiedBy": "AWS",
@@ -643,7 +643,7 @@ class Graph(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] provisioned_memory: The provisioned memory-optimized Neptune Capacity Units (m-NCUs) to use for the graph.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        :param pulumi.Input[_builtins.bool] public_connectivity: Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] replica_count: Specifies the number of replicas you want when finished. All replicas will be provisioned in different availability zones.  Replica Count should always be less than or equal to 2.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value tags for the graph. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -732,7 +732,7 @@ class Graph(pulumi.CustomResource):
     @pulumi.getter(name="publicConnectivity")
     def public_connectivity(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+        Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
         """
         return pulumi.get(self, "public_connectivity")
 

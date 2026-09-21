@@ -67,12 +67,8 @@ type GetEventBusesResult struct {
 }
 
 func GetEventBusesOutput(ctx *pulumi.Context, args GetEventBusesOutputArgs, opts ...pulumi.InvokeOption) GetEventBusesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEventBusesResultOutput, error) {
-			args := v.(GetEventBusesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getEventBuses:getEventBuses", args, GetEventBusesResultOutput{}, options).(GetEventBusesResultOutput), nil
-		}).(GetEventBusesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getEventBuses:getEventBuses", args, GetEventBusesResultOutput{}, options).(GetEventBusesResultOutput)
 }
 
 // A collection of arguments for invoking getEventBuses.

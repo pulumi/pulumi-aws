@@ -151,18 +151,18 @@ class DomainPolicy(pulumi.CustomResource):
             domain_name="tf-test",
             engine_version="OpenSearch_1.1")
         main = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["127.0.0.1/32"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "effect": "Allow",
+            "actions": ["es:*"],
+            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
         }])
         main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,
@@ -203,18 +203,18 @@ class DomainPolicy(pulumi.CustomResource):
             domain_name="tf-test",
             engine_version="OpenSearch_1.1")
         main = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "*",
-                "identifiers": ["*"],
-            }],
-            "actions": ["es:*"],
-            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "IpAddress",
                 "variable": "aws:SourceIp",
                 "values": ["127.0.0.1/32"],
             }],
+            "principals": [{
+                "type": "*",
+                "identifiers": ["*"],
+            }],
+            "effect": "Allow",
+            "actions": ["es:*"],
+            "resources": [example.arn.apply(lambda arn: f"{arn}/*")],
         }])
         main_domain_policy = aws.opensearch.DomainPolicy("main",
             domain_name=example.domain_name,

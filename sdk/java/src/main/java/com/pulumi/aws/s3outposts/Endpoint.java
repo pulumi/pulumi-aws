@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
+ * Using `pulumi import`, import S3 Outposts Endpoints using ARN, EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
  * 
  * ```sh
  * $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
@@ -80,14 +80,14 @@ public class Endpoint extends com.pulumi.resources.CustomResource {
         return this.accessType;
     }
     /**
-     * Amazon Resource Name (ARN) of the endpoint.
+     * ARN of the endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the endpoint.
+     * @return ARN of the endpoint.
      * 
      */
     public Output<String> arn() {

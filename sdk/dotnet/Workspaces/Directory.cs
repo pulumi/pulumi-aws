@@ -45,9 +45,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var exampleDirectory = new Aws.DirectoryService.Directory("example", new()
     ///     {
-    ///         Name = "corp.example.com",
-    ///         Password = "#S1ncerely",
-    ///         Size = "Small",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
@@ -57,6 +54,9 @@ namespace Pulumi.Aws.Workspaces
     ///                 exampleB.Id,
     ///             },
     ///         },
+    ///         Name = "corp.example.com",
+    ///         Password = "#S1ncerely",
+    ///         Size = "Small",
     ///     });
     /// 
     ///     var workspaces = Aws.Iam.GetPolicyDocument.Invoke(new()
@@ -65,10 +65,6 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -79,6 +75,10 @@ namespace Pulumi.Aws.Workspaces
     ///                             "workspaces.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -118,16 +118,6 @@ namespace Pulumi.Aws.Workspaces
     /// 
     ///     var example = new Aws.Workspaces.Directory("example", new()
     ///     {
-    ///         DirectoryId = exampleDirectory.Id,
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleC.Id,
-    ///             exampleD.Id,
-    ///         },
-    ///         Tags = 
-    ///         {
-    ///             { "Example", "true" },
-    ///         },
     ///         CertificateBasedAuthProperties = new Aws.Workspaces.Inputs.DirectoryCertificateBasedAuthPropertiesArgs
     ///         {
     ///             CertificateAuthorityArn = "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
@@ -165,6 +155,16 @@ namespace Pulumi.Aws.Workspaces
     ///             EnableMaintenanceMode = true,
     ///             UserEnabledAsLocalAdministrator = true,
     ///         },
+    ///         DirectoryId = exampleDirectory.Id,
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "Example", "true" },
+    ///         },
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -189,15 +189,6 @@ namespace Pulumi.Aws.Workspaces
     /// {
     ///     var example = new Aws.Workspaces.Directory("example", new()
     ///     {
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleC.Id,
-    ///             exampleD.Id,
-    ///         },
-    ///         WorkspaceType = "POOLS",
-    ///         WorkspaceDirectoryName = "Pool directory",
-    ///         WorkspaceDirectoryDescription = "WorkSpaces Pools directory",
-    ///         UserIdentityType = "CUSTOMER_MANAGED",
     ///         ActiveDirectoryConfig = new Aws.Workspaces.Inputs.DirectoryActiveDirectoryConfigArgs
     ///         {
     ///             DomainName = "example.internal",
@@ -226,6 +217,15 @@ namespace Pulumi.Aws.Workspaces
     ///             UserAccessUrl = "https://sso.example.com/",
     ///             Status = "ENABLED",
     ///         },
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleC.Id,
+    ///             exampleD.Id,
+    ///         },
+    ///         WorkspaceType = "POOLS",
+    ///         WorkspaceDirectoryName = "Pool directory",
+    ///         WorkspaceDirectoryDescription = "WorkSpaces Pools directory",
+    ///         UserIdentityType = "CUSTOMER_MANAGED",
     ///     });
     /// 
     /// });
@@ -253,6 +253,104 @@ namespace Pulumi.Aws.Workspaces
     ///         {
     ///             exampleIpGroup.Id,
     ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### VPC Endpoint Streaming
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var workspacesStreaming = new Aws.Ec2.SecurityGroup("workspaces_streaming", new()
+    ///     {
+    ///         Name = "workspaces-streaming-endpoint",
+    ///         VpcId = exampleAwsVpc.Id,
+    ///     });
+    /// 
+    ///     var current = Aws.GetRegion.Invoke();
+    /// 
+    ///     var workspaces = new Aws.Ec2.VpcEndpoint("workspaces", new()
+    ///     {
+    ///         VpcId = exampleAwsVpc.Id,
+    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Region)}.highlander",
+    ///         VpcEndpointType = "Interface",
+    ///         SubnetIds = new[]
+    ///         {
+    ///             exampleA.Id,
+    ///             exampleB.Id,
+    ///         },
+    ///         SecurityGroupIds = new[]
+    ///         {
+    ///             workspacesStreaming.Id,
+    ///         },
+    ///         PrivateDnsEnabled = true,
+    ///     });
+    /// 
+    ///     var example = new Aws.Workspaces.Directory("example", new()
+    ///     {
+    ///         WorkspaceAccessProperties = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesArgs
+    ///         {
+    ///             AccessEndpointConfig = new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs
+    ///             {
+    ///                 AccessEndpoints = new[]
+    ///                 {
+    ///                     new Aws.Workspaces.Inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs
+    ///                     {
+    ///                         AccessEndpointType = "STREAMING_WSP",
+    ///                         VpcEndpointId = workspaces.Id,
+    ///                     },
+    ///                 },
+    ///                 InternetFallbackProtocols = new[]
+    ///                 {
+    ///                     "PCOIP",
+    ///                 },
+    ///             },
+    ///             DeviceTypeWindows = "ALLOW",
+    ///         },
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///     });
+    /// 
+    ///     var workspacesStreamingTcp443 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 443,
+    ///         ToPort = 443,
+    ///         IpProtocol = "tcp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingTcp4195 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 4195,
+    ///         ToPort = 4195,
+    ///         IpProtocol = "tcp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingUdp443 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 443,
+    ///         ToPort = 443,
+    ///         IpProtocol = "udp",
+    ///     });
+    /// 
+    ///     var workspacesStreamingUdp4195 = new Aws.Vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195", new()
+    ///     {
+    ///         SecurityGroupId = workspacesStreaming.Id,
+    ///         CidrIpv4 = exampleAwsVpc.CidrBlock,
+    ///         FromPort = 4195,
+    ///         ToPort = 4195,
+    ///         IpProtocol = "udp",
     ///     });
     /// 
     /// });

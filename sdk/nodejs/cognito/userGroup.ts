@@ -16,12 +16,6 @@ import * as utilities from "../utilities";
  * const main = new aws.cognito.UserPool("main", {name: "identity pool"});
  * const groupRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         principals: [{
- *             type: "Federated",
- *             identifiers: ["cognito-identity.amazonaws.com"],
- *         }],
- *         actions: ["sts:AssumeRoleWithWebIdentity"],
  *         conditions: [
  *             {
  *                 test: "StringEquals",
@@ -34,6 +28,12 @@ import * as utilities from "../utilities";
  *                 values: ["authenticated"],
  *             },
  *         ],
+ *         principals: [{
+ *             type: "Federated",
+ *             identifiers: ["cognito-identity.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRoleWithWebIdentity"],
  *     }],
  * });
  * const groupRoleRole = new aws.iam.Role("group_role", {

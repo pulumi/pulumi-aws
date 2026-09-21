@@ -18,14 +18,14 @@ public final class CodeRepositoryState extends com.pulumi.resources.ResourceArgs
     public static final CodeRepositoryState Empty = new CodeRepositoryState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * @return ARN assigned by AWS to this Code Repository.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class CodeRepositoryState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+         * @param arn ARN assigned by AWS to this Code Repository.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class CodeRepositoryState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+         * @param arn ARN assigned by AWS to this Code Repository.
          * 
          * @return builder
          * 

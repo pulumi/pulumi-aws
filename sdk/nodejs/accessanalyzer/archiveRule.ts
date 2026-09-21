@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accessanalyzer.ArchiveRule("example", {
- *     analyzerName: "example-analyzer",
- *     ruleName: "example-rule",
  *     filters: [
  *         {
  *             criteria: "condition.aws:UserId",
@@ -35,6 +33,8 @@ import * as utilities from "../utilities";
  *             eqs: ["false"],
  *         },
  *     ],
+ *     analyzerName: "example-analyzer",
+ *     ruleName: "example-rule",
  * });
  * ```
  *

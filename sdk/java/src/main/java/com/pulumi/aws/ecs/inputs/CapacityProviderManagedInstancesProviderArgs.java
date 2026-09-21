@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.inputs;
 
+import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInfrastructureOptimizationArgs;
 import com.pulumi.aws.ecs.inputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateArgs;
 import com.pulumi.core.Output;
@@ -17,6 +18,21 @@ import javax.annotation.Nullable;
 public final class CapacityProviderManagedInstancesProviderArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final CapacityProviderManagedInstancesProviderArgs Empty = new CapacityProviderManagedInstancesProviderArgs();
+
+    /**
+     * Configuration block for the auto repair configuration. Detailed below.
+     * 
+     */
+    @Import(name="autoRepairConfiguration")
+    private @Nullable Output<CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs> autoRepairConfiguration;
+
+    /**
+     * @return Configuration block for the auto repair configuration. Detailed below.
+     * 
+     */
+    public Optional<Output<CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs>> autoRepairConfiguration() {
+        return Optional.ofNullable(this.autoRepairConfiguration);
+    }
 
     /**
      * Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
@@ -81,6 +97,7 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
     private CapacityProviderManagedInstancesProviderArgs() {}
 
     private CapacityProviderManagedInstancesProviderArgs(CapacityProviderManagedInstancesProviderArgs $) {
+        this.autoRepairConfiguration = $.autoRepairConfiguration;
         this.infrastructureOptimization = $.infrastructureOptimization;
         this.infrastructureRoleArn = $.infrastructureRoleArn;
         this.instanceLaunchTemplate = $.instanceLaunchTemplate;
@@ -103,6 +120,27 @@ public final class CapacityProviderManagedInstancesProviderArgs extends com.pulu
 
         public Builder(CapacityProviderManagedInstancesProviderArgs defaults) {
             $ = new CapacityProviderManagedInstancesProviderArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param autoRepairConfiguration Configuration block for the auto repair configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRepairConfiguration(@Nullable Output<CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs> autoRepairConfiguration) {
+            $.autoRepairConfiguration = autoRepairConfiguration;
+            return this;
+        }
+
+        /**
+         * @param autoRepairConfiguration Configuration block for the auto repair configuration. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder autoRepairConfiguration(CapacityProviderManagedInstancesProviderAutoRepairConfigurationArgs autoRepairConfiguration) {
+            return autoRepairConfiguration(Output.of(autoRepairConfiguration));
         }
 
         /**

@@ -35,14 +35,14 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
     }
 
     /**
-     * Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     @Import(name="appAuthorizationArn")
     private @Nullable Output<String> appAuthorizationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+     * @return ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
      * 
      */
     public Optional<Output<String>> appAuthorizationArn() {
@@ -50,7 +50,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
     }
 
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      * The following arguments are optional:
      * 
@@ -59,7 +59,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
     private @Nullable Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      * The following arguments are optional:
      * 
@@ -172,7 +172,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param appAuthorizationArn Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+         * @param appAuthorizationArn ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param appAuthorizationArn Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+         * @param appAuthorizationArn ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * The following arguments are optional:
          * 
@@ -206,7 +206,7 @@ public final class AppAuthorizationConnectionState extends com.pulumi.resources.
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * The following arguments are optional:
          * 

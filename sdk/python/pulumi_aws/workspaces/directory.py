@@ -744,22 +744,22 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1b",
             cidr_block="10.0.1.0/24")
         example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [
                     example_a.id,
                     example_b.id,
                 ],
-            })
+            },
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small")
         workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         workspaces_default = aws.iam.Role("workspaces_default",
             name="workspaces_DefaultRole",
@@ -779,14 +779,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
         example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
             certificate_based_auth_properties={
                 "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
                 "status": "ENABLED",
@@ -819,6 +811,14 @@ class Directory(pulumi.CustomResource):
                 "enable_maintenance_mode": True,
                 "user_enabled_as_local_administrator": True,
             },
+            directory_id=example_directory.id,
+            subnet_ids=[
+                example_c.id,
+                example_d.id,
+            ],
+            tags={
+                "Example": "true",
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     workspaces_default_service_access,
                     workspaces_default_self_service_access,
@@ -832,14 +832,6 @@ class Directory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
             active_directory_config={
                 "domain_name": "example.internal",
                 "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
@@ -863,7 +855,15 @@ class Directory(pulumi.CustomResource):
                 "relay_state_parameter_name": "RelayState",
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
-            })
+            },
+            subnet_ids=[
+                example_c["id"],
+                example_d["id"],
+            ],
+            workspace_type="POOLS",
+            workspace_directory_name="Pool directory",
+            workspace_directory_description="WorkSpaces Pools directory",
+            user_identity_type="CUSTOMER_MANAGED")
         ```
 
         ### IP Groups
@@ -876,6 +876,64 @@ class Directory(pulumi.CustomResource):
         example = aws.workspaces.Directory("example",
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
+        ```
+
+        ### VPC Endpoint Streaming
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        workspaces_streaming = aws.ec2.SecurityGroup("workspaces_streaming",
+            name="workspaces-streaming-endpoint",
+            vpc_id=example_aws_vpc["id"])
+        current = aws.get_region()
+        workspaces = aws.ec2.VpcEndpoint("workspaces",
+            vpc_id=example_aws_vpc["id"],
+            service_name=f"com.amazonaws.{current.region}.highlander",
+            vpc_endpoint_type="Interface",
+            subnet_ids=[
+                example_a["id"],
+                example_b["id"],
+            ],
+            security_group_ids=[workspaces_streaming.id],
+            private_dns_enabled=True)
+        example = aws.workspaces.Directory("example",
+            workspace_access_properties={
+                "access_endpoint_config": {
+                    "access_endpoints": [{
+                        "access_endpoint_type": "STREAMING_WSP",
+                        "vpc_endpoint_id": workspaces.id,
+                    }],
+                    "internet_fallback_protocols": ["PCOIP"],
+                },
+                "device_type_windows": "ALLOW",
+            },
+            directory_id=example_aws_directory_service_directory["id"])
+        workspaces_streaming_tcp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="tcp")
+        workspaces_streaming_tcp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="tcp")
+        workspaces_streaming_udp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="udp")
+        workspaces_streaming_udp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="udp")
         ```
 
         ## Import
@@ -935,22 +993,22 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1b",
             cidr_block="10.0.1.0/24")
         example_directory = aws.directoryservice.Directory("example",
-            name="corp.example.com",
-            password="#S1ncerely",
-            size="Small",
             vpc_settings={
                 "vpc_id": example_vpc.id,
                 "subnet_ids": [
                     example_a.id,
                     example_b.id,
                 ],
-            })
+            },
+            name="corp.example.com",
+            password="#S1ncerely",
+            size="Small")
         workspaces = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["workspaces.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         workspaces_default = aws.iam.Role("workspaces_default",
             name="workspaces_DefaultRole",
@@ -970,14 +1028,6 @@ class Directory(pulumi.CustomResource):
             availability_zone="us-east-1d",
             cidr_block="10.0.3.0/24")
         example = aws.workspaces.Directory("example",
-            directory_id=example_directory.id,
-            subnet_ids=[
-                example_c.id,
-                example_d.id,
-            ],
-            tags={
-                "Example": "true",
-            },
             certificate_based_auth_properties={
                 "certificate_authority_arn": "arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012",
                 "status": "ENABLED",
@@ -1010,6 +1060,14 @@ class Directory(pulumi.CustomResource):
                 "enable_maintenance_mode": True,
                 "user_enabled_as_local_administrator": True,
             },
+            directory_id=example_directory.id,
+            subnet_ids=[
+                example_c.id,
+                example_d.id,
+            ],
+            tags={
+                "Example": "true",
+            },
             opts = pulumi.ResourceOptions(depends_on=[
                     workspaces_default_service_access,
                     workspaces_default_self_service_access,
@@ -1023,14 +1081,6 @@ class Directory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.workspaces.Directory("example",
-            subnet_ids=[
-                example_c["id"],
-                example_d["id"],
-            ],
-            workspace_type="POOLS",
-            workspace_directory_name="Pool directory",
-            workspace_directory_description="WorkSpaces Pools directory",
-            user_identity_type="CUSTOMER_MANAGED",
             active_directory_config={
                 "domain_name": "example.internal",
                 "service_account_secret_arn": example_aws_secretsmanager_secret["arn"],
@@ -1054,7 +1104,15 @@ class Directory(pulumi.CustomResource):
                 "relay_state_parameter_name": "RelayState",
                 "user_access_url": "https://sso.example.com/",
                 "status": "ENABLED",
-            })
+            },
+            subnet_ids=[
+                example_c["id"],
+                example_d["id"],
+            ],
+            workspace_type="POOLS",
+            workspace_directory_name="Pool directory",
+            workspace_directory_description="WorkSpaces Pools directory",
+            user_identity_type="CUSTOMER_MANAGED")
         ```
 
         ### IP Groups
@@ -1067,6 +1125,64 @@ class Directory(pulumi.CustomResource):
         example = aws.workspaces.Directory("example",
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
+        ```
+
+        ### VPC Endpoint Streaming
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        workspaces_streaming = aws.ec2.SecurityGroup("workspaces_streaming",
+            name="workspaces-streaming-endpoint",
+            vpc_id=example_aws_vpc["id"])
+        current = aws.get_region()
+        workspaces = aws.ec2.VpcEndpoint("workspaces",
+            vpc_id=example_aws_vpc["id"],
+            service_name=f"com.amazonaws.{current.region}.highlander",
+            vpc_endpoint_type="Interface",
+            subnet_ids=[
+                example_a["id"],
+                example_b["id"],
+            ],
+            security_group_ids=[workspaces_streaming.id],
+            private_dns_enabled=True)
+        example = aws.workspaces.Directory("example",
+            workspace_access_properties={
+                "access_endpoint_config": {
+                    "access_endpoints": [{
+                        "access_endpoint_type": "STREAMING_WSP",
+                        "vpc_endpoint_id": workspaces.id,
+                    }],
+                    "internet_fallback_protocols": ["PCOIP"],
+                },
+                "device_type_windows": "ALLOW",
+            },
+            directory_id=example_aws_directory_service_directory["id"])
+        workspaces_streaming_tcp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="tcp")
+        workspaces_streaming_tcp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_tcp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="tcp")
+        workspaces_streaming_udp443 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_443",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=443,
+            to_port=443,
+            ip_protocol="udp")
+        workspaces_streaming_udp4195 = aws.vpc.SecurityGroupIngressRule("workspaces_streaming_udp_4195",
+            security_group_id=workspaces_streaming.id,
+            cidr_ipv4=example_aws_vpc["cidrBlock"],
+            from_port=4195,
+            to_port=4195,
+            ip_protocol="udp")
         ```
 
         ## Import

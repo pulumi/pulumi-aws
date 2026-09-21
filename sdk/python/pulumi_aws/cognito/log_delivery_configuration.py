@@ -162,14 +162,14 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example")
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
                 "cloud_watch_logs_configuration": {
                     "log_group_arn": example_log_group.arn,
                 },
-            }])
+                "event_source": "userNotification",
+                "log_level": "ERROR",
+            }],
+            user_pool_id=example.id)
         ```
 
         ### Multiple Log Configurations with Different Destinations
@@ -220,30 +220,30 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                 }],
             }))
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
-            name="example-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": firehose.arn,
                 "bucket_arn": example_bucket.arn,
-            })
+            },
+            name="example-stream",
+            destination="extended_s3")
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[
                 {
-                    "event_source": "userNotification",
-                    "log_level": "INFO",
                     "cloud_watch_logs_configuration": {
                         "log_group_arn": example_log_group.arn,
                     },
+                    "event_source": "userNotification",
+                    "log_level": "INFO",
                 },
                 {
-                    "event_source": "userAuthEvents",
-                    "log_level": "INFO",
                     "firehose_configuration": {
                         "stream_arn": example_firehose_delivery_stream.arn,
                     },
+                    "event_source": "userAuthEvents",
+                    "log_level": "INFO",
                 },
-            ])
+            ],
+            user_pool_id=example.id)
         ```
 
         ### S3 Configuration
@@ -259,14 +259,14 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
             bucket="example-bucket",
             force_destroy=True)
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userAuthEvents",
-                "log_level": "INFO",
                 "s3_configuration": {
                     "bucket_arn": example_bucket.arn,
                 },
-            }])
+                "event_source": "userAuthEvents",
+                "log_level": "INFO",
+            }],
+            user_pool_id=example.id)
         ```
 
         ## Import
@@ -317,14 +317,14 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
         example = aws.cognito.UserPool("example", name="example")
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userNotification",
-                "log_level": "ERROR",
                 "cloud_watch_logs_configuration": {
                     "log_group_arn": example_log_group.arn,
                 },
-            }])
+                "event_source": "userNotification",
+                "log_level": "ERROR",
+            }],
+            user_pool_id=example.id)
         ```
 
         ### Multiple Log Configurations with Different Destinations
@@ -375,30 +375,30 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
                 }],
             }))
         example_firehose_delivery_stream = aws.kinesis.FirehoseDeliveryStream("example",
-            name="example-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": firehose.arn,
                 "bucket_arn": example_bucket.arn,
-            })
+            },
+            name="example-stream",
+            destination="extended_s3")
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[
                 {
-                    "event_source": "userNotification",
-                    "log_level": "INFO",
                     "cloud_watch_logs_configuration": {
                         "log_group_arn": example_log_group.arn,
                     },
+                    "event_source": "userNotification",
+                    "log_level": "INFO",
                 },
                 {
-                    "event_source": "userAuthEvents",
-                    "log_level": "INFO",
                     "firehose_configuration": {
                         "stream_arn": example_firehose_delivery_stream.arn,
                     },
+                    "event_source": "userAuthEvents",
+                    "log_level": "INFO",
                 },
-            ])
+            ],
+            user_pool_id=example.id)
         ```
 
         ### S3 Configuration
@@ -414,14 +414,14 @@ class LogDeliveryConfiguration(pulumi.CustomResource):
             bucket="example-bucket",
             force_destroy=True)
         example_log_delivery_configuration = aws.cognito.LogDeliveryConfiguration("example",
-            user_pool_id=example.id,
             log_configurations=[{
-                "event_source": "userAuthEvents",
-                "log_level": "INFO",
                 "s3_configuration": {
                     "bucket_arn": example_bucket.arn,
                 },
-            }])
+                "event_source": "userAuthEvents",
+                "log_level": "INFO",
+            }],
+            user_pool_id=example.id)
         ```
 
         ## Import

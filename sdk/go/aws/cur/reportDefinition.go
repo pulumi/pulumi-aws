@@ -70,7 +70,7 @@ type ReportDefinition struct {
 	AdditionalArtifacts pulumi.StringArrayOutput `pulumi:"additionalArtifacts"`
 	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
 	AdditionalSchemaElements pulumi.StringArrayOutput `pulumi:"additionalSchemaElements"`
-	// The Amazon Resource Name (ARN) specifying the cur report.
+	// ARN specifying the cur report.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression pulumi.StringOutput `pulumi:"compression"`
@@ -154,7 +154,7 @@ type reportDefinitionState struct {
 	AdditionalArtifacts []string `pulumi:"additionalArtifacts"`
 	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
 	AdditionalSchemaElements []string `pulumi:"additionalSchemaElements"`
-	// The Amazon Resource Name (ARN) specifying the cur report.
+	// ARN specifying the cur report.
 	Arn *string `pulumi:"arn"`
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression *string `pulumi:"compression"`
@@ -185,7 +185,7 @@ type ReportDefinitionState struct {
 	AdditionalArtifacts pulumi.StringArrayInput
 	// A list of schema elements. Valid values are: `RESOURCES`, `SPLIT_COST_ALLOCATION_DATA`, `MANUAL_DISCOUNT_COMPATIBILITY`.
 	AdditionalSchemaElements pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) specifying the cur report.
+	// ARN specifying the cur report.
 	Arn pulumi.StringPtrInput
 	// Compression format for report. Valid values are: `GZIP`, `ZIP`, `Parquet`. If `Parquet` is used, then format must also be `Parquet`.
 	Compression pulumi.StringPtrInput
@@ -367,7 +367,7 @@ func (o ReportDefinitionOutput) AdditionalSchemaElements() pulumi.StringArrayOut
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringArrayOutput { return v.AdditionalSchemaElements }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) specifying the cur report.
+// ARN specifying the cur report.
 func (o ReportDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReportDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

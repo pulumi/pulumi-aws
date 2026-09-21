@@ -21,31 +21,30 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const us_east_1 = new aws.dynamodb.Table("us-east-1", {
+ *     attributes: [{
+ *         name: "myAttribute",
+ *         type: "S",
+ *     }],
  *     hashKey: "myAttribute",
  *     name: "myTable",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     readCapacity: 1,
  *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
  * });
  * const us_west_2 = new aws.dynamodb.Table("us-west-2", {
+ *     attributes: [{
+ *         name: "myAttribute",
+ *         type: "S",
+ *     }],
  *     hashKey: "myAttribute",
  *     name: "myTable",
  *     streamEnabled: true,
  *     streamViewType: "NEW_AND_OLD_IMAGES",
  *     readCapacity: 1,
  *     writeCapacity: 1,
- *     attributes: [{
- *         name: "myAttribute",
- *         type: "S",
- *     }],
  * });
  * const myTable = new aws.dynamodb.GlobalTable("myTable", {
- *     name: "myTable",
  *     replicas: [
  *         {
  *             regionName: "us-east-1",
@@ -54,6 +53,7 @@ import * as utilities from "../utilities";
  *             regionName: "us-west-2",
  *         },
  *     ],
+ *     name: "myTable",
  * }, {
  *     dependsOn: [
  *         us_east_1,

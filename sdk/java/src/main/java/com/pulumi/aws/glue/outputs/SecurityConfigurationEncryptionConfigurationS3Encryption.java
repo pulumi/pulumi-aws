@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     private @Nullable String kmsKeyArn;
@@ -24,7 +24,7 @@ public final class SecurityConfigurationEncryptionConfigurationS3Encryption {
 
     private SecurityConfigurationEncryptionConfigurationS3Encryption() {}
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     public Optional<String> kmsKeyArn() {

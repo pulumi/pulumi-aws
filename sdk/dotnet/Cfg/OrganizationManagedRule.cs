@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Cfg
     public partial class OrganizationManagedRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// ARN of the rule
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class OrganizationManagedRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// ARN of the rule
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

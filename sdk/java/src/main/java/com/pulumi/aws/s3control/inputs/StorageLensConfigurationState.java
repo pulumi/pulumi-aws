@@ -33,14 +33,14 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * @return ARN of the S3 Storage Lens configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -174,7 +174,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+         * @param arn ARN of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class StorageLensConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+         * @param arn ARN of the S3 Storage Lens configuration.
          * 
          * @return builder
          * 

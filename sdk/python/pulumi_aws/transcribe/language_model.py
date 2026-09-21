@@ -288,11 +288,11 @@ class LanguageModel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transcribe.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
@@ -319,12 +319,12 @@ class LanguageModel(pulumi.CustomResource):
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
-            model_name="example",
-            base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
                 "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
+            model_name="example",
+            base_model_name="NarrowBand",
             language_code="en-US",
             tags={
                 "ENVIRONMENT": "development",
@@ -372,11 +372,11 @@ class LanguageModel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["transcribe.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example",
@@ -403,12 +403,12 @@ class LanguageModel(pulumi.CustomResource):
             key="transcribe/test1.txt",
             source=pulumi.FileAsset("test1.txt"))
         example_language_model = aws.transcribe.LanguageModel("example",
-            model_name="example",
-            base_model_name="NarrowBand",
             input_data_config={
                 "data_access_role_arn": example_role.arn,
                 "s3_uri": example_bucket.id.apply(lambda id: f"s3://{id}/transcribe/"),
             },
+            model_name="example",
+            base_model_name="NarrowBand",
             language_code="en-US",
             tags={
                 "ENVIRONMENT": "development",

@@ -21,18 +21,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberName: "example-name",
- *     accessType: "S3",
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
  *     sources: [{
  *         awsLogSourceResource: {
  *             sourceName: "ROUTE53",
  *             sourceVersion: "1.0",
  *         },
  *     }],
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
  * }, {
  *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });
@@ -45,8 +45,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securitylake.Subscriber("example", {
- *     subscriberName: "example-name",
- *     accessType: "S3",
+ *     subscriberIdentity: {
+ *         externalId: "example",
+ *         principal: "1234567890",
+ *     },
  *     sources: [
  *         {
  *             awsLogSourceResource: {
@@ -61,10 +63,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     ],
- *     subscriberIdentity: {
- *         externalId: "example",
- *         principal: "1234567890",
- *     },
+ *     subscriberName: "example-name",
+ *     accessType: "S3",
  * }, {
  *     dependsOn: [exampleAwsSecuritylakeDataLake],
  * });
@@ -119,7 +119,7 @@ export class Subscriber extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     declare public /*out*/ readonly resourceShareArn: pulumi.Output<string>;
     /**
@@ -244,7 +244,7 @@ export interface SubscriberState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
     /**

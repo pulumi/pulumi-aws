@@ -100,6 +100,11 @@ import * as utilities from "../utilities";
  *
  * // ...
  * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     loggingConfiguration: {
+ *         logDestination: `${logGroupForSfn.arn}:*`,
+ *         includeExecutionData: true,
+ *         level: "ERROR",
+ *     },
  *     name: "my-state-machine",
  *     roleArn: iamForSfn.arn,
  *     definition: `{
@@ -114,11 +119,6 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     loggingConfiguration: {
- *         logDestination: `${logGroupForSfn.arn}:*`,
- *         includeExecutionData: true,
- *         level: "ERROR",
- *     },
  * });
  * ```
  *
@@ -132,6 +132,11 @@ import * as utilities from "../utilities";
  *
  * // ...
  * const sfnStateMachine = new aws.sfn.StateMachine("sfn_state_machine", {
+ *     encryptionConfiguration: {
+ *         kmsKeyId: kmsKeyForSfn.arn,
+ *         type: "CUSTOMER_MANAGED_KMS_KEY",
+ *         kmsDataKeyReusePeriodSeconds: 900,
+ *     },
  *     name: "my-state-machine",
  *     roleArn: iamForSfn.arn,
  *     definition: `{
@@ -146,11 +151,6 @@ import * as utilities from "../utilities";
  *   }
  * }
  * `,
- *     encryptionConfiguration: {
- *         kmsKeyId: kmsKeyForSfn.arn,
- *         type: "CUSTOMER_MANAGED_KMS_KEY",
- *         kmsDataKeyReusePeriodSeconds: 900,
- *     },
  * });
  * ```
  *
@@ -235,7 +235,7 @@ export class StateMachine extends pulumi.CustomResource {
     declare public readonly region: pulumi.Output<string>;
     declare public /*out*/ readonly revisionId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -372,7 +372,7 @@ export interface StateMachineState {
     region?: pulumi.Input<string | undefined>;
     revisionId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -435,7 +435,7 @@ export interface StateMachineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      */
     roleArn: pulumi.Input<string>;
     /**

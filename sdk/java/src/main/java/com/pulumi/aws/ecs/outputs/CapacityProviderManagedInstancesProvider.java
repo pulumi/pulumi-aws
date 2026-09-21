@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.ecs.outputs;
 
+import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInfrastructureOptimization;
 import com.pulumi.aws.ecs.outputs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplate;
 import com.pulumi.core.annotations.CustomType;
@@ -14,6 +15,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class CapacityProviderManagedInstancesProvider {
+    /**
+     * @return Configuration block for the auto repair configuration. Detailed below.
+     * 
+     */
+    private @Nullable CapacityProviderManagedInstancesProviderAutoRepairConfiguration autoRepairConfiguration;
     /**
      * @return Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
      * 
@@ -36,6 +42,13 @@ public final class CapacityProviderManagedInstancesProvider {
     private @Nullable String propagateTags;
 
     private CapacityProviderManagedInstancesProvider() {}
+    /**
+     * @return Configuration block for the auto repair configuration. Detailed below.
+     * 
+     */
+    public Optional<CapacityProviderManagedInstancesProviderAutoRepairConfiguration> autoRepairConfiguration() {
+        return Optional.ofNullable(this.autoRepairConfiguration);
+    }
     /**
      * @return Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
      * 
@@ -74,6 +87,7 @@ public final class CapacityProviderManagedInstancesProvider {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable CapacityProviderManagedInstancesProviderAutoRepairConfiguration autoRepairConfiguration;
         private @Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization;
         private String infrastructureRoleArn;
         private CapacityProviderManagedInstancesProviderInstanceLaunchTemplate instanceLaunchTemplate;
@@ -81,12 +95,19 @@ public final class CapacityProviderManagedInstancesProvider {
         public Builder() {}
         public Builder(CapacityProviderManagedInstancesProvider defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.autoRepairConfiguration = defaults.autoRepairConfiguration;
     	      this.infrastructureOptimization = defaults.infrastructureOptimization;
     	      this.infrastructureRoleArn = defaults.infrastructureRoleArn;
     	      this.instanceLaunchTemplate = defaults.instanceLaunchTemplate;
     	      this.propagateTags = defaults.propagateTags;
         }
 
+        @CustomType.Setter
+        public Builder autoRepairConfiguration(@Nullable CapacityProviderManagedInstancesProviderAutoRepairConfiguration autoRepairConfiguration) {
+
+            this.autoRepairConfiguration = autoRepairConfiguration;
+            return this;
+        }
         @CustomType.Setter
         public Builder infrastructureOptimization(@Nullable CapacityProviderManagedInstancesProviderInfrastructureOptimization infrastructureOptimization) {
 
@@ -117,6 +138,7 @@ public final class CapacityProviderManagedInstancesProvider {
         }
         public CapacityProviderManagedInstancesProvider build() {
             final var _resultValue = new CapacityProviderManagedInstancesProvider();
+            _resultValue.autoRepairConfiguration = autoRepairConfiguration;
             _resultValue.infrastructureOptimization = infrastructureOptimization;
             _resultValue.infrastructureRoleArn = infrastructureRoleArn;
             _resultValue.instanceLaunchTemplate = instanceLaunchTemplate;

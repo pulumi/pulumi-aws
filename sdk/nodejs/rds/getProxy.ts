@@ -52,7 +52,7 @@ export interface GetProxyResult {
      */
     readonly arn: string;
     /**
-     * Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+     * Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
      */
     readonly auths: outputs.rds.GetProxyAuth[];
     /**
@@ -86,7 +86,7 @@ export interface GetProxyResult {
     readonly name: string;
     readonly region: string;
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy.
      */
     readonly requireTls: boolean;
     /**

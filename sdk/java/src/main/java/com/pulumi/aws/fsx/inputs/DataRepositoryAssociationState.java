@@ -20,14 +20,14 @@ public final class DataRepositoryAssociationState extends com.pulumi.resources.R
     public static final DataRepositoryAssociationState Empty = new DataRepositoryAssociationState();
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -235,7 +235,7 @@ public final class DataRepositoryAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class DataRepositoryAssociationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 

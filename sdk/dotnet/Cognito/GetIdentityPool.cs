@@ -190,7 +190,7 @@ namespace Pulumi.Aws.Cognito
         public readonly ImmutableArray<string> OpenidConnectProviderArns;
         public readonly string Region;
         /// <summary>
-        /// An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+        /// Array of ARNs of the SAML provider for your identity.
         /// </summary>
         public readonly ImmutableArray<string> SamlProviderArns;
         /// <summary>

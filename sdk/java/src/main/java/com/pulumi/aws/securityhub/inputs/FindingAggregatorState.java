@@ -17,14 +17,14 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
     public static final FindingAggregatorState Empty = new FindingAggregatorState();
 
     /**
-     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * ARN of the Security Hub finding aggregator.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * @return ARN of the Security Hub finding aggregator.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -104,7 +104,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+         * @param arn ARN of the Security Hub finding aggregator.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class FindingAggregatorState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+         * @param arn ARN of the Security Hub finding aggregator.
          * 
          * @return builder
          * 

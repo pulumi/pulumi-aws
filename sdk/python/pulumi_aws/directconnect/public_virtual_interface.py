@@ -28,13 +28,14 @@ class PublicVirtualInterfaceArgs:
                  bgp_auth_key: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None):
         """
         The set of arguments for constructing a PublicVirtualInterface resource.
 
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[_builtins.int] vlan: The VLAN ID.
@@ -42,6 +43,7 @@ class PublicVirtualInterfaceArgs:
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -58,6 +60,8 @@ class PublicVirtualInterfaceArgs:
             pulumi.set(__self__, "customer_address", customer_address)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -79,7 +83,7 @@ class PublicVirtualInterfaceArgs:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Input[_builtins.int]:
         """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -172,6 +176,18 @@ class PublicVirtualInterfaceArgs:
         pulumi.set(self, "name", value)
 
     @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
+
+    @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -209,6 +225,7 @@ class _PublicVirtualInterfaceState:
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -221,11 +238,12 @@ class _PublicVirtualInterfaceState:
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -252,6 +270,8 @@ class _PublicVirtualInterfaceState:
             pulumi.set(__self__, "customer_address", customer_address)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if rate_limit is not None:
+            pulumi.set(__self__, "rate_limit", rate_limit)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if route_filter_prefixes is not None:
@@ -324,7 +344,7 @@ class _PublicVirtualInterfaceState:
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -379,6 +399,18 @@ class _PublicVirtualInterfaceState:
     @name.setter
     def name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
+
+    @rate_limit.setter
+    def rate_limit(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rate_limit", value)
 
     @_builtins.property
     @pulumi.getter
@@ -454,6 +486,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -490,16 +523,19 @@ class PublicVirtualInterface(pulumi.CustomResource):
         $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
         ```
 
+        > **Note:** When a virtual interface uses an ASN in the `bgp_asn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgp_asn` rather than `bgp_asn_long`. If the virtual interface was originally created with `bgp_asn_long` set to a value in that range, update your configuration to use `bgp_asn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgp_asn_long` as expected.
+
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] address_family: The address family for the BGP peer. ` ipv4  ` or `ipv6`.
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -542,6 +578,8 @@ class PublicVirtualInterface(pulumi.CustomResource):
         $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
         ```
 
+        > **Note:** When a virtual interface uses an ASN in the `bgp_asn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgp_asn` rather than `bgp_asn_long`. If the virtual interface was originally created with `bgp_asn_long` set to a value in that range, update your configuration to use `bgp_asn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgp_asn_long` as expected.
+
 
         :param str resource_name: The name of the resource.
         :param PublicVirtualInterfaceArgs args: The arguments to use to populate this resource's properties.
@@ -565,6 +603,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
                  connection_id: pulumi.Input[Optional[_builtins.str]] = None,
                  customer_address: pulumi.Input[Optional[_builtins.str]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -591,6 +630,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
             __props__.__dict__["connection_id"] = connection_id
             __props__.__dict__["customer_address"] = customer_address
             __props__.__dict__["name"] = name
+            __props__.__dict__["rate_limit"] = rate_limit
             __props__.__dict__["region"] = region
             if route_filter_prefixes is None and not opts.urn:
                 raise TypeError("Missing required property 'route_filter_prefixes'")
@@ -623,6 +663,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
             connection_id: pulumi.Input[Optional[_builtins.str]] = None,
             customer_address: pulumi.Input[Optional[_builtins.str]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
+            rate_limit: pulumi.Input[Optional[_builtins.str]] = None,
             region: pulumi.Input[Optional[_builtins.str]] = None,
             route_filter_prefixes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
@@ -639,11 +680,12 @@ class PublicVirtualInterface(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] amazon_address: The IPv4 CIDR address to use to send traffic to Amazon. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] arn: The ARN of the virtual interface.
         :param pulumi.Input[_builtins.str] aws_device: The Direct Connect endpoint on which the virtual interface terminates.
-        :param pulumi.Input[_builtins.int] bgp_asn: The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        :param pulumi.Input[_builtins.int] bgp_asn: BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         :param pulumi.Input[_builtins.str] bgp_auth_key: The authentication key for BGP configuration.
         :param pulumi.Input[_builtins.str] connection_id: The ID of the Direct Connect connection (or LAG) on which to create the virtual interface.
         :param pulumi.Input[_builtins.str] customer_address: The IPv4 CIDR destination address to which Amazon should send traffic. Required for IPv4 BGP peers.
         :param pulumi.Input[_builtins.str] name: The name for the virtual interface.
+        :param pulumi.Input[_builtins.str] rate_limit: Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_filter_prefixes: A list of routes to be advertised to the AWS network in this region.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -664,6 +706,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
         __props__.__dict__["connection_id"] = connection_id
         __props__.__dict__["customer_address"] = customer_address
         __props__.__dict__["name"] = name
+        __props__.__dict__["rate_limit"] = rate_limit
         __props__.__dict__["region"] = region
         __props__.__dict__["route_filter_prefixes"] = route_filter_prefixes
         __props__.__dict__["tags"] = tags
@@ -712,7 +755,7 @@ class PublicVirtualInterface(pulumi.CustomResource):
     @pulumi.getter(name="bgpAsn")
     def bgp_asn(self) -> pulumi.Output[_builtins.int]:
         """
-        The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgp_asn_long`. Exactly one of `bgp_asn` or `bgp_asn_long` must be specified.
         """
         return pulumi.get(self, "bgp_asn")
 
@@ -747,6 +790,14 @@ class PublicVirtualInterface(pulumi.CustomResource):
         The name for the virtual interface.
         """
         return pulumi.get(self, "name")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimit")
+    def rate_limit(self) -> pulumi.Output[_builtins.str]:
+        """
+        Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        """
+        return pulumi.get(self, "rate_limit")
 
     @_builtins.property
     @pulumi.getter

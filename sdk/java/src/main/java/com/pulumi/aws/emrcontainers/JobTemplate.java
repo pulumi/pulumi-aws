@@ -50,13 +50,13 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new JobTemplate("example", JobTemplateArgs.builder()
  *             .jobTemplateData(JobTemplateJobTemplateDataArgs.builder()
- *                 .executionRoleArn(exampleAwsIamRole.arn())
- *                 .releaseLabel("emr-6.10.0-latest")
  *                 .jobDriver(JobTemplateJobTemplateDataJobDriverArgs.builder()
  *                     .sparkSqlJobDriver(JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs.builder()
  *                         .entryPoint("default")
  *                         .build())
  *                     .build())
+ *                 .executionRoleArn(exampleAwsIamRole.arn())
+ *                 .releaseLabel("emr-6.10.0-latest")
  *                 .build())
  *             .name("example")
  *             .build());

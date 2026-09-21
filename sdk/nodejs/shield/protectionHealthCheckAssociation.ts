@@ -85,7 +85,7 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * ARN of the Route53 Health Check resource which will be associated to the protected resource.
      */
     declare public readonly healthCheckArn: pulumi.Output<string>;
     /**
@@ -129,7 +129,7 @@ export class ProtectionHealthCheckAssociation extends pulumi.CustomResource {
  */
 export interface ProtectionHealthCheckAssociationState {
     /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * ARN of the Route53 Health Check resource which will be associated to the protected resource.
      */
     healthCheckArn?: pulumi.Input<string | undefined>;
     /**
@@ -143,7 +143,7 @@ export interface ProtectionHealthCheckAssociationState {
  */
 export interface ProtectionHealthCheckAssociationArgs {
     /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * ARN of the Route53 Health Check resource which will be associated to the protected resource.
      */
     healthCheckArn: pulumi.Input<string>;
     /**

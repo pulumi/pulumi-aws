@@ -24,18 +24,12 @@ namespace Pulumi.Aws.ImageBuilder
     /// {
     ///     var example = new Aws.ImageBuilder.DistributionConfiguration("example", new()
     ///     {
-    ///         Name = "example",
     ///         Distributions = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionArgs
     ///             {
     ///                 AmiDistributionConfiguration = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationArgs
     ///                 {
-    ///                     AmiTags = 
-    ///                     {
-    ///                         { "CostCenter", "IT" },
-    ///                     },
-    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                     LaunchPermission = new Aws.ImageBuilder.Inputs.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs
     ///                     {
     ///                         UserIds = new[]
@@ -43,6 +37,11 @@ namespace Pulumi.Aws.ImageBuilder
     ///                             "123456789012",
     ///                         },
     ///                     },
+    ///                     AmiTags = 
+    ///                     {
+    ///                         { "CostCenter", "IT" },
+    ///                     },
+    ///                     Name = "example-{{ imagebuilder:buildDate }}",
     ///                 },
     ///                 LaunchTemplateConfigurations = new[]
     ///                 {
@@ -54,6 +53,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 Region = "us-east-1",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -65,9 +65,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+    /// - `Arn` (String) ARN of the Image Builder distribution configuration.
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.getDistributionConfigurations` resources using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.getDistributionConfigurations` resources using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class DistributionConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        /// (Required) ARN of the distribution configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class DistributionConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        /// (Required) ARN of the distribution configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

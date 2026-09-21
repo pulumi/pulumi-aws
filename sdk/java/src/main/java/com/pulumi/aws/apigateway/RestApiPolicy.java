@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.apigateway.RestApiPolicy;
  * import com.pulumi.aws.apigateway.RestApiPolicyArgs;
  * import java.util.ArrayList;
@@ -57,18 +57,18 @@ import javax.annotation.Nullable;
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("AWS")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("execute-api:Invoke")
- *                 .resources(testRestApi.executionArn().applyValue(_executionArn -> String.format("%s/*", _executionArn)))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
  *                     .values("123.123.123.123/32")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("AWS")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("execute-api:Invoke")
+ *                 .resources(testRestApi.executionArn().applyValue(_executionArn -> String.format("%s/*", _executionArn)))
  *                 .build())
  *             .build());
  * 

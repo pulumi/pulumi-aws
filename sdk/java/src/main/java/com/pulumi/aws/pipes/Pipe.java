@@ -162,11 +162,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
- *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
  *             .enrichmentParameters(PipeEnrichmentParametersArgs.builder()
  *                 .httpParameters(PipeEnrichmentParametersHttpParametersArgs.builder()
  *                     .pathParameterValues("example-path-param")
@@ -180,6 +175,11 @@ import javax.annotation.Nullable;
  *                     ))
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
+ *             .enrichment(exampleAwsCloudwatchEventApiDestination.arn())
  *             .build());
  * 
  *     }
@@ -216,10 +216,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
  *             .sourceParameters(PipeSourceParametersArgs.builder()
  *                 .filterCriteria(PipeSourceParametersFilterCriteriaArgs.builder()
  *                     .filters(PipeSourceParametersFilterCriteriaFilterArgs.builder()
@@ -230,6 +226,10 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
  *             .build());
  * 
  *     }
@@ -271,17 +271,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePipe = new Pipe("examplePipe", PipeArgs.builder()
+ *             .logConfiguration(PipeLogConfigurationArgs.builder()
+ *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
+ *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
+ *                     .build())
+ *                 .includeExecutionDatas("ALL")
+ *                 .level("INFO")
+ *                 .build())
  *             .name("example-pipe")
  *             .roleArn(exampleAwsIamRole.arn())
  *             .source(sourceAwsSqsQueue.arn())
  *             .target(targetAwsSqsQueue.arn())
- *             .logConfiguration(PipeLogConfigurationArgs.builder()
- *                 .includeExecutionDatas("ALL")
- *                 .level("INFO")
- *                 .cloudwatchLogsLogDestination(PipeLogConfigurationCloudwatchLogsLogDestinationArgs.builder()
- *                     .logGroupArn(targetAwsCloudwatchLogGroup.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     source,
@@ -322,10 +322,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Pipe("example", PipeArgs.builder()
- *             .name("example-pipe")
- *             .roleArn(exampleAwsIamRole.arn())
- *             .source(source.arn())
- *             .target(target.arn())
  *             .sourceParameters(PipeSourceParametersArgs.builder()
  *                 .sqsQueueParameters(PipeSourceParametersSqsQueueParametersArgs.builder()
  *                     .batchSize(1)
@@ -338,6 +334,10 @@ import javax.annotation.Nullable;
  *                     .messageGroupId("example-group")
  *                     .build())
  *                 .build())
+ *             .name("example-pipe")
+ *             .roleArn(exampleAwsIamRole.arn())
+ *             .source(source.arn())
+ *             .target(target.arn())
  *             .build());
  * 
  *     }
@@ -427,14 +427,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enrichmentParameters);
     }
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
     /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      * 
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
@@ -511,14 +511,14 @@ public class Pipe extends com.pulumi.resources.CustomResource {
         return this.roleArn;
     }
     /**
-     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * @return Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     public Output<String> source() {

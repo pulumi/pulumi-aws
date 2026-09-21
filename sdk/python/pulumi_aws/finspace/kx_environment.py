@@ -162,7 +162,7 @@ class _KxEnvironmentState:
         """
         Input properties used for looking up and filtering KxEnvironment resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX environment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[Sequence[pulumi.Input['KxEnvironmentCustomDnsConfigurationArgs']]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -212,7 +212,7 @@ class _KxEnvironmentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX environment.
+        ARN identifier of the KX environment.
         """
         return pulumi.get(self, "arn")
 
@@ -423,9 +423,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
                 "transit_gateway_id": example_transit_gateway.id,
                 "routable_cidr_space": "100.64.0.0/26",
@@ -433,7 +430,10 @@ class KxEnvironment(pulumi.CustomResource):
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ### With Transit Gateway Attachment Network ACL Configuration
@@ -447,17 +447,8 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transit_gateway_id": example_transit_gateway.id,
-                "routable_cidr_space": "100.64.0.0/26",
                 "attachment_network_acl_configurations": [{
-                    "rule_number": 1,
-                    "protocol": "6",
-                    "rule_action": "allow",
-                    "cidr_block": "0.0.0.0/0",
                     "port_range": {
                         "from_": 53,
                         "to": 53,
@@ -466,12 +457,21 @@ class KxEnvironment(pulumi.CustomResource):
                         "type": -1,
                         "code": -1,
                     },
+                    "rule_number": 1,
+                    "protocol": "6",
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
                 }],
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ## Import
@@ -531,9 +531,6 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
                 "transit_gateway_id": example_transit_gateway.id,
                 "routable_cidr_space": "100.64.0.0/26",
@@ -541,7 +538,10 @@ class KxEnvironment(pulumi.CustomResource):
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ### With Transit Gateway Attachment Network ACL Configuration
@@ -555,17 +555,8 @@ class KxEnvironment(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_transit_gateway = aws.ec2transitgateway.TransitGateway("example", description="example")
         example_env = aws.finspace.KxEnvironment("example_env",
-            name="my-tf-kx-environment",
-            description="Environment description",
-            kms_key_id=example.arn,
             transit_gateway_configuration={
-                "transit_gateway_id": example_transit_gateway.id,
-                "routable_cidr_space": "100.64.0.0/26",
                 "attachment_network_acl_configurations": [{
-                    "rule_number": 1,
-                    "protocol": "6",
-                    "rule_action": "allow",
-                    "cidr_block": "0.0.0.0/0",
                     "port_range": {
                         "from_": 53,
                         "to": 53,
@@ -574,12 +565,21 @@ class KxEnvironment(pulumi.CustomResource):
                         "type": -1,
                         "code": -1,
                     },
+                    "rule_number": 1,
+                    "protocol": "6",
+                    "rule_action": "allow",
+                    "cidr_block": "0.0.0.0/0",
                 }],
+                "transit_gateway_id": example_transit_gateway.id,
+                "routable_cidr_space": "100.64.0.0/26",
             },
             custom_dns_configurations=[{
                 "custom_dns_server_name": "example.finspace.amazonaws.com",
                 "custom_dns_server_ip": "10.0.0.76",
-            }])
+            }],
+            name="my-tf-kx-environment",
+            description="Environment description",
+            kms_key_id=example.arn)
         ```
 
         ## Import
@@ -669,7 +669,7 @@ class KxEnvironment(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX environment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX environment.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: AWS Availability Zone IDs that this environment is available in. Important when selecting VPC subnets to use in cluster creation.
         :param pulumi.Input[_builtins.str] created_timestamp: Timestamp at which the environment is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
         :param pulumi.Input[Sequence[pulumi.Input[Union['KxEnvironmentCustomDnsConfigurationArgs', 'KxEnvironmentCustomDnsConfigurationArgsDict']]]] custom_dns_configurations: List of DNS server name and server IP. This is used to set up Route-53 outbound resolvers. Defined below.
@@ -710,7 +710,7 @@ class KxEnvironment(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX environment.
+        ARN identifier of the KX environment.
         """
         return pulumi.get(self, "arn")
 

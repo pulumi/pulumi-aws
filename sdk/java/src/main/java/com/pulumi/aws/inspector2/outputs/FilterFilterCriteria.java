@@ -97,7 +97,7 @@ public final class FilterFilterCriteria {
      */
     private @Nullable List<FilterFilterCriteriaComponentType> componentTypes;
     /**
-     * @return (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+     * @return (Optional) ID of the AMI. Documented below.
      * 
      */
     private @Nullable List<FilterFilterCriteriaEc2InstanceImageId> ec2InstanceImageIds;
@@ -345,7 +345,7 @@ public final class FilterFilterCriteria {
         return this.componentTypes == null ? List.of() : this.componentTypes;
     }
     /**
-     * @return (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+     * @return (Optional) ID of the AMI. Documented below.
      * 
      */
     public List<FilterFilterCriteriaEc2InstanceImageId> ec2InstanceImageIds() {

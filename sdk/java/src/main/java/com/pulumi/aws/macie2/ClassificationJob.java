@@ -55,14 +55,14 @@ import javax.annotation.Nullable;
  *         var test = new Account("test");
  * 
  *         var testClassificationJob = new ClassificationJob("testClassificationJob", ClassificationJobArgs.builder()
- *             .jobType("ONE_TIME")
- *             .name("NAME OF THE CLASSIFICATION JOB")
  *             .s3JobDefinition(ClassificationJobS3JobDefinitionArgs.builder()
  *                 .bucketDefinitions(ClassificationJobS3JobDefinitionBucketDefinitionArgs.builder()
  *                     .accountId("ACCOUNT ID")
  *                     .buckets("S3 BUCKET NAME")
  *                     .build())
  *                 .build())
+ *             .jobType("ONE_TIME")
+ *             .name("NAME OF THE CLASSIFICATION JOB")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(test)
  *                 .build());

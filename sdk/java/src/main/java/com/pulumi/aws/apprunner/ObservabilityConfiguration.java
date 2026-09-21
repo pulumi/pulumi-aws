@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ObservabilityConfiguration("example", ObservabilityConfigurationArgs.builder()
- *             .observabilityConfigurationName("example")
  *             .traceConfiguration(ObservabilityConfigurationTraceConfigurationArgs.builder()
  *                 .vendor("AWSXRAY")
  *                 .build())
+ *             .observabilityConfigurationName("example")
  *             .tags(Map.of("Name", "example-apprunner-observability-configuration"))
  *             .build());
  * 
@@ -65,7 +65,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
+ * - `arn` (String) ARN of the App Runner observability configuration.
  * 
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  * 

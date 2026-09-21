@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Auditmanager.Outputs
     public sealed class AssessmentRolesAll
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role.
+        /// ARN of the IAM role.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>

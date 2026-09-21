@@ -31,17 +31,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewAssessment(ctx, "test", &auditmanager.AssessmentArgs{
-//				Name: pulumi.String("example"),
 //				AssessmentReportsDestination: &auditmanager.AssessmentAssessmentReportsDestinationArgs{
 //					Destination:     pulumi.Sprintf("s3://%v", testAwsS3Bucket.Id),
 //					DestinationType: pulumi.String("S3"),
-//				},
-//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
-//				Roles: auditmanager.AssessmentRoleArray{
-//					&auditmanager.AssessmentRoleArgs{
-//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
-//						RoleType: pulumi.String("PROCESS_OWNER"),
-//					},
 //				},
 //				Scope: &auditmanager.AssessmentScopeArgs{
 //					AwsAccounts: auditmanager.AssessmentScopeAwsAccountArray{
@@ -55,6 +47,14 @@ import (
 //						},
 //					},
 //				},
+//				Roles: auditmanager.AssessmentRoleArray{
+//					&auditmanager.AssessmentRoleArgs{
+//						RoleArn:  pulumi.Any(testAwsIamRole.Arn),
+//						RoleType: pulumi.String("PROCESS_OWNER"),
+//					},
+//				},
+//				Name:        pulumi.String("example"),
+//				FrameworkId: pulumi.Any(testAwsAuditmanagerFramework.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -86,7 +86,7 @@ import (
 type Assessment struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the assessment.
+	// ARN of the assessment.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrOutput `pulumi:"assessmentReportsDestination"`
@@ -149,7 +149,7 @@ func GetAssessment(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Assessment resources.
 type assessmentState struct {
-	// Amazon Resource Name (ARN) of the assessment.
+	// ARN of the assessment.
 	Arn *string `pulumi:"arn"`
 	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination *AssessmentAssessmentReportsDestination `pulumi:"assessmentReportsDestination"`
@@ -177,7 +177,7 @@ type assessmentState struct {
 }
 
 type AssessmentState struct {
-	// Amazon Resource Name (ARN) of the assessment.
+	// ARN of the assessment.
 	Arn pulumi.StringPtrInput
 	// Assessment report storage destination configuration. See `assessmentReportsDestination` below.
 	AssessmentReportsDestination AssessmentAssessmentReportsDestinationPtrInput
@@ -338,7 +338,7 @@ func (o AssessmentOutput) ToAssessmentOutputWithContext(ctx context.Context) Ass
 	return o
 }
 
-// Amazon Resource Name (ARN) of the assessment.
+// ARN of the assessment.
 func (o AssessmentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Assessment) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

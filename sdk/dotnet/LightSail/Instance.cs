@@ -78,16 +78,16 @@ namespace Pulumi.Aws.LightSail
     /// {
     ///     var example = new Aws.LightSail.Instance("example", new()
     ///     {
-    ///         Name = "example",
-    ///         AvailabilityZone = "us-east-1b",
-    ///         BlueprintId = "amazon_linux_2",
-    ///         BundleId = "nano_3_0",
     ///         AddOn = new Aws.LightSail.Inputs.InstanceAddOnArgs
     ///         {
     ///             Type = "AutoSnapshot",
     ///             SnapshotTime = "06:00",
     ///             Status = "Enabled",
     ///         },
+    ///         Name = "example",
+    ///         AvailabilityZone = "us-east-1b",
+    ///         BlueprintId = "amazon_linux_2",
+    ///         BundleId = "nano_3_0",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

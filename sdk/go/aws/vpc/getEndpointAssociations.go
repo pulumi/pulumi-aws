@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+// Data source for managing an AWS EC2 Vpc Endpoint Associations.
 //
 // ## Example Usage
 //
@@ -67,12 +67,8 @@ type GetEndpointAssociationsResult struct {
 }
 
 func GetEndpointAssociationsOutput(ctx *pulumi.Context, args GetEndpointAssociationsOutputArgs, opts ...pulumi.InvokeOption) GetEndpointAssociationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEndpointAssociationsResultOutput, error) {
-			args := v.(GetEndpointAssociationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", args, GetEndpointAssociationsResultOutput{}, options).(GetEndpointAssociationsResultOutput), nil
-		}).(GetEndpointAssociationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpc/getEndpointAssociations:getEndpointAssociations", args, GetEndpointAssociationsResultOutput{}, options).(GetEndpointAssociationsResultOutput)
 }
 
 // A collection of arguments for invoking getEndpointAssociations.

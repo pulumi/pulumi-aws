@@ -18,14 +18,14 @@ public final class GraphQLApiLogConfigArgs extends com.pulumi.resources.Resource
     public static final GraphQLApiLogConfigArgs Empty = new GraphQLApiLogConfigArgs();
 
     /**
-     * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+     * ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
     @Import(name="cloudwatchLogsRoleArn", required=true)
     private Output<String> cloudwatchLogsRoleArn;
 
     /**
-     * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+     * @return ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
     public Output<String> cloudwatchLogsRoleArn() {
@@ -89,7 +89,7 @@ public final class GraphQLApiLogConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cloudwatchLogsRoleArn Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+         * @param cloudwatchLogsRoleArn ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GraphQLApiLogConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param cloudwatchLogsRoleArn Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+         * @param cloudwatchLogsRoleArn ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
          * 
          * @return builder
          * 

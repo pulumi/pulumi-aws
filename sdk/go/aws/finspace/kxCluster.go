@@ -31,12 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxCluster(ctx, "example", &finspace.KxClusterArgs{
-//				Name:               pulumi.String("my-tf-kx-cluster"),
-//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
-//				Type:               pulumi.String("HDB"),
-//				ReleaseLabel:       pulumi.String("1.0"),
-//				AzMode:             pulumi.String("SINGLE"),
-//				AvailabilityZoneId: pulumi.String("use1-az2"),
 //				CapacityConfiguration: &finspace.KxClusterCapacityConfigurationArgs{
 //					NodeType:  pulumi.String("kx.s.2xlarge"),
 //					NodeCount: pulumi.Int(2),
@@ -51,6 +45,10 @@ import (
 //					},
 //					IpAddressType: pulumi.String("IP_V4"),
 //				},
+//				Code: &finspace.KxClusterCodeArgs{
+//					S3Bucket: pulumi.Any(testAwsS3Bucket.Id),
+//					S3Key:    pulumi.Any(object.Key),
+//				},
 //				CacheStorageConfigurations: finspace.KxClusterCacheStorageConfigurationArray{
 //					&finspace.KxClusterCacheStorageConfigurationArgs{
 //						Type: pulumi.String("CACHE_1000"),
@@ -59,20 +57,22 @@ import (
 //				},
 //				Databases: finspace.KxClusterDatabaseArray{
 //					&finspace.KxClusterDatabaseArgs{
-//						DatabaseName: pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
 //						CacheConfiguration: []map[string]string{
 //							{
 //								"cacheType": "CACHE_1000",
 //								"dbPaths":   "/",
 //							},
 //						},
+//						DatabaseName: pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
 //					},
 //				},
-//				Code: &finspace.KxClusterCodeArgs{
-//					S3Bucket: pulumi.Any(testAwsS3Bucket.Id),
-//					S3Key:    pulumi.Any(object.Key),
-//				},
-//			})
+//				Name:               pulumi.String("my-tf-kx-cluster"),
+//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
+//				Type:               pulumi.String("HDB"),
+//				ReleaseLabel:       pulumi.String("1.0"),
+//				AzMode:             pulumi.String("SINGLE"),
+//				AvailabilityZoneId: pulumi.String("use1-az2"),
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "18h", Update: "18h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -92,7 +92,7 @@ import (
 type KxCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrOutput `pulumi:"autoScalingConfiguration"`
@@ -195,7 +195,7 @@ func GetKxCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxCluster resources.
 type kxClusterState struct {
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn *string `pulumi:"arn"`
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration *KxClusterAutoScalingConfiguration `pulumi:"autoScalingConfiguration"`
@@ -254,7 +254,7 @@ type kxClusterState struct {
 }
 
 type KxClusterState struct {
-	// Amazon Resource Name (ARN) identifier of the KX cluster.
+	// ARN identifier of the KX cluster.
 	Arn pulumi.StringPtrInput
 	// Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `autoScalingConfiguration` Block.
 	AutoScalingConfiguration KxClusterAutoScalingConfigurationPtrInput
@@ -498,7 +498,7 @@ func (o KxClusterOutput) ToKxClusterOutputWithContext(ctx context.Context) KxClu
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX cluster.
+// ARN identifier of the KX cluster.
 func (o KxClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

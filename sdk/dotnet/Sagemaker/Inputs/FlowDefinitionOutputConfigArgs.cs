@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class FlowDefinitionOutputConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+        /// KMS key ARN for server-side encryption.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }

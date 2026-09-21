@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * const exampleTelemetryRule = new aws.observabilityadmin.TelemetryRule("example", {
- *     ruleName: "example-telemetry-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *     },
+ *     ruleName: "example-telemetry-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -42,23 +42,23 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * const exampleTelemetryRule = new aws.observabilityadmin.TelemetryRule("example", {
- *     ruleName: "vpc-flow-logs-rule",
  *     rule: {
+ *         destinationConfiguration: {
+ *             vpcFlowLogParameters: {
+ *                 trafficType: "ALL",
+ *                 maxAggregationInterval: 60,
+ *             },
+ *             destinationType: "cloud-watch-logs",
+ *             destinationPattern: "/aws/vpcflowlogs/<resourceId>",
+ *             retentionInDays: 30,
+ *         },
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *         telemetrySourceTypes: ["VPC_FLOW_LOGS"],
  *         allRegions: true,
  *         allowFieldUpdates: true,
- *         destinationConfiguration: {
- *             destinationType: "cloud-watch-logs",
- *             destinationPattern: "/aws/vpcflowlogs/<resourceId>",
- *             retentionInDays: 30,
- *             vpcFlowLogParameters: {
- *                 trafficType: "ALL",
- *                 maxAggregationInterval: 60,
- *             },
- *         },
  *     },
+ *     ruleName: "vpc-flow-logs-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -72,7 +72,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * const exampleTelemetryRule = new aws.observabilityadmin.TelemetryRule("example", {
- *     ruleName: "multi-region-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EKS::Cluster",
@@ -82,6 +81,7 @@ import * as utilities from "../utilities";
  *             "eu-west-1",
  *         ],
  *     },
+ *     ruleName: "multi-region-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -95,37 +95,37 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * const exampleTelemetryRule = new aws.observabilityadmin.TelemetryRule("example", {
- *     ruleName: "waf-logs-rule",
  *     rule: {
- *         telemetryType: "Logs",
- *         resourceType: "AWS::WAFv2::WebACL",
  *         destinationConfiguration: {
- *             destinationType: "cloud-watch-logs",
- *             destinationPattern: "aws-waf-logs-<resourceId>",
- *             retentionInDays: 30,
  *             wafLoggingParameters: {
- *                 logType: "WAF_LOGS",
  *                 loggingFilter: {
- *                     defaultBehavior: "KEEP",
  *                     filters: [{
- *                         behavior: "DROP",
- *                         requirement: "MEETS_ANY",
  *                         conditions: [{
  *                             actionCondition: {
  *                                 action: "ALLOW",
  *                             },
  *                         }],
+ *                         behavior: "DROP",
+ *                         requirement: "MEETS_ANY",
  *                     }],
+ *                     defaultBehavior: "KEEP",
  *                 },
  *                 redactedFields: [{
- *                     queryString: "",
  *                     singleHeader: {
  *                         name: "authorization",
  *                     },
+ *                     queryString: "",
  *                 }],
+ *                 logType: "WAF_LOGS",
  *             },
+ *             destinationType: "cloud-watch-logs",
+ *             destinationPattern: "aws-waf-logs-<resourceId>",
+ *             retentionInDays: 30,
  *         },
+ *         telemetryType: "Logs",
+ *         resourceType: "AWS::WAFv2::WebACL",
  *     },
+ *     ruleName: "waf-logs-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -139,11 +139,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluation("example", {});
  * const exampleTelemetryRule = new aws.observabilityadmin.TelemetryRule("example", {
- *     ruleName: "tagged-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *     },
+ *     ruleName: "tagged-rule",
  *     tags: {
  *         Environment: "production",
  *         Purpose: "monitoring",

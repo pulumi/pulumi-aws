@@ -76,14 +76,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:macie/customDataIdentifier:CustomDataIdentifier")
 public class CustomDataIdentifier extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the custom data identifier.
+     * ARN of the custom data identifier.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom data identifier.
+     * @return ARN of the custom data identifier.
      * 
      */
     public Output<String> arn() {

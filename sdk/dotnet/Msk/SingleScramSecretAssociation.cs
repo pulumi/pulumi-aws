@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Msk
     public partial class SingleScramSecretAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Msk
     public sealed class SingleScramSecretAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -133,7 +133,7 @@ namespace Pulumi.Aws.Msk
     public sealed class SingleScramSecretAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }

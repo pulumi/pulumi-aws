@@ -60,7 +60,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * ARN identifier of the KX Scaling Group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -175,7 +175,7 @@ export class KxScalingGroup extends pulumi.CustomResource {
  */
 export interface KxScalingGroupState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+     * ARN identifier of the KX Scaling Group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

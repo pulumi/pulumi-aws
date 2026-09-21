@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sns.Topic;
  * import com.pulumi.aws.sns.TopicArgs;
  * import com.pulumi.aws.s3.BucketNotification;
@@ -68,18 +68,18 @@ import javax.annotation.Nullable;
  * 
  *         final var topic = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("s3.amazonaws.com")
- *                     .build())
- *                 .actions("SNS:Publish")
- *                 .resources("arn:aws:sns:*:*:s3-event-notification-topic")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnLike")
  *                     .variable("aws:SourceArn")
  *                     .values(bucket.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("s3.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("SNS:Publish")
+ *                 .resources("arn:aws:sns:*:*:s3-event-notification-topic")
  *                 .build())
  *             .build());
  * 
@@ -89,12 +89,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
  *             .topics(BucketNotificationTopicArgs.builder()
  *                 .topicArn(topicTopic.arn())
  *                 .events("s3:ObjectCreated:*")
  *                 .filterSuffix(".log")
  *                 .build())
+ *             .bucket(bucket.id())
  *             .build());
  * 
  *     }
@@ -116,8 +116,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.s3.BucketNotification;
@@ -142,18 +142,18 @@ import javax.annotation.Nullable;
  * 
  *         final var queue = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("sqs:SendMessage")
- *                 .resources("arn:aws:sqs:*:*:s3-event-notification-queue")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(bucket.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sqs:SendMessage")
+ *                 .resources("arn:aws:sqs:*:*:s3-event-notification-queue")
  *                 .build())
  *             .build());
  * 
@@ -163,12 +163,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
  *             .queues(BucketNotificationQueueArgs.builder()
  *                 .queueArn(queueQueue.arn())
  *                 .events("s3:ObjectCreated:*")
  *                 .filterSuffix(".log")
  *                 .build())
+ *             .bucket(bucket.id())
  *             .build());
  * 
  *     }
@@ -217,11 +217,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -252,13 +252,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
  *             .lambdaFunctions(BucketNotificationLambdaFunctionArgs.builder()
  *                 .lambdaFunctionArn(func.arn())
  *                 .events("s3:ObjectCreated:*")
  *                 .filterPrefix("AWSLogs/")
  *                 .filterSuffix(".log")
  *                 .build())
+ *             .bucket(bucket.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(allowBucket)
  *                 .build());
@@ -309,11 +309,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -359,7 +359,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
  *             .lambdaFunctions(            
  *                 BucketNotificationLambdaFunctionArgs.builder()
  *                     .lambdaFunctionArn(func1.arn())
@@ -373,6 +372,7 @@ import javax.annotation.Nullable;
  *                     .filterPrefix("OtherLogs/")
  *                     .filterSuffix(".log")
  *                     .build())
+ *             .bucket(bucket.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     allowBucket1,
@@ -398,8 +398,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sqs.Queue;
  * import com.pulumi.aws.sqs.QueueArgs;
  * import com.pulumi.aws.s3.BucketNotification;
@@ -424,18 +424,18 @@ import javax.annotation.Nullable;
  * 
  *         final var queue = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("sqs:SendMessage")
- *                 .resources("arn:aws:sqs:*:*:s3-event-notification-queue")
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(bucket.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sqs:SendMessage")
+ *                 .resources("arn:aws:sqs:*:*:s3-event-notification-queue")
  *                 .build())
  *             .build());
  * 
@@ -445,7 +445,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bucketNotification = new BucketNotification("bucketNotification", BucketNotificationArgs.builder()
- *             .bucket(bucket.id())
  *             .queues(            
  *                 BucketNotificationQueueArgs.builder()
  *                     .id("image-upload-event")
@@ -459,6 +458,7 @@ import javax.annotation.Nullable;
  *                     .events("s3:ObjectCreated:*")
  *                     .filterPrefix("videos/")
  *                     .build())
+ *             .bucket(bucket.id())
  *             .build());
  * 
  *     }

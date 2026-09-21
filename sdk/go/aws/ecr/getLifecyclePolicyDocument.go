@@ -32,8 +32,6 @@ import (
 //			example, err := ecr.GetLifecyclePolicyDocument(ctx, &ecr.GetLifecyclePolicyDocumentArgs{
 //				Rules: []ecr.GetLifecyclePolicyDocumentRule{
 //					{
-//						Priority:    1,
-//						Description: pulumi.StringRef("This is a test."),
 //						Selection: {
 //							TagStatus: "tagged",
 //							TagPrefixLists: []string{
@@ -42,6 +40,8 @@ import (
 //							CountType:   "imageCountMoreThan",
 //							CountNumber: 100,
 //						},
+//						Priority:    1,
+//						Description: pulumi.StringRef("This is a test."),
 //					},
 //				},
 //			}, nil)
@@ -83,12 +83,8 @@ type GetLifecyclePolicyDocumentResult struct {
 }
 
 func GetLifecyclePolicyDocumentOutput(ctx *pulumi.Context, args GetLifecyclePolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLifecyclePolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLifecyclePolicyDocumentResultOutput, error) {
-			args := v.(GetLifecyclePolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, GetLifecyclePolicyDocumentResultOutput{}, options).(GetLifecyclePolicyDocumentResultOutput), nil
-		}).(GetLifecyclePolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecr/getLifecyclePolicyDocument:getLifecyclePolicyDocument", args, GetLifecyclePolicyDocumentResultOutput{}, options).(GetLifecyclePolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getLifecyclePolicyDocument.

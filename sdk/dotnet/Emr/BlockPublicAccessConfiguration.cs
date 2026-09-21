@@ -46,7 +46,6 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
     ///     {
-    ///         BlockPublicSecurityGroupRules = true,
     ///         PermittedPublicSecurityGroupRuleRanges = new[]
     ///         {
     ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
@@ -55,6 +54,7 @@ namespace Pulumi.Aws.Emr
     ///                 MaxRange = 22,
     ///             },
     ///         },
+    ///         BlockPublicSecurityGroupRules = true,
     ///     });
     /// 
     /// });
@@ -76,7 +76,6 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var example = new Aws.Emr.BlockPublicAccessConfiguration("example", new()
     ///     {
-    ///         BlockPublicSecurityGroupRules = true,
     ///         PermittedPublicSecurityGroupRuleRanges = new[]
     ///         {
     ///             new Aws.Emr.Inputs.BlockPublicAccessConfigurationPermittedPublicSecurityGroupRuleRangeArgs
@@ -90,6 +89,7 @@ namespace Pulumi.Aws.Emr
     ///                 MaxRange = 101,
     ///             },
     ///         },
+    ///         BlockPublicSecurityGroupRules = true,
     ///     });
     /// 
     /// });

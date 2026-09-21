@@ -16,14 +16,14 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
     public static final EmailIdentityMailFromAttributesState Empty = new EmailIdentityMailFromAttributesState();
 
     /**
-     * The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     @Import(name="behaviorOnMxFailure")
     private @Nullable Output<String> behaviorOnMxFailure;
 
     /**
-     * @return The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+     * @return Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
      * 
      */
     public Optional<Output<String>> behaviorOnMxFailure() {
@@ -31,14 +31,14 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
     }
 
     /**
-     * The verified email identity.
+     * Verified email identity.
      * 
      */
     @Import(name="emailIdentity")
     private @Nullable Output<String> emailIdentity;
 
     /**
-     * @return The verified email identity.
+     * @return Verified email identity.
      * 
      */
     public Optional<Output<String>> emailIdentity() {
@@ -46,14 +46,14 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
     }
 
     /**
-     * The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     @Import(name="mailFromDomain")
     private @Nullable Output<String> mailFromDomain;
 
     /**
-     * @return The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+     * @return Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
      * 
      */
     public Optional<Output<String>> mailFromDomain() {
@@ -103,7 +103,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param behaviorOnMxFailure The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+         * @param behaviorOnMxFailure Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param behaviorOnMxFailure The action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
+         * @param behaviorOnMxFailure Action to take if the required MX record isn&#39;t found when you send an email. Valid values: `USE_DEFAULT_VALUE`, `REJECT_MESSAGE`.
          * 
          * @return builder
          * 
@@ -124,7 +124,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param emailIdentity The verified email identity.
+         * @param emailIdentity Verified email identity.
          * 
          * @return builder
          * 
@@ -135,7 +135,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param emailIdentity The verified email identity.
+         * @param emailIdentity Verified email identity.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+         * @param mailFromDomain Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class EmailIdentityMailFromAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param mailFromDomain The custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
+         * @param mailFromDomain Custom MAIL FROM domain that you want the verified identity to use. Required if `behaviorOnMxFailure` is `REJECT_MESSAGE`.
          * 
          * @return builder
          * 

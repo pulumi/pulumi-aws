@@ -18,14 +18,14 @@ public final class QuickConnectState extends com.pulumi.resources.ResourceArgs {
     public static final QuickConnectState Empty = new QuickConnectState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Quick Connect.
+     * @return ARN of the Quick Connect.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -185,7 +185,7 @@ public final class QuickConnectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Quick Connect.
+         * @param arn ARN of the Quick Connect.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class QuickConnectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Quick Connect.
+         * @param arn ARN of the Quick Connect.
          * 
          * @return builder
          * 

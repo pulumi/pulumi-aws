@@ -101,7 +101,7 @@ export class ServerCertificate extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the server certificate.
+     * ARN specifying the server certificate.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export class ServerCertificate extends pulumi.CustomResource {
  */
 export interface ServerCertificateState {
     /**
-     * The Amazon Resource Name (ARN) specifying the server certificate.
+     * ARN specifying the server certificate.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

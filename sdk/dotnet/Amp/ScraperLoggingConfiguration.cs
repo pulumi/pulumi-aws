@@ -57,7 +57,6 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleScraperLoggingConfiguration = new Aws.Amp.ScraperLoggingConfiguration("example", new()
     ///     {
-    ///         ScraperId = example.Id,
     ///         LoggingDestination = new Aws.Amp.Inputs.ScraperLoggingConfigurationLoggingDestinationArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Amp.Inputs.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs
@@ -65,6 +64,7 @@ namespace Pulumi.Aws.Amp
     ///                 LogGroupArn = exampleLogGroup.Arn.Apply(arn =&gt; $"{arn}:*"),
     ///             },
     ///         },
+    ///         ScraperId = example.Id,
     ///     });
     /// 
     /// });
@@ -82,18 +82,18 @@ namespace Pulumi.Aws.Amp
     /// {
     ///     var example = new Aws.Amp.ScraperLoggingConfiguration("example", new()
     ///     {
-    ///         ScraperId = exampleAwsPrometheusScraper.Id,
-    ///         ScraperComponents = new[]
-    ///         {
-    ///             "COLLECTOR",
-    ///             "EXPORTER",
-    ///         },
     ///         LoggingDestination = new Aws.Amp.Inputs.ScraperLoggingConfigurationLoggingDestinationArgs
     ///         {
     ///             CloudwatchLogs = new Aws.Amp.Inputs.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs
     ///             {
     ///                 LogGroupArn = $"{exampleAwsCloudwatchLogGroup.Arn}:*",
     ///             },
+    ///         },
+    ///         ScraperId = exampleAwsPrometheusScraper.Id,
+    ///         ScraperComponents = new[]
+    ///         {
+    ///             "COLLECTOR",
+    ///             "EXPORTER",
     ///         },
     ///     });
     /// 

@@ -80,7 +80,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := aws.GetRegions(ctx, &aws.GetRegionsArgs{
-//				AllRegions: pulumi.BoolRef(true),
 //				Filters: []aws.GetRegionsFilter{
 //					{
 //						Name: "opt-in-status",
@@ -89,6 +88,7 @@ import (
 //						},
 //					},
 //				},
+//				AllRegions: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -133,12 +133,8 @@ type GetRegionsResult struct {
 }
 
 func GetRegionsOutput(ctx *pulumi.Context, args GetRegionsOutputArgs, opts ...pulumi.InvokeOption) GetRegionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRegionsResultOutput, error) {
-			args := v.(GetRegionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getRegions:getRegions", args, GetRegionsResultOutput{}, options).(GetRegionsResultOutput), nil
-		}).(GetRegionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getRegions:getRegions", args, GetRegionsResultOutput{}, options).(GetRegionsResultOutput)
 }
 
 // A collection of arguments for invoking getRegions.

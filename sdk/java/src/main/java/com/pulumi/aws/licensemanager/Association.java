@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name("name")
  *                 .values("amzn-ami-vpc-nat*")
  *                 .build())
+ *             .mostRecent(true)
+ *             .owners("amazon")
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()

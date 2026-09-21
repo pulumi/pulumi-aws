@@ -106,7 +106,7 @@ namespace Pulumi.Aws.Ebs
         public Output<bool?> MultiAttachEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -246,7 +246,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? MultiAttachEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -360,7 +360,7 @@ namespace Pulumi.Aws.Ebs
         public Input<bool>? MultiAttachEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

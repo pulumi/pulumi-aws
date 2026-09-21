@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetReplicationSetRegion {
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+     * @return ARN of the KMS encryption key.
      * 
      */
     private String kmsKeyArn;
@@ -34,7 +34,7 @@ public final class GetReplicationSetRegion {
 
     private GetReplicationSetRegion() {}
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+     * @return ARN of the KMS encryption key.
      * 
      */
     public String kmsKeyArn() {

@@ -32,7 +32,7 @@ class FargateProfileArgs:
         The set of arguments for constructing a FargateProfile resource.
 
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
-        :param pulumi.Input[_builtins.str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -69,7 +69,7 @@ class FargateProfileArgs:
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         """
         return pulumi.get(self, "pod_execution_role_arn")
 
@@ -156,10 +156,10 @@ class _FargateProfileState:
         """
         Input properties used for looking up and filtering FargateProfile resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
-        :param pulumi.Input[_builtins.str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input['FargateProfileSelectorArgs']]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[_builtins.str] status: Status of the EKS Fargate Profile.
@@ -194,7 +194,7 @@ class _FargateProfileState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        ARN of the EKS Fargate Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -230,7 +230,7 @@ class _FargateProfileState:
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         """
         return pulumi.get(self, "pod_execution_role_arn")
 
@@ -337,13 +337,13 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
+            selectors=[{
+                "namespace": "example",
+            }],
             cluster_name=example_aws_eks_cluster["name"],
             fargate_profile_name="example",
             pod_execution_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            selectors=[{
-                "namespace": "example",
-            }])
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Fargate Profile
@@ -395,7 +395,7 @@ class FargateProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
-        :param pulumi.Input[_builtins.str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: Identifiers of private EC2 Subnets to associate with the EKS Fargate Profile. These subnets must have the following resource tag: `kubernetes.io/cluster/CLUSTER_NAME` (where `CLUSTER_NAME` is replaced with the name of the EKS Cluster).
@@ -419,13 +419,13 @@ class FargateProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.FargateProfile("example",
+            selectors=[{
+                "namespace": "example",
+            }],
             cluster_name=example_aws_eks_cluster["name"],
             fargate_profile_name="example",
             pod_execution_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet],
-            selectors=[{
-                "namespace": "example",
-            }])
+            subnet_ids=[__item["id"] for __item in example_aws_subnet])
         ```
 
         ### Example IAM Role for EKS Fargate Profile
@@ -547,10 +547,10 @@ class FargateProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] fargate_profile_name: Name of the EKS Fargate Profile.
-        :param pulumi.Input[_builtins.str] pod_execution_role_arn: Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        :param pulumi.Input[_builtins.str] pod_execution_role_arn: ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FargateProfileSelectorArgs', 'FargateProfileSelectorArgsDict']]]] selectors: Configuration block(s) for selecting Kubernetes Pods to execute with this EKS Fargate Profile. Detailed below.
         :param pulumi.Input[_builtins.str] status: Status of the EKS Fargate Profile.
@@ -580,7 +580,7 @@ class FargateProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        ARN of the EKS Fargate Profile.
         """
         return pulumi.get(self, "arn")
 
@@ -604,7 +604,7 @@ class FargateProfile(pulumi.CustomResource):
     @pulumi.getter(name="podExecutionRoleArn")
     def pod_execution_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         """
         return pulumi.get(self, "pod_execution_role_arn")
 

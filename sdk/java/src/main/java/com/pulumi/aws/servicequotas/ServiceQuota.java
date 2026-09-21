@@ -85,14 +85,14 @@ public class ServiceQuota extends com.pulumi.resources.CustomResource {
         return this.adjustable;
     }
     /**
-     * Amazon Resource Name (ARN) of the service quota.
+     * ARN of the service quota.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service quota.
+     * @return ARN of the service quota.
      * 
      */
     public Output<String> arn() {

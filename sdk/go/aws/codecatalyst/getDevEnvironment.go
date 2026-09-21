@@ -103,12 +103,8 @@ type LookupDevEnvironmentResult struct {
 }
 
 func LookupDevEnvironmentOutput(ctx *pulumi.Context, args LookupDevEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupDevEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDevEnvironmentResultOutput, error) {
-			args := v.(LookupDevEnvironmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, LookupDevEnvironmentResultOutput{}, options).(LookupDevEnvironmentResultOutput), nil
-		}).(LookupDevEnvironmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args, LookupDevEnvironmentResultOutput{}, options).(LookupDevEnvironmentResultOutput)
 }
 
 // A collection of arguments for invoking getDevEnvironment.

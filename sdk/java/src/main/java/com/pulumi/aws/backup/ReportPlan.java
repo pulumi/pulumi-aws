@@ -47,8 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReportPlan("example", ReportPlanArgs.builder()
- *             .name("example_name")
- *             .description("example description")
  *             .reportDeliveryChannel(ReportPlanReportDeliveryChannelArgs.builder()
  *                 .formats(                
  *                     "CSV",
@@ -58,6 +56,8 @@ import javax.annotation.Nullable;
  *             .reportSetting(ReportPlanReportSettingArgs.builder()
  *                 .reportTemplate("RESTORE_JOB_REPORT")
  *                 .build())
+ *             .name("example_name")
+ *             .description("example description")
  *             .tags(Map.of("Name", "Example Report Plan"))
  *             .build());
  * 

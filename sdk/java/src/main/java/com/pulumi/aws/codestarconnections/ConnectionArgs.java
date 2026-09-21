@@ -17,14 +17,14 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
     public static final ConnectionArgs Empty = new ConnectionArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     @Import(name="hostArn")
     private @Nullable Output<String> hostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * @return ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     public Optional<Output<String>> hostArn() {
@@ -120,7 +120,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostArn The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+         * @param hostArn ARN of the host associated with the connection. Conflicts with `providerType`
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ConnectionArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param hostArn The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+         * @param hostArn ARN of the host associated with the connection. Conflicts with `providerType`
          * 
          * @return builder
          * 

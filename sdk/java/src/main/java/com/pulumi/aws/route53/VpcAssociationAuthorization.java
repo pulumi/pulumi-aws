@@ -34,6 +34,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.route53.VpcAssociationAuthorizationArgs;
  * import com.pulumi.aws.route53.ZoneAssociation;
  * import com.pulumi.aws.route53.ZoneAssociationArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,11 +55,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleZone = new Zone("exampleZone", ZoneArgs.builder()
- *             .name("example.com")
  *             .vpcs(ZoneVpcArgs.builder()
  *                 .vpcId(example.id())
  *                 .build())
- *             .build());
+ *             .name("example.com")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("vpcs")
+ *                 .build());
  * 
  *         var alternate = new Vpc("alternate", VpcArgs.builder()
  *             .cidrBlock("10.7.0.0/16")

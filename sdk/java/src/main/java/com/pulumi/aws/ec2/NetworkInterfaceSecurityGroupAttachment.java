@@ -63,11 +63,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var ami = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name("name")
  *                 .values("amzn-ami-hvm-*")
  *                 .build())
+ *             .mostRecent(true)
  *             .owners("amazon")
  *             .build());
  * 

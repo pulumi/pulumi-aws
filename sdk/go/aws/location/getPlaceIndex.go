@@ -81,12 +81,8 @@ type LookupPlaceIndexResult struct {
 }
 
 func LookupPlaceIndexOutput(ctx *pulumi.Context, args LookupPlaceIndexOutputArgs, opts ...pulumi.InvokeOption) LookupPlaceIndexResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPlaceIndexResultOutput, error) {
-			args := v.(LookupPlaceIndexArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:location/getPlaceIndex:getPlaceIndex", args, LookupPlaceIndexResultOutput{}, options).(LookupPlaceIndexResultOutput), nil
-		}).(LookupPlaceIndexResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:location/getPlaceIndex:getPlaceIndex", args, LookupPlaceIndexResultOutput{}, options).(LookupPlaceIndexResultOutput)
 }
 
 // A collection of arguments for invoking getPlaceIndex.

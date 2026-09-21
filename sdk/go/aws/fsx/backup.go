@@ -171,11 +171,11 @@ import (
 type Backup struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the backup.
+	// ARN of the backup.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId pulumi.StringPtrOutput `pulumi:"fileSystemId"`
-	// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+	// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringOutput `pulumi:"ownerId"`
@@ -221,11 +221,11 @@ func GetBackup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Backup resources.
 type backupState struct {
-	// Amazon Resource Name of the backup.
+	// ARN of the backup.
 	Arn *string `pulumi:"arn"`
 	// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId *string `pulumi:"fileSystemId"`
-	// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+	// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// AWS account identifier that created the file system.
 	OwnerId *string `pulumi:"ownerId"`
@@ -242,11 +242,11 @@ type backupState struct {
 }
 
 type BackupState struct {
-	// Amazon Resource Name of the backup.
+	// ARN of the backup.
 	Arn pulumi.StringPtrInput
 	// ID of the file system to back up. Required if backing up Lustre or Windows file systems.
 	FileSystemId pulumi.StringPtrInput
-	// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+	// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
 	KmsKeyId pulumi.StringPtrInput
 	// AWS account identifier that created the file system.
 	OwnerId pulumi.StringPtrInput
@@ -376,7 +376,7 @@ func (o BackupOutput) ToBackupOutputWithContext(ctx context.Context) BackupOutpu
 	return o
 }
 
-// Amazon Resource Name of the backup.
+// ARN of the backup.
 func (o BackupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -386,7 +386,7 @@ func (o BackupOutput) FileSystemId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringPtrOutput { return v.FileSystemId }).(pulumi.StringPtrOutput)
 }
 
-// ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system's data at rest.
+// ID of the KMS key used to encrypt the backup of the Amazon FSx file system's data at rest.
 func (o BackupOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Backup) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }

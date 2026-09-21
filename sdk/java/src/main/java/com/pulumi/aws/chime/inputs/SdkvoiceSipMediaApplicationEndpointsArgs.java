@@ -15,14 +15,14 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
     public static final SdkvoiceSipMediaApplicationEndpointsArgs Empty = new SdkvoiceSipMediaApplicationEndpointsArgs();
 
     /**
-     * Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+     * Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+     * @return Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
      * 
      */
     public Output<String> lambdaArn() {
@@ -54,7 +54,7 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
         }
 
         /**
-         * @param lambdaArn Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+         * @param lambdaArn Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class SdkvoiceSipMediaApplicationEndpointsArgs extends com.pulumi.r
         }
 
         /**
-         * @param lambdaArn Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+         * @param lambdaArn Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
          * 
          * @return builder
          * 

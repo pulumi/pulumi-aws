@@ -72,8 +72,6 @@ namespace Pulumi.Aws.Transfer
     ///             {
     ///                 TagStepDetails = new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsArgs
     ///                 {
-    ///                     Name = "example",
-    ///                     SourceFileLocation = "${original.file}",
     ///                     Tags = new[]
     ///                     {
     ///                         new Aws.Transfer.Inputs.WorkflowStepTagStepDetailsTagArgs
@@ -82,6 +80,8 @@ namespace Pulumi.Aws.Transfer
     ///                             Value = "Hello World",
     ///                         },
     ///                     },
+    ///                     Name = "example",
+    ///                     SourceFileLocation = "${original.file}",
     ///                 },
     ///                 Type = "TAG",
     ///             },

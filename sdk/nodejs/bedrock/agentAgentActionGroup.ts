@@ -20,10 +20,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
  *     actionGroupExecutor: {
  *         lambda: "arn:aws:lambda:us-west-2:123456789012:function:example-function",
  *     },
@@ -32,6 +28,10 @@ import * as utilities from "../utilities";
  *             input: "path/to/schema.yaml",
  *         }).then(invoke => invoke.result),
  *     },
+ *     actionGroupName: "example",
+ *     agentId: "GGRRAED6JP",
+ *     agentVersion: "DRAFT",
+ *     skipResourceInUseCheck: true,
  * });
  * ```
  *
@@ -42,10 +42,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
  *     actionGroupExecutor: {
  *         lambda: "arn:aws:lambda:us-west-2:123456789012:function:example-function",
  *     },
@@ -55,6 +51,10 @@ import * as utilities from "../utilities";
  *             s3ObjectKey: "path/to/schema.json",
  *         },
  *     },
+ *     actionGroupName: "example",
+ *     agentId: "GGRRAED6JP",
+ *     agentVersion: "DRAFT",
+ *     skipResourceInUseCheck: true,
  * });
  * ```
  *
@@ -65,18 +65,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
  *     actionGroupExecutor: {
  *         lambda: "arn:aws:lambda:us-west-2:123456789012:function:example-function",
  *     },
  *     functionSchema: {
  *         memberFunctions: {
  *             functions: [{
- *                 name: "example-function",
- *                 description: "Example function",
  *                 parameters: [
  *                     {
  *                         mapBlockKey: "param1",
@@ -91,9 +85,15 @@ import * as utilities from "../utilities";
  *                         required: false,
  *                     },
  *                 ],
+ *                 name: "example-function",
+ *                 description: "Example function",
  *             }],
  *         },
  *     },
+ *     actionGroupName: "example",
+ *     agentId: "GGRRAED6JP",
+ *     agentVersion: "DRAFT",
+ *     skipResourceInUseCheck: true,
  * });
  * ```
  *
@@ -105,10 +105,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.bedrock.AgentAgentActionGroup("example", {
- *     actionGroupName: "example",
- *     agentId: "GGRRAED6JP",
- *     agentVersion: "DRAFT",
- *     skipResourceInUseCheck: true,
  *     actionGroupExecutor: {
  *         customControl: "RETURN_CONTROL",
  *     },
@@ -117,6 +113,10 @@ import * as utilities from "../utilities";
  *             input: "path/to/schema.yaml",
  *         }).then(invoke => invoke.result),
  *     },
+ *     actionGroupName: "example",
+ *     agentId: "GGRRAED6JP",
+ *     agentVersion: "DRAFT",
+ *     skipResourceInUseCheck: true,
  * });
  * ```
  *

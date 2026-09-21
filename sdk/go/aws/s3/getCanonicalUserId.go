@@ -59,10 +59,8 @@ type GetCanonicalUserIdResult struct {
 }
 
 func GetCanonicalUserIdOutput(ctx *pulumi.Context, opts ...pulumi.InvokeOption) GetCanonicalUserIdResultOutput {
-	return pulumi.ToOutput(0).ApplyT(func(int) (GetCanonicalUserIdResultOutput, error) {
-		options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-		return ctx.InvokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", nil, GetCanonicalUserIdResultOutput{}, options).(GetCanonicalUserIdResultOutput), nil
-	}).(GetCanonicalUserIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getCanonicalUserId:getCanonicalUserId", nil, GetCanonicalUserIdResultOutput{}, options).(GetCanonicalUserIdResultOutput)
 }
 
 // A collection of values returned by getCanonicalUserId.

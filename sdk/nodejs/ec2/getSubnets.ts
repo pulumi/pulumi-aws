@@ -40,7 +40,6 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
  *
  * export = async () => {
  *     const _private = await aws.ec2.getSubnets({
@@ -53,9 +52,7 @@ import * as utilities from "../utilities";
  *         },
  *     });
  *     const app: aws.ec2.Instance[] = [];
- *     for (const range of std.toset({
- *         input: _private.ids,
- *     }).result.map((v, k) => ({key: k, value: v}))) {
+ *     for (const range of Object.entries(.reduce((__obj, entry) => ({ ...__obj, [entry]: entry }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
  *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
  *             ami: ami,
  *             instanceType: aws.ec2.InstanceType.T2_Micro,
@@ -143,7 +140,6 @@ export interface GetSubnetsResult {
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
  *
  * export = async () => {
  *     const _private = await aws.ec2.getSubnets({
@@ -156,9 +152,7 @@ export interface GetSubnetsResult {
  *         },
  *     });
  *     const app: aws.ec2.Instance[] = [];
- *     for (const range of std.toset({
- *         input: _private.ids,
- *     }).result.map((v, k) => ({key: k, value: v}))) {
+ *     for (const range of Object.entries(.reduce((__obj, entry) => ({ ...__obj, [entry]: entry }), {})).sort().map(([k, v]) => ({key: k, value: v}))) {
  *         app.push(new aws.ec2.Instance(`app-${range.key}`, {
  *             ami: ami,
  *             instanceType: aws.ec2.InstanceType.T2_Micro,

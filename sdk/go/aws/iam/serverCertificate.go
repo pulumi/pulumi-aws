@@ -113,7 +113,7 @@ import (
 type ServerCertificate struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the server certificate.
+	// ARN specifying the server certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The contents of the public key certificate in
 	// PEM-encoded format.
@@ -189,7 +189,7 @@ func GetServerCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerCertificate resources.
 type serverCertificateState struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
+	// ARN specifying the server certificate.
 	Arn *string `pulumi:"arn"`
 	// The contents of the public key certificate in
 	// PEM-encoded format.
@@ -223,7 +223,7 @@ type serverCertificateState struct {
 }
 
 type ServerCertificateState struct {
-	// The Amazon Resource Name (ARN) specifying the server certificate.
+	// ARN specifying the server certificate.
 	Arn pulumi.StringPtrInput
 	// The contents of the public key certificate in
 	// PEM-encoded format.
@@ -400,7 +400,7 @@ func (o ServerCertificateOutput) ToServerCertificateOutputWithContext(ctx contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the server certificate.
+// ARN specifying the server certificate.
 func (o ServerCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

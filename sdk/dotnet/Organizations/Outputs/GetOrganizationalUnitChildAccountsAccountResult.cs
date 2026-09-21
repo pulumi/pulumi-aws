@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Organizations.Outputs
     public sealed class GetOrganizationalUnitChildAccountsAccountResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account.
+        /// The ARN of the account.
         /// </summary>
         public readonly string Arn;
         /// <summary>

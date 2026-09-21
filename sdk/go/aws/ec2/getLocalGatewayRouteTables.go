@@ -75,12 +75,8 @@ type GetLocalGatewayRouteTablesResult struct {
 }
 
 func GetLocalGatewayRouteTablesOutput(ctx *pulumi.Context, args GetLocalGatewayRouteTablesOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayRouteTablesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalGatewayRouteTablesResultOutput, error) {
-			args := v.(GetLocalGatewayRouteTablesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, GetLocalGatewayRouteTablesResultOutput{}, options).(GetLocalGatewayRouteTablesResultOutput), nil
-		}).(GetLocalGatewayRouteTablesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getLocalGatewayRouteTables:getLocalGatewayRouteTables", args, GetLocalGatewayRouteTablesResultOutput{}, options).(GetLocalGatewayRouteTablesResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGatewayRouteTables.

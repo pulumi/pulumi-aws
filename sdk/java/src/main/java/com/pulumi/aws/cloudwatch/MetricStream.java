@@ -68,11 +68,11 @@ import javax.annotation.Nullable;
  *         // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
  *         final var streamsAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("streams.metrics.cloudwatch.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -88,11 +88,11 @@ import javax.annotation.Nullable;
  * 
  *         final var firehoseAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("firehose.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -102,19 +102,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var s3Stream = new FirehoseDeliveryStream("s3Stream", FirehoseDeliveryStreamArgs.builder()
- *             .name("metric-stream-test-stream")
- *             .destination("extended_s3")
  *             .extendedS3Configuration(FirehoseDeliveryStreamExtendedS3ConfigurationArgs.builder()
  *                 .roleArn(firehoseToS3Role.arn())
  *                 .bucketArn(bucket.arn())
  *                 .build())
+ *             .name("metric-stream-test-stream")
+ *             .destination("extended_s3")
  *             .build());
  * 
  *         var main = new MetricStream("main", MetricStreamArgs.builder()
- *             .name("my-metric-stream")
- *             .roleArn(metricStreamToFirehoseRole.arn())
- *             .firehoseArn(s3Stream.arn())
- *             .outputFormat("json")
  *             .includeFilters(            
  *                 MetricStreamIncludeFilterArgs.builder()
  *                     .namespace("AWS/EC2")
@@ -126,6 +122,10 @@ import javax.annotation.Nullable;
  *                     .namespace("AWS/EBS")
  *                     .metricNames()
  *                     .build())
+ *             .name("my-metric-stream")
+ *             .roleArn(metricStreamToFirehoseRole.arn())
+ *             .firehoseArn(s3Stream.arn())
+ *             .outputFormat("json")
  *             .build());
  * 
  *         // https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-metric-streams-trustpolicy.html
@@ -204,27 +204,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new MetricStream("main", MetricStreamArgs.builder()
+ *             .statisticsConfigurations(            
+ *                 MetricStreamStatisticsConfigurationArgs.builder()
+ *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
+ *                         .metricName("CPUUtilization")
+ *                         .namespace("AWS/EC2")
+ *                         .build())
+ *                     .additionalStatistics(                    
+ *                         "p1",
+ *                         "tm99")
+ *                     .build(),
+ *                 MetricStreamStatisticsConfigurationArgs.builder()
+ *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
+ *                         .metricName("CPUUtilization")
+ *                         .namespace("AWS/EC2")
+ *                         .build())
+ *                     .additionalStatistics("TS(50.5:)")
+ *                     .build())
  *             .name("my-metric-stream")
  *             .roleArn(metricStreamToFirehose.arn())
  *             .firehoseArn(s3Stream.arn())
  *             .outputFormat("json")
- *             .statisticsConfigurations(            
- *                 MetricStreamStatisticsConfigurationArgs.builder()
- *                     .additionalStatistics(                    
- *                         "p1",
- *                         "tm99")
- *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
- *                         .metricName("CPUUtilization")
- *                         .namespace("AWS/EC2")
- *                         .build())
- *                     .build(),
- *                 MetricStreamStatisticsConfigurationArgs.builder()
- *                     .additionalStatistics("TS(50.5:)")
- *                     .includeMetrics(MetricStreamStatisticsConfigurationIncludeMetricArgs.builder()
- *                         .metricName("CPUUtilization")
- *                         .namespace("AWS/EC2")
- *                         .build())
- *                     .build())
  *             .build());
  * 
  *     }

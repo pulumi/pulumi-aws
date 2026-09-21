@@ -60,7 +60,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 resource.
+    /// - `Arn` (String) ARN of the Security Hub V2 resource.
     /// 
     /// Using `pulumi import`, import Security Hub V2 accounts using `Arn`. For example:
     /// 

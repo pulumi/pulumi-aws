@@ -513,25 +513,25 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
+            task_invocation_parameters={
+                "automation_parameters": {
+                    "parameters": [{
+                        "name": "InstanceId",
+                        "values": [example_aws_instance["id"]],
+                    }],
+                    "document_version": "$LATEST",
+                },
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
             max_concurrency="2",
             max_errors="1",
             priority=1,
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "automation_parameters": {
-                    "document_version": "$LATEST",
-                    "parameters": [{
-                        "name": "InstanceId",
-                        "values": [example_aws_instance["id"]],
-                    }],
-                },
-            })
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Lambda Tasks
@@ -542,22 +542,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "lambda_parameters": {
                     "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
                     "payload": "{\\"key1\\":\\"value1\\"}",
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn=example_aws_lambda_function["arn"],
+            task_type="LAMBDA",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Run Command Tasks
@@ -567,22 +567,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RunShellScript",
-            task_type="RUN_COMMAND",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "run_command_parameters": {
-                    "output_s3_bucket": example_aws_s3_bucket["id"],
-                    "output_s3_key_prefix": "output",
-                    "service_role_arn": example_aws_iam_role["arn"],
-                    "timeout_seconds": 600,
                     "notification_config": {
                         "notification_arn": example_aws_sns_topic["arn"],
                         "notification_events": ["All"],
@@ -592,8 +578,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                         "name": "commands",
                         "values": ["date"],
                     }],
+                    "output_s3_bucket": example_aws_s3_bucket["id"],
+                    "output_s3_key_prefix": "output",
+                    "service_role_arn": example_aws_iam_role["arn"],
+                    "timeout_seconds": 600,
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn="AWS-RunShellScript",
+            task_type="RUN_COMMAND",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Step Function Tasks
@@ -603,22 +603,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_sfn_activity["id"],
-            task_type="STEP_FUNCTIONS",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "step_functions_parameters": {
                     "input": "{\\"key1\\":\\"value1\\"}",
                     "name": "example",
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn=example_aws_sfn_activity["id"],
+            task_type="STEP_FUNCTIONS",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ## Import
@@ -676,25 +676,25 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
+            task_invocation_parameters={
+                "automation_parameters": {
+                    "parameters": [{
+                        "name": "InstanceId",
+                        "values": [example_aws_instance["id"]],
+                    }],
+                    "document_version": "$LATEST",
+                },
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
             max_concurrency="2",
             max_errors="1",
             priority=1,
             task_arn="AWS-RestartEC2Instance",
             task_type="AUTOMATION",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
-            task_invocation_parameters={
-                "automation_parameters": {
-                    "document_version": "$LATEST",
-                    "parameters": [{
-                        "name": "InstanceId",
-                        "values": [example_aws_instance["id"]],
-                    }],
-                },
-            })
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Lambda Tasks
@@ -705,22 +705,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_lambda_function["arn"],
-            task_type="LAMBDA",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "lambda_parameters": {
                     "client_context": std.base64encode(input="{\\"key1\\":\\"value1\\"}").result,
                     "payload": "{\\"key1\\":\\"value1\\"}",
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn=example_aws_lambda_function["arn"],
+            task_type="LAMBDA",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Run Command Tasks
@@ -730,22 +730,8 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn="AWS-RunShellScript",
-            task_type="RUN_COMMAND",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "run_command_parameters": {
-                    "output_s3_bucket": example_aws_s3_bucket["id"],
-                    "output_s3_key_prefix": "output",
-                    "service_role_arn": example_aws_iam_role["arn"],
-                    "timeout_seconds": 600,
                     "notification_config": {
                         "notification_arn": example_aws_sns_topic["arn"],
                         "notification_events": ["All"],
@@ -755,8 +741,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
                         "name": "commands",
                         "values": ["date"],
                     }],
+                    "output_s3_bucket": example_aws_s3_bucket["id"],
+                    "output_s3_key_prefix": "output",
+                    "service_role_arn": example_aws_iam_role["arn"],
+                    "timeout_seconds": 600,
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn="AWS-RunShellScript",
+            task_type="RUN_COMMAND",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ### Step Function Tasks
@@ -766,22 +766,22 @@ class MaintenanceWindowTask(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ssm.MaintenanceWindowTask("example",
-            max_concurrency="2",
-            max_errors="1",
-            priority=1,
-            task_arn=example_aws_sfn_activity["id"],
-            task_type="STEP_FUNCTIONS",
-            window_id=example_aws_ssm_maintenance_window["id"],
-            targets=[{
-                "key": "InstanceIds",
-                "values": [example_aws_instance["id"]],
-            }],
             task_invocation_parameters={
                 "step_functions_parameters": {
                     "input": "{\\"key1\\":\\"value1\\"}",
                     "name": "example",
                 },
-            })
+            },
+            targets=[{
+                "key": "InstanceIds",
+                "values": [example_aws_instance["id"]],
+            }],
+            max_concurrency="2",
+            max_errors="1",
+            priority=1,
+            task_arn=example_aws_sfn_activity["id"],
+            task_type="STEP_FUNCTIONS",
+            window_id=example_aws_ssm_maintenance_window["id"])
         ```
 
         ## Import

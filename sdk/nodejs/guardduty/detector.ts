@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myDetector = new aws.guardduty.Detector("MyDetector", {
- *     enable: true,
  *     datasources: {
  *         s3Logs: {
  *             enable: true,
@@ -37,6 +36,7 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     enable: true,
  * });
  * ```
  *
@@ -83,7 +83,7 @@ export class Detector extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly accountId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
+     * ARN of the GuardDuty detector
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface DetectorState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
+     * ARN of the GuardDuty detector
      */
     arn?: pulumi.Input<string | undefined>;
     /**

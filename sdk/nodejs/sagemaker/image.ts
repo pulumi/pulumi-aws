@@ -58,7 +58,7 @@ export class Image extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * ARN assigned by AWS to this Image.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -78,7 +78,7 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image.
+     * ARN assigned by AWS to this Image.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface ImageState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface ImageArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+     * ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

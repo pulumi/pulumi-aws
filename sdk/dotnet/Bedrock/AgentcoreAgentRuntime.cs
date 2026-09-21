@@ -30,11 +30,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -45,6 +40,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -96,8 +96,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreAgentRuntime = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example_agent_runtime",
-    ///         RoleArn = example.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
     ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
@@ -109,6 +107,8 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
+    ///         AgentRuntimeName = "example_agent_runtime",
+    ///         RoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -126,20 +126,12 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example_agent_runtime",
-    ///         Description = "Agent runtime with JWT authorization",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
     ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
     ///             {
     ///                 ContainerUri = $"{exampleAwsEcrRepository.RepositoryUrl}:v1.0",
     ///             },
-    ///         },
-    ///         EnvironmentVariables = 
-    ///         {
-    ///             { "LOG_LEVEL", "INFO" },
-    ///             { "ENV", "production" },
     ///         },
     ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAuthorizerConfigurationArgs
     ///         {
@@ -171,6 +163,14 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             ServerProtocol = "MCP",
     ///         },
+    ///         AgentRuntimeName = "example_agent_runtime",
+    ///         Description = "Agent runtime with JWT authorization",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         EnvironmentVariables = 
+    ///         {
+    ///             { "LOG_LEVEL", "INFO" },
+    ///             { "ENV", "production" },
+    ///         },
     ///     });
     /// 
     /// });
@@ -188,9 +188,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example_agui_runtime",
-    ///         Description = "Agent runtime with AG-UI protocol",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
     ///             ContainerConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs
@@ -206,6 +203,9 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             ServerProtocol = "AGUI",
     ///         },
+    ///         AgentRuntimeName = "example_agui_runtime",
+    ///         Description = "Agent runtime with AG-UI protocol",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -223,17 +223,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreAgentRuntime("example", new()
     ///     {
-    ///         AgentRuntimeName = "example_agent_runtime",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         AgentRuntimeArtifact = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs
     ///         {
     ///             CodeConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs
     ///             {
-    ///                 EntryPoints = new[]
-    ///                 {
-    ///                     "main.py",
-    ///                 },
-    ///                 Runtime = "PYTHON_3_13",
     ///                 Code = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs
     ///                 {
     ///                     S3 = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args
@@ -242,12 +235,19 @@ namespace Pulumi.Aws.Bedrock
     ///                         Prefix = "example-agent-runtime-code.zip",
     ///                     },
     ///                 },
+    ///                 EntryPoints = new[]
+    ///                 {
+    ///                     "main.py",
+    ///                 },
+    ///                 Runtime = "PYTHON_3_13",
     ///             },
     ///         },
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreAgentRuntimeNetworkConfigurationArgs
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
+    ///         AgentRuntimeName = "example_agent_runtime",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });

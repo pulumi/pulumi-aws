@@ -45,12 +45,12 @@ import * as utilities from "../utilities";
  *     },
  *     {
  *         tagStepDetails: {
- *             name: "example",
- *             sourceFileLocation: "${original.file}",
  *             tags: [{
  *                 key: "Name",
  *                 value: "Hello World",
  *             }],
+ *             name: "example",
+ *             sourceFileLocation: "${original.file}",
  *         },
  *         type: "TAG",
  *     },

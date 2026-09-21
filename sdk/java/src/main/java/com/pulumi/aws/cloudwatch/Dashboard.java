@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/dashboard:Dashboard")
 public class Dashboard extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the dashboard.
+     * ARN of the dashboard.
      * 
      */
     @Export(name="dashboardArn", refs={String.class}, tree="[0]")
     private Output<String> dashboardArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the dashboard.
+     * @return ARN of the dashboard.
      * 
      */
     public Output<String> dashboardArn() {

@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Algorithm("example", {
- *     algorithmName: "example-algorithm",
  *     trainingSpecification: {
- *         supportedTrainingInstanceTypes: ["ml.m5.large"],
- *         trainingImage: "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
  *         trainingChannels: [{
  *             name: "train",
  *             supportedContentTypes: ["text/csv"],
  *             supportedInputModes: ["File"],
  *         }],
+ *         supportedTrainingInstanceTypes: ["ml.m5.large"],
+ *         trainingImage: "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
  *     },
+ *     algorithmName: "example-algorithm",
  *     tags: {
  *         Environment: "test",
  *     },
@@ -46,54 +46,41 @@ import * as utilities from "../utilities";
  *     imageTag: "1",
  * });
  * const exampleAlgorithm = new aws.sagemaker.Algorithm("example", {
- *     algorithmName: "example-training-algorithm",
  *     trainingSpecification: {
- *         supportedTrainingInstanceTypes: [
- *             "ml.m5.large",
- *             "ml.c5.xlarge",
- *         ],
- *         supportsDistributedTraining: true,
- *         trainingImage: example.then(example => example.registryPath),
  *         metricDefinitions: [{
  *             name: "train:loss",
  *             regex: "loss=(.*?);",
  *         }],
  *         supportedHyperParameters: [
  *             {
- *                 defaultValue: "0.5",
- *                 description: "Continuous learning rate",
- *                 isRequired: true,
- *                 isTunable: true,
- *                 name: "eta",
- *                 type: "Continuous",
  *                 range: {
  *                     continuousParameterRangeSpecification: {
  *                         minValue: "0.1",
  *                         maxValue: "0.9",
  *                     },
  *                 },
+ *                 defaultValue: "0.5",
+ *                 description: "Continuous learning rate",
+ *                 isRequired: true,
+ *                 isTunable: true,
+ *                 name: "eta",
+ *                 type: "Continuous",
  *             },
  *             {
- *                 defaultValue: "5",
- *                 description: "Maximum tree depth",
- *                 isRequired: false,
- *                 isTunable: true,
- *                 name: "max_depth",
- *                 type: "Integer",
  *                 range: {
  *                     integerParameterRangeSpecification: {
  *                         minValue: "1",
  *                         maxValue: "10",
  *                     },
  *                 },
+ *                 defaultValue: "5",
+ *                 description: "Maximum tree depth",
+ *                 isRequired: false,
+ *                 isTunable: true,
+ *                 name: "max_depth",
+ *                 type: "Integer",
  *             },
  *             {
- *                 defaultValue: "reg:squarederror",
- *                 description: "Objective function",
- *                 isRequired: false,
- *                 isTunable: false,
- *                 name: "objective",
- *                 type: "Categorical",
  *                 range: {
  *                     categoricalParameterRangeSpecification: {
  *                         values: [
@@ -102,6 +89,12 @@ import * as utilities from "../utilities";
  *                         ],
  *                     },
  *                 },
+ *                 defaultValue: "reg:squarederror",
+ *                 description: "Objective function",
+ *                 isRequired: false,
+ *                 isTunable: false,
+ *                 name: "objective",
+ *                 type: "Categorical",
  *             },
  *         ],
  *         supportedTuningJobObjectiveMetrics: [{
@@ -126,7 +119,14 @@ import * as utilities from "../utilities";
  *                 supportedInputModes: ["Pipe"],
  *             },
  *         ],
+ *         supportedTrainingInstanceTypes: [
+ *             "ml.m5.large",
+ *             "ml.c5.xlarge",
+ *         ],
+ *         supportsDistributedTraining: true,
+ *         trainingImage: example.then(example => example.registryPath),
  *     },
+ *     algorithmName: "example-training-algorithm",
  * });
  * ```
  *
@@ -141,22 +141,25 @@ import * as utilities from "../utilities";
  *     imageTag: "1",
  * });
  * const exampleAlgorithm = new aws.sagemaker.Algorithm("example", {
- *     algorithmName: "example-inference-algorithm",
  *     trainingSpecification: {
- *         supportedTrainingInstanceTypes: ["ml.m5.large"],
- *         trainingImage: example.then(example => example.registryPath),
  *         trainingChannels: [{
  *             name: "train",
  *             supportedContentTypes: ["text/csv"],
  *             supportedInputModes: ["File"],
  *         }],
+ *         supportedTrainingInstanceTypes: ["ml.m5.large"],
+ *         trainingImage: example.then(example => example.registryPath),
  *     },
  *     inferenceSpecification: {
- *         supportedContentTypes: ["text/csv"],
- *         supportedRealtimeInferenceInstanceTypes: ["ml.m5.large"],
- *         supportedResponseMimeTypes: ["text/csv"],
- *         supportedTransformInstanceTypes: ["ml.m5.large"],
  *         containers: [{
+ *             baseModel: {
+ *                 hubContentName: "basemodel",
+ *                 hubContentVersion: "1.0.0",
+ *                 recipeName: "recipe",
+ *             },
+ *             modelInput: {
+ *                 dataInputConfig: "{}",
+ *             },
  *             containerHostname: "test-host",
  *             environment: {
  *                 TEST: "value",
@@ -166,16 +169,13 @@ import * as utilities from "../utilities";
  *             image: example.then(example => example.registryPath),
  *             isCheckpoint: true,
  *             nearestModelName: "nearest-model",
- *             baseModel: {
- *                 hubContentName: "basemodel",
- *                 hubContentVersion: "1.0.0",
- *                 recipeName: "recipe",
- *             },
- *             modelInput: {
- *                 dataInputConfig: "{}",
- *             },
  *         }],
+ *         supportedContentTypes: ["text/csv"],
+ *         supportedRealtimeInferenceInstanceTypes: ["ml.m5.large"],
+ *         supportedResponseMimeTypes: ["text/csv"],
+ *         supportedTransformInstanceTypes: ["ml.m5.large"],
  *     },
+ *     algorithmName: "example-inference-algorithm",
  * });
  * ```
  *
@@ -192,11 +192,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: [`sagemaker.${current.dnsSuffix}`],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
  * const exampleRole = new aws.iam.Role("example", {
@@ -247,51 +247,48 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleAlgorithm = new aws.sagemaker.Algorithm("example", {
- *     algorithmName: "example-validation-algorithm",
  *     trainingSpecification: {
- *         trainingImage: example.then(example => example.registryPath),
- *         supportedTrainingInstanceTypes: ["ml.m5.large"],
  *         supportedHyperParameters: [
  *             {
- *                 defaultValue: "2",
- *                 description: "Feature dimension",
- *                 isRequired: true,
- *                 isTunable: false,
- *                 name: "feature_dim",
- *                 type: "Integer",
  *                 range: {
  *                     integerParameterRangeSpecification: {
  *                         minValue: "2",
  *                         maxValue: "2",
  *                     },
  *                 },
- *             },
- *             {
- *                 defaultValue: "4",
- *                 description: "Mini batch size",
+ *                 defaultValue: "2",
+ *                 description: "Feature dimension",
  *                 isRequired: true,
  *                 isTunable: false,
- *                 name: "mini_batch_size",
+ *                 name: "feature_dim",
  *                 type: "Integer",
+ *             },
+ *             {
  *                 range: {
  *                     integerParameterRangeSpecification: {
  *                         minValue: "4",
  *                         maxValue: "4",
  *                     },
  *                 },
+ *                 defaultValue: "4",
+ *                 description: "Mini batch size",
+ *                 isRequired: true,
+ *                 isTunable: false,
+ *                 name: "mini_batch_size",
+ *                 type: "Integer",
  *             },
  *             {
+ *                 range: {
+ *                     categoricalParameterRangeSpecification: {
+ *                         values: ["binary_classifier"],
+ *                     },
+ *                 },
  *                 defaultValue: "binary_classifier",
  *                 description: "Predictor type",
  *                 isRequired: true,
  *                 isTunable: false,
  *                 name: "predictor_type",
  *                 type: "Categorical",
- *                 range: {
- *                     categoricalParameterRangeSpecification: {
- *                         values: ["binary_classifier"],
- *                     },
- *                 },
  *             },
  *         ],
  *         trainingChannels: [{
@@ -299,44 +296,20 @@ import * as utilities from "../utilities";
  *             supportedContentTypes: ["text/csv"],
  *             supportedInputModes: ["File"],
  *         }],
+ *         trainingImage: example.then(example => example.registryPath),
+ *         supportedTrainingInstanceTypes: ["ml.m5.large"],
  *     },
  *     inferenceSpecification: {
- *         supportedContentTypes: ["text/csv"],
- *         supportedResponseMimeTypes: ["text/csv"],
- *         supportedTransformInstanceTypes: ["ml.m5.large"],
  *         containers: [{
  *             image: example.then(example => example.registryPath),
  *         }],
+ *         supportedContentTypes: ["text/csv"],
+ *         supportedResponseMimeTypes: ["text/csv"],
+ *         supportedTransformInstanceTypes: ["ml.m5.large"],
  *     },
  *     validationSpecification: {
- *         validationRole: exampleRole.arn,
  *         validationProfiles: {
- *             profileName: "validation-profile",
  *             trainingJobDefinition: {
- *                 hyperParameters: {
- *                     feature_dim: "2",
- *                     mini_batch_size: "4",
- *                     predictor_type: "binary_classifier",
- *                 },
- *                 trainingInputMode: "File",
- *                 inputDataConfigs: [{
- *                     channelName: "train",
- *                     compressionType: "None",
- *                     contentType: "text/csv",
- *                     inputMode: "File",
- *                     recordWrapperType: "None",
- *                     shuffleConfig: {
- *                         seed: 1,
- *                     },
- *                     dataSource: {
- *                         s3DataSource: {
- *                             attributeNames: ["label"],
- *                             s3DataDistributionType: "ShardedByS3Key",
- *                             s3DataType: "S3Prefix",
- *                             s3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/algorithm/training/`,
- *                         },
- *                     },
- *                 }],
  *                 outputDataConfig: {
  *                     compressionType: "GZIP",
  *                     s3OutputPath: pulumi.interpolate`s3://${exampleBucket.bucket}/algorithm/output`,
@@ -352,24 +325,42 @@ import * as utilities from "../utilities";
  *                     maxRuntimeInSeconds: 1800,
  *                     maxWaitTimeInSeconds: 3600,
  *                 },
- *             },
- *             transformJobDefinition: {
- *                 batchStrategy: "MultiRecord",
- *                 environment: {
- *                     Te: "enabled",
- *                 },
- *                 maxConcurrentTransforms: 1,
- *                 maxPayloadInMb: 6,
- *                 transformInput: {
+ *                 inputDataConfigs: [{
+ *                     shuffleConfig: {
+ *                         seed: 1,
+ *                     },
+ *                     dataSource: {
+ *                         s3DataSource: {
+ *                             attributeNames: ["label"],
+ *                             s3DataDistributionType: "ShardedByS3Key",
+ *                             s3DataType: "S3Prefix",
+ *                             s3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/algorithm/training/`,
+ *                         },
+ *                     },
+ *                     channelName: "train",
  *                     compressionType: "None",
  *                     contentType: "text/csv",
- *                     splitType: "Line",
+ *                     inputMode: "File",
+ *                     recordWrapperType: "None",
+ *                 }],
+ *                 hyperParameters: {
+ *                     feature_dim: "2",
+ *                     mini_batch_size: "4",
+ *                     predictor_type: "binary_classifier",
+ *                 },
+ *                 trainingInputMode: "File",
+ *             },
+ *             transformJobDefinition: {
+ *                 transformInput: {
  *                     dataSource: {
  *                         s3DataSource: {
  *                             s3DataType: "S3Prefix",
  *                             s3Uri: pulumi.interpolate`s3://${exampleBucket.bucket}/algorithm/transform/`,
  *                         },
  *                     },
+ *                     compressionType: "None",
+ *                     contentType: "text/csv",
+ *                     splitType: "Line",
  *                 },
  *                 transformOutput: {
  *                     accept: "text/csv",
@@ -380,9 +371,18 @@ import * as utilities from "../utilities";
  *                     instanceCount: 1,
  *                     instanceType: "ml.m5.large",
  *                 },
+ *                 batchStrategy: "MultiRecord",
+ *                 environment: {
+ *                     Te: "enabled",
+ *                 },
+ *                 maxConcurrentTransforms: 1,
+ *                 maxPayloadInMb: 6,
  *             },
+ *             profileName: "validation-profile",
  *         },
+ *         validationRole: exampleRole.arn,
  *     },
+ *     algorithmName: "example-validation-algorithm",
  * }, {
  *     dependsOn: [
  *         exampleRolePolicyAttachment,

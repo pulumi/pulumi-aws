@@ -56,15 +56,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := globalaccelerator.NewCrossAccountAttachment(ctx, "example", &globalaccelerator.CrossAccountAttachmentArgs{
-//				Name: pulumi.String("example-cross-account-attachment"),
-//				Principals: pulumi.StringArray{
-//					pulumi.String("123456789012"),
-//				},
 //				Resources: globalaccelerator.CrossAccountAttachmentResourceArray{
 //					&globalaccelerator.CrossAccountAttachmentResourceArgs{
 //						EndpointId: pulumi.String("arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188"),
 //						Region:     pulumi.String("us-west-2"),
 //					},
+//				},
+//				Name: pulumi.String("example-cross-account-attachment"),
+//				Principals: pulumi.StringArray{
+//					pulumi.String("123456789012"),
 //				},
 //			})
 //			if err != nil {
@@ -82,7 +82,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+// - `arn` (String) ARN of the Global Accelerator cross-account attachment.
 //
 // Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 //

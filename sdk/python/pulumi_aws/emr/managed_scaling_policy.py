@@ -216,23 +216,23 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
-            name="emr-sample-cluster",
-            release_label="emr-5.30.0",
             master_instance_group={
                 "instance_type": "m4.large",
             },
             core_instance_group={
                 "instance_type": "c4.large",
-            })
+            },
+            name="emr-sample-cluster",
+            release_label="emr-5.30.0")
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
-            cluster_id=sample.id,
             compute_limits=[{
                 "unit_type": "Instances",
                 "minimum_capacity_units": 2,
                 "maximum_capacity_units": 10,
                 "maximum_ondemand_capacity_units": 2,
                 "maximum_core_capacity_units": 10,
-            }])
+            }],
+            cluster_id=sample.id)
         ```
 
         ## Import
@@ -268,23 +268,23 @@ class ManagedScalingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sample = aws.emr.Cluster("sample",
-            name="emr-sample-cluster",
-            release_label="emr-5.30.0",
             master_instance_group={
                 "instance_type": "m4.large",
             },
             core_instance_group={
                 "instance_type": "c4.large",
-            })
+            },
+            name="emr-sample-cluster",
+            release_label="emr-5.30.0")
         samplepolicy = aws.emr.ManagedScalingPolicy("samplepolicy",
-            cluster_id=sample.id,
             compute_limits=[{
                 "unit_type": "Instances",
                 "minimum_capacity_units": 2,
                 "maximum_capacity_units": 10,
                 "maximum_ondemand_capacity_units": 2,
                 "maximum_core_capacity_units": 10,
-            }])
+            }],
+            cluster_id=sample.id)
         ```
 
         ## Import

@@ -165,11 +165,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
-    ///         Bucket = examplebucket.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = examplebucket.Id,
     ///     });
     /// 
     ///     var exampleBucketObject = new Aws.S3.BucketObject("example", new()

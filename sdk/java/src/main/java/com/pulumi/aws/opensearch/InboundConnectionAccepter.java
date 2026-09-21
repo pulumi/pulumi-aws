@@ -56,7 +56,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var foo = new OutboundConnection("foo", OutboundConnectionArgs.builder()
- *             .connectionAlias("outbound_connection")
  *             .localDomainInfo(OutboundConnectionLocalDomainInfoArgs.builder()
  *                 .ownerId(current.accountId())
  *                 .region(currentGetRegion.region())
@@ -67,6 +66,7 @@ import javax.annotation.Nullable;
  *                 .region(currentGetRegion.region())
  *                 .domainName(remoteDomain.domainName())
  *                 .build())
+ *             .connectionAlias("outbound_connection")
  *             .build());
  * 
  *         var fooInboundConnectionAccepter = new InboundConnectionAccepter("fooInboundConnectionAccepter", InboundConnectionAccepterArgs.builder()

@@ -34,14 +34,14 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     @Import(name="members")
     private @Nullable Output<List<String>> members;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * @return ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     public Optional<Output<List<String>>> members() {
@@ -159,7 +159,7 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class ProtectionGroupArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param members The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+         * @param members ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
          * 
          * @return builder
          * 

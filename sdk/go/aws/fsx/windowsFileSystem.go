@@ -69,12 +69,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity: pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(32),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 //					DnsIps: pulumi.StringArray{
 //						pulumi.String("10.0.0.111"),
@@ -84,6 +78,12 @@ import (
 //					Password:   pulumi.String("avoid-plaintext-passwords"),
 //					Username:   pulumi.String("Admin"),
 //				},
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(32),
 //			})
 //			if err != nil {
 //				return err
@@ -109,12 +109,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewWindowsFileSystem(ctx, "example", &fsx.WindowsFileSystemArgs{
-//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
-//				StorageCapacity: pulumi.Int(32),
-//				SubnetIds: pulumi.StringArray{
-//					exampleAwsSubnet.Id,
-//				},
-//				ThroughputCapacity: pulumi.Int(32),
 //				SelfManagedActiveDirectory: &fsx.WindowsFileSystemSelfManagedActiveDirectoryArgs{
 //					DnsIps: pulumi.StringArray{
 //						pulumi.String("10.0.0.111"),
@@ -123,6 +117,12 @@ import (
 //					DomainName:                     pulumi.String("corp.example.com"),
 //					DomainJoinServiceAccountSecret: pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
 //				},
+//				KmsKeyId:        pulumi.Any(exampleAwsKmsKey.Arn),
+//				StorageCapacity: pulumi.Int(32),
+//				SubnetIds: pulumi.StringArray{
+//					exampleAwsSubnet.Id,
+//				},
+//				ThroughputCapacity: pulumi.Int(32),
 //			})
 //			if err != nil {
 //				return err
@@ -159,7 +159,9 @@ import (
 //				SecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"securityGroupIds",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -175,7 +177,7 @@ type WindowsFileSystem struct {
 	ActiveDirectoryId pulumi.StringPtrOutput `pulumi:"activeDirectoryId"`
 	// Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationOutput `pulumi:"auditLogConfiguration"`
@@ -231,7 +233,7 @@ type WindowsFileSystem struct {
 	//
 	// The following arguments are optional:
 	ThroughputCapacity pulumi.IntOutput `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringOutput `pulumi:"weeklyMaintenanceStartTime"`
@@ -277,7 +279,7 @@ type windowsFileSystemState struct {
 	ActiveDirectoryId *string `pulumi:"activeDirectoryId"`
 	// Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases []string `pulumi:"aliases"`
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn *string `pulumi:"arn"`
 	// Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
 	AuditLogConfiguration *WindowsFileSystemAuditLogConfiguration `pulumi:"auditLogConfiguration"`
@@ -333,7 +335,7 @@ type windowsFileSystemState struct {
 	//
 	// The following arguments are optional:
 	ThroughputCapacity *int `pulumi:"throughputCapacity"`
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId *string `pulumi:"vpcId"`
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime *string `pulumi:"weeklyMaintenanceStartTime"`
@@ -344,7 +346,7 @@ type WindowsFileSystemState struct {
 	ActiveDirectoryId pulumi.StringPtrInput
 	// Array DNS alias names that you want to associate with the Amazon FSx file system.  For more information, see [Working with DNS Aliases](https://docs.aws.amazon.com/fsx/latest/WindowsGuide/managing-dns-aliases.html)
 	Aliases pulumi.StringArrayInput
-	// Amazon Resource Name of the file system.
+	// ARN of the file system.
 	Arn pulumi.StringPtrInput
 	// Configuration that Amazon FSx for Windows File Server uses to audit and log user accesses of files, folders, and file shares on the Amazon FSx for Windows File Server file system. See `auditLogConfiguration` Block for details.
 	AuditLogConfiguration WindowsFileSystemAuditLogConfigurationPtrInput
@@ -400,7 +402,7 @@ type WindowsFileSystemState struct {
 	//
 	// The following arguments are optional:
 	ThroughputCapacity pulumi.IntPtrInput
-	// Identifier of the Virtual Private Cloud for the file system.
+	// Identifier of the VPC for the file system.
 	VpcId pulumi.StringPtrInput
 	// Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
 	WeeklyMaintenanceStartTime pulumi.StringPtrInput
@@ -610,7 +612,7 @@ func (o WindowsFileSystemOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name of the file system.
+// ARN of the file system.
 func (o WindowsFileSystemOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -753,7 +755,7 @@ func (o WindowsFileSystemOutput) ThroughputCapacity() pulumi.IntOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.IntOutput { return v.ThroughputCapacity }).(pulumi.IntOutput)
 }
 
-// Identifier of the Virtual Private Cloud for the file system.
+// Identifier of the VPC for the file system.
 func (o WindowsFileSystemOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *WindowsFileSystem) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

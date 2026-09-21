@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+// Trims the path prefix from an IAM role ARN.
 // This function can be used when services require role ARNs to be passed without a path.
 //
 // See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -43,19 +43,15 @@ func TrimIamRolePathOutput(ctx *pulumi.Context, arn pulumi.StringInput, opts ...
 	args := trimIamRolePathOutputArgs{
 		Arn: arn,
 	}
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (pulumi.StringOutput, error) {
-			args := v.(trimIamRolePathArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			rv := ctx.InvokeOutput("aws:index/trimIamRolePath:trimIamRolePath", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
-			return rv.ApplyT(func(rv map[string]string) string {
-				var result string
-				for _, v := range rv {
-					result = v
-				}
-				return result
-			}).(pulumi.StringOutput), nil
-		}).(pulumi.StringOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	rv := ctx.InvokeOutput("aws:index/trimIamRolePath:trimIamRolePath", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
+	return rv.ApplyT(func(rv map[string]string) string {
+		var result string
+		for _, v := range rv {
+			result = v
+		}
+		return result
+	}).(pulumi.StringOutput)
 }
 
 type trimIamRolePathOutputArgs struct {

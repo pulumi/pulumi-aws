@@ -40,8 +40,6 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
-//				ConnectionAlias: pulumi.String("outbound_connection"),
-//				ConnectionMode:  pulumi.String("DIRECT"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
 //					OwnerId:    pulumi.String(current.AccountId),
 //					Region:     pulumi.String(currentGetRegion.Region),
@@ -52,6 +50,8 @@ import (
 //					Region:     pulumi.String(currentGetRegion.Region),
 //					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
+//				ConnectionAlias: pulumi.String("outbound_connection"),
+//				ConnectionMode:  pulumi.String("DIRECT"),
 //			})
 //			if err != nil {
 //				return err

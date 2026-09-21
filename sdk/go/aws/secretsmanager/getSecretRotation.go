@@ -69,7 +69,7 @@ type LookupSecretRotationResult struct {
 	Region string `pulumi:"region"`
 	// Whether automatic rotation is enabled for this secret.
 	RotationEnabled bool `pulumi:"rotationEnabled"`
-	// Amazon Resource Name (ARN) of the lambda function used for rotation.
+	// ARN of the lambda function used for rotation.
 	RotationLambdaArn string `pulumi:"rotationLambdaArn"`
 	// Configuration block for rotation rules. See `rotationRules` below.
 	RotationRules []GetSecretRotationRotationRule `pulumi:"rotationRules"`
@@ -77,12 +77,8 @@ type LookupSecretRotationResult struct {
 }
 
 func LookupSecretRotationOutput(ctx *pulumi.Context, args LookupSecretRotationOutputArgs, opts ...pulumi.InvokeOption) LookupSecretRotationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSecretRotationResultOutput, error) {
-			args := v.(LookupSecretRotationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", args, LookupSecretRotationResultOutput{}, options).(LookupSecretRotationResultOutput), nil
-		}).(LookupSecretRotationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:secretsmanager/getSecretRotation:getSecretRotation", args, LookupSecretRotationResultOutput{}, options).(LookupSecretRotationResultOutput)
 }
 
 // A collection of arguments for invoking getSecretRotation.
@@ -138,7 +134,7 @@ func (o LookupSecretRotationResultOutput) RotationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) bool { return v.RotationEnabled }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the lambda function used for rotation.
+// ARN of the lambda function used for rotation.
 func (o LookupSecretRotationResultOutput) RotationLambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSecretRotationResult) string { return v.RotationLambdaArn }).(pulumi.StringOutput)
 }

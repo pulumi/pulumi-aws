@@ -57,7 +57,7 @@ import (
 type VideoStream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// ARN specifying the Stream (same as `id`)
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A time stamp that indicates when the stream was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
@@ -65,7 +65,7 @@ type VideoStream struct {
 	DataRetentionInHours pulumi.IntPtrOutput `pulumi:"dataRetentionInHours"`
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+	// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrOutput `pulumi:"mediaType"`
@@ -112,7 +112,7 @@ func GetVideoStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VideoStream resources.
 type videoStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// ARN specifying the Stream (same as `id`)
 	Arn *string `pulumi:"arn"`
 	// A time stamp that indicates when the stream was created.
 	CreationTime *string `pulumi:"creationTime"`
@@ -120,7 +120,7 @@ type videoStreamState struct {
 	DataRetentionInHours *int `pulumi:"dataRetentionInHours"`
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName *string `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+	// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType *string `pulumi:"mediaType"`
@@ -138,7 +138,7 @@ type videoStreamState struct {
 }
 
 type VideoStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+	// ARN specifying the Stream (same as `id`)
 	Arn pulumi.StringPtrInput
 	// A time stamp that indicates when the stream was created.
 	CreationTime pulumi.StringPtrInput
@@ -146,7 +146,7 @@ type VideoStreamState struct {
 	DataRetentionInHours pulumi.IntPtrInput
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName pulumi.StringPtrInput
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+	// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringPtrInput
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrInput
@@ -172,7 +172,7 @@ type videoStreamArgs struct {
 	DataRetentionInHours *int `pulumi:"dataRetentionInHours"`
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName *string `pulumi:"deviceName"`
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+	// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType *string `pulumi:"mediaType"`
@@ -191,7 +191,7 @@ type VideoStreamArgs struct {
 	DataRetentionInHours pulumi.IntPtrInput
 	// The name of the device that is writing to the stream. **In the current implementation, Kinesis Video Streams does not use this name.**
 	DeviceName pulumi.StringPtrInput
-	// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+	// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 	KmsKeyId pulumi.StringPtrInput
 	// The media type of the stream. Consumers of the stream can use this information when processing the stream. For more information about media types, see [Media Types](http://www.iana.org/assignments/media-types/media-types.xhtml). If you choose to specify the MediaType, see [Naming Requirements](https://tools.ietf.org/html/rfc6838#section-4.2) for guidelines.
 	MediaType pulumi.StringPtrInput
@@ -291,7 +291,7 @@ func (o VideoStreamOutput) ToVideoStreamOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+// ARN specifying the Stream (same as `id`)
 func (o VideoStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -311,7 +311,7 @@ func (o VideoStreamOutput) DeviceName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringPtrOutput { return v.DeviceName }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+// ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
 func (o VideoStreamOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *VideoStream) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }

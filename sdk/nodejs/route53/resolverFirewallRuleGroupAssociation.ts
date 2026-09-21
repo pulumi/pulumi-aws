@@ -59,7 +59,7 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
+     * ARN of the firewall rule group association.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class ResolverFirewallRuleGroupAssociation extends pulumi.CustomResource 
  */
 export interface ResolverFirewallRuleGroupAssociationState {
     /**
-     * The ARN (Amazon Resource Name) of the firewall rule group association.
+     * ARN of the firewall rule group association.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

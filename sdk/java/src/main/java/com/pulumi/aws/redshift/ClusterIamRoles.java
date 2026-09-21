@@ -79,14 +79,14 @@ public class ClusterIamRoles extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Output<String> defaultIamRoleArn() {

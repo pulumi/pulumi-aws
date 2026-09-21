@@ -61,7 +61,7 @@ import (
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+	// The ARN assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -116,7 +116,7 @@ func GetStudioLifecycleConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StudioLifecycleConfig resources.
 type studioLifecycleConfigState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+	// The ARN assigned by AWS to this Studio Lifecycle Config.
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -133,7 +133,7 @@ type studioLifecycleConfigState struct {
 }
 
 type StudioLifecycleConfigState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+	// The ARN assigned by AWS to this Studio Lifecycle Config.
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -267,7 +267,7 @@ func (o StudioLifecycleConfigOutput) ToStudioLifecycleConfigOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+// The ARN assigned by AWS to this Studio Lifecycle Config.
 func (o StudioLifecycleConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StudioLifecycleConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

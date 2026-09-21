@@ -26,7 +26,6 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         Name = exampleAwsSsmDocument.Name,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -38,6 +37,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = exampleAwsSsmDocument.Name,
     ///     });
     /// 
     /// });
@@ -57,7 +57,6 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -69,6 +68,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///     });
     /// 
     /// });
@@ -88,7 +88,6 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -100,6 +99,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = "AmazonCloudWatch-ManageAgent",
     ///     });
     /// 
     /// });
@@ -119,8 +119,6 @@ namespace Pulumi.Aws.Ssm
     /// {
     ///     var example = new Aws.Ssm.Association("example", new()
     ///     {
-    ///         Name = exampleAwsSsmDocument.Name,
-    ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -132,6 +130,8 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = exampleAwsSsmDocument.Name,
+    ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///     });
     /// 
     /// });
@@ -189,7 +189,6 @@ namespace Pulumi.Aws.Ssm
     ///     // Removed EC2 provisioning dependencies for brevity
     ///     var systemUpdate = new Aws.Ssm.Association("system_update", new()
     ///     {
-    ///         Name = "AWS-RunShellScript",
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -202,6 +201,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = "AWS-RunShellScript",
     ///         ScheduleExpression = "cron(0 2 ? * SUN *)",
     ///         Parameters = 
     ///         {
@@ -253,7 +253,6 @@ namespace Pulumi.Aws.Ssm
     ///     // SSM Association for Webbased Servers
     ///     var databaseAssociation = new Aws.Ssm.Association("database_association", new()
     ///     {
-    ///         Name = systemUpdate.Name,
     ///         Targets = new[]
     ///         {
     ///             new Aws.Ssm.Inputs.AssociationTargetArgs
@@ -266,6 +265,7 @@ namespace Pulumi.Aws.Ssm
     ///                 },
     ///             },
     ///         },
+    ///         Name = systemUpdate.Name,
     ///         Parameters = 
     ///         {
     ///             { "restartServices", "true" },

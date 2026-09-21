@@ -128,7 +128,7 @@ class GetOutpostResult:
     @pulumi.getter(name="siteArn")
     def site_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the site.
+        ARN of the site.
         """
         return pulumi.get(self, "site_arn")
 

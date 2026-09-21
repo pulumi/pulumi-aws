@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearch.ServerlessCollectionGroup("example", {
- *     name: "example-group",
- *     description: "Shared compute for production collections",
- *     standbyReplicas: "ENABLED",
  *     capacityLimits: [{
  *         minIndexingCapacityInOcu: 2,
  *         maxIndexingCapacityInOcu: 16,
  *         minSearchCapacityInOcu: 2,
  *         maxSearchCapacityInOcu: 16,
  *     }],
+ *     name: "example-group",
+ *     description: "Shared compute for production collections",
+ *     standbyReplicas: "ENABLED",
  * });
  * ```
  *
@@ -81,7 +81,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -172,7 +172,7 @@ export class ServerlessCollectionGroup extends pulumi.CustomResource {
  */
 export interface ServerlessCollectionGroupState {
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

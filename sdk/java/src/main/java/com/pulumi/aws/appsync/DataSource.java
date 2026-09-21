@@ -63,23 +63,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleTable = new Table("exampleTable", TableArgs.builder()
- *             .name("example")
- *             .readCapacity(1)
- *             .writeCapacity(1)
- *             .hashKey("UserId")
  *             .attributes(TableAttributeArgs.builder()
  *                 .name("UserId")
  *                 .type("S")
  *                 .build())
+ *             .name("example")
+ *             .readCapacity(1)
+ *             .writeCapacity(1)
+ *             .hashKey("UserId")
  *             .build());
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("appsync.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -109,13 +109,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataSource = new DataSource("exampleDataSource", DataSourceArgs.builder()
+ *             .dynamodbConfig(DataSourceDynamodbConfigArgs.builder()
+ *                 .tableName(exampleTable.name())
+ *                 .build())
  *             .apiId(exampleGraphQLApi.id())
  *             .name("my_appsync_example")
  *             .serviceRoleArn(exampleRole.arn())
  *             .type("AMAZON_DYNAMODB")
- *             .dynamodbConfig(DataSourceDynamodbConfigArgs.builder()
- *                 .tableName(exampleTable.name())
- *                 .build())
  *             .build());
  * 
  *     }

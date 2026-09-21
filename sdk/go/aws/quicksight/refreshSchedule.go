@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
 //				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("FULL_REFRESH"),
 //					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
 //						Interval: pulumi.String("HOURLY"),
 //					},
+//					RefreshType: pulumi.String("FULL_REFRESH"),
 //				},
+//				DataSetId:  pulumi.String("dataset-id"),
+//				ScheduleId: pulumi.String("schedule-id"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,19 +64,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
 //				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
 //					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval:     pulumi.String("WEEKLY"),
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
 //						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
 //							DayOfWeek: pulumi.String("MONDAY"),
 //						},
+//						Interval:     pulumi.String("WEEKLY"),
+//						TimeOfTheDay: pulumi.String("01:00"),
+//						Timezone:     pulumi.String("Europe/London"),
 //					},
+//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
 //				},
+//				DataSetId:  pulumi.String("dataset-id"),
+//				ScheduleId: pulumi.String("schedule-id"),
 //			})
 //			if err != nil {
 //				return err
@@ -102,19 +102,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewRefreshSchedule(ctx, "example", &quicksight.RefreshScheduleArgs{
-//				DataSetId:  pulumi.String("dataset-id"),
-//				ScheduleId: pulumi.String("schedule-id"),
 //				Schedule: &quicksight.RefreshScheduleScheduleArgs{
-//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
 //					ScheduleFrequency: &quicksight.RefreshScheduleScheduleScheduleFrequencyArgs{
-//						Interval:     pulumi.String("MONTHLY"),
-//						TimeOfTheDay: pulumi.String("01:00"),
-//						Timezone:     pulumi.String("Europe/London"),
 //						RefreshOnDay: &quicksight.RefreshScheduleScheduleScheduleFrequencyRefreshOnDayArgs{
 //							DayOfMonth: pulumi.String("1"),
 //						},
+//						Interval:     pulumi.String("MONTHLY"),
+//						TimeOfTheDay: pulumi.String("01:00"),
+//						Timezone:     pulumi.String("Europe/London"),
 //					},
+//					RefreshType: pulumi.String("INCREMENTAL_REFRESH"),
 //				},
+//				DataSetId:  pulumi.String("dataset-id"),
+//				ScheduleId: pulumi.String("schedule-id"),
 //			})
 //			if err != nil {
 //				return err
@@ -135,7 +135,7 @@ import (
 type RefreshSchedule struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the refresh schedule.
+	// ARN of the refresh schedule.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -190,7 +190,7 @@ func GetRefreshSchedule(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RefreshSchedule resources.
 type refreshScheduleState struct {
-	// Amazon Resource Name (ARN) of the refresh schedule.
+	// ARN of the refresh schedule.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -207,7 +207,7 @@ type refreshScheduleState struct {
 }
 
 type RefreshScheduleState struct {
-	// Amazon Resource Name (ARN) of the refresh schedule.
+	// ARN of the refresh schedule.
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
@@ -345,7 +345,7 @@ func (o RefreshScheduleOutput) ToRefreshScheduleOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the refresh schedule.
+// ARN of the refresh schedule.
 func (o RefreshScheduleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RefreshSchedule) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -199,15 +199,15 @@ class BucketMetric(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ### Add metrics configuration with S3 object filter for S3 Access Point
@@ -221,15 +221,15 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="example-access-point")
         example_filtered = aws.s3.BucketMetric("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "access_point": example_access_point.arn,
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ### Add metrics configuration for S3 directory bucket
@@ -240,20 +240,20 @@ class BucketMetric(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example--zoneId--xa-s3")
         example_bucket_metric = aws.s3.BucketMetric("example-bucket-metric",
-            bucket=example.id,
-            name="ExampleBucketMetricForDirectoryBuckets",
             filter={
                 "access_point": example_access_point.arn,
                 "prefix": "documents/",
-            })
+            },
+            bucket=example.id,
+            name="ExampleBucketMetricForDirectoryBuckets")
         ```
 
         ## Import
@@ -303,15 +303,15 @@ class BucketMetric(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.BucketMetric("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ### Add metrics configuration with S3 object filter for S3 Access Point
@@ -325,15 +325,15 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="example-access-point")
         example_filtered = aws.s3.BucketMetric("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "access_point": example_access_point.arn,
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ### Add metrics configuration for S3 directory bucket
@@ -344,20 +344,20 @@ class BucketMetric(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example-access-point",
             bucket=example.id,
             name="example--zoneId--xa-s3")
         example_bucket_metric = aws.s3.BucketMetric("example-bucket-metric",
-            bucket=example.id,
-            name="ExampleBucketMetricForDirectoryBuckets",
             filter={
                 "access_point": example_access_point.arn,
                 "prefix": "documents/",
-            })
+            },
+            bucket=example.id,
+            name="ExampleBucketMetricForDirectoryBuckets")
         ```
 
         ## Import

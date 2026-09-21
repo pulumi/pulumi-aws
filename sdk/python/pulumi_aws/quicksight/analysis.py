@@ -45,7 +45,7 @@ class AnalysisArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['AnalysisSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         pulumi.set(__self__, "analysis_id", analysis_id)
         if aws_account_id is not None:
@@ -181,7 +181,7 @@ class AnalysisArgs:
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         return pulumi.get(self, "theme_arn")
 
@@ -228,7 +228,7 @@ class _AnalysisState:
         :param pulumi.Input[_builtins.str] status: The analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         if analysis_id is not None:
             pulumi.set(__self__, "analysis_id", analysis_id)
@@ -446,7 +446,7 @@ class _AnalysisState:
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         return pulumi.get(self, "theme_arn")
 
@@ -484,17 +484,17 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ### With Definition
@@ -504,19 +504,14 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -527,30 +522,35 @@ class Analysis(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ## Import
@@ -575,7 +575,7 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['AnalysisSourceEntityArgs', 'AnalysisSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the analysis (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         ...
     @overload
@@ -595,17 +595,17 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ### With Definition
@@ -615,19 +615,14 @@ class Analysis(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Analysis("example",
-            analysis_id="example-id",
-            name="example-name",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -638,30 +633,35 @@ class Analysis(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            analysis_id="example-id",
+            name="example-name")
         ```
 
         ## Import
@@ -774,7 +774,7 @@ class Analysis(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] status: The analysis creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -921,7 +921,7 @@ class Analysis(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+        ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
         """
         return pulumi.get(self, "theme_arn")
 

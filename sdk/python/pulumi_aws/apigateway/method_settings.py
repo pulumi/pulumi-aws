@@ -220,12 +220,12 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "OFF",
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Errors Only
@@ -235,14 +235,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "ERROR",
                 "metrics_enabled": True,
                 "data_trace_enabled": False,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Errors and Info Logs
@@ -252,14 +252,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "INFO",
                 "metrics_enabled": True,
                 "data_trace_enabled": False,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Full Request and Response Logs
@@ -269,14 +269,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "INFO",
                 "metrics_enabled": True,
                 "data_trace_enabled": True,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ## Import
@@ -318,12 +318,12 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "OFF",
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Errors Only
@@ -333,14 +333,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "ERROR",
                 "metrics_enabled": True,
                 "data_trace_enabled": False,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Errors and Info Logs
@@ -350,14 +350,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "INFO",
                 "metrics_enabled": True,
                 "data_trace_enabled": False,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ### Full Request and Response Logs
@@ -367,14 +367,14 @@ class MethodSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         path_specific = aws.apigateway.MethodSettings("path_specific",
-            rest_api=example["id"],
-            stage_name=example_aws_api_gateway_stage["stageName"],
-            method_path="path1/GET",
             settings={
                 "logging_level": "INFO",
                 "metrics_enabled": True,
                 "data_trace_enabled": True,
-            })
+            },
+            rest_api=example["id"],
+            stage_name=example_aws_api_gateway_stage["stageName"],
+            method_path="path1/GET")
         ```
 
         ## Import

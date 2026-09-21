@@ -18,14 +18,14 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
     public static final RoutingRuleActionInvokeApiArgs Empty = new RoutingRuleActionInvokeApiArgs();
 
     /**
-     * Action to invoke a stage of a target API. Only REST APIs are supported.
+     * API identifier of the target API.
      * 
      */
     @Import(name="apiId", required=true)
     private Output<String> apiId;
 
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return API identifier of the target API.
      * 
      */
     public Output<String> apiId() {
@@ -33,14 +33,14 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Action to invoke a stage of a target API. Only REST APIs are supported.
+     * Name of the target stage.
      * 
      */
     @Import(name="stage", required=true)
     private Output<String> stage;
 
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Name of the target stage.
      * 
      */
     public Output<String> stage() {
@@ -48,14 +48,14 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Action to invoke a stage of a target API. Only REST APIs are supported.
+     * Whether to strip the base path when forwarding the request to the target API.
      * 
      */
     @Import(name="stripBasePath")
     private @Nullable Output<Boolean> stripBasePath;
 
     /**
-     * @return Action to invoke a stage of a target API. Only REST APIs are supported.
+     * @return Whether to strip the base path when forwarding the request to the target API.
      * 
      */
     public Optional<Output<Boolean>> stripBasePath() {
@@ -89,7 +89,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param apiId Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param apiId API identifier of the target API.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param apiId Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param apiId API identifier of the target API.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stage Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param stage Name of the target stage.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stage Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param stage Name of the target stage.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stripBasePath Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param stripBasePath Whether to strip the base path when forwarding the request to the target API.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class RoutingRuleActionInvokeApiArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param stripBasePath Action to invoke a stage of a target API. Only REST APIs are supported.
+         * @param stripBasePath Whether to strip the base path when forwarding the request to the target API.
          * 
          * @return builder
          * 

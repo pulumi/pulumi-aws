@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/volumeCopy:VolumeCopy")
 public class VolumeCopy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the copied EBS volume.
+     * ARN of the copied EBS volume.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the copied EBS volume.
+     * @return ARN of the copied EBS volume.
      * 
      */
     public Output<String> arn() {

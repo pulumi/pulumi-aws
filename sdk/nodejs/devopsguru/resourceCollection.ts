@@ -21,10 +21,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devopsguru.ResourceCollection("example", {
- *     type: "AWS_SERVICE",
  *     cloudformation: {
  *         stackNames: ["*"],
  *     },
+ *     type: "AWS_SERVICE",
  * });
  * ```
  *
@@ -35,10 +35,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devopsguru.ResourceCollection("example", {
- *     type: "AWS_CLOUD_FORMATION",
  *     cloudformation: {
  *         stackNames: ["ExampleStack"],
  *     },
+ *     type: "AWS_CLOUD_FORMATION",
  * });
  * ```
  *
@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devopsguru.ResourceCollection("example", {
- *     type: "AWS_TAGS",
  *     tags: {
  *         appBoundaryKey: "DevOps-Guru-Example",
  *         tagValues: ["Example-Value"],
  *     },
+ *     type: "AWS_TAGS",
  * });
  * ```
  *
@@ -66,11 +66,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.devopsguru.ResourceCollection("example", {
- *     type: "AWS_TAGS",
  *     tags: {
  *         appBoundaryKey: "DevOps-Guru-Example",
  *         tagValues: ["*"],
  *     },
+ *     type: "AWS_TAGS",
  * });
  * ```
  *

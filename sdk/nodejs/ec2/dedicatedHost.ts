@@ -88,7 +88,7 @@ export class DedicatedHost extends pulumi.CustomResource {
      */
     declare public readonly instanceType: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * ARN of the AWS Outpost on which to allocate the Dedicated Host.
      */
     declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
@@ -189,7 +189,7 @@ export interface DedicatedHostState {
      */
     instanceType?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * ARN of the AWS Outpost on which to allocate the Dedicated Host.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
@@ -239,7 +239,7 @@ export interface DedicatedHostArgs {
      */
     instanceType?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+     * ARN of the AWS Outpost on which to allocate the Dedicated Host.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**

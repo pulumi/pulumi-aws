@@ -136,7 +136,7 @@ type Workspace struct {
 
 	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringOutput `pulumi:"accountAccessType"`
-	// The Amazon Resource Name (ARN) of the Grafana workspace.
+	// ARN of the Grafana workspace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayOutput `pulumi:"authenticationProviders"`
@@ -222,7 +222,7 @@ func GetWorkspace(ctx *pulumi.Context,
 type workspaceState struct {
 	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType *string `pulumi:"accountAccessType"`
-	// The Amazon Resource Name (ARN) of the Grafana workspace.
+	// ARN of the Grafana workspace.
 	Arn *string `pulumi:"arn"`
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders []string `pulumi:"authenticationProviders"`
@@ -270,7 +270,7 @@ type workspaceState struct {
 type WorkspaceState struct {
 	// The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizationalUnits` must also be present.
 	AccountAccessType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the Grafana workspace.
+	// ARN of the Grafana workspace.
 	Arn pulumi.StringPtrInput
 	// The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
 	AuthenticationProviders pulumi.StringArrayInput
@@ -494,7 +494,7 @@ func (o WorkspaceOutput) AccountAccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.AccountAccessType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Grafana workspace.
+// ARN of the Grafana workspace.
 func (o WorkspaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

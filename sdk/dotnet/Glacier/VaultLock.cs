@@ -41,15 +41,6 @@ namespace Pulumi.Aws.Glacier
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "glacier:DeleteArchive",
-    ///                 },
-    ///                 Effect = "Deny",
-    ///                 Resources = new[]
-    ///                 {
-    ///                     exampleVault.Arn,
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -61,6 +52,15 @@ namespace Pulumi.Aws.Glacier
     ///                             "365",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "glacier:DeleteArchive",
+    ///                 },
+    ///                 Effect = "Deny",
+    ///                 Resources = new[]
+    ///                 {
+    ///                     exampleVault.Arn,
     ///                 },
     ///             },
     ///         },

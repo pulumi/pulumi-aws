@@ -20,7 +20,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
     public static final KeyvaluestoreKeysExclusiveArgs Empty = new KeyvaluestoreKeysExclusiveArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      * 
      * The following arguments are optional:
      * 
@@ -29,7 +29,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
     private Output<String> keyValueStoreArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Value Store.
+     * @return ARN of the Key Value Store.
      * 
      * The following arguments are optional:
      * 
@@ -97,7 +97,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
+         * @param keyValueStoreArn ARN of the Key Value Store.
          * 
          * The following arguments are optional:
          * 
@@ -110,7 +110,7 @@ public final class KeyvaluestoreKeysExclusiveArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param keyValueStoreArn Amazon Resource Name (ARN) of the Key Value Store.
+         * @param keyValueStoreArn ARN of the Key Value Store.
          * 
          * The following arguments are optional:
          * 

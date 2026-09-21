@@ -27,8 +27,6 @@ namespace Pulumi.Aws.Bedrock.Outputs
         public readonly string? AgentRuntimeName;
         /// <summary>
         /// Filesystem configurations. See `FilesystemConfiguration` Block below.
-        /// 
-        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration> FilesystemConfigurations;
         /// <summary>
@@ -37,6 +35,8 @@ namespace Pulumi.Aws.Bedrock.Outputs
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration> LifecycleConfigurations;
         /// <summary>
         /// Network configuration. See `NetworkConfiguration` Block below.
+        /// 
+        /// The following attributes are exported under `AgentcoreRuntimeEnvironment`:
         /// </summary>
         public readonly ImmutableArray<Outputs.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration> NetworkConfigurations;
 

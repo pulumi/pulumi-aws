@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accessanalyzer.NewArchiveRule(ctx, "example", &accessanalyzer.ArchiveRuleArgs{
-//				AnalyzerName: pulumi.String("example-analyzer"),
-//				RuleName:     pulumi.String("example-rule"),
 //				Filters: accessanalyzer.ArchiveRuleFilterArray{
 //					&accessanalyzer.ArchiveRuleFilterArgs{
 //						Criteria: pulumi.String("condition.aws:UserId"),
@@ -51,6 +49,8 @@ import (
 //						},
 //					},
 //				},
+//				AnalyzerName: pulumi.String("example-analyzer"),
+//				RuleName:     pulumi.String("example-rule"),
 //			})
 //			if err != nil {
 //				return err

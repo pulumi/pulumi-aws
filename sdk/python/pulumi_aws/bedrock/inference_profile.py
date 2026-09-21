@@ -142,7 +142,7 @@ class _InferenceProfileState:
         """
         Input properties used for looking up and filtering InferenceProfile resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the inference profile.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the inference profile.
         :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
         :param pulumi.Input['InferenceProfileModelSourceArgs'] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
@@ -187,7 +187,7 @@ class _InferenceProfileState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the inference profile.
+        The ARN of the inference profile.
         """
         return pulumi.get(self, "arn")
 
@@ -362,11 +362,11 @@ class InferenceProfile(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
             model_source={
                 "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
             },
+            name="Claude Sonnet for Project 123",
+            description="Profile with tag for cost allocation tracking",
             tags={
                 "ProjectID": "123",
             })
@@ -410,11 +410,11 @@ class InferenceProfile(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.bedrock.InferenceProfile("example",
-            name="Claude Sonnet for Project 123",
-            description="Profile with tag for cost allocation tracking",
             model_source={
                 "copy_from": "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
             },
+            name="Claude Sonnet for Project 123",
+            description="Profile with tag for cost allocation tracking",
             tags={
                 "ProjectID": "123",
             })
@@ -502,7 +502,7 @@ class InferenceProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the inference profile.
+        :param pulumi.Input[_builtins.str] arn: The ARN of the inference profile.
         :param pulumi.Input[_builtins.str] created_at: The time at which the inference profile was created.
         :param pulumi.Input[_builtins.str] description: The description of the inference profile.
         :param pulumi.Input[Union['InferenceProfileModelSourceArgs', 'InferenceProfileModelSourceArgsDict']] model_source: The source of the model this inference profile will track metrics and cost for. See `model_source`.
@@ -539,7 +539,7 @@ class InferenceProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the inference profile.
+        The ARN of the inference profile.
         """
         return pulumi.get(self, "arn")
 

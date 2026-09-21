@@ -94,7 +94,7 @@ namespace Pulumi.Aws.CodeCommit
         public Output<string> LastModifiedDate { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        /// ARN of the user who made the most recent changes to the approval rule template.
         /// </summary>
         [Output("lastModifiedUser")]
         public Output<string> LastModifiedUser { get; private set; } = null!;
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.CodeCommit
         public Input<string>? LastModifiedDate { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        /// ARN of the user who made the most recent changes to the approval rule template.
         /// </summary>
         [Input("lastModifiedUser")]
         public Input<string>? LastModifiedUser { get; set; }

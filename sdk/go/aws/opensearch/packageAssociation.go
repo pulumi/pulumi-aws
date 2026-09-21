@@ -31,21 +31,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			myDomain, err := opensearch.NewDomain(ctx, "my_domain", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("my-opensearch-domain"),
-//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.search"),
 //				},
+//				DomainName:    pulumi.String("my-opensearch-domain"),
+//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example, err := opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
-//				PackageName: pulumi.String("example-txt"),
 //				PackageSource: &opensearch.PackagePackageSourceArgs{
 //					S3BucketName: pulumi.Any(myOpensearchPackages.Bucket),
 //					S3Key:        pulumi.Any(exampleAwsS3Object.Key),
 //				},
+//				PackageName: pulumi.String("example-txt"),
 //				PackageType: pulumi.String("TXT-DICTIONARY"),
 //			})
 //			if err != nil {

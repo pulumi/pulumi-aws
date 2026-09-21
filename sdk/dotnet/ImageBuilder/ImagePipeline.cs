@@ -16,9 +16,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder image pipeline.
+    /// - `Arn` (String) ARN of the Image Builder image pipeline.
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -28,13 +28,13 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class ImagePipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
+        /// ARN of the image pipeline.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         [Output("containerRecipeArn")]
         public Output<string?> ContainerRecipeArn { get; private set; } = null!;
@@ -70,7 +70,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
         [Output("distributionConfigurationArn")]
         public Output<string?> DistributionConfigurationArn { get; private set; } = null!;
@@ -82,13 +82,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<bool?> EnhancedImageMetadataEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
         [Output("executionRole")]
         public Output<string?> ExecutionRole { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         [Output("imageRecipeArn")]
         public Output<string?> ImageRecipeArn { get; private set; } = null!;
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<Outputs.ImagePipelineImageTestsConfiguration> ImageTestsConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
         [Output("infrastructureConfigurationArn")]
         public Output<string> InfrastructureConfigurationArn { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ImagePipelineArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
@@ -226,7 +226,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
@@ -238,13 +238,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<Inputs.ImagePipelineImageTestsConfigurationArgs>? ImageTestsConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
         [Input("infrastructureConfigurationArn", required: true)]
         public Input<string> InfrastructureConfigurationArn { get; set; } = null!;
@@ -332,13 +332,13 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class ImagePipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image pipeline.
+        /// ARN of the image pipeline.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the container recipe.
+        /// ARN of the container recipe.
         /// </summary>
         [Input("containerRecipeArn")]
         public Input<string>? ContainerRecipeArn { get; set; }
@@ -374,7 +374,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+        /// ARN of the Image Builder Distribution Configuration.
         /// </summary>
         [Input("distributionConfigurationArn")]
         public Input<string>? DistributionConfigurationArn { get; set; }
@@ -386,13 +386,13 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<bool>? EnhancedImageMetadataEnabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+        /// ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         [Input("imageRecipeArn")]
         public Input<string>? ImageRecipeArn { get; set; }
@@ -410,7 +410,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<Inputs.ImagePipelineImageTestsConfigurationGetArgs>? ImageTestsConfiguration { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+        /// ARN of the Image Builder Infrastructure Configuration.
         /// </summary>
         [Input("infrastructureConfigurationArn")]
         public Input<string>? InfrastructureConfigurationArn { get; set; }

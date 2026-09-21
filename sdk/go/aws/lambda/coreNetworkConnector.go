@@ -56,20 +56,20 @@ import (
 // return err
 // }
 // _, err = lambda.NewCoreNetworkConnector(ctx, "example", &lambda.CoreNetworkConnectorArgs{
-// Name: pulumi.String("example"),
-// OperatorRole: exampleRole.Arn,
 // Configuration: &lambda.CoreNetworkConnectorConfigurationArgs{
 // VpcEgressConfiguration: &lambda.CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs{
 // AssociatedComputeResourceTypes: pulumi.StringArray{
 // pulumi.String("MicroVm"),
 // },
 // NetworkProtocol: pulumi.String("IPv4"),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,40-62)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,40-62)),
 // SecurityGroupIds: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
 // },
 // },
+// Name: pulumi.String("example"),
+// OperatorRole: exampleRole.Arn,
 // })
 // if err != nil {
 // return err

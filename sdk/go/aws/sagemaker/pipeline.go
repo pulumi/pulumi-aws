@@ -73,7 +73,7 @@ import (
 type Pipeline struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+	// ARN assigned by AWS to this Pipeline.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
 	ParallelismConfiguration PipelineParallelismConfigurationPtrOutput `pulumi:"parallelismConfiguration"`
@@ -133,7 +133,7 @@ func GetPipeline(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Pipeline resources.
 type pipelineState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+	// ARN assigned by AWS to this Pipeline.
 	Arn *string `pulumi:"arn"`
 	// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
 	ParallelismConfiguration *PipelineParallelismConfiguration `pulumi:"parallelismConfiguration"`
@@ -158,7 +158,7 @@ type pipelineState struct {
 }
 
 type PipelineState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+	// ARN assigned by AWS to this Pipeline.
 	Arn pulumi.StringPtrInput
 	// This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
 	ParallelismConfiguration PipelineParallelismConfigurationPtrInput
@@ -316,7 +316,7 @@ func (o PipelineOutput) ToPipelineOutputWithContext(ctx context.Context) Pipelin
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+// ARN assigned by AWS to this Pipeline.
 func (o PipelineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

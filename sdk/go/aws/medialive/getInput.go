@@ -94,12 +94,8 @@ type LookupInputResult struct {
 }
 
 func LookupInputOutput(ctx *pulumi.Context, args LookupInputOutputArgs, opts ...pulumi.InvokeOption) LookupInputResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInputResultOutput, error) {
-			args := v.(LookupInputArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:medialive/getInput:getInput", args, LookupInputResultOutput{}, options).(LookupInputResultOutput), nil
-		}).(LookupInputResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:medialive/getInput:getInput", args, LookupInputResultOutput{}, options).(LookupInputResultOutput)
 }
 
 // A collection of arguments for invoking getInput.

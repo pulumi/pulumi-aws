@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationSetVdmOptionsDashboardOptions {
     /**
-     * @return Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     private @Nullable String engagementMetrics;
 
     private ConfigurationSetVdmOptionsDashboardOptions() {}
     /**
-     * @return Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+     * @return Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
      * 
      */
     public Optional<String> engagementMetrics() {

@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string?> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// ARN of the AWS Outpost on which to allocate the Dedicated Host.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// ARN of the AWS Outpost on which to allocate the Dedicated Host.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -275,7 +275,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS Outpost on which to allocate the Dedicated Host.
+        /// ARN of the AWS Outpost on which to allocate the Dedicated Host.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

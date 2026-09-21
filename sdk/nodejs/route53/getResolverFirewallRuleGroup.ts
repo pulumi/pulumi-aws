@@ -49,7 +49,7 @@ export interface GetResolverFirewallRuleGroupArgs {
  */
 export interface GetResolverFirewallRuleGroupResult {
     /**
-     * The ARN (Amazon Resource Name) of the rule group.
+     * ARN of the rule group.
      */
     readonly arn: string;
     /**

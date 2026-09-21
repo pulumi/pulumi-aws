@@ -16,14 +16,14 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
     public static final JobQueueComputeEnvironmentOrderArgs Empty = new JobQueueComputeEnvironmentOrderArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      * 
      */
     @Import(name="computeEnvironment", required=true)
     private Output<String> computeEnvironment;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public Output<String> computeEnvironment() {
@@ -71,7 +71,7 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param computeEnvironment The Amazon Resource Name (ARN) of the compute environment.
+         * @param computeEnvironment ARN of the compute environment.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class JobQueueComputeEnvironmentOrderArgs extends com.pulumi.resour
         }
 
         /**
-         * @param computeEnvironment The Amazon Resource Name (ARN) of the compute environment.
+         * @param computeEnvironment ARN of the compute environment.
          * 
          * @return builder
          * 

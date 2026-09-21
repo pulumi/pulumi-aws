@@ -75,12 +75,8 @@ type LookupAclResult struct {
 }
 
 func LookupAclOutput(ctx *pulumi.Context, args LookupAclOutputArgs, opts ...pulumi.InvokeOption) LookupAclResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAclResultOutput, error) {
-			args := v.(LookupAclArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:memorydb/getAcl:getAcl", args, LookupAclResultOutput{}, options).(LookupAclResultOutput), nil
-		}).(LookupAclResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:memorydb/getAcl:getAcl", args, LookupAclResultOutput{}, options).(LookupAclResultOutput)
 }
 
 // A collection of arguments for invoking getAcl.

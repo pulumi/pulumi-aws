@@ -520,14 +520,14 @@ class ClassificationJob(pulumi.CustomResource):
 
         test = aws.macie2.Account("test")
         test_classification_job = aws.macie2.ClassificationJob("test",
-            job_type="ONE_TIME",
-            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition={
                 "bucket_definitions": [{
                     "account_id": "ACCOUNT ID",
                     "buckets": ["S3 BUCKET NAME"],
                 }],
             },
+            job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             opts = pulumi.ResourceOptions(depends_on=[test]))
         ```
 
@@ -572,14 +572,14 @@ class ClassificationJob(pulumi.CustomResource):
 
         test = aws.macie2.Account("test")
         test_classification_job = aws.macie2.ClassificationJob("test",
-            job_type="ONE_TIME",
-            name="NAME OF THE CLASSIFICATION JOB",
             s3_job_definition={
                 "bucket_definitions": [{
                     "account_id": "ACCOUNT ID",
                     "buckets": ["S3 BUCKET NAME"],
                 }],
             },
+            job_type="ONE_TIME",
+            name="NAME OF THE CLASSIFICATION JOB",
             opts = pulumi.ResourceOptions(depends_on=[test]))
         ```
 

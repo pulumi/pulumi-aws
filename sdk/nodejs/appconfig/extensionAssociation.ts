@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  * const testTopic = new aws.sns.Topic("test", {name: "test"});
  * const test = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["appconfig.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const testRole = new aws.iam.Role("test", {
@@ -28,16 +28,16 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: test.then(test => test.json),
  * });
  * const testExtension = new aws.appconfig.Extension("test", {
- *     name: "test",
- *     description: "test description",
  *     actionPoints: [{
- *         point: "ON_DEPLOYMENT_COMPLETE",
  *         actions: [{
  *             name: "test",
  *             roleArn: testRole.arn,
  *             uri: testTopic.arn,
  *         }],
+ *         point: "ON_DEPLOYMENT_COMPLETE",
  *     }],
+ *     name: "test",
+ *     description: "test description",
  *     tags: {
  *         Type: "AppConfig Extension",
  *     },

@@ -52,14 +52,14 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
     }
 
     /**
-     * Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+     * Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
      */
     @Import(name="protocols", required=true)
     private Output<List<Integer>> protocols;
 
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
      * 
      */
     public Output<List<Integer>> protocols() {
@@ -187,7 +187,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
          * 
          * @return builder
          * 
@@ -208,7 +208,7 @@ public final class TlsInspectionConfigurationTlsInspectionConfigurationServerCer
         }
 
         /**
-         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+         * @param protocols Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
          * 
          * @return builder
          * 

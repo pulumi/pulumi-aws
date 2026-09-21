@@ -83,12 +83,8 @@ type GetExportResult struct {
 }
 
 func GetExportOutput(ctx *pulumi.Context, args GetExportOutputArgs, opts ...pulumi.InvokeOption) GetExportResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExportResultOutput, error) {
-			args := v.(GetExportArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getExport:getExport", args, GetExportResultOutput{}, options).(GetExportResultOutput), nil
-		}).(GetExportResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getExport:getExport", args, GetExportResultOutput{}, options).(GetExportResultOutput)
 }
 
 // A collection of arguments for invoking getExport.

@@ -47,14 +47,14 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      * 
      */
     @Import(name="resourceShareArn", required=true)
     private Output<String> resourceShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource share.
+     * @return ARN of the resource share.
      * 
      */
     public Output<String> resourceShareArn() {
@@ -130,7 +130,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share.
+         * @param resourceShareArn ARN of the resource share.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class PrincipalAssociationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param resourceShareArn Amazon Resource Name (ARN) of the resource share.
+         * @param resourceShareArn ARN of the resource share.
          * 
          * @return builder
          * 

@@ -39,6 +39,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryArgs;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationRepositoryCodecommitArgs;
  * import com.pulumi.aws.codegurureviewer.inputs.RepositoryAssociationKmsKeyDetailsArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -56,7 +57,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleRepository = new Repository("exampleRepository", RepositoryArgs.builder()
  *             .repositoryName("example-repo")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("tags[\"codeguru-reviewer\"]")
+ *                 .build());
  * 
  *         var exampleRepositoryAssociation = new RepositoryAssociation("exampleRepositoryAssociation", RepositoryAssociationArgs.builder()
  *             .repository(RepositoryAssociationRepositoryArgs.builder()
@@ -79,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")
 public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) identifying the repository association.
+     * ARN identifying the repository association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) identifying the repository association.
+     * @return ARN identifying the repository association.
      * 
      */
     public Output<String> arn() {
@@ -107,14 +110,14 @@ public class RepositoryAssociation extends com.pulumi.resources.CustomResource {
         return this.associationId;
     }
     /**
-     * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * ARN of an AWS CodeStar Connections connection.
      * 
      */
     @Export(name="connectionArn", refs={String.class}, tree="[0]")
     private Output<String> connectionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+     * @return ARN of an AWS CodeStar Connections connection.
      * 
      */
     public Output<String> connectionArn() {

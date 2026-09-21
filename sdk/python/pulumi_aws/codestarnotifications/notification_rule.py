@@ -352,24 +352,24 @@ class NotificationRule(pulumi.CustomResource):
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
         notif_access = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sns:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codestar-notifications.amazonaws.com"],
             }],
+            "actions": ["sns:Publish"],
             "resources": [notif.arn],
         }])
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
         commits = aws.codestarnotifications.NotificationRule("commits",
+            targets=[{
+                "address": notif.arn,
+            }],
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
             name="example-code-repo-commits",
-            resource=code.arn,
-            targets=[{
-                "address": notif.arn,
-            }])
+            resource=code.arn)
         ```
 
         ## Import
@@ -378,7 +378,7 @@ class NotificationRule(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+        - `arn` (String) ARN of the CodeStar notification rule.
 
         Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 
@@ -417,24 +417,24 @@ class NotificationRule(pulumi.CustomResource):
         code = aws.codecommit.Repository("code", repository_name="example-code-repo")
         notif = aws.sns.Topic("notif", name="notification")
         notif_access = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sns:Publish"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["codestar-notifications.amazonaws.com"],
             }],
+            "actions": ["sns:Publish"],
             "resources": [notif.arn],
         }])
         default = aws.sns.TopicPolicy("default",
             arn=notif.arn,
             policy=notif_access.json)
         commits = aws.codestarnotifications.NotificationRule("commits",
+            targets=[{
+                "address": notif.arn,
+            }],
             detail_type="BASIC",
             event_type_ids=["codecommit-repository-comments-on-commits"],
             name="example-code-repo-commits",
-            resource=code.arn,
-            targets=[{
-                "address": notif.arn,
-            }])
+            resource=code.arn)
         ```
 
         ## Import
@@ -443,7 +443,7 @@ class NotificationRule(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar notification rule.
+        - `arn` (String) ARN of the CodeStar notification rule.
 
         Using `pulumi import`, import CodeStar notification rule using the ARN. For example:
 

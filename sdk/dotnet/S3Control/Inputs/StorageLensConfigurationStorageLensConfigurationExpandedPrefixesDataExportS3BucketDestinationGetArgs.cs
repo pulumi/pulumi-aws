@@ -19,7 +19,7 @@ namespace Pulumi.Aws.S3Control.Inputs
         public Input<string> AccountId { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the bucket.
+        /// ARN of the bucket.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;

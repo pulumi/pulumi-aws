@@ -83,14 +83,14 @@ public class TransitGateway extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.amazonSideAsn);
     }
     /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
+     * EC2 Transit Gateway ARN
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Amazon Resource Name (ARN)
+     * @return EC2 Transit Gateway ARN
      * 
      */
     public Output<String> arn() {

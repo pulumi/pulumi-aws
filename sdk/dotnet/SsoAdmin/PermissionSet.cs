@@ -50,7 +50,7 @@ namespace Pulumi.Aws.SsoAdmin
     public partial class PermissionSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// ARN of the Permission Set.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Output("instanceArn")]
         public Output<string> InstanceArn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn", required: true)]
         public Input<string> InstanceArn { get; set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class PermissionSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Permission Set.
+        /// ARN of the Permission Set.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.SsoAdmin
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        /// ARN of the SSO Instance under which the operation will be executed.
         /// </summary>
         [Input("instanceArn")]
         public Input<string>? InstanceArn { get; set; }

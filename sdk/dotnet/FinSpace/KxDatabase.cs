@@ -58,7 +58,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxDatabase : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX database.
+        /// ARN identifier of the KX database.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -206,7 +206,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxDatabaseState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX database.
+        /// ARN identifier of the KX database.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

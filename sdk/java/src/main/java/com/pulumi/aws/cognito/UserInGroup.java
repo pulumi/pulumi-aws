@@ -48,7 +48,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new UserPool("example", UserPoolArgs.builder()
- *             .name("example")
  *             .passwordPolicy(UserPoolPasswordPolicyArgs.builder()
  *                 .temporaryPasswordValidityDays(7)
  *                 .minimumLength(6)
@@ -56,6 +55,7 @@ import javax.annotation.Nullable;
  *                 .requireSymbols(false)
  *                 .requireNumbers(false)
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()

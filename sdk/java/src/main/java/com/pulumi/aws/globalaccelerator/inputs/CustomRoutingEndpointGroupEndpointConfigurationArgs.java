@@ -16,14 +16,14 @@ public final class CustomRoutingEndpointGroupEndpointConfigurationArgs extends c
     public static final CustomRoutingEndpointGroupEndpointConfigurationArgs Empty = new CustomRoutingEndpointGroupEndpointConfigurationArgs();
 
     /**
-     * An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+     * ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
      * 
      */
     @Import(name="endpointId")
     private @Nullable Output<String> endpointId;
 
     /**
-     * @return An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+     * @return ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
      * 
      */
     public Optional<Output<String>> endpointId() {
@@ -55,7 +55,7 @@ public final class CustomRoutingEndpointGroupEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param endpointId An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+         * @param endpointId ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class CustomRoutingEndpointGroupEndpointConfigurationArgs extends c
         }
 
         /**
-         * @param endpointId An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+         * @param endpointId ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
          * 
          * @return builder
          * 

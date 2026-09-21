@@ -63,11 +63,11 @@ export interface GetSubnetGroupResult {
      */
     readonly status: string;
     /**
-     * Contains a list of subnet identifiers.
+     * List of subnet identifiers.
      */
     readonly subnetIds: string[];
     /**
-     * The network type of the DB subnet group.
+     * Network type of the DB subnet group.
      */
     readonly supportedNetworkTypes: string[];
     /**

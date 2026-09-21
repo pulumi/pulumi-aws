@@ -154,7 +154,7 @@ class _ViewState:
         """
         Input properties used for looking up and filtering View resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Resource Explorer view.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Resource Explorer view.
         :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         :param pulumi.Input['ViewFiltersArgs'] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input['ViewIncludedPropertyArgs']]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
@@ -187,7 +187,7 @@ class _ViewState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Resource Explorer view.
+        ARN of the Resource Explorer view.
         """
         return pulumi.get(self, "arn")
 
@@ -317,13 +317,13 @@ class View(pulumi.CustomResource):
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
             filters={
                 "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",
             }],
+            name="exampleview",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -333,7 +333,7 @@ class View(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+        - `arn` (String) ARN of the Resource Explorer view.
 
         Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 
@@ -369,13 +369,13 @@ class View(pulumi.CustomResource):
 
         example = aws.resourceexplorer.Index("example", type="LOCAL")
         example_view = aws.resourceexplorer.View("example",
-            name="exampleview",
             filters={
                 "filter_string": "resourcetype:ec2:instance",
             },
             included_properties=[{
                 "name": "tags",
             }],
+            name="exampleview",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -385,7 +385,7 @@ class View(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer view.
+        - `arn` (String) ARN of the Resource Explorer view.
 
         Using `pulumi import`, import Resource Explorer views using the `arn`. For example:
 
@@ -460,7 +460,7 @@ class View(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Resource Explorer view.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Resource Explorer view.
         :param pulumi.Input[_builtins.bool] default_view: Specifies whether the view is the [_default view_](https://docs.aws.amazon.com/resource-explorer/latest/userguide/manage-views-about.html#manage-views-about-default) for the AWS Region. Default: `false`.
         :param pulumi.Input[Union['ViewFiltersArgs', 'ViewFiltersArgsDict']] filters: Specifies which resources are included in the results of queries made using this view. See Filters below for more details.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ViewIncludedPropertyArgs', 'ViewIncludedPropertyArgsDict']]]] included_properties: Optional fields to be included in search results from this view. See Included Properties below for more details.
@@ -489,7 +489,7 @@ class View(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Resource Explorer view.
+        ARN of the Resource Explorer view.
         """
         return pulumi.get(self, "arn")
 

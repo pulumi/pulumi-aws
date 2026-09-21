@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -19,14 +20,14 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
     public static final AgentcoreOauth2CredentialProviderArgs Empty = new AgentcoreOauth2CredentialProviderArgs();
 
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     @Import(name="credentialProviderVendor", required=true)
     private Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     public Output<String> credentialProviderVendor() {
@@ -54,8 +55,8 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    @Import(name="oauth2ProviderConfig")
-    private @Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig;
+    @Import(name="oauth2ProviderConfig", required=true)
+    private Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig;
 
     /**
      * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
@@ -63,8 +64,8 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
      * The following arguments are optional:
      * 
      */
-    public Optional<Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs>> oauth2ProviderConfig() {
-        return Optional.ofNullable(this.oauth2ProviderConfig);
+    public Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig() {
+        return this.oauth2ProviderConfig;
     }
 
     /**
@@ -97,6 +98,13 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         return Optional.ofNullable(this.tags);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts;
+
+    public Optional<Output<AgentcoreOauth2CredentialProviderTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private AgentcoreOauth2CredentialProviderArgs() {}
 
     private AgentcoreOauth2CredentialProviderArgs(AgentcoreOauth2CredentialProviderArgs $) {
@@ -105,6 +113,7 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         this.oauth2ProviderConfig = $.oauth2ProviderConfig;
         this.region = $.region;
         this.tags = $.tags;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -126,7 +135,7 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
          * 
          * @return builder
          * 
@@ -137,7 +146,7 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
          * 
          * @return builder
          * 
@@ -175,7 +184,7 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
          * @return builder
          * 
          */
-        public Builder oauth2ProviderConfig(@Nullable Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig) {
+        public Builder oauth2ProviderConfig(Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> oauth2ProviderConfig) {
             $.oauth2ProviderConfig = oauth2ProviderConfig;
             return this;
         }
@@ -234,9 +243,21 @@ public final class AgentcoreOauth2CredentialProviderArgs extends com.pulumi.reso
             return tags(Output.of(tags));
         }
 
+        public Builder timeouts(@Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(AgentcoreOauth2CredentialProviderTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
+        }
+
         public AgentcoreOauth2CredentialProviderArgs build() {
             if ($.credentialProviderVendor == null) {
                 throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderArgs", "credentialProviderVendor");
+            }
+            if ($.oauth2ProviderConfig == null) {
+                throw new MissingRequiredPropertyException("AgentcoreOauth2CredentialProviderArgs", "oauth2ProviderConfig");
             }
             return $;
         }

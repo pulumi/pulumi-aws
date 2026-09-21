@@ -76,18 +76,14 @@ class ClusterArgs:
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
+        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -342,9 +338,7 @@ class ClusterArgs:
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -392,8 +386,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
 
@@ -406,8 +399,7 @@ class ClusterArgs:
     def master_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -419,7 +411,7 @@ class ClusterArgs:
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 
@@ -652,7 +644,7 @@ class _ClusterState:
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -669,19 +661,15 @@ class _ClusterState:
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
+        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -817,7 +805,7 @@ class _ClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -988,9 +976,7 @@ class _ClusterState:
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -1050,8 +1036,7 @@ class _ClusterState:
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
 
@@ -1064,8 +1049,7 @@ class _ClusterState:
     def master_password_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -1077,7 +1061,7 @@ class _ClusterState:
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 
@@ -1390,18 +1374,14 @@ class Cluster(pulumi.CustomResource):
                The following log types are supported: `audit`, `profiler`.
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
+        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -1628,7 +1608,7 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any cluster modifications
                are applied immediately, or during the next maintenance window. Default is
                `false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of cluster
+        :param pulumi.Input[_builtins.str] arn: ARN of cluster
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: A list of EC2 Availability Zones that instances in the DB cluster can be created in.
                DocumentDB automatically assigns 3 AZs if less than 3 AZs are configured, which will show as a difference requiring resource recreation next pulumi up.
                We recommend specifying 3 AZs or using the `lifecycle` configuration block `ignore_changes` argument if necessary.
@@ -1645,19 +1625,15 @@ class Cluster(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] endpoint: The DNS address of the DocumentDB instance
         :param pulumi.Input[_builtins.str] engine: The name of the database engine to be used for this DB cluster. Defaults to `docdb`. Valid values: `docdb`.
         :param pulumi.Input[_builtins.str] engine_version: The database engine version. Updating this argument results in an outage.
-        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot
-               when this DB cluster is deleted. If omitted, no final snapshot will be
-               made.
+        :param pulumi.Input[_builtins.str] final_snapshot_identifier: The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         :param pulumi.Input[_builtins.str] global_cluster_identifier: The global cluster identifier specified on `docdb.GlobalCluster`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: The Route53 Hosted Zone ID of the endpoint
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key. When specifying `kms_key_id`, `storage_encrypted` needs to be set to true.
         :param pulumi.Input[_builtins.bool] manage_master_user_password: Set to `true` to allow Amazon DocumentDB to manage the master user password in AWS Secrets Manager. Cannot be set if `master_password` or `master_password_wo` is provided.
-        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may
-               show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        :param pulumi.Input[_builtins.str] master_password: Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         :param pulumi.Input[_builtins.str] master_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Password for the master DB user. Note that this may
-               show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
-        :param pulumi.Input[_builtins.int] master_password_wo_version: Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+               Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] master_password_wo_version: Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         :param pulumi.Input[_builtins.str] master_username: Username for the master DB user.
         :param pulumi.Input[_builtins.str] network_type: The network type of the DB cluster (`IPV4` or `DUAL`).
         :param pulumi.Input[_builtins.int] port: The port on which the DB accepts connections
@@ -1749,7 +1725,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of cluster
+        ARN of cluster
         """
         return pulumi.get(self, "arn")
 
@@ -1864,9 +1840,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The name of your final DB snapshot
-        when this DB cluster is deleted. If omitted, no final snapshot will be
-        made.
+        The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
         """
         return pulumi.get(self, "final_snapshot_identifier")
 
@@ -1906,8 +1880,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterPassword")
     def master_password(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Password for the master DB user. Note that this may
-        show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
+        Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password_wo` and `manage_master_user_password`.
         """
         return pulumi.get(self, "master_password")
 
@@ -1916,8 +1889,7 @@ class Cluster(pulumi.CustomResource):
     def master_password_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Password for the master DB user. Note that this may
-        show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`.
+        Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `master_password` and `manage_master_user_password`. If set, requires `master_password_wo_version` to be set.
         """
         return pulumi.get(self, "master_password_wo")
 
@@ -1925,7 +1897,7 @@ class Cluster(pulumi.CustomResource):
     @pulumi.getter(name="masterPasswordWoVersion")
     def master_password_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Used together with `master_password_wo` to trigger an update. Increment this value when an update to the `master_password_wo` is required.
+        Required when `master_password_wo` is set. Changing this value triggers an update to `master_password_wo`.
         """
         return pulumi.get(self, "master_password_wo_version")
 

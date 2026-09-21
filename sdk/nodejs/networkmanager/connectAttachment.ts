@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  *     vpcArn: exampleAwsVpc.arn,
  * });
  * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transportAttachmentId: example.id,
- *     edgeLocation: example.edgeLocation,
  *     options: {
  *         protocol: "GRE",
  *     },
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
  * });
  * ```
  *
@@ -51,12 +51,12 @@ import * as utilities from "../utilities";
  *     attachmentType: example.attachmentType,
  * });
  * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transportAttachmentId: example.id,
- *     edgeLocation: example.edgeLocation,
  *     options: {
  *         protocol: "GRE",
  *     },
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
  * }, {
  *     dependsOn: [exampleAttachmentAccepter],
  * });

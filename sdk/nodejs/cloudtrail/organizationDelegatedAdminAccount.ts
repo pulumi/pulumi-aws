@@ -60,7 +60,7 @@ export class OrganizationDelegatedAdminAccount extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
+     * ARN of the delegated administrator's account.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export interface OrganizationDelegatedAdminAccountState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the delegated administrator's account.
+     * ARN of the delegated administrator's account.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

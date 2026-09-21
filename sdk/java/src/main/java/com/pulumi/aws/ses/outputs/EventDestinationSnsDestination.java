@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class EventDestinationSnsDestination {
     /**
-     * @return The ARN of the SNS topic
+     * @return ARN of the SNS topic
      * 
      */
     private String topicArn;
 
     private EventDestinationSnsDestination() {}
     /**
-     * @return The ARN of the SNS topic
+     * @return ARN of the SNS topic
      * 
      */
     public String topicArn() {

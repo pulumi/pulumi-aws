@@ -19,7 +19,7 @@ public final class GetQuicksightUserResult {
      */
     private Boolean active;
     /**
-     * @return The Amazon Resource Name (ARN) for the user.
+     * @return ARN for the user.
      * 
      */
     private String arn;
@@ -70,7 +70,7 @@ public final class GetQuicksightUserResult {
         return this.active;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the user.
+     * @return ARN for the user.
      * 
      */
     public String arn() {

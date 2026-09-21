@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := eks.NewAccessPolicyAssociation(ctx, "example", &eks.AccessPolicyAssociationArgs{
-//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
-//				PolicyArn:    pulumi.String("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"),
-//				PrincipalArn: pulumi.Any(exampleAwsIamUser.Arn),
 //				AccessScope: &eks.AccessPolicyAssociationAccessScopeArgs{
 //					Type: pulumi.String("namespace"),
 //					Namespaces: pulumi.StringArray{
 //						pulumi.String("example-namespace"),
 //					},
 //				},
+//				ClusterName:  pulumi.Any(exampleAwsEksCluster.Name),
+//				PolicyArn:    pulumi.String("arn:aws:eks::aws:cluster-access-policy/AmazonEKSViewPolicy"),
+//				PrincipalArn: pulumi.Any(exampleAwsIamUser.Arn),
 //			})
 //			if err != nil {
 //				return err

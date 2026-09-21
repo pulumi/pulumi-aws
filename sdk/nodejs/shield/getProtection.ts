@@ -49,7 +49,7 @@ export interface GetProtectionArgs {
      */
     protectionId?: string;
     /**
-     * ARN (Amazon Resource Name) of the resource being protected.
+     * ARN of the resource being protected.
      *
      * > Exactly one of `protectionId` or `resourceArn` is required.
      */
@@ -117,7 +117,7 @@ export interface GetProtectionOutputArgs {
      */
     protectionId?: pulumi.Input<string | undefined>;
     /**
-     * ARN (Amazon Resource Name) of the resource being protected.
+     * ARN of the resource being protected.
      *
      * > Exactly one of `protectionId` or `resourceArn` is required.
      */

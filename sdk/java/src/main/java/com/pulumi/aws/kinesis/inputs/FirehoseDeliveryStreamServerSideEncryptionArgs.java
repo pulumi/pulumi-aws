@@ -32,14 +32,14 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
     }
 
     /**
-     * Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+     * ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
      * 
      */
     @Import(name="keyArn")
     private @Nullable Output<String> keyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+     * @return ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
      * 
      */
     public Optional<Output<String>> keyArn() {
@@ -109,7 +109,7 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
         }
 
         /**
-         * @param keyArn Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+         * @param keyArn ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class FirehoseDeliveryStreamServerSideEncryptionArgs extends com.pu
         }
 
         /**
-         * @param keyArn Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+         * @param keyArn ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
          * 
          * @return builder
          * 

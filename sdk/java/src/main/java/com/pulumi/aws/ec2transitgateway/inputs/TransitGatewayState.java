@@ -38,14 +38,14 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
+     * EC2 Transit Gateway ARN
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Amazon Resource Name (ARN)
+     * @return EC2 Transit Gateway ARN
      * 
      */
     public Optional<Output<String>> arn() {
@@ -359,7 +359,7 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn EC2 Transit Gateway Amazon Resource Name (ARN)
+         * @param arn EC2 Transit Gateway ARN
          * 
          * @return builder
          * 
@@ -370,7 +370,7 @@ public final class TransitGatewayState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn EC2 Transit Gateway Amazon Resource Name (ARN)
+         * @param arn EC2 Transit Gateway ARN
          * 
          * @return builder
          * 

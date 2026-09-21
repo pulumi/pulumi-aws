@@ -266,12 +266,8 @@ type LookupPrincipalPolicySimulationResult struct {
 }
 
 func LookupPrincipalPolicySimulationOutput(ctx *pulumi.Context, args LookupPrincipalPolicySimulationOutputArgs, opts ...pulumi.InvokeOption) LookupPrincipalPolicySimulationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrincipalPolicySimulationResultOutput, error) {
-			args := v.(LookupPrincipalPolicySimulationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, LookupPrincipalPolicySimulationResultOutput{}, options).(LookupPrincipalPolicySimulationResultOutput), nil
-		}).(LookupPrincipalPolicySimulationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getPrincipalPolicySimulation:getPrincipalPolicySimulation", args, LookupPrincipalPolicySimulationResultOutput{}, options).(LookupPrincipalPolicySimulationResultOutput)
 }
 
 // A collection of arguments for invoking getPrincipalPolicySimulation.

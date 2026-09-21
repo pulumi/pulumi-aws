@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.VpcEndpointAssociation("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
- *     vpcId: exampleAwsVpc.id,
  *     subnetMapping: {
  *         subnetId: exampleAwsSubnet.id,
  *     },
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
+ *     vpcId: exampleAwsVpc.id,
  *     tags: {
  *         Name: "example endpoint",
  *     },
@@ -73,7 +73,7 @@ export class VpcEndpointAssociation extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * The ARN that identifies the firewall.
      */
     declare public readonly firewallArn: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface VpcEndpointAssociationState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * The ARN that identifies the firewall.
      */
     firewallArn?: pulumi.Input<string | undefined>;
     /**
@@ -218,7 +218,7 @@ export interface VpcEndpointAssociationArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * The ARN that identifies the firewall.
      */
     firewallArn: pulumi.Input<string>;
     /**

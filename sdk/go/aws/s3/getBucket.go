@@ -46,15 +46,15 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				ZoneId: pulumi.String(testZone.Id),
-//				Name:   pulumi.String("bucket"),
-//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:   pulumi.String(selected.WebsiteDomain),
 //						ZoneId: pulumi.String(selected.HostedZoneId),
 //					},
 //				},
+//				ZoneId: pulumi.String(testZone.Id),
+//				Name:   pulumi.String("bucket"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //			})
 //			if err != nil {
 //				return err
@@ -143,12 +143,8 @@ type LookupBucketResult struct {
 }
 
 func LookupBucketOutput(ctx *pulumi.Context, args LookupBucketOutputArgs, opts ...pulumi.InvokeOption) LookupBucketResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBucketResultOutput, error) {
-			args := v.(LookupBucketArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucket:getBucket", args, LookupBucketResultOutput{}, options).(LookupBucketResultOutput), nil
-		}).(LookupBucketResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getBucket:getBucket", args, LookupBucketResultOutput{}, options).(LookupBucketResultOutput)
 }
 
 // A collection of arguments for invoking getBucket.

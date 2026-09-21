@@ -83,12 +83,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScraperLoggingConfiguration = new ScraperLoggingConfiguration("exampleScraperLoggingConfiguration", ScraperLoggingConfigurationArgs.builder()
- *             .scraperId(example.id())
  *             .loggingDestination(ScraperLoggingConfigurationLoggingDestinationArgs.builder()
  *                 .cloudwatchLogs(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs.builder()
  *                     .logGroupArn(exampleLogGroup.arn().applyValue(_arn -> String.format("%s:*", _arn)))
  *                     .build())
  *                 .build())
+ *             .scraperId(example.id())
  *             .build());
  * 
  *     }
@@ -123,15 +123,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ScraperLoggingConfiguration("example", ScraperLoggingConfigurationArgs.builder()
- *             .scraperId(exampleAwsPrometheusScraper.id())
- *             .scraperComponents(            
- *                 "COLLECTOR",
- *                 "EXPORTER")
  *             .loggingDestination(ScraperLoggingConfigurationLoggingDestinationArgs.builder()
  *                 .cloudwatchLogs(ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs.builder()
  *                     .logGroupArn(String.format("%s:*", exampleAwsCloudwatchLogGroup.arn()))
  *                     .build())
  *                 .build())
+ *             .scraperId(exampleAwsPrometheusScraper.id())
+ *             .scraperComponents(            
+ *                 "COLLECTOR",
+ *                 "EXPORTER")
  *             .build());
  * 
  *     }

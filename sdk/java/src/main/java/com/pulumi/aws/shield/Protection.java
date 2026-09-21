@@ -115,14 +115,14 @@ public class Protection extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The ARN (Amazon Resource Name) of the resource to be protected.
+     * ARN of the resource to be protected.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the resource to be protected.
+     * @return ARN of the resource to be protected.
      * 
      */
     public Output<String> resourceArn() {

@@ -61,12 +61,11 @@ export function getVpc(args?: GetVpcArgs, opts?: pulumi.InvokeOptions): Promise<
  */
 export interface GetVpcArgs {
     /**
-     * Cidr block of the desired VPC.
+     * CIDR block of the desired VPC.
      */
     cidrBlock?: string;
     /**
-     * Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
+     * Boolean constraint on whether the desired VPC is the default VPC for the region.
      */
     default?: boolean;
     /**
@@ -74,7 +73,7 @@ export interface GetVpcArgs {
      */
     dhcpOptionsId?: string;
     /**
-     * Custom filter block as described below.
+     * Custom filter block as described below. See `filter` Block below.
      */
     filters?: inputs.ec2.GetVpcFilter[];
     /**
@@ -86,16 +85,11 @@ export interface GetVpcArgs {
      */
     region?: string;
     /**
-     * Current state of the desired VPC.
-     * Can be either `"pending"` or `"available"`.
+     * Current state of the desired VPC. Can be either `"pending"` or `"available"`.
      */
     state?: string;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC.
      */
     tags?: {[key: string]: string};
 }
@@ -105,33 +99,35 @@ export interface GetVpcArgs {
  */
 export interface GetVpcResult {
     /**
-     * ARN of VPC
+     * ARN of VPC.
      */
     readonly arn: string;
     /**
      * CIDR block for the association.
      */
     readonly cidrBlock: string;
+    /**
+     * Information about the IPv4 CIDR blocks associated with the VPC. See `cidrBlockAssociations` Block below.
+     */
     readonly cidrBlockAssociations: outputs.ec2.GetVpcCidrBlockAssociation[];
     readonly default: boolean;
     readonly dhcpOptionsId: string;
     /**
-     * Whether or not the VPC has DNS hostname support
+     * Whether the VPC has DNS hostname support.
      */
     readonly enableDnsHostnames: boolean;
     /**
-     * Whether or not the VPC has DNS support
+     * Whether the VPC has DNS support.
      */
     readonly enableDnsSupport: boolean;
     /**
-     * Whether Network Address Usage metrics are enabled for your VPC
+     * Whether Network Address Usage metrics are enabled for your VPC.
      */
     readonly enableNetworkAddressUsageMetrics: boolean;
     readonly filters?: outputs.ec2.GetVpcFilter[];
     readonly id: string;
     /**
-     * Allowed tenancy of instances launched into the
-     * selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
+     * Allowed tenancy of instances launched into the selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
      */
     readonly instanceTenancy: string;
     /**
@@ -146,6 +142,9 @@ export interface GetVpcResult {
      * @deprecated ipv6_cidr_block is deprecated. Use ipv6CidrBlockAssociations instead.
      */
     readonly ipv6CidrBlock: string;
+    /**
+     * Information about the IPv6 CIDR blocks associated with the VPC. See `ipv6CidrBlockAssociations` Block below.
+     */
     readonly ipv6CidrBlockAssociations: outputs.ec2.GetVpcIpv6CidrBlockAssociation[];
     /**
      * ID of the main route table associated with this VPC.
@@ -216,12 +215,11 @@ export function getVpcOutput(args?: GetVpcOutputArgs, opts?: pulumi.InvokeOutput
  */
 export interface GetVpcOutputArgs {
     /**
-     * Cidr block of the desired VPC.
+     * CIDR block of the desired VPC.
      */
     cidrBlock?: pulumi.Input<string | undefined>;
     /**
-     * Boolean constraint on whether the desired VPC is
-     * the default VPC for the region.
+     * Boolean constraint on whether the desired VPC is the default VPC for the region.
      */
     default?: pulumi.Input<boolean | undefined>;
     /**
@@ -229,7 +227,7 @@ export interface GetVpcOutputArgs {
      */
     dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**
-     * Custom filter block as described below.
+     * Custom filter block as described below. See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.ec2.GetVpcFilterArgs>[] | undefined>;
     /**
@@ -241,16 +239,11 @@ export interface GetVpcOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Current state of the desired VPC.
-     * Can be either `"pending"` or `"available"`.
+     * Current state of the desired VPC. Can be either `"pending"` or `"available"`.
      */
     state?: pulumi.Input<string | undefined>;
     /**
-     * Map of tags, each pair of which must exactly match
-     * a pair on the desired VPC.
-     *
-     * More complex filters can be expressed using one or more `filter` sub-blocks,
-     * which take the following arguments:
+     * Map of tags, each pair of which must exactly match a pair on the desired VPC.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

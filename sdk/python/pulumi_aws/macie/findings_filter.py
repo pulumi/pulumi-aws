@@ -170,7 +170,7 @@ class _FindingsFilterState:
         Input properties used for looking up and filtering FindingsFilter resources.
 
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Findings Filter.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Findings Filter.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
         :param pulumi.Input['FindingsFilterFindingCriteriaArgs'] finding_criteria: The criteria to use to filter findings.
         :param pulumi.Input[_builtins.str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -217,7 +217,7 @@ class _FindingsFilterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Findings Filter.
+        ARN of the Findings Filter.
         """
         return pulumi.get(self, "arn")
 
@@ -348,16 +348,16 @@ class FindingsFilter(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
-            name="NAME OF THE FINDINGS FILTER",
-            description="DESCRIPTION",
-            position=1,
-            action="ARCHIVE",
             finding_criteria={
                 "criterions": [{
                     "field": "region",
                     "eqs": [current["region"]],
                 }],
             },
+            name="NAME OF THE FINDINGS FILTER",
+            description="DESCRIPTION",
+            position=1,
+            action="ARCHIVE",
             opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
         ```
 
@@ -398,16 +398,16 @@ class FindingsFilter(pulumi.CustomResource):
 
         example = aws.macie2.Account("example")
         test = aws.macie.FindingsFilter("test",
-            name="NAME OF THE FINDINGS FILTER",
-            description="DESCRIPTION",
-            position=1,
-            action="ARCHIVE",
             finding_criteria={
                 "criterions": [{
                     "field": "region",
                     "eqs": [current["region"]],
                 }],
             },
+            name="NAME OF THE FINDINGS FILTER",
+            description="DESCRIPTION",
+            position=1,
+            action="ARCHIVE",
             opts = pulumi.ResourceOptions(depends_on=[test_aws_macie2_account]))
         ```
 
@@ -494,7 +494,7 @@ class FindingsFilter(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action: The action to perform on findings that meet the filter criteria (`finding_criteria`). Valid values are: `ARCHIVE`, suppress (automatically archive) the findings; and, `NOOP`, don't perform any action on the findings.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Findings Filter.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Findings Filter.
         :param pulumi.Input[_builtins.str] description: A custom description of the filter. The description can contain as many as 512 characters.
         :param pulumi.Input[Union['FindingsFilterFindingCriteriaArgs', 'FindingsFilterFindingCriteriaArgsDict']] finding_criteria: The criteria to use to filter findings.
         :param pulumi.Input[_builtins.str] name: A custom name for the filter. The name must contain at least 3 characters and can contain as many as 64 characters. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
@@ -532,7 +532,7 @@ class FindingsFilter(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Findings Filter.
+        ARN of the Findings Filter.
         """
         return pulumi.get(self, "arn")
 

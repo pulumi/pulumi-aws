@@ -66,10 +66,6 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreOnlineEvaluationConfig(ctx, "example", &bedrock.AgentcoreOnlineEvaluationConfigArgs{
-//				OnlineEvaluationConfigName: pulumi.String("my_evaluation_config"),
-//				Description:                pulumi.String("Continuous evaluation of agent performance"),
-//				EnableOnCreate:             pulumi.Bool(true),
-//				EvaluationExecutionRoleArn: example.Arn,
 //				DataSourceConfig: &bedrock.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{
 //					CloudwatchLogs: &bedrock.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{
 //						LogGroupNames: pulumi.StringArray{
@@ -80,6 +76,11 @@ import (
 //						},
 //					},
 //				},
+//				Rule: &bedrock.AgentcoreOnlineEvaluationConfigRuleArgs{
+//					SamplingConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{
+//						SamplingPercentage: pulumi.Float64(10),
+//					},
+//				},
 //				Evaluators: bedrock.AgentcoreOnlineEvaluationConfigEvaluatorArray{
 //					&bedrock.AgentcoreOnlineEvaluationConfigEvaluatorArgs{
 //						EvaluatorId: pulumi.String("Builtin.Helpfulness"),
@@ -88,11 +89,10 @@ import (
 //						EvaluatorId: pulumi.String("Builtin.GoalSuccessRate"),
 //					},
 //				},
-//				Rule: &bedrock.AgentcoreOnlineEvaluationConfigRuleArgs{
-//					SamplingConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{
-//						SamplingPercentage: pulumi.Float64(10),
-//					},
-//				},
+//				OnlineEvaluationConfigName: pulumi.String("my_evaluation_config"),
+//				Description:                pulumi.String("Continuous evaluation of agent performance"),
+//				EnableOnCreate:             pulumi.Bool(true),
+//				EvaluationExecutionRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -118,9 +118,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreOnlineEvaluationConfig(ctx, "filtered", &bedrock.AgentcoreOnlineEvaluationConfigArgs{
-//				OnlineEvaluationConfigName: pulumi.String("filtered_evaluation"),
-//				EnableOnCreate:             pulumi.Bool(true),
-//				EvaluationExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				DataSourceConfig: &bedrock.AgentcoreOnlineEvaluationConfigDataSourceConfigArgs{
 //					CloudwatchLogs: &bedrock.AgentcoreOnlineEvaluationConfigDataSourceConfigCloudwatchLogsArgs{
 //						LogGroupNames: pulumi.StringArray{
@@ -131,28 +128,31 @@ import (
 //						},
 //					},
 //				},
+//				Rule: &bedrock.AgentcoreOnlineEvaluationConfigRuleArgs{
+//					SamplingConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{
+//						SamplingPercentage: pulumi.Float64(50),
+//					},
+//					SessionConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{
+//						SessionTimeoutMinutes: pulumi.Int(30),
+//					},
+//					Filters: bedrock.AgentcoreOnlineEvaluationConfigRuleFilterArray{
+//						&bedrock.AgentcoreOnlineEvaluationConfigRuleFilterArgs{
+//							Value: &bedrock.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs{
+//								StringValue: pulumi.String("production"),
+//							},
+//							Key:      pulumi.String("environment"),
+//							Operator: pulumi.String("Equals"),
+//						},
+//					},
+//				},
 //				Evaluators: bedrock.AgentcoreOnlineEvaluationConfigEvaluatorArray{
 //					&bedrock.AgentcoreOnlineEvaluationConfigEvaluatorArgs{
 //						EvaluatorId: pulumi.String("Builtin.Helpfulness"),
 //					},
 //				},
-//				Rule: &bedrock.AgentcoreOnlineEvaluationConfigRuleArgs{
-//					SamplingConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSamplingConfigArgs{
-//						SamplingPercentage: pulumi.Float64(50),
-//					},
-//					Filters: bedrock.AgentcoreOnlineEvaluationConfigRuleFilterArray{
-//						&bedrock.AgentcoreOnlineEvaluationConfigRuleFilterArgs{
-//							Key:      pulumi.String("environment"),
-//							Operator: pulumi.String("Equals"),
-//							Value: &bedrock.AgentcoreOnlineEvaluationConfigRuleFilterValueArgs{
-//								StringValue: pulumi.String("production"),
-//							},
-//						},
-//					},
-//					SessionConfig: &bedrock.AgentcoreOnlineEvaluationConfigRuleSessionConfigArgs{
-//						SessionTimeoutMinutes: pulumi.Int(30),
-//					},
-//				},
+//				OnlineEvaluationConfigName: pulumi.String("filtered_evaluation"),
+//				EnableOnCreate:             pulumi.Bool(true),
+//				EvaluationExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

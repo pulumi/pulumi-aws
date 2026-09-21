@@ -76,7 +76,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-portal"),
 //				},
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "10m", Update: "10m", Delete: "10m"}))
 //			if err != nil {
 //				return err
 //			}

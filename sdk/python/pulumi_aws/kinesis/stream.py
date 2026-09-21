@@ -37,7 +37,7 @@ class StreamArgs:
         """
         The set of arguments for constructing a Stream resource.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
@@ -82,7 +82,7 @@ class StreamArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        ARN specifying the stream (same as `id`).
         """
         return pulumi.get(self, "arn")
 
@@ -255,7 +255,7 @@ class _StreamState:
         """
         Input properties used for looking up and filtering Stream resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
@@ -303,7 +303,7 @@ class _StreamState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        ARN specifying the stream (same as `id`).
         """
         return pulumi.get(self, "arn")
 
@@ -501,6 +501,9 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "PROVISIONED",
+            },
             name="kinesis-test",
             shard_count=1,
             retention_period=48,
@@ -508,9 +511,6 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details={
-                "stream_mode": "PROVISIONED",
-            },
             tags={
                 "Environment": "test",
             })
@@ -538,7 +538,7 @@ class Stream(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
@@ -571,6 +571,9 @@ class Stream(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_stream = aws.kinesis.Stream("test_stream",
+            stream_mode_details={
+                "stream_mode": "PROVISIONED",
+            },
             name="kinesis-test",
             shard_count=1,
             retention_period=48,
@@ -578,9 +581,6 @@ class Stream(pulumi.CustomResource):
                 "IncomingBytes",
                 "OutgoingBytes",
             ],
-            stream_mode_details={
-                "stream_mode": "PROVISIONED",
-            },
             tags={
                 "Environment": "test",
             })
@@ -688,7 +688,7 @@ class Stream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the stream (same as `id`).
         :param pulumi.Input[_builtins.str] encryption_type: The encryption type to use. The only acceptable values are `NONE` or `KMS`. The default value is `NONE`.
         :param pulumi.Input[_builtins.bool] enforce_consumer_deletion: A boolean that indicates all registered consumers should be deregistered from the stream so that the stream can be destroyed without error. The default value is `false`.
         :param pulumi.Input[_builtins.str] kms_key_id: The identifier for the customer-managed KMS key to use for encryption. This can be a Key ID (UUID), a Key ARN, an Alias Name (prefixed with `alias/`), or an Alias ARN. You can also use a master key owned by Kinesis Data Streams by specifying the alias `aws/kinesis`.
@@ -727,7 +727,7 @@ class Stream(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+        ARN specifying the stream (same as `id`).
         """
         return pulumi.get(self, "arn")
 

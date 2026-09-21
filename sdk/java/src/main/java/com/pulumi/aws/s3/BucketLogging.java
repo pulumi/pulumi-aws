@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.s3.BucketPolicy;
  * import com.pulumi.aws.s3.BucketPolicyArgs;
  * import com.pulumi.aws.s3.BucketLogging;
@@ -75,17 +75,17 @@ import javax.annotation.Nullable;
  * 
  *         final var loggingBucketPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test("StringEquals")
+ *                     .variable("aws:SourceAccount")
+ *                     .values(current.accountId())
+ *                     .build())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("logging.s3.amazonaws.com")
  *                     .type("Service")
  *                     .build())
  *                 .actions("s3:PutObject")
  *                 .resources(logging.arn().applyValue(_arn -> String.format("%s/*", _arn)))
- *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                     .test("StringEquals")
- *                     .variable("aws:SourceAccount")
- *                     .values(current.accountId())
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -99,14 +99,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketLogging = new BucketLogging("exampleBucketLogging", BucketLoggingArgs.builder()
- *             .bucket(example.bucket())
- *             .targetBucket(logging.bucket())
- *             .targetPrefix("log/")
  *             .targetObjectKeyFormat(BucketLoggingTargetObjectKeyFormatArgs.builder()
  *                 .partitionedPrefix(BucketLoggingTargetObjectKeyFormatPartitionedPrefixArgs.builder()
  *                     .partitionDateSource("EventTime")
  *                     .build())
  *                 .build())
+ *             .bucket(example.bucket())
+ *             .targetBucket(logging.bucket())
+ *             .targetPrefix("log/")
  *             .build());
  * 
  *     }

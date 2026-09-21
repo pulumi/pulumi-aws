@@ -135,7 +135,7 @@ namespace Pulumi.Aws.CustomerProfiles
     public partial class Domain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        /// ARN of the Customer Profiles Domain.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -307,7 +307,7 @@ namespace Pulumi.Aws.CustomerProfiles
     public sealed class DomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        /// ARN of the Customer Profiles Domain.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

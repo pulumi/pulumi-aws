@@ -54,13 +54,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .name("example-environment-tf")
- *             .description("Example AppConfig Environment")
- *             .applicationId(exampleApplication.id())
  *             .monitors(EnvironmentMonitorArgs.builder()
  *                 .alarmArn(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .alarmRoleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .name("example-environment-tf")
+ *             .description("Example AppConfig Environment")
+ *             .applicationId(exampleApplication.id())
  *             .tags(Map.of("Type", "AppConfig Environment"))
  *             .build());
  * 

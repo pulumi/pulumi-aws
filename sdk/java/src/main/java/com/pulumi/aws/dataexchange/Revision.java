@@ -63,14 +63,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dataexchange/revision:Revision")
 public class Revision extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this data set.
+     * ARN of this data set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this data set.
+     * @return ARN of this data set.
      * 
      */
     public Output<String> arn() {

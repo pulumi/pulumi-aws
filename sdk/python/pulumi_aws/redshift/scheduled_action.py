@@ -347,11 +347,11 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["scheduler.redshift.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -373,14 +373,14 @@ class ScheduledAction(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_scheduled_action = aws.redshift.ScheduledAction("example",
-            name="tf-redshift-scheduled-action",
-            schedule="cron(00 23 * * ? *)",
-            iam_role=example_role.arn,
             target_action={
                 "pause_cluster": {
                     "cluster_identifier": "tf-redshift001",
                 },
-            })
+            },
+            name="tf-redshift-scheduled-action",
+            schedule="cron(00 23 * * ? *)",
+            iam_role=example_role.arn)
         ```
 
         ### Resize Cluster Action
@@ -390,9 +390,6 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ScheduledAction("example",
-            name="tf-redshift-scheduled-action",
-            schedule="cron(00 23 * * ? *)",
-            iam_role=example_aws_iam_role["arn"],
             target_action={
                 "resize_cluster": {
                     "cluster_identifier": "tf-redshift001",
@@ -400,7 +397,10 @@ class ScheduledAction(pulumi.CustomResource):
                     "node_type": "dc1.large",
                     "number_of_nodes": 2,
                 },
-            })
+            },
+            name="tf-redshift-scheduled-action",
+            schedule="cron(00 23 * * ? *)",
+            iam_role=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -440,11 +440,11 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["scheduler.redshift.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -466,14 +466,14 @@ class ScheduledAction(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_scheduled_action = aws.redshift.ScheduledAction("example",
-            name="tf-redshift-scheduled-action",
-            schedule="cron(00 23 * * ? *)",
-            iam_role=example_role.arn,
             target_action={
                 "pause_cluster": {
                     "cluster_identifier": "tf-redshift001",
                 },
-            })
+            },
+            name="tf-redshift-scheduled-action",
+            schedule="cron(00 23 * * ? *)",
+            iam_role=example_role.arn)
         ```
 
         ### Resize Cluster Action
@@ -483,9 +483,6 @@ class ScheduledAction(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.redshift.ScheduledAction("example",
-            name="tf-redshift-scheduled-action",
-            schedule="cron(00 23 * * ? *)",
-            iam_role=example_aws_iam_role["arn"],
             target_action={
                 "resize_cluster": {
                     "cluster_identifier": "tf-redshift001",
@@ -493,7 +490,10 @@ class ScheduledAction(pulumi.CustomResource):
                     "node_type": "dc1.large",
                     "number_of_nodes": 2,
                 },
-            })
+            },
+            name="tf-redshift-scheduled-action",
+            schedule="cron(00 23 * * ? *)",
+            iam_role=example_aws_iam_role["arn"])
         ```
 
         ## Import

@@ -31,16 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewEventEndpoint(ctx, "this", &cloudwatch.EventEndpointArgs{
-//				Name:    pulumi.String("global-endpoint"),
-//				RoleArn: pulumi.Any(replication.Arn),
-//				EventBuses: cloudwatch.EventEndpointEventBusArray{
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(primary.Arn),
-//					},
-//					&cloudwatch.EventEndpointEventBusArgs{
-//						EventBusArn: pulumi.Any(secondary.Arn),
-//					},
-//				},
 //				ReplicationConfig: &cloudwatch.EventEndpointReplicationConfigArgs{
 //					State: pulumi.String("DISABLED"),
 //				},
@@ -54,6 +44,16 @@ import (
 //						},
 //					},
 //				},
+//				EventBuses: cloudwatch.EventEndpointEventBusArray{
+//					&cloudwatch.EventEndpointEventBusArgs{
+//						EventBusArn: pulumi.Any(primary.Arn),
+//					},
+//					&cloudwatch.EventEndpointEventBusArgs{
+//						EventBusArn: pulumi.Any(secondary.Arn),
+//					},
+//				},
+//				Name:    pulumi.String("global-endpoint"),
+//				RoleArn: pulumi.Any(replication.Arn),
 //			})
 //			if err != nil {
 //				return err

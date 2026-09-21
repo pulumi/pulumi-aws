@@ -88,7 +88,7 @@ class _VirtualMfaDeviceState:
         """
         Input properties used for looking up and filtering VirtualMfaDevice resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        :param pulumi.Input[_builtins.str] arn: ARN, which is also the serial number, of the virtual MFA device.
         :param pulumi.Input[_builtins.str] base32_string_seed: Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         :param pulumi.Input[_builtins.str] enable_date: Date and time when the virtual MFA device was enabled.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
@@ -124,7 +124,7 @@ class _VirtualMfaDeviceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        ARN, which is also the serial number, of the virtual MFA device.
         """
         return pulumi.get(self, "arn")
 
@@ -385,7 +385,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        :param pulumi.Input[_builtins.str] arn: ARN, which is also the serial number, of the virtual MFA device.
         :param pulumi.Input[_builtins.str] base32_string_seed: Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base_32_string_seed` is base64-encoded.
         :param pulumi.Input[_builtins.str] enable_date: Date and time when the virtual MFA device was enabled.
         :param pulumi.Input[_builtins.str] path: Path for the virtual MFA device.
@@ -416,7 +416,7 @@ class VirtualMfaDevice(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+        ARN, which is also the serial number, of the virtual MFA device.
         """
         return pulumi.get(self, "arn")
 

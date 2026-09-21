@@ -29,13 +29,6 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationArgs
     ///             {
-    ///                 DataRepositoryPath = "nfs://filer.domain.com",
-    ///                 DataRepositorySubdirectories = new[]
-    ///                 {
-    ///                     "test",
-    ///                     "test2",
-    ///                 },
-    ///                 FileCachePath = "/ns1",
     ///                 Nfs = new[]
     ///                 {
     ///                     new Aws.Fsx.Inputs.FileCacheDataRepositoryAssociationNfArgs
@@ -48,15 +41,19 @@ namespace Pulumi.Aws.Fsx
     ///                         Version = "NFS3",
     ///                     },
     ///                 },
+    ///                 DataRepositoryPath = "nfs://filer.domain.com",
+    ///                 DataRepositorySubdirectories = new[]
+    ///                 {
+    ///                     "test",
+    ///                     "test2",
+    ///                 },
+    ///                 FileCachePath = "/ns1",
     ///             },
     ///         },
-    ///         FileCacheType = "LUSTRE",
-    ///         FileCacheTypeVersion = "2.12",
     ///         LustreConfigurations = new[]
     ///         {
     ///             new Aws.Fsx.Inputs.FileCacheLustreConfigurationArgs
     ///             {
-    ///                 DeploymentType = "CACHE_1",
     ///                 MetadataConfigurations = new[]
     ///                 {
     ///                     new Aws.Fsx.Inputs.FileCacheLustreConfigurationMetadataConfigurationArgs
@@ -64,10 +61,13 @@ namespace Pulumi.Aws.Fsx
     ///                         StorageCapacity = 2400,
     ///                     },
     ///                 },
+    ///                 DeploymentType = "CACHE_1",
     ///                 PerUnitStorageThroughput = 1000,
     ///                 WeeklyMaintenanceStartTime = "2:05:00",
     ///             },
     ///         },
+    ///         FileCacheType = "LUSTRE",
+    ///         FileCacheTypeVersion = "2.12",
     ///         SubnetIds = new[]
     ///         {
     ///             test1.Id,
@@ -90,7 +90,7 @@ namespace Pulumi.Aws.Fsx
     public partial class FileCache : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the cache.
+        /// ARN of the cache.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableArray<Outputs.FileCacheDataRepositoryAssociation>> DataRepositoryAssociations { get; private set; } = null!;
 
         /// <summary>
-        /// Domain Name System (DNS) name for the cache.
+        /// DNS name for the cache.
         /// </summary>
         [Output("dnsName")]
         public Output<string> DnsName { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.Fsx
         public Output<string> FileCacheTypeVersion { get; private set; } = null!;
 
         /// <summary>
-        /// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+        /// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
         /// </summary>
         [Output("kmsKeyId")]
         public Output<string> KmsKeyId { get; private set; } = null!;
@@ -195,7 +195,7 @@ namespace Pulumi.Aws.Fsx
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// ID of your virtual private cloud (VPC).
+        /// ID of your VPC.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string> FileCacheTypeVersion { get; set; } = null!;
 
         /// <summary>
-        /// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+        /// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class FileCacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the cache.
+        /// ARN of the cache.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// Domain Name System (DNS) name for the cache.
+        /// DNS name for the cache.
         /// </summary>
         [Input("dnsName")]
         public Input<string>? DnsName { get; set; }
@@ -411,7 +411,7 @@ namespace Pulumi.Aws.Fsx
         public Input<string>? FileCacheTypeVersion { get; set; }
 
         /// <summary>
-        /// ID of the AWS Key Management Service (KMS) key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
+        /// ID of the KMS key to use for encrypting data on the cache. Defaults to the Amazon FSx-managed KMS key for your account.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -503,7 +503,7 @@ namespace Pulumi.Aws.Fsx
         }
 
         /// <summary>
-        /// ID of your virtual private cloud (VPC).
+        /// ID of your VPC.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

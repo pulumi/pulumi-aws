@@ -140,7 +140,7 @@ class _VpcBlockPublicAccessExclusionState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN the excluded resource.
         :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -193,7 +193,7 @@ class _VpcBlockPublicAccessExclusionState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) the excluded resource.
+        ARN the excluded resource.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -273,7 +273,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  vpc_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+        Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
 
         ## Example Usage
 
@@ -306,7 +306,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
+        Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `id`. For example:
 
         ```sh
         $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -330,7 +330,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                  args: VpcBlockPublicAccessExclusionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+        Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
 
         ## Example Usage
 
@@ -363,7 +363,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
+        Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `id`. For example:
 
         ```sh
         $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -439,7 +439,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) the excluded resource.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN the excluded resource.
         :param pulumi.Input[_builtins.str] subnet_id: Id of the subnet to which this exclusion applies. Either this or the vpc_id needs to be provided.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the exclusion. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -481,7 +481,7 @@ class VpcBlockPublicAccessExclusion(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) the excluded resource.
+        ARN the excluded resource.
         """
         return pulumi.get(self, "resource_arn")
 

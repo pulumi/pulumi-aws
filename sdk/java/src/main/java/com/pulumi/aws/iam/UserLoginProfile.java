@@ -83,6 +83,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.iam.UserLoginProfile;
+ * import com.pulumi.aws.iam.UserLoginProfileArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -96,7 +98,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new UserLoginProfile("example");
+ *         var example = new UserLoginProfile("example", UserLoginProfileArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("passwordLength", "passwordResetRequired", "pgpKey")
+ *             .build());
  * 
  *     }
  * }

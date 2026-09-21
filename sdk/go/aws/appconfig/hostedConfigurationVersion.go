@@ -161,6 +161,8 @@ type HostedConfigurationVersion struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
+	// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+	VersionLabel pulumi.StringPtrOutput `pulumi:"versionLabel"`
 	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntOutput `pulumi:"versionNumber"`
 }
@@ -228,6 +230,8 @@ type hostedConfigurationVersionState struct {
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+	VersionLabel *string `pulumi:"versionLabel"`
 	// Version number of the hosted configuration.
 	VersionNumber *int `pulumi:"versionNumber"`
 }
@@ -247,6 +251,8 @@ type HostedConfigurationVersionState struct {
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+	VersionLabel pulumi.StringPtrInput
 	// Version number of the hosted configuration.
 	VersionNumber pulumi.IntPtrInput
 }
@@ -268,6 +274,8 @@ type hostedConfigurationVersionArgs struct {
 	Description *string `pulumi:"description"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
+	// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+	VersionLabel *string `pulumi:"versionLabel"`
 }
 
 // The set of arguments for constructing a HostedConfigurationVersion resource.
@@ -284,6 +292,8 @@ type HostedConfigurationVersionArgs struct {
 	Description pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
+	// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+	VersionLabel pulumi.StringPtrInput
 }
 
 func (HostedConfigurationVersionArgs) ElementType() reflect.Type {
@@ -406,6 +416,11 @@ func (o HostedConfigurationVersionOutput) Description() pulumi.StringPtrOutput {
 // Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 func (o HostedConfigurationVersionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+func (o HostedConfigurationVersionOutput) VersionLabel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostedConfigurationVersion) pulumi.StringPtrOutput { return v.VersionLabel }).(pulumi.StringPtrOutput)
 }
 
 // Version number of the hosted configuration.

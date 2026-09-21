@@ -1010,7 +1010,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
     def __init__(__self__, *,
                  listener_arns: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] listener_arns: List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+        :param Sequence[_builtins.str] listener_arns: List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
         """
         pulumi.set(__self__, "listener_arns", listener_arns)
 
@@ -1018,7 +1018,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute(dict):
     @pulumi.getter(name="listenerArns")
     def listener_arns(self) -> Sequence[_builtins.str]:
         """
-        List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+        List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
         """
         return pulumi.get(self, "listener_arns")
 
@@ -1063,7 +1063,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
     def __init__(__self__, *,
                  listener_arns: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] listener_arns: List of Amazon Resource Names (ARNs) of the load balancer listeners.
+        :param Sequence[_builtins.str] listener_arns: List of ARNs of the load balancer listeners.
         """
         pulumi.set(__self__, "listener_arns", listener_arns)
 
@@ -1071,7 +1071,7 @@ class DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute(dict):
     @pulumi.getter(name="listenerArns")
     def listener_arns(self) -> Sequence[_builtins.str]:
         """
-        List of Amazon Resource Names (ARNs) of the load balancer listeners.
+        List of ARNs of the load balancer listeners.
         """
         return pulumi.get(self, "listener_arns")
 

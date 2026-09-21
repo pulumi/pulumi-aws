@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly string? Description;
         /// <summary>
-        /// Items definition for array properties. See `Items` above.
+        /// Items definition for array properties. See `Items` Block above.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems? Items;
         /// <summary>

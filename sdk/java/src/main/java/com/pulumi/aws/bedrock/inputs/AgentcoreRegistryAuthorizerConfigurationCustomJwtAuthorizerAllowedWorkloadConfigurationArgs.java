@@ -17,16 +17,32 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAl
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs();
 
+    /**
+     * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * 
+     */
     @Import(name="hostingEnvironments")
     private @Nullable Output<List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs>> hostingEnvironments;
 
+    /**
+     * @return Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+     * 
+     */
     public Optional<Output<List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs>>> hostingEnvironments() {
         return Optional.ofNullable(this.hostingEnvironments);
     }
 
+    /**
+     * List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+     * 
+     */
     @Import(name="workloadIdentities")
     private @Nullable Output<List<String>> workloadIdentities;
 
+    /**
+     * @return List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+     * 
+     */
     public Optional<Output<List<String>>> workloadIdentities() {
         return Optional.ofNullable(this.workloadIdentities);
     }
@@ -56,28 +72,64 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAl
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostingEnvironments(@Nullable Output<List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs>> hostingEnvironments) {
             $.hostingEnvironments = hostingEnvironments;
             return this;
         }
 
+        /**
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostingEnvironments(List<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs> hostingEnvironments) {
             return hostingEnvironments(Output.of(hostingEnvironments));
         }
 
+        /**
+         * @param hostingEnvironments Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder hostingEnvironments(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironmentArgs... hostingEnvironments) {
             return hostingEnvironments(List.of(hostingEnvironments));
         }
 
+        /**
+         * @param workloadIdentities List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadIdentities(@Nullable Output<List<String>> workloadIdentities) {
             $.workloadIdentities = workloadIdentities;
             return this;
         }
 
+        /**
+         * @param workloadIdentities List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadIdentities(List<String> workloadIdentities) {
             return workloadIdentities(Output.of(workloadIdentities));
         }
 
+        /**
+         * @param workloadIdentities List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         * 
+         * @return builder
+         * 
+         */
         public Builder workloadIdentities(String... workloadIdentities) {
             return workloadIdentities(List.of(workloadIdentities));
         }

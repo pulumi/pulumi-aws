@@ -58,17 +58,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("MyCatalogTable"),
-//				DatabaseName: pulumi.String("MyCatalogDatabase"),
-//				TableType:    pulumi.String("EXTERNAL_TABLE"),
-//				Parameters: pulumi.StringMap{
-//					"EXTERNAL":            pulumi.String("TRUE"),
-//					"parquet.compression": pulumi.String("SNAPPY"),
-//				},
 //				StorageDescriptor: &glue.CatalogTableStorageDescriptorArgs{
-//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
-//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
-//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
 //					SerDeInfo: &glue.CatalogTableStorageDescriptorSerDeInfoArgs{
 //						Name:                 pulumi.String("my-stream"),
 //						SerializationLibrary: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe"),
@@ -101,6 +91,16 @@ import (
 //							Comment: pulumi.String(""),
 //						},
 //					},
+//					Location:     pulumi.String("s3://my-bucket/event-streams/my-stream"),
+//					InputFormat:  pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat"),
+//					OutputFormat: pulumi.String("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat"),
+//				},
+//				Name:         pulumi.String("MyCatalogTable"),
+//				DatabaseName: pulumi.String("MyCatalogDatabase"),
+//				TableType:    pulumi.String("EXTERNAL_TABLE"),
+//				Parameters: pulumi.StringMap{
+//					"EXTERNAL":            pulumi.String("TRUE"),
+//					"parquet.compression": pulumi.String("SNAPPY"),
 //				},
 //			})
 //			if err != nil {
@@ -127,17 +127,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("transactiontable1"),
-//				DatabaseName: pulumi.String("bankdata_icebergdb"),
 //				OpenTableFormatInput: &glue.CatalogTableOpenTableFormatInputArgs{
 //					IcebergInput: &glue.CatalogTableOpenTableFormatInputIcebergInputArgs{
-//						MetadataOperation: pulumi.String("CREATE"),
-//						Version:           pulumi.String("2"),
 //						IcebergTableInput: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs{
-//							Location: pulumi.String("s3://sampledatabucket/bankdataiceberg/transactiontable1/"),
 //							Schema: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs{
-//								SchemaId: pulumi.Int(0),
-//								Type:     pulumi.String("struct"),
 //								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArray{
 //									&glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs{
 //										Id:       pulumi.Int(1),
@@ -158,6 +151,8 @@ import (
 //										Type:     pulumi.String("            \\\"float\\\"\n"),
 //									},
 //								},
+//								SchemaId: pulumi.Int(0),
+//								Type:     pulumi.String("struct"),
 //							},
 //							PartitionSpec: &glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs{
 //								Fields: glue.CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArray{
@@ -180,9 +175,14 @@ import (
 //								},
 //								OrderId: pulumi.Int(1),
 //							},
+//							Location: pulumi.String("s3://sampledatabucket/bankdataiceberg/transactiontable1/"),
 //						},
+//						MetadataOperation: pulumi.String("CREATE"),
+//						Version:           pulumi.String("2"),
 //					},
 //				},
+//				Name:         pulumi.String("transactiontable1"),
+//				DatabaseName: pulumi.String("bankdata_icebergdb"),
 //			})
 //			if err != nil {
 //				return err
@@ -208,11 +208,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogTable(ctx, "example", &glue.CatalogTableArgs{
-//				Name:         pulumi.String("multidialect_view"),
-//				DatabaseName: pulumi.String("catalog_database"),
-//				TableType:    pulumi.String("VIRTUAL_VIEW"),
 //				ViewDefinition: &glue.CatalogTableViewDefinitionArgs{
-//					IsProtected: pulumi.Bool(true),
 //					Representations: glue.CatalogTableViewDefinitionRepresentationArray{
 //						&glue.CatalogTableViewDefinitionRepresentationArgs{
 //							Dialect:              pulumi.String("ATHENA"),
@@ -221,7 +217,11 @@ import (
 //							ValidationConnection: pulumi.Any(exampleAwsGlueConnection.Name),
 //						},
 //					},
+//					IsProtected: pulumi.Bool(true),
 //				},
+//				Name:         pulumi.String("multidialect_view"),
+//				DatabaseName: pulumi.String("catalog_database"),
+//				TableType:    pulumi.String("VIRTUAL_VIEW"),
 //			})
 //			if err != nil {
 //				return err
@@ -233,6 +233,19 @@ import (
 // ```
 //
 // ## Import
+//
+// ### Identity Schema
+//
+// #### Required
+//
+// * `catalogId` - (String) ID of the Glue Catalog.
+// * `databaseName` - (String) Name of the Glue Catalog Database.
+// * `name` - (String) Name of the Glue Catalog Table.
+//
+// #### Optional
+//
+// * `accountId` - (String) AWS Account where this resource is managed.
+// * `region` - (String) Region where this resource is managed.
 //
 // Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 //
@@ -275,7 +288,7 @@ type CatalogTable struct {
 	// Configuration block of a target table for resource linking. See `targetTable` below.
 	TargetTable CatalogTableTargetTablePtrOutput `pulumi:"targetTable"`
 	// Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
-	ViewDefinition CatalogTableViewDefinitionPtrOutput `pulumi:"viewDefinition"`
+	ViewDefinition CatalogTableViewDefinitionOutput `pulumi:"viewDefinition"`
 	// If the table is a view, the expanded text of the view; otherwise null.
 	ViewExpandedText pulumi.StringPtrOutput `pulumi:"viewExpandedText"`
 	// If the table is a view, the original text of the view; otherwise null.
@@ -644,8 +657,8 @@ func (o CatalogTableOutput) TargetTable() CatalogTableTargetTablePtrOutput {
 }
 
 // Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
-func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionPtrOutput {
-	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionPtrOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionPtrOutput)
+func (o CatalogTableOutput) ViewDefinition() CatalogTableViewDefinitionOutput {
+	return o.ApplyT(func(v *CatalogTable) CatalogTableViewDefinitionOutput { return v.ViewDefinition }).(CatalogTableViewDefinitionOutput)
 }
 
 // If the table is a view, the expanded text of the view; otherwise null.

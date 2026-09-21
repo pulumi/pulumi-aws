@@ -430,15 +430,15 @@ class VpcAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"],
             options={
                 "appliance_mode_support": False,
                 "dns_support": True,
                 "ipv6_support": False,
                 "security_group_referencing_support": True,
-            })
+            },
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
         ```
 
         ## Import
@@ -491,15 +491,15 @@ class VpcAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkmanager.VpcAttachment("example",
-            subnet_arns=[example_aws_subnet["arn"]],
-            core_network_id=example_awscc_networkmanager_core_network["id"],
-            vpc_arn=example_aws_vpc["arn"],
             options={
                 "appliance_mode_support": False,
                 "dns_support": True,
                 "ipv6_support": False,
                 "security_group_referencing_support": True,
-            })
+            },
+            subnet_arns=[example_aws_subnet["arn"]],
+            core_network_id=example_awscc_networkmanager_core_network["id"],
+            vpc_arn=example_aws_vpc["arn"])
         ```
 
         ## Import

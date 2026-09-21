@@ -17,14 +17,14 @@ public final class GetContactsRotationArgs extends com.pulumi.resources.InvokeAr
     public static final GetContactsRotationArgs Empty = new GetContactsRotationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rotation.
+     * @return ARN of the rotation.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetContactsRotationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rotation.
+         * @param arn ARN of the rotation.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetContactsRotationArgs extends com.pulumi.resources.InvokeAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the rotation.
+         * @param arn ARN of the rotation.
          * 
          * @return builder
          * 

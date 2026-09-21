@@ -83,12 +83,8 @@ type GetEnvironmentBlueprintResult struct {
 }
 
 func GetEnvironmentBlueprintOutput(ctx *pulumi.Context, args GetEnvironmentBlueprintOutputArgs, opts ...pulumi.InvokeOption) GetEnvironmentBlueprintResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEnvironmentBlueprintResultOutput, error) {
-			args := v.(GetEnvironmentBlueprintArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, GetEnvironmentBlueprintResultOutput{}, options).(GetEnvironmentBlueprintResultOutput), nil
-		}).(GetEnvironmentBlueprintResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:datazone/getEnvironmentBlueprint:getEnvironmentBlueprint", args, GetEnvironmentBlueprintResultOutput{}, options).(GetEnvironmentBlueprintResultOutput)
 }
 
 // A collection of arguments for invoking getEnvironmentBlueprint.

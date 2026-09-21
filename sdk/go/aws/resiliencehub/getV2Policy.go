@@ -81,12 +81,8 @@ type LookupV2PolicyResult struct {
 }
 
 func LookupV2PolicyOutput(ctx *pulumi.Context, args LookupV2PolicyOutputArgs, opts ...pulumi.InvokeOption) LookupV2PolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupV2PolicyResultOutput, error) {
-			args := v.(LookupV2PolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:resiliencehub/getV2Policy:getV2Policy", args, LookupV2PolicyResultOutput{}, options).(LookupV2PolicyResultOutput), nil
-		}).(LookupV2PolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:resiliencehub/getV2Policy:getV2Policy", args, LookupV2PolicyResultOutput{}, options).(LookupV2PolicyResultOutput)
 }
 
 // A collection of arguments for invoking getV2Policy.

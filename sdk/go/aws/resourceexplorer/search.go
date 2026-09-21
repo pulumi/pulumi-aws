@@ -59,7 +59,7 @@ type SearchArgs struct {
 	QueryString string `pulumi:"queryString"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+	// ARN of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn *string `pulumi:"viewArn"`
 }
 
@@ -78,12 +78,8 @@ type SearchResult struct {
 }
 
 func SearchOutput(ctx *pulumi.Context, args SearchOutputArgs, opts ...pulumi.InvokeOption) SearchResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (SearchResultOutput, error) {
-			args := v.(SearchArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:resourceexplorer/search:Search", args, SearchResultOutput{}, options).(SearchResultOutput), nil
-		}).(SearchResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:resourceexplorer/search:Search", args, SearchResultOutput{}, options).(SearchResultOutput)
 }
 
 // A collection of arguments for invoking Search.
@@ -94,7 +90,7 @@ type SearchOutputArgs struct {
 	QueryString pulumi.StringInput `pulumi:"queryString"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Specifies the Amazon resource name (ARN) of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
+	// ARN of the view to use for the query. If you don't specify a value for this parameter, then the operation automatically uses the default view for the AWS Region in which you called this operation. If the Region either doesn't have a default view or if you don't have permission to use the default view, then the operation fails with a `401 Unauthorized` exception.
 	ViewArn pulumi.StringPtrInput `pulumi:"viewArn"`
 }
 

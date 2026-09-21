@@ -40,12 +40,12 @@ import * as utilities from "../utilities";
  * });
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/aws/prometheus/scraper-logs/example"});
  * const exampleScraperLoggingConfiguration = new aws.amp.ScraperLoggingConfiguration("example", {
- *     scraperId: example.id,
  *     loggingDestination: {
  *         cloudwatchLogs: {
  *             logGroupArn: pulumi.interpolate`${exampleLogGroup.arn}:*`,
  *         },
  *     },
+ *     scraperId: example.id,
  * });
  * ```
  *
@@ -56,16 +56,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amp.ScraperLoggingConfiguration("example", {
- *     scraperId: exampleAwsPrometheusScraper.id,
- *     scraperComponents: [
- *         "COLLECTOR",
- *         "EXPORTER",
- *     ],
  *     loggingDestination: {
  *         cloudwatchLogs: {
  *             logGroupArn: `${exampleAwsCloudwatchLogGroup.arn}:*`,
  *         },
  *     },
+ *     scraperId: exampleAwsPrometheusScraper.id,
+ *     scraperComponents: [
+ *         "COLLECTOR",
+ *         "EXPORTER",
+ *     ],
  * });
  * ```
  *

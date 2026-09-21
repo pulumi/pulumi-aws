@@ -107,7 +107,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     declare public readonly accountAccessType: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
+     * ARN of the Grafana workspace.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -273,7 +273,7 @@ export interface WorkspaceState {
      */
     accountAccessType?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
+     * ARN of the Grafana workspace.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

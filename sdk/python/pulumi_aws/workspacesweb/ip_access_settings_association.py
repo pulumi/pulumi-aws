@@ -159,10 +159,10 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
 
         example = aws.workspacesweb.Portal("example", display_name="example")
         example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
             ip_rules=[{
                 "ip_range": "10.0.0.0/16",
-            }])
+            }],
+            display_name="example")
         example_ip_access_settings_association = aws.workspacesweb.IpAccessSettingsAssociation("example",
             ip_access_settings_arn=example_ip_access_settings.ip_access_settings_arn,
             portal_arn=example.portal_arn)
@@ -196,10 +196,10 @@ class IpAccessSettingsAssociation(pulumi.CustomResource):
 
         example = aws.workspacesweb.Portal("example", display_name="example")
         example_ip_access_settings = aws.workspacesweb.IpAccessSettings("example",
-            display_name="example",
             ip_rules=[{
                 "ip_range": "10.0.0.0/16",
-            }])
+            }],
+            display_name="example")
         example_ip_access_settings_association = aws.workspacesweb.IpAccessSettingsAssociation("example",
             ip_access_settings_arn=example_ip_access_settings.ip_access_settings_arn,
             portal_arn=example.portal_arn)

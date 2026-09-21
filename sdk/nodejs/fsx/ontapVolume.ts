@@ -37,15 +37,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.fsx.OntapVolume("test", {
+ *     tieringPolicy: {
+ *         name: "AUTO",
+ *         coolingPeriod: 31,
+ *     },
  *     name: "test",
  *     junctionPath: "/test",
  *     sizeInMegabytes: 1024,
  *     storageEfficiencyEnabled: true,
  *     storageVirtualMachineId: testAwsFsxOntapStorageVirtualMachine.id,
- *     tieringPolicy: {
- *         name: "AUTO",
- *         coolingPeriod: 31,
- *     },
  * });
  * ```
  *
@@ -90,7 +90,7 @@ export class OntapVolume extends pulumi.CustomResource {
      */
     declare public readonly aggregateConfiguration: pulumi.Output<outputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -271,7 +271,7 @@ export interface OntapVolumeState {
      */
     aggregateConfiguration?: pulumi.Input<inputs.fsx.OntapVolumeAggregateConfiguration | undefined>;
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

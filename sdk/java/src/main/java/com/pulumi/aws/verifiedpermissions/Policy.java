@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Policy("test", PolicyArgs.builder()
- *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.id())
  *             .definition(PolicyDefinitionArgs.builder()
  *                 .static_(PolicyDefinitionStaticArgs.builder()
  *                     .statement("permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");")
  *                     .build())
  *                 .build())
+ *             .policyStoreId(testAwsVerifiedpermissionsPolicyStore.id())
  *             .build());
  * 
  *     }

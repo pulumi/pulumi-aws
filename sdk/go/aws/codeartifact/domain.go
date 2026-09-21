@@ -46,7 +46,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+// - `arn` (String) ARN of the CodeArtifact domain.
 //
 // Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
 //
@@ -64,7 +64,7 @@ type Domain struct {
 	CreatedTime pulumi.StringOutput `pulumi:"createdTime"`
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain pulumi.StringOutput `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// The AWS account ID that owns the domain.
 	Owner pulumi.StringOutput `pulumi:"owner"`
@@ -121,7 +121,7 @@ type domainState struct {
 	CreatedTime *string `pulumi:"createdTime"`
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain *string `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// The AWS account ID that owns the domain.
 	Owner *string `pulumi:"owner"`
@@ -146,7 +146,7 @@ type DomainState struct {
 	CreatedTime pulumi.StringPtrInput
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain pulumi.StringPtrInput
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey pulumi.StringPtrInput
 	// The AWS account ID that owns the domain.
 	Owner pulumi.StringPtrInput
@@ -169,7 +169,7 @@ func (DomainState) ElementType() reflect.Type {
 type domainArgs struct {
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain string `pulumi:"domain"`
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -181,7 +181,7 @@ type domainArgs struct {
 type DomainArgs struct {
 	// The name of the domain to create. All domain names in an AWS Region that are in the same AWS account must be unique. The domain name is used as the prefix in DNS hostnames. Do not use sensitive information in a domain name because it is publicly discoverable.
 	Domain pulumi.StringInput
-	// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+	// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 	EncryptionKey pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -296,7 +296,7 @@ func (o DomainOutput) Domain() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.Domain }).(pulumi.StringOutput)
 }
 
-// The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+// Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
 func (o DomainOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Domain) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
 }

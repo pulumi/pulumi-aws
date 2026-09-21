@@ -200,6 +200,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
+ *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
+ *                 .logDestination(String.format("%s:*", logGroupForSfn.arn()))
+ *                 .includeExecutionData(true)
+ *                 .level("ERROR")
+ *                 .build())
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
  *             .definition("""
@@ -215,11 +220,6 @@ import javax.annotation.Nullable;
  *   }
  * }
  * ", lambda.arn()))
- *             .loggingConfiguration(StateMachineLoggingConfigurationArgs.builder()
- *                 .logDestination(String.format("%s:*", logGroupForSfn.arn()))
- *                 .includeExecutionData(true)
- *                 .level("ERROR")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -256,6 +256,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // ...
  *         var sfnStateMachine = new StateMachine("sfnStateMachine", StateMachineArgs.builder()
+ *             .encryptionConfiguration(StateMachineEncryptionConfigurationArgs.builder()
+ *                 .kmsKeyId(kmsKeyForSfn.arn())
+ *                 .type("CUSTOMER_MANAGED_KMS_KEY")
+ *                 .kmsDataKeyReusePeriodSeconds(900)
+ *                 .build())
  *             .name("my-state-machine")
  *             .roleArn(iamForSfn.arn())
  *             .definition("""
@@ -271,11 +276,6 @@ import javax.annotation.Nullable;
  *   }
  * }
  * ", lambda.arn()))
- *             .encryptionConfiguration(StateMachineEncryptionConfigurationArgs.builder()
- *                 .kmsKeyId(kmsKeyForSfn.arn())
- *                 .type("CUSTOMER_MANAGED_KMS_KEY")
- *                 .kmsDataKeyReusePeriodSeconds(900)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -439,14 +439,14 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
         return this.revisionId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * ARN of the IAM role to use for this state machine.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+     * @return ARN of the IAM role to use for this state machine.
      * 
      */
     public Output<String> roleArn() {

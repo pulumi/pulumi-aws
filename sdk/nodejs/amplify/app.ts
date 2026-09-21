@@ -19,6 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
+ *     customRules: [{
+ *         source: "/<*>",
+ *         status: "404",
+ *         target: "/index.html",
+ *     }],
  *     name: "example",
  *     repository: "https://github.com/example/app",
  *     buildSpec: `version: 0.1
@@ -38,11 +43,6 @@ import * as utilities from "../utilities";
  *     paths:
  *       - node_modules/**&#47;*
  * `,
- *     customRules: [{
- *         source: "/<*>",
- *         status: "404",
- *         target: "/index.html",
- *     }],
  *     environmentVariables: {
  *         ENV: "test",
  *     },
@@ -73,15 +73,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
+ *     autoBranchCreationConfig: {
+ *         enableAutoBuild: true,
+ *     },
  *     name: "example",
  *     enableAutoBranchCreation: true,
  *     autoBranchCreationPatterns: [
  *         "*",
  *         "*&#47;**",
  *     ],
- *     autoBranchCreationConfig: {
- *         enableAutoBuild: true,
- *     },
  * });
  * ```
  *
@@ -108,7 +108,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     name: "example",
  *     customRules: [
  *         {
  *             source: "/api/<*>",
@@ -121,6 +120,7 @@ import * as utilities from "../utilities";
  *             target: "/index.html",
  *         },
  *     ],
+ *     name: "example",
  * });
  * ```
  *
@@ -170,10 +170,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     name: "example",
  *     jobConfig: {
  *         buildComputeType: "STANDARD_8GB",
  *     },
+ *     name: "example",
  * });
  * ```
  *

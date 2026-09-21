@@ -36,6 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.networkfirewall.Firewall;
  * import com.pulumi.aws.networkfirewall.FirewallArgs;
  * import com.pulumi.aws.networkfirewall.inputs.FirewallSubnetMappingArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -50,20 +52,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Firewall("example", FirewallArgs.builder()
+ *             .subnetMappings(FirewallSubnetMappingArgs.builder()
+ *                 .subnetId(exampleAwsSubnet.id())
+ *                 .build())
  *             .name("example")
  *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
  *             .vpcId(exampleAwsVpc.id())
  *             .enabledAnalysisTypes(            
  *                 "TLS_SNI",
  *                 "HTTP_HOST")
- *             .subnetMappings(FirewallSubnetMappingArgs.builder()
- *                 .subnetId(exampleAwsSubnet.id())
- *                 .build())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
  *             ))
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .create(CustomTimeouts.parseTimeoutString("40m"))
+ *                     .update(CustomTimeouts.parseTimeoutString("50m"))
+ *                     .delete(CustomTimeouts.parseTimeoutString("1h"))
+ *                 .build())
+ *                 .build());
  * 
  *     }
  * }
@@ -102,9 +110,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewall = new Firewall("exampleFirewall", FirewallArgs.builder()
- *             .name("example")
- *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
- *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .availabilityZoneMappings(            
  *                 FirewallAvailabilityZoneMappingArgs.builder()
  *                     .availabilityZoneId(example.zoneIds()[0])
@@ -112,6 +117,9 @@ import javax.annotation.Nullable;
  *                 FirewallAvailabilityZoneMappingArgs.builder()
  *                     .availabilityZoneId(example.zoneIds()[1])
  *                     .build())
+ *             .name("example")
+ *             .firewallPolicyArn(exampleAwsNetworkfirewallFirewallPolicy.arn())
+ *             .transitGatewayId(exampleAwsEc2TransitGateway.id())
  *             .build());
  * 
  *     }
@@ -135,14 +143,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:networkfirewall/firewall:Firewall")
 public class Firewall extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
+     * @return ARN that identifies the firewall.
      * 
      */
     public Output<String> arn() {
@@ -233,14 +241,14 @@ public class Firewall extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryptionConfiguration);
     }
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      * 
      */
     @Export(name="firewallPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> firewallPolicyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * @return ARN of the VPC Firewall policy.
      * 
      */
     public Output<String> firewallPolicyArn() {

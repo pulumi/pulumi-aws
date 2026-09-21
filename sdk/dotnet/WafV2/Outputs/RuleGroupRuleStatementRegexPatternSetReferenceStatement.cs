@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafV2.Outputs
     public sealed class RuleGroupRuleStatementRegexPatternSetReferenceStatement
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+        /// ARN of the Regex Pattern Set that this statement references.
         /// </summary>
         public readonly string Arn;
         /// <summary>

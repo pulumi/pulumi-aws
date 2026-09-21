@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetLaunchConfigurationResult
     {
         /// <summary>
-        /// Amazon Resource Name of the launch configuration.
+        /// ARN of the launch configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>

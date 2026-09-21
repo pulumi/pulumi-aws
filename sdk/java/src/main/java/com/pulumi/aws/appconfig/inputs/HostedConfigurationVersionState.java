@@ -122,6 +122,21 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
     }
 
     /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    @Import(name="versionLabel")
+    private @Nullable Output<String> versionLabel;
+
+    /**
+     * @return User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    public Optional<Output<String>> versionLabel() {
+        return Optional.ofNullable(this.versionLabel);
+    }
+
+    /**
      * Version number of the hosted configuration.
      * 
      */
@@ -146,6 +161,7 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
         this.contentType = $.contentType;
         this.description = $.description;
         this.region = $.region;
+        this.versionLabel = $.versionLabel;
         this.versionNumber = $.versionNumber;
     }
 
@@ -312,6 +328,27 @@ public final class HostedConfigurationVersionState extends com.pulumi.resources.
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param versionLabel User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionLabel(@Nullable Output<String> versionLabel) {
+            $.versionLabel = versionLabel;
+            return this;
+        }
+
+        /**
+         * @param versionLabel User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionLabel(String versionLabel) {
+            return versionLabel(Output.of(versionLabel));
         }
 
         /**

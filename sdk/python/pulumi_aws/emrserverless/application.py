@@ -650,19 +650,19 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.6.0",
-            type="hive",
             initial_capacities=[{
-                "initial_capacity_type": "HiveDriver",
                 "initial_capacity_config": {
-                    "worker_count": 1,
                     "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },
+                    "worker_count": 1,
                 },
-            }])
+                "initial_capacity_type": "HiveDriver",
+            }],
+            name="example",
+            release_label="emr-6.6.0",
+            type="hive")
         ```
 
         ### Maximum Capacity Usage
@@ -672,13 +672,13 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.6.0",
-            type="hive",
             maximum_capacity={
                 "cpu": "2 vCPU",
                 "memory": "10 GB",
-            })
+            },
+            name="example",
+            release_label="emr-6.6.0",
+            type="hive")
         ```
 
         ### Monitoring Configuration Usage
@@ -688,14 +688,8 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-7.1.0",
-            type="spark",
             monitoring_configuration={
                 "cloudwatch_logging_configuration": {
-                    "enabled": True,
-                    "log_group_name": "/aws/emr-serverless/example",
-                    "log_stream_name_prefix": "spark-logs",
                     "log_types": [
                         {
                             "name": "SPARK_DRIVER",
@@ -709,6 +703,9 @@ class Application(pulumi.CustomResource):
                             "values": ["STDOUT"],
                         },
                     ],
+                    "enabled": True,
+                    "log_group_name": "/aws/emr-serverless/example",
+                    "log_stream_name_prefix": "spark-logs",
                 },
                 "managed_persistence_monitoring_configuration": {
                     "enabled": True,
@@ -716,7 +713,10 @@ class Application(pulumi.CustomResource):
                 "prometheus_monitoring_configuration": {
                     "remote_write_url": "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
                 },
-            })
+            },
+            name="example",
+            release_label="emr-7.1.0",
+            type="spark")
         ```
 
         ### Runtime Configuration Usage
@@ -726,9 +726,6 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.8.0",
-            type="spark",
             runtime_configurations=[
                 {
                     "classification": "spark-executor-log4j2",
@@ -745,7 +742,10 @@ class Application(pulumi.CustomResource):
                         "spark.executor.cores": "1",
                     },
                 },
-            ])
+            ],
+            name="example",
+            release_label="emr-6.8.0",
+            type="spark")
         ```
 
         ## Import
@@ -806,19 +806,19 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.6.0",
-            type="hive",
             initial_capacities=[{
-                "initial_capacity_type": "HiveDriver",
                 "initial_capacity_config": {
-                    "worker_count": 1,
                     "worker_configuration": {
                         "cpu": "2 vCPU",
                         "memory": "10 GB",
                     },
+                    "worker_count": 1,
                 },
-            }])
+                "initial_capacity_type": "HiveDriver",
+            }],
+            name="example",
+            release_label="emr-6.6.0",
+            type="hive")
         ```
 
         ### Maximum Capacity Usage
@@ -828,13 +828,13 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.6.0",
-            type="hive",
             maximum_capacity={
                 "cpu": "2 vCPU",
                 "memory": "10 GB",
-            })
+            },
+            name="example",
+            release_label="emr-6.6.0",
+            type="hive")
         ```
 
         ### Monitoring Configuration Usage
@@ -844,14 +844,8 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-7.1.0",
-            type="spark",
             monitoring_configuration={
                 "cloudwatch_logging_configuration": {
-                    "enabled": True,
-                    "log_group_name": "/aws/emr-serverless/example",
-                    "log_stream_name_prefix": "spark-logs",
                     "log_types": [
                         {
                             "name": "SPARK_DRIVER",
@@ -865,6 +859,9 @@ class Application(pulumi.CustomResource):
                             "values": ["STDOUT"],
                         },
                     ],
+                    "enabled": True,
+                    "log_group_name": "/aws/emr-serverless/example",
+                    "log_stream_name_prefix": "spark-logs",
                 },
                 "managed_persistence_monitoring_configuration": {
                     "enabled": True,
@@ -872,7 +869,10 @@ class Application(pulumi.CustomResource):
                 "prometheus_monitoring_configuration": {
                     "remote_write_url": "https://prometheus-remote-write-endpoint.example.com/api/v1/write",
                 },
-            })
+            },
+            name="example",
+            release_label="emr-7.1.0",
+            type="spark")
         ```
 
         ### Runtime Configuration Usage
@@ -882,9 +882,6 @@ class Application(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.emrserverless.Application("example",
-            name="example",
-            release_label="emr-6.8.0",
-            type="spark",
             runtime_configurations=[
                 {
                     "classification": "spark-executor-log4j2",
@@ -901,7 +898,10 @@ class Application(pulumi.CustomResource):
                         "spark.executor.cores": "1",
                     },
                 },
-            ])
+            ],
+            name="example",
+            release_label="emr-6.8.0",
+            type="spark")
         ```
 
         ## Import

@@ -28,8 +28,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var github = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("github", new()
     ///     {
-    ///         Name = "github-oauth-provider",
-    ///         CredentialProviderVendor = "GithubOauth2",
     ///         Oauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
     ///         {
     ///             GithubOauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs
@@ -38,6 +36,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 ClientSecret = "your-github-client-secret",
     ///             },
     ///         },
+    ///         Name = "github-oauth-provider",
+    ///         CredentialProviderVendor = "GithubOauth2",
     ///     });
     /// 
     /// });
@@ -55,8 +55,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var auth0 = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("auth0", new()
     ///     {
-    ///         Name = "auth0-oauth-provider",
-    ///         CredentialProviderVendor = "CustomOauth2",
     ///         CustomOauth2ProviderConfig = new[]
     ///         {
     ///             
@@ -65,9 +63,6 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     
     ///                     {
-    ///                         { "clientIdWo", "auth0-client-id" },
-    ///                         { "clientSecretWo", "auth0-client-secret" },
-    ///                         { "clientCredentialsWoVersion", 1 },
     ///                         { "oauthDiscovery", new[]
     ///                         {
     ///                             
@@ -75,10 +70,15 @@ namespace Pulumi.Aws.Bedrock
     ///                                 { "discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration" },
     ///                             },
     ///                         } },
+    ///                         { "clientIdWo", "auth0-client-id" },
+    ///                         { "clientSecretWo", "auth0-client-secret" },
+    ///                         { "clientCredentialsWoVersion", 1 },
     ///                     },
     ///                 } },
     ///             },
     ///         },
+    ///         Name = "auth0-oauth-provider",
+    ///         CredentialProviderVendor = "CustomOauth2",
     ///     });
     /// 
     /// });
@@ -96,15 +96,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var keycloak = new Aws.Bedrock.AgentcoreOauth2CredentialProvider("keycloak", new()
     ///     {
-    ///         Name = "keycloak-oauth-provider",
-    ///         CredentialProviderVendor = "CustomOauth2",
     ///         Oauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs
     ///         {
     ///             CustomOauth2ProviderConfig = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs
     ///             {
-    ///                 ClientIdWo = "keycloak-client-id",
-    ///                 ClientSecretWo = "keycloak-client-secret",
-    ///                 ClientCredentialsWoVersion = 1,
     ///                 OauthDiscovery = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs
     ///                 {
     ///                     AuthorizationServerMetadata = new Aws.Bedrock.Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs
@@ -117,10 +112,19 @@ namespace Pulumi.Aws.Bedrock
     ///                             "code",
     ///                             "id_token",
     ///                         },
+    ///                         TokenEndpointAuthMethods = new[]
+    ///                         {
+    ///                             "client_secret_basic",
+    ///                         },
     ///                     },
     ///                 },
+    ///                 ClientIdWo = "keycloak-client-id",
+    ///                 ClientSecretWo = "keycloak-client-secret",
+    ///                 ClientCredentialsWoVersion = 1,
     ///             },
     ///         },
+    ///         Name = "keycloak-oauth-provider",
+    ///         CredentialProviderVendor = "CustomOauth2",
     ///     });
     /// 
     /// });
@@ -128,15 +132,34 @@ namespace Pulumi.Aws.Bedrock
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+    /// &gt; **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `ClientId`, `ClientSecret`, `ClientSecretSource`, `ClientSecretConfig`, and the write-only `ClientIdWo`/`ClientSecretWo`/`ClientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Name` (String) OAuth2 credential provider name.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) Account ID where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
+    /// 
+    /// Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `Name`. For example:
     /// 
     /// ```sh
-    /// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+    /// $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
     /// ```
     /// </summary>
     [AwsResourceType("aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider")]
     public partial class AgentcoreOauth2CredentialProvider : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+        /// </summary>
+        [Output("callbackUrl")]
+        public Output<string> CallbackUrl { get; private set; } = null!;
+
         /// <summary>
         /// ARN of the AWS Secrets Manager secret containing the client secret.
         /// </summary>
@@ -150,7 +173,7 @@ namespace Pulumi.Aws.Bedrock
         public Output<string> CredentialProviderArn { get; private set; } = null!;
 
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
         /// </summary>
         [Output("credentialProviderVendor")]
         public Output<string> CredentialProviderVendor { get; private set; } = null!;
@@ -167,7 +190,7 @@ namespace Pulumi.Aws.Bedrock
         /// The following arguments are optional:
         /// </summary>
         [Output("oauth2ProviderConfig")]
-        public Output<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig?> Oauth2ProviderConfig { get; private set; } = null!;
+        public Output<Outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig> Oauth2ProviderConfig { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -186,6 +209,9 @@ namespace Pulumi.Aws.Bedrock
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
+
+        [Output("timeouts")]
+        public Output<Outputs.AgentcoreOauth2CredentialProviderTimeouts?> Timeouts { get; private set; } = null!;
 
 
         /// <summary>
@@ -234,7 +260,7 @@ namespace Pulumi.Aws.Bedrock
     public sealed class AgentcoreOauth2CredentialProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
         /// </summary>
         [Input("credentialProviderVendor", required: true)]
         public Input<string> CredentialProviderVendor { get; set; } = null!;
@@ -250,8 +276,8 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// The following arguments are optional:
         /// </summary>
-        [Input("oauth2ProviderConfig")]
-        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs>? Oauth2ProviderConfig { get; set; }
+        [Input("oauth2ProviderConfig", required: true)]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs> Oauth2ProviderConfig { get; set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -271,6 +297,9 @@ namespace Pulumi.Aws.Bedrock
             set => _tags = value;
         }
 
+        [Input("timeouts")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderTimeoutsArgs>? Timeouts { get; set; }
+
         public AgentcoreOauth2CredentialProviderArgs()
         {
         }
@@ -279,6 +308,12 @@ namespace Pulumi.Aws.Bedrock
 
     public sealed class AgentcoreOauth2CredentialProviderState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+        /// </summary>
+        [Input("callbackUrl")]
+        public Input<string>? CallbackUrl { get; set; }
+
         [Input("clientSecretArns")]
         private InputList<Inputs.AgentcoreOauth2CredentialProviderClientSecretArnGetArgs>? _clientSecretArns;
 
@@ -298,7 +333,7 @@ namespace Pulumi.Aws.Bedrock
         public Input<string>? CredentialProviderArn { get; set; }
 
         /// <summary>
-        /// Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+        /// Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `IncludedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `IncludedOauth2ProviderConfig` for vendors that are not yet supported.
         /// </summary>
         [Input("credentialProviderVendor")]
         public Input<string>? CredentialProviderVendor { get; set; }
@@ -346,6 +381,9 @@ namespace Pulumi.Aws.Bedrock
             get => _tagsAll ?? (_tagsAll = new InputMap<string>());
             set => _tagsAll = value;
         }
+
+        [Input("timeouts")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderTimeoutsGetArgs>? Timeouts { get; set; }
 
         public AgentcoreOauth2CredentialProviderState()
         {

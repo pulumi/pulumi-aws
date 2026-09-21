@@ -36,24 +36,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const www_dev = new aws.route53.Record("www-dev", {
+ *     weightedRoutingPolicies: [{
+ *         weight: 10,
+ *     }],
  *     zoneId: primary.zoneId,
  *     name: "www",
  *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
- *     weightedRoutingPolicies: [{
- *         weight: 10,
- *     }],
  *     setIdentifier: "dev",
  *     records: ["dev.example.com"],
  * });
  * const www_live = new aws.route53.Record("www-live", {
+ *     weightedRoutingPolicies: [{
+ *         weight: 90,
+ *     }],
  *     zoneId: primary.zoneId,
  *     name: "www",
  *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
- *     weightedRoutingPolicies: [{
- *         weight: 90,
- *     }],
  *     setIdentifier: "live",
  *     records: ["live.example.com"],
  * });
@@ -66,16 +66,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "www.example.com",
- *     type: aws.route53.RecordType.CNAME,
- *     ttl: 300,
  *     geoproximityRoutingPolicy: {
  *         coordinates: [{
  *             latitude: "49.22",
  *             longitude: "-74.01",
  *         }],
  *     },
+ *     zoneId: primary.zoneId,
+ *     name: "www.example.com",
+ *     type: aws.route53.RecordType.CNAME,
+ *     ttl: 300,
  *     setIdentifier: "dev",
  *     records: ["dev.example.com"],
  * });
@@ -94,24 +94,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.elb.LoadBalancer("main", {
- *     name: "foobar-elb",
- *     availabilityZones: ["us-east-1c"],
  *     listeners: [{
  *         instancePort: 80,
  *         instanceProtocol: "http",
  *         lbPort: 80,
  *         lbProtocol: "http",
  *     }],
+ *     name: "foobar-elb",
+ *     availabilityZones: ["us-east-1c"],
  * });
  * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
  *         evaluateTargetHealth: true,
  *     }],
+ *     zoneId: primary.zoneId,
+ *     name: "example.com",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  *
@@ -127,14 +127,14 @@ import * as utilities from "../utilities";
  *     ipAddressType: "IPV4",
  * });
  * const www = new aws.route53.Record("www", {
- *     zoneId: primary.zoneId,
- *     name: "example.com",
- *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: main.dnsName,
  *         zoneId: main.hostedZoneId,
  *         evaluateTargetHealth: false,
  *     }],
+ *     zoneId: primary.zoneId,
+ *     name: "example.com",
+ *     type: aws.route53.RecordType.A,
  * });
  * ```
  *

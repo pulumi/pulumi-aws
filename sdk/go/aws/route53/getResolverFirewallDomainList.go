@@ -62,7 +62,7 @@ type LookupResolverFirewallDomainListArgs struct {
 
 // A collection of values returned by getResolverFirewallDomainList.
 type LookupResolverFirewallDomainListResult struct {
-	// The Amazon Resource Name (ARN) of the firewall domain list.
+	// ARN of the firewall domain list.
 	Arn string `pulumi:"arn"`
 	// The date and time that the domain list was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
@@ -87,12 +87,8 @@ type LookupResolverFirewallDomainListResult struct {
 }
 
 func LookupResolverFirewallDomainListOutput(ctx *pulumi.Context, args LookupResolverFirewallDomainListOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallDomainListResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallDomainListResultOutput, error) {
-			args := v.(LookupResolverFirewallDomainListArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, LookupResolverFirewallDomainListResultOutput{}, options).(LookupResolverFirewallDomainListResultOutput), nil
-		}).(LookupResolverFirewallDomainListResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallDomainList:getResolverFirewallDomainList", args, LookupResolverFirewallDomainListResultOutput{}, options).(LookupResolverFirewallDomainListResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallDomainList.
@@ -122,7 +118,7 @@ func (o LookupResolverFirewallDomainListResultOutput) ToLookupResolverFirewallDo
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the firewall domain list.
+// ARN of the firewall domain list.
 func (o LookupResolverFirewallDomainListResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallDomainListResult) string { return v.Arn }).(pulumi.StringOutput)
 }

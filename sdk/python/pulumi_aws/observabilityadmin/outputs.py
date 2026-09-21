@@ -22,6 +22,7 @@ __all__ = [
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration',
+    'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration',
     'CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfigurationBackupConfiguration',
     'CentralizationRuleForOrganizationRuleSource',
@@ -185,6 +186,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
             suggest = "log_group_name_configuration"
         elif key == "logsEncryptionConfiguration":
             suggest = "logs_encryption_configuration"
+        elif key == "tagPropagationConfiguration":
+            suggest = "tag_propagation_configuration"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -200,11 +203,13 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
     def __init__(__self__, *,
                  backup_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration'] = None,
                  log_group_name_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfiguration'] = None,
-                 logs_encryption_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration'] = None):
+                 logs_encryption_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration'] = None,
+                 tag_propagation_configuration: Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration'] = None):
         """
         :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs' backup_configuration: Configuration block for backup settings. See `backup_configuration` below.
         :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs' log_group_name_configuration: Configuration block for a naming pattern for destination log groups created during centralization. See `log_group_name_configuration` below.
         :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs' logs_encryption_configuration: Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
+        :param 'CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs' tag_propagation_configuration: Configuration block for propagating source resource tags to centralized destination log groups. See `tag_propagation_configuration` below.
         """
         if backup_configuration is not None:
             pulumi.set(__self__, "backup_configuration", backup_configuration)
@@ -212,6 +217,8 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
             pulumi.set(__self__, "log_group_name_configuration", log_group_name_configuration)
         if logs_encryption_configuration is not None:
             pulumi.set(__self__, "logs_encryption_configuration", logs_encryption_configuration)
+        if tag_propagation_configuration is not None:
+            pulumi.set(__self__, "tag_propagation_configuration", tag_propagation_configuration)
 
     @_builtins.property
     @pulumi.getter(name="backupConfiguration")
@@ -236,6 +243,14 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         Configuration block for logs encryption settings. See `logs_encryption_configuration` below.
         """
         return pulumi.get(self, "logs_encryption_configuration")
+
+    @_builtins.property
+    @pulumi.getter(name="tagPropagationConfiguration")
+    def tag_propagation_configuration(self) -> Optional['outputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration']:
+        """
+        Configuration block for propagating source resource tags to centralized destination log groups. See `tag_propagation_configuration` below.
+        """
+        return pulumi.get(self, "tag_propagation_configuration")
 
 
 @pulumi.output_type
@@ -396,6 +411,55 @@ class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurati
         ARN of the KMS key to use for encryption when `encryption_strategy` is `CUSTOMER_MANAGED`.
         """
         return pulumi.get(self, "kms_key_arn")
+
+
+@pulumi.output_type
+class CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationRoleArn":
+            suggest = "destination_role_arn"
+        elif key == "tagConflictResolutionStrategy":
+            suggest = "tag_conflict_resolution_strategy"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_role_arn: _builtins.str,
+                 tag_conflict_resolution_strategy: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_role_arn: ARN of the IAM role that the service assumes to propagate source resource tags to centralized destination log groups.
+        :param _builtins.str tag_conflict_resolution_strategy: Strategy for resolving tag conflicts when propagating tags to destination log groups. Valid values: `IN_SYNC`, `ADD_ONLY`, `UPDATE_SYNC`.
+        """
+        pulumi.set(__self__, "destination_role_arn", destination_role_arn)
+        if tag_conflict_resolution_strategy is not None:
+            pulumi.set(__self__, "tag_conflict_resolution_strategy", tag_conflict_resolution_strategy)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationRoleArn")
+    def destination_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role that the service assumes to propagate source resource tags to centralized destination log groups.
+        """
+        return pulumi.get(self, "destination_role_arn")
+
+    @_builtins.property
+    @pulumi.getter(name="tagConflictResolutionStrategy")
+    def tag_conflict_resolution_strategy(self) -> Optional[_builtins.str]:
+        """
+        Strategy for resolving tag conflicts when propagating tags to destination log groups. Valid values: `IN_SYNC`, `ADD_ONLY`, `UPDATE_SYNC`.
+        """
+        return pulumi.get(self, "tag_conflict_resolution_strategy")
 
 
 @pulumi.output_type

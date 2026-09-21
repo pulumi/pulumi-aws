@@ -17,7 +17,7 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
     public static final GetGlobalClusterArgs Empty = new GetGlobalClusterArgs();
 
     /**
-     * The global cluster identifier of the RDS global cluster.
+     * Global cluster identifier of the RDS global cluster.
      * 
      * The following arguments are optional:
      * 
@@ -26,7 +26,7 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
     private Output<String> identifier;
 
     /**
-     * @return The global cluster identifier of the RDS global cluster.
+     * @return Global cluster identifier of the RDS global cluster.
      * 
      * The following arguments are optional:
      * 
@@ -76,7 +76,7 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param identifier The global cluster identifier of the RDS global cluster.
+         * @param identifier Global cluster identifier of the RDS global cluster.
          * 
          * The following arguments are optional:
          * 
@@ -89,7 +89,7 @@ public final class GetGlobalClusterArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         /**
-         * @param identifier The global cluster identifier of the RDS global cluster.
+         * @param identifier Global cluster identifier of the RDS global cluster.
          * 
          * The following arguments are optional:
          * 

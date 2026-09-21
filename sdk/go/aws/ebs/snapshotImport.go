@@ -30,11 +30,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.NewSnapshotImport(ctx, "example", &ebs.SnapshotImportArgs{
 //				DiskContainer: &ebs.SnapshotImportDiskContainerArgs{
-//					Format: pulumi.String("VHD"),
 //					UserBucket: &ebs.SnapshotImportDiskContainerUserBucketArgs{
 //						S3Bucket: pulumi.String("disk-images"),
 //						S3Key:    pulumi.String("source.vhd"),
 //					},
+//					Format: pulumi.String("VHD"),
 //				},
 //				RoleName: pulumi.String("disk-image-import"),
 //				Tags: pulumi.StringMap{
@@ -52,7 +52,7 @@ import (
 type SnapshotImport struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The client-specific data. Detailed below.
 	ClientData SnapshotImportClientDataPtrOutput `pulumi:"clientData"`
@@ -123,7 +123,7 @@ func GetSnapshotImport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SnapshotImport resources.
 type snapshotImportState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn *string `pulumi:"arn"`
 	// The client-specific data. Detailed below.
 	ClientData *SnapshotImportClientData `pulumi:"clientData"`
@@ -162,7 +162,7 @@ type snapshotImportState struct {
 }
 
 type SnapshotImportState struct {
-	// Amazon Resource Name (ARN) of the EBS Snapshot.
+	// ARN of the EBS Snapshot.
 	Arn pulumi.StringPtrInput
 	// The client-specific data. Detailed below.
 	ClientData SnapshotImportClientDataPtrInput
@@ -342,7 +342,7 @@ func (o SnapshotImportOutput) ToSnapshotImportOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the EBS Snapshot.
+// ARN of the EBS Snapshot.
 func (o SnapshotImportOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotImport) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

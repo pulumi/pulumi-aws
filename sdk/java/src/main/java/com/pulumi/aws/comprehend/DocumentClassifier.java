@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  *         var documents = new BucketObjectv2("documents");
  * 
  *         var example = new DocumentClassifier("example", DocumentClassifierArgs.builder()
- *             .name("example")
- *             .dataAccessRoleArn(exampleAwsIamRole.arn())
- *             .languageCode("en")
  *             .inputDataConfig(DocumentClassifierInputDataConfigArgs.builder()
  *                 .s3Uri(documents.key().applyValue(_key -> String.format("s3://%s/%s", test.bucket(),_key)))
  *                 .build())
+ *             .name("example")
+ *             .dataAccessRoleArn(exampleAwsIamRole.arn())
+ *             .languageCode("en")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());
@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+ * - `arn` (String) ARN of the Comprehend document classifier.
  * 
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  * 

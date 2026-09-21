@@ -77,12 +77,8 @@ type LookupIpSetResult struct {
 }
 
 func LookupIpSetOutput(ctx *pulumi.Context, args LookupIpSetOutputArgs, opts ...pulumi.InvokeOption) LookupIpSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIpSetResultOutput, error) {
-			args := v.(LookupIpSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:wafv2/getIpSet:getIpSet", args, LookupIpSetResultOutput{}, options).(LookupIpSetResultOutput), nil
-		}).(LookupIpSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:wafv2/getIpSet:getIpSet", args, LookupIpSetResultOutput{}, options).(LookupIpSetResultOutput)
 }
 
 // A collection of arguments for invoking getIpSet.

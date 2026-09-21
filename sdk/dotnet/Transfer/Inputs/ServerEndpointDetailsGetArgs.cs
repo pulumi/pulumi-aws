@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Transfer.Inputs
         public Input<string>? VpcEndpointId { get; set; }
 
         /// <summary>
-        /// VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
+        /// VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `EndpointType` is set to `VPC`.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

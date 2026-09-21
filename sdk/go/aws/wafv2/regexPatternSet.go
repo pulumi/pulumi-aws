@@ -29,9 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafv2.NewRegexPatternSet(ctx, "example", &wafv2.RegexPatternSetArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example regex pattern set"),
-//				Scope:       pulumi.String("REGIONAL"),
 //				RegularExpressions: wafv2.RegexPatternSetRegularExpressionArray{
 //					&wafv2.RegexPatternSetRegularExpressionArgs{
 //						RegexString: pulumi.String("one"),
@@ -40,6 +37,9 @@ import (
 //						RegexString: pulumi.String("two"),
 //					},
 //				},
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("Example regex pattern set"),
+//				Scope:       pulumi.String("REGIONAL"),
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
@@ -64,7 +64,7 @@ import (
 type RegexPatternSet struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// ARN that identifies the cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -118,7 +118,7 @@ func GetRegexPatternSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RegexPatternSet resources.
 type regexPatternSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// ARN that identifies the cluster.
 	Arn *string `pulumi:"arn"`
 	// A friendly description of the regular expression pattern set.
 	Description *string `pulumi:"description"`
@@ -140,7 +140,7 @@ type regexPatternSetState struct {
 }
 
 type RegexPatternSetState struct {
-	// The Amazon Resource Name (ARN) that identifies the cluster.
+	// ARN that identifies the cluster.
 	Arn pulumi.StringPtrInput
 	// A friendly description of the regular expression pattern set.
 	Description pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (o RegexPatternSetOutput) ToRegexPatternSetOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the cluster.
+// ARN that identifies the cluster.
 func (o RegexPatternSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RegexPatternSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

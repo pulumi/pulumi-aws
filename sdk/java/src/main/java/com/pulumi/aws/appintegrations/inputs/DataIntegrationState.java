@@ -18,14 +18,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     public static final DataIntegrationState Empty = new DataIntegrationState();
 
     /**
-     * Amazon Resource Name (ARN) of the Data Integration.
+     * ARN of the Data Integration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Data Integration.
+     * @return ARN of the Data Integration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * @return KMS key ARN for the Data Integration.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -185,7 +185,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Data Integration.
+         * @param arn ARN of the Data Integration.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Data Integration.
+         * @param arn ARN of the Data Integration.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key ARN for the Data Integration.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class DataIntegrationState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key ARN for the Data Integration.
          * 
          * @return builder
          * 

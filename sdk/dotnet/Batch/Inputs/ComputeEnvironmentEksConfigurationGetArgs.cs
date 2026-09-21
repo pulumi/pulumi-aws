@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class ComputeEnvironmentEksConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        /// ARN of the Amazon EKS cluster.
         /// </summary>
         [Input("eksClusterArn", required: true)]
         public Input<string> EksClusterArn { get; set; } = null!;

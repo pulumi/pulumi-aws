@@ -72,7 +72,7 @@ type EnvironmentMembership struct {
 	Permissions pulumi.StringOutput `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
+	// ARN of the environment member you want to add.
 	UserArn pulumi.StringOutput `pulumi:"userArn"`
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId pulumi.StringOutput `pulumi:"userId"`
@@ -123,7 +123,7 @@ type environmentMembershipState struct {
 	Permissions *string `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
+	// ARN of the environment member you want to add.
 	UserArn *string `pulumi:"userArn"`
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId *string `pulumi:"userId"`
@@ -136,7 +136,7 @@ type EnvironmentMembershipState struct {
 	Permissions pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
+	// ARN of the environment member you want to add.
 	UserArn pulumi.StringPtrInput
 	// The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
 	UserId pulumi.StringPtrInput
@@ -153,7 +153,7 @@ type environmentMembershipArgs struct {
 	Permissions string `pulumi:"permissions"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
+	// ARN of the environment member you want to add.
 	UserArn string `pulumi:"userArn"`
 }
 
@@ -165,7 +165,7 @@ type EnvironmentMembershipArgs struct {
 	Permissions pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the environment member you want to add.
+	// ARN of the environment member you want to add.
 	UserArn pulumi.StringInput
 }
 
@@ -271,7 +271,7 @@ func (o EnvironmentMembershipOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the environment member you want to add.
+// ARN of the environment member you want to add.
 func (o EnvironmentMembershipOutput) UserArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentMembership) pulumi.StringOutput { return v.UserArn }).(pulumi.StringOutput)
 }

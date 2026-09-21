@@ -5,6 +5,7 @@ package com.pulumi.aws.cloudwatch;
 
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmEvaluationCriteriaArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmMetricQueryArgs;
+import com.pulumi.aws.cloudwatch.inputs.MetricAlarmWarmUpConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -38,14 +39,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="alarmActions")
     private @Nullable Output<List<String>> alarmActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> alarmActions() {
@@ -194,14 +195,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="insufficientDataActions")
     private @Nullable Output<List<String>> insufficientDataActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> insufficientDataActions() {
@@ -273,14 +274,14 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     @Import(name="okActions")
     private @Nullable Output<List<String>> okActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     public Optional<Output<List<String>>> okActions() {
@@ -421,6 +422,21 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.unit);
     }
 
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    @Import(name="warmUpConfiguration")
+    private @Nullable Output<MetricAlarmWarmUpConfigurationArgs> warmUpConfiguration;
+
+    /**
+     * @return Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    public Optional<Output<MetricAlarmWarmUpConfigurationArgs>> warmUpConfiguration() {
+        return Optional.ofNullable(this.warmUpConfiguration);
+    }
+
     private MetricAlarmArgs() {}
 
     private MetricAlarmArgs(MetricAlarmArgs $) {
@@ -449,6 +465,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         this.thresholdMetricId = $.thresholdMetricId;
         this.treatMissingData = $.treatMissingData;
         this.unit = $.unit;
+        this.warmUpConfiguration = $.warmUpConfiguration;
     }
 
     public static Builder builder() {
@@ -491,7 +508,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -502,7 +519,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -512,7 +529,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param alarmActions The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param alarmActions List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -717,7 +734,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -728,7 +745,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -738,7 +755,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param insufficientDataActions The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param insufficientDataActions List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -846,7 +863,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -857,7 +874,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -867,7 +884,7 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param okActions The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+         * @param okActions List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
          * 
          * @return builder
          * 
@@ -1056,6 +1073,27 @@ public final class MetricAlarmArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder unit(String unit) {
             return unit(Output.of(unit));
+        }
+
+        /**
+         * @param warmUpConfiguration Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmUpConfiguration(@Nullable Output<MetricAlarmWarmUpConfigurationArgs> warmUpConfiguration) {
+            $.warmUpConfiguration = warmUpConfiguration;
+            return this;
+        }
+
+        /**
+         * @param warmUpConfiguration Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder warmUpConfiguration(MetricAlarmWarmUpConfigurationArgs warmUpConfiguration) {
+            return warmUpConfiguration(Output.of(warmUpConfiguration));
         }
 
         public MetricAlarmArgs build() {

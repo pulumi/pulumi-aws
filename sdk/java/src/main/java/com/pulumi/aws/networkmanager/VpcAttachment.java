@@ -84,15 +84,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcAttachment("example", VpcAttachmentArgs.builder()
- *             .subnetArns(exampleAwsSubnet.arn())
- *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
- *             .vpcArn(exampleAwsVpc.arn())
  *             .options(VpcAttachmentOptionsArgs.builder()
  *                 .applianceModeSupport(false)
  *                 .dnsSupport(true)
  *                 .ipv6Support(false)
  *                 .securityGroupReferencingSupport(true)
  *                 .build())
+ *             .subnetArns(exampleAwsSubnet.arn())
+ *             .coreNetworkId(exampleAwsccNetworkmanagerCoreNetwork.id())
+ *             .vpcArn(exampleAwsVpc.arn())
  *             .build());
  * 
  *     }

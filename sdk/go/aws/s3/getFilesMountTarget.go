@@ -87,12 +87,8 @@ type LookupFilesMountTargetResult struct {
 }
 
 func LookupFilesMountTargetOutput(ctx *pulumi.Context, args LookupFilesMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupFilesMountTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFilesMountTargetResultOutput, error) {
-			args := v.(LookupFilesMountTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getFilesMountTarget:getFilesMountTarget", args, LookupFilesMountTargetResultOutput{}, options).(LookupFilesMountTargetResultOutput), nil
-		}).(LookupFilesMountTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getFilesMountTarget:getFilesMountTarget", args, LookupFilesMountTargetResultOutput{}, options).(LookupFilesMountTargetResultOutput)
 }
 
 // A collection of arguments for invoking getFilesMountTarget.

@@ -38,7 +38,7 @@ public final class DomainNameDomainNameConfiguration {
      */
     private @Nullable String ownershipVerificationCertificateArn;
     /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * @return TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
     private String securityPolicy;
@@ -85,7 +85,7 @@ public final class DomainNameDomainNameConfiguration {
         return Optional.ofNullable(this.ownershipVerificationCertificateArn);
     }
     /**
-     * @return Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+     * @return TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
      * 
      */
     public String securityPolicy() {

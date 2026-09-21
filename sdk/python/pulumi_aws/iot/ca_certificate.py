@@ -400,11 +400,11 @@ class CaCertificate(pulumi.CustomResource):
 
         ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
         ca = tls.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            private_key_pem=ca_private_key.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -415,10 +415,10 @@ class CaCertificate(pulumi.CustomResource):
         verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
         example = aws.iot.get_registration_code()
         verification = tls.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
             subject=[{
                 "commonName": example.registration_code,
-            }])
+            }],
+            private_key_pem=verification_private_key.private_key_pem)
         verification_locally_signed_cert = tls.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,
@@ -467,11 +467,11 @@ class CaCertificate(pulumi.CustomResource):
 
         ca_private_key = tls.PrivateKey("ca", algorithm="RSA")
         ca = tls.SelfSignedCert("ca",
-            private_key_pem=ca_private_key.private_key_pem,
             subject=[{
                 "commonName": "example.com",
                 "organization": "ACME Examples, Inc",
             }],
+            private_key_pem=ca_private_key.private_key_pem,
             validity_period_hours=12,
             allowed_uses=[
                 "key_encipherment",
@@ -482,10 +482,10 @@ class CaCertificate(pulumi.CustomResource):
         verification_private_key = tls.PrivateKey("verification", algorithm="RSA")
         example = aws.iot.get_registration_code()
         verification = tls.CertRequest("verification",
-            private_key_pem=verification_private_key.private_key_pem,
             subject=[{
                 "commonName": example.registration_code,
-            }])
+            }],
+            private_key_pem=verification_private_key.private_key_pem)
         verification_locally_signed_cert = tls.LocallySignedCert("verification",
             cert_request_pem=verification.cert_request_pem,
             ca_private_key_pem=ca_private_key.private_key_pem,

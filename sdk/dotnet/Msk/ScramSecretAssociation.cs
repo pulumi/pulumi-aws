@@ -37,7 +37,6 @@ namespace Pulumi.Aws.Msk
     /// {
     ///     var exampleCluster = new Aws.Msk.Cluster("example", new()
     ///     {
-    ///         ClusterName = "example",
     ///         ClientAuthentication = new Aws.Msk.Inputs.ClusterClientAuthenticationArgs
     ///         {
     ///             Sasl = new Aws.Msk.Inputs.ClusterClientAuthenticationSaslArgs
@@ -45,6 +44,7 @@ namespace Pulumi.Aws.Msk
     ///                 Scram = true,
     ///             },
     ///         },
+    ///         ClusterName = "example",
     ///     });
     /// 
     ///     var exampleKey = new Aws.Kms.Key("example", new()
@@ -89,8 +89,6 @@ namespace Pulumi.Aws.Msk
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "AWSKafkaResourcePolicy",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -102,6 +100,8 @@ namespace Pulumi.Aws.Msk
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "AWSKafkaResourcePolicy",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "secretsmanager:getSecretValue",
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Msk
     public partial class ScramSecretAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ScramSecretAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Msk
     public sealed class ScramSecretAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the MSK cluster.
+        /// ARN of the MSK cluster.
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }

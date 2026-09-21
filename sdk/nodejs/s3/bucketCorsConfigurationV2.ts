@@ -22,7 +22,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "mybucket"});
  * const exampleBucketCorsConfiguration = new aws.s3.BucketCorsConfiguration("example", {
- *     bucket: example.id,
  *     corsRules: [
  *         {
  *             allowedHeaders: ["*"],
@@ -39,6 +38,7 @@ import * as utilities from "../utilities";
  *             allowedOrigins: ["*"],
  *         },
  *     ],
+ *     bucket: example.id,
  * });
  * ```
  *

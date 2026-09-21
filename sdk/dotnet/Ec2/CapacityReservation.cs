@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> InstanceType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// ARN of the Outpost on which to create the Capacity Reservation.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> OwnerId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// ARN of the cluster placement group in which to create the Capacity Reservation.
         /// </summary>
         [Output("placementGroupArn")]
         public Output<string?> PlacementGroupArn { get; private set; } = null!;
@@ -247,13 +247,13 @@ namespace Pulumi.Aws.Ec2
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType> InstanceType { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// ARN of the Outpost on which to create the Capacity Reservation.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// ARN of the cluster placement group in which to create the Capacity Reservation.
         /// </summary>
         [Input("placementGroupArn")]
         public Input<string>? PlacementGroupArn { get; set; }
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.Ec2
         public InputUnion<string, Pulumi.Aws.Ec2.InstanceType>? InstanceType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        /// ARN of the Outpost on which to create the Capacity Reservation.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -363,7 +363,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? OwnerId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        /// ARN of the cluster placement group in which to create the Capacity Reservation.
         /// </summary>
         [Input("placementGroupArn")]
         public Input<string>? PlacementGroupArn { get; set; }

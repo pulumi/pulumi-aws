@@ -58,7 +58,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> AuthType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Output("certificateArn")]
         public Output<string?> CertificateArn { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }
@@ -230,7 +230,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? AuthType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the certificate.
+        /// ARN of the certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

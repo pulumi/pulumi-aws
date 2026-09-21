@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .stages(            
  *                 PipelineStageArgs.builder()
- *                     .name("Source")
  *                     .actions(PipelineStageActionArgs.builder()
  *                         .name("Source")
  *                         .category("Source")
@@ -73,6 +72,7 @@ import javax.annotation.Nullable;
  *                             Map.entry("BranchName", "main")
  *                         ))
  *                         .build())
+ *                     .name("Source")
  *                     .build(),
  *                 PipelineStageArgs.builder()
  *                     .actions(PipelineStageActionArgs.builder()
@@ -99,7 +99,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connection.
+ * - `arn` (String) ARN of the CodeStar connection.
  * 
  * Using `pulumi import`, import CodeStar connections using the ARN. For example:
  * 
@@ -139,14 +139,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.connectionStatus;
     }
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     @Export(name="hostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * @return ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     public Output<Optional<String>> hostArn() {

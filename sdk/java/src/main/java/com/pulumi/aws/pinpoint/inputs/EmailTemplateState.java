@@ -19,14 +19,14 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
     public static final EmailTemplateState Empty = new EmailTemplateState();
 
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the message template.
+     * @return ARN of the message template.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -154,7 +154,7 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the message template.
+         * @param arn ARN of the message template.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class EmailTemplateState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the message template.
+         * @param arn ARN of the message template.
          * 
          * @return builder
          * 

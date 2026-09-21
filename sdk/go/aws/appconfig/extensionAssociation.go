@@ -39,9 +39,6 @@ import (
 //			test, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -49,6 +46,9 @@ import (
 //									"appconfig.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -64,11 +64,8 @@ import (
 //				return err
 //			}
 //			testExtension, err := appconfig.NewExtension(ctx, "test", &appconfig.ExtensionArgs{
-//				Name:        pulumi.String("test"),
-//				Description: pulumi.String("test description"),
 //				ActionPoints: appconfig.ExtensionActionPointArray{
 //					&appconfig.ExtensionActionPointArgs{
-//						Point: pulumi.String("ON_DEPLOYMENT_COMPLETE"),
 //						Actions: appconfig.ExtensionActionPointActionArray{
 //							&appconfig.ExtensionActionPointActionArgs{
 //								Name:    pulumi.String("test"),
@@ -76,8 +73,11 @@ import (
 //								Uri:     testTopic.Arn,
 //							},
 //						},
+//						Point: pulumi.String("ON_DEPLOYMENT_COMPLETE"),
 //					},
 //				},
+//				Name:        pulumi.String("test"),
+//				Description: pulumi.String("test description"),
 //				Tags: pulumi.StringMap{
 //					"Type": pulumi.String("AppConfig Extension"),
 //				},

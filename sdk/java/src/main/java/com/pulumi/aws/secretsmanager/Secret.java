@@ -99,9 +99,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+ * - `arn` (String) ARN of the Secrets Manager secret.
  * 
- * Using `pulumi import`, import `aws.secretsmanager.Secret` using the secret Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.secretsmanager.Secret` using the secret ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -241,14 +241,14 @@ public class Secret extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="replicas", refs={List.class,SecretReplica.class}, tree="[0,1]")
-    private Output<List<SecretReplica>> replicas;
+    private Output</* @Nullable */ List<SecretReplica>> replicas;
 
     /**
      * @return Configuration block to support secret replication. See details below.
      * 
      */
-    public Output<List<SecretReplica>> replicas() {
-        return this.replicas;
+    public Output<Optional<List<SecretReplica>>> replicas() {
+        return Codegen.optional(this.replicas);
     }
     /**
      * Key-value map of user-defined tags that are attached to the secret. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

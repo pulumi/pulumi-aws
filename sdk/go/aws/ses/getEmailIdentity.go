@@ -58,7 +58,7 @@ type LookupEmailIdentityArgs struct {
 
 // A collection of values returned by getEmailIdentity.
 type LookupEmailIdentityResult struct {
-	// The ARN of the email identity.
+	// ARN of the email identity.
 	Arn string `pulumi:"arn"`
 	// Email identity.
 	Email string `pulumi:"email"`
@@ -68,12 +68,8 @@ type LookupEmailIdentityResult struct {
 }
 
 func LookupEmailIdentityOutput(ctx *pulumi.Context, args LookupEmailIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupEmailIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupEmailIdentityResultOutput, error) {
-			args := v.(LookupEmailIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ses/getEmailIdentity:getEmailIdentity", args, LookupEmailIdentityResultOutput{}, options).(LookupEmailIdentityResultOutput), nil
-		}).(LookupEmailIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ses/getEmailIdentity:getEmailIdentity", args, LookupEmailIdentityResultOutput{}, options).(LookupEmailIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getEmailIdentity.
@@ -103,7 +99,7 @@ func (o LookupEmailIdentityResultOutput) ToLookupEmailIdentityResultOutputWithCo
 	return o
 }
 
-// The ARN of the email identity.
+// ARN of the email identity.
 func (o LookupEmailIdentityResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEmailIdentityResult) string { return v.Arn }).(pulumi.StringOutput)
 }

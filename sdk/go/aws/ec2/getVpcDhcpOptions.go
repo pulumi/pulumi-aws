@@ -130,12 +130,8 @@ type LookupVpcDhcpOptionsResult struct {
 }
 
 func LookupVpcDhcpOptionsOutput(ctx *pulumi.Context, args LookupVpcDhcpOptionsOutputArgs, opts ...pulumi.InvokeOption) LookupVpcDhcpOptionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcDhcpOptionsResultOutput, error) {
-			args := v.(LookupVpcDhcpOptionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, LookupVpcDhcpOptionsResultOutput{}, options).(LookupVpcDhcpOptionsResultOutput), nil
-		}).(LookupVpcDhcpOptionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpcDhcpOptions:getVpcDhcpOptions", args, LookupVpcDhcpOptionsResultOutput{}, options).(LookupVpcDhcpOptionsResultOutput)
 }
 
 // A collection of arguments for invoking getVpcDhcpOptions.

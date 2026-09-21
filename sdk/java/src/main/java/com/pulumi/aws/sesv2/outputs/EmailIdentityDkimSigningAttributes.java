@@ -13,39 +13,39 @@ import javax.annotation.Nullable;
 @CustomType
 public final class EmailIdentityDkimSigningAttributes {
     /**
-     * @return [Easy DKIM] The key length of the DKIM key pair in use.
+     * @return [Easy DKIM] Key length of the DKIM key pair in use.
      * 
      */
     private @Nullable String currentSigningKeyLength;
     /**
-     * @return [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+     * @return [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
      * 
      * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
      */
     private @Nullable String domainSigningPrivateKey;
     /**
-     * @return [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+     * @return [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
      * 
      */
     private @Nullable String domainSigningSelector;
     /**
-     * @return [Easy DKIM] The last time a key pair was generated for this identity.
+     * @return [Easy DKIM] Last time a key pair was generated for this identity.
      * 
      */
     private @Nullable String lastKeyGenerationTimestamp;
     /**
-     * @return [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+     * @return [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
      * 
      */
     private @Nullable String nextSigningKeyLength;
     /**
-     * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * @return How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     private @Nullable String signingAttributesOrigin;
     /**
-     * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * @return Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     private @Nullable String status;
@@ -57,14 +57,14 @@ public final class EmailIdentityDkimSigningAttributes {
 
     private EmailIdentityDkimSigningAttributes() {}
     /**
-     * @return [Easy DKIM] The key length of the DKIM key pair in use.
+     * @return [Easy DKIM] Key length of the DKIM key pair in use.
      * 
      */
     public Optional<String> currentSigningKeyLength() {
         return Optional.ofNullable(this.currentSigningKeyLength);
     }
     /**
-     * @return [Bring Your Own DKIM] A private key that&#39;s used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+     * @return [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
      * 
      * &gt; **NOTE:** You have to delete the first and last lines (&#39;-----BEGIN PRIVATE KEY-----&#39; and &#39;-----END PRIVATE KEY-----&#39;, respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
      * 
@@ -73,35 +73,35 @@ public final class EmailIdentityDkimSigningAttributes {
         return Optional.ofNullable(this.domainSigningPrivateKey);
     }
     /**
-     * @return [Bring Your Own DKIM] A string that&#39;s used to identify a public key in the DNS configuration for a domain.
+     * @return [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
      * 
      */
     public Optional<String> domainSigningSelector() {
         return Optional.ofNullable(this.domainSigningSelector);
     }
     /**
-     * @return [Easy DKIM] The last time a key pair was generated for this identity.
+     * @return [Easy DKIM] Last time a key pair was generated for this identity.
      * 
      */
     public Optional<String> lastKeyGenerationTimestamp() {
         return Optional.ofNullable(this.lastKeyGenerationTimestamp);
     }
     /**
-     * @return [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+     * @return [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
      * 
      */
     public Optional<String> nextSigningKeyLength() {
         return Optional.ofNullable(this.nextSigningKeyLength);
     }
     /**
-     * @return A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+     * @return How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
      * 
      */
     public Optional<String> signingAttributesOrigin() {
         return Optional.ofNullable(this.signingAttributesOrigin);
     }
     /**
-     * @return Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+     * @return Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
      * 
      */
     public Optional<String> status() {

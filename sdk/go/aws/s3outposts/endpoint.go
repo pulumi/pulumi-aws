@@ -44,7 +44,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Outposts Endpoints using Amazon Resource Name (ARN), EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
+// Using `pulumi import`, import S3 Outposts Endpoints using ARN, EC2 Security Group identifier, and EC2 Subnet identifier, separated by commas (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:s3outposts/endpoint:Endpoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/endpoint/0123456789abcdef,sg-12345678,subnet-12345678
@@ -54,7 +54,7 @@ type Endpoint struct {
 
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 	AccessType pulumi.StringOutput `pulumi:"accessType"`
-	// Amazon Resource Name (ARN) of the endpoint.
+	// ARN of the endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// VPC CIDR block of the endpoint.
 	CidrBlock pulumi.StringOutput `pulumi:"cidrBlock"`
@@ -115,7 +115,7 @@ func GetEndpoint(ctx *pulumi.Context,
 type endpointState struct {
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 	AccessType *string `pulumi:"accessType"`
-	// Amazon Resource Name (ARN) of the endpoint.
+	// ARN of the endpoint.
 	Arn *string `pulumi:"arn"`
 	// VPC CIDR block of the endpoint.
 	CidrBlock *string `pulumi:"cidrBlock"`
@@ -138,7 +138,7 @@ type endpointState struct {
 type EndpointState struct {
 	// Type of access for the network connectivity. Valid values are `Private` or `CustomerOwnedIp`.
 	AccessType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the endpoint.
+	// ARN of the endpoint.
 	Arn pulumi.StringPtrInput
 	// VPC CIDR block of the endpoint.
 	CidrBlock pulumi.StringPtrInput
@@ -285,7 +285,7 @@ func (o EndpointOutput) AccessType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.AccessType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the endpoint.
+// ARN of the endpoint.
 func (o EndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

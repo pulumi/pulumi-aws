@@ -37,7 +37,7 @@ namespace Pulumi.Aws.CodeStarConnections.Inputs
         }
 
         /// <summary>
-        /// The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+        /// Value of the TLS certificate associated with the infrastructure where your provider type is installed.
         /// </summary>
         [Input("tlsCertificate")]
         public Input<string>? TlsCertificate { get; set; }

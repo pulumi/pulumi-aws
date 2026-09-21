@@ -250,23 +250,23 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["firehose.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="firehose_example_role",
             assume_role_policy=assume_role.json)
         example = aws.kinesis.FirehoseDeliveryStream("example",
-            name="pulumi-kinesis-firehose-extended-s3-example-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
                 "bucket_arn": example_bucket.arn,
             },
+            name="pulumi-kinesis-firehose-extended-s3-example-stream",
+            destination="extended_s3",
             tags={
                 "LogDeliveryEnabled": "true",
             })
@@ -302,7 +302,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
+        - `arn` (String) ARN of the IVS Chat logging configuration.
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
@@ -351,23 +351,23 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket_prefix="tf-ivschat-logging-bucket")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["firehose.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="firehose_example_role",
             assume_role_policy=assume_role.json)
         example = aws.kinesis.FirehoseDeliveryStream("example",
-            name="pulumi-kinesis-firehose-extended-s3-example-stream",
-            destination="extended_s3",
             extended_s3_configuration={
                 "role_arn": example_role.arn,
                 "bucket_arn": example_bucket.arn,
             },
+            name="pulumi-kinesis-firehose-extended-s3-example-stream",
+            destination="extended_s3",
             tags={
                 "LogDeliveryEnabled": "true",
             })
@@ -403,7 +403,7 @@ class LoggingConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IVS Chat logging configuration.
+        - `arn` (String) ARN of the IVS Chat logging configuration.
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 

@@ -536,7 +536,7 @@ class _LustreFileSystemState:
         """
         Input properties used for looking up and filtering LustreFileSystem resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
@@ -573,7 +573,7 @@ class _LustreFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if arn is not None:
@@ -653,7 +653,7 @@ class _LustreFileSystemState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -1062,7 +1062,7 @@ class _LustreFileSystemState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -1150,7 +1150,8 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1226,7 +1227,8 @@ class LustreFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.LustreFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1374,7 +1376,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] auto_import_policy: How Amazon FSx keeps your file and directory listings up to date as you add or modify objects in your linked S3 bucket. see [Auto Import Data Repo](https://docs.aws.amazon.com/fsx/latest/LustreGuide/autoimport-data-repo.html) for more details. Only supported on `PERSISTENT_1` deployment types.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days. only valid for `PERSISTENT_1` and `PERSISTENT_2` deployment_type.
         :param pulumi.Input[_builtins.str] backup_id: ID of the source backup to create the filesystem from.
@@ -1411,7 +1413,7 @@ class LustreFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the file system. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Throughput in MBps required for the `INTELLIGENT_TIERING` storage type. Must be 4000 or multiples of 4000.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1460,7 +1462,7 @@ class LustreFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -1733,7 +1735,7 @@ class LustreFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 

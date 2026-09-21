@@ -1370,15 +1370,15 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
-     *             .cluster(exampleAwsEcsCluster.id())
-     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
-     *             .desiredCount(1)
-     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
      *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType("FARGATE")
      *             .build());
      * 
      *     }
@@ -1423,15 +1423,15 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
-     *             .cluster(exampleAwsEcsCluster.id())
-     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
-     *             .desiredCount(1)
-     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
      *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType("FARGATE")
      *             .build());
      * 
      *     }
@@ -1476,15 +1476,15 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
-     *             .cluster(exampleAwsEcsCluster.id())
-     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
-     *             .desiredCount(1)
-     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
      *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType("FARGATE")
      *             .build());
      * 
      *     }
@@ -1529,15 +1529,15 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
-     *             .cluster(exampleAwsEcsCluster.id())
-     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
-     *             .desiredCount(1)
-     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
      *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType("FARGATE")
      *             .build());
      * 
      *     }
@@ -1582,15 +1582,15 @@ public final class EcsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = EcsFunctions.getTaskExecution(GetTaskExecutionArgs.builder()
-     *             .cluster(exampleAwsEcsCluster.id())
-     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
-     *             .desiredCount(1)
-     *             .launchType("FARGATE")
      *             .networkConfiguration(GetTaskExecutionNetworkConfigurationArgs.builder()
      *                 .subnets(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
      *                 .securityGroups(exampleAwsSecurityGroup.id())
      *                 .assignPublicIp(false)
      *                 .build())
+     *             .cluster(exampleAwsEcsCluster.id())
+     *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+     *             .desiredCount(1)
+     *             .launchType("FARGATE")
      *             .build());
      * 
      *     }

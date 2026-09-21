@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2InputSource("example", V2InputSourceArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
  *                 .cfnStackArn("arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123")
  *                 .build())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .build());
  * 
  *     }
@@ -86,10 +86,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2InputSource("example", V2InputSourceArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
  *                 .tfStateFileUrl("s3://my-bucket/terraform.tfstate")
  *                 .build())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .build());
  * 
  *     }
@@ -124,7 +124,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2InputSource("example", V2InputSourceArgs.builder()
- *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .resourceConfiguration(V2InputSourceResourceConfigurationArgs.builder()
  *                 .eks(V2InputSourceResourceConfigurationEksArgs.builder()
  *                     .clusterArn("arn:aws:eks:us-west-2:123456789012:cluster/my-cluster")
@@ -133,6 +132,7 @@ import javax.annotation.Nullable;
  *                         "production")
  *                     .build())
  *                 .build())
+ *             .serviceArn(exampleAwsResiliencehubv2Service.arn())
  *             .build());
  * 
  *     }

@@ -40,10 +40,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
- *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 32,
- *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 32,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",
@@ -53,6 +49,10 @@ import * as utilities from "../utilities";
  *         password: "avoid-plaintext-passwords",
  *         username: "Admin",
  *     },
+ *     kmsKeyId: exampleAwsKmsKey.arn,
+ *     storageCapacity: 32,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     throughputCapacity: 32,
  * });
  * ```
  *
@@ -63,10 +63,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.WindowsFileSystem("example", {
- *     kmsKeyId: exampleAwsKmsKey.arn,
- *     storageCapacity: 32,
- *     subnetIds: [exampleAwsSubnet.id],
- *     throughputCapacity: 32,
  *     selfManagedActiveDirectory: {
  *         dnsIps: [
  *             "10.0.0.111",
@@ -75,6 +71,10 @@ import * as utilities from "../utilities";
  *         domainName: "corp.example.com",
  *         domainJoinServiceAccountSecret: exampleAwsSecretsmanagerSecret.arn,
  *     },
+ *     kmsKeyId: exampleAwsKmsKey.arn,
+ *     storageCapacity: 32,
+ *     subnetIds: [exampleAwsSubnet.id],
+ *     throughputCapacity: 32,
  * });
  * ```
  *
@@ -92,7 +92,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.WindowsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]});
+ * const example = new aws.fsx.WindowsFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]}, {
+ *     ignoreChanges: ["securityGroupIds"],
+ * });
  * ```
  */
 export class WindowsFileSystem extends pulumi.CustomResource {
@@ -132,7 +134,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly aliases: pulumi.Output<string[] | undefined>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -242,7 +244,7 @@ export class WindowsFileSystem extends pulumi.CustomResource {
      */
     declare public readonly throughputCapacity: pulumi.Output<number>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -352,7 +354,7 @@ export interface WindowsFileSystemState {
      */
     aliases?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -462,7 +464,7 @@ export interface WindowsFileSystemState {
      */
     throughputCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**

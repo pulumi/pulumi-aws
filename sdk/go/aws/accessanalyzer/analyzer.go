@@ -95,11 +95,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accessanalyzer.NewAnalyzer(ctx, "example", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_UNUSED_ACCESS"),
 //				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
 //					UnusedAccess: &accessanalyzer.AnalyzerConfigurationUnusedAccessArgs{
-//						UnusedAccessAge: pulumi.Int(180),
 //						AnalysisRule: &accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleArgs{
 //							Exclusions: accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArray{
 //								&accessanalyzer.AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs{
@@ -120,8 +117,11 @@ import (
 //								},
 //							},
 //						},
+//						UnusedAccessAge: pulumi.Int(180),
 //					},
 //				},
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION_UNUSED_ACCESS"),
 //			})
 //			if err != nil {
 //				return err
@@ -147,8 +147,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accessanalyzer.NewAnalyzer(ctx, "test", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
 //				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
 //					InternalAccess: &accessanalyzer.AnalyzerConfigurationInternalAccessArgs{
 //						AnalysisRule: &accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleArgs{
@@ -164,6 +162,8 @@ import (
 //						},
 //					},
 //				},
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
 //			})
 //			if err != nil {
 //				return err
@@ -189,8 +189,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := accessanalyzer.NewAnalyzer(ctx, "test", &accessanalyzer.AnalyzerArgs{
-//				AnalyzerName: pulumi.String("example"),
-//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
 //				Configuration: &accessanalyzer.AnalyzerConfigurationArgs{
 //					InternalAccess: &accessanalyzer.AnalyzerConfigurationInternalAccessArgs{
 //						AnalysisRule: &accessanalyzer.AnalyzerConfigurationInternalAccessAnalysisRuleArgs{
@@ -207,6 +205,8 @@ import (
 //						},
 //					},
 //				},
+//				AnalyzerName: pulumi.String("example"),
+//				Type:         pulumi.String("ORGANIZATION_INTERNAL_ACCESS"),
 //			})
 //			if err != nil {
 //				return err

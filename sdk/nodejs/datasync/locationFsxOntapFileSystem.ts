@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.datasync.LocationFsxOntapFileSystem("test", {
- *     fsxFilesystemArn: testAwsFsxOntapFileSystem.arn,
- *     securityGroupArns: [testAwsSecurityGroup.arn],
- *     storageVirtualMachineArn: testAwsFsxOntapStorageVirtualMachine.arn,
  *     protocol: {
  *         nfs: {
  *             mountOptions: {
@@ -29,6 +26,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     fsxFilesystemArn: testAwsFsxOntapFileSystem.arn,
+ *     securityGroupArns: [testAwsSecurityGroup.arn],
+ *     storageVirtualMachineArn: testAwsFsxOntapStorageVirtualMachine.arn,
  * });
  * ```
  *

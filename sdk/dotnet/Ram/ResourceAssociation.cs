@@ -51,13 +51,13 @@ namespace Pulumi.Aws.Ram
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        /// ARN of the resource to associate with the RAM Resource Share.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
+        /// ARN of the RAM Resource Share.
         /// </summary>
         [Output("resourceShareArn")]
         public Output<string> ResourceShareArn { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        /// ARN of the resource to associate with the RAM Resource Share.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
+        /// ARN of the RAM Resource Share.
         /// </summary>
         [Input("resourceShareArn", required: true)]
         public Input<string> ResourceShareArn { get; set; } = null!;
@@ -141,13 +141,13 @@ namespace Pulumi.Aws.Ram
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        /// ARN of the resource to associate with the RAM Resource Share.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the RAM Resource Share.
+        /// ARN of the RAM Resource Share.
         /// </summary>
         [Input("resourceShareArn")]
         public Input<string>? ResourceShareArn { get; set; }

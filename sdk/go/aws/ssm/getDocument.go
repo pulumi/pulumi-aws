@@ -108,12 +108,8 @@ type LookupDocumentResult struct {
 }
 
 func LookupDocumentOutput(ctx *pulumi.Context, args LookupDocumentOutputArgs, opts ...pulumi.InvokeOption) LookupDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDocumentResultOutput, error) {
-			args := v.(LookupDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssm/getDocument:getDocument", args, LookupDocumentResultOutput{}, options).(LookupDocumentResultOutput), nil
-		}).(LookupDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssm/getDocument:getDocument", args, LookupDocumentResultOutput{}, options).(LookupDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getDocument.

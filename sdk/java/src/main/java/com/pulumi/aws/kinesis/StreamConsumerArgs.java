@@ -48,14 +48,14 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      * 
      */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * @return ARN of the data stream the consumer is registered with.
      * 
      */
     public Output<String> streamArn() {
@@ -139,7 +139,7 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class StreamConsumerArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param streamArn Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+         * @param streamArn ARN of the data stream the consumer is registered with.
          * 
          * @return builder
          * 

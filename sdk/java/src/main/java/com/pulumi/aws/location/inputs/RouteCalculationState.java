@@ -17,14 +17,14 @@ public final class RouteCalculationState extends com.pulumi.resources.ResourceAr
     public static final RouteCalculationState Empty = new RouteCalculationState();
 
     /**
-     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     @Import(name="calculatorArn")
     private @Nullable Output<String> calculatorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     public Optional<Output<String>> calculatorArn() {
@@ -188,7 +188,7 @@ public final class RouteCalculationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param calculatorArn The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+         * @param calculatorArn ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class RouteCalculationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param calculatorArn The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+         * @param calculatorArn ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
          * 
          * @return builder
          * 

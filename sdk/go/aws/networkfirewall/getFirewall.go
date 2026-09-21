@@ -131,7 +131,7 @@ type LookupFirewallResult struct {
 	Description string `pulumi:"description"`
 	// Set of types for which to collect analysis metrics.
 	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
-	// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+	// KMS encryption settings for the firewall.
 	EncryptionConfigurations []GetFirewallEncryptionConfiguration `pulumi:"encryptionConfigurations"`
 	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
@@ -161,12 +161,8 @@ type LookupFirewallResult struct {
 }
 
 func LookupFirewallOutput(ctx *pulumi.Context, args LookupFirewallOutputArgs, opts ...pulumi.InvokeOption) LookupFirewallResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFirewallResultOutput, error) {
-			args := v.(LookupFirewallArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkfirewall/getFirewall:getFirewall", args, LookupFirewallResultOutput{}, options).(LookupFirewallResultOutput), nil
-		}).(LookupFirewallResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkfirewall/getFirewall:getFirewall", args, LookupFirewallResultOutput{}, options).(LookupFirewallResultOutput)
 }
 
 // A collection of arguments for invoking getFirewall.
@@ -232,7 +228,7 @@ func (o LookupFirewallResultOutput) EnabledAnalysisTypes() pulumi.StringArrayOut
 	return o.ApplyT(func(v LookupFirewallResult) []string { return v.EnabledAnalysisTypes }).(pulumi.StringArrayOutput)
 }
 
-// AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+// KMS encryption settings for the firewall.
 func (o LookupFirewallResultOutput) EncryptionConfigurations() GetFirewallEncryptionConfigurationArrayOutput {
 	return o.ApplyT(func(v LookupFirewallResult) []GetFirewallEncryptionConfiguration { return v.EncryptionConfigurations }).(GetFirewallEncryptionConfigurationArrayOutput)
 }

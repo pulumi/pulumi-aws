@@ -12,15 +12,81 @@ namespace Pulumi.Aws.Bedrock
     /// <summary>
     /// Manages an AWS Bedrock AgentCore Registry. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
     /// 
-    /// &gt; **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. On August 6, 2026) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until September 17, 2026 Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+    /// &gt; **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. [On August 6, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html#registry-faq-what-is-changing) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until [September 17, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html). Use the `aws.agentregistry.Registry` resource for all new registries.
     /// 
-    /// The following arguments are optional:
+    /// ## Example Usage
     /// 
-    /// * `ApprovalConfiguration` - (Optional)  Approval configuration for registry records. See below.
-    /// * `AuthorizerConfiguration` - (Optional) Authorizer configuration for the registry. Required when `AuthorizerType` is `CUSTOM_JWT`. See below.
-    /// * `AuthorizerType` - (Optional, Forces new resource) Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
-    /// * `Description` - (Optional) Description of the registry.
-    /// * `Region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+    /// ### Basic Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreRegistry("example", new()
+    ///     {
+    ///         Name = "example_registry",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Description and Auto Approval
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreRegistry("example", new()
+    ///     {
+    ///         Name = "example_registry",
+    ///         Description = "MCP servers and tools for the platform team",
+    ///         AutoApproval = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### With Custom JWT Authorizer
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Bedrock.AgentcoreRegistry("example", new()
+    ///     {
+    ///         AuthorizerConfiguration = new Aws.Bedrock.Inputs.AgentcoreRegistryAuthorizerConfigurationArgs
+    ///         {
+    ///             CustomJwtAuthorizer = new Aws.Bedrock.Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerArgs
+    ///             {
+    ///                 DiscoveryUrl = "https://example.okta.com/.well-known/openid-configuration",
+    ///                 AllowedAudiences = new[]
+    ///                 {
+    ///                     "audience-id",
+    ///                 },
+    ///                 AllowedClients = new[]
+    ///                 {
+    ///                     "client-id",
+    ///                 },
+    ///             },
+    ///         },
+    ///         Name = "example_registry",
+    ///         AuthorizerType = "CUSTOM_JWT",
+    ///     });
+    /// 
+    /// });
+    /// ```
     /// 
     /// ## Import
     /// 
@@ -44,23 +110,40 @@ namespace Pulumi.Aws.Bedrock
     [AwsResourceType("aws:bedrock/agentcoreRegistry:AgentcoreRegistry")]
     public partial class AgentcoreRegistry : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Approval configuration for registry records. See below.
+        /// </summary>
         [Output("approvalConfigurations")]
         public Output<ImmutableArray<Outputs.AgentcoreRegistryApprovalConfiguration>> ApprovalConfigurations { get; private set; } = null!;
 
+        /// <summary>
+        /// Authorizer configuration for the registry. Required when `AuthorizerType` is `CUSTOM_JWT`. See below.
+        /// </summary>
         [Output("authorizerConfiguration")]
         public Output<Outputs.AgentcoreRegistryAuthorizerConfiguration?> AuthorizerConfiguration { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        /// </summary>
         [Output("authorizerType")]
         public Output<string> AuthorizerType { get; private set; } = null!;
 
+        /// <summary>
+        /// Description of the registry.
+        /// </summary>
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        /// <summary>
+        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -128,26 +211,44 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("approvalConfigurations")]
         private InputList<Inputs.AgentcoreRegistryApprovalConfigurationArgs>? _approvalConfigurations;
+
+        /// <summary>
+        /// Approval configuration for registry records. See below.
+        /// </summary>
         public InputList<Inputs.AgentcoreRegistryApprovalConfigurationArgs> ApprovalConfigurations
         {
             get => _approvalConfigurations ?? (_approvalConfigurations = new InputList<Inputs.AgentcoreRegistryApprovalConfigurationArgs>());
             set => _approvalConfigurations = value;
         }
 
+        /// <summary>
+        /// Authorizer configuration for the registry. Required when `AuthorizerType` is `CUSTOM_JWT`. See below.
+        /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationArgs>? AuthorizerConfiguration { get; set; }
 
+        /// <summary>
+        /// Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        /// </summary>
         [Input("authorizerType")]
         public Input<string>? AuthorizerType { get; set; }
 
+        /// <summary>
+        /// Description of the registry.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -165,26 +266,44 @@ namespace Pulumi.Aws.Bedrock
     {
         [Input("approvalConfigurations")]
         private InputList<Inputs.AgentcoreRegistryApprovalConfigurationGetArgs>? _approvalConfigurations;
+
+        /// <summary>
+        /// Approval configuration for registry records. See below.
+        /// </summary>
         public InputList<Inputs.AgentcoreRegistryApprovalConfigurationGetArgs> ApprovalConfigurations
         {
             get => _approvalConfigurations ?? (_approvalConfigurations = new InputList<Inputs.AgentcoreRegistryApprovalConfigurationGetArgs>());
             set => _approvalConfigurations = value;
         }
 
+        /// <summary>
+        /// Authorizer configuration for the registry. Required when `AuthorizerType` is `CUSTOM_JWT`. See below.
+        /// </summary>
         [Input("authorizerConfiguration")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationGetArgs>? AuthorizerConfiguration { get; set; }
 
+        /// <summary>
+        /// Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        /// </summary>
         [Input("authorizerType")]
         public Input<string>? AuthorizerType { get; set; }
 
+        /// <summary>
+        /// Description of the registry.
+        /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        /// <summary>
+        /// Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        /// 
+        /// The following arguments are optional:
+        /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }

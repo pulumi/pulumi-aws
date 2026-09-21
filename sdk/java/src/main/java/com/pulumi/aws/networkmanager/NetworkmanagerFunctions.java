@@ -686,13 +686,13 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -707,9 +707,36 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *             .attachmentPolicies(            
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
+     *                         .build())
+     *                     .ruleNumber(100)
+     *                     .conditionLogic("or")
+     *                     .build(),
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
+     *                         .build())
+     *                     .ruleNumber(200)
+     *                     .conditionLogic("or")
+     *                     .build())
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .vpnEcmpSupport(false)
-     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
      *                         .location("us-east-1")
@@ -719,6 +746,14 @@ public final class NetworkmanagerFunctions {
      *                         .location("eu-central-1")
      *                         .asn("64513")
      *                         .build())
+     *                 .vpnEcmpSupport(false)
+     *                 .asnRanges("64512-64555")
+     *                 .build())
+     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
@@ -730,41 +765,6 @@ public final class NetworkmanagerFunctions {
      *                     .name("prod")
      *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action("share")
-     *                 .mode("attachment-route")
-     *                 .segment("shared")
-     *                 .shareWiths("*")
-     *                 .build())
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(100)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("shared")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("shared")
-     *                         .build())
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(200)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("prod")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("prod")
-     *                         .build())
      *                     .build())
      *             .build());
      * 
@@ -797,13 +797,13 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -818,9 +818,36 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *             .attachmentPolicies(            
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
+     *                         .build())
+     *                     .ruleNumber(100)
+     *                     .conditionLogic("or")
+     *                     .build(),
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
+     *                         .build())
+     *                     .ruleNumber(200)
+     *                     .conditionLogic("or")
+     *                     .build())
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .vpnEcmpSupport(false)
-     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
      *                         .location("us-east-1")
@@ -830,6 +857,14 @@ public final class NetworkmanagerFunctions {
      *                         .location("eu-central-1")
      *                         .asn("64513")
      *                         .build())
+     *                 .vpnEcmpSupport(false)
+     *                 .asnRanges("64512-64555")
+     *                 .build())
+     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
@@ -841,41 +876,6 @@ public final class NetworkmanagerFunctions {
      *                     .name("prod")
      *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action("share")
-     *                 .mode("attachment-route")
-     *                 .segment("shared")
-     *                 .shareWiths("*")
-     *                 .build())
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(100)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("shared")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("shared")
-     *                         .build())
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(200)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("prod")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("prod")
-     *                         .build())
      *                     .build())
      *             .build());
      * 
@@ -908,13 +908,13 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -929,9 +929,36 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *             .attachmentPolicies(            
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
+     *                         .build())
+     *                     .ruleNumber(100)
+     *                     .conditionLogic("or")
+     *                     .build(),
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
+     *                         .build())
+     *                     .ruleNumber(200)
+     *                     .conditionLogic("or")
+     *                     .build())
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .vpnEcmpSupport(false)
-     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
      *                         .location("us-east-1")
@@ -941,6 +968,14 @@ public final class NetworkmanagerFunctions {
      *                         .location("eu-central-1")
      *                         .asn("64513")
      *                         .build())
+     *                 .vpnEcmpSupport(false)
+     *                 .asnRanges("64512-64555")
+     *                 .build())
+     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
@@ -952,41 +987,6 @@ public final class NetworkmanagerFunctions {
      *                     .name("prod")
      *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action("share")
-     *                 .mode("attachment-route")
-     *                 .segment("shared")
-     *                 .shareWiths("*")
-     *                 .build())
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(100)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("shared")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("shared")
-     *                         .build())
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(200)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("prod")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("prod")
-     *                         .build())
      *                     .build())
      *             .build());
      * 
@@ -1019,13 +1019,13 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1040,9 +1040,36 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *             .attachmentPolicies(            
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
+     *                         .build())
+     *                     .ruleNumber(100)
+     *                     .conditionLogic("or")
+     *                     .build(),
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
+     *                         .build())
+     *                     .ruleNumber(200)
+     *                     .conditionLogic("or")
+     *                     .build())
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .vpnEcmpSupport(false)
-     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
      *                         .location("us-east-1")
@@ -1052,6 +1079,14 @@ public final class NetworkmanagerFunctions {
      *                         .location("eu-central-1")
      *                         .asn("64513")
      *                         .build())
+     *                 .vpnEcmpSupport(false)
+     *                 .asnRanges("64512-64555")
+     *                 .build())
+     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
@@ -1063,41 +1098,6 @@ public final class NetworkmanagerFunctions {
      *                     .name("prod")
      *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action("share")
-     *                 .mode("attachment-route")
-     *                 .segment("shared")
-     *                 .shareWiths("*")
-     *                 .build())
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(100)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("shared")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("shared")
-     *                         .build())
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(200)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("prod")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("prod")
-     *                         .build())
      *                     .build())
      *             .build());
      * 
@@ -1130,13 +1130,13 @@ public final class NetworkmanagerFunctions {
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.networkmanager.NetworkmanagerFunctions;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentActionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs;
-     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs;
+     * import com.pulumi.aws.networkmanager.inputs.GetCoreNetworkPolicyDocumentSegmentArgs;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1151,9 +1151,36 @@ public final class NetworkmanagerFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = NetworkmanagerFunctions.getCoreNetworkPolicyDocument(GetCoreNetworkPolicyDocumentArgs.builder()
+     *             .attachmentPolicies(            
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("shared")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("shared")
+     *                         .build())
+     *                     .ruleNumber(100)
+     *                     .conditionLogic("or")
+     *                     .build(),
+     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
+     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
+     *                         .associationMethod("constant")
+     *                         .segment("prod")
+     *                         .build())
+     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
+     *                         .type("tag-value")
+     *                         .operator("equals")
+     *                         .key("segment")
+     *                         .value("prod")
+     *                         .build())
+     *                     .ruleNumber(200)
+     *                     .conditionLogic("or")
+     *                     .build())
      *             .coreNetworkConfigurations(GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs.builder()
-     *                 .vpnEcmpSupport(false)
-     *                 .asnRanges("64512-64555")
      *                 .edgeLocations(                
      *                     GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs.builder()
      *                         .location("us-east-1")
@@ -1163,6 +1190,14 @@ public final class NetworkmanagerFunctions {
      *                         .location("eu-central-1")
      *                         .asn("64513")
      *                         .build())
+     *                 .vpnEcmpSupport(false)
+     *                 .asnRanges("64512-64555")
+     *                 .build())
+     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
+     *                 .action("share")
+     *                 .mode("attachment-route")
+     *                 .segment("shared")
+     *                 .shareWiths("*")
      *                 .build())
      *             .segments(            
      *                 GetCoreNetworkPolicyDocumentSegmentArgs.builder()
@@ -1174,41 +1209,6 @@ public final class NetworkmanagerFunctions {
      *                     .name("prod")
      *                     .description("Segment for prod services")
      *                     .requireAttachmentAcceptance(true)
-     *                     .build())
-     *             .segmentActions(GetCoreNetworkPolicyDocumentSegmentActionArgs.builder()
-     *                 .action("share")
-     *                 .mode("attachment-route")
-     *                 .segment("shared")
-     *                 .shareWiths("*")
-     *                 .build())
-     *             .attachmentPolicies(            
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(100)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("shared")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("shared")
-     *                         .build())
-     *                     .build(),
-     *                 GetCoreNetworkPolicyDocumentAttachmentPolicyArgs.builder()
-     *                     .ruleNumber(200)
-     *                     .conditionLogic("or")
-     *                     .conditions(GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs.builder()
-     *                         .type("tag-value")
-     *                         .operator("equals")
-     *                         .key("segment")
-     *                         .value("prod")
-     *                         .build())
-     *                     .action(GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs.builder()
-     *                         .associationMethod("constant")
-     *                         .segment("prod")
-     *                         .build())
      *                     .build())
      *             .build());
      * 

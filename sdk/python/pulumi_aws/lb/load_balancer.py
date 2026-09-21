@@ -1256,17 +1256,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            access_logs={
+                "bucket": lb_logs["id"],
+                "prefix": "test-lb",
+                "enabled": True,
+            },
             name="test-lb-tf",
             internal=False,
             load_balancer_type="application",
             security_groups=[lb_sg["id"]],
             subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
-            access_logs={
-                "bucket": lb_logs["id"],
-                "prefix": "test-lb",
-                "enabled": True,
-            },
             tags={
                 "Environment": "production",
             })
@@ -1296,18 +1296,18 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
-            name="example",
-            load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnet_id": example1_aws_subnet["id"],
-                    "allocation_id": example1["id"],
+                    "subnet_id": example1["id"],
+                    "allocation_id": example1_aws_eip["id"],
                 },
                 {
-                    "subnet_id": example2_aws_subnet["id"],
-                    "allocation_id": example2["id"],
+                    "subnet_id": example2["id"],
+                    "allocation_id": example2_aws_eip["id"],
                 },
-            ])
+            ],
+            name="example",
+            load_balancer_type="network")
         ```
 
         ### Specifying private IP addresses for an internal-facing load balancer
@@ -1317,8 +1317,6 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
-            name="example",
-            load_balancer_type="network",
             subnet_mappings=[
                 {
                     "subnet_id": example1["id"],
@@ -1328,7 +1326,9 @@ class LoadBalancer(pulumi.CustomResource):
                     "subnet_id": example2["id"],
                     "private_ipv4_address": "10.0.2.15",
                 },
-            ])
+            ],
+            name="example",
+            load_balancer_type="network")
         ```
 
         ## Import
@@ -1337,7 +1337,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
+        - `arn` (String) ARN of the load balancer.
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
@@ -1406,17 +1406,17 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.lb.LoadBalancer("test",
+            access_logs={
+                "bucket": lb_logs["id"],
+                "prefix": "test-lb",
+                "enabled": True,
+            },
             name="test-lb-tf",
             internal=False,
             load_balancer_type="application",
             security_groups=[lb_sg["id"]],
             subnets=[subnet["id"] for subnet in public],
             enable_deletion_protection=True,
-            access_logs={
-                "bucket": lb_logs["id"],
-                "prefix": "test-lb",
-                "enabled": True,
-            },
             tags={
                 "Environment": "production",
             })
@@ -1446,18 +1446,18 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
-            name="example",
-            load_balancer_type="network",
             subnet_mappings=[
                 {
-                    "subnet_id": example1_aws_subnet["id"],
-                    "allocation_id": example1["id"],
+                    "subnet_id": example1["id"],
+                    "allocation_id": example1_aws_eip["id"],
                 },
                 {
-                    "subnet_id": example2_aws_subnet["id"],
-                    "allocation_id": example2["id"],
+                    "subnet_id": example2["id"],
+                    "allocation_id": example2_aws_eip["id"],
                 },
-            ])
+            ],
+            name="example",
+            load_balancer_type="network")
         ```
 
         ### Specifying private IP addresses for an internal-facing load balancer
@@ -1467,8 +1467,6 @@ class LoadBalancer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lb.LoadBalancer("example",
-            name="example",
-            load_balancer_type="network",
             subnet_mappings=[
                 {
                     "subnet_id": example1["id"],
@@ -1478,7 +1476,9 @@ class LoadBalancer(pulumi.CustomResource):
                     "subnet_id": example2["id"],
                     "private_ipv4_address": "10.0.2.15",
                 },
-            ])
+            ],
+            name="example",
+            load_balancer_type="network")
         ```
 
         ## Import
@@ -1487,7 +1487,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the load balancer.
+        - `arn` (String) ARN of the load balancer.
 
         Using `pulumi import`, import LBs using their ARN. For example:
 

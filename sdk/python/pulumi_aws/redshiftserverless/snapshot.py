@@ -107,9 +107,9 @@ class _SnapshotState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_provisioned_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         :param pulumi.Input[_builtins.str] admin_username: The username of the database within a snapshot.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: The unique identifier of the KMS key used to encrypt the snapshot.
-        :param pulumi.Input[_builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        :param pulumi.Input[_builtins.str] namespace_arn: ARN of the namespace the snapshot was created from.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[_builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -179,7 +179,7 @@ class _SnapshotState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -203,7 +203,7 @@ class _SnapshotState:
     @pulumi.getter(name="namespaceArn")
     def namespace_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        ARN of the namespace the snapshot was created from.
         """
         return pulumi.get(self, "namespace_arn")
 
@@ -416,9 +416,9 @@ class Snapshot(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_provisioned_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a provisioned cluster.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] accounts_with_restore_accesses: All of the Amazon Web Services accounts that have access to restore a snapshot to a namespace.
         :param pulumi.Input[_builtins.str] admin_username: The username of the database within a snapshot.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: The unique identifier of the KMS key used to encrypt the snapshot.
-        :param pulumi.Input[_builtins.str] namespace_arn: The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        :param pulumi.Input[_builtins.str] namespace_arn: ARN of the namespace the snapshot was created from.
         :param pulumi.Input[_builtins.str] namespace_name: The namespace to create a snapshot for.
         :param pulumi.Input[_builtins.str] owner_account: The owner Amazon Web Services; account of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -470,7 +470,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -486,7 +486,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="namespaceArn")
     def namespace_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+        ARN of the namespace the snapshot was created from.
         """
         return pulumi.get(self, "namespace_arn")
 

@@ -30,7 +30,7 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
      */
     private List<Integer> ports;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     private List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation> validations;
@@ -58,7 +58,7 @@ public final class GetVirtualNodeSpecBackendDefaultClientPolicyTl {
         return this.ports;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public List<GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation> validations() {

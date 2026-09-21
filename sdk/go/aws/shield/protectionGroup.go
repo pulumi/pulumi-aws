@@ -149,11 +149,11 @@ type ProtectionGroup struct {
 
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation pulumi.StringOutput `pulumi:"aggregation"`
-	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 	Members pulumi.StringArrayOutput `pulumi:"members"`
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern pulumi.StringOutput `pulumi:"pattern"`
-	// The ARN (Amazon Resource Name) of the protection group.
+	// ARN of the protection group.
 	ProtectionGroupArn pulumi.StringOutput `pulumi:"protectionGroupArn"`
 	// The name of the protection group.
 	ProtectionGroupId pulumi.StringOutput `pulumi:"protectionGroupId"`
@@ -206,11 +206,11 @@ func GetProtectionGroup(ctx *pulumi.Context,
 type protectionGroupState struct {
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation *string `pulumi:"aggregation"`
-	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 	Members []string `pulumi:"members"`
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern *string `pulumi:"pattern"`
-	// The ARN (Amazon Resource Name) of the protection group.
+	// ARN of the protection group.
 	ProtectionGroupArn *string `pulumi:"protectionGroupArn"`
 	// The name of the protection group.
 	ProtectionGroupId *string `pulumi:"protectionGroupId"`
@@ -225,11 +225,11 @@ type protectionGroupState struct {
 type ProtectionGroupState struct {
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation pulumi.StringPtrInput
-	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 	Members pulumi.StringArrayInput
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern pulumi.StringPtrInput
-	// The ARN (Amazon Resource Name) of the protection group.
+	// ARN of the protection group.
 	ProtectionGroupArn pulumi.StringPtrInput
 	// The name of the protection group.
 	ProtectionGroupId pulumi.StringPtrInput
@@ -248,7 +248,7 @@ func (ProtectionGroupState) ElementType() reflect.Type {
 type protectionGroupArgs struct {
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation string `pulumi:"aggregation"`
-	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 	Members []string `pulumi:"members"`
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern string `pulumi:"pattern"`
@@ -264,7 +264,7 @@ type protectionGroupArgs struct {
 type ProtectionGroupArgs struct {
 	// Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
 	Aggregation pulumi.StringInput
-	// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+	// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 	Members pulumi.StringArrayInput
 	// The criteria to use to choose the protected resources for inclusion in the group.
 	Pattern pulumi.StringInput
@@ -368,7 +368,7 @@ func (o ProtectionGroupOutput) Aggregation() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.Aggregation }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+// ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
 func (o ProtectionGroupOutput) Members() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringArrayOutput { return v.Members }).(pulumi.StringArrayOutput)
 }
@@ -378,7 +378,7 @@ func (o ProtectionGroupOutput) Pattern() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.Pattern }).(pulumi.StringOutput)
 }
 
-// The ARN (Amazon Resource Name) of the protection group.
+// ARN of the protection group.
 func (o ProtectionGroupOutput) ProtectionGroupArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionGroup) pulumi.StringOutput { return v.ProtectionGroupArn }).(pulumi.StringOutput)
 }

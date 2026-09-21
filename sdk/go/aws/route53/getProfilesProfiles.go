@@ -62,12 +62,8 @@ type GetProfilesProfilesResult struct {
 }
 
 func GetProfilesProfilesOutput(ctx *pulumi.Context, args GetProfilesProfilesOutputArgs, opts ...pulumi.InvokeOption) GetProfilesProfilesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProfilesProfilesResultOutput, error) {
-			args := v.(GetProfilesProfilesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", args, GetProfilesProfilesResultOutput{}, options).(GetProfilesProfilesResultOutput), nil
-		}).(GetProfilesProfilesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getProfilesProfiles:getProfilesProfiles", args, GetProfilesProfilesResultOutput{}, options).(GetProfilesProfilesResultOutput)
 }
 
 // A collection of arguments for invoking getProfilesProfiles.

@@ -19,14 +19,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     public static final SubnetGroupState Empty = new SubnetGroupState();
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Subnet group name
+     * ARN of the Redshift Subnet group name
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Subnet group name
+     * @return ARN of the Redshift Subnet group name
      * 
      */
     public Optional<Output<String>> arn() {
@@ -154,7 +154,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Subnet group name
+         * @param arn ARN of the Redshift Subnet group name
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Subnet group name
+         * @param arn ARN of the Redshift Subnet group name
          * 
          * @return builder
          * 

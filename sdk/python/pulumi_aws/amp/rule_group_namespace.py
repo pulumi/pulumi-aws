@@ -263,7 +263,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Prometheus rule group namespace.
+        - `arn` (String) ARN of the Prometheus rule group namespace.
 
         Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 
@@ -313,7 +313,7 @@ class RuleGroupNamespace(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Prometheus rule group namespace.
+        - `arn` (String) ARN of the Prometheus rule group namespace.
 
         Using `pulumi import`, import the prometheus rule group namespace using the arn. For example:
 

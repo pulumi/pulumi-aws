@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const byteSet = new aws.waf.ByteMatchSet("byte_set", {
- *     name: "my_waf_byte_match_set",
  *     byteMatchTuples: [{
- *         textTransformation: "NONE",
- *         targetString: "badrefer1",
- *         positionalConstraint: "CONTAINS",
  *         fieldToMatch: {
  *             type: "HEADER",
  *             data: "referer",
  *         },
+ *         textTransformation: "NONE",
+ *         targetString: "badrefer1",
+ *         positionalConstraint: "CONTAINS",
  *     }],
+ *     name: "my_waf_byte_match_set",
  * });
  * ```
  *
@@ -67,7 +67,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the byte match set.
+     * ARN of the byte match set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class ByteMatchSet extends pulumi.CustomResource {
  */
 export interface ByteMatchSetState {
     /**
-     * Amazon Resource Name (ARN) of the byte match set.
+     * ARN of the byte match set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

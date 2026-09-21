@@ -424,13 +424,13 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogDatabase("example",
-            name="MyCatalogDatabase",
             create_table_default_permissions=[{
-                "permissions": ["SELECT"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
-            }])
+                "permissions": ["SELECT"],
+            }],
+            name="MyCatalogDatabase")
         ```
 
         ## Import
@@ -480,13 +480,13 @@ class CatalogDatabase(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.CatalogDatabase("example",
-            name="MyCatalogDatabase",
             create_table_default_permissions=[{
-                "permissions": ["SELECT"],
                 "principal": {
                     "data_lake_principal_identifier": "IAM_ALLOWED_PRINCIPALS",
                 },
-            }])
+                "permissions": ["SELECT"],
+            }],
+            name="MyCatalogDatabase")
         ```
 
         ## Import

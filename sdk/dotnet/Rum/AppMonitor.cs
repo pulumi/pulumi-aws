@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Rum
         public Output<string> AppMonitorId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the app monitor.
+        /// ARN specifying the app monitor.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Rum
         public Input<string>? AppMonitorId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the app monitor.
+        /// ARN specifying the app monitor.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

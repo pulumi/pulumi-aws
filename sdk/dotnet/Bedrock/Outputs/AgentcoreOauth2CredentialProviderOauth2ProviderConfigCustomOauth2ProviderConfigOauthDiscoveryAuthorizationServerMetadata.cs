@@ -29,6 +29,10 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// OAuth2 token endpoint URL.
         /// </summary>
         public readonly string TokenEndpoint;
+        /// <summary>
+        /// List of authentication methods supported by the token endpoint. Must contain one or two values matching `ClientSecretPost` or `ClientSecretBasic`.
+        /// </summary>
+        public readonly ImmutableArray<string> TokenEndpointAuthMethods;
 
         [OutputConstructor]
         private AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata(
@@ -38,12 +42,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             ImmutableArray<string> responseTypes,
 
-            string tokenEndpoint)
+            string tokenEndpoint,
+
+            ImmutableArray<string> tokenEndpointAuthMethods)
         {
             AuthorizationEndpoint = authorizationEndpoint;
             Issuer = issuer;
             ResponseTypes = responseTypes;
             TokenEndpoint = tokenEndpoint;
+            TokenEndpointAuthMethods = tokenEndpointAuthMethods;
         }
     }
 }

@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/hsmConfiguration:HsmConfiguration")
 public class HsmConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
+     * ARN of the Hsm Client Certificate.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Hsm Client Certificate.
+     * @return ARN of the Hsm Client Certificate.
      * 
      */
     public Output<String> arn() {

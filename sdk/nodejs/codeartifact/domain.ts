@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+ * - `arn` (String) ARN of the CodeArtifact domain.
  *
  * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  *
@@ -75,7 +75,7 @@ export class Domain extends pulumi.CustomResource {
      */
     declare public readonly domain: pulumi.Output<string>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     * Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
     declare public readonly encryptionKey: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface DomainState {
      */
     domain?: pulumi.Input<string | undefined>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     * Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface DomainArgs {
      */
     domain: pulumi.Input<string>;
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     * Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
     /**

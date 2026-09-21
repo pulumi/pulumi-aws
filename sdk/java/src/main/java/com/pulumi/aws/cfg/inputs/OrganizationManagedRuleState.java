@@ -17,14 +17,14 @@ public final class OrganizationManagedRuleState extends com.pulumi.resources.Res
     public static final OrganizationManagedRuleState Empty = new OrganizationManagedRuleState();
 
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * ARN of the rule
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule
+     * @return ARN of the rule
      * 
      */
     public Optional<Output<String>> arn() {
@@ -232,7 +232,7 @@ public final class OrganizationManagedRuleState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the rule
+         * @param arn ARN of the rule
          * 
          * @return builder
          * 
@@ -243,7 +243,7 @@ public final class OrganizationManagedRuleState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the rule
+         * @param arn ARN of the rule
          * 
          * @return builder
          * 

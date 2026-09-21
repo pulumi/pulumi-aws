@@ -306,15 +306,15 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Alias("example",
-            name="staging",
-            description="Staging environment with traffic splitting",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="2",
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
                 },
-            })
+            },
+            name="staging",
+            description="Staging environment with traffic splitting",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="2")
         ```
 
         ### Blue-Green Deployment Alias
@@ -325,15 +325,15 @@ class Alias(pulumi.CustomResource):
 
         # Alias for gradual rollout
         example = aws.lambda_.Alias("example",
-            name="live",
-            description="Live traffic with gradual rollout to new version",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="5",
             routing_config={
                 "additional_version_weights": {
                     "6": 0.05,
                 },
-            })
+            },
+            name="live",
+            description="Live traffic with gradual rollout to new version",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="5")
         ```
 
         ### Development Alias
@@ -351,10 +351,22 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        For backwards compatibility, the following legacy `pulumi import` command is also supported:
+        ### Identity Schema
+
+        #### Required
+
+        * `function_name` (String) Name or ARN of the Lambda function.
+        * `name` (String) Name of the alias.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Lambda Function Aliases using `function_name/alias`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/alias:Alias example example/production
+        $ pulumi import aws:lambda/alias:Alias example example-function/production
         ```
 
 
@@ -402,15 +414,15 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.Alias("example",
-            name="staging",
-            description="Staging environment with traffic splitting",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="2",
             routing_config={
                 "additional_version_weights": {
                     "1": 0.1,
                 },
-            })
+            },
+            name="staging",
+            description="Staging environment with traffic splitting",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="2")
         ```
 
         ### Blue-Green Deployment Alias
@@ -421,15 +433,15 @@ class Alias(pulumi.CustomResource):
 
         # Alias for gradual rollout
         example = aws.lambda_.Alias("example",
-            name="live",
-            description="Live traffic with gradual rollout to new version",
-            function_name=example_aws_lambda_function["functionName"],
-            function_version="5",
             routing_config={
                 "additional_version_weights": {
                     "6": 0.05,
                 },
-            })
+            },
+            name="live",
+            description="Live traffic with gradual rollout to new version",
+            function_name=example_aws_lambda_function["functionName"],
+            function_version="5")
         ```
 
         ### Development Alias
@@ -447,10 +459,22 @@ class Alias(pulumi.CustomResource):
 
         ## Import
 
-        For backwards compatibility, the following legacy `pulumi import` command is also supported:
+        ### Identity Schema
+
+        #### Required
+
+        * `function_name` (String) Name or ARN of the Lambda function.
+        * `name` (String) Name of the alias.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import Lambda Function Aliases using `function_name/alias`. For example:
 
         ```sh
-        $ pulumi import aws:lambda/alias:Alias example example/production
+        $ pulumi import aws:lambda/alias:Alias example example-function/production
         ```
 
 

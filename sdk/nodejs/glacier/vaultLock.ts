@@ -24,14 +24,14 @@ import * as utilities from "../utilities";
  * const exampleVault = new aws.glacier.Vault("example", {name: "example"});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         actions: ["glacier:DeleteArchive"],
- *         effect: "Deny",
- *         resources: [exampleVault.arn],
  *         conditions: [{
  *             test: "NumericLessThanEquals",
  *             variable: "glacier:ArchiveAgeinDays",
  *             values: ["365"],
  *         }],
+ *         actions: ["glacier:DeleteArchive"],
+ *         effect: "Deny",
+ *         resources: [exampleVault.arn],
  *     }],
  * });
  * const exampleVaultLock = new aws.glacier.VaultLock("example", {

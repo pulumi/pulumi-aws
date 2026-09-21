@@ -168,7 +168,7 @@ class _AppState:
         Input properties used for looking up and filtering App resources.
 
         :param pulumi.Input[_builtins.str] application_id: Application ID of the End User Messaging App.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the PinPoint Application.
+        :param pulumi.Input[_builtins.str] arn: ARN of the PinPoint Application.
                * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
                * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
                * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -233,7 +233,7 @@ class _AppState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the PinPoint Application.
+        ARN of the PinPoint Application.
         * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
         * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
         * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -376,14 +376,14 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pinpoint.App("example",
-            name="test-app",
             limits={
                 "maximum_duration": 600,
             },
             quiet_time={
                 "start": "00:00",
                 "end": "06:00",
-            })
+            },
+            name="test-app")
         ```
 
         ## Import
@@ -423,14 +423,14 @@ class App(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pinpoint.App("example",
-            name="test-app",
             limits={
                 "maximum_duration": 600,
             },
             quiet_time={
                 "start": "00:00",
                 "end": "06:00",
-            })
+            },
+            name="test-app")
         ```
 
         ## Import
@@ -511,7 +511,7 @@ class App(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID of the End User Messaging App.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the PinPoint Application.
+        :param pulumi.Input[_builtins.str] arn: ARN of the PinPoint Application.
                * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
                * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
                * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -558,7 +558,7 @@ class App(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the PinPoint Application.
+        ARN of the PinPoint Application.
         * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
         * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
         * `campaign_hook[0].web_url` - Web URL to call for hook.

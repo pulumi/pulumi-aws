@@ -51,7 +51,7 @@ class RepositoryAssociationKmsKeyDetails(dict):
                  encryption_option: Optional[_builtins.str] = None,
                  kms_key_id: Optional[_builtins.str] = None):
         """
-        :param _builtins.str encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+        :param _builtins.str encryption_option: Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         :param _builtins.str kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
         """
         if encryption_option is not None:
@@ -63,7 +63,7 @@ class RepositoryAssociationKmsKeyDetails(dict):
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> Optional[_builtins.str]:
         """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+        Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         """
         return pulumi.get(self, "encryption_option")
 
@@ -156,7 +156,7 @@ class RepositoryAssociationRepositoryBitbucket(dict):
                  name: _builtins.str,
                  owner: _builtins.str):
         """
-        :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param _builtins.str connection_arn: ARN of an AWS CodeStar Connections connection.
         :param _builtins.str name: The name of the third party source repository.
         :param _builtins.str owner: The username for the account that owns the repository.
         """
@@ -168,7 +168,7 @@ class RepositoryAssociationRepositoryBitbucket(dict):
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 
@@ -231,7 +231,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
                  name: _builtins.str,
                  owner: _builtins.str):
         """
-        :param _builtins.str connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param _builtins.str connection_arn: ARN of an AWS CodeStar Connections connection.
         :param _builtins.str name: The name of the third party source repository.
         :param _builtins.str owner: The username for the account that owns the repository.
         """
@@ -243,7 +243,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServer(dict):
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 

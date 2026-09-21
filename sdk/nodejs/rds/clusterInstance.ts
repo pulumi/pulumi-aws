@@ -56,6 +56,17 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `identifier` (String) Identifier of the RDS Cluster Instance.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  *
  * ```sh
@@ -91,15 +102,15 @@ export class ClusterInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     declare public readonly applyImmediately: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
     declare public readonly autoMinorVersionUpgrade: pulumi.Output<boolean | undefined>;
     /**
@@ -115,7 +126,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
     declare public readonly copyTagsToSnapshot: pulumi.Output<boolean | undefined>;
     /**
@@ -127,7 +138,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly dbParameterGroupName: pulumi.Output<string>;
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     declare public readonly dbSubnetGroupName: pulumi.Output<string>;
     /**
@@ -139,8 +150,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     declare public readonly engine: pulumi.Output<enums.rds.EngineType>;
     /**
@@ -184,7 +194,7 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly networkType: pulumi.Output<string>;
     /**
-     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+     * Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     declare public readonly performanceInsightsEnabled: pulumi.Output<boolean>;
     /**
@@ -220,20 +230,21 @@ export class ClusterInstance extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      */
     declare public /*out*/ readonly storageEncrypted: pulumi.Output<boolean>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    declare public readonly warningEventCategories: pulumi.Output<string[] | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -287,6 +298,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["storageEncrypted"] = state?.storageEncrypted;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
+            resourceInputs["warningEventCategories"] = state?.warningEventCategories;
             resourceInputs["writer"] = state?.writer;
         } else {
             const args = argsOrState as ClusterInstanceArgs | undefined;
@@ -325,6 +337,7 @@ export class ClusterInstance extends pulumi.CustomResource {
             resourceInputs["publiclyAccessible"] = args?.publiclyAccessible;
             resourceInputs["region"] = args?.region;
             resourceInputs["tags"] = args?.tags;
+            resourceInputs["warningEventCategories"] = args?.warningEventCategories;
             resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["dbiResourceId"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -346,15 +359,15 @@ export class ClusterInstance extends pulumi.CustomResource {
  */
 export interface ClusterInstanceState {
     /**
-     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
@@ -370,7 +383,7 @@ export interface ClusterInstanceState {
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
@@ -382,7 +395,7 @@ export interface ClusterInstanceState {
      */
     dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -394,8 +407,7 @@ export interface ClusterInstanceState {
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<enums.rds.EngineType | undefined>;
     /**
@@ -439,7 +451,7 @@ export interface ClusterInstanceState {
      */
     networkType?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+     * Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -475,20 +487,21 @@ export interface ClusterInstanceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      */
     storageEncrypted?: pulumi.Input<boolean | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
      * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.
      */
@@ -500,11 +513,11 @@ export interface ClusterInstanceState {
  */
 export interface ClusterInstanceArgs {
     /**
-     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      */
     applyImmediately?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      */
     autoMinorVersionUpgrade?: pulumi.Input<boolean | undefined>;
     /**
@@ -520,7 +533,7 @@ export interface ClusterInstanceArgs {
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
-     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      */
     copyTagsToSnapshot?: pulumi.Input<boolean | undefined>;
     /**
@@ -532,12 +545,11 @@ export interface ClusterInstanceArgs {
      */
     dbParameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      */
     dbSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
-     * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine: pulumi.Input<enums.rds.EngineType>;
     /**
@@ -569,7 +581,7 @@ export interface ClusterInstanceArgs {
      */
     monitoringRoleArn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
+     * Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster's configuration.
      */
     performanceInsightsEnabled?: pulumi.Input<boolean | undefined>;
     /**
@@ -602,9 +614,10 @@ export interface ClusterInstanceArgs {
     region?: pulumi.Input<string | undefined>;
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     */
+    warningEventCategories?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

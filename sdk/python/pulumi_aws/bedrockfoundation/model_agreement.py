@@ -188,7 +188,8 @@ class ModelAgreement(pulumi.CustomResource):
             offer_type="PUBLIC")
         example_model_agreement = aws.bedrockfoundation.ModelAgreement("example",
             model_id=example.model_id,
-            offer_token=example.offers[0].offer_token)
+            offer_token=example.offers[0].offer_token,
+            opts = pulumi.ResourceOptions(ignore_changes=["offerToken"]))
         ```
 
         ## Import
@@ -240,7 +241,8 @@ class ModelAgreement(pulumi.CustomResource):
             offer_type="PUBLIC")
         example_model_agreement = aws.bedrockfoundation.ModelAgreement("example",
             model_id=example.model_id,
-            offer_token=example.offers[0].offer_token)
+            offer_token=example.offers[0].offer_token,
+            opts = pulumi.ResourceOptions(ignore_changes=["offerToken"]))
         ```
 
         ## Import

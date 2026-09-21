@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LocationAzureBlob("example", LocationAzureBlobArgs.builder()
- *             .agentArns(exampleAwsDatasyncAgent.arn())
- *             .authenticationType("SAS")
- *             .containerUrl("https://myaccount.blob.core.windows.net/mycontainer")
  *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()
  *                 .token("sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D")
  *                 .build())
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .authenticationType("SAS")
+ *             .containerUrl("https://myaccount.blob.core.windows.net/mycontainer")
  *             .build());
  * 
  *     }
@@ -67,9 +67,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+ * - `arn` (String) ARN of the DataSync Azure Blob location.
  * 
- * Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -107,14 +107,14 @@ public class LocationAzureBlob extends com.pulumi.resources.CustomResource {
         return this.agentArns;
     }
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Output<String> arn() {

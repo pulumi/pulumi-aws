@@ -58,7 +58,7 @@ export class PolicyTable extends pulumi.CustomResource {
     }
 
     /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Policy Table ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class PolicyTable extends pulumi.CustomResource {
  */
 export interface PolicyTableState {
     /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Policy Table ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

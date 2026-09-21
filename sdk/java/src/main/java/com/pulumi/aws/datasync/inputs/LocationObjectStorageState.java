@@ -49,14 +49,14 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -318,7 +318,7 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class LocationObjectStorageState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 

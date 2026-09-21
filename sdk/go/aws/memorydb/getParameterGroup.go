@@ -78,12 +78,8 @@ type LookupParameterGroupResult struct {
 }
 
 func LookupParameterGroupOutput(ctx *pulumi.Context, args LookupParameterGroupOutputArgs, opts ...pulumi.InvokeOption) LookupParameterGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupParameterGroupResultOutput, error) {
-			args := v.(LookupParameterGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:memorydb/getParameterGroup:getParameterGroup", args, LookupParameterGroupResultOutput{}, options).(LookupParameterGroupResultOutput), nil
-		}).(LookupParameterGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:memorydb/getParameterGroup:getParameterGroup", args, LookupParameterGroupResultOutput{}, options).(LookupParameterGroupResultOutput)
 }
 
 // A collection of arguments for invoking getParameterGroup.

@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //				},
+//				CodeRepositoryName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -84,11 +84,11 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewCodeRepository(ctx, "example", &sagemaker.CodeRepositoryArgs{
-//				CodeRepositoryName: pulumi.String("example"),
 //				GitConfig: &sagemaker.CodeRepositoryGitConfigArgs{
 //					RepositoryUrl: pulumi.String("https://github.com/github/docs.git"),
 //					SecretArn:     example.Arn,
 //				},
+//				CodeRepositoryName: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleSecretVersion,
 //			}))
@@ -111,7 +111,7 @@ import (
 type CodeRepository struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+	// ARN assigned by AWS to this Code Repository.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the Code Repository (must be unique).
 	CodeRepositoryName pulumi.StringOutput `pulumi:"codeRepositoryName"`
@@ -161,7 +161,7 @@ func GetCodeRepository(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CodeRepository resources.
 type codeRepositoryState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+	// ARN assigned by AWS to this Code Repository.
 	Arn *string `pulumi:"arn"`
 	// The name of the Code Repository (must be unique).
 	CodeRepositoryName *string `pulumi:"codeRepositoryName"`
@@ -176,7 +176,7 @@ type codeRepositoryState struct {
 }
 
 type CodeRepositoryState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+	// ARN assigned by AWS to this Code Repository.
 	Arn pulumi.StringPtrInput
 	// The name of the Code Repository (must be unique).
 	CodeRepositoryName pulumi.StringPtrInput
@@ -304,7 +304,7 @@ func (o CodeRepositoryOutput) ToCodeRepositoryOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+// ARN assigned by AWS to this Code Repository.
 func (o CodeRepositoryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CodeRepository) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

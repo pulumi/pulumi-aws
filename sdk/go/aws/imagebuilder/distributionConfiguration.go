@@ -29,19 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.NewDistributionConfiguration(ctx, "example", &imagebuilder.DistributionConfigurationArgs{
-//				Name: pulumi.String("example"),
 //				Distributions: imagebuilder.DistributionConfigurationDistributionArray{
 //					&imagebuilder.DistributionConfigurationDistributionArgs{
 //						AmiDistributionConfiguration: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationArgs{
-//							AmiTags: pulumi.StringMap{
-//								"CostCenter": pulumi.String("IT"),
-//							},
-//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //							LaunchPermission: &imagebuilder.DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs{
 //								UserIds: pulumi.StringArray{
 //									pulumi.String("123456789012"),
 //								},
 //							},
+//							AmiTags: pulumi.StringMap{
+//								"CostCenter": pulumi.String("IT"),
+//							},
+//							Name: pulumi.String("example-{{ imagebuilder:buildDate }}"),
 //						},
 //						LaunchTemplateConfigurations: imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArray{
 //							&imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfigurationArgs{
@@ -51,6 +50,7 @@ import (
 //						Region: pulumi.String("us-east-1"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,9 +67,9 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+// - `arn` (String) ARN of the Image Builder distribution configuration.
 //
-// Using `pulumi import`, import `imagebuilder.getDistributionConfigurations` resources using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.getDistributionConfigurations` resources using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -77,7 +77,7 @@ import (
 type DistributionConfiguration struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+	// (Required) ARN of the distribution configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date the distribution configuration was created.
 	DateCreated pulumi.StringOutput `pulumi:"dateCreated"`
@@ -132,7 +132,7 @@ func GetDistributionConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DistributionConfiguration resources.
 type distributionConfigurationState struct {
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+	// (Required) ARN of the distribution configuration.
 	Arn *string `pulumi:"arn"`
 	// Date the distribution configuration was created.
 	DateCreated *string `pulumi:"dateCreated"`
@@ -155,7 +155,7 @@ type distributionConfigurationState struct {
 }
 
 type DistributionConfigurationState struct {
-	// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+	// (Required) ARN of the distribution configuration.
 	Arn pulumi.StringPtrInput
 	// Date the distribution configuration was created.
 	DateCreated pulumi.StringPtrInput
@@ -299,7 +299,7 @@ func (o DistributionConfigurationOutput) ToDistributionConfigurationOutputWithCo
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the distribution configuration.
+// (Required) ARN of the distribution configuration.
 func (o DistributionConfigurationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DistributionConfiguration) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

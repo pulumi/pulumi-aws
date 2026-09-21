@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+ * Data source for managing an AWS EC2 Vpc Endpoint Associations.
  *
  * ## Example Usage
  *
@@ -57,7 +57,7 @@ export interface GetEndpointAssociationsResult {
     readonly vpcEndpointId: string;
 }
 /**
- * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+ * Data source for managing an AWS EC2 Vpc Endpoint Associations.
  *
  * ## Example Usage
  *

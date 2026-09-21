@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * });
  * // Code signing configuration with enforcement
  * const example = new aws.lambda.CodeSigningConfig("example", {
- *     description: "Code signing configuration for Lambda functions",
  *     allowedPublishers: {
  *         signingProfileVersionArns: [
  *             prod.versionArn,
@@ -47,6 +46,7 @@ import * as utilities from "../utilities";
  *     policies: {
  *         untrustedArtifactOnDeployment: "Enforce",
  *     },
+ *     description: "Code signing configuration for Lambda functions",
  *     tags: {
  *         Environment: "production",
  *         Purpose: "code-signing",
@@ -61,13 +61,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CodeSigningConfig("example", {
- *     description: "Development code signing configuration",
  *     allowedPublishers: {
  *         signingProfileVersionArns: [dev.versionArn],
  *     },
  *     policies: {
  *         untrustedArtifactOnDeployment: "Warn",
  *     },
+ *     description: "Development code signing configuration",
  *     tags: {
  *         Environment: "development",
  *         Purpose: "code-signing",
@@ -83,13 +83,13 @@ import * as utilities from "../utilities";
  *
  * // Production signing configuration
  * const prod = new aws.lambda.CodeSigningConfig("prod", {
- *     description: "Production code signing configuration with strict enforcement",
  *     allowedPublishers: {
  *         signingProfileVersionArns: [prodAwsSignerSigningProfile.versionArn],
  *     },
  *     policies: {
  *         untrustedArtifactOnDeployment: "Enforce",
  *     },
+ *     description: "Production code signing configuration with strict enforcement",
  *     tags: {
  *         Environment: "production",
  *         Security: "strict",
@@ -97,7 +97,6 @@ import * as utilities from "../utilities";
  * });
  * // Development signing configuration
  * const dev = new aws.lambda.CodeSigningConfig("dev", {
- *     description: "Development code signing configuration with warnings",
  *     allowedPublishers: {
  *         signingProfileVersionArns: [
  *             devAwsSignerSigningProfile.versionArn,
@@ -107,6 +106,7 @@ import * as utilities from "../utilities";
  *     policies: {
  *         untrustedArtifactOnDeployment: "Warn",
  *     },
+ *     description: "Development code signing configuration with warnings",
  *     tags: {
  *         Environment: "development",
  *         Security: "flexible",

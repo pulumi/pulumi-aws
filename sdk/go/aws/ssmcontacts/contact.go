@@ -86,7 +86,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the contact.
+// - `arn` (String) ARN of the contact.
 //
 // Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 //
@@ -98,7 +98,7 @@ type Contact struct {
 
 	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
@@ -153,7 +153,7 @@ func GetContact(ctx *pulumi.Context,
 type contactState struct {
 	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias *string `pulumi:"alias"`
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	Arn *string `pulumi:"arn"`
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName *string `pulumi:"displayName"`
@@ -173,7 +173,7 @@ type contactState struct {
 type ContactState struct {
 	// A unique and identifiable alias for the contact or escalation plan. Must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), and hyphens (`-`).
 	Alias pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// The ARN of the contact or escalation plan.
 	Arn pulumi.StringPtrInput
 	// Full friendly name of the contact or escalation plan. If set, must be between 1 and 255 characters, and may contain alphanumerics, underscores (`_`), hyphens (`-`), periods (`.`), and spaces.
 	DisplayName pulumi.StringPtrInput
@@ -319,7 +319,7 @@ func (o ContactOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
+// The ARN of the contact or escalation plan.
 func (o ContactOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

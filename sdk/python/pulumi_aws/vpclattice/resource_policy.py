@@ -26,7 +26,7 @@ class ResourcePolicyArgs:
         The set of arguments for constructing a ResourcePolicy resource.
 
         :param pulumi.Input[_builtins.str] policy: IAM policy. The policy string in JSON must not contain newlines or blank lines.
-        :param pulumi.Input[_builtins.str] resource_arn: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_arn: ID or ARN of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "policy", policy)
@@ -50,7 +50,7 @@ class ResourcePolicyArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -82,7 +82,7 @@ class _ResourcePolicyState:
 
         :param pulumi.Input[_builtins.str] policy: IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_arn: ID or ARN of the service network or service for which the policy is created.
         """
         if policy is not None:
             pulumi.set(__self__, "policy", policy)
@@ -119,7 +119,7 @@ class _ResourcePolicyState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -186,7 +186,7 @@ class ResourcePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_arn: ID or ARN of the service network or service for which the policy is created.
         """
         ...
     @overload
@@ -294,7 +294,7 @@ class ResourcePolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: IAM policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_arn: ID or ARN of the service network or service for which the policy is created.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -325,7 +325,7 @@ class ResourcePolicy(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_arn")
 

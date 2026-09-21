@@ -95,20 +95,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var bar = new Aws.AutoScaling.Group("bar", new()
     ///     {
-    ///         Name = "foobar3-test",
-    ///         MaxSize = 5,
-    ///         MinSize = 2,
-    ///         HealthCheckGracePeriod = 300,
-    ///         HealthCheckType = "ELB",
-    ///         DesiredCapacity = 4,
-    ///         ForceDelete = true,
-    ///         PlacementGroup = test.Id,
-    ///         LaunchConfiguration = foobar.Name,
-    ///         VpcZoneIdentifiers = new[]
-    ///         {
-    ///             example1.Id,
-    ///             example2.Id,
-    ///         },
     ///         InstanceMaintenancePolicy = new Aws.AutoScaling.Inputs.GroupInstanceMaintenancePolicyArgs
     ///         {
     ///             MinHealthyPercentage = 90,
@@ -145,6 +131,20 @@ namespace Pulumi.Aws.AutoScaling
     ///                 PropagateAtLaunch = false,
     ///             },
     ///         },
+    ///         Name = "foobar3-test",
+    ///         MaxSize = 5,
+    ///         MinSize = 2,
+    ///         HealthCheckGracePeriod = 300,
+    ///         HealthCheckType = "ELB",
+    ///         DesiredCapacity = 4,
+    ///         ForceDelete = true,
+    ///         PlacementGroup = test.Id,
+    ///         LaunchConfiguration = foobar.Name,
+    ///         VpcZoneIdentifiers = new[]
+    ///         {
+    ///             example1.Id,
+    ///             example2.Id,
+    ///         },
     ///     });
     /// 
     /// });
@@ -169,6 +169,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var bar = new Aws.AutoScaling.Group("bar", new()
     ///     {
+    ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
+    ///         {
+    ///             Id = foobar.Id,
+    ///             Version = "$Latest",
+    ///         },
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -176,11 +181,6 @@ namespace Pulumi.Aws.AutoScaling
     ///         DesiredCapacity = 1,
     ///         MaxSize = 1,
     ///         MinSize = 1,
-    ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
-    ///         {
-    ///             Id = foobar.Id,
-    ///             Version = "$Latest",
-    ///         },
     ///     });
     /// 
     /// });
@@ -205,13 +205,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         DesiredCapacity = 1,
-    ///         MaxSize = 1,
-    ///         MinSize = 1,
     ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
     ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
@@ -235,6 +228,13 @@ namespace Pulumi.Aws.AutoScaling
     ///                 },
     ///             },
     ///         },
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
     ///     });
     /// 
     /// });
@@ -259,15 +259,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
-    ///         CapacityRebalance = true,
-    ///         DesiredCapacity = 12,
-    ///         MaxSize = 15,
-    ///         MinSize = 12,
-    ///         VpcZoneIdentifiers = new[]
-    ///         {
-    ///             example1.Id,
-    ///             example2.Id,
-    ///         },
     ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
     ///             InstancesDistribution = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyInstancesDistributionArgs
@@ -296,6 +287,15 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         CapacityRebalance = true,
+    ///         DesiredCapacity = 12,
+    ///         MaxSize = 15,
+    ///         MinSize = 12,
+    ///         VpcZoneIdentifiers = new[]
+    ///         {
+    ///             example1.Id,
+    ///             example2.Id,
     ///         },
     ///     });
     /// 
@@ -329,13 +329,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         DesiredCapacity = 1,
-    ///         MaxSize = 1,
-    ///         MinSize = 1,
     ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
     ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
@@ -353,16 +346,23 @@ namespace Pulumi.Aws.AutoScaling
     ///                     },
     ///                     new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideArgs
     ///                     {
-    ///                         InstanceType = "c6g.large",
     ///                         LaunchTemplateSpecification = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateOverrideLaunchTemplateSpecificationArgs
     ///                         {
     ///                             LaunchTemplateId = example2.Id,
     ///                         },
+    ///                         InstanceType = "c6g.large",
     ///                         WeightedCapacity = "2",
     ///                     },
     ///                 },
     ///             },
     ///         },
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
     ///     });
     /// 
     /// });
@@ -389,13 +389,6 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         DesiredCapacity = 1,
-    ///         MaxSize = 1,
-    ///         MinSize = 1,
     ///         MixedInstancesPolicy = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyArgs
     ///         {
     ///             LaunchTemplate = new Aws.AutoScaling.Inputs.GroupMixedInstancesPolicyLaunchTemplateArgs
@@ -423,6 +416,13 @@ namespace Pulumi.Aws.AutoScaling
     ///                 },
     ///             },
     ///         },
+    ///         AvailabilityZones = new[]
+    ///         {
+    ///             "us-east-1a",
+    ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 1,
+    ///         MinSize = 1,
     ///     });
     /// 
     /// });
@@ -497,11 +497,6 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var example = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -513,6 +508,11 @@ namespace Pulumi.Aws.AutoScaling
     ///                 },
     ///             },
     ///         },
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
+    ///         },
     ///     });
     /// 
     ///     var exampleLaunchTemplate = new Aws.Ec2.LaunchTemplate("example", new()
@@ -523,17 +523,22 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
-    ///         AvailabilityZones = new[]
-    ///         {
-    ///             "us-east-1a",
-    ///         },
-    ///         DesiredCapacity = 1,
-    ///         MaxSize = 2,
-    ///         MinSize = 1,
     ///         LaunchTemplate = new Aws.AutoScaling.Inputs.GroupLaunchTemplateArgs
     ///         {
     ///             Id = exampleLaunchTemplate.Id,
     ///             Version = exampleLaunchTemplate.LatestVersion,
+    ///         },
+    ///         InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
+    ///         {
+    ///             Preferences = new Aws.AutoScaling.Inputs.GroupInstanceRefreshPreferencesArgs
+    ///             {
+    ///                 MinHealthyPercentage = 50,
+    ///             },
+    ///             Strategy = "Rolling",
+    ///             Triggers = new[]
+    ///             {
+    ///                 "tag",
+    ///             },
     ///         },
     ///         Tags = new[]
     ///         {
@@ -544,18 +549,13 @@ namespace Pulumi.Aws.AutoScaling
     ///                 PropagateAtLaunch = true,
     ///             },
     ///         },
-    ///         InstanceRefresh = new Aws.AutoScaling.Inputs.GroupInstanceRefreshArgs
+    ///         AvailabilityZones = new[]
     ///         {
-    ///             Strategy = "Rolling",
-    ///             Preferences = new Aws.AutoScaling.Inputs.GroupInstanceRefreshPreferencesArgs
-    ///             {
-    ///                 MinHealthyPercentage = 50,
-    ///             },
-    ///             Triggers = new[]
-    ///             {
-    ///                 "tag",
-    ///             },
+    ///             "us-east-1a",
     ///         },
+    ///         DesiredCapacity = 1,
+    ///         MaxSize = 2,
+    ///         MinSize = 1,
     ///     });
     /// 
     /// });
@@ -580,6 +580,16 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     ///     var exampleGroup = new Aws.AutoScaling.Group("example", new()
     ///     {
+    ///         WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
+    ///         {
+    ///             InstanceReusePolicy = new Aws.AutoScaling.Inputs.GroupWarmPoolInstanceReusePolicyArgs
+    ///             {
+    ///                 ReuseOnScaleIn = true,
+    ///             },
+    ///             PoolState = "Hibernated",
+    ///             MinSize = 1,
+    ///             MaxGroupPreparedCapacity = 10,
+    ///         },
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-east-1a",
@@ -587,16 +597,6 @@ namespace Pulumi.Aws.AutoScaling
     ///         DesiredCapacity = 1,
     ///         MaxSize = 5,
     ///         MinSize = 1,
-    ///         WarmPool = new Aws.AutoScaling.Inputs.GroupWarmPoolArgs
-    ///         {
-    ///             PoolState = "Hibernated",
-    ///             MinSize = 1,
-    ///             MaxGroupPreparedCapacity = 10,
-    ///             InstanceReusePolicy = new Aws.AutoScaling.Inputs.GroupWarmPoolInstanceReusePolicyArgs
-    ///             {
-    ///                 ReuseOnScaleIn = true,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });
@@ -614,11 +614,11 @@ namespace Pulumi.Aws.AutoScaling
     /// {
     ///     var test = new Aws.AutoScaling.Group("test", new()
     ///     {
-    ///         TrafficSources = testAwsVpclatticeTargetGroup.Select(__item =&gt; __item).ToList().Select((v, k) =&gt; new { Key = k, Value = v }).Select(entry =&gt; 
+    ///         TrafficSources = testAwsVpclatticeTargetGroup.Select(__item =&gt; __item).ToList().Select(entry =&gt; 
     ///         {
     ///             return new Aws.AutoScaling.Inputs.GroupTrafficSourceArgs
     ///             {
-    ///                 Identifier = entry.Value.Arn,
+    ///                 Identifier = entry.Arn,
     ///                 Type = "vpc-lattice",
     ///             };
     ///         }).ToList(),

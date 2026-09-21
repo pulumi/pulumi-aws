@@ -90,22 +90,22 @@ def get_service_account(region: Optional[_builtins.str] = None,
         force_destroy=True)
     allow_cloudtrail_logging = aws.iam.get_policy_document_output(statements=[
         {
-            "sid": "Put bucket policy needed for trails",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "sid": "Put bucket policy needed for trails",
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [bucket.arn.apply(lambda arn: f"{arn}/*")],
         },
         {
-            "sid": "Get bucket policy needed for trails",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "sid": "Get bucket policy needed for trails",
+            "effect": "Allow",
             "actions": ["s3:GetBucketAcl"],
             "resources": [bucket.arn],
         },
@@ -147,22 +147,22 @@ def get_service_account_output(region: pulumi.Input[Optional[Optional[_builtins.
         force_destroy=True)
     allow_cloudtrail_logging = aws.iam.get_policy_document_output(statements=[
         {
-            "sid": "Put bucket policy needed for trails",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "sid": "Put bucket policy needed for trails",
+            "effect": "Allow",
             "actions": ["s3:PutObject"],
             "resources": [bucket.arn.apply(lambda arn: f"{arn}/*")],
         },
         {
-            "sid": "Get bucket policy needed for trails",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [main.arn],
             }],
+            "sid": "Get bucket policy needed for trails",
+            "effect": "Allow",
             "actions": ["s3:GetBucketAcl"],
             "resources": [bucket.arn],
         },

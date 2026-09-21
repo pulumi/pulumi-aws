@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConformancePack("example", ConformancePackArgs.builder()
- *             .name("example")
  *             .inputParameters(ConformancePackInputParameterArgs.builder()
  *                 .parameterName("AccessKeysRotatedParameterMaxAccessKeyAge")
  *                 .parameterValue("90")
  *                 .build())
+ *             .name("example")
  *             .templateBody("""
  * Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
@@ -169,14 +169,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cfg/conformancePack:ConformancePack")
 public class ConformancePack extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the conformance pack.
+     * ARN of the conformance pack.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the conformance pack.
+     * @return ARN of the conformance pack.
      * 
      */
     public Output<String> arn() {

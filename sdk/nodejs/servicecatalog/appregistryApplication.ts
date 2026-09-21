@@ -74,7 +74,7 @@ export class AppregistryApplication extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly applicationTag: pulumi.Output<{[key: string]: string}>;
     /**
-     * ARN (Amazon Resource Name) of the application.
+     * ARN of the application.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -144,7 +144,7 @@ export interface AppregistryApplicationState {
      */
     applicationTag?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * ARN (Amazon Resource Name) of the application.
+     * ARN of the application.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

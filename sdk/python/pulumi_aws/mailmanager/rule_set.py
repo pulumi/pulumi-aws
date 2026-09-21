@@ -259,16 +259,16 @@ class RuleSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.RuleSet("example",
-            name="example",
             rules=[{
-                "name": "add-header",
                 "actions": [{
                     "add_header": {
                         "header_name": "X-Example",
                         "header_value": "example",
                     },
                 }],
-            }])
+                "name": "add-header",
+            }],
+            name="example")
         ```
 
         ## Import
@@ -318,16 +318,16 @@ class RuleSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.RuleSet("example",
-            name="example",
             rules=[{
-                "name": "add-header",
                 "actions": [{
                     "add_header": {
                         "header_name": "X-Example",
                         "header_value": "example",
                     },
                 }],
-            }])
+                "name": "add-header",
+            }],
+            name="example")
         ```
 
         ## Import

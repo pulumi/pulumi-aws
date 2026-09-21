@@ -33,14 +33,14 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the policy to be attached.
+     * ARN of the policy to be attached.
      * 
      */
     @Import(name="policyArn", required=true)
     private Output<String> policyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the policy to be attached.
+     * @return ARN of the policy to be attached.
      * 
      */
     public Output<String> policyArn() {
@@ -136,7 +136,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param policyArn The Amazon Resource Name (ARN) of the policy to be attached.
+         * @param policyArn ARN of the policy to be attached.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class BudgetActionDefinitionIamActionDefinitionArgs extends com.pul
         }
 
         /**
-         * @param policyArn The Amazon Resource Name (ARN) of the policy to be attached.
+         * @param policyArn ARN of the policy to be attached.
          * 
          * @return builder
          * 

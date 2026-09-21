@@ -37,12 +37,12 @@ import (
 //				return err
 //			}
 //			exampleIpAccessSettings, err := workspacesweb.NewIpAccessSettings(ctx, "example", &workspacesweb.IpAccessSettingsArgs{
-//				DisplayName: pulumi.String("example"),
 //				IpRules: workspacesweb.IpAccessSettingsIpRuleArray{
 //					&workspacesweb.IpAccessSettingsIpRuleArgs{
 //						IpRange: pulumi.String("10.0.0.0/16"),
 //					},
 //				},
+//				DisplayName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

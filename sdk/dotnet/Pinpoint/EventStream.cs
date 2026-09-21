@@ -38,7 +38,6 @@ namespace Pulumi.Aws.Pinpoint
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -50,6 +49,7 @@ namespace Pulumi.Aws.Pinpoint
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.Pinpoint
         public Output<string> ApplicationId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
         [Output("destinationStreamArn")]
         public Output<string> DestinationStreamArn { get; private set; } = null!;
@@ -188,7 +188,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string> ApplicationId { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
         [Input("destinationStreamArn", required: true)]
         public Input<string> DestinationStreamArn { get; set; } = null!;
@@ -220,7 +220,7 @@ namespace Pulumi.Aws.Pinpoint
         public Input<string>? ApplicationId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+        /// ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
         /// </summary>
         [Input("destinationStreamArn")]
         public Input<string>? DestinationStreamArn { get; set; }

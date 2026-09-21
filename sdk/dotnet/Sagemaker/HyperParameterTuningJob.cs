@@ -28,10 +28,8 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.HyperParameterTuningJob("example", new()
     ///     {
-    ///         Name = "example",
     ///         Config = new Aws.Sagemaker.Inputs.HyperParameterTuningJobConfigArgs
     ///         {
-    ///             Strategy = "Bayesian",
     ///             Objective = new Aws.Sagemaker.Inputs.HyperParameterTuningJobConfigObjectiveArgs
     ///             {
     ///                 MetricName = "test:msd",
@@ -81,50 +79,14 @@ namespace Pulumi.Aws.Sagemaker
     ///                 MaxNumberOfTrainingJobs = 2,
     ///                 MaxParallelTrainingJobs = 1,
     ///             },
+    ///             Strategy = "Bayesian",
     ///         },
     ///         TrainingJobDefinition = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionArgs
     ///         {
-    ///             RoleArn = "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
     ///             AlgorithmSpecification = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgs
     ///             {
     ///                 TrainingImage = "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
     ///                 TrainingInputMode = "File",
-    ///             },
-    ///             StaticHyperParameters = 
-    ///             {
-    ///                 { "feature_dim", "3" },
-    ///                 { "k", "2" },
-    ///             },
-    ///             InputDataConfigs = new[]
-    ///             {
-    ///                 new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs
-    ///                 {
-    ///                     ChannelName = "train",
-    ///                     ContentType = "text/csv",
-    ///                     InputMode = "File",
-    ///                     DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs
-    ///                     {
-    ///                         S3DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
-    ///                         {
-    ///                             S3DataType = "S3Prefix",
-    ///                             S3Uri = "s3://example-bucket/input/",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs
-    ///                 {
-    ///                     ChannelName = "test",
-    ///                     ContentType = "text/csv",
-    ///                     InputMode = "File",
-    ///                     DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs
-    ///                     {
-    ///                         S3DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
-    ///                         {
-    ///                             S3DataType = "S3Prefix",
-    ///                             S3Uri = "s3://example-bucket/input/",
-    ///                         },
-    ///                     },
-    ///                 },
     ///             },
     ///             OutputDataConfig = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionOutputDataConfigArgs
     ///             {
@@ -140,7 +102,45 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 MaxRuntimeInSeconds = 3600,
     ///             },
+    ///             InputDataConfigs = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs
+    ///                 {
+    ///                     DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs
+    ///                     {
+    ///                         S3DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
+    ///                         {
+    ///                             S3DataType = "S3Prefix",
+    ///                             S3Uri = "s3://example-bucket/input/",
+    ///                         },
+    ///                     },
+    ///                     ChannelName = "train",
+    ///                     ContentType = "text/csv",
+    ///                     InputMode = "File",
+    ///                 },
+    ///                 new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs
+    ///                 {
+    ///                     DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs
+    ///                     {
+    ///                         S3DataSource = new Aws.Sagemaker.Inputs.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
+    ///                         {
+    ///                             S3DataType = "S3Prefix",
+    ///                             S3Uri = "s3://example-bucket/input/",
+    ///                         },
+    ///                     },
+    ///                     ChannelName = "test",
+    ///                     ContentType = "text/csv",
+    ///                     InputMode = "File",
+    ///                 },
+    ///             },
+    ///             RoleArn = "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
+    ///             StaticHyperParameters = 
+    ///             {
+    ///                 { "feature_dim", "3" },
+    ///                 { "k", "2" },
+    ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

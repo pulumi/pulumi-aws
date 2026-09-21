@@ -19,14 +19,14 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
     public static final HoursOfOperationState Empty = new HoursOfOperationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Hours of Operation.
+     * ARN of the Hours of Operation.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Hours of Operation.
+     * @return ARN of the Hours of Operation.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -202,7 +202,7 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Hours of Operation.
+         * @param arn ARN of the Hours of Operation.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class HoursOfOperationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Hours of Operation.
+         * @param arn ARN of the Hours of Operation.
          * 
          * @return builder
          * 

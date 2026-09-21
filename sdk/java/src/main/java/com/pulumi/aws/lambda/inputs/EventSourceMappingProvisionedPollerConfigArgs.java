@@ -47,14 +47,14 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
     }
 
     /**
-     * The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+     * Name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
      * 
      */
     @Import(name="pollerGroupName")
     private @Nullable Output<String> pollerGroupName;
 
     /**
-     * @return The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+     * @return Name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
      * 
      */
     public Optional<Output<String>> pollerGroupName() {
@@ -130,7 +130,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param pollerGroupName The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+         * @param pollerGroupName Name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
          * 
          * @return builder
          * 
@@ -141,7 +141,7 @@ public final class EventSourceMappingProvisionedPollerConfigArgs extends com.pul
         }
 
         /**
-         * @param pollerGroupName The name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+         * @param pollerGroupName Name of the provisioned poller group used to group multiple ESMs within the event source&#39;s VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
          * 
          * @return builder
          * 

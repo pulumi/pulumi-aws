@@ -62,7 +62,7 @@ export class ClusterIamRoles extends pulumi.CustomResource {
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     declare public readonly defaultIamRoleArn: pulumi.Output<string>;
     /**
@@ -115,7 +115,7 @@ export interface ClusterIamRolesState {
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -137,7 +137,7 @@ export interface ClusterIamRolesArgs {
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**

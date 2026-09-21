@@ -19,6 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testConfiguredTable = new aws.cleanrooms.ConfiguredTable("test_configured_table", {
+ *     tableReference: {
+ *         databaseName: "example_database",
+ *         tableName: "example_table",
+ *     },
  *     name: "pulumi-example-table",
  *     description: "I made this table with Pulumi!",
  *     analysisMethod: "DIRECT_QUERY",
@@ -27,10 +31,6 @@ import * as utilities from "../utilities";
  *         "column2",
  *         "column3",
  *     ],
- *     tableReference: {
- *         databaseName: "example_database",
- *         tableName: "example_table",
- *     },
  *     tags: {
  *         Project: "Pulumi",
  *     },

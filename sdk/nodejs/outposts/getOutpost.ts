@@ -87,7 +87,7 @@ export interface GetOutpostResult {
     readonly ownerId?: string;
     readonly region: string;
     /**
-     * The Amazon Resource Name (ARN) of the site.
+     * ARN of the site.
      */
     readonly siteArn: string;
     /**

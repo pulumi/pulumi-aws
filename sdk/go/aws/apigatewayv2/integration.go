@@ -137,20 +137,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewIntegration(ctx, "example", &apigatewayv2.IntegrationArgs{
-//				ApiId:             pulumi.Any(exampleAwsApigatewayv2Api.Id),
-//				CredentialsArn:    pulumi.Any(exampleAwsIamRole.Arn),
-//				Description:       pulumi.String("Example with a load balancer"),
-//				IntegrationType:   pulumi.String("HTTP_PROXY"),
-//				IntegrationUri:    pulumi.Any(exampleAwsLbListener.Arn),
-//				IntegrationMethod: pulumi.String("ANY"),
-//				ConnectionType:    pulumi.String("VPC_LINK"),
-//				ConnectionId:      pulumi.Any(exampleAwsApigatewayv2VpcLink.Id),
 //				TlsConfig: &apigatewayv2.IntegrationTlsConfigArgs{
 //					ServerNameToVerify: pulumi.String("example.com"),
-//				},
-//				RequestParameters: pulumi.StringMap{
-//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
-//					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
 //				},
 //				ResponseParameters: apigatewayv2.IntegrationResponseParameterArray{
 //					&apigatewayv2.IntegrationResponseParameterArgs{
@@ -166,6 +154,18 @@ import (
 //						},
 //					},
 //				},
+//				ApiId:             pulumi.Any(exampleAwsApigatewayv2Api.Id),
+//				CredentialsArn:    pulumi.Any(exampleAwsIamRole.Arn),
+//				Description:       pulumi.String("Example with a load balancer"),
+//				IntegrationType:   pulumi.String("HTTP_PROXY"),
+//				IntegrationUri:    pulumi.Any(exampleAwsLbListener.Arn),
+//				IntegrationMethod: pulumi.String("ANY"),
+//				ConnectionType:    pulumi.String("VPC_LINK"),
+//				ConnectionId:      pulumi.Any(exampleAwsApigatewayv2VpcLink.Id),
+//				RequestParameters: pulumi.StringMap{
+//					"append:header.authforintegration": pulumi.String("$context.authorizer.authorizerResponse"),
+//					"overwrite:path":                   pulumi.String("staticValueForIntegration"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -178,13 +178,25 @@ import (
 //
 // ## Import
 //
+// ### Identity Schema
+//
+// #### Required
+//
+// * `apiId` (String) API identifier.
+// * `id` (String) Integration identifier.
+//
+// #### Optional
+//
+// * `accountId` (String) AWS Account where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
 // Using `pulumi import`, import `apigatewayv2.Integration` using the API identifier and integration identifier. For example:
 //
 // ```sh
 // $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
 // ```
 //
-// > **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+// > **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Integration struct {
 	pulumi.CustomResourceState
 

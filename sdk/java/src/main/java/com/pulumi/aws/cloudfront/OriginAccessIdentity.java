@@ -137,12 +137,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var s3Policy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("s3:GetObject")
- *                 .resources(String.format("%s/*", exampleAwsS3Bucket.arn()))
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(exampleAwsCloudfrontOriginAccessIdentity.iamArn())
  *                     .build())
+ *                 .actions("s3:GetObject")
+ *                 .resources(String.format("%s/*", exampleAwsS3Bucket.arn()))
  *                 .build())
  *             .build());
  * 

@@ -47,7 +47,7 @@ class DashboardArgs:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         pulumi.set(__self__, "dashboard_id", dashboard_id)
         pulumi.set(__self__, "version_description", version_description)
@@ -196,7 +196,7 @@ class DashboardArgs:
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         return pulumi.get(self, "theme_arn")
 
@@ -241,11 +241,11 @@ class _DashboardState:
         :param pulumi.Input[Sequence[pulumi.Input['DashboardPermissionArgs']]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DashboardSourceEntityArgs'] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        :param pulumi.Input[_builtins.str] source_entity_arn: ARN of a template that was used to create this dashboard.
         :param pulumi.Input[_builtins.str] status: The dashboard creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
                
                The following arguments are optional:
@@ -435,7 +435,7 @@ class _DashboardState:
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        ARN of a template that was used to create this dashboard.
         """
         return pulumi.get(self, "source_entity_arn")
 
@@ -483,7 +483,7 @@ class _DashboardState:
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         return pulumi.get(self, "theme_arn")
 
@@ -548,18 +548,18 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -569,20 +569,14 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -593,30 +587,36 @@ class Dashboard(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import
@@ -639,7 +639,7 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
                
                The following arguments are optional:
@@ -662,18 +662,18 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             source_entity={
                 "source_template": {
-                    "arn": source["arn"],
                     "data_set_references": [{
                         "data_set_arn": dataset["arn"],
                         "data_set_placeholder": "1",
                     }],
+                    "arn": source["arn"],
                 },
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ### With Definition
@@ -683,20 +683,14 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Dashboard("example",
-            dashboard_id="example-id",
-            name="example-name",
-            version_description="version",
             definition={
                 "dataSetIdentifiersDeclarations": [{
                     "dataSetArn": dataset["arn"],
                     "identifier": "1",
                 }],
                 "sheets": [{
-                    "title": "Example",
-                    "sheetId": "Example1",
                     "visuals": [{
                         "lineChartVisual": {
-                            "visualId": "LineChart",
                             "title": {
                                 "formatText": {
                                     "plainText": "Line Chart Example",
@@ -707,30 +701,36 @@ class Dashboard(pulumi.CustomResource):
                                     "lineChartAggregatedFieldWells": {
                                         "categories": [{
                                             "categoricalDimensionField": {
-                                                "fieldId": "1",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "1",
                                             },
                                         }],
                                         "values": [{
                                             "categoricalMeasureField": {
-                                                "fieldId": "2",
                                                 "column": {
                                                     "dataSetIdentifier": "1",
                                                     "columnName": "Column1",
                                                 },
+                                                "fieldId": "2",
                                                 "aggregationFunction": "COUNT",
                                             },
                                         }],
                                     },
                                 },
                             },
+                            "visualId": "LineChart",
                         },
                     }],
+                    "title": "Example",
+                    "sheetId": "Example1",
                 }],
-            })
+            },
+            dashboard_id="example-id",
+            name="example-name",
+            version_description="version")
         ```
 
         ## Import
@@ -847,11 +847,11 @@ class Dashboard(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[Union['DashboardPermissionArgs', 'DashboardPermissionArgsDict']]]] permissions: A set of resource permissions on the dashboard. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DashboardSourceEntityArgs', 'DashboardSourceEntityArgsDict']] source_entity: The entity that you are using as a source when you create the dashboard (template). Only one of `definition` or `source_entity` should be configured. See source_entity.
-        :param pulumi.Input[_builtins.str] source_entity_arn: Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        :param pulumi.Input[_builtins.str] source_entity_arn: ARN of a template that was used to create this dashboard.
         :param pulumi.Input[_builtins.str] status: The dashboard creation status.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] theme_arn: The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        :param pulumi.Input[_builtins.str] theme_arn: ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         :param pulumi.Input[_builtins.str] version_description: A description of the current dashboard version being created/updated.
                
                The following arguments are optional:
@@ -979,7 +979,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="sourceEntityArn")
     def source_entity_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+        ARN of a template that was used to create this dashboard.
         """
         return pulumi.get(self, "source_entity_arn")
 
@@ -1011,7 +1011,7 @@ class Dashboard(pulumi.CustomResource):
     @pulumi.getter(name="themeArn")
     def theme_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+        ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
         """
         return pulumi.get(self, "theme_arn")
 

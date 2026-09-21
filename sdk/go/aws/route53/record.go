@@ -65,15 +65,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String(route53.RecordTypeCNAME),
-//				Ttl:    pulumi.Int(5),
 //				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
 //					&route53.RecordWeightedRoutingPolicyArgs{
 //						Weight: pulumi.Int(10),
 //					},
 //				},
+//				ZoneId:        pulumi.Any(primary.ZoneId),
+//				Name:          pulumi.String("www"),
+//				Type:          pulumi.String(route53.RecordTypeCNAME),
+//				Ttl:           pulumi.Int(5),
 //				SetIdentifier: pulumi.String("dev"),
 //				Records: pulumi.StringArray{
 //					pulumi.String("dev.example.com"),
@@ -83,15 +83,15 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("www"),
-//				Type:   pulumi.String(route53.RecordTypeCNAME),
-//				Ttl:    pulumi.Int(5),
 //				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
 //					&route53.RecordWeightedRoutingPolicyArgs{
 //						Weight: pulumi.Int(90),
 //					},
 //				},
+//				ZoneId:        pulumi.Any(primary.ZoneId),
+//				Name:          pulumi.String("www"),
+//				Type:          pulumi.String(route53.RecordTypeCNAME),
+//				Ttl:           pulumi.Int(5),
 //				SetIdentifier: pulumi.String("live"),
 //				Records: pulumi.StringArray{
 //					pulumi.String("live.example.com"),
@@ -121,10 +121,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String(route53.RecordTypeCNAME),
-//				Ttl:    pulumi.Int(300),
 //				GeoproximityRoutingPolicy: &route53.RecordGeoproximityRoutingPolicyArgs{
 //					Coordinates: route53.RecordGeoproximityRoutingPolicyCoordinateArray{
 //						&route53.RecordGeoproximityRoutingPolicyCoordinateArgs{
@@ -133,6 +129,10 @@ import (
 //						},
 //					},
 //				},
+//				ZoneId:        pulumi.Any(primary.ZoneId),
+//				Name:          pulumi.String("www.example.com"),
+//				Type:          pulumi.String(route53.RecordTypeCNAME),
+//				Ttl:           pulumi.Int(300),
 //				SetIdentifier: pulumi.String("dev"),
 //				Records: pulumi.StringArray{
 //					pulumi.String("dev.example.com"),
@@ -169,10 +169,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			main, err := elb.NewLoadBalancer(ctx, "main", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("foobar-elb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1c"),
-//				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(80),
@@ -181,14 +177,15 @@ import (
 //						LbProtocol:       pulumi.String("http"),
 //					},
 //				},
+//				Name: pulumi.String("foobar-elb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1c"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 main.DnsName,
@@ -196,6 +193,9 @@ import (
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},
+//				ZoneId: pulumi.Any(primary.ZoneId),
+//				Name:   pulumi.String("example.com"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //			})
 //			if err != nil {
 //				return err
@@ -230,9 +230,6 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 main.DnsName,
@@ -240,6 +237,9 @@ import (
 //						EvaluateTargetHealth: pulumi.Bool(false),
 //					},
 //				},
+//				ZoneId: pulumi.Any(primary.ZoneId),
+//				Name:   pulumi.String("example.com"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //			})
 //			if err != nil {
 //				return err

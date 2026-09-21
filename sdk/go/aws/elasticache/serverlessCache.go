@@ -34,8 +34,6 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
-// Engine: pulumi.String("memcached"),
-// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -47,6 +45,8 @@ import (
 // },
 // },
 // },
+// Engine: pulumi.String("memcached"),
+// Name: pulumi.String("example"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),
 // MajorEngineVersion: pulumi.String("1.6"),
@@ -88,8 +88,6 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
-// Engine: pulumi.String("redis"),
-// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -101,6 +99,8 @@ import (
 // },
 // },
 // },
+// Engine: pulumi.String("redis"),
+// Name: pulumi.String("example"),
 // DailySnapshotTime: pulumi.String("09:00"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),
@@ -144,8 +144,6 @@ import (
 // splat0 = append(splat0, val0.(map[string]interface{})["id"])
 // }
 // _, err := elasticache.NewServerlessCache(ctx, "example", &elasticache.ServerlessCacheArgs{
-// Engine: pulumi.String("valkey"),
-// Name: pulumi.String("example"),
 // CacheUsageLimits: &elasticache.ServerlessCacheCacheUsageLimitsArgs{
 // DataStorage: &elasticache.ServerlessCacheCacheUsageLimitsDataStorageArgs{
 // Maximum: pulumi.Int(10),
@@ -157,6 +155,8 @@ import (
 // },
 // },
 // },
+// Engine: pulumi.String("valkey"),
+// Name: pulumi.String("example"),
 // DailySnapshotTime: pulumi.String("09:00"),
 // Description: pulumi.String("Test Server"),
 // KmsKeyId: pulumi.Any(test.Arn),
@@ -192,7 +192,7 @@ import (
 type ServerlessCache struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrOutput `pulumi:"cacheUsageLimits"`
@@ -274,7 +274,7 @@ func GetServerlessCache(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ServerlessCache resources.
 type serverlessCacheState struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn *string `pulumi:"arn"`
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits *ServerlessCacheCacheUsageLimits `pulumi:"cacheUsageLimits"`
@@ -324,7 +324,7 @@ type serverlessCacheState struct {
 }
 
 type ServerlessCacheState struct {
-	// The Amazon Resource Name (ARN) of the serverless cache.
+	// ARN of the serverless cache.
 	Arn pulumi.StringPtrInput
 	// Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cacheUsageLimits` Block for details.
 	CacheUsageLimits ServerlessCacheCacheUsageLimitsPtrInput
@@ -539,7 +539,7 @@ func (o ServerlessCacheOutput) ToServerlessCacheOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the serverless cache.
+// ARN of the serverless cache.
 func (o ServerlessCacheOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServerlessCache) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -82,12 +82,8 @@ type LookupPrimaryContactResult struct {
 }
 
 func LookupPrimaryContactOutput(ctx *pulumi.Context, args LookupPrimaryContactOutputArgs, opts ...pulumi.InvokeOption) LookupPrimaryContactResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPrimaryContactResultOutput, error) {
-			args := v.(LookupPrimaryContactArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:account/getPrimaryContact:getPrimaryContact", args, LookupPrimaryContactResultOutput{}, options).(LookupPrimaryContactResultOutput), nil
-		}).(LookupPrimaryContactResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:account/getPrimaryContact:getPrimaryContact", args, LookupPrimaryContactResultOutput{}, options).(LookupPrimaryContactResultOutput)
 }
 
 // A collection of arguments for invoking getPrimaryContact.

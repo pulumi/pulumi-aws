@@ -64,7 +64,7 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Workflow.
+     * ARN of the Image Builder Workflow.
      * 
      * The following arguments are optional:
      * 
@@ -73,7 +73,7 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
     private Output<String> workflowArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
+     * @return ARN of the Image Builder Workflow.
      * 
      * The following arguments are optional:
      * 
@@ -183,7 +183,7 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workflowArn Amazon Resource Name (ARN) of the Image Builder Workflow.
+         * @param workflowArn ARN of the Image Builder Workflow.
          * 
          * The following arguments are optional:
          * 
@@ -196,7 +196,7 @@ public final class ImagePipelineWorkflowArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param workflowArn Amazon Resource Name (ARN) of the Image Builder Workflow.
+         * @param workflowArn ARN of the Image Builder Workflow.
          * 
          * The following arguments are optional:
          * 

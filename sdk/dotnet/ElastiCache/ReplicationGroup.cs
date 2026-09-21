@@ -91,6 +91,12 @@ namespace Pulumi.Aws.ElastiCache
     ///         NumCacheClusters = 2,
     ///         ParameterGroupName = "default.redis3.2",
     ///         Port = 6379,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "numCacheClusters",
+    ///         },
     ///     });
     /// 
     ///     var replica = new List&lt;Aws.ElastiCache.Cluster&gt;();
@@ -147,13 +153,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ReplicationGroup("example", new()
     ///     {
-    ///         ReplicationGroupId = "tf-redis-cluster",
-    ///         Description = "example description",
-    ///         NodeType = "cache.t2.small",
-    ///         Port = 6379,
-    ///         ParameterGroupName = "default.redis3.2.cluster.on",
-    ///         AutomaticFailoverEnabled = true,
-    ///         NumNodeGroups = 2,
     ///         NodeGroupConfigurations = new[]
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupNodeGroupConfigurationArgs
@@ -179,6 +178,13 @@ namespace Pulumi.Aws.ElastiCache
     ///                 Slots = "8192-16383",
     ///             },
     ///         },
+    ///         ReplicationGroupId = "tf-redis-cluster",
+    ///         Description = "example description",
+    ///         NodeType = "cache.t2.small",
+    ///         Port = 6379,
+    ///         ParameterGroupName = "default.redis3.2.cluster.on",
+    ///         AutomaticFailoverEnabled = true,
+    ///         NumNodeGroups = 2,
     ///     });
     /// 
     /// });
@@ -196,14 +202,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.ReplicationGroup("test", new()
     ///     {
-    ///         ReplicationGroupId = "myreplicaciongroup",
-    ///         Description = "test description",
-    ///         NodeType = "cache.t3.small",
-    ///         Port = 6379,
-    ///         ApplyImmediately = true,
-    ///         AutoMinorVersionUpgrade = false,
-    ///         MaintenanceWindow = "tue:06:30-tue:07:30",
-    ///         SnapshotWindow = "01:00-02:00",
     ///         LogDeliveryConfigurations = new[]
     ///         {
     ///             new Aws.ElastiCache.Inputs.ReplicationGroupLogDeliveryConfigurationArgs
@@ -221,6 +219,14 @@ namespace Pulumi.Aws.ElastiCache
     ///                 LogType = "engine-log",
     ///             },
     ///         },
+    ///         ReplicationGroupId = "myreplicaciongroup",
+    ///         Description = "test description",
+    ///         NodeType = "cache.t3.small",
+    ///         Port = 6379,
+    ///         ApplyImmediately = true,
+    ///         AutoMinorVersionUpgrade = false,
+    ///         MaintenanceWindow = "tue:06:30-tue:07:30",
+    ///         SnapshotWindow = "01:00-02:00",
     ///     });
     /// 
     /// });
@@ -343,15 +349,28 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string?> AuthToken { get; private set; } = null!;
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Output("authTokenUpdateStrategy")]
         public Output<string?> AuthTokenUpdateStrategy { get; private set; } = null!;
 
         /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
+        /// </summary>
+        [Output("authTokenWo")]
+        public Output<string?> AuthTokenWo { get; private set; } = null!;
+
+        /// <summary>
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
+        /// </summary>
+        [Output("authTokenWoVersion")]
+        public Output<int?> AuthTokenWoVersion { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Output("autoMinorVersionUpgrade")]
         public Output<bool> AutoMinorVersionUpgrade { get; private set; } = null!;
@@ -573,13 +592,13 @@ namespace Pulumi.Aws.ElastiCache
         public Output<string> ReplicationGroupId { get; private set; } = null!;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         [Output("securityGroupIds")]
         public Output<ImmutableArray<string>> SecurityGroupIds { get; private set; } = null!;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         [Output("securityGroupNames")]
         public Output<ImmutableArray<string>> SecurityGroupNames { get; private set; } = null!;
@@ -675,6 +694,7 @@ namespace Pulumi.Aws.ElastiCache
                 AdditionalSecretOutputs =
                 {
                     "authToken",
+                    "authTokenWo",
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -730,15 +750,38 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
 
+        [Input("authTokenWo")]
+        private Input<string>? _authTokenWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
+        /// </summary>
+        public Input<string>? AuthTokenWo
+        {
+            get => _authTokenWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authTokenWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
+        /// </summary>
+        [Input("authTokenWoVersion")]
+        public Input<int>? AuthTokenWoVersion { get; set; }
+
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -945,7 +988,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -957,7 +1000,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {
@@ -1087,15 +1130,38 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Strategy used when modifying `AuthToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` must be omitted.
+        /// Strategy used when modifying `AuthToken` or `AuthTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `AuthToken` and `AuthTokenWo` must be omitted.
         /// </summary>
         [Input("authTokenUpdateStrategy")]
         public Input<string>? AuthTokenUpdateStrategy { get; set; }
 
+        [Input("authTokenWo")]
+        private Input<string>? _authTokenWo;
+
+        /// <summary>
+        /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `TransitEncryptionEnabled = true`. Conflicts with `AuthToken`. If set, requires `AuthTokenWoVersion` to be set.
+        /// </summary>
+        public Input<string>? AuthTokenWo
+        {
+            get => _authTokenWo;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _authTokenWo = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// Required when `AuthTokenWo` is set. Changing this value triggers an update to `AuthTokenWo`.
+        /// </summary>
+        [Input("authTokenWoVersion")]
+        public Input<int>? AuthTokenWoVersion { get; set; }
+
         /// <summary>
         /// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
         /// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-        /// Defaults to `True`.
+        /// If this argument is not explicitly set in the configuration, AWS will set a default value of `True` and Terraform will not detect drift on this attribute.
         /// </summary>
         [Input("autoMinorVersionUpgrade")]
         public Input<bool>? AutoMinorVersionUpgrade { get; set; }
@@ -1344,7 +1410,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {
@@ -1356,7 +1422,7 @@ namespace Pulumi.Aws.ElastiCache
         private InputList<string>? _securityGroupNames;
 
         /// <summary>
-        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+        /// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
         /// </summary>
         public InputList<string> SecurityGroupNames
         {

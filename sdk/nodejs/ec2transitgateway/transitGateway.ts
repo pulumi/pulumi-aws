@@ -59,7 +59,7 @@ export class TransitGateway extends pulumi.CustomResource {
      */
     declare public readonly amazonSideAsn: pulumi.Output<number | undefined>;
     /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
+     * EC2 Transit Gateway ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -195,7 +195,7 @@ export interface TransitGatewayState {
      */
     amazonSideAsn?: pulumi.Input<number | undefined>;
     /**
-     * EC2 Transit Gateway Amazon Resource Name (ARN)
+     * EC2 Transit Gateway ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

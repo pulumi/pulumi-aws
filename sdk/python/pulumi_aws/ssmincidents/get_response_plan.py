@@ -95,7 +95,7 @@ class GetResponsePlanResult:
     @pulumi.getter
     def engagements(self) -> Sequence[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        ARN for the contacts and escalation plans that the response plan engages during an incident.
         """
         return pulumi.get(self, "engagements")
 
@@ -180,7 +180,7 @@ def get_response_plan(arn: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param _builtins.str arn: ARN of the response plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: The tags applied to the response plan.
     """
@@ -222,7 +222,7 @@ def get_response_plan_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     ```
 
 
-    :param _builtins.str arn: The Amazon Resource Name (ARN) of the response plan.
+    :param _builtins.str arn: ARN of the response plan.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
     :param Mapping[str, _builtins.str] tags: The tags applied to the response plan.
     """

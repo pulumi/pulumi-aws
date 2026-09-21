@@ -34,11 +34,6 @@ namespace Pulumi.Aws.DirectoryService
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -49,6 +44,11 @@ namespace Pulumi.Aws.DirectoryService
     ///                         },
     ///                         Type = "Service",
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "logs:CreateLogStream",
+    ///                     "logs:PutLogEvents",
     ///                 },
     ///                 Resources = new[]
     ///                 {

@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        /// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `Auth` block below.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetProxyAuthResult> Auths;
         /// <summary>
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.Rds
         public readonly string Name;
         public readonly string Region;
         /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        /// Whether TLS encryption is required for connections to the proxy.
         /// </summary>
         public readonly bool RequireTls;
         /// <summary>

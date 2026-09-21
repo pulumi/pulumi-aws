@@ -19,16 +19,6 @@ import * as utilities from "../utilities";
  * const mytopic = new aws.sns.Topic("mytopic", {name: "mytopic"});
  * const myerrortopic = new aws.sns.Topic("myerrortopic", {name: "myerrortopic"});
  * const rule = new aws.iot.TopicRule("rule", {
- *     name: "MyRule",
- *     description: "Example rule",
- *     enabled: true,
- *     sql: "SELECT * FROM 'topic/test'",
- *     sqlVersion: "2016-03-23",
- *     sns: [{
- *         messageFormat: "RAW",
- *         roleArn: role.arn,
- *         targetArn: mytopic.arn,
- *     }],
  *     errorAction: {
  *         sns: {
  *             messageFormat: "RAW",
@@ -36,14 +26,24 @@ import * as utilities from "../utilities";
  *             targetArn: myerrortopic.arn,
  *         },
  *     },
+ *     sns: [{
+ *         messageFormat: "RAW",
+ *         roleArn: role.arn,
+ *         targetArn: mytopic.arn,
+ *     }],
+ *     name: "MyRule",
+ *     description: "Example rule",
+ *     enabled: true,
+ *     sql: "SELECT * FROM 'topic/test'",
+ *     sqlVersion: "2016-03-23",
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["iot.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });

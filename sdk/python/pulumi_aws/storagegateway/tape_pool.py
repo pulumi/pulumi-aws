@@ -133,7 +133,7 @@ class _TapePoolState:
         """
         Input properties used for looking up and filtering TapePool resources.
 
-        :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+        :param pulumi.Input[_builtins.str] arn: Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         :param pulumi.Input[_builtins.str] pool_name: The name of the new custom tape pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
@@ -163,7 +163,7 @@ class _TapePoolState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+        Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         """
         return pulumi.get(self, "arn")
 
@@ -285,7 +285,7 @@ class TapePool(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.TapePool` using the volume Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.TapePool` using the volume ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -323,7 +323,7 @@ class TapePool(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.TapePool` using the volume Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.TapePool` using the volume ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -397,7 +397,7 @@ class TapePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+        :param pulumi.Input[_builtins.str] arn: Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         :param pulumi.Input[_builtins.str] pool_name: The name of the new custom tape pool.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_lock_time_in_days: Tape retention lock time is set in days. Tape retention lock can be enabled for up to 100 years (36,500 days). Default value is 0.
@@ -424,7 +424,7 @@ class TapePool(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+        Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
         """
         return pulumi.get(self, "arn")
 

@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserHierarchyStructureHierarchyStructureLevelOne {
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
+     * @return The ARN of the hierarchy level.
      * 
      */
     private @Nullable String arn;
@@ -30,7 +30,7 @@ public final class UserHierarchyStructureHierarchyStructureLevelOne {
 
     private UserHierarchyStructureHierarchyStructureLevelOne() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy level.
+     * @return The ARN of the hierarchy level.
      * 
      */
     public Optional<String> arn() {

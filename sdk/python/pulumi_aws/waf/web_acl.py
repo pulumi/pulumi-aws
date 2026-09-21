@@ -283,23 +283,21 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         waf_acl = aws.waf.WebAcl("waf_acl",
-            name="tfWebACL",
-            metric_name="tfWebACL",
             default_action={
                 "type": "ALLOW",
             },
@@ -311,6 +309,8 @@ class WebAcl(pulumi.CustomResource):
                 "rule_id": wafrule.id,
                 "type": "REGULAR",
             }],
+            name="tfWebACL",
+            metric_name="tfWebACL",
             opts = pulumi.ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
@@ -326,7 +326,6 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration={
-            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
             "redacted_fields": {
                 "field_to_matches": [
                     {
@@ -338,6 +337,7 @@ class WebAcl(pulumi.CustomResource):
                     },
                 ],
             },
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
         })
         ```
 
@@ -377,23 +377,21 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         waf_acl = aws.waf.WebAcl("waf_acl",
-            name="tfWebACL",
-            metric_name="tfWebACL",
             default_action={
                 "type": "ALLOW",
             },
@@ -405,6 +403,8 @@ class WebAcl(pulumi.CustomResource):
                 "rule_id": wafrule.id,
                 "type": "REGULAR",
             }],
+            name="tfWebACL",
+            metric_name="tfWebACL",
             opts = pulumi.ResourceOptions(depends_on=[
                     ipset,
                     wafrule,
@@ -420,7 +420,6 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.waf.WebAcl("example", logging_configuration={
-            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
             "redacted_fields": {
                 "field_to_matches": [
                     {
@@ -432,6 +431,7 @@ class WebAcl(pulumi.CustomResource):
                     },
                 ],
             },
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
         })
         ```
 

@@ -459,12 +459,12 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RuleGroup("example",
-            name="example-rule",
-            scope="REGIONAL",
-            capacity=2,
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             rules=[{
-                "name": "rule-1",
-                "priority": 1,
                 "action": {
                     "allow": {},
                 },
@@ -481,12 +481,12 @@ class RuleGroup(pulumi.CustomResource):
                     "metric_name": "friendly-rule-metric-name",
                     "sampled_requests_enabled": False,
                 },
+                "name": "rule-1",
+                "priority": 1,
             }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            name="example-rule",
+            scope="REGIONAL",
+            capacity=2)
         ```
 
         ### Complex
@@ -504,20 +504,24 @@ class RuleGroup(pulumi.CustomResource):
                 "2.2.2.2/32",
             ])
         test_regex_pattern_set = aws.wafv2.RegexPatternSet("test",
-            name="test",
-            scope="REGIONAL",
             regular_expressions=[{
                 "regex_string": "one",
-            }])
+            }],
+            name="test",
+            scope="REGIONAL")
         example = aws.wafv2.RuleGroup("example",
-            name="complex-example",
-            description="An rule group containing all statements",
-            scope="REGIONAL",
-            capacity=500,
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
+            captcha_config=[{
+                "immunityTimeProperty": [{
+                    "immunityTime": 120,
+                }],
+            }],
             rules=[
                 {
-                    "name": "rule-1",
-                    "priority": 1,
                     "action": {
                         "block": {},
                     },
@@ -533,8 +537,6 @@ class RuleGroup(pulumi.CustomResource):
                                         },
                                         {
                                             "byte_match_statement": {
-                                                "positional_constraint": "CONTAINS",
-                                                "search_string": "word",
                                                 "field_to_match": {
                                                     "all_query_arguments": {},
                                                 },
@@ -548,6 +550,8 @@ class RuleGroup(pulumi.CustomResource):
                                                         "type": "LOWERCASE",
                                                     },
                                                 ],
+                                                "positional_constraint": "CONTAINS",
+                                                "search_string": "word",
                                             },
                                         },
                                     ],
@@ -560,10 +564,10 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-1",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-1",
+                    "priority": 1,
                 },
                 {
-                    "name": "rule-2",
-                    "priority": 2,
                     "action": {
                         "count": {},
                     },
@@ -572,7 +576,6 @@ class RuleGroup(pulumi.CustomResource):
                             "statements": [
                                 {
                                     "regex_match_statement": {
-                                        "regex_string": "a-z?",
                                         "field_to_match": {
                                             "single_header": {
                                                 "name": "user-agent",
@@ -582,6 +585,7 @@ class RuleGroup(pulumi.CustomResource):
                                             "priority": 6,
                                             "type": "NONE",
                                         }],
+                                        "regex_string": "a-z?",
                                     },
                                 },
                                 {
@@ -629,17 +633,15 @@ class RuleGroup(pulumi.CustomResource):
                             "immunity_time": 240,
                         },
                     },
+                    "name": "rule-2",
+                    "priority": 2,
                 },
                 {
-                    "name": "rule-3",
-                    "priority": 3,
                     "action": {
                         "block": {},
                     },
                     "statement": {
                         "size_constraint_statement": {
-                            "comparison_operator": "GT",
-                            "size": 100,
                             "field_to_match": {
                                 "single_query_argument": {
                                     "name": "username",
@@ -649,6 +651,8 @@ class RuleGroup(pulumi.CustomResource):
                                 "priority": 5,
                                 "type": "NONE",
                             }],
+                            "comparison_operator": "GT",
+                            "size": 100,
                         },
                     },
                     "visibility_config": {
@@ -656,10 +660,10 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-3",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-3",
+                    "priority": 3,
                 },
                 {
-                    "name": "rule-4",
-                    "priority": 4,
                     "action": {
                         "block": {},
                     },
@@ -673,7 +677,6 @@ class RuleGroup(pulumi.CustomResource):
                                 },
                                 {
                                     "regex_pattern_set_reference_statement": {
-                                        "arn": test_regex_pattern_set.arn,
                                         "field_to_match": {
                                             "single_header": {
                                                 "name": "referer",
@@ -683,6 +686,7 @@ class RuleGroup(pulumi.CustomResource):
                                             "priority": 2,
                                             "type": "NONE",
                                         }],
+                                        "arn": test_regex_pattern_set.arn,
                                     },
                                 },
                             ],
@@ -693,18 +697,14 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-4",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-4",
+                    "priority": 4,
                 },
             ],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            },
-            captcha_config=[{
-                "immunityTimeProperty": [{
-                    "immunityTime": 120,
-                }],
-            }],
+            name="complex-example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
             tags={
                 "Name": "example-and-statement",
                 "Code": "123456",
@@ -719,6 +719,11 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RuleGroup("example",
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             name="example-rule-group",
             scope="REGIONAL",
             capacity=100,
@@ -746,12 +751,7 @@ class RuleGroup(pulumi.CustomResource):
                     "MetricName": "friendly-rule-metric-name",
                     "SampledRequestsEnabled": False,
                 },
-            }]),
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            }]))
         ```
 
         ## Import
@@ -795,12 +795,12 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RuleGroup("example",
-            name="example-rule",
-            scope="REGIONAL",
-            capacity=2,
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             rules=[{
-                "name": "rule-1",
-                "priority": 1,
                 "action": {
                     "allow": {},
                 },
@@ -817,12 +817,12 @@ class RuleGroup(pulumi.CustomResource):
                     "metric_name": "friendly-rule-metric-name",
                     "sampled_requests_enabled": False,
                 },
+                "name": "rule-1",
+                "priority": 1,
             }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            name="example-rule",
+            scope="REGIONAL",
+            capacity=2)
         ```
 
         ### Complex
@@ -840,20 +840,24 @@ class RuleGroup(pulumi.CustomResource):
                 "2.2.2.2/32",
             ])
         test_regex_pattern_set = aws.wafv2.RegexPatternSet("test",
-            name="test",
-            scope="REGIONAL",
             regular_expressions=[{
                 "regex_string": "one",
-            }])
+            }],
+            name="test",
+            scope="REGIONAL")
         example = aws.wafv2.RuleGroup("example",
-            name="complex-example",
-            description="An rule group containing all statements",
-            scope="REGIONAL",
-            capacity=500,
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
+            captcha_config=[{
+                "immunityTimeProperty": [{
+                    "immunityTime": 120,
+                }],
+            }],
             rules=[
                 {
-                    "name": "rule-1",
-                    "priority": 1,
                     "action": {
                         "block": {},
                     },
@@ -869,8 +873,6 @@ class RuleGroup(pulumi.CustomResource):
                                         },
                                         {
                                             "byte_match_statement": {
-                                                "positional_constraint": "CONTAINS",
-                                                "search_string": "word",
                                                 "field_to_match": {
                                                     "all_query_arguments": {},
                                                 },
@@ -884,6 +886,8 @@ class RuleGroup(pulumi.CustomResource):
                                                         "type": "LOWERCASE",
                                                     },
                                                 ],
+                                                "positional_constraint": "CONTAINS",
+                                                "search_string": "word",
                                             },
                                         },
                                     ],
@@ -896,10 +900,10 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-1",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-1",
+                    "priority": 1,
                 },
                 {
-                    "name": "rule-2",
-                    "priority": 2,
                     "action": {
                         "count": {},
                     },
@@ -908,7 +912,6 @@ class RuleGroup(pulumi.CustomResource):
                             "statements": [
                                 {
                                     "regex_match_statement": {
-                                        "regex_string": "a-z?",
                                         "field_to_match": {
                                             "single_header": {
                                                 "name": "user-agent",
@@ -918,6 +921,7 @@ class RuleGroup(pulumi.CustomResource):
                                             "priority": 6,
                                             "type": "NONE",
                                         }],
+                                        "regex_string": "a-z?",
                                     },
                                 },
                                 {
@@ -965,17 +969,15 @@ class RuleGroup(pulumi.CustomResource):
                             "immunity_time": 240,
                         },
                     },
+                    "name": "rule-2",
+                    "priority": 2,
                 },
                 {
-                    "name": "rule-3",
-                    "priority": 3,
                     "action": {
                         "block": {},
                     },
                     "statement": {
                         "size_constraint_statement": {
-                            "comparison_operator": "GT",
-                            "size": 100,
                             "field_to_match": {
                                 "single_query_argument": {
                                     "name": "username",
@@ -985,6 +987,8 @@ class RuleGroup(pulumi.CustomResource):
                                 "priority": 5,
                                 "type": "NONE",
                             }],
+                            "comparison_operator": "GT",
+                            "size": 100,
                         },
                     },
                     "visibility_config": {
@@ -992,10 +996,10 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-3",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-3",
+                    "priority": 3,
                 },
                 {
-                    "name": "rule-4",
-                    "priority": 4,
                     "action": {
                         "block": {},
                     },
@@ -1009,7 +1013,6 @@ class RuleGroup(pulumi.CustomResource):
                                 },
                                 {
                                     "regex_pattern_set_reference_statement": {
-                                        "arn": test_regex_pattern_set.arn,
                                         "field_to_match": {
                                             "single_header": {
                                                 "name": "referer",
@@ -1019,6 +1022,7 @@ class RuleGroup(pulumi.CustomResource):
                                             "priority": 2,
                                             "type": "NONE",
                                         }],
+                                        "arn": test_regex_pattern_set.arn,
                                     },
                                 },
                             ],
@@ -1029,18 +1033,14 @@ class RuleGroup(pulumi.CustomResource):
                         "metric_name": "rule-4",
                         "sampled_requests_enabled": False,
                     },
+                    "name": "rule-4",
+                    "priority": 4,
                 },
             ],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            },
-            captcha_config=[{
-                "immunityTimeProperty": [{
-                    "immunityTime": 120,
-                }],
-            }],
+            name="complex-example",
+            description="An rule group containing all statements",
+            scope="REGIONAL",
+            capacity=500,
             tags={
                 "Name": "example-and-statement",
                 "Code": "123456",
@@ -1055,6 +1055,11 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RuleGroup("example",
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             name="example-rule-group",
             scope="REGIONAL",
             capacity=100,
@@ -1082,12 +1087,7 @@ class RuleGroup(pulumi.CustomResource):
                     "MetricName": "friendly-rule-metric-name",
                     "SampledRequestsEnabled": False,
                 },
-            }]),
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            }]))
         ```
 
         ## Import

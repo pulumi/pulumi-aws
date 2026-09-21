@@ -18,14 +18,14 @@ public final class GetResponsePlanArgs extends com.pulumi.resources.InvokeArgs {
     public static final GetResponsePlanArgs Empty = new GetResponsePlanArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the response plan.
+     * ARN of the response plan.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the response plan.
+     * @return ARN of the response plan.
      * 
      */
     public Output<String> arn() {
@@ -89,7 +89,7 @@ public final class GetResponsePlanArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the response plan.
+         * @param arn ARN of the response plan.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class GetResponsePlanArgs extends com.pulumi.resources.InvokeArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the response plan.
+         * @param arn ARN of the response plan.
          * 
          * @return builder
          * 

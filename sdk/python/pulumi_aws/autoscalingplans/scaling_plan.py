@@ -219,7 +219,6 @@ class ScalingPlan(pulumi.CustomResource):
                 "propagate_at_launch": True,
             }])
         example_scaling_plan = aws.autoscalingplans.ScalingPlan("example",
-            name="example-dynamic-cost-optimization",
             application_source={
                 "tag_filters": [{
                     "key": "application",
@@ -227,19 +226,20 @@ class ScalingPlan(pulumi.CustomResource):
                 }],
             },
             scaling_instructions=[{
-                "max_capacity": 3,
-                "min_capacity": 0,
-                "resource_id": std.format(input="autoScalingGroup/%s",
-                    args=[example.name]).result,
-                "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
-                "service_namespace": "autoscaling",
                 "target_tracking_configurations": [{
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
                     "target_value": float(70),
                 }],
-            }])
+                "max_capacity": 3,
+                "min_capacity": 0,
+                "resource_id": std.format(input="autoScalingGroup/%s",
+                    args=[example.name]).result,
+                "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
+                "service_namespace": "autoscaling",
+            }],
+            name="example-dynamic-cost-optimization")
         ```
 
         ### Basic Predictive Scaling
@@ -262,7 +262,6 @@ class ScalingPlan(pulumi.CustomResource):
                 "propagate_at_launch": True,
             }])
         example_scaling_plan = aws.autoscalingplans.ScalingPlan("example",
-            name="example-predictive-cost-optimization",
             application_source={
                 "tag_filters": [{
                     "key": "application",
@@ -270,6 +269,15 @@ class ScalingPlan(pulumi.CustomResource):
                 }],
             },
             scaling_instructions=[{
+                "predefined_load_metric_specification": {
+                    "predefined_load_metric_type": "ASGTotalCPUUtilization",
+                },
+                "target_tracking_configurations": [{
+                    "predefined_scaling_metric_specification": {
+                        "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
+                    },
+                    "target_value": float(70),
+                }],
                 "disable_dynamic_scaling": True,
                 "max_capacity": 3,
                 "min_capacity": 0,
@@ -277,18 +285,10 @@ class ScalingPlan(pulumi.CustomResource):
                     args=[example.name]).result,
                 "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
                 "service_namespace": "autoscaling",
-                "target_tracking_configurations": [{
-                    "predefined_scaling_metric_specification": {
-                        "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
-                    },
-                    "target_value": float(70),
-                }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",
-                "predefined_load_metric_specification": {
-                    "predefined_load_metric_type": "ASGTotalCPUUtilization",
-                },
-            }])
+            }],
+            name="example-predictive-cost-optimization")
         ```
 
         ## Import
@@ -343,7 +343,6 @@ class ScalingPlan(pulumi.CustomResource):
                 "propagate_at_launch": True,
             }])
         example_scaling_plan = aws.autoscalingplans.ScalingPlan("example",
-            name="example-dynamic-cost-optimization",
             application_source={
                 "tag_filters": [{
                     "key": "application",
@@ -351,19 +350,20 @@ class ScalingPlan(pulumi.CustomResource):
                 }],
             },
             scaling_instructions=[{
-                "max_capacity": 3,
-                "min_capacity": 0,
-                "resource_id": std.format(input="autoScalingGroup/%s",
-                    args=[example.name]).result,
-                "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
-                "service_namespace": "autoscaling",
                 "target_tracking_configurations": [{
                     "predefined_scaling_metric_specification": {
                         "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
                     },
                     "target_value": float(70),
                 }],
-            }])
+                "max_capacity": 3,
+                "min_capacity": 0,
+                "resource_id": std.format(input="autoScalingGroup/%s",
+                    args=[example.name]).result,
+                "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
+                "service_namespace": "autoscaling",
+            }],
+            name="example-dynamic-cost-optimization")
         ```
 
         ### Basic Predictive Scaling
@@ -386,7 +386,6 @@ class ScalingPlan(pulumi.CustomResource):
                 "propagate_at_launch": True,
             }])
         example_scaling_plan = aws.autoscalingplans.ScalingPlan("example",
-            name="example-predictive-cost-optimization",
             application_source={
                 "tag_filters": [{
                     "key": "application",
@@ -394,6 +393,15 @@ class ScalingPlan(pulumi.CustomResource):
                 }],
             },
             scaling_instructions=[{
+                "predefined_load_metric_specification": {
+                    "predefined_load_metric_type": "ASGTotalCPUUtilization",
+                },
+                "target_tracking_configurations": [{
+                    "predefined_scaling_metric_specification": {
+                        "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
+                    },
+                    "target_value": float(70),
+                }],
                 "disable_dynamic_scaling": True,
                 "max_capacity": 3,
                 "min_capacity": 0,
@@ -401,18 +409,10 @@ class ScalingPlan(pulumi.CustomResource):
                     args=[example.name]).result,
                 "scalable_dimension": "autoscaling:autoScalingGroup:DesiredCapacity",
                 "service_namespace": "autoscaling",
-                "target_tracking_configurations": [{
-                    "predefined_scaling_metric_specification": {
-                        "predefined_scaling_metric_type": "ASGAverageCPUUtilization",
-                    },
-                    "target_value": float(70),
-                }],
                 "predictive_scaling_max_capacity_behavior": "SetForecastCapacityToMaxCapacity",
                 "predictive_scaling_mode": "ForecastAndScale",
-                "predefined_load_metric_specification": {
-                    "predefined_load_metric_type": "ASGTotalCPUUtilization",
-                },
-            }])
+            }],
+            name="example-predictive-cost-optimization")
         ```
 
         ## Import

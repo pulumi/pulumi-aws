@@ -63,12 +63,8 @@ type GetDirectoryBucketsResult struct {
 }
 
 func GetDirectoryBucketsOutput(ctx *pulumi.Context, args GetDirectoryBucketsOutputArgs, opts ...pulumi.InvokeOption) GetDirectoryBucketsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDirectoryBucketsResultOutput, error) {
-			args := v.(GetDirectoryBucketsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args, GetDirectoryBucketsResultOutput{}, options).(GetDirectoryBucketsResultOutput), nil
-		}).(GetDirectoryBucketsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getDirectoryBuckets:getDirectoryBuckets", args, GetDirectoryBucketsResultOutput{}, options).(GetDirectoryBucketsResultOutput)
 }
 
 // A collection of arguments for invoking getDirectoryBuckets.

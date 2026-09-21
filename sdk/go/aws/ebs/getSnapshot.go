@@ -28,10 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.LookupSnapshot(ctx, &ebs.LookupSnapshotArgs{
-//				MostRecent: pulumi.BoolRef(true),
-//				Owners: []string{
-//					"self",
-//				},
 //				Filters: []ebs.GetSnapshotFilter{
 //					{
 //						Name: "volume-size",
@@ -45,6 +41,10 @@ import (
 //							"Example",
 //						},
 //					},
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				Owners: []string{
+//					"self",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -126,12 +126,8 @@ type LookupSnapshotResult struct {
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSnapshotResultOutput, error) {
-			args := v.(LookupSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ebs/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput), nil
-		}).(LookupSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ebs/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getSnapshot.

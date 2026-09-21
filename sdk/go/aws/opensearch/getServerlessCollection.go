@@ -64,7 +64,7 @@ type LookupServerlessCollectionArgs struct {
 
 // A collection of values returned by getServerlessCollection.
 type LookupServerlessCollectionResult struct {
-	// Amazon Resource Name (ARN) of the collection.
+	// ARN of the collection.
 	Arn string `pulumi:"arn"`
 	// Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
 	CollectionEndpoint string `pulumi:"collectionEndpoint"`
@@ -93,12 +93,8 @@ type LookupServerlessCollectionResult struct {
 }
 
 func LookupServerlessCollectionOutput(ctx *pulumi.Context, args LookupServerlessCollectionOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerlessCollectionResultOutput, error) {
-			args := v.(LookupServerlessCollectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", args, LookupServerlessCollectionResultOutput{}, options).(LookupServerlessCollectionResultOutput), nil
-		}).(LookupServerlessCollectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:opensearch/getServerlessCollection:getServerlessCollection", args, LookupServerlessCollectionResultOutput{}, options).(LookupServerlessCollectionResultOutput)
 }
 
 // A collection of arguments for invoking getServerlessCollection.
@@ -132,7 +128,7 @@ func (o LookupServerlessCollectionResultOutput) ToLookupServerlessCollectionResu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection.
+// ARN of the collection.
 func (o LookupServerlessCollectionResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionResult) string { return v.Arn }).(pulumi.StringOutput)
 }

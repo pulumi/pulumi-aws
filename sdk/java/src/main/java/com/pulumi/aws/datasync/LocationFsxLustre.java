@@ -65,14 +65,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/locationFsxLustre:LocationFsxLustre")
 public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Output<String> arn() {
@@ -93,14 +93,14 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
         return this.creationTime;
     }
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * ARN for the FSx for Lustre file system.
      * 
      */
     @Export(name="fsxFilesystemArn", refs={String.class}, tree="[0]")
     private Output<String> fsxFilesystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * @return ARN for the FSx for Lustre file system.
      * 
      */
     public Output<String> fsxFilesystemArn() {
@@ -121,14 +121,14 @@ public class LocationFsxLustre extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
     @Export(name="securityGroupArns", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * @return ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
     public Output<List<String>> securityGroupArns() {

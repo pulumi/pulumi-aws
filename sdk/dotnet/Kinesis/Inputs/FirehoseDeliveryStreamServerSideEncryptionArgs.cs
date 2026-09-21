@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Kinesis.Inputs
         public Input<bool>? Enabled { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
+        /// ARN of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
         /// </summary>
         [Input("keyArn")]
         public Input<string>? KeyArn { get; set; }

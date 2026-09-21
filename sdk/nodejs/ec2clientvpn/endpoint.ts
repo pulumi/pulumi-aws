@@ -18,18 +18,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2clientvpn.Endpoint("example", {
- *     description: "clientvpn-example",
- *     serverCertificateArn: cert.arn,
- *     clientCidrBlock: "10.0.0.0/16",
- *     authenticationOptions: [{
- *         type: "certificate-authentication",
- *         rootCertificateChainArn: rootCert.arn,
- *     }],
  *     connectionLogOptions: {
  *         enabled: true,
  *         cloudwatchLogGroup: lg.name,
  *         cloudwatchLogStream: ls.name,
  *     },
+ *     authenticationOptions: [{
+ *         type: "certificate-authentication",
+ *         rootCertificateChainArn: rootCert.arn,
+ *     }],
+ *     description: "clientvpn-example",
+ *     serverCertificateArn: cert.arn,
+ *     clientCidrBlock: "10.0.0.0/16",
  * });
  * ```
  *

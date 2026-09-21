@@ -85,12 +85,8 @@ type LookupDataLakeSettingsResult struct {
 }
 
 func LookupDataLakeSettingsOutput(ctx *pulumi.Context, args LookupDataLakeSettingsOutputArgs, opts ...pulumi.InvokeOption) LookupDataLakeSettingsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDataLakeSettingsResultOutput, error) {
-			args := v.(LookupDataLakeSettingsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, LookupDataLakeSettingsResultOutput{}, options).(LookupDataLakeSettingsResultOutput), nil
-		}).(LookupDataLakeSettingsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lakeformation/getDataLakeSettings:getDataLakeSettings", args, LookupDataLakeSettingsResultOutput{}, options).(LookupDataLakeSettingsResultOutput)
 }
 
 // A collection of arguments for invoking getDataLakeSettings.

@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.DaemonTaskDefinition("example", {
- *     family: "my-daemon-service",
- *     cpu: "512",
- *     memory: "1024",
  *     containerDefinitions: [{
  *         name: "app",
  *         image: "nginx:latest",
@@ -29,6 +26,9 @@ import * as utilities from "../utilities";
  *         memory: 512,
  *         essential: true,
  *     }],
+ *     family: "my-daemon-service",
+ *     cpu: "512",
+ *     memory: "1024",
  * });
  * ```
  *
@@ -65,11 +65,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const example = new aws.ecs.DaemonTaskDefinition("example", {
- *     family: "my-daemon-service",
- *     executionRoleArn: taskExecution.arn,
- *     taskRoleArn: task.arn,
- *     cpu: "512",
- *     memory: "1024",
  *     containerDefinitions: [{
  *         name: "app",
  *         image: "nginx:latest",
@@ -77,6 +72,11 @@ import * as utilities from "../utilities";
  *         memory: 512,
  *         essential: true,
  *     }],
+ *     family: "my-daemon-service",
+ *     executionRoleArn: taskExecution.arn,
+ *     taskRoleArn: task.arn,
+ *     cpu: "512",
+ *     memory: "1024",
  * });
  * ```
  *
@@ -87,9 +87,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.DaemonTaskDefinition("example", {
- *     family: "my-daemon-service",
- *     cpu: "512",
- *     memory: "1024",
  *     containerDefinitions: [{
  *         name: "app",
  *         image: "nginx:latest",
@@ -99,18 +96,21 @@ import * as utilities from "../utilities";
  *     }],
  *     volumes: [
  *         {
- *             name: "data-volume",
  *             hosts: [{
  *                 sourcePath: "/data",
  *             }],
+ *             name: "data-volume",
  *         },
  *         {
- *             name: "logs-volume",
  *             hosts: [{
  *                 sourcePath: "/var/log",
  *             }],
+ *             name: "logs-volume",
  *         },
  *     ],
+ *     family: "my-daemon-service",
+ *     cpu: "512",
+ *     memory: "1024",
  * });
  * ```
  *
@@ -121,9 +121,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.DaemonTaskDefinition("example", {
- *     family: "my-daemon-service",
- *     cpu: "512",
- *     memory: "1024",
  *     containerDefinitions: [
  *         {
  *             name: "app",
@@ -140,6 +137,9 @@ import * as utilities from "../utilities";
  *             essential: false,
  *         },
  *     ],
+ *     family: "my-daemon-service",
+ *     cpu: "512",
+ *     memory: "1024",
  * });
  * ```
  *

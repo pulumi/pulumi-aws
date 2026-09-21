@@ -26,14 +26,8 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.Algorithm("example", new()
     ///     {
-    ///         AlgorithmName = "example-algorithm",
     ///         TrainingSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationArgs
     ///         {
-    ///             SupportedTrainingInstanceTypes = new[]
-    ///             {
-    ///                 "ml.m5.large",
-    ///             },
-    ///             TrainingImage = "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
     ///             TrainingChannels = new[]
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationTrainingChannelArgs
@@ -49,7 +43,13 @@ namespace Pulumi.Aws.Sagemaker
     ///                     },
     ///                 },
     ///             },
+    ///             SupportedTrainingInstanceTypes = new[]
+    ///             {
+    ///                 "ml.m5.large",
+    ///             },
+    ///             TrainingImage = "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
     ///         },
+    ///         AlgorithmName = "example-algorithm",
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },
@@ -77,16 +77,8 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleAlgorithm = new Aws.Sagemaker.Algorithm("example", new()
     ///     {
-    ///         AlgorithmName = "example-training-algorithm",
     ///         TrainingSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationArgs
     ///         {
-    ///             SupportedTrainingInstanceTypes = new[]
-    ///             {
-    ///                 "ml.m5.large",
-    ///                 "ml.c5.xlarge",
-    ///             },
-    ///             SupportsDistributedTraining = true,
-    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
     ///             MetricDefinitions = new[]
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationMetricDefinitionArgs
@@ -99,12 +91,6 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "0.5",
-    ///                     Description = "Continuous learning rate",
-    ///                     IsRequired = true,
-    ///                     IsTunable = true,
-    ///                     Name = "eta",
-    ///                     Type = "Continuous",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         ContinuousParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs
@@ -113,15 +99,15 @@ namespace Pulumi.Aws.Sagemaker
     ///                             MaxValue = "0.9",
     ///                         },
     ///                     },
+    ///                     DefaultValue = "0.5",
+    ///                     Description = "Continuous learning rate",
+    ///                     IsRequired = true,
+    ///                     IsTunable = true,
+    ///                     Name = "eta",
+    ///                     Type = "Continuous",
     ///                 },
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "5",
-    ///                     Description = "Maximum tree depth",
-    ///                     IsRequired = false,
-    ///                     IsTunable = true,
-    ///                     Name = "max_depth",
-    ///                     Type = "Integer",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         IntegerParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs
@@ -130,15 +116,15 @@ namespace Pulumi.Aws.Sagemaker
     ///                             MaxValue = "10",
     ///                         },
     ///                     },
+    ///                     DefaultValue = "5",
+    ///                     Description = "Maximum tree depth",
+    ///                     IsRequired = false,
+    ///                     IsTunable = true,
+    ///                     Name = "max_depth",
+    ///                     Type = "Integer",
     ///                 },
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "reg:squarederror",
-    ///                     Description = "Objective function",
-    ///                     IsRequired = false,
-    ///                     IsTunable = false,
-    ///                     Name = "objective",
-    ///                     Type = "Categorical",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         CategoricalParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs
@@ -150,6 +136,12 @@ namespace Pulumi.Aws.Sagemaker
     ///                             },
     ///                         },
     ///                     },
+    ///                     DefaultValue = "reg:squarederror",
+    ///                     Description = "Objective function",
+    ///                     IsRequired = false,
+    ///                     IsTunable = false,
+    ///                     Name = "objective",
+    ///                     Type = "Categorical",
     ///                 },
     ///             },
     ///             SupportedTuningJobObjectiveMetrics = new[]
@@ -194,7 +186,15 @@ namespace Pulumi.Aws.Sagemaker
     ///                     },
     ///                 },
     ///             },
+    ///             SupportedTrainingInstanceTypes = new[]
+    ///             {
+    ///                 "ml.m5.large",
+    ///                 "ml.c5.xlarge",
+    ///             },
+    ///             SupportsDistributedTraining = true,
+    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
     ///         },
+    ///         AlgorithmName = "example-training-algorithm",
     ///     });
     /// 
     /// });
@@ -218,14 +218,8 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleAlgorithm = new Aws.Sagemaker.Algorithm("example", new()
     ///     {
-    ///         AlgorithmName = "example-inference-algorithm",
     ///         TrainingSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationArgs
     ///         {
-    ///             SupportedTrainingInstanceTypes = new[]
-    ///             {
-    ///                 "ml.m5.large",
-    ///             },
-    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
     ///             TrainingChannels = new[]
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationTrainingChannelArgs
@@ -241,9 +235,40 @@ namespace Pulumi.Aws.Sagemaker
     ///                     },
     ///                 },
     ///             },
+    ///             SupportedTrainingInstanceTypes = new[]
+    ///             {
+    ///                 "ml.m5.large",
+    ///             },
+    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
     ///         },
     ///         InferenceSpecification = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationArgs
     ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerArgs
+    ///                 {
+    ///                     BaseModel = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerBaseModelArgs
+    ///                     {
+    ///                         HubContentName = "basemodel",
+    ///                         HubContentVersion = "1.0.0",
+    ///                         RecipeName = "recipe",
+    ///                     },
+    ///                     ModelInput = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerModelInputArgs
+    ///                     {
+    ///                         DataInputConfig = "{}",
+    ///                     },
+    ///                     ContainerHostname = "test-host",
+    ///                     Environment = 
+    ///                     {
+    ///                         { "TEST", "value" },
+    ///                     },
+    ///                     Framework = "XGBOOST",
+    ///                     FrameworkVersion = "1.5-1",
+    ///                     Image = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
+    ///                     IsCheckpoint = true,
+    ///                     NearestModelName = "nearest-model",
+    ///                 },
+    ///             },
     ///             SupportedContentTypes = new[]
     ///             {
     ///                 "text/csv",
@@ -260,33 +285,8 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 "ml.m5.large",
     ///             },
-    ///             Containers = new[]
-    ///             {
-    ///                 new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerArgs
-    ///                 {
-    ///                     ContainerHostname = "test-host",
-    ///                     Environment = 
-    ///                     {
-    ///                         { "TEST", "value" },
-    ///                     },
-    ///                     Framework = "XGBOOST",
-    ///                     FrameworkVersion = "1.5-1",
-    ///                     Image = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
-    ///                     IsCheckpoint = true,
-    ///                     NearestModelName = "nearest-model",
-    ///                     BaseModel = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerBaseModelArgs
-    ///                     {
-    ///                         HubContentName = "basemodel",
-    ///                         HubContentVersion = "1.0.0",
-    ///                         RecipeName = "recipe",
-    ///                     },
-    ///                     ModelInput = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerModelInputArgs
-    ///                     {
-    ///                         DataInputConfig = "{}",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         AlgorithmName = "example-inference-algorithm",
     ///     });
     /// 
     /// });
@@ -316,10 +316,6 @@ namespace Pulumi.Aws.Sagemaker
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -330,6 +326,10 @@ namespace Pulumi.Aws.Sagemaker
     ///                             $"sagemaker.{current.Apply(getPartitionResult =&gt; getPartitionResult.DnsSuffix)}",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -404,24 +404,12 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     ///     var exampleAlgorithm = new Aws.Sagemaker.Algorithm("example", new()
     ///     {
-    ///         AlgorithmName = "example-validation-algorithm",
     ///         TrainingSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationArgs
     ///         {
-    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
-    ///             SupportedTrainingInstanceTypes = new[]
-    ///             {
-    ///                 "ml.m5.large",
-    ///             },
     ///             SupportedHyperParameters = new[]
     ///             {
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "2",
-    ///                     Description = "Feature dimension",
-    ///                     IsRequired = true,
-    ///                     IsTunable = false,
-    ///                     Name = "feature_dim",
-    ///                     Type = "Integer",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         IntegerParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs
@@ -430,15 +418,15 @@ namespace Pulumi.Aws.Sagemaker
     ///                             MaxValue = "2",
     ///                         },
     ///                     },
+    ///                     DefaultValue = "2",
+    ///                     Description = "Feature dimension",
+    ///                     IsRequired = true,
+    ///                     IsTunable = false,
+    ///                     Name = "feature_dim",
+    ///                     Type = "Integer",
     ///                 },
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "4",
-    ///                     Description = "Mini batch size",
-    ///                     IsRequired = true,
-    ///                     IsTunable = false,
-    ///                     Name = "mini_batch_size",
-    ///                     Type = "Integer",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         IntegerParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs
@@ -447,15 +435,15 @@ namespace Pulumi.Aws.Sagemaker
     ///                             MaxValue = "4",
     ///                         },
     ///                     },
+    ///                     DefaultValue = "4",
+    ///                     Description = "Mini batch size",
+    ///                     IsRequired = true,
+    ///                     IsTunable = false,
+    ///                     Name = "mini_batch_size",
+    ///                     Type = "Integer",
     ///                 },
     ///                 new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterArgs
     ///                 {
-    ///                     DefaultValue = "binary_classifier",
-    ///                     Description = "Predictor type",
-    ///                     IsRequired = true,
-    ///                     IsTunable = false,
-    ///                     Name = "predictor_type",
-    ///                     Type = "Categorical",
     ///                     Range = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs
     ///                     {
     ///                         CategoricalParameterRangeSpecification = new Aws.Sagemaker.Inputs.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs
@@ -466,6 +454,12 @@ namespace Pulumi.Aws.Sagemaker
     ///                             },
     ///                         },
     ///                     },
+    ///                     DefaultValue = "binary_classifier",
+    ///                     Description = "Predictor type",
+    ///                     IsRequired = true,
+    ///                     IsTunable = false,
+    ///                     Name = "predictor_type",
+    ///                     Type = "Categorical",
     ///                 },
     ///             },
     ///             TrainingChannels = new[]
@@ -483,9 +477,21 @@ namespace Pulumi.Aws.Sagemaker
     ///                     },
     ///                 },
     ///             },
+    ///             TrainingImage = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
+    ///             SupportedTrainingInstanceTypes = new[]
+    ///             {
+    ///                 "ml.m5.large",
+    ///             },
     ///         },
     ///         InferenceSpecification = new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationArgs
     ///         {
+    ///             Containers = new[]
+    ///             {
+    ///                 new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerArgs
+    ///                 {
+    ///                     Image = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
+    ///                 },
+    ///             },
     ///             SupportedContentTypes = new[]
     ///             {
     ///                 "text/csv",
@@ -498,57 +504,13 @@ namespace Pulumi.Aws.Sagemaker
     ///             {
     ///                 "ml.m5.large",
     ///             },
-    ///             Containers = new[]
-    ///             {
-    ///                 new Aws.Sagemaker.Inputs.AlgorithmInferenceSpecificationContainerArgs
-    ///                 {
-    ///                     Image = example.Apply(getPrebuiltEcrImageResult =&gt; getPrebuiltEcrImageResult.RegistryPath),
-    ///                 },
-    ///             },
     ///         },
     ///         ValidationSpecification = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationArgs
     ///         {
-    ///             ValidationRole = exampleRole.Arn,
     ///             ValidationProfiles = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesArgs
     ///             {
-    ///                 ProfileName = "validation-profile",
     ///                 TrainingJobDefinition = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs
     ///                 {
-    ///                     HyperParameters = 
-    ///                     {
-    ///                         { "feature_dim", "2" },
-    ///                         { "mini_batch_size", "4" },
-    ///                         { "predictor_type", "binary_classifier" },
-    ///                     },
-    ///                     TrainingInputMode = "File",
-    ///                     InputDataConfigs = new[]
-    ///                     {
-    ///                         new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs
-    ///                         {
-    ///                             ChannelName = "train",
-    ///                             CompressionType = "None",
-    ///                             ContentType = "text/csv",
-    ///                             InputMode = "File",
-    ///                             RecordWrapperType = "None",
-    ///                             ShuffleConfig = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs
-    ///                             {
-    ///                                 Seed = 1,
-    ///                             },
-    ///                             DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs
-    ///                             {
-    ///                                 S3DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
-    ///                                 {
-    ///                                     AttributeNames = new[]
-    ///                                     {
-    ///                                         "label",
-    ///                                     },
-    ///                                     S3DataDistributionType = "ShardedByS3Key",
-    ///                                     S3DataType = "S3Prefix",
-    ///                                     S3Uri = exampleBucket.BucketName.Apply(bucket =&gt; $"s3://{bucket}/algorithm/training/"),
-    ///                                 },
-    ///                             },
-    ///                         },
-    ///                     },
     ///                     OutputDataConfig = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs
     ///                     {
     ///                         CompressionType = "GZIP",
@@ -567,21 +529,46 @@ namespace Pulumi.Aws.Sagemaker
     ///                         MaxRuntimeInSeconds = 1800,
     ///                         MaxWaitTimeInSeconds = 3600,
     ///                     },
+    ///                     InputDataConfigs = new[]
+    ///                     {
+    ///                         new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs
+    ///                         {
+    ///                             ShuffleConfig = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs
+    ///                             {
+    ///                                 Seed = 1,
+    ///                             },
+    ///                             DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs
+    ///                             {
+    ///                                 S3DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs
+    ///                                 {
+    ///                                     AttributeNames = new[]
+    ///                                     {
+    ///                                         "label",
+    ///                                     },
+    ///                                     S3DataDistributionType = "ShardedByS3Key",
+    ///                                     S3DataType = "S3Prefix",
+    ///                                     S3Uri = exampleBucket.BucketName.Apply(bucket =&gt; $"s3://{bucket}/algorithm/training/"),
+    ///                                 },
+    ///                             },
+    ///                             ChannelName = "train",
+    ///                             CompressionType = "None",
+    ///                             ContentType = "text/csv",
+    ///                             InputMode = "File",
+    ///                             RecordWrapperType = "None",
+    ///                         },
+    ///                     },
+    ///                     HyperParameters = 
+    ///                     {
+    ///                         { "feature_dim", "2" },
+    ///                         { "mini_batch_size", "4" },
+    ///                         { "predictor_type", "binary_classifier" },
+    ///                     },
+    ///                     TrainingInputMode = "File",
     ///                 },
     ///                 TransformJobDefinition = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs
     ///                 {
-    ///                     BatchStrategy = "MultiRecord",
-    ///                     Environment = 
-    ///                     {
-    ///                         { "Te", "enabled" },
-    ///                     },
-    ///                     MaxConcurrentTransforms = 1,
-    ///                     MaxPayloadInMb = 6,
     ///                     TransformInput = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs
     ///                     {
-    ///                         CompressionType = "None",
-    ///                         ContentType = "text/csv",
-    ///                         SplitType = "Line",
     ///                         DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs
     ///                         {
     ///                             S3DataSource = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs
@@ -590,6 +577,9 @@ namespace Pulumi.Aws.Sagemaker
     ///                                 S3Uri = exampleBucket.BucketName.Apply(bucket =&gt; $"s3://{bucket}/algorithm/transform/"),
     ///                             },
     ///                         },
+    ///                         CompressionType = "None",
+    ///                         ContentType = "text/csv",
+    ///                         SplitType = "Line",
     ///                     },
     ///                     TransformOutput = new Aws.Sagemaker.Inputs.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs
     ///                     {
@@ -602,9 +592,19 @@ namespace Pulumi.Aws.Sagemaker
     ///                         InstanceCount = 1,
     ///                         InstanceType = "ml.m5.large",
     ///                     },
+    ///                     BatchStrategy = "MultiRecord",
+    ///                     Environment = 
+    ///                     {
+    ///                         { "Te", "enabled" },
+    ///                     },
+    ///                     MaxConcurrentTransforms = 1,
+    ///                     MaxPayloadInMb = 6,
     ///                 },
+    ///                 ProfileName = "validation-profile",
     ///             },
+    ///             ValidationRole = exampleRole.Arn,
     ///         },
+    ///         AlgorithmName = "example-validation-algorithm",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

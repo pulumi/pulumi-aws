@@ -69,13 +69,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIdentitySource = new IdentitySource("exampleIdentitySource", IdentitySourceArgs.builder()
- *             .policyStoreId(example.id())
  *             .configuration(IdentitySourceConfigurationArgs.builder()
  *                 .cognitoUserPoolConfiguration(IdentitySourceConfigurationCognitoUserPoolConfigurationArgs.builder()
  *                     .userPoolArn(exampleUserPool.arn())
  *                     .clientIds(exampleUserPoolClient.id())
  *                     .build())
  *                 .build())
+ *             .policyStoreId(example.id())
  *             .build());
  * 
  *     }
@@ -122,23 +122,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIdentitySource = new IdentitySource("exampleIdentitySource", IdentitySourceArgs.builder()
- *             .policyStoreId(example.id())
  *             .configuration(IdentitySourceConfigurationArgs.builder()
  *                 .openIdConnectConfiguration(IdentitySourceConfigurationOpenIdConnectConfigurationArgs.builder()
- *                     .issuer("https://auth.example.com")
  *                     .tokenSelection(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionArgs.builder()
  *                         .accessTokenOnly(IdentitySourceConfigurationOpenIdConnectConfigurationTokenSelectionAccessTokenOnlyArgs.builder()
  *                             .audiences("https://myapp.example.com")
  *                             .principalIdClaim("sub")
  *                             .build())
  *                         .build())
- *                     .entityIdPrefix("MyOIDCProvider")
  *                     .groupConfiguration(IdentitySourceConfigurationOpenIdConnectConfigurationGroupConfigurationArgs.builder()
  *                         .groupClaim("groups")
  *                         .groupEntityType("MyCorp::UserGroup")
  *                         .build())
+ *                     .issuer("https://auth.example.com")
+ *                     .entityIdPrefix("MyOIDCProvider")
  *                     .build())
  *                 .build())
+ *             .policyStoreId(example.id())
  *             .principalEntityType("MyCorp::User")
  *             .build());
  * 

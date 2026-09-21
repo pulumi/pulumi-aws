@@ -16,14 +16,14 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
     public static final UploadState Empty = new UploadState();
 
     /**
-     * The Amazon Resource Name of this upload.
+     * ARN of this upload.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this upload.
+     * @return ARN of this upload.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -183,7 +183,7 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this upload.
+         * @param arn ARN of this upload.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class UploadState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this upload.
+         * @param arn ARN of this upload.
          * 
          * @return builder
          * 

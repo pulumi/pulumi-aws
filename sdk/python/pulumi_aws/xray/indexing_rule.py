@@ -153,12 +153,12 @@ class IndexingRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.IndexingRule("example",
-            name="Default",
             rule={
                 "probabilistic": {
                     "desired_sampling_percentage": 0.66,
                 },
-            })
+            },
+            name="Default")
         ```
 
         ## Import
@@ -205,12 +205,12 @@ class IndexingRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.IndexingRule("example",
-            name="Default",
             rule={
                 "probabilistic": {
                     "desired_sampling_percentage": 0.66,
                 },
-            })
+            },
+            name="Default")
         ```
 
         ## Import

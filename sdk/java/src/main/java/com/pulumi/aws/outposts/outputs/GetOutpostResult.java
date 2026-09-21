@@ -39,7 +39,7 @@ public final class GetOutpostResult {
     private @Nullable String ownerId;
     private String region;
     /**
-     * @return The Amazon Resource Name (ARN) of the site.
+     * @return ARN of the site.
      * 
      */
     private String siteArn;
@@ -104,7 +104,7 @@ public final class GetOutpostResult {
         return this.region;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the site.
+     * @return ARN of the site.
      * 
      */
     public String siteArn() {

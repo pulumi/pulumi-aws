@@ -55,19 +55,19 @@ import (
 type LocationFsxWindows struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The time that the FSx for Windows location was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
-	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+	// ARN for the FSx for Windows file system.
 	FsxFilesystemArn pulumi.StringOutput `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringOutput `pulumi:"password"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+	// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayOutput `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory pulumi.StringOutput `pulumi:"subdirectory"`
@@ -130,19 +130,19 @@ func GetLocationFsxWindows(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LocationFsxWindows resources.
 type locationFsxWindowsState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn *string `pulumi:"arn"`
 	// The time that the FSx for Windows location was created.
 	CreationTime *string `pulumi:"creationTime"`
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain *string `pulumi:"domain"`
-	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+	// ARN for the FSx for Windows file system.
 	FsxFilesystemArn *string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password *string `pulumi:"password"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+	// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
@@ -157,19 +157,19 @@ type locationFsxWindowsState struct {
 }
 
 type LocationFsxWindowsState struct {
-	// Amazon Resource Name (ARN) of the DataSync Location.
+	// ARN of the DataSync Location.
 	Arn pulumi.StringPtrInput
 	// The time that the FSx for Windows location was created.
 	CreationTime pulumi.StringPtrInput
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+	// ARN for the FSx for Windows file system.
 	FsxFilesystemArn pulumi.StringPtrInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+	// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
@@ -190,13 +190,13 @@ func (LocationFsxWindowsState) ElementType() reflect.Type {
 type locationFsxWindowsArgs struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain *string `pulumi:"domain"`
-	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+	// ARN for the FSx for Windows file system.
 	FsxFilesystemArn string `pulumi:"fsxFilesystemArn"`
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password string `pulumi:"password"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+	// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns []string `pulumi:"securityGroupArns"`
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory *string `pulumi:"subdirectory"`
@@ -210,13 +210,13 @@ type locationFsxWindowsArgs struct {
 type LocationFsxWindowsArgs struct {
 	// The name of the Windows domain that the FSx for Windows server belongs to.
 	Domain pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+	// ARN for the FSx for Windows file system.
 	FsxFilesystemArn pulumi.StringInput
 	// The password of the user who has the permissions to access files and folders in the FSx for Windows file system.
 	Password pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+	// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 	SecurityGroupArns pulumi.StringArrayInput
 	// Subdirectory to perform actions as source or destination.
 	Subdirectory pulumi.StringPtrInput
@@ -313,7 +313,7 @@ func (o LocationFsxWindowsOutput) ToLocationFsxWindowsOutputWithContext(ctx cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the DataSync Location.
+// ARN of the DataSync Location.
 func (o LocationFsxWindowsOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -328,7 +328,7 @@ func (o LocationFsxWindowsOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the FSx for Windows file system.
+// ARN for the FSx for Windows file system.
 func (o LocationFsxWindowsOutput) FsxFilesystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.FsxFilesystemArn }).(pulumi.StringOutput)
 }
@@ -343,7 +343,7 @@ func (o LocationFsxWindowsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+// ARNs of the security groups that are to use to configure the FSx for Windows file system.
 func (o LocationFsxWindowsOutput) SecurityGroupArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LocationFsxWindows) pulumi.StringArrayOutput { return v.SecurityGroupArns }).(pulumi.StringArrayOutput)
 }

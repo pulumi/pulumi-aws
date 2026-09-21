@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.autoscaling.TrafficSourceAttachment("example", {
- *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
  *     trafficSource: {
  *         identifier: exampleAwsLbTargetGroup.arn,
  *         type: "elbv2",
  *     },
+ *     autoscalingGroupName: exampleAwsAutoscalingGroup.id,
  * });
  * ```
  *

@@ -267,21 +267,21 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[Union['Ge
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
-        task_definition=example_aws_ecs_task_definition["arn"],
-        desired_count=1,
-        launch_type="FARGATE",
-        network_configuration={
+    example = aws.ecs.get_task_execution(network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
             "security_groups": [example_aws_security_group["id"]],
             "assign_public_ip": False,
-        })
+        },
+        cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE")
     ```
 
 
     :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
     :param _builtins.str client_token: Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
-    :param _builtins.str cluster: Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+    :param _builtins.str cluster: Short name or full ARN of the cluster to run the task on.
     :param _builtins.int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
     :param _builtins.bool enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
     :param _builtins.bool enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.
@@ -379,21 +379,21 @@ def get_task_execution_output(capacity_provider_strategies: pulumi.Input[Optiona
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ecs.get_task_execution(cluster=example_aws_ecs_cluster["id"],
-        task_definition=example_aws_ecs_task_definition["arn"],
-        desired_count=1,
-        launch_type="FARGATE",
-        network_configuration={
+    example = aws.ecs.get_task_execution(network_configuration={
             "subnets": [__item["id"] for __item in example_aws_subnet],
             "security_groups": [example_aws_security_group["id"]],
             "assign_public_ip": False,
-        })
+        },
+        cluster=example_aws_ecs_cluster["id"],
+        task_definition=example_aws_ecs_task_definition["arn"],
+        desired_count=1,
+        launch_type="FARGATE")
     ```
 
 
     :param Sequence[Union['GetTaskExecutionCapacityProviderStrategyArgs', 'GetTaskExecutionCapacityProviderStrategyArgsDict']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
     :param _builtins.str client_token: Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
-    :param _builtins.str cluster: Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+    :param _builtins.str cluster: Short name or full ARN of the cluster to run the task on.
     :param _builtins.int desired_count: Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
     :param _builtins.bool enable_ecs_managed_tags: Whether to enable Amazon ECS managed tags for the tasks within the service.
     :param _builtins.bool enable_execute_command: Whether to enable Amazon ECS Exec for the tasks within the service.

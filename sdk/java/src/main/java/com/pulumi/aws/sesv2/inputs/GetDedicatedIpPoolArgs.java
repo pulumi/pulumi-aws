@@ -48,14 +48,14 @@ public final class GetDedicatedIpPoolArgs extends com.pulumi.resources.InvokeArg
     }
 
     /**
-     * A map of tags attached to the pool.
+     * Map of tags attached to the pool.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags attached to the pool.
+     * @return Map of tags attached to the pool.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -131,7 +131,7 @@ public final class GetDedicatedIpPoolArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags attached to the pool.
+         * @param tags Map of tags attached to the pool.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class GetDedicatedIpPoolArgs extends com.pulumi.resources.InvokeArg
         }
 
         /**
-         * @param tags A map of tags attached to the pool.
+         * @param tags Map of tags attached to the pool.
          * 
          * @return builder
          * 

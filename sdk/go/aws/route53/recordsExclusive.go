@@ -44,12 +44,8 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecordsExclusive(ctx, "test", &route53.RecordsExclusiveArgs{
-//				ZoneId: pulumi.Any(testAwsRoute53Zone.ZoneId),
 //				ResourceRecordSets: route53.RecordsExclusiveResourceRecordSetArray{
 //					&route53.RecordsExclusiveResourceRecordSetArgs{
-//						Name: pulumi.String("subdomain.example.com"),
-//						Type: pulumi.String("A"),
-//						Ttl:  pulumi.Int(30),
 //						ResourceRecords: route53.RecordsExclusiveResourceRecordSetResourceRecordArray{
 //							&route53.RecordsExclusiveResourceRecordSetResourceRecordArgs{
 //								Value: pulumi.String("127.0.0.1"),
@@ -58,8 +54,12 @@ import (
 //								Value: pulumi.String("127.0.0.27"),
 //							},
 //						},
+//						Name: pulumi.String("subdomain.example.com"),
+//						Type: pulumi.String("A"),
+//						Ttl:  pulumi.Int(30),
 //					},
 //				},
+//				ZoneId: pulumi.Any(testAwsRoute53Zone.ZoneId),
 //			})
 //			if err != nil {
 //				return err

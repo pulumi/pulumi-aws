@@ -628,7 +628,7 @@ func (o InstanceStorageConfigStorageConfigPtrOutput) StorageType() pulumi.String
 }
 
 type InstanceStorageConfigStorageConfigKinesisFirehoseConfig struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
+	// ARN of the delivery stream.
 	FirehoseArn string `pulumi:"firehoseArn"`
 }
 
@@ -644,7 +644,7 @@ type InstanceStorageConfigStorageConfigKinesisFirehoseConfigInput interface {
 }
 
 type InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
+	// ARN of the delivery stream.
 	FirehoseArn pulumi.StringInput `pulumi:"firehoseArn"`
 }
 
@@ -725,7 +725,7 @@ func (o InstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) ToInstanc
 	}).(InstanceStorageConfigStorageConfigKinesisFirehoseConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delivery stream.
+// ARN of the delivery stream.
 func (o InstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigStorageConfigKinesisFirehoseConfig) string { return v.FirehoseArn }).(pulumi.StringOutput)
 }
@@ -754,7 +754,7 @@ func (o InstanceStorageConfigStorageConfigKinesisFirehoseConfigPtrOutput) Elem()
 	}).(InstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of the delivery stream.
+// ARN of the delivery stream.
 func (o InstanceStorageConfigStorageConfigKinesisFirehoseConfigPtrOutput) FirehoseArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigStorageConfigKinesisFirehoseConfig) *string {
 		if v == nil {
@@ -765,7 +765,7 @@ func (o InstanceStorageConfigStorageConfigKinesisFirehoseConfigPtrOutput) Fireho
 }
 
 type InstanceStorageConfigStorageConfigKinesisStreamConfig struct {
-	// The Amazon Resource Name (ARN) of the data stream.
+	// ARN of the data stream.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -781,7 +781,7 @@ type InstanceStorageConfigStorageConfigKinesisStreamConfigInput interface {
 }
 
 type InstanceStorageConfigStorageConfigKinesisStreamConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the data stream.
+	// ARN of the data stream.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -862,7 +862,7 @@ func (o InstanceStorageConfigStorageConfigKinesisStreamConfigOutput) ToInstanceS
 	}).(InstanceStorageConfigStorageConfigKinesisStreamConfigPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the data stream.
+// ARN of the data stream.
 func (o InstanceStorageConfigStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v InstanceStorageConfigStorageConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -891,7 +891,7 @@ func (o InstanceStorageConfigStorageConfigKinesisStreamConfigPtrOutput) Elem() I
 	}).(InstanceStorageConfigStorageConfigKinesisStreamConfigOutput)
 }
 
-// The Amazon Resource Name (ARN) of the data stream.
+// ARN of the data stream.
 func (o InstanceStorageConfigStorageConfigKinesisStreamConfigPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceStorageConfigStorageConfigKinesisStreamConfig) *string {
 		if v == nil {
@@ -2897,7 +2897,7 @@ func (o UserHierarchyGroupHierarchyPathArrayOutput) Index(i pulumi.IntInput) Use
 }
 
 type UserHierarchyGroupHierarchyPathLevelFife struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id *string `pulumi:"id"`
@@ -2917,7 +2917,7 @@ type UserHierarchyGroupHierarchyPathLevelFifeInput interface {
 }
 
 type UserHierarchyGroupHierarchyPathLevelFifeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -2976,7 +2976,7 @@ func (o UserHierarchyGroupHierarchyPathLevelFifeOutput) ToUserHierarchyGroupHier
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupHierarchyPathLevelFifeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyGroupHierarchyPathLevelFife) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3012,7 +3012,7 @@ func (o UserHierarchyGroupHierarchyPathLevelFifeArrayOutput) Index(i pulumi.IntI
 }
 
 type UserHierarchyGroupHierarchyPathLevelFour struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id *string `pulumi:"id"`
@@ -3032,7 +3032,7 @@ type UserHierarchyGroupHierarchyPathLevelFourInput interface {
 }
 
 type UserHierarchyGroupHierarchyPathLevelFourArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3091,7 +3091,7 @@ func (o UserHierarchyGroupHierarchyPathLevelFourOutput) ToUserHierarchyGroupHier
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupHierarchyPathLevelFourOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyGroupHierarchyPathLevelFour) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3127,7 +3127,7 @@ func (o UserHierarchyGroupHierarchyPathLevelFourArrayOutput) Index(i pulumi.IntI
 }
 
 type UserHierarchyGroupHierarchyPathLevelOne struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id *string `pulumi:"id"`
@@ -3147,7 +3147,7 @@ type UserHierarchyGroupHierarchyPathLevelOneInput interface {
 }
 
 type UserHierarchyGroupHierarchyPathLevelOneArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3206,7 +3206,7 @@ func (o UserHierarchyGroupHierarchyPathLevelOneOutput) ToUserHierarchyGroupHiera
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupHierarchyPathLevelOneOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyGroupHierarchyPathLevelOne) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3242,7 +3242,7 @@ func (o UserHierarchyGroupHierarchyPathLevelOneArrayOutput) Index(i pulumi.IntIn
 }
 
 type UserHierarchyGroupHierarchyPathLevelThree struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id *string `pulumi:"id"`
@@ -3262,7 +3262,7 @@ type UserHierarchyGroupHierarchyPathLevelThreeInput interface {
 }
 
 type UserHierarchyGroupHierarchyPathLevelThreeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3321,7 +3321,7 @@ func (o UserHierarchyGroupHierarchyPathLevelThreeOutput) ToUserHierarchyGroupHie
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupHierarchyPathLevelThreeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyGroupHierarchyPathLevelThree) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3357,7 +3357,7 @@ func (o UserHierarchyGroupHierarchyPathLevelThreeArrayOutput) Index(i pulumi.Int
 }
 
 type UserHierarchyGroupHierarchyPathLevelTwo struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id *string `pulumi:"id"`
@@ -3377,7 +3377,7 @@ type UserHierarchyGroupHierarchyPathLevelTwoInput interface {
 }
 
 type UserHierarchyGroupHierarchyPathLevelTwoArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy group.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3436,7 +3436,7 @@ func (o UserHierarchyGroupHierarchyPathLevelTwoOutput) ToUserHierarchyGroupHiera
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupHierarchyPathLevelTwoOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyGroupHierarchyPathLevelTwo) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3703,7 +3703,7 @@ func (o UserHierarchyStructureHierarchyStructurePtrOutput) LevelTwo() UserHierar
 }
 
 type UserHierarchyStructureHierarchyStructureLevelFive struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id *string `pulumi:"id"`
@@ -3723,7 +3723,7 @@ type UserHierarchyStructureHierarchyStructureLevelFiveInput interface {
 }
 
 type UserHierarchyStructureHierarchyStructureLevelFiveArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3808,7 +3808,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFiveOutput) ToUserHierarchy
 	}).(UserHierarchyStructureHierarchyStructureLevelFivePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelFiveOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFive) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -3847,7 +3847,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFivePtrOutput) Elem() UserH
 	}).(UserHierarchyStructureHierarchyStructureLevelFiveOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelFivePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelFive) *string {
 		if v == nil {
@@ -3878,7 +3878,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFivePtrOutput) Name() pulum
 }
 
 type UserHierarchyStructureHierarchyStructureLevelFour struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id *string `pulumi:"id"`
@@ -3898,7 +3898,7 @@ type UserHierarchyStructureHierarchyStructureLevelFourInput interface {
 }
 
 type UserHierarchyStructureHierarchyStructureLevelFourArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -3983,7 +3983,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFourOutput) ToUserHierarchy
 	}).(UserHierarchyStructureHierarchyStructureLevelFourPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelFourOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelFour) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -4022,7 +4022,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFourPtrOutput) Elem() UserH
 	}).(UserHierarchyStructureHierarchyStructureLevelFourOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelFourPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelFour) *string {
 		if v == nil {
@@ -4053,7 +4053,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelFourPtrOutput) Name() pulum
 }
 
 type UserHierarchyStructureHierarchyStructureLevelOne struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id *string `pulumi:"id"`
@@ -4073,7 +4073,7 @@ type UserHierarchyStructureHierarchyStructureLevelOneInput interface {
 }
 
 type UserHierarchyStructureHierarchyStructureLevelOneArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4158,7 +4158,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelOneOutput) ToUserHierarchyS
 	}).(UserHierarchyStructureHierarchyStructureLevelOnePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelOneOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelOne) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -4197,7 +4197,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelOnePtrOutput) Elem() UserHi
 	}).(UserHierarchyStructureHierarchyStructureLevelOneOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelOnePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelOne) *string {
 		if v == nil {
@@ -4228,7 +4228,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelOnePtrOutput) Name() pulumi
 }
 
 type UserHierarchyStructureHierarchyStructureLevelThree struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id *string `pulumi:"id"`
@@ -4248,7 +4248,7 @@ type UserHierarchyStructureHierarchyStructureLevelThreeInput interface {
 }
 
 type UserHierarchyStructureHierarchyStructureLevelThreeArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4333,7 +4333,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelThreeOutput) ToUserHierarch
 	}).(UserHierarchyStructureHierarchyStructureLevelThreePtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelThreeOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelThree) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -4372,7 +4372,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelThreePtrOutput) Elem() User
 	}).(UserHierarchyStructureHierarchyStructureLevelThreeOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelThreePtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelThree) *string {
 		if v == nil {
@@ -4403,7 +4403,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelThreePtrOutput) Name() pulu
 }
 
 type UserHierarchyStructureHierarchyStructureLevelTwo struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id *string `pulumi:"id"`
@@ -4423,7 +4423,7 @@ type UserHierarchyStructureHierarchyStructureLevelTwoInput interface {
 }
 
 type UserHierarchyStructureHierarchyStructureLevelTwoArgs struct {
-	// The Amazon Resource Name (ARN) of the hierarchy level.
+	// The ARN of the hierarchy level.
 	Arn pulumi.StringPtrInput `pulumi:"arn"`
 	// The identifier of the hierarchy level.
 	Id pulumi.StringPtrInput `pulumi:"id"`
@@ -4508,7 +4508,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelTwoOutput) ToUserHierarchyS
 	}).(UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelTwoOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserHierarchyStructureHierarchyStructureLevelTwo) *string { return v.Arn }).(pulumi.StringPtrOutput)
 }
@@ -4547,7 +4547,7 @@ func (o UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput) Elem() UserHi
 	}).(UserHierarchyStructureHierarchyStructureLevelTwoOutput)
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy level.
+// The ARN of the hierarchy level.
 func (o UserHierarchyStructureHierarchyStructureLevelTwoPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserHierarchyStructureHierarchyStructureLevelTwo) *string {
 		if v == nil {
@@ -5495,7 +5495,7 @@ func (o GetInstanceStorageConfigStorageConfigArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
+	// ARN of the delivery stream.
 	FirehoseArn string `pulumi:"firehoseArn"`
 }
 
@@ -5511,7 +5511,7 @@ type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigInput interface {
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the delivery stream.
+	// ARN of the delivery stream.
 	FirehoseArn pulumi.StringInput `pulumi:"firehoseArn"`
 }
 
@@ -5566,7 +5566,7 @@ func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) ToGetI
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the delivery stream.
+// ARN of the delivery stream.
 func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigOutput) FirehoseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig) string { return v.FirehoseArn }).(pulumi.StringOutput)
 }
@@ -5592,7 +5592,7 @@ func (o GetInstanceStorageConfigStorageConfigKinesisFirehoseConfigArrayOutput) I
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisStreamConfig struct {
-	// The Amazon Resource Name (ARN) of the data stream.
+	// ARN of the data stream.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -5608,7 +5608,7 @@ type GetInstanceStorageConfigStorageConfigKinesisStreamConfigInput interface {
 }
 
 type GetInstanceStorageConfigStorageConfigKinesisStreamConfigArgs struct {
-	// The Amazon Resource Name (ARN) of the data stream.
+	// ARN of the data stream.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -5663,7 +5663,7 @@ func (o GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput) ToGetIns
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the data stream.
+// ARN of the data stream.
 func (o GetInstanceStorageConfigStorageConfigKinesisStreamConfigOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetInstanceStorageConfigStorageConfigKinesisStreamConfig) string { return v.StreamArn }).(pulumi.StringOutput)
 }

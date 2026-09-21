@@ -203,16 +203,16 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var vpc = new VpcIpamPool("vpc", VpcIpamPoolArgs.builder()
- *             .addressFamily("ipv4")
- *             .ipamScopeId(testAwsVpcIpam.privateDefaultScopeId())
- *             .locale(current.region())
- *             .sourceIpamPoolId(test.id())
  *             .sourceResource(VpcIpamPoolSourceResourceArgs.builder()
  *                 .resourceId(testVpc.id())
  *                 .resourceOwner(currentAwsCallerIdentity.accountId())
  *                 .resourceRegion(current.region())
  *                 .resourceType("vpc")
  *                 .build())
+ *             .addressFamily("ipv4")
+ *             .ipamScopeId(testAwsVpcIpam.privateDefaultScopeId())
+ *             .locale(current.region())
+ *             .sourceIpamPoolId(test.id())
  *             .build());
  * 
  *     }
@@ -302,14 +302,14 @@ public class VpcIpamPool extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.allocationResourceTags);
     }
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM
+     * @return ARN of IPAM
      * 
      */
     public Output<String> arn() {

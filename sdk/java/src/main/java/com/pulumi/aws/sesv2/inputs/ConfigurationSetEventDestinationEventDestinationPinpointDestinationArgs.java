@@ -14,9 +14,17 @@ public final class ConfigurationSetEventDestinationEventDestinationPinpointDesti
 
     public static final ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs Empty = new ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs();
 
+    /**
+     * ARN of the AWS End User Messaging project to send email events to.
+     * 
+     */
     @Import(name="applicationArn", required=true)
     private Output<String> applicationArn;
 
+    /**
+     * @return ARN of the AWS End User Messaging project to send email events to.
+     * 
+     */
     public Output<String> applicationArn() {
         return this.applicationArn;
     }
@@ -45,11 +53,23 @@ public final class ConfigurationSetEventDestinationEventDestinationPinpointDesti
             $ = new ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param applicationArn ARN of the AWS End User Messaging project to send email events to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationArn(Output<String> applicationArn) {
             $.applicationArn = applicationArn;
             return this;
         }
 
+        /**
+         * @param applicationArn ARN of the AWS End User Messaging project to send email events to.
+         * 
+         * @return builder
+         * 
+         */
         public Builder applicationArn(String applicationArn) {
             return applicationArn(Output.of(applicationArn));
         }

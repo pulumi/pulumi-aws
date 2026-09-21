@@ -87,7 +87,7 @@ namespace Pulumi.Aws.Quicksight
     public partial class User : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the user.
+        /// ARN for the user.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class UserState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the user.
+        /// ARN for the user.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

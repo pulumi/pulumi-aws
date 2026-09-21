@@ -48,8 +48,6 @@ namespace Pulumi.Aws.Lambda
     /// 
     ///     var example = new Aws.Lambda.CoreNetworkConnector("example", new()
     ///     {
-    ///         Name = "example",
-    ///         OperatorRole = exampleRole.Arn,
     ///         Configuration = new Aws.Lambda.Inputs.CoreNetworkConnectorConfigurationArgs
     ///         {
     ///             VpcEgressConfiguration = new Aws.Lambda.Inputs.CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs
@@ -66,6 +64,8 @@ namespace Pulumi.Aws.Lambda
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         OperatorRole = exampleRole.Arn,
     ///     });
     /// 
     ///     var exampleRolePolicy = new Aws.Iam.RolePolicy("example", new()

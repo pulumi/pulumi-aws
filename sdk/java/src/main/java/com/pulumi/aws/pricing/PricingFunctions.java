@@ -45,7 +45,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -75,6 +74,7 @@ public final class PricingFunctions {
      *                     .field("capacitystatus")
      *                     .value("Used")
      *                     .build())
+     *             .serviceCode("AmazonEC2")
      *             .build());
      * 
      *     }
@@ -106,7 +106,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -116,6 +115,7 @@ public final class PricingFunctions {
      *                     .field("location")
      *                     .value("US East (N. Virginia)")
      *                     .build())
+     *             .serviceCode("AmazonRedshift")
      *             .build());
      * 
      *     }
@@ -157,7 +157,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -187,6 +186,7 @@ public final class PricingFunctions {
      *                     .field("capacitystatus")
      *                     .value("Used")
      *                     .build())
+     *             .serviceCode("AmazonEC2")
      *             .build());
      * 
      *     }
@@ -218,7 +218,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -228,6 +227,7 @@ public final class PricingFunctions {
      *                     .field("location")
      *                     .value("US East (N. Virginia)")
      *                     .build())
+     *             .serviceCode("AmazonRedshift")
      *             .build());
      * 
      *     }
@@ -269,7 +269,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -299,6 +298,7 @@ public final class PricingFunctions {
      *                     .field("capacitystatus")
      *                     .value("Used")
      *                     .build())
+     *             .serviceCode("AmazonEC2")
      *             .build());
      * 
      *     }
@@ -330,7 +330,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -340,6 +339,7 @@ public final class PricingFunctions {
      *                     .field("location")
      *                     .value("US East (N. Virginia)")
      *                     .build())
+     *             .serviceCode("AmazonRedshift")
      *             .build());
      * 
      *     }
@@ -381,7 +381,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -411,6 +410,7 @@ public final class PricingFunctions {
      *                     .field("capacitystatus")
      *                     .value("Used")
      *                     .build())
+     *             .serviceCode("AmazonEC2")
      *             .build());
      * 
      *     }
@@ -442,7 +442,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -452,6 +451,7 @@ public final class PricingFunctions {
      *                     .field("location")
      *                     .value("US East (N. Virginia)")
      *                     .build())
+     *             .serviceCode("AmazonRedshift")
      *             .build());
      * 
      *     }
@@ -493,7 +493,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonEC2")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -523,6 +522,7 @@ public final class PricingFunctions {
      *                     .field("capacitystatus")
      *                     .value("Used")
      *                     .build())
+     *             .serviceCode("AmazonEC2")
      *             .build());
      * 
      *     }
@@ -554,7 +554,6 @@ public final class PricingFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PricingFunctions.getProduct(GetProductArgs.builder()
-     *             .serviceCode("AmazonRedshift")
      *             .filters(            
      *                 GetProductFilterArgs.builder()
      *                     .field("instanceType")
@@ -564,6 +563,7 @@ public final class PricingFunctions {
      *                     .field("location")
      *                     .value("US East (N. Virginia)")
      *                     .build())
+     *             .serviceCode("AmazonRedshift")
      *             .build());
      * 
      *     }

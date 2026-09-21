@@ -71,11 +71,11 @@ export class DomainIdentity extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The domain name to assign to SES
+     * Domain name to assign to SES.
      */
     declare public readonly domain: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class DomainIdentity extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+     * Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
     declare public /*out*/ readonly verificationToken: pulumi.Output<string>;
 
@@ -124,11 +124,11 @@ export class DomainIdentity extends pulumi.CustomResource {
  */
 export interface DomainIdentityState {
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The domain name to assign to SES
+     * Domain name to assign to SES.
      */
     domain?: pulumi.Input<string | undefined>;
     /**
@@ -136,7 +136,7 @@ export interface DomainIdentityState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
+     * Code which when added to the domain as a TXT record will signal to SES that the owner of the domain has authorized SES to act on their behalf. The domain identity will be in state "verification pending" until this is done. See the With Route53 Record example for how this might be achieved when the domain is hosted in Route 53 and managed by this provider.  Find out more about verifying domains in Amazon SES in the [AWS SES docs](http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html).
      */
     verificationToken?: pulumi.Input<string | undefined>;
 }
@@ -146,7 +146,7 @@ export interface DomainIdentityState {
  */
 export interface DomainIdentityArgs {
     /**
-     * The domain name to assign to SES
+     * Domain name to assign to SES.
      */
     domain: pulumi.Input<string>;
     /**

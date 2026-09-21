@@ -58,13 +58,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
- *             .configurationSetName(example.name())
- *             .eventDestinationName("example")
- *             .matchingEventTypes("ALL")
  *             .cloudwatchLogsDestination(Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs.builder()
  *                 .iamRoleArn(exampleAwsIamRole.arn())
  *                 .logGroupArn(exampleAwsCloudwatchLogGroup.arn())
  *                 .build())
+ *             .configurationSetName(example.name())
+ *             .eventDestinationName("example")
+ *             .matchingEventTypes("ALL")
  *             .build());
  * 
  *     }
@@ -104,13 +104,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
- *             .configurationSetName(example.name())
- *             .eventDestinationName("example")
- *             .matchingEventTypes("ALL")
  *             .kinesisFirehoseDestination(Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs.builder()
  *                 .deliveryStreamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
  *                 .iamRoleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .configurationSetName(example.name())
+ *             .eventDestinationName("example")
+ *             .matchingEventTypes("ALL")
  *             .build());
  * 
  *     }
@@ -150,12 +150,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSmsvoicev2EventDestination = new Smsvoicev2EventDestination("exampleSmsvoicev2EventDestination", Smsvoicev2EventDestinationArgs.builder()
- *             .configurationSetName(example.name())
- *             .eventDestinationName("example")
- *             .matchingEventTypes("ALL")
  *             .snsDestination(Smsvoicev2EventDestinationSnsDestinationArgs.builder()
  *                 .topicArn(exampleAwsSnsTopic.arn())
  *                 .build())
+ *             .configurationSetName(example.name())
+ *             .eventDestinationName("example")
+ *             .matchingEventTypes("ALL")
  *             .build());
  * 
  *     }

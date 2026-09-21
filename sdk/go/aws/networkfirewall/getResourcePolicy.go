@@ -52,7 +52,7 @@ func LookupResourcePolicy(ctx *pulumi.Context, args *LookupResourcePolicyArgs, o
 type LookupResourcePolicyArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that identifies the resource policy.
+	// ARN that identifies the resource policy.
 	ResourceArn string `pulumi:"resourceArn"`
 }
 
@@ -67,19 +67,15 @@ type LookupResourcePolicyResult struct {
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourcePolicyResultOutput, error) {
-			args := v.(LookupResourcePolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, LookupResourcePolicyResultOutput{}, options).(LookupResourcePolicyResultOutput), nil
-		}).(LookupResourcePolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkfirewall/getResourcePolicy:getResourcePolicy", args, LookupResourcePolicyResultOutput{}, options).(LookupResourcePolicyResultOutput)
 }
 
 // A collection of arguments for invoking getResourcePolicy.
 type LookupResourcePolicyOutputArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that identifies the resource policy.
+	// ARN that identifies the resource policy.
 	ResourceArn pulumi.StringInput `pulumi:"resourceArn"`
 }
 

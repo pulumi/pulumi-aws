@@ -44,8 +44,6 @@ namespace Pulumi.Aws.SesV2
     /// {
     ///     var example = new Aws.SesV2.ContactList("example", new()
     ///     {
-    ///         ContactListName = "example",
-    ///         Description = "description",
     ///         Topics = new[]
     ///         {
     ///             new Aws.SesV2.Inputs.ContactListTopicArgs
@@ -56,6 +54,8 @@ namespace Pulumi.Aws.SesV2
     ///                 TopicName = "example-topic",
     ///             },
     ///         },
+    ///         ContactListName = "example",
+    ///         Description = "description",
     ///     });
     /// 
     /// });
@@ -72,6 +72,9 @@ namespace Pulumi.Aws.SesV2
     [AwsResourceType("aws:sesv2/contactList:ContactList")]
     public partial class ContactList : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// ARN of the contact list.
+        /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
@@ -220,6 +223,9 @@ namespace Pulumi.Aws.SesV2
 
     public sealed class ContactListState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the contact list.
+        /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 

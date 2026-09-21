@@ -34,14 +34,14 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      * 
      */
     @Import(name="kmsKey", required=true)
     private Output<String> kmsKey;
 
     /**
-     * @return KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * @return KMS key ARN for the Data Integration.
      * 
      */
     public Output<String> kmsKey() {
@@ -175,7 +175,7 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key ARN for the Data Integration.
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class DataIntegrationArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param kmsKey KMS key Amazon Resource Name (ARN) for the Data Integration.
+         * @param kmsKey KMS key ARN for the Data Integration.
          * 
          * @return builder
          * 

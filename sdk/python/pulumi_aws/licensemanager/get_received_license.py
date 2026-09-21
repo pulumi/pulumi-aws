@@ -140,7 +140,7 @@ class GetReceivedLicenseResult:
     @pulumi.getter(name="licenseArn")
     def license_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the license.
+        ARN of the license.
         """
         return pulumi.get(self, "license_arn")
 

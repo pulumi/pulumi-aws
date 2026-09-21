@@ -104,7 +104,7 @@ class _ResolverQueryLogConfigState:
         """
         Input properties used for looking up and filtering ResolverQueryLogConfig resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver query logging configuration.
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
                You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
@@ -137,7 +137,7 @@ class _ResolverQueryLogConfigState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        ARN of the Route 53 Resolver query logging configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -373,7 +373,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Route 53 Resolver query logging configuration.
         :param pulumi.Input[_builtins.str] destination_arn: The ARN of the resource that you want Route 53 Resolver to send query logs.
                You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
         :param pulumi.Input[_builtins.str] name: The name of the Route 53 Resolver query logging configuration.
@@ -403,7 +403,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        ARN of the Route 53 Resolver query logging configuration.
         """
         return pulumi.get(self, "arn")
 

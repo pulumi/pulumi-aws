@@ -87,22 +87,19 @@ export class ClusterActivityStream extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      */
     declare public readonly engineNativeAuditFieldsIncluded: pulumi.Output<boolean | undefined>;
     /**
-     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * Name of the Amazon Kinesis data stream to be used for the database activity stream.
      */
     declare public /*out*/ readonly kinesisStreamName: pulumi.Output<string>;
     /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
     declare public readonly mode: pulumi.Output<string>;
     /**
@@ -110,7 +107,7 @@ export class ClusterActivityStream extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -161,22 +158,19 @@ export class ClusterActivityStream extends pulumi.CustomResource {
  */
 export interface ClusterActivityStreamState {
     /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean | undefined>;
     /**
-     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * Name of the Amazon Kinesis data stream to be used for the database activity stream.
      */
     kinesisStreamName?: pulumi.Input<string | undefined>;
     /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
     mode?: pulumi.Input<string | undefined>;
     /**
@@ -184,7 +178,7 @@ export interface ClusterActivityStreamState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -194,18 +188,15 @@ export interface ClusterActivityStreamState {
  */
 export interface ClusterActivityStreamArgs {
     /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      */
     engineNativeAuditFieldsIncluded?: pulumi.Input<boolean | undefined>;
     /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      */
     kmsKeyId: pulumi.Input<string>;
     /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      */
     mode: pulumi.Input<string>;
     /**
@@ -213,7 +204,7 @@ export interface ClusterActivityStreamArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      */
     resourceArn: pulumi.Input<string>;
 }

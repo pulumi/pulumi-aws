@@ -33,14 +33,14 @@ public final class ClusterIamRolesArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -126,7 +126,7 @@ public final class ClusterIamRolesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ClusterIamRolesArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 

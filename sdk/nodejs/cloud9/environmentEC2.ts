@@ -103,7 +103,7 @@ export class EnvironmentEC2 extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * Identifier for the AMI that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
@@ -221,7 +221,7 @@ export interface EnvironmentEC2State {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * Identifier for the AMI that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
@@ -283,7 +283,7 @@ export interface EnvironmentEC2Args {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for the Amazon Machine Image (AMI) that's used to create the EC2 instance. Valid values are
+     * Identifier for the AMI that's used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`

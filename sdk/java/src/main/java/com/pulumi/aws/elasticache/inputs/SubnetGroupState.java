@@ -116,14 +116,14 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * VPC identifier (VPC ID) of the cache subnet group.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+     * @return VPC identifier (VPC ID) of the cache subnet group.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -307,7 +307,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+         * @param vpcId VPC identifier (VPC ID) of the cache subnet group.
          * 
          * @return builder
          * 
@@ -318,7 +318,7 @@ public final class SubnetGroupState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+         * @param vpcId VPC identifier (VPC ID) of the cache subnet group.
          * 
          * @return builder
          * 

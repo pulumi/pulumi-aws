@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Glacier
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "add-read-only-perm",
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,6 +46,8 @@ namespace Pulumi.Aws.Glacier
     ///                         },
     ///                     },
     ///                 },
+    ///                 Sid = "add-read-only-perm",
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "glacier:InitiateJob",
@@ -63,7 +63,6 @@ namespace Pulumi.Aws.Glacier
     /// 
     ///     var myArchiveVault = new Aws.Glacier.Vault("my_archive", new()
     ///     {
-    ///         Name = "MyArchive",
     ///         Notification = new Aws.Glacier.Inputs.VaultNotificationArgs
     ///         {
     ///             SnsTopic = awsSnsTopic.Arn,
@@ -73,6 +72,7 @@ namespace Pulumi.Aws.Glacier
     ///                 "InventoryRetrievalCompleted",
     ///             },
     ///         },
+    ///         Name = "MyArchive",
     ///         AccessPolicy = myArchive.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
     ///         Tags = 
     ///         {

@@ -52,35 +52,32 @@ import (
 type Namespace struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringOutput `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"adminPasswordSecretKmsKeyId"`
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrOutput `pulumi:"adminUserPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 	AdminUserPasswordWo pulumi.StringPtrOutput `pulumi:"adminUserPasswordWo"`
-	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 	AdminUserPasswordWoVersion pulumi.IntPtrOutput `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringOutput `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrOutput `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayOutput `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayOutput `pulumi:"logExports"`
-	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+	// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrOutput `pulumi:"manageAdminPassword"`
 	// The Redshift Namespace ID.
 	NamespaceId pulumi.StringOutput `pulumi:"namespaceId"`
@@ -142,35 +139,32 @@ func GetNamespace(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Namespace resources.
 type namespaceState struct {
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn *string `pulumi:"adminPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 	AdminUserPasswordWo *string `pulumi:"adminUserPasswordWo"`
-	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn *string `pulumi:"arn"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
-	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+	// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword *bool `pulumi:"manageAdminPassword"`
 	// The Redshift Namespace ID.
 	NamespaceId *string `pulumi:"namespaceId"`
@@ -185,35 +179,32 @@ type namespaceState struct {
 }
 
 type NamespaceState struct {
-	// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+	// ARN of namespace's admin user credentials secret.
 	AdminPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringPtrInput
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 	AdminUserPasswordWo pulumi.StringPtrInput
-	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+	// ARN of the Redshift Serverless Namespace.
 	Arn pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringPtrInput
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
-	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+	// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrInput
 	// The Redshift Namespace ID.
 	NamespaceId pulumi.StringPtrInput
@@ -234,29 +225,26 @@ func (NamespaceState) ElementType() reflect.Type {
 type namespaceArgs struct {
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId *string `pulumi:"adminPasswordSecretKmsKeyId"`
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword *string `pulumi:"adminUserPassword"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 	AdminUserPasswordWo *string `pulumi:"adminUserPasswordWo"`
-	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 	AdminUserPasswordWoVersion *int `pulumi:"adminUserPasswordWoVersion"`
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername *string `pulumi:"adminUsername"`
 	// The name of the first database created in the namespace.
 	DbName *string `pulumi:"dbName"`
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// A list of IAM roles to associate with the namespace.
 	IamRoles []string `pulumi:"iamRoles"`
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports []string `pulumi:"logExports"`
-	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+	// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword *bool `pulumi:"manageAdminPassword"`
 	// The name of the namespace.
 	NamespaceName string `pulumi:"namespaceName"`
@@ -270,29 +258,26 @@ type namespaceArgs struct {
 type NamespaceArgs struct {
 	// ID of the KMS key used to encrypt the namespace's admin credentials secret.
 	AdminPasswordSecretKmsKeyId pulumi.StringPtrInput
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 	AdminUserPassword pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// The password of the administrator for the first database created in the namespace.
-	// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+	// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 	AdminUserPasswordWo pulumi.StringPtrInput
-	// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+	// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 	AdminUserPasswordWoVersion pulumi.IntPtrInput
 	// The username of the administrator for the first database created in the namespace.
 	AdminUsername pulumi.StringPtrInput
 	// The name of the first database created in the namespace.
 	DbName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+	// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// A list of IAM roles to associate with the namespace.
 	IamRoles pulumi.StringArrayInput
-	// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+	// ARN of the Amazon Web Services KMS key used to encrypt your data.
 	KmsKeyId pulumi.StringPtrInput
 	// The types of logs the namespace can export. Available export types are `userlog`, `connectionlog`, and `useractivitylog`.
 	LogExports pulumi.StringArrayInput
-	// Whether to use AWS SecretManager to manage namespace's admin credentials.
-	// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+	// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 	ManageAdminPassword pulumi.BoolPtrInput
 	// The name of the namespace.
 	NamespaceName pulumi.StringInput
@@ -389,7 +374,7 @@ func (o NamespaceOutput) ToNamespaceOutputWithContext(ctx context.Context) Names
 	return o
 }
 
-// Amazon Resource Name (ARN) of namespace's admin user credentials secret.
+// ARN of namespace's admin user credentials secret.
 func (o NamespaceOutput) AdminPasswordSecretArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminPasswordSecretArn }).(pulumi.StringOutput)
 }
@@ -399,20 +384,18 @@ func (o NamespaceOutput) AdminPasswordSecretKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminPasswordSecretKmsKeyId }).(pulumi.StringOutput)
 }
 
-// The password of the administrator for the first database created in the namespace.
-// Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) AdminUserPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPassword }).(pulumi.StringPtrOutput)
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// The password of the administrator for the first database created in the namespace.
-// Conflicts with `manageAdminPassword` and `adminUserPassword`.
+// The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
 func (o NamespaceOutput) AdminUserPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.AdminUserPasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+// Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
 func (o NamespaceOutput) AdminUserPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.IntPtrOutput { return v.AdminUserPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
@@ -422,7 +405,7 @@ func (o NamespaceOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+// ARN of the Redshift Serverless Namespace.
 func (o NamespaceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -432,7 +415,7 @@ func (o NamespaceOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.DbName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+// ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
 func (o NamespaceOutput) DefaultIamRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringPtrOutput { return v.DefaultIamRoleArn }).(pulumi.StringPtrOutput)
 }
@@ -442,7 +425,7 @@ func (o NamespaceOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringArrayOutput { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
 
-// The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+// ARN of the Amazon Web Services KMS key used to encrypt your data.
 func (o NamespaceOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -452,8 +435,7 @@ func (o NamespaceOutput) LogExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.StringArrayOutput { return v.LogExports }).(pulumi.StringArrayOutput)
 }
 
-// Whether to use AWS SecretManager to manage namespace's admin credentials.
-// Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+// Whether to use AWS SecretManager to manage namespace's admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
 func (o NamespaceOutput) ManageAdminPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Namespace) pulumi.BoolPtrOutput { return v.ManageAdminPassword }).(pulumi.BoolPtrOutput)
 }

@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultVoiceConnectorOrigination = new VoiceConnectorOrigination("defaultVoiceConnectorOrigination", VoiceConnectorOriginationArgs.builder()
- *             .disabled(false)
- *             .voiceConnectorId(default_.id())
  *             .routes(            
  *                 VoiceConnectorOriginationRouteArgs.builder()
  *                     .host("127.0.0.1")
@@ -71,6 +69,8 @@ import javax.annotation.Nullable;
  *                     .priority(2)
  *                     .weight(10)
  *                     .build())
+ *             .disabled(false)
+ *             .voiceConnectorId(default_.id())
  *             .build());
  * 
  *     }

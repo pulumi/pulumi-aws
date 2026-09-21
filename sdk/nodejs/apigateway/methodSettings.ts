@@ -25,12 +25,12 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
- *     restApi: example.id,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "OFF",
  *     },
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
+ *     methodPath: "path1/GET",
  * });
  * ```
  *
@@ -41,14 +41,14 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
- *     restApi: example.id,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "ERROR",
  *         metricsEnabled: true,
  *         dataTraceEnabled: false,
  *     },
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
+ *     methodPath: "path1/GET",
  * });
  * ```
  *
@@ -59,14 +59,14 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
- *     restApi: example.id,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "INFO",
  *         metricsEnabled: true,
  *         dataTraceEnabled: false,
  *     },
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
+ *     methodPath: "path1/GET",
  * });
  * ```
  *
@@ -77,14 +77,14 @@ import {RestApi} from "./index";
  * import * as aws from "@pulumi/aws";
  *
  * const pathSpecific = new aws.apigateway.MethodSettings("path_specific", {
- *     restApi: example.id,
- *     stageName: exampleAwsApiGatewayStage.stageName,
- *     methodPath: "path1/GET",
  *     settings: {
  *         loggingLevel: "INFO",
  *         metricsEnabled: true,
  *         dataTraceEnabled: true,
  *     },
+ *     restApi: example.id,
+ *     stageName: exampleAwsApiGatewayStage.stageName,
+ *     methodPath: "path1/GET",
  * });
  * ```
  *

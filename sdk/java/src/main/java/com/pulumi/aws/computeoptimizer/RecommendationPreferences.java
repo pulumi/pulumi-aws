@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecommendationPreferences("example", RecommendationPreferencesArgs.builder()
- *             .resourceType("Ec2Instance")
  *             .scope(RecommendationPreferencesScopeArgs.builder()
  *                 .name("AccountId")
  *                 .value("123456789012")
  *                 .build())
+ *             .resourceType("Ec2Instance")
  *             .lookBackPeriod("DAYS_32")
  *             .build());
  * 
@@ -91,12 +91,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecommendationPreferences("example", RecommendationPreferencesArgs.builder()
- *             .resourceType("Ec2Instance")
  *             .scope(RecommendationPreferencesScopeArgs.builder()
  *                 .name("AccountId")
  *                 .value("123456789012")
  *                 .build())
- *             .enhancedInfrastructureMetrics("Active")
  *             .externalMetricsPreference(RecommendationPreferencesExternalMetricsPreferenceArgs.builder()
  *                 .source("Datadog")
  *                 .build())
@@ -106,6 +104,8 @@ import javax.annotation.Nullable;
  *                     "r5")
  *                 .name("Ec2InstanceTypes")
  *                 .build())
+ *             .resourceType("Ec2Instance")
+ *             .enhancedInfrastructureMetrics("Active")
  *             .build());
  * 
  *     }

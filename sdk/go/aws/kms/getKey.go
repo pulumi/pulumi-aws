@@ -134,12 +134,8 @@ type LookupKeyResult struct {
 }
 
 func LookupKeyOutput(ctx *pulumi.Context, args LookupKeyOutputArgs, opts ...pulumi.InvokeOption) LookupKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupKeyResultOutput, error) {
-			args := v.(LookupKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kms/getKey:getKey", args, LookupKeyResultOutput{}, options).(LookupKeyResultOutput), nil
-		}).(LookupKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kms/getKey:getKey", args, LookupKeyResultOutput{}, options).(LookupKeyResultOutput)
 }
 
 // A collection of arguments for invoking getKey.

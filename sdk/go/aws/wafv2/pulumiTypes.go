@@ -6167,7 +6167,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchQueryStringPtrOutput
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -6183,7 +6183,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderInput inter
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6264,7 +6264,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) 
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6293,7 +6293,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutpu
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -6304,7 +6304,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutpu
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -6320,7 +6320,7 @@ type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentInpu
 }
 
 type RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -6401,7 +6401,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentO
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -6430,7 +6430,7 @@ func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentP
 	}).(RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -7224,7 +7224,7 @@ func (o RuleGroupRuleStatementGeoMatchStatementForwardedIpConfigPtrOutput) Heade
 }
 
 type RuleGroupRuleStatementIpSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
@@ -7242,7 +7242,7 @@ type RuleGroupRuleStatementIpSetReferenceStatementInput interface {
 }
 
 type RuleGroupRuleStatementIpSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
@@ -7325,7 +7325,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) ToRuleGroupRuleStat
 	}).(RuleGroupRuleStatementIpSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementIpSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7361,7 +7361,7 @@ func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) Elem() RuleGroup
 	}).(RuleGroupRuleStatementIpSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementIpSetReferenceStatement) *string {
 		if v == nil {
@@ -14363,7 +14363,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -14379,7 +14379,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14460,7 +14460,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -14491,7 +14491,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -14502,7 +14502,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -14518,7 +14518,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -14599,7 +14599,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -14630,7 +14630,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -15438,7 +15438,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementGeoMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfig `pulumi:"ipSetForwardedIpConfig"`
@@ -15456,7 +15456,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+	// ARN of the IP Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. See IPSet Forwarded IP Config below for more details.
 	IpSetForwardedIpConfig RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementIpSetForwardedIpConfigPtrInput `pulumi:"ipSetForwardedIpConfig"`
@@ -15539,7 +15539,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) string {
 		return v.Arn
@@ -15577,7 +15577,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReference
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IP Set that this statement references.
+// ARN of the IP Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement) *string {
 		if v == nil {
@@ -18910,7 +18910,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -18926,7 +18926,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -19007,7 +19007,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -19038,7 +19038,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -19049,7 +19049,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -19065,7 +19065,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStateme
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -19146,7 +19146,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -19177,7 +19177,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -19665,7 +19665,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStat
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
@@ -19689,7 +19689,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
@@ -19778,7 +19778,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) string {
 		return v.Arn
@@ -19832,7 +19832,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -22358,7 +22358,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -22374,7 +22374,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -22455,7 +22455,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -22486,7 +22486,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -22497,7 +22497,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -22513,7 +22513,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetRe
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -22594,7 +22594,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -22625,7 +22625,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSe
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -25827,7 +25827,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -25843,7 +25843,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -25924,7 +25924,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -25955,7 +25955,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -25966,7 +25966,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -25982,7 +25982,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintSta
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -26063,7 +26063,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -26094,7 +26094,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraint
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -29275,7 +29275,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -29291,7 +29291,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -29372,7 +29372,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -29403,7 +29403,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -29414,7 +29414,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -29430,7 +29430,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatemen
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -29511,7 +29511,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -29542,7 +29542,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchState
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -32702,7 +32702,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -32718,7 +32718,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -32799,7 +32799,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -32830,7 +32830,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -32841,7 +32841,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -32857,7 +32857,7 @@ type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatement
 }
 
 type RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -32938,7 +32938,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -32969,7 +32969,7 @@ func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatem
 	}).(RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -36136,7 +36136,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchQueryStringPtrOutpu
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -36152,7 +36152,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderInput inte
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36233,7 +36233,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36262,7 +36262,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutp
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -36273,7 +36273,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderPtrOutp
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -36289,7 +36289,7 @@ type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentInp
 }
 
 type RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -36370,7 +36370,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -36399,7 +36399,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument
 	}).(RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -36879,7 +36879,7 @@ func (o RuleGroupRuleStatementRegexMatchStatementTextTransformationArrayOutput) 
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatement struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn string `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatch `pulumi:"fieldToMatch"`
@@ -36903,7 +36903,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementInput interface {
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs struct {
-	// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+	// ARN of the Regex Pattern Set that this statement references.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The part of a web request that you want AWS WAF to inspect. See Field to Match below for details.
 	FieldToMatch RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchPtrInput `pulumi:"fieldToMatch"`
@@ -36992,7 +36992,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) ToRuleGro
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatement) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -37044,7 +37044,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) Elem()
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+// ARN of the Regex Pattern Set that this statement references.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatement) *string {
 		if v == nil {
@@ -39570,7 +39570,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchQuery
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -39586,7 +39586,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHe
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -39667,7 +39667,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) string {
 		return v.Name
@@ -39698,7 +39698,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -39709,7 +39709,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -39725,7 +39725,7 @@ type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQu
 }
 
 type RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -39806,7 +39806,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -39837,7 +39837,7 @@ func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingl
 	}).(RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -43029,7 +43029,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchQueryStringPtrO
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -43045,7 +43045,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderInput 
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43126,7 +43126,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOut
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -43155,7 +43155,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtr
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -43166,7 +43166,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeaderPtr
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -43182,7 +43182,7 @@ type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumen
 }
 
 type RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -43263,7 +43263,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) string {
 		return v.Name
@@ -43294,7 +43294,7 @@ func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgu
 	}).(RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -46453,7 +46453,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchQueryStringPtrOutput
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -46469,7 +46469,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderInput inter
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46550,7 +46550,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) 
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46579,7 +46579,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutpu
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -46590,7 +46590,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeaderPtrOutpu
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -46606,7 +46606,7 @@ type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentInpu
 }
 
 type RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -46687,7 +46687,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentO
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -46716,7 +46716,7 @@ func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentP
 	}).(RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {
@@ -49854,7 +49854,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchQueryStringPtrOutput)
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -49870,7 +49870,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderInput interf
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -49951,7 +49951,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) T
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -49980,7 +49980,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader) *string {
 		if v == nil {
@@ -49991,7 +49991,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeaderPtrOutput
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name string `pulumi:"name"`
 }
 
@@ -50007,7 +50007,7 @@ type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentInput
 }
 
 type RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentArgs struct {
-	// The name of the query header to inspect. This setting must be provided as lower case characters.
+	// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -50088,7 +50088,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOu
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -50117,7 +50117,7 @@ func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPt
 	}).(RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentOutput)
 }
 
-// The name of the query header to inspect. This setting must be provided as lower case characters.
+// The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
 func (o RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgumentPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument) *string {
 		if v == nil {

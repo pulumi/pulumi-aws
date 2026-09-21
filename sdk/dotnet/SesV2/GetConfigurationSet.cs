@@ -94,7 +94,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetConfigurationSetArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("configurationSetName", required: true)]
         public string ConfigurationSetName { get; set; } = null!;
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.SesV2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the container recipe.
+        /// Key-value map of resource tags.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class GetConfigurationSetInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The name of the configuration set.
+        /// Name of the configuration set.
         /// </summary>
         [Input("configurationSetName", required: true)]
         public Input<string> ConfigurationSetName { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.SesV2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Key-value map of resource tags for the container recipe.
+        /// Key-value map of resource tags.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -159,10 +159,13 @@ namespace Pulumi.Aws.SesV2
     [OutputType]
     public sealed class GetConfigurationSetResult
     {
+        /// <summary>
+        /// ARN of the configuration set.
+        /// </summary>
         public readonly string Arn;
         public readonly string ConfigurationSetName;
         /// <summary>
-        /// An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.
+        /// Object that defines the dedicated IP pool used to send emails with the configuration set.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetDeliveryOptionResult> DeliveryOptions;
         /// <summary>
@@ -171,27 +174,27 @@ namespace Pulumi.Aws.SesV2
         public readonly string Id;
         public readonly string Region;
         /// <summary>
-        /// An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.
+        /// Object that defines whether Amazon SES collects reputation metrics for emails sent with the configuration set.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetReputationOptionResult> ReputationOptions;
         /// <summary>
-        /// An object that defines whether or not Amazon SES can send email that you send using the configuration set.
+        /// Object that defines whether Amazon SES can send email sent with the configuration set.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetSendingOptionResult> SendingOptions;
         /// <summary>
-        /// An object that contains information about the suppression list preferences for your account.
+        /// Object that contains information about the suppression list preferences for your account.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetSuppressionOptionResult> SuppressionOptions;
         /// <summary>
-        /// Key-value map of resource tags for the container recipe.
+        /// Key-value map of resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
-        /// An object that defines the open and click tracking options for emails that you send using the configuration set.
+        /// Object that defines the open and click tracking options for emails sent with the configuration set.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetTrackingOptionResult> TrackingOptions;
         /// <summary>
-        /// An object that contains information about the VDM preferences for your configuration set.
+        /// Object that contains information about the VDM preferences for your configuration set.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetConfigurationSetVdmOptionResult> VdmOptions;
 

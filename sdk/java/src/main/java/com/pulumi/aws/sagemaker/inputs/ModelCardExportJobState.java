@@ -36,14 +36,14 @@ public final class ModelCardExportJobState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the model card export job.
+     * ARN of the model card export job.
      * 
      */
     @Import(name="modelCardExportJobArn")
     private @Nullable Output<String> modelCardExportJobArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model card export job.
+     * @return ARN of the model card export job.
      * 
      */
     public Optional<Output<String>> modelCardExportJobArn() {
@@ -187,7 +187,7 @@ public final class ModelCardExportJobState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param modelCardExportJobArn The Amazon Resource Name (ARN) of the model card export job.
+         * @param modelCardExportJobArn ARN of the model card export job.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class ModelCardExportJobState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param modelCardExportJobArn The Amazon Resource Name (ARN) of the model card export job.
+         * @param modelCardExportJobArn ARN of the model card export job.
          * 
          * @return builder
          * 

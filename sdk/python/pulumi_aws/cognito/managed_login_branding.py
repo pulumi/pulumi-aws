@@ -305,14 +305,14 @@ class ManagedLoginBranding(pulumi.CustomResource):
         import pulumi_std as std
 
         client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
             assets=[{
                 "bytes": std.filebase64(input="login_branding_asset.svg").result,
                 "category": "PAGE_HEADER_BACKGROUND",
                 "color_mode": "DARK",
                 "extension": "SVG",
             }],
+            client_id=example["id"],
+            user_pool_id=example_aws_cognito_user_pool["id"],
             settings=json.dumps({}))
         ```
 
@@ -368,14 +368,14 @@ class ManagedLoginBranding(pulumi.CustomResource):
         import pulumi_std as std
 
         client = aws.cognito.ManagedLoginBranding("client",
-            client_id=example["id"],
-            user_pool_id=example_aws_cognito_user_pool["id"],
             assets=[{
                 "bytes": std.filebase64(input="login_branding_asset.svg").result,
                 "category": "PAGE_HEADER_BACKGROUND",
                 "color_mode": "DARK",
                 "extension": "SVG",
             }],
+            client_id=example["id"],
+            user_pool_id=example_aws_cognito_user_pool["id"],
             settings=json.dumps({}))
         ```
 

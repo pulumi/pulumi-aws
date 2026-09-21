@@ -72,12 +72,8 @@ type LookupSchedulingPolicyResult struct {
 }
 
 func LookupSchedulingPolicyOutput(ctx *pulumi.Context, args LookupSchedulingPolicyOutputArgs, opts ...pulumi.InvokeOption) LookupSchedulingPolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSchedulingPolicyResultOutput, error) {
-			args := v.(LookupSchedulingPolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, LookupSchedulingPolicyResultOutput{}, options).(LookupSchedulingPolicyResultOutput), nil
-		}).(LookupSchedulingPolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:batch/getSchedulingPolicy:getSchedulingPolicy", args, LookupSchedulingPolicyResultOutput{}, options).(LookupSchedulingPolicyResultOutput)
 }
 
 // A collection of arguments for invoking getSchedulingPolicy.

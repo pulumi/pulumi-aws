@@ -188,10 +188,10 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
-            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "sqs_notification_configuration": {},
-            })
+            },
+            subscriber_id=example_aws_securitylake_subscriber["id"])
         ```
 
         ### HTTPS Notification
@@ -201,13 +201,13 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
-            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
                     "target_role_arn": event_bridge["arn"],
                 },
-            })
+            },
+            subscriber_id=example_aws_securitylake_subscriber["id"])
         ```
 
 
@@ -235,10 +235,10 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
-            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "sqs_notification_configuration": {},
-            })
+            },
+            subscriber_id=example_aws_securitylake_subscriber["id"])
         ```
 
         ### HTTPS Notification
@@ -248,13 +248,13 @@ class SubscriberNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.SubscriberNotification("example",
-            subscriber_id=example_aws_securitylake_subscriber["id"],
             configuration={
                 "https_notification_configuration": {
                     "endpoint": test["apiEndpoint"],
                     "target_role_arn": event_bridge["arn"],
                 },
-            })
+            },
+            subscriber_id=example_aws_securitylake_subscriber["id"])
         ```
 
 

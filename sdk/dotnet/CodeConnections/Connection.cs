@@ -41,7 +41,7 @@ namespace Pulumi.Aws.CodeConnections
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
+    /// - `Arn` (String) ARN of the CodeConnections connection.
     /// 
     /// Using `pulumi import`, import CodeConnections connection using the ARN. For example:
     /// 
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.CodeConnections
         public Output<string> ConnectionStatus { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Output("hostArn")]
         public Output<string?> HostArn { get; private set; } = null!;
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.CodeConnections
     public sealed class ConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.CodeConnections
         public Input<string>? ConnectionStatus { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `ProviderType`
+        /// ARN of the host associated with the connection. Conflicts with `ProviderType`
         /// </summary>
         [Input("hostArn")]
         public Input<string>? HostArn { get; set; }

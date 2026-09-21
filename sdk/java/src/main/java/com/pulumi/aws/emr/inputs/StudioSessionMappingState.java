@@ -76,14 +76,14 @@ public final class StudioSessionMappingState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+     * ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
     @Import(name="sessionPolicyArn")
     private @Nullable Output<String> sessionPolicyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+     * @return ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
      * 
      */
     public Optional<Output<String>> sessionPolicyArn() {
@@ -219,7 +219,7 @@ public final class StudioSessionMappingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sessionPolicyArn The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+         * @param sessionPolicyArn ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
          * 
          * @return builder
          * 
@@ -230,7 +230,7 @@ public final class StudioSessionMappingState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param sessionPolicyArn The Amazon Resource Name (ARN) for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
+         * @param sessionPolicyArn ARN for the session policy that will be applied to the user or group. You should specify the ARN for the session policy that you want to apply, not the ARN of your user role.
          * 
          * @return builder
          * 

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository> CodeRepositories;
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
+        /// Default instance type and the ARN of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
         /// </summary>
         public readonly Outputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec DefaultResourceSpec;
 

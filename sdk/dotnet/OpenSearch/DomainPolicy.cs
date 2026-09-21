@@ -34,26 +34,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "*",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "es:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{example.Arn}/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -65,6 +45,26 @@ namespace Pulumi.Aws.OpenSearch
     ///                             "127.0.0.1/32",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "es:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"{example.Arn}/*",
     ///                 },
     ///             },
     ///         },

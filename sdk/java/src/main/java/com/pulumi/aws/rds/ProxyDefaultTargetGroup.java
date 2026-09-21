@@ -33,28 +33,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup")
 public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) representing the target group.
+     * ARN representing the target group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) representing the target group.
+     * @return ARN representing the target group.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     @Export(name="connectionPoolConfig", refs={ProxyDefaultTargetGroupConnectionPoolConfig.class}, tree="[0]")
     private Output<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig;
 
     /**
-     * @return The settings that determine the size and behavior of the connection pool for the target group.
+     * @return Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     public Output<ProxyDefaultTargetGroupConnectionPoolConfig> connectionPoolConfig() {
@@ -75,14 +75,14 @@ public class ProxyDefaultTargetGroup extends com.pulumi.resources.CustomResource
         return this.dbProxyName;
     }
     /**
-     * The name of the default target group.
+     * Name of the default target group.
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the default target group.
+     * @return Name of the default target group.
      * 
      */
     public Output<String> name() {

@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.SecurityConfiguration("example", {
- *     name: "example",
  *     encryptionConfiguration: {
  *         cloudwatchEncryption: {
  *             cloudwatchEncryptionMode: "DISABLED",
@@ -30,6 +29,7 @@ import * as utilities from "../utilities";
  *             s3EncryptionMode: "SSE-KMS",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *

@@ -102,14 +102,14 @@ public class ResourcePolicy extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * ARN of the account to create or update a resource policy for.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+     * @return ARN of the account to create or update a resource policy for.
      * 
      */
     public Output<String> resourceArn() {

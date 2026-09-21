@@ -54,7 +54,7 @@ export interface GetCloudVmClusterArgs {
  */
 export interface GetCloudVmClusterResult {
     /**
-     * Amazon Resource Name (ARN) for the cloud vm cluster.
+     * ARN for the cloud vm cluster.
      */
     readonly arn: string;
     /**

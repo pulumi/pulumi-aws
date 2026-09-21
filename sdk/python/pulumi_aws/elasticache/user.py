@@ -45,8 +45,8 @@ class UserArgs:
         :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[_builtins.str] passwords_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
-        :param pulumi.Input[_builtins.int] passwords_wo_version: Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] passwords_wo_version: Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         """
@@ -160,7 +160,7 @@ class UserArgs:
     def passwords_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
         """
         return pulumi.get(self, "passwords_wo")
 
@@ -172,7 +172,7 @@ class UserArgs:
     @pulumi.getter(name="passwordsWoVersion")
     def passwords_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+        Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         """
         return pulumi.get(self, "passwords_wo_version")
 
@@ -231,8 +231,8 @@ class _UserState:
         :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[_builtins.str] passwords_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
-        :param pulumi.Input[_builtins.int] passwords_wo_version: Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] passwords_wo_version: Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -344,7 +344,7 @@ class _UserState:
     def passwords_wo(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
         """
         return pulumi.get(self, "passwords_wo")
 
@@ -356,7 +356,7 @@ class _UserState:
     @pulumi.getter(name="passwordsWoVersion")
     def passwords_wo_version(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+        Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         """
         return pulumi.get(self, "passwords_wo_version")
 
@@ -465,13 +465,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            authentication_mode={
+                "type": "iam",
+            },
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
+            engine="redis")
         ```
 
         ```python
@@ -479,17 +479,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
                     "password1",
                     "password2",
                 ],
-            })
+            },
+            user_id="testUserId",
+            user_name="testUserName",
+            access_string="on ~* +@all",
+            engine="redis")
         ```
 
         ### Using Write-Only Password (Terraform 1.11+)
@@ -524,8 +524,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[_builtins.str] passwords_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
-        :param pulumi.Input[_builtins.int] passwords_wo_version: Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] passwords_wo_version: Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -562,13 +562,13 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
+            authentication_mode={
+                "type": "iam",
+            },
             user_id="testUserId",
             user_name="testUserName",
             access_string="on ~* +@all",
-            engine="redis",
-            authentication_mode={
-                "type": "iam",
-            })
+            engine="redis")
         ```
 
         ```python
@@ -576,17 +576,17 @@ class User(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.elasticache.User("test",
-            user_id="testUserId",
-            user_name="testUserName",
-            access_string="on ~* +@all",
-            engine="redis",
             authentication_mode={
                 "type": "password",
                 "passwords": [
                     "password1",
                     "password2",
                 ],
-            })
+            },
+            user_id="testUserId",
+            user_name="testUserName",
+            access_string="on ~* +@all",
+            engine="redis")
         ```
 
         ### Using Write-Only Password (Terraform 1.11+)
@@ -708,8 +708,8 @@ class User(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] no_password_required: Indicates a password is not required for this user.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] passwords: Passwords used for this user. You can create up to two passwords for each user.
         :param pulumi.Input[_builtins.str] passwords_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
-        :param pulumi.Input[_builtins.int] passwords_wo_version: Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+               Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
+        :param pulumi.Input[_builtins.int] passwords_wo_version: Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A list of tags to be added to this resource. A tag is a key-value pair.
         :param pulumi.Input[_builtins.str] user_id: The ID of the user.
@@ -789,7 +789,7 @@ class User(pulumi.CustomResource):
     def passwords_wo(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        Write-only password for this user. This argument is not stored in state. Conflicts with `passwords` and `authentication_mode`. If set, requires `passwords_wo_version` to be set.
         """
         return pulumi.get(self, "passwords_wo")
 
@@ -797,7 +797,7 @@ class User(pulumi.CustomResource):
     @pulumi.getter(name="passwordsWoVersion")
     def passwords_wo_version(self) -> pulumi.Output[Optional[_builtins.int]]:
         """
-        Version number for `passwords_wo`. Increment this value to trigger a password update. Required when using `passwords_wo`.
+        Required when `passwords_wo` is set. Changing this value triggers an update to `passwords_wo`.
         """
         return pulumi.get(self, "passwords_wo_version")
 

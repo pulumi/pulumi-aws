@@ -52,14 +52,14 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions(                
- *                     "SES:SendEmail",
- *                     "SES:SendRawEmail")
- *                 .resources(exampleDomainIdentity.arn())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .identifiers("*")
  *                     .type("AWS")
  *                     .build())
+ *                 .actions(                
+ *                     "SES:SendEmail",
+ *                     "SES:SendRawEmail")
+ *                 .resources(exampleDomainIdentity.arn())
  *                 .build())
  *             .build());
  * 
@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/identityPolicy:IdentityPolicy")
 public class IdentityPolicy extends com.pulumi.resources.CustomResource {
     /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
+     * Name or ARN of the SES Identity.
      * 
      */
     @Export(name="identity", refs={String.class}, tree="[0]")
     private Output<String> identity;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the SES Identity.
+     * @return Name or ARN of the SES Identity.
      * 
      */
     public Output<String> identity() {

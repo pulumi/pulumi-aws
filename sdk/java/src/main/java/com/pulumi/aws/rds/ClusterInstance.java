@@ -14,6 +14,7 @@ import com.pulumi.core.internal.Codegen;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -92,6 +93,17 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `identifier` (String) Identifier of the RDS Cluster Instance.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import RDS Cluster Instances using the `identifier`. For example:
  * 
  * ```sh
@@ -102,42 +114,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterInstance:ClusterInstance")
 public class ClusterInstance extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     @Export(name="applyImmediately", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> applyImmediately;
 
     /**
-     * @return Specifies whether any database modifications are applied immediately, or during the next maintenance window. Default is`false`.
+     * @return Whether any database modifications are applied immediately, or during the next maintenance window. Default is `false`.
      * 
      */
     public Output<Boolean> applyImmediately() {
         return this.applyImmediately;
     }
     /**
-     * Amazon Resource Name (ARN) of cluster instance
+     * ARN of cluster instance
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster instance
+     * @return ARN of cluster instance
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> autoMinorVersionUpgrade;
 
     /**
-     * @return Indicates that minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
+     * @return Whether minor engine upgrades will be applied automatically to the DB instance during the maintenance window. Default `true`.
      * 
      */
     public Output<Optional<Boolean>> autoMinorVersionUpgrade() {
@@ -186,14 +198,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
-     * Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      * 
      */
     @Export(name="copyTagsToSnapshot", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> copyTagsToSnapshot;
 
     /**
-     * @return Indicates whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
+     * @return Whether to copy all of the user-defined tags from the DB instance to snapshots of the DB instance. Default `false`.
      * 
      */
     public Output<Optional<Boolean>> copyTagsToSnapshot() {
@@ -228,14 +240,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.dbParameterGroupName;
     }
     /**
-     * Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     @Export(name="dbSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> dbSubnetGroupName;
 
     /**
-     * @return Specifies the DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
+     * @return DB subnet group to associate with this DB instance. The default behavior varies depending on whether `dbSubnetGroupName` is specified. Please refer to official [AWS documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html) to understand how `dbSubnetGroupName` and `publiclyAccessible` parameters affect DB instance behaviour. **NOTE:** This must match the `dbSubnetGroupName` of the attached `aws.rds.Cluster`.
      * 
      */
     public Output<String> dbSubnetGroupName() {
@@ -270,16 +282,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.endpoint;
     }
     /**
-     * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     @Export(name="engine", refs={EngineType.class}, tree="[0]")
     private Output<EngineType> engine;
 
     /**
-     * @return Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
+     * @return Name of the database engine to be used for the RDS cluster instance. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     public Output<EngineType> engine() {
@@ -426,14 +436,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.networkType;
     }
     /**
-     * Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+     * Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     @Export(name="performanceInsightsEnabled", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> performanceInsightsEnabled;
 
     /**
-     * @return Specifies whether Performance Insights is enabled or not. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
+     * @return Whether Performance Insights is enabled. **NOTE:** When Performance Insights is configured at the cluster level through `aws.rds.Cluster`, this argument cannot be set to a value that conflicts with the cluster&#39;s configuration.
      * 
      */
     public Output<Boolean> performanceInsightsEnabled() {
@@ -552,14 +562,14 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Specifies whether the DB cluster is encrypted.
+     * Whether the DB cluster is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted.
+     * @return Whether the DB cluster is encrypted.
      * 
      */
     public Output<Boolean> storageEncrypted() {
@@ -568,18 +578,12 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
     /**
      * Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
      * @return Map of tags to assign to the instance. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-instance.html).
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
@@ -598,6 +602,20 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    /**
+     * Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     */
+    @Export(name="warningEventCategories", refs={List.class,String.class}, tree="[0,1]")
+    private Output</* @Nullable */ List<String>> warningEventCategories;
+
+    /**
+     * @return Set of RDS event categories (for example `failure`, `maintenance`) to check for after create and update operations. If set, the provider describes RDS events reported for this instance during the operation and surfaces a warning diagnostic, with the RDS event message, for each one found in these categories. Has no effect if unset; see [DescribeEvents](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeEvents.html) and the `aws.rds.getEvents` data source for the source of these events. Requires the `rds:DescribeEvents` IAM permission when set.
+     * 
+     */
+    public Output<Optional<List<String>>> warningEventCategories() {
+        return Codegen.optional(this.warningEventCategories);
     }
     /**
      * Boolean indicating if this instance is writable. `False` indicates this instance is a read replica.

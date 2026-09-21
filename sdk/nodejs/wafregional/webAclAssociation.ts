@@ -18,24 +18,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ipset = new aws.wafregional.IpSet("ipset", {
- *     name: "tfIPSet",
  *     ipSetDescriptors: [{
  *         type: "IPV4",
  *         value: "192.0.7.0/24",
  *     }],
+ *     name: "tfIPSet",
  * });
  * const foo = new aws.wafregional.Rule("foo", {
- *     name: "tfWAFRule",
- *     metricName: "tfWAFRule",
  *     predicates: [{
  *         dataId: ipset.id,
  *         negated: false,
  *         type: "IPMatch",
  *     }],
+ *     name: "tfWAFRule",
+ *     metricName: "tfWAFRule",
  * });
  * const fooWebAcl = new aws.wafregional.WebAcl("foo", {
- *     name: "foo",
- *     metricName: "foo",
  *     defaultAction: {
  *         type: "ALLOW",
  *     },
@@ -46,6 +44,8 @@ import * as utilities from "../utilities";
  *         priority: 1,
  *         ruleId: foo.id,
  *     }],
+ *     name: "foo",
+ *     metricName: "foo",
  * });
  * const fooVpc = new aws.ec2.Vpc("foo", {cidrBlock: "10.1.0.0/16"});
  * const available = aws.getAvailabilityZones({});

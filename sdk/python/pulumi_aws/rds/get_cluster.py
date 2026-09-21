@@ -152,21 +152,33 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter
     def arn(self) -> _builtins.str:
+        """
+        ARN of the cluster.
+        """
         return pulumi.get(self, "arn")
 
     @_builtins.property
     @pulumi.getter(name="availabilityZones")
     def availability_zones(self) -> Sequence[_builtins.str]:
+        """
+        Availability Zones of the RDS cluster.
+        """
         return pulumi.get(self, "availability_zones")
 
     @_builtins.property
     @pulumi.getter(name="backtrackWindow")
     def backtrack_window(self) -> _builtins.int:
+        """
+        Target backtrack window, in seconds.
+        """
         return pulumi.get(self, "backtrack_window")
 
     @_builtins.property
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> _builtins.int:
+        """
+        Days to retain backups for.
+        """
         return pulumi.get(self, "backup_retention_period")
 
     @_builtins.property
@@ -177,91 +189,145 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="clusterMembers")
     def cluster_members(self) -> Sequence[_builtins.str]:
+        """
+        List of RDS Instances that are a part of this cluster.
+        """
         return pulumi.get(self, "cluster_members")
 
     @_builtins.property
     @pulumi.getter(name="clusterResourceId")
     def cluster_resource_id(self) -> _builtins.str:
+        """
+        RDS Cluster Resource ID.
+        """
         return pulumi.get(self, "cluster_resource_id")
 
     @_builtins.property
     @pulumi.getter(name="clusterScalabilityType")
     def cluster_scalability_type(self) -> _builtins.str:
+        """
+        Scalability mode of the cluster.
+        """
         return pulumi.get(self, "cluster_scalability_type")
 
     @_builtins.property
     @pulumi.getter(name="databaseInsightsMode")
     def database_insights_mode(self) -> _builtins.str:
+        """
+        Mode of Database Insights that is enabled for the cluster.
+        """
         return pulumi.get(self, "database_insights_mode")
 
     @_builtins.property
     @pulumi.getter(name="databaseName")
     def database_name(self) -> _builtins.str:
+        """
+        Name for an automatically created database on cluster creation.
+        """
         return pulumi.get(self, "database_name")
 
     @_builtins.property
     @pulumi.getter(name="dbClusterParameterGroupName")
     def db_cluster_parameter_group_name(self) -> _builtins.str:
+        """
+        Cluster parameter group associated with the cluster.
+        """
         return pulumi.get(self, "db_cluster_parameter_group_name")
 
     @_builtins.property
     @pulumi.getter(name="dbSubnetGroupName")
     def db_subnet_group_name(self) -> _builtins.str:
+        """
+        DB subnet group associated with the cluster.
+        """
         return pulumi.get(self, "db_subnet_group_name")
 
     @_builtins.property
     @pulumi.getter(name="dbSystemId")
     def db_system_id(self) -> _builtins.str:
+        """
+        System ID of the cluster.
+        """
         return pulumi.get(self, "db_system_id")
 
     @_builtins.property
     @pulumi.getter(name="deletionProtection")
     def deletion_protection(self) -> _builtins.bool:
+        """
+        Whether the cluster has deletion protection enabled.
+        """
         return pulumi.get(self, "deletion_protection")
 
     @_builtins.property
     @pulumi.getter(name="enabledCloudwatchLogsExports")
     def enabled_cloudwatch_logs_exports(self) -> Sequence[_builtins.str]:
+        """
+        List of log types exported to CloudWatch Logs.
+        """
         return pulumi.get(self, "enabled_cloudwatch_logs_exports")
 
     @_builtins.property
     @pulumi.getter
     def endpoint(self) -> _builtins.str:
+        """
+        DNS address of the RDS instance.
+        """
         return pulumi.get(self, "endpoint")
 
     @_builtins.property
     @pulumi.getter
     def engine(self) -> _builtins.str:
+        """
+        Database engine.
+        """
         return pulumi.get(self, "engine")
 
     @_builtins.property
     @pulumi.getter(name="engineMode")
     def engine_mode(self) -> _builtins.str:
+        """
+        Database engine mode.
+        """
         return pulumi.get(self, "engine_mode")
 
     @_builtins.property
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> _builtins.str:
+        """
+        Database engine version.
+        """
         return pulumi.get(self, "engine_version")
 
     @_builtins.property
     @pulumi.getter(name="finalSnapshotIdentifier")
     def final_snapshot_identifier(self) -> _builtins.str:
+        """
+        Name of the final snapshot taken when the cluster is deleted.
+        """
         return pulumi.get(self, "final_snapshot_identifier")
 
     @_builtins.property
     @pulumi.getter(name="hostedZoneId")
     def hosted_zone_id(self) -> _builtins.str:
+        """
+        Route53 Hosted Zone ID of the endpoint.
+        """
         return pulumi.get(self, "hosted_zone_id")
 
     @_builtins.property
     @pulumi.getter(name="iamDatabaseAuthenticationEnabled")
     def iam_database_authentication_enabled(self) -> _builtins.bool:
+        """
+        Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+        """
         return pulumi.get(self, "iam_database_authentication_enabled")
 
     @_builtins.property
     @pulumi.getter(name="iamRoles")
     def iam_roles(self) -> Sequence[_builtins.str]:
+        """
+        IAM roles associated with the cluster.
+        """
         return pulumi.get(self, "iam_roles")
 
     @_builtins.property
@@ -275,51 +341,81 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
+        """
+        Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        """
         return pulumi.get(self, "kms_key_id")
 
     @_builtins.property
     @pulumi.getter(name="masterUserSecrets")
     def master_user_secrets(self) -> Sequence['outputs.GetClusterMasterUserSecretResult']:
+        """
+        Block that specifies the master user secret. Only available when `manage_master_user_password` is set to `true`. Documented below.
+        """
         return pulumi.get(self, "master_user_secrets")
 
     @_builtins.property
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> _builtins.str:
+        """
+        Master username for the database.
+        """
         return pulumi.get(self, "master_username")
 
     @_builtins.property
     @pulumi.getter(name="monitoringInterval")
     def monitoring_interval(self) -> _builtins.int:
+        """
+        Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+        """
         return pulumi.get(self, "monitoring_interval")
 
     @_builtins.property
     @pulumi.getter(name="monitoringRoleArn")
     def monitoring_role_arn(self) -> _builtins.str:
+        """
+        ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+        """
         return pulumi.get(self, "monitoring_role_arn")
 
     @_builtins.property
     @pulumi.getter(name="networkType")
     def network_type(self) -> _builtins.str:
+        """
+        Network type of the cluster.
+        """
         return pulumi.get(self, "network_type")
 
     @_builtins.property
     @pulumi.getter
     def port(self) -> _builtins.int:
+        """
+        Port on which the DB accepts connections.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> _builtins.str:
+        """
+        Daily time range during which automated backups are created.
+        """
         return pulumi.get(self, "preferred_backup_window")
 
     @_builtins.property
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> _builtins.str:
+        """
+        Weekly time range during which system maintenance can occur.
+        """
         return pulumi.get(self, "preferred_maintenance_window")
 
     @_builtins.property
     @pulumi.getter(name="readerEndpoint")
     def reader_endpoint(self) -> _builtins.str:
+        """
+        Read-only endpoint for the cluster, automatically load-balanced across replicas.
+        """
         return pulumi.get(self, "reader_endpoint")
 
     @_builtins.property
@@ -330,29 +426,41 @@ class GetClusterResult:
     @_builtins.property
     @pulumi.getter(name="replicationSourceIdentifier")
     def replication_source_identifier(self) -> _builtins.str:
+        """
+        ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+        """
         return pulumi.get(self, "replication_source_identifier")
 
     @_builtins.property
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> _builtins.bool:
+        """
+        Whether the DB cluster is encrypted.
+        """
         return pulumi.get(self, "storage_encrypted")
 
     @_builtins.property
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags assigned to the resource.
+        Map of tags assigned to the resource.
         """
         return pulumi.get(self, "tags")
 
     @_builtins.property
     @pulumi.getter(name="upgradeRolloutOrder")
     def upgrade_rollout_order(self) -> _builtins.str:
+        """
+        Order in which minor and major version upgrades are applied to the cluster.
+        """
         return pulumi.get(self, "upgrade_rollout_order")
 
     @_builtins.property
     @pulumi.getter(name="vpcSecurityGroupIds")
     def vpc_security_group_ids(self) -> Sequence[_builtins.str]:
+        """
+        VPC security groups the cluster belongs to.
+        """
         return pulumi.get(self, "vpc_security_group_ids")
 
 
@@ -423,7 +531,7 @@ def get_cluster(cluster_identifier: Optional[_builtins.str] = None,
 
     :param _builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier
@@ -492,7 +600,7 @@ def get_cluster_output(cluster_identifier: pulumi.Input[Optional[_builtins.str]]
 
     :param _builtins.str cluster_identifier: Cluster identifier of the RDS cluster.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags assigned to the resource.
+    :param Mapping[str, _builtins.str] tags: Map of tags assigned to the resource.
     """
     __args__ = dict()
     __args__['clusterIdentifier'] = cluster_identifier

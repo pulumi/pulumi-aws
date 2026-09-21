@@ -38,23 +38,6 @@ import (
 //			policy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("ExampleStatement01"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.String("*"),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("elasticfilesystem:ClientMount"),
-//							pulumi.String("elasticfilesystem:ClientWrite"),
-//						},
-//						Resources: pulumi.StringArray{
-//							fs.Arn,
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("Bool"),
@@ -63,6 +46,23 @@ import (
 //									pulumi.String("true"),
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Sid:    pulumi.String("ExampleStatement01"),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("elasticfilesystem:ClientMount"),
+//							pulumi.String("elasticfilesystem:ClientWrite"),
+//						},
+//						Resources: pulumi.StringArray{
+//							fs.Arn,
 //						},
 //					},
 //				},

@@ -2348,7 +2348,7 @@ class BotAbortStatementMessageArgs:
 class BotAliasConversationLogsArgsDict(TypedDict):
     iam_role_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+    ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
     """
     log_settings: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgsDict']]]]]
     """
@@ -2361,7 +2361,7 @@ class BotAliasConversationLogsArgs:
                  iam_role_arn: pulumi.Input[_builtins.str],
                  log_settings: pulumi.Input[Optional[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] iam_role_arn: The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+        :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         :param pulumi.Input[Sequence[pulumi.Input['BotAliasConversationLogsLogSettingArgs']]] log_settings: The settings for your conversation logs. You can log text, audio, or both. Attributes are documented under log_settings.
         """
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -2372,7 +2372,7 @@ class BotAliasConversationLogsArgs:
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+        ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -2404,11 +2404,11 @@ class BotAliasConversationLogsLogSettingArgsDict(TypedDict):
     """
     resource_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+    ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
     """
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+    ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
     """
     resource_prefix: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2426,8 +2426,8 @@ class BotAliasConversationLogsLogSettingArgs:
         """
         :param pulumi.Input[_builtins.str] destination: The destination where logs are delivered. Options are `CLOUDWATCH_LOGS` or `S3`.
         :param pulumi.Input[_builtins.str] log_type: The type of logging that is enabled. Options are `AUDIO` or `TEXT`.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         :param pulumi.Input[_builtins.str] resource_prefix: The prefix of the S3 object key for `AUDIO` logs or the log stream name for `TEXT` logs.
         """
         pulumi.set(__self__, "destination", destination)
@@ -2466,7 +2466,7 @@ class BotAliasConversationLogsLogSettingArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+        ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -2478,7 +2478,7 @@ class BotAliasConversationLogsLogSettingArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+        ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -2903,7 +2903,7 @@ class IntentDialogCodeHookArgsDict(TypedDict):
     """
     uri: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Lambda function.
+    ARN of the Lambda function.
     """
 
 @pulumi.input_type
@@ -2915,7 +2915,7 @@ class IntentDialogCodeHookArgs:
         :param pulumi.Input[_builtins.str] message_version: The version of the request-response that you want Amazon Lex to use
                to invoke your Lambda function. For more information, see
                [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
-        :param pulumi.Input[_builtins.str] uri: The Amazon Resource Name (ARN) of the Lambda function.
+        :param pulumi.Input[_builtins.str] uri: ARN of the Lambda function.
         """
         pulumi.set(__self__, "message_version", message_version)
         pulumi.set(__self__, "uri", uri)
@@ -2938,7 +2938,7 @@ class IntentDialogCodeHookArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Lambda function.
+        ARN of the Lambda function.
         """
         return pulumi.get(self, "uri")
 
@@ -3314,7 +3314,7 @@ class IntentFulfillmentActivityCodeHookArgsDict(TypedDict):
     """
     uri: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Lambda function.
+    ARN of the Lambda function.
     """
 
 @pulumi.input_type
@@ -3326,7 +3326,7 @@ class IntentFulfillmentActivityCodeHookArgs:
         :param pulumi.Input[_builtins.str] message_version: The version of the request-response that you want Amazon Lex to use
                to invoke your Lambda function. For more information, see
                [Using Lambda Functions](https://docs.aws.amazon.com/lex/latest/dg/using-lambda.html). Must be less than or equal to 5 characters in length.
-        :param pulumi.Input[_builtins.str] uri: The Amazon Resource Name (ARN) of the Lambda function.
+        :param pulumi.Input[_builtins.str] uri: ARN of the Lambda function.
         """
         pulumi.set(__self__, "message_version", message_version)
         pulumi.set(__self__, "uri", uri)
@@ -3349,7 +3349,7 @@ class IntentFulfillmentActivityCodeHookArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Lambda function.
+        ARN of the Lambda function.
         """
         return pulumi.get(self, "uri")
 

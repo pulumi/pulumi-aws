@@ -19,6 +19,36 @@ public final class AgentcoreHarnessModelOpenaiModelConfigArgs extends com.pulumi
     public static final AgentcoreHarnessModelOpenaiModelConfigArgs Empty = new AgentcoreHarnessModelOpenaiModelConfigArgs();
 
     /**
+     * JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+     * 
+     */
+    @Import(name="additionalParams")
+    private @Nullable Output<String> additionalParams;
+
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+     * 
+     */
+    public Optional<Output<String>> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
+
+    /**
+     * API format for the model. Valid values are `responses` and `chatCompletions`.
+     * 
+     */
+    @Import(name="apiFormat")
+    private @Nullable Output<String> apiFormat;
+
+    /**
+     * @return API format for the model. Valid values are `responses` and `chatCompletions`.
+     * 
+     */
+    public Optional<Output<String>> apiFormat() {
+        return Optional.ofNullable(this.apiFormat);
+    }
+
+    /**
      * ARN of the secret containing the API key.
      * 
      */
@@ -96,6 +126,8 @@ public final class AgentcoreHarnessModelOpenaiModelConfigArgs extends com.pulumi
     private AgentcoreHarnessModelOpenaiModelConfigArgs() {}
 
     private AgentcoreHarnessModelOpenaiModelConfigArgs(AgentcoreHarnessModelOpenaiModelConfigArgs $) {
+        this.additionalParams = $.additionalParams;
+        this.apiFormat = $.apiFormat;
         this.apiKeyArn = $.apiKeyArn;
         this.maxTokens = $.maxTokens;
         this.modelId = $.modelId;
@@ -119,6 +151,48 @@ public final class AgentcoreHarnessModelOpenaiModelConfigArgs extends com.pulumi
 
         public Builder(AgentcoreHarnessModelOpenaiModelConfigArgs defaults) {
             $ = new AgentcoreHarnessModelOpenaiModelConfigArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(@Nullable Output<String> additionalParams) {
+            $.additionalParams = additionalParams;
+            return this;
+        }
+
+        /**
+         * @param additionalParams JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalParams(String additionalParams) {
+            return additionalParams(Output.of(additionalParams));
+        }
+
+        /**
+         * @param apiFormat API format for the model. Valid values are `responses` and `chatCompletions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiFormat(@Nullable Output<String> apiFormat) {
+            $.apiFormat = apiFormat;
+            return this;
+        }
+
+        /**
+         * @param apiFormat API format for the model. Valid values are `responses` and `chatCompletions`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiFormat(String apiFormat) {
+            return apiFormat(Output.of(apiFormat));
         }
 
         /**

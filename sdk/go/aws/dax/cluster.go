@@ -72,7 +72,7 @@ type Cluster struct {
 	ConfigurationEndpoint pulumi.StringOutput `pulumi:"configurationEndpoint"`
 	// Description for the cluster
 	Description pulumi.StringPtrOutput `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
+	// Valid ARN that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
 	IamRoleArn pulumi.StringOutput `pulumi:"iamRoleArn"`
@@ -88,7 +88,7 @@ type Cluster struct {
 	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes ClusterNodeArrayOutput `pulumi:"nodes"`
-	// An Amazon Resource Name (ARN) of an
+	// ARN of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrOutput `pulumi:"notificationTopicArn"`
@@ -178,7 +178,7 @@ type clusterState struct {
 	ConfigurationEndpoint *string `pulumi:"configurationEndpoint"`
 	// Description for the cluster
 	Description *string `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
+	// Valid ARN that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
 	IamRoleArn *string `pulumi:"iamRoleArn"`
@@ -194,7 +194,7 @@ type clusterState struct {
 	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes []ClusterNode `pulumi:"nodes"`
-	// An Amazon Resource Name (ARN) of an
+	// ARN of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
@@ -243,7 +243,7 @@ type ClusterState struct {
 	ConfigurationEndpoint pulumi.StringPtrInput
 	// Description for the cluster
 	Description pulumi.StringPtrInput
-	// A valid Amazon Resource Name (ARN) that identifies
+	// Valid ARN that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
 	IamRoleArn pulumi.StringPtrInput
@@ -259,7 +259,7 @@ type ClusterState struct {
 	// `availabilityZone`. Referenceable e.g., as
 	// `${aws_dax_cluster.test.nodes.0.address}`
 	Nodes ClusterNodeArrayInput
-	// An Amazon Resource Name (ARN) of an
+	// ARN of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
@@ -305,7 +305,7 @@ type clusterArgs struct {
 	ClusterName string `pulumi:"clusterName"`
 	// Description for the cluster
 	Description *string `pulumi:"description"`
-	// A valid Amazon Resource Name (ARN) that identifies
+	// Valid ARN that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
 	IamRoleArn string `pulumi:"iamRoleArn"`
@@ -317,7 +317,7 @@ type clusterArgs struct {
 	// The compute and memory capacity of the nodes. See
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType string `pulumi:"nodeType"`
-	// An Amazon Resource Name (ARN) of an
+	// ARN of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn *string `pulumi:"notificationTopicArn"`
@@ -356,7 +356,7 @@ type ClusterArgs struct {
 	ClusterName pulumi.StringInput
 	// Description for the cluster
 	Description pulumi.StringPtrInput
-	// A valid Amazon Resource Name (ARN) that identifies
+	// Valid ARN that identifies
 	// an IAM role. At runtime, DAX will assume this role and use the role's
 	// permissions to access DynamoDB on your behalf
 	IamRoleArn pulumi.StringInput
@@ -368,7 +368,7 @@ type ClusterArgs struct {
 	// The compute and memory capacity of the nodes. See
 	// [Nodes](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DAX.concepts.cluster.html#DAX.concepts.nodes) for supported node types
 	NodeType pulumi.StringInput
-	// An Amazon Resource Name (ARN) of an
+	// ARN of an
 	// SNS topic to send DAX notifications to. Example:
 	// `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 	NotificationTopicArn pulumi.StringPtrInput
@@ -520,7 +520,7 @@ func (o ClusterOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
-// A valid Amazon Resource Name (ARN) that identifies
+// Valid ARN that identifies
 // an IAM role. At runtime, DAX will assume this role and use the role's
 // permissions to access DynamoDB on your behalf
 func (o ClusterOutput) IamRoleArn() pulumi.StringOutput {
@@ -548,7 +548,7 @@ func (o ClusterOutput) Nodes() ClusterNodeArrayOutput {
 	return o.ApplyT(func(v *Cluster) ClusterNodeArrayOutput { return v.Nodes }).(ClusterNodeArrayOutput)
 }
 
-// An Amazon Resource Name (ARN) of an
+// ARN of an
 // SNS topic to send DAX notifications to. Example:
 // `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
 func (o ClusterOutput) NotificationTopicArn() pulumi.StringPtrOutput {

@@ -72,11 +72,11 @@ export class SnapshotCopy extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     declare public /*out*/ readonly allocatedStorage: pulumi.Output<number>;
     /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
     declare public /*out*/ readonly availabilityZone: pulumi.Output<string>;
     /**
@@ -84,27 +84,27 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     declare public readonly copyTags: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      */
     declare public /*out*/ readonly dbSnapshotArn: pulumi.Output<string>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      */
     declare public readonly destinationRegion: pulumi.Output<string | undefined>;
     /**
-     * Specifies whether the DB snapshot is encrypted.
+     * Whether the DB snapshot is encrypted.
      */
     declare public /*out*/ readonly encrypted: pulumi.Output<boolean>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     declare public /*out*/ readonly engine: pulumi.Output<string>;
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      */
     declare public /*out*/ readonly engineVersion: pulumi.Output<string>;
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
     declare public /*out*/ readonly iops: pulumi.Output<number>;
     /**
@@ -116,12 +116,15 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly licenseModel: pulumi.Output<string>;
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      */
     declare public readonly optionGroupName: pulumi.Output<string>;
+    /**
+     * Port that the database engine is listening on.
+     */
     declare public /*out*/ readonly port: pulumi.Output<number>;
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      */
     declare public readonly presignedUrl: pulumi.Output<string | undefined>;
     /**
@@ -132,17 +135,20 @@ export class SnapshotCopy extends pulumi.CustomResource {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     declare public readonly sharedAccounts: pulumi.Output<string[] | undefined>;
+    /**
+     * Type of the DB snapshot.
+     */
     declare public /*out*/ readonly snapshotType: pulumi.Output<string>;
     /**
      * Snapshot identifier of the source snapshot.
      */
     declare public readonly sourceDbSnapshotIdentifier: pulumi.Output<string>;
     /**
-     * The region that the DB snapshot was created in or copied from.
+     * Region that the DB snapshot was created in or copied from.
      */
     declare public /*out*/ readonly sourceRegion: pulumi.Output<string>;
     /**
-     * Specifies the storage type associated with DB snapshot.
+     * Storage type associated with DB snapshot.
      */
     declare public /*out*/ readonly storageType: pulumi.Output<string>;
     /**
@@ -150,15 +156,15 @@ export class SnapshotCopy extends pulumi.CustomResource {
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      */
     declare public readonly targetCustomAvailabilityZone: pulumi.Output<string | undefined>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     declare public readonly targetDbSnapshotIdentifier: pulumi.Output<string>;
     /**
@@ -248,11 +254,11 @@ export class SnapshotCopy extends pulumi.CustomResource {
  */
 export interface SnapshotCopyState {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      */
     allocatedStorage?: pulumi.Input<number | undefined>;
     /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      */
     availabilityZone?: pulumi.Input<string | undefined>;
     /**
@@ -260,27 +266,27 @@ export interface SnapshotCopyState {
      */
     copyTags?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      */
     dbSnapshotArn?: pulumi.Input<string | undefined>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      */
     destinationRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies whether the DB snapshot is encrypted.
+     * Whether the DB snapshot is encrypted.
      */
     encrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      */
     engine?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      */
     engineVersion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      */
     iops?: pulumi.Input<number | undefined>;
     /**
@@ -292,12 +298,15 @@ export interface SnapshotCopyState {
      */
     licenseModel?: pulumi.Input<string | undefined>;
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      */
     optionGroupName?: pulumi.Input<string | undefined>;
+    /**
+     * Port that the database engine is listening on.
+     */
     port?: pulumi.Input<number | undefined>;
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string | undefined>;
     /**
@@ -308,17 +317,20 @@ export interface SnapshotCopyState {
      * List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
      */
     sharedAccounts?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    /**
+     * Type of the DB snapshot.
+     */
     snapshotType?: pulumi.Input<string | undefined>;
     /**
      * Snapshot identifier of the source snapshot.
      */
     sourceDbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The region that the DB snapshot was created in or copied from.
+     * Region that the DB snapshot was created in or copied from.
      */
     sourceRegion?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the storage type associated with DB snapshot.
+     * Storage type associated with DB snapshot.
      */
     storageType?: pulumi.Input<string | undefined>;
     /**
@@ -326,15 +338,15 @@ export interface SnapshotCopyState {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      */
     targetCustomAvailabilityZone?: pulumi.Input<string | undefined>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     targetDbSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -352,7 +364,7 @@ export interface SnapshotCopyArgs {
      */
     copyTags?: pulumi.Input<boolean | undefined>;
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      */
     destinationRegion?: pulumi.Input<string | undefined>;
     /**
@@ -360,11 +372,11 @@ export interface SnapshotCopyArgs {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      */
     optionGroupName?: pulumi.Input<string | undefined>;
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      */
     presignedUrl?: pulumi.Input<string | undefined>;
     /**
@@ -384,11 +396,11 @@ export interface SnapshotCopyArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      */
     targetCustomAvailabilityZone?: pulumi.Input<string | undefined>;
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      */
     targetDbSnapshotIdentifier: pulumi.Input<string>;
 }

@@ -88,9 +88,6 @@ import (
 //			instanceAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -98,6 +95,9 @@ import (
 //									"ec2.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -171,8 +171,6 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("yak_role"),
-//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("my_inline_policy"),
@@ -183,6 +181,8 @@ import (
 //						Policy: pulumi.String(inlinePolicy.Json),
 //					},
 //				},
+//				Name:             pulumi.String("yak_role"),
+//				AssumeRolePolicy: pulumi.Any(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -364,7 +364,7 @@ import (
 type Role struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
 	//
@@ -433,7 +433,7 @@ func GetRole(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Role resources.
 type roleState struct {
-	// Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn *string `pulumi:"arn"`
 	// Policy that grants an entity permission to assume the role.
 	//
@@ -470,7 +470,7 @@ type roleState struct {
 }
 
 type RoleState struct {
-	// Amazon Resource Name (ARN) specifying the role.
+	// ARN specifying the role.
 	Arn pulumi.StringPtrInput
 	// Policy that grants an entity permission to assume the role.
 	//
@@ -656,7 +656,7 @@ func (o RoleOutput) ToRoleOutputWithContext(ctx context.Context) RoleOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) specifying the role.
+// ARN specifying the role.
 func (o RoleOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Role) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

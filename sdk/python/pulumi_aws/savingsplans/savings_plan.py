@@ -34,9 +34,9 @@ class SavingsPlanArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] savings_plan_offering_id: The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
-        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount.
+        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         pulumi.set(__self__, "commitment", commitment)
         pulumi.set(__self__, "savings_plan_offering_id", savings_plan_offering_id)
@@ -79,7 +79,7 @@ class SavingsPlanArgs:
     @pulumi.getter(name="purchaseTime")
     def purchase_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         """
         return pulumi.get(self, "purchase_time")
 
@@ -112,7 +112,7 @@ class SavingsPlanArgs:
     @pulumi.getter(name="upfrontPaymentAmount")
     def upfront_payment_amount(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The up-front payment amount.
+        The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         return pulumi.get(self, "upfront_payment_amount")
 
@@ -160,7 +160,7 @@ class _SavingsPlanState:
         :param pulumi.Input[_builtins.str] offering_id: The ID of the offering.
         :param pulumi.Input[_builtins.str] payment_option: The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_types: The product types.
-        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         :param pulumi.Input[_builtins.str] recurring_payment_amount: The recurring payment amount.
         :param pulumi.Input[_builtins.str] region: The AWS Region.
         :param pulumi.Input[_builtins.str] returnable_until: The recurring payment amount.
@@ -173,7 +173,7 @@ class _SavingsPlanState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] term_duration_in_seconds: The duration of the term, in seconds.
-        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount.
+        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         if commitment is not None:
             pulumi.set(__self__, "commitment", commitment)
@@ -328,7 +328,7 @@ class _SavingsPlanState:
     @pulumi.getter(name="purchaseTime")
     def purchase_time(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         """
         return pulumi.get(self, "purchase_time")
 
@@ -493,7 +493,7 @@ class _SavingsPlanState:
     @pulumi.getter(name="upfrontPaymentAmount")
     def upfront_payment_amount(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The up-front payment amount.
+        The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         return pulumi.get(self, "upfront_payment_amount")
 
@@ -518,9 +518,9 @@ class SavingsPlan(pulumi.CustomResource):
         """
         Provides an AWS Savings Plan resource.
 
-        > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+        > Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
 
-        > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+        > Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
 
         ## Example Usage
 
@@ -569,10 +569,10 @@ class SavingsPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] commitment: The hourly commitment, in USD. This is the amount you commit to pay per hour, regardless of actual usage.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         :param pulumi.Input[_builtins.str] savings_plan_offering_id: The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount.
+        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         ...
     @overload
@@ -583,9 +583,9 @@ class SavingsPlan(pulumi.CustomResource):
         """
         Provides an AWS Savings Plan resource.
 
-        > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+        > Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
 
-        > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+        > Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
 
         ## Example Usage
 
@@ -736,7 +736,7 @@ class SavingsPlan(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] offering_id: The ID of the offering.
         :param pulumi.Input[_builtins.str] payment_option: The payment option for the Savings Plan (e.g., `All Upfront`, `Partial Upfront`, `No Upfront`).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] product_types: The product types.
-        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        :param pulumi.Input[_builtins.str] purchase_time: The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         :param pulumi.Input[_builtins.str] recurring_payment_amount: The recurring payment amount.
         :param pulumi.Input[_builtins.str] region: The AWS Region.
         :param pulumi.Input[_builtins.str] returnable_until: The recurring payment amount.
@@ -749,7 +749,7 @@ class SavingsPlan(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] term_duration_in_seconds: The duration of the term, in seconds.
-        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount.
+        :param pulumi.Input[_builtins.str] upfront_payment_amount: The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -849,9 +849,9 @@ class SavingsPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="purchaseTime")
-    def purchase_time(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def purchase_time(self) -> pulumi.Output[_builtins.str]:
         """
-        The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+        The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
         """
         return pulumi.get(self, "purchase_time")
 
@@ -958,9 +958,9 @@ class SavingsPlan(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter(name="upfrontPaymentAmount")
-    def upfront_payment_amount(self) -> pulumi.Output[Optional[_builtins.str]]:
+    def upfront_payment_amount(self) -> pulumi.Output[_builtins.str]:
         """
-        The up-front payment amount.
+        The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         """
         return pulumi.get(self, "upfront_payment_amount")
 

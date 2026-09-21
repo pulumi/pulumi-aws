@@ -28,7 +28,7 @@ def arn_build(partition: Optional[_builtins.str] = None,
     """
     Builds an ARN from its constituent parts.
 
-    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 
     ## Signature
 
@@ -58,7 +58,7 @@ def arn_build_output(partition: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Builds an ARN from its constituent parts.
 
-    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 
     ## Signature
 

@@ -74,11 +74,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("s3.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -134,10 +134,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var destinationBucketVersioning = new BucketVersioning("destinationBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(destination.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(destination.id())
  *             .build());
  * 
  *         var sourceBucketAcl = new BucketAcl("sourceBucketAcl", BucketAclArgs.builder()
@@ -146,26 +146,26 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sourceBucketVersioning = new BucketVersioning("sourceBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(source.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(source.id())
  *             .build());
  * 
  *         var replicationBucketReplicationConfig = new BucketReplicationConfig("replicationBucketReplicationConfig", BucketReplicationConfigArgs.builder()
- *             .role(replicationRole.arn())
- *             .bucket(source.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id("examplerule")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
  *                     .prefix("example")
  *                     .build())
- *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(destination.arn())
  *                     .storageClass("STANDARD")
  *                     .build())
+ *                 .id("examplerule")
+ *                 .status("Enabled")
  *                 .build())
+ *             .role(replicationRole.arn())
+ *             .bucket(source.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(sourceBucketVersioning)
  *                 .build());
@@ -222,11 +222,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("s3.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -283,10 +283,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var destinationBucketVersioning = new BucketVersioning("destinationBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(destination.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(destination.id())
  *             .build());
  * 
  *         var sourceBucketAcl = new BucketAcl("sourceBucketAcl", BucketAclArgs.builder()
@@ -296,28 +296,28 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sourceBucketVersioning = new BucketVersioning("sourceBucketVersioning", BucketVersioningArgs.builder()
- *             .region("eu-central-1")
- *             .bucket(source.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .region("eu-central-1")
+ *             .bucket(source.id())
  *             .build());
  * 
  *         var replicationBucketReplicationConfig = new BucketReplicationConfig("replicationBucketReplicationConfig", BucketReplicationConfigArgs.builder()
- *             .region("eu-central-1")
- *             .role(replicationRole.arn())
- *             .bucket(source.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id("examplerule")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
  *                     .prefix("example")
  *                     .build())
- *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(destination.arn())
  *                     .storageClass("STANDARD")
  *                     .build())
+ *                 .id("examplerule")
+ *                 .status("Enabled")
  *                 .build())
+ *             .region("eu-central-1")
+ *             .role(replicationRole.arn())
+ *             .bucket(source.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(sourceBucketVersioning)
  *                 .build());
@@ -366,10 +366,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var eastBucketVersioning = new BucketVersioning("eastBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(east.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(east.id())
  *             .build());
  * 
  *         var west = new Bucket("west", BucketArgs.builder()
@@ -377,44 +377,44 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var westBucketVersioning = new BucketVersioning("westBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(west.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(west.id())
  *             .build());
  * 
  *         var eastToWest = new BucketReplicationConfig("eastToWest", BucketReplicationConfigArgs.builder()
- *             .role(eastReplication.arn())
- *             .bucket(east.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id("foobar")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
  *                     .prefix("foo")
  *                     .build())
- *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(west.arn())
  *                     .storageClass("STANDARD")
  *                     .build())
+ *                 .id("foobar")
+ *                 .status("Enabled")
  *                 .build())
+ *             .role(eastReplication.arn())
+ *             .bucket(east.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(eastBucketVersioning)
  *                 .build());
  * 
  *         var westToEast = new BucketReplicationConfig("westToEast", BucketReplicationConfigArgs.builder()
- *             .role(westReplication.arn())
- *             .bucket(west.id())
  *             .rules(BucketReplicationConfigRuleArgs.builder()
- *                 .id("foobar")
  *                 .filter(BucketReplicationConfigRuleFilterArgs.builder()
  *                     .prefix("foo")
  *                     .build())
- *                 .status("Enabled")
  *                 .destination(BucketReplicationConfigRuleDestinationArgs.builder()
  *                     .bucket(east.arn())
  *                     .storageClass("STANDARD")
  *                     .build())
+ *                 .id("foobar")
+ *                 .status("Enabled")
  *                 .build())
+ *             .role(westReplication.arn())
+ *             .bucket(west.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(westBucketVersioning)
  *                 .build());

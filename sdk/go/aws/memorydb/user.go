@@ -39,14 +39,14 @@ import (
 //				return err
 //			}
 //			_, err = memorydb.NewUser(ctx, "example", &memorydb.UserArgs{
-//				UserName:     pulumi.String("my-user"),
-//				AccessString: pulumi.String("on ~* &* +@all"),
 //				AuthenticationMode: &memorydb.UserAuthenticationModeArgs{
 //					Type: pulumi.String("password"),
 //					Passwords: pulumi.StringArray{
 //						example.Result,
 //					},
 //				},
+//				UserName:     pulumi.String("my-user"),
+//				AccessString: pulumi.String("on ~* &* +@all"),
 //			})
 //			if err != nil {
 //				return err

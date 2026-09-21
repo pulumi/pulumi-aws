@@ -52,13 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var ec2 = new Budget("ec2", BudgetArgs.builder()
- *             .name("budget-ec2-monthly")
- *             .budgetType("COST")
- *             .limitAmount("1200")
- *             .limitUnit("USD")
- *             .timePeriodEnd("2087-06-15_00:00")
- *             .timePeriodStart("2017-07-01_00:00")
- *             .timeUnit("MONTHLY")
  *             .costFilters(BudgetCostFilterArgs.builder()
  *                 .name("Service")
  *                 .values("Amazon Elastic Compute Cloud - Compute")
@@ -70,6 +63,13 @@ import javax.annotation.Nullable;
  *                 .notificationType("FORECASTED")
  *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")
  *                 .build())
+ *             .name("budget-ec2-monthly")
+ *             .budgetType("COST")
+ *             .limitAmount("1200")
+ *             .limitUnit("USD")
+ *             .timePeriodEnd("2087-06-15_00:00")
+ *             .timePeriodStart("2017-07-01_00:00")
+ *             .timeUnit("MONTHLY")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -221,9 +221,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var savingsPlanUtilization = new Budget("savingsPlanUtilization", BudgetArgs.builder()
- *             .budgetType("SAVINGS_PLANS_UTILIZATION")
- *             .limitAmount("100.0")
- *             .limitUnit("PERCENTAGE")
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -236,6 +233,9 @@ import javax.annotation.Nullable;
  *                 .includeUpfront(false)
  *                 .useBlended(false)
  *                 .build())
+ *             .budgetType("SAVINGS_PLANS_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
  *             .build());
  * 
  *     }
@@ -270,9 +270,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var riUtilization = new Budget("riUtilization", BudgetArgs.builder()
- *             .budgetType("RI_UTILIZATION")
- *             .limitAmount("100.0")
- *             .limitUnit("PERCENTAGE")
  *             .costTypes(BudgetCostTypesArgs.builder()
  *                 .includeCredit(false)
  *                 .includeDiscount(false)
@@ -289,6 +286,9 @@ import javax.annotation.Nullable;
  *                 .name("Service")
  *                 .values("Amazon Relational Database Service")
  *                 .build())
+ *             .budgetType("RI_UTILIZATION")
+ *             .limitAmount("100.0")
+ *             .limitUnit("PERCENTAGE")
  *             .build());
  * 
  *     }
@@ -399,18 +399,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var simple = new Budget("simple", BudgetArgs.builder()
- *             .name("budget-ec2-filter")
- *             .budgetType("COST")
- *             .limitAmount("500")
- *             .limitUnit("USD")
- *             .timeUnit("MONTHLY")
- *             .metrics("UnblendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .dimensions(BudgetFilterExpressionDimensionsArgs.builder()
  *                     .key("SERVICE")
  *                     .values("Amazon Elastic Compute Cloud - Compute")
  *                     .build())
  *                 .build())
+ *             .name("budget-ec2-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("500")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .metrics("UnblendedCost")
  *             .build());
  * 
  *     }
@@ -447,12 +447,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var andExample = new Budget("andExample", BudgetArgs.builder()
- *             .name("budget-and-filter")
- *             .budgetType("COST")
- *             .limitAmount("1200")
- *             .limitUnit("USD")
- *             .timeUnit("MONTHLY")
- *             .metrics("BlendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ands(                
  *                     BudgetFilterExpressionAndArgs.builder()
@@ -468,6 +462,12 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                 .build())
+ *             .name("budget-and-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1200")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .metrics("BlendedCost")
  *             .build());
  * 
  *     }
@@ -503,12 +503,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var orExample = new Budget("orExample", BudgetArgs.builder()
- *             .name("budget-or-filter")
- *             .budgetType("COST")
- *             .limitAmount("2000")
- *             .limitUnit("USD")
- *             .timeUnit("MONTHLY")
- *             .metrics("AmortizedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ors(                
  *                     BudgetFilterExpressionOrArgs.builder()
@@ -524,6 +518,12 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                 .build())
+ *             .name("budget-or-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("2000")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .metrics("AmortizedCost")
  *             .build());
  * 
  *     }
@@ -559,12 +559,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var notExample = new Budget("notExample", BudgetArgs.builder()
- *             .name("budget-not-filter")
- *             .budgetType("COST")
- *             .limitAmount("1000")
- *             .limitUnit("USD")
- *             .timeUnit("MONTHLY")
- *             .metrics("NetUnblendedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .not(BudgetFilterExpressionNotArgs.builder()
  *                     .dimensions(BudgetFilterExpressionNotDimensionsArgs.builder()
@@ -573,6 +567,12 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("budget-not-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1000")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .metrics("NetUnblendedCost")
  *             .build());
  * 
  *     }
@@ -614,12 +614,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var compoundExample = new Budget("compoundExample", BudgetArgs.builder()
- *             .name("budget-compound-filter")
- *             .budgetType("COST")
- *             .limitAmount("1500")
- *             .limitUnit("USD")
- *             .timeUnit("MONTHLY")
- *             .metrics("NetAmortizedCost")
  *             .filterExpression(BudgetFilterExpressionArgs.builder()
  *                 .ors(                
  *                     BudgetFilterExpressionOrArgs.builder()
@@ -659,6 +653,12 @@ import javax.annotation.Nullable;
  *                 .notificationType("FORECASTED")
  *                 .subscriberEmailAddresses("test}{@literal @}{@code example.com")
  *                 .build())
+ *             .name("budget-compound-filter")
+ *             .budgetType("COST")
+ *             .limitAmount("1500")
+ *             .limitUnit("USD")
+ *             .timeUnit("MONTHLY")
+ *             .metrics("NetAmortizedCost")
  *             .build());
  * 
  *     }}{@code

@@ -61,10 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "test", &fsx.OntapStorageVirtualMachineArgs{
-//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
-//				Name:         pulumi.String("mysvm"),
 //				ActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationArgs{
-//					NetbiosName: pulumi.String("mysvm"),
 //					SelfManagedActiveDirectoryConfiguration: &fsx.OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs{
 //						DnsIps: pulumi.StringArray{
 //							pulumi.String("10.0.0.111"),
@@ -74,7 +71,10 @@ import (
 //						Password:   pulumi.String("avoid-plaintext-passwords"),
 //						Username:   pulumi.String("Admin"),
 //					},
+//					NetbiosName: pulumi.String("mysvm"),
 //				},
+//				FileSystemId: pulumi.Any(testAwsFsxOntapFileSystem.Id),
+//				Name:         pulumi.String("mysvm"),
 //			})
 //			if err != nil {
 //				return err
@@ -109,7 +109,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapStorageVirtualMachine(ctx, "example", &fsx.OntapStorageVirtualMachineArgs{
 //				SvmAdminPassword: pulumi.String("avoid-plaintext-passwords"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"svmAdminPassword",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -123,7 +125,7 @@ type OntapStorageVirtualMachine struct {
 
 	// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
 	ActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput `pulumi:"activeDirectoryConfiguration"`
-	// Amazon Resource Name of the storage virtual machine.
+	// ARN of the storage virtual machine.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapStorageVirtualMachineEndpointArrayOutput `pulumi:"endpoints"`
@@ -189,7 +191,7 @@ func GetOntapStorageVirtualMachine(ctx *pulumi.Context,
 type ontapStorageVirtualMachineState struct {
 	// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
 	ActiveDirectoryConfiguration *OntapStorageVirtualMachineActiveDirectoryConfiguration `pulumi:"activeDirectoryConfiguration"`
-	// Amazon Resource Name of the storage virtual machine.
+	// ARN of the storage virtual machine.
 	Arn *string `pulumi:"arn"`
 	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints []OntapStorageVirtualMachineEndpoint `pulumi:"endpoints"`
@@ -216,7 +218,7 @@ type ontapStorageVirtualMachineState struct {
 type OntapStorageVirtualMachineState struct {
 	// Configuration block that Amazon FSx uses to join the FSx ONTAP Storage Virtual Machine(SVM) to your Microsoft Active Directory (AD) directory. Detailed below.
 	ActiveDirectoryConfiguration OntapStorageVirtualMachineActiveDirectoryConfigurationPtrInput
-	// Amazon Resource Name of the storage virtual machine.
+	// ARN of the storage virtual machine.
 	Arn pulumi.StringPtrInput
 	// Endpoints that are used to access data or to manage the storage virtual machine using the NetApp ONTAP CLI, REST API, or NetApp SnapMirror. See `endpoints` below.
 	Endpoints OntapStorageVirtualMachineEndpointArrayInput
@@ -373,7 +375,7 @@ func (o OntapStorageVirtualMachineOutput) ActiveDirectoryConfiguration() OntapSt
 	}).(OntapStorageVirtualMachineActiveDirectoryConfigurationPtrOutput)
 }
 
-// Amazon Resource Name of the storage virtual machine.
+// ARN of the storage virtual machine.
 func (o OntapStorageVirtualMachineOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapStorageVirtualMachine) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

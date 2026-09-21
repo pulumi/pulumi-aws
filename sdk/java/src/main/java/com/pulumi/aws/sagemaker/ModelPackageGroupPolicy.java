@@ -62,15 +62,15 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers(current.accountId())
+ *                     .type("AWS")
+ *                     .build())
  *                 .sid("AddPermModelPackageGroup")
  *                 .actions(                
  *                     "sagemaker:DescribeModelPackage",
  *                     "sagemaker:ListModelPackages")
  *                 .resources(exampleModelPackageGroup.arn())
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers(current.accountId())
- *                     .type("AWS")
- *                     .build())
  *                 .build())
  *             .build());
  * 

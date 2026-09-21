@@ -71,7 +71,7 @@ namespace Pulumi.Aws.DataExchange
         public Output<Outputs.EventActionAction> Action { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the event action.
+        /// ARN of the event action.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.DataExchange
         public Input<Inputs.EventActionActionGetArgs>? Action { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the event action.
+        /// ARN of the event action.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

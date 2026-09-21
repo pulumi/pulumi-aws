@@ -231,8 +231,6 @@ class DirectoryConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.DirectoryConfig("example",
-            directory_name="NAME OF DIRECTORY",
-            organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
             service_account_credentials={
                 "account_name": "NAME OF ACCOUNT",
                 "account_password": "PASSWORD OF ACCOUNT",
@@ -240,7 +238,9 @@ class DirectoryConfig(pulumi.CustomResource):
             certificate_based_auth_properties={
                 "certificate_authority_arn": "ARN OF CERTIFICATE AUTHORITY",
                 "status": "STATUS OF CERTIFICATE BASED AUTHENTICATION",
-            })
+            },
+            directory_name="NAME OF DIRECTORY",
+            organizational_unit_distinguished_names=["DISTINGUISHED NAME"])
         ```
 
         ## Import
@@ -276,8 +276,6 @@ class DirectoryConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appstream.DirectoryConfig("example",
-            directory_name="NAME OF DIRECTORY",
-            organizational_unit_distinguished_names=["DISTINGUISHED NAME"],
             service_account_credentials={
                 "account_name": "NAME OF ACCOUNT",
                 "account_password": "PASSWORD OF ACCOUNT",
@@ -285,7 +283,9 @@ class DirectoryConfig(pulumi.CustomResource):
             certificate_based_auth_properties={
                 "certificate_authority_arn": "ARN OF CERTIFICATE AUTHORITY",
                 "status": "STATUS OF CERTIFICATE BASED AUTHENTICATION",
-            })
+            },
+            directory_name="NAME OF DIRECTORY",
+            organizational_unit_distinguished_names=["DISTINGUISHED NAME"])
         ```
 
         ## Import

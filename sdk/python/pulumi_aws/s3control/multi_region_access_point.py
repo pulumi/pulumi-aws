@@ -90,7 +90,7 @@ class _MultiRegionAccessPointState:
 
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias for the Multi-Region Access Point.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Multi-Region Access Point.
         :param pulumi.Input['MultiRegionAccessPointDetailsArgs'] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         :param pulumi.Input[_builtins.str] domain_name: DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
@@ -142,7 +142,7 @@ class _MultiRegionAccessPointState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        ARN of the Multi-Region Access Point.
         """
         return pulumi.get(self, "arn")
 
@@ -239,7 +239,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         bar_bucket = aws.s3.Bucket("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": foo_bucket.id,
@@ -248,6 +247,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                     "bucket": bar_bucket.id,
                 },
             ],
+            "name": "example",
         })
         ```
 
@@ -301,7 +301,6 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         foo_bucket = aws.s3.Bucket("foo_bucket", bucket="example-bucket-foo")
         bar_bucket = aws.s3.Bucket("bar_bucket", bucket="example-bucket-bar")
         example = aws.s3control.MultiRegionAccessPoint("example", details={
-            "name": "example",
             "regions": [
                 {
                     "bucket": foo_bucket.id,
@@ -310,6 +309,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
                     "bucket": bar_bucket.id,
                 },
             ],
+            "name": "example",
         })
         ```
 
@@ -397,7 +397,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the owner of the buckets for which you want to create a Multi-Region Access Point. Defaults to automatically determined account ID of the AWS provider.
         :param pulumi.Input[_builtins.str] alias: Alias for the Multi-Region Access Point.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Multi-Region Access Point.
         :param pulumi.Input[Union['MultiRegionAccessPointDetailsArgs', 'MultiRegionAccessPointDetailsArgsDict']] details: Configuration block containing details about the Multi-Region Access Point. See `details` Block below.
         :param pulumi.Input[_builtins.str] domain_name: DNS domain name of the S3 Multi-Region Access Point in the format _`alias`_.accesspoint.s3-global.amazonaws.com. For more information, see the documentation on [Multi-Region Access Point Requests](https://docs.aws.amazon.com/AmazonS3/latest/userguide/MultiRegionAccessPointRequests.html).
         :param pulumi.Input[_builtins.str] name: Name of the Multi-Region Access Point.
@@ -438,7 +438,7 @@ class MultiRegionAccessPoint(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        ARN of the Multi-Region Access Point.
         """
         return pulumi.get(self, "arn")
 

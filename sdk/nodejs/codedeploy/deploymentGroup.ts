@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codedeploy.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -39,9 +39,14 @@ import * as utilities from "../utilities";
  * const exampleApplication = new aws.codedeploy.Application("example", {name: "example-app"});
  * const exampleTopic = new aws.sns.Topic("example", {name: "example-topic"});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     appName: exampleApplication.name,
- *     deploymentGroupName: "example-group",
- *     serviceRoleArn: example.arn,
+ *     autoRollbackConfiguration: {
+ *         enabled: true,
+ *         events: ["DEPLOYMENT_FAILURE"],
+ *     },
+ *     alarmConfiguration: {
+ *         alarms: ["my-alarm-name"],
+ *         enabled: true,
+ *     },
  *     ec2TagSets: [{
  *         ec2TagFilters: [
  *             {
@@ -61,14 +66,9 @@ import * as utilities from "../utilities";
  *         triggerName: "example-trigger",
  *         triggerTargetArn: exampleTopic.arn,
  *     }],
- *     autoRollbackConfiguration: {
- *         enabled: true,
- *         events: ["DEPLOYMENT_FAILURE"],
- *     },
- *     alarmConfiguration: {
- *         alarms: ["my-alarm-name"],
- *         enabled: true,
- *     },
+ *     appName: exampleApplication.name,
+ *     deploymentGroupName: "example-group",
+ *     serviceRoleArn: example.arn,
  *     outdatedInstancesStrategy: "UPDATE",
  * });
  * ```
@@ -84,10 +84,6 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     appName: example.name,
- *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
- *     deploymentGroupName: "example",
- *     serviceRoleArn: exampleAwsIamRole.arn,
  *     autoRollbackConfiguration: {
  *         enabled: true,
  *         events: ["DEPLOYMENT_FAILURE"],
@@ -124,6 +120,10 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     appName: example.name,
+ *     deploymentConfigName: "CodeDeployDefault.ECSAllAtOnce",
+ *     deploymentGroupName: "example",
+ *     serviceRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -135,9 +135,6 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.codedeploy.Application("example", {name: "example-app"});
  * const exampleDeploymentGroup = new aws.codedeploy.DeploymentGroup("example", {
- *     appName: example.name,
- *     deploymentGroupName: "example-group",
- *     serviceRoleArn: exampleAwsIamRole.arn,
  *     deploymentStyle: {
  *         deploymentOption: "WITH_TRAFFIC_CONTROL",
  *         deploymentType: "BLUE_GREEN",
@@ -159,6 +156,9 @@ import * as utilities from "../utilities";
  *             action: "KEEP_ALIVE",
  *         },
  *     },
+ *     appName: example.name,
+ *     deploymentGroupName: "example-group",
+ *     serviceRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

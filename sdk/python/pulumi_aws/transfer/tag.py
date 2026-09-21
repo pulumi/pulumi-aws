@@ -27,7 +27,7 @@ class TagArgs:
         The set of arguments for constructing a Tag resource.
 
         :param pulumi.Input[_builtins.str] key: Tag name.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Transfer Family resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -53,7 +53,7 @@ class TagArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        ARN of the Transfer Family resource to tag.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -98,7 +98,7 @@ class _TagState:
 
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Transfer Family resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         if key is not None:
@@ -138,7 +138,7 @@ class _TagState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        ARN of the Transfer Family resource to tag.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -207,7 +207,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Transfer Family resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         ...
@@ -310,7 +310,7 @@ class Tag(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] key: Tag name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the Transfer Family resource to tag.
         :param pulumi.Input[_builtins.str] value: Tag value.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -343,7 +343,7 @@ class Tag(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+        ARN of the Transfer Family resource to tag.
         """
         return pulumi.get(self, "resource_arn")
 

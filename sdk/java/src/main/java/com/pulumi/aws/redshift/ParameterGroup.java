@@ -46,8 +46,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new ParameterGroup("bar", ParameterGroupArgs.builder()
- *             .name("parameter-group-test")
- *             .family("redshift-1.0")
  *             .parameters(            
  *                 ParameterGroupParameterArgs.builder()
  *                     .name("require_ssl")
@@ -61,6 +59,8 @@ import javax.annotation.Nullable;
  *                     .name("enable_user_activity_logging")
  *                     .value("true")
  *                     .build())
+ *             .name("parameter-group-test")
+ *             .family("redshift-1.0")
  *             .build());
  * 
  *     }
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of parameter group
+     * @return ARN of parameter group
      * 
      */
     public Output<String> arn() {

@@ -52,14 +52,14 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) the excluded resource.
+     * ARN the excluded resource.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) the excluded resource.
+     * @return ARN the excluded resource.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -211,7 +211,7 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) the excluded resource.
+         * @param resourceArn ARN the excluded resource.
          * 
          * @return builder
          * 
@@ -222,7 +222,7 @@ public final class VpcBlockPublicAccessExclusionState extends com.pulumi.resourc
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) the excluded resource.
+         * @param resourceArn ARN the excluded resource.
          * 
          * @return builder
          * 

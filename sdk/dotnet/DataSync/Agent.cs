@@ -90,9 +90,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
+    /// - `Arn` (String) ARN of the DataSync agent.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.DataSync
         public Output<string> ActivationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Agent.
+        /// ARN of the DataSync Agent.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableArray<string>> SecurityGroupArns { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        /// ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         [Output("subnetArns")]
         public Output<ImmutableArray<string>> SubnetArns { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        /// ID of the VPC endpoint that the agent has access to.
         /// </summary>
         [Output("vpcEndpointId")]
         public Output<string?> VpcEndpointId { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _subnetArns;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        /// ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         public InputList<string> SubnetArns
         {
@@ -280,7 +280,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        /// ID of the VPC endpoint that the agent has access to.
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }
@@ -300,7 +300,7 @@ namespace Pulumi.Aws.DataSync
         public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Agent.
+        /// ARN of the DataSync Agent.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -345,7 +345,7 @@ namespace Pulumi.Aws.DataSync
         private InputList<string>? _subnetArns;
 
         /// <summary>
-        /// The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        /// ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         /// </summary>
         public InputList<string> SubnetArns
         {
@@ -378,7 +378,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        /// ID of the VPC endpoint that the agent has access to.
         /// </summary>
         [Input("vpcEndpointId")]
         public Input<string>? VpcEndpointId { get; set; }

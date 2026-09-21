@@ -68,12 +68,8 @@ type GetContributorManagedInsightRulesResult struct {
 }
 
 func GetContributorManagedInsightRulesOutput(ctx *pulumi.Context, args GetContributorManagedInsightRulesOutputArgs, opts ...pulumi.InvokeOption) GetContributorManagedInsightRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetContributorManagedInsightRulesResultOutput, error) {
-			args := v.(GetContributorManagedInsightRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", args, GetContributorManagedInsightRulesResultOutput{}, options).(GetContributorManagedInsightRulesResultOutput), nil
-		}).(GetContributorManagedInsightRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getContributorManagedInsightRules:getContributorManagedInsightRules", args, GetContributorManagedInsightRulesResultOutput{}, options).(GetContributorManagedInsightRulesResultOutput)
 }
 
 // A collection of arguments for invoking getContributorManagedInsightRules.

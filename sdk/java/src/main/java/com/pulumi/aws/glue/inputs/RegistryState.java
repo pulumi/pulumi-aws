@@ -17,14 +17,14 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
     public static final RegistryState Empty = new RegistryState();
 
     /**
-     * Amazon Resource Name (ARN) of Glue Registry.
+     * ARN of Glue Registry.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
+     * @return ARN of Glue Registry.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -136,7 +136,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Registry.
+         * @param arn ARN of Glue Registry.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class RegistryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Registry.
+         * @param arn ARN of Glue Registry.
          * 
          * @return builder
          * 

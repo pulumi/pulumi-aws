@@ -67,7 +67,6 @@ namespace Pulumi.Aws.Ec2
         /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
@@ -91,7 +90,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
-        ///     foreach (var range in )
+        ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
         ///     {
         ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
         ///         {
@@ -162,7 +161,6 @@ namespace Pulumi.Aws.Ec2
         /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
@@ -186,7 +184,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
-        ///     foreach (var range in )
+        ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
         ///     {
         ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
         ///         {
@@ -257,7 +255,6 @@ namespace Pulumi.Aws.Ec2
         /// using System.Threading.Tasks;
         /// using Pulumi;
         /// using Aws = Pulumi.Aws;
-        /// using Std = Pulumi.Std;
         /// 
         /// return await Deployment.RunAsync(async() =&gt; 
         /// {
@@ -281,7 +278,7 @@ namespace Pulumi.Aws.Ec2
         ///     });
         /// 
         ///     var app = new List&lt;Aws.Ec2.Instance&gt;();
-        ///     foreach (var range in )
+        ///     foreach (var range in .Select(pair =&gt; new { pair.Key, pair.Value }))
         ///     {
         ///         app.Add(new Aws.Ec2.Instance($"app-{range.Key}", new()
         ///         {

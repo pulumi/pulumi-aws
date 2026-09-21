@@ -114,14 +114,14 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the pipeline.
+     * ARN of the pipeline.
      * 
      */
     @Import(name="pipelineArn")
     private @Nullable Output<String> pipelineArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the pipeline.
+     * @return ARN of the pipeline.
      * 
      */
     public Optional<Output<String>> pipelineArn() {
@@ -411,7 +411,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineArn Amazon Resource Name (ARN) of the pipeline.
+         * @param pipelineArn ARN of the pipeline.
          * 
          * @return builder
          * 
@@ -422,7 +422,7 @@ public final class PipelineState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param pipelineArn Amazon Resource Name (ARN) of the pipeline.
+         * @param pipelineArn ARN of the pipeline.
          * 
          * @return builder
          * 

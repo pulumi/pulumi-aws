@@ -80,12 +80,8 @@ type LookupSnapshotResult struct {
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSnapshotResultOutput, error) {
-			args := v.(LookupSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:memorydb/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput), nil
-		}).(LookupSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:memorydb/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getSnapshot.

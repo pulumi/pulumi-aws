@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RestoreTestingPlan("example", RestoreTestingPlanArgs.builder()
- *             .name("example_restore_testing_plan")
  *             .recoveryPointSelection(RestoreTestingPlanRecoveryPointSelectionArgs.builder()
  *                 .algorithm("LATEST_WITHIN_WINDOW")
  *                 .includeVaults("*")
  *                 .recoveryPointTypes("CONTINUOUS")
  *                 .build())
+ *             .name("example_restore_testing_plan")
  *             .scheduleExpression("cron(0 12 ? * * *)")
  *             .build());
  * 

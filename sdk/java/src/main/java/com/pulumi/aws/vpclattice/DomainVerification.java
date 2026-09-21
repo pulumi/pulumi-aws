@@ -115,14 +115,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:vpclattice/domainVerification:DomainVerification")
 public class DomainVerification extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the domain verification.
+     * ARN of the domain verification.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the domain verification.
+     * @return ARN of the domain verification.
      * 
      */
     public Output<String> arn() {

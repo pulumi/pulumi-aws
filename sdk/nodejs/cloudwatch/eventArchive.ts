@@ -168,7 +168,7 @@ export class EventArchive extends pulumi.CustomResource {
      */
     declare public readonly eventSourceArn: pulumi.Output<string>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -245,7 +245,7 @@ export interface EventArchiveState {
      */
     eventSourceArn?: pulumi.Input<string | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -279,7 +279,7 @@ export interface EventArchiveArgs {
      */
     eventSourceArn: pulumi.Input<string>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**

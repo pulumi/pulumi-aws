@@ -16,14 +16,14 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
     public static final DomainIdentityVerificationState Empty = new DomainIdentityVerificationState();
 
     /**
-     * The ARN of the domain identity.
+     * ARN of the domain identity.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN of the domain identity.
+     * @return ARN of the domain identity.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -31,14 +31,14 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
     }
 
     /**
-     * The domain name of the SES domain identity to verify.
+     * Domain name of the SES domain identity to verify.
      * 
      */
     @Import(name="domain")
     private @Nullable Output<String> domain;
 
     /**
-     * @return The domain name of the SES domain identity to verify.
+     * @return Domain name of the SES domain identity to verify.
      * 
      */
     public Optional<Output<String>> domain() {
@@ -87,7 +87,7 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The ARN of the domain identity.
+         * @param arn ARN of the domain identity.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The ARN of the domain identity.
+         * @param arn ARN of the domain identity.
          * 
          * @return builder
          * 
@@ -108,7 +108,7 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
         }
 
         /**
-         * @param domain The domain name of the SES domain identity to verify.
+         * @param domain Domain name of the SES domain identity to verify.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DomainIdentityVerificationState extends com.pulumi.resources.
         }
 
         /**
-         * @param domain The domain name of the SES domain identity to verify.
+         * @param domain Domain name of the SES domain identity to verify.
          * 
          * @return builder
          * 

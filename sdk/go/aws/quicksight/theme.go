@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewTheme(ctx, "example", &quicksight.ThemeArgs{
-//				ThemeId:     pulumi.String("example"),
-//				Name:        pulumi.String("example"),
-//				BaseThemeId: pulumi.String("MIDNIGHT"),
 //				Configuration: &quicksight.ThemeConfigurationArgs{
 //					DataColorPalette: &quicksight.ThemeConfigurationDataColorPaletteArgs{
 //						Colors: pulumi.StringArray{
@@ -55,6 +52,9 @@ import (
 //						},
 //					},
 //				},
+//				ThemeId:     pulumi.String("example"),
+//				Name:        pulumi.String("example"),
+//				BaseThemeId: pulumi.String("MIDNIGHT"),
 //			})
 //			if err != nil {
 //				return err

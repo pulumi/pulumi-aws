@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {
- *     autoEnable: false,
- *     autoEnableStandards: "NONE",
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ *     autoEnable: false,
+ *     autoEnableStandards: "NONE",
  * }, {
  *     dependsOn: [exampleFindingAggregator],
  * });

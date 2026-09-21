@@ -17,13 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ec2 = new aws.budgets.Budget("ec2", {
- *     name: "budget-ec2-monthly",
- *     budgetType: "COST",
- *     limitAmount: "1200",
- *     limitUnit: "USD",
- *     timePeriodEnd: "2087-06-15_00:00",
- *     timePeriodStart: "2017-07-01_00:00",
- *     timeUnit: "MONTHLY",
  *     costFilters: [{
  *         name: "Service",
  *         values: ["Amazon Elastic Compute Cloud - Compute"],
@@ -35,6 +28,13 @@ import * as utilities from "../utilities";
  *         notificationType: "FORECASTED",
  *         subscriberEmailAddresses: ["test@example.com"],
  *     }],
+ *     name: "budget-ec2-monthly",
+ *     budgetType: "COST",
+ *     limitAmount: "1200",
+ *     limitUnit: "USD",
+ *     timePeriodEnd: "2087-06-15_00:00",
+ *     timePeriodStart: "2017-07-01_00:00",
+ *     timeUnit: "MONTHLY",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -95,9 +95,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const savingsPlanUtilization = new aws.budgets.Budget("savings_plan_utilization", {
- *     budgetType: "SAVINGS_PLANS_UTILIZATION",
- *     limitAmount: "100.0",
- *     limitUnit: "PERCENTAGE",
  *     costTypes: {
  *         includeCredit: false,
  *         includeDiscount: false,
@@ -110,6 +107,9 @@ import * as utilities from "../utilities";
  *         includeUpfront: false,
  *         useBlended: false,
  *     },
+ *     budgetType: "SAVINGS_PLANS_UTILIZATION",
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
  * });
  * ```
  *
@@ -120,9 +120,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const riUtilization = new aws.budgets.Budget("ri_utilization", {
- *     budgetType: "RI_UTILIZATION",
- *     limitAmount: "100.0",
- *     limitUnit: "PERCENTAGE",
  *     costTypes: {
  *         includeCredit: false,
  *         includeDiscount: false,
@@ -139,6 +136,9 @@ import * as utilities from "../utilities";
  *         name: "Service",
  *         values: ["Amazon Relational Database Service"],
  *     }],
+ *     budgetType: "RI_UTILIZATION",
+ *     limitAmount: "100.0",
+ *     limitUnit: "PERCENTAGE",
  * });
  * ```
  *
@@ -176,18 +176,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const simple = new aws.budgets.Budget("simple", {
- *     name: "budget-ec2-filter",
- *     budgetType: "COST",
- *     limitAmount: "500",
- *     limitUnit: "USD",
- *     timeUnit: "MONTHLY",
- *     metrics: "UnblendedCost",
  *     filterExpression: {
  *         dimensions: {
  *             key: "SERVICE",
  *             values: ["Amazon Elastic Compute Cloud - Compute"],
  *         },
  *     },
+ *     name: "budget-ec2-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "500",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     metrics: "UnblendedCost",
  * });
  * ```
  *
@@ -198,12 +198,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const andExample = new aws.budgets.Budget("and_example", {
- *     name: "budget-and-filter",
- *     budgetType: "COST",
- *     limitAmount: "1200",
- *     limitUnit: "USD",
- *     timeUnit: "MONTHLY",
- *     metrics: "BlendedCost",
  *     filterExpression: {
  *         ands: [
  *             {
@@ -220,6 +214,12 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ *     name: "budget-and-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1200",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     metrics: "BlendedCost",
  * });
  * ```
  *
@@ -230,12 +230,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const orExample = new aws.budgets.Budget("or_example", {
- *     name: "budget-or-filter",
- *     budgetType: "COST",
- *     limitAmount: "2000",
- *     limitUnit: "USD",
- *     timeUnit: "MONTHLY",
- *     metrics: "AmortizedCost",
  *     filterExpression: {
  *         ors: [
  *             {
@@ -252,6 +246,12 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ *     name: "budget-or-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "2000",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     metrics: "AmortizedCost",
  * });
  * ```
  *
@@ -262,12 +262,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const notExample = new aws.budgets.Budget("not_example", {
- *     name: "budget-not-filter",
- *     budgetType: "COST",
- *     limitAmount: "1000",
- *     limitUnit: "USD",
- *     timeUnit: "MONTHLY",
- *     metrics: "NetUnblendedCost",
  *     filterExpression: {
  *         not: {
  *             dimensions: {
@@ -276,6 +270,12 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "budget-not-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1000",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     metrics: "NetUnblendedCost",
  * });
  * ```
  *
@@ -286,12 +286,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const compoundExample = new aws.budgets.Budget("compound_example", {
- *     name: "budget-compound-filter",
- *     budgetType: "COST",
- *     limitAmount: "1500",
- *     limitUnit: "USD",
- *     timeUnit: "MONTHLY",
- *     metrics: "NetAmortizedCost",
  *     filterExpression: {
  *         ors: [
  *             {
@@ -333,6 +327,12 @@ import * as utilities from "../utilities";
  *         notificationType: "FORECASTED",
  *         subscriberEmailAddresses: ["test@example.com"],
  *     }],
+ *     name: "budget-compound-filter",
+ *     budgetType: "COST",
+ *     limitAmount: "1500",
+ *     limitUnit: "USD",
+ *     timeUnit: "MONTHLY",
+ *     metrics: "NetAmortizedCost",
  * });
  * ```
  *

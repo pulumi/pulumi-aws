@@ -108,7 +108,7 @@ class AliasRoutingConfiguration(dict):
                  state_machine_version_arn: _builtins.str,
                  weight: _builtins.int):
         """
-        :param _builtins.str state_machine_version_arn: The Amazon Resource Name (ARN) of the state machine version.
+        :param _builtins.str state_machine_version_arn: ARN of the state machine version.
         :param _builtins.int weight: Percentage of traffic routed to the state machine version.
         """
         pulumi.set(__self__, "state_machine_version_arn", state_machine_version_arn)
@@ -118,7 +118,7 @@ class AliasRoutingConfiguration(dict):
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the state machine version.
+        ARN of the state machine version.
         """
         return pulumi.get(self, "state_machine_version_arn")
 
@@ -221,7 +221,7 @@ class StateMachineLoggingConfiguration(dict):
         """
         :param _builtins.bool include_execution_data: Determines whether execution data is included in your log. When set to `false`, data is excluded.
         :param _builtins.str level: Defines which category of execution history events are logged. Valid values: `ALL`, `ERROR`, `FATAL`, `OFF`
-        :param _builtins.str log_destination: Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        :param _builtins.str log_destination: ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         if include_execution_data is not None:
             pulumi.set(__self__, "include_execution_data", include_execution_data)
@@ -250,7 +250,7 @@ class StateMachineLoggingConfiguration(dict):
     @pulumi.getter(name="logDestination")
     def log_destination(self) -> Optional[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+        ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_destination")
 

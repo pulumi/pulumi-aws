@@ -20,7 +20,7 @@ public final class ReportPlanReportSetting {
      */
     private @Nullable List<String> accounts;
     /**
-     * @return Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return ARNs of the frameworks a report covers.
      * 
      */
     private @Nullable List<String> frameworkArns;
@@ -54,7 +54,7 @@ public final class ReportPlanReportSetting {
         return this.accounts == null ? List.of() : this.accounts;
     }
     /**
-     * @return Amazon Resource Names (ARNs) of the frameworks a report covers.
+     * @return ARNs of the frameworks a report covers.
      * 
      */
     public List<String> frameworkArns() {

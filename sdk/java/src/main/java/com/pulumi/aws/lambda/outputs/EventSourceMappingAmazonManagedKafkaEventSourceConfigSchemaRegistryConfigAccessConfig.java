@@ -11,29 +11,13 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
-    /**
-     * @return Authentication type Lambda uses to access the schema registry.
-     * 
-     */
     private @Nullable String type;
-    /**
-     * @return URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-     * 
-     */
     private @Nullable String uri;
 
     private EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig() {}
-    /**
-     * @return Authentication type Lambda uses to access the schema registry.
-     * 
-     */
     public Optional<String> type() {
         return Optional.ofNullable(this.type);
     }
-    /**
-     * @return URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-     * 
-     */
     public Optional<String> uri() {
         return Optional.ofNullable(this.uri);
     }

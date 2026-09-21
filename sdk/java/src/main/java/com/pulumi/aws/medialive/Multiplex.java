@@ -55,16 +55,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Multiplex("example", MultiplexArgs.builder()
- *             .name("example-multiplex-changed")
- *             .availabilityZones(            
- *                 available.names()[0],
- *                 available.names()[1])
  *             .multiplexSettings(MultiplexMultiplexSettingsArgs.builder()
  *                 .transportStreamBitrate(1000000)
  *                 .transportStreamId(1)
  *                 .transportStreamReservedBitrate(1)
  *                 .maximumVideoBufferDelayMilliseconds(1000)
  *                 .build())
+ *             .name("example-multiplex-changed")
+ *             .availabilityZones(            
+ *                 available.names()[0],
+ *                 available.names()[1])
  *             .startMultiplex(true)
  *             .tags(Map.of("tag1", "value1"))
  *             .build());

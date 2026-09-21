@@ -363,16 +363,16 @@ class RestoreTestingSelection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingSelection("example",
-            name="ec2_selection",
-            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
-            protected_resource_type="EC2",
-            iam_role_arn=example_aws_iam_role["arn"],
             protected_resource_conditions={
                 "string_equals": [{
                     "key": "aws:ResourceTag/backup",
                     "value": "true",
                 }],
-            })
+            },
+            name="ec2_selection",
+            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
+            protected_resource_type="EC2",
+            iam_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -428,16 +428,16 @@ class RestoreTestingSelection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.backup.RestoreTestingSelection("example",
-            name="ec2_selection",
-            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
-            protected_resource_type="EC2",
-            iam_role_arn=example_aws_iam_role["arn"],
             protected_resource_conditions={
                 "string_equals": [{
                     "key": "aws:ResourceTag/backup",
                     "value": "true",
                 }],
-            })
+            },
+            name="ec2_selection",
+            restore_testing_plan_name=example_aws_backup_restore_testing_plan["name"],
+            protected_resource_type="EC2",
+            iam_role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

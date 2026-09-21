@@ -24,13 +24,13 @@ namespace Pulumi.Aws.GameLift
     /// {
     ///     var example = new Aws.GameLift.Script("example", new()
     ///     {
-    ///         Name = "example-script",
     ///         StorageLocation = new Aws.GameLift.Inputs.ScriptStorageLocationArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///             RoleArn = exampleAwsIamRole.Arn,
     ///         },
+    ///         Name = "example-script",
     ///     });
     /// 
     /// });

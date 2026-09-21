@@ -84,14 +84,14 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * ARN for the parent folder. If not set, creates a root-level folder.
      * 
      */
     @Import(name="parentFolderArn")
     private @Nullable Output<String> parentFolderArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * @return ARN for the parent folder. If not set, creates a root-level folder.
      * 
      */
     public Optional<Output<String>> parentFolderArn() {
@@ -263,7 +263,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentFolderArn The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+         * @param parentFolderArn ARN for the parent folder. If not set, creates a root-level folder.
          * 
          * @return builder
          * 
@@ -274,7 +274,7 @@ public final class FolderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param parentFolderArn The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+         * @param parentFolderArn ARN for the parent folder. If not set, creates a root-level folder.
          * 
          * @return builder
          * 

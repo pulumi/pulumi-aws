@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * const example = aws.iot.getRegistrationCode({});
  * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
  * const verificationCertRequest = new tls.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
  *     subject: [{
  *         commonName: example.then(example => example.registrationCode),
  *     }],
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: verification.privateKeyPem,
  * });
  * ```
  */
@@ -70,11 +70,11 @@ export interface GetRegistrationCodeResult {
  * const example = aws.iot.getRegistrationCode({});
  * const verification = new tls.PrivateKey("verification", {algorithm: "RSA"});
  * const verificationCertRequest = new tls.CertRequest("verification", {
- *     keyAlgorithm: "RSA",
- *     privateKeyPem: verification.privateKeyPem,
  *     subject: [{
  *         commonName: example.then(example => example.registrationCode),
  *     }],
+ *     keyAlgorithm: "RSA",
+ *     privateKeyPem: verification.privateKeyPem,
  * });
  * ```
  */

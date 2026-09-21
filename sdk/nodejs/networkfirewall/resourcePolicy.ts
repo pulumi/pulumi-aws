@@ -106,7 +106,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * ARN of the rule group or firewall policy.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -156,7 +156,7 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * ARN of the rule group or firewall policy.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -174,7 +174,7 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * ARN of the rule group or firewall policy.
      */
     resourceArn: pulumi.Input<string>;
 }

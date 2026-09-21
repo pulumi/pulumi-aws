@@ -17,14 +17,14 @@ public final class StudioLifecycleConfigState extends com.pulumi.resources.Resou
     public static final StudioLifecycleConfigState Empty = new StudioLifecycleConfigState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+     * The ARN assigned by AWS to this Studio Lifecycle Config.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+     * @return The ARN assigned by AWS to this Studio Lifecycle Config.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class StudioLifecycleConfigState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+         * @param arn The ARN assigned by AWS to this Studio Lifecycle Config.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class StudioLifecycleConfigState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+         * @param arn The ARN assigned by AWS to this Studio Lifecycle Config.
          * 
          * @return builder
          * 

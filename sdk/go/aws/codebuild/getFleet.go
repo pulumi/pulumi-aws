@@ -28,21 +28,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			testFleet, err := codebuild.NewFleet(ctx, "test", &codebuild.FleetArgs{
-//				BaseCapacity:     pulumi.Int(2),
-//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
-//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
-//				Name:             pulumi.String("full-example-codebuild-fleet"),
-//				OverflowBehavior: pulumi.String("QUEUE"),
 //				ScalingConfiguration: &codebuild.FleetScalingConfigurationArgs{
-//					MaxCapacity: pulumi.Int(5),
-//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //					TargetTrackingScalingConfigs: codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArray{
 //						&codebuild.FleetScalingConfigurationTargetTrackingScalingConfigArgs{
 //							MetricType:  pulumi.String("FLEET_UTILIZATION_RATE"),
 //							TargetValue: pulumi.Float64(97.5),
 //						},
 //					},
+//					MaxCapacity: pulumi.Int(5),
+//					ScalingType: pulumi.String("TARGET_TRACKING_SCALING"),
 //				},
+//				BaseCapacity:     pulumi.Int(2),
+//				ComputeType:      pulumi.String("BUILD_GENERAL1_SMALL"),
+//				EnvironmentType:  pulumi.String("LINUX_CONTAINER"),
+//				Name:             pulumi.String("full-example-codebuild-fleet"),
+//				OverflowBehavior: pulumi.String("QUEUE"),
 //			})
 //			if err != nil {
 //				return err
@@ -119,7 +119,7 @@ type LookupFleetResult struct {
 	FleetServiceRole string `pulumi:"fleetServiceRole"`
 	// ARN of the Fleet.
 	Id string `pulumi:"id"`
-	// The Amazon Machine Image (AMI) of the compute fleet.
+	// AMI of the compute fleet.
 	ImageId string `pulumi:"imageId"`
 	// Last modification time of the fleet.
 	LastModified string `pulumi:"lastModified"`
@@ -138,12 +138,8 @@ type LookupFleetResult struct {
 }
 
 func LookupFleetOutput(ctx *pulumi.Context, args LookupFleetOutputArgs, opts ...pulumi.InvokeOption) LookupFleetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupFleetResultOutput, error) {
-			args := v.(LookupFleetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:codebuild/getFleet:getFleet", args, LookupFleetResultOutput{}, options).(LookupFleetResultOutput), nil
-		}).(LookupFleetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:codebuild/getFleet:getFleet", args, LookupFleetResultOutput{}, options).(LookupFleetResultOutput)
 }
 
 // A collection of arguments for invoking getFleet.
@@ -215,7 +211,7 @@ func (o LookupFleetResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The Amazon Machine Image (AMI) of the compute fleet.
+// AMI of the compute fleet.
 func (o LookupFleetResultOutput) ImageId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupFleetResult) string { return v.ImageId }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTimeout? Timeout;
         /// <summary>
-        /// Configuration for enabling Transport Layer Security (TLS)
+        /// Configuration for enabling TLS
         /// </summary>
         public readonly Outputs.ServiceServiceConnectConfigurationServiceTls? Tls;
 

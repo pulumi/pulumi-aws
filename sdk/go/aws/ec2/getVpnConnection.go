@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+// Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
 //
 // ## Example Usage
 //
@@ -133,12 +133,8 @@ type LookupVpnConnectionResult struct {
 }
 
 func LookupVpnConnectionOutput(ctx *pulumi.Context, args LookupVpnConnectionOutputArgs, opts ...pulumi.InvokeOption) LookupVpnConnectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpnConnectionResultOutput, error) {
-			args := v.(LookupVpnConnectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpnConnection:getVpnConnection", args, LookupVpnConnectionResultOutput{}, options).(LookupVpnConnectionResultOutput), nil
-		}).(LookupVpnConnectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpnConnection:getVpnConnection", args, LookupVpnConnectionResultOutput{}, options).(LookupVpnConnectionResultOutput)
 }
 
 // A collection of arguments for invoking getVpnConnection.

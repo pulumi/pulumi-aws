@@ -1089,20 +1089,13 @@ class Distribution(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[{
-                "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default.id,
-                "origin_id": s3_origin_id,
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            aliases=[
-                f"mysite.{my_domain}",
-                f"yoursite.{my_domain}",
-            ],
             default_cache_behavior={
+                "forwarded_values": {
+                    "cookies": {
+                        "forward": "none",
+                    },
+                    "query_string": False,
+                },
                 "allowed_methods": [
                     "DELETE",
                     "GET",
@@ -1117,19 +1110,35 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                 ],
                 "target_origin_id": s3_origin_id,
-                "forwarded_values": {
-                    "query_string": False,
-                    "cookies": {
-                        "forward": "none",
-                    },
-                },
                 "viewer_protocol_policy": "allow-all",
                 "min_ttl": 0,
                 "default_ttl": 3600,
                 "max_ttl": 86400,
             },
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "whitelist",
+                    "locations": [
+                        "US",
+                        "CA",
+                        "GB",
+                        "DE",
+                    ],
+                },
+            },
+            viewer_certificate={
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
+            },
             ordered_cache_behaviors=[
                 {
+                    "forwarded_values": {
+                        "cookies": {
+                            "forward": "none",
+                        },
+                        "query_string": False,
+                        "headers": ["Origin"],
+                    },
                     "path_pattern": "/content/immutable/*",
                     "allowed_methods": [
                         "GET",
@@ -1142,13 +1151,6 @@ class Distribution(pulumi.CustomResource):
                         "OPTIONS",
                     ],
                     "target_origin_id": s3_origin_id,
-                    "forwarded_values": {
-                        "query_string": False,
-                        "headers": ["Origin"],
-                        "cookies": {
-                            "forward": "none",
-                        },
-                    },
                     "min_ttl": 0,
                     "default_ttl": 86400,
                     "max_ttl": 31536000,
@@ -1156,6 +1158,12 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
                 {
+                    "forwarded_values": {
+                        "cookies": {
+                            "forward": "none",
+                        },
+                        "query_string": False,
+                    },
                     "path_pattern": "/content/*",
                     "allowed_methods": [
                         "GET",
@@ -1167,12 +1175,6 @@ class Distribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                     "target_origin_id": s3_origin_id,
-                    "forwarded_values": {
-                        "query_string": False,
-                        "cookies": {
-                            "forward": "none",
-                        },
-                    },
                     "min_ttl": 0,
                     "default_ttl": 3600,
                     "max_ttl": 86400,
@@ -1180,43 +1182,41 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
             ],
+            origins=[{
+                "domain_name": b.bucket_regional_domain_name,
+                "origin_access_control_id": default.id,
+                "origin_id": s3_origin_id,
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
+            aliases=[
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
+            ],
             price_class="PriceClass_200",
-            restrictions={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                },
-            },
             tags={
                 "Environment": "production",
-            },
-            viewer_certificate={
-                "acm_certificate_arn": my_domain_get_certificate.arn,
-                "ssl_support_method": "sni-only",
             })
         # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
         origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AllowCloudFrontServicePrincipalReadWrite",
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["cloudfront.amazonaws.com"],
-            }],
-            "actions": [
-                "s3:GetObject",
-                "s3:PutObject",
-            ],
-            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "AWS:SourceArn",
                 "values": [s3_distribution.arn],
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
+            "actions": [
+                "s3:GetObject",
+                "s3:PutObject",
+            ],
+            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
         }])
         b_bucket_policy = aws.s3.BucketPolicy("b",
             bucket=b.bucket,
@@ -1227,14 +1227,14 @@ class Distribution(pulumi.CustomResource):
         def create_cloudfront(range_body):
             for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
-                    zone_id=my_domain_get_zone.zone_id,
-                    name=cloudfront_range["value"],
-                    type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,
                         "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
-                    }]))
+                    }],
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=cloudfront_range["value"],
+                    type=aws.route53.RecordType.A))
 
         s3_distribution.aliases.apply(create_cloudfront)
         ```
@@ -1248,8 +1248,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            default_cache_behavior={
+                "target_origin_id": "groupS3",
+            },
             origin_groups=[{
-                "origin_id": "groupS3",
                 "failover_criteria": {
                     "status_codes": [
                         403,
@@ -1266,26 +1268,24 @@ class Distribution(pulumi.CustomResource):
                         "origin_id": "failoverS3",
                     },
                 ],
+                "origin_id": "groupS3",
             }],
             origins=[
                 {
+                    "s3_origin_config": {
+                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                    },
                     "domain_name": primary["bucketRegionalDomainName"],
                     "origin_id": "primaryS3",
-                    "s3_origin_config": {
-                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                    },
                 },
                 {
-                    "domain_name": failover["bucketRegionalDomainName"],
-                    "origin_id": "failoverS3",
                     "s3_origin_config": {
                         "origin_access_identity": default["cloudfrontAccessIdentityPath"],
                     },
+                    "domain_name": failover["bucketRegionalDomainName"],
+                    "origin_id": "failoverS3",
                 },
-            ],
-            default_cache_behavior={
-                "target_origin_id": "groupS3",
-            })
+            ])
         ```
 
         ### With Managed Caching Policy
@@ -1298,17 +1298,6 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[{
-                "domain_name": primary["bucketRegionalDomainName"],
-                "origin_id": "myS3Origin",
-                "s3_origin_config": {
-                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                },
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
             default_cache_behavior={
                 "cache_policy_id": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
                 "allowed_methods": [
@@ -1336,7 +1325,18 @@ class Distribution(pulumi.CustomResource):
             },
             viewer_certificate={
                 "cloudfront_default_certificate": True,
-            })
+            },
+            origins=[{
+                "s3_origin_config": {
+                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                },
+                "domain_name": primary["bucketRegionalDomainName"],
+                "origin_id": "myS3Origin",
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html")
         ```
 
         ### With V2 logging to S3
@@ -1357,19 +1357,19 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            region="us-east-1",
-            name="s3-destination",
-            output_format="parquet",
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
-            })
-        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            },
             region="us-east-1",
-            delivery_source_name=example_log_delivery_source.name,
-            delivery_destination_arn=example_log_delivery_destination.arn,
+            name="s3-destination",
+            output_format="parquet")
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
             s3_delivery_configurations=[{
                 "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
-            }])
+            }],
+            region="us-east-1",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
         ### With V2 logging to Data Firehose
@@ -1392,12 +1392,12 @@ class Distribution(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            region="us-east-1",
-            name="firehose-destination",
-            output_format="json",
             delivery_destination_configuration={
                 "destination_resource_arn": cloudfront_logs.arn,
-            })
+            },
+            region="us-east-1",
+            name="firehose-destination",
+            output_format="json")
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
@@ -1419,12 +1419,12 @@ class Distribution(pulumi.CustomResource):
                 "id": example.id,
             },
             viewer_mtls_config={
-                "mode": "verify",
                 "trust_store_config": {
                     "trust_store_id": example_trust_store.id,
                     "advertise_trust_store_ca_names": True,
                     "ignore_certificate_expiry": False,
                 },
+                "mode": "verify",
             })
         ```
 
@@ -1515,20 +1515,13 @@ class Distribution(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[{
-                "domain_name": b.bucket_regional_domain_name,
-                "origin_access_control_id": default.id,
-                "origin_id": s3_origin_id,
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
-            aliases=[
-                f"mysite.{my_domain}",
-                f"yoursite.{my_domain}",
-            ],
             default_cache_behavior={
+                "forwarded_values": {
+                    "cookies": {
+                        "forward": "none",
+                    },
+                    "query_string": False,
+                },
                 "allowed_methods": [
                     "DELETE",
                     "GET",
@@ -1543,19 +1536,35 @@ class Distribution(pulumi.CustomResource):
                     "HEAD",
                 ],
                 "target_origin_id": s3_origin_id,
-                "forwarded_values": {
-                    "query_string": False,
-                    "cookies": {
-                        "forward": "none",
-                    },
-                },
                 "viewer_protocol_policy": "allow-all",
                 "min_ttl": 0,
                 "default_ttl": 3600,
                 "max_ttl": 86400,
             },
+            restrictions={
+                "geo_restriction": {
+                    "restriction_type": "whitelist",
+                    "locations": [
+                        "US",
+                        "CA",
+                        "GB",
+                        "DE",
+                    ],
+                },
+            },
+            viewer_certificate={
+                "acm_certificate_arn": my_domain_get_certificate.arn,
+                "ssl_support_method": "sni-only",
+            },
             ordered_cache_behaviors=[
                 {
+                    "forwarded_values": {
+                        "cookies": {
+                            "forward": "none",
+                        },
+                        "query_string": False,
+                        "headers": ["Origin"],
+                    },
                     "path_pattern": "/content/immutable/*",
                     "allowed_methods": [
                         "GET",
@@ -1568,13 +1577,6 @@ class Distribution(pulumi.CustomResource):
                         "OPTIONS",
                     ],
                     "target_origin_id": s3_origin_id,
-                    "forwarded_values": {
-                        "query_string": False,
-                        "headers": ["Origin"],
-                        "cookies": {
-                            "forward": "none",
-                        },
-                    },
                     "min_ttl": 0,
                     "default_ttl": 86400,
                     "max_ttl": 31536000,
@@ -1582,6 +1584,12 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
                 {
+                    "forwarded_values": {
+                        "cookies": {
+                            "forward": "none",
+                        },
+                        "query_string": False,
+                    },
                     "path_pattern": "/content/*",
                     "allowed_methods": [
                         "GET",
@@ -1593,12 +1601,6 @@ class Distribution(pulumi.CustomResource):
                         "HEAD",
                     ],
                     "target_origin_id": s3_origin_id,
-                    "forwarded_values": {
-                        "query_string": False,
-                        "cookies": {
-                            "forward": "none",
-                        },
-                    },
                     "min_ttl": 0,
                     "default_ttl": 3600,
                     "max_ttl": 86400,
@@ -1606,43 +1608,41 @@ class Distribution(pulumi.CustomResource):
                     "viewer_protocol_policy": "redirect-to-https",
                 },
             ],
+            origins=[{
+                "domain_name": b.bucket_regional_domain_name,
+                "origin_access_control_id": default.id,
+                "origin_id": s3_origin_id,
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html",
+            aliases=[
+                f"mysite.{my_domain}",
+                f"yoursite.{my_domain}",
+            ],
             price_class="PriceClass_200",
-            restrictions={
-                "geo_restriction": {
-                    "restriction_type": "whitelist",
-                    "locations": [
-                        "US",
-                        "CA",
-                        "GB",
-                        "DE",
-                    ],
-                },
-            },
             tags={
                 "Environment": "production",
-            },
-            viewer_certificate={
-                "acm_certificate_arn": my_domain_get_certificate.arn,
-                "ssl_support_method": "sni-only",
             })
         # See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
         origin_bucket_policy = aws.iam.get_policy_document_output(statements=[{
-            "sid": "AllowCloudFrontServicePrincipalReadWrite",
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["cloudfront.amazonaws.com"],
-            }],
-            "actions": [
-                "s3:GetObject",
-                "s3:PutObject",
-            ],
-            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
             "conditions": [{
                 "test": "StringEquals",
                 "variable": "AWS:SourceArn",
                 "values": [s3_distribution.arn],
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["cloudfront.amazonaws.com"],
+            }],
+            "sid": "AllowCloudFrontServicePrincipalReadWrite",
+            "effect": "Allow",
+            "actions": [
+                "s3:GetObject",
+                "s3:PutObject",
+            ],
+            "resources": [b.arn.apply(lambda arn: f"{arn}/*")],
         }])
         b_bucket_policy = aws.s3.BucketPolicy("b",
             bucket=b.bucket,
@@ -1653,14 +1653,14 @@ class Distribution(pulumi.CustomResource):
         def create_cloudfront(range_body):
             for cloudfront_range in [{"key": k, "value": v} for [k, v] in enumerate(range_body)]:
                 cloudfront.append(aws.route53.Record(f"cloudfront-{cloudfront_range['key']}",
-                    zone_id=my_domain_get_zone.zone_id,
-                    name=cloudfront_range["value"],
-                    type=aws.route53.RecordType.A,
                     aliases=[{
                         "name": s3_distribution.domain_name,
                         "zone_id": s3_distribution.hosted_zone_id,
                         "evaluate_target_health": False,
-                    }]))
+                    }],
+                    zone_id=my_domain_get_zone.zone_id,
+                    name=cloudfront_range["value"],
+                    type=aws.route53.RecordType.A))
 
         s3_distribution.aliases.apply(create_cloudfront)
         ```
@@ -1674,8 +1674,10 @@ class Distribution(pulumi.CustomResource):
         import pulumi_aws as aws
 
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
+            default_cache_behavior={
+                "target_origin_id": "groupS3",
+            },
             origin_groups=[{
-                "origin_id": "groupS3",
                 "failover_criteria": {
                     "status_codes": [
                         403,
@@ -1692,26 +1694,24 @@ class Distribution(pulumi.CustomResource):
                         "origin_id": "failoverS3",
                     },
                 ],
+                "origin_id": "groupS3",
             }],
             origins=[
                 {
+                    "s3_origin_config": {
+                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                    },
                     "domain_name": primary["bucketRegionalDomainName"],
                     "origin_id": "primaryS3",
-                    "s3_origin_config": {
-                        "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                    },
                 },
                 {
-                    "domain_name": failover["bucketRegionalDomainName"],
-                    "origin_id": "failoverS3",
                     "s3_origin_config": {
                         "origin_access_identity": default["cloudfrontAccessIdentityPath"],
                     },
+                    "domain_name": failover["bucketRegionalDomainName"],
+                    "origin_id": "failoverS3",
                 },
-            ],
-            default_cache_behavior={
-                "target_origin_id": "groupS3",
-            })
+            ])
         ```
 
         ### With Managed Caching Policy
@@ -1724,17 +1724,6 @@ class Distribution(pulumi.CustomResource):
 
         s3_origin_id = "myS3Origin"
         s3_distribution = aws.cloudfront.Distribution("s3_distribution",
-            origins=[{
-                "domain_name": primary["bucketRegionalDomainName"],
-                "origin_id": "myS3Origin",
-                "s3_origin_config": {
-                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
-                },
-            }],
-            enabled=True,
-            is_ipv6_enabled=True,
-            comment="Some comment",
-            default_root_object="index.html",
             default_cache_behavior={
                 "cache_policy_id": "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
                 "allowed_methods": [
@@ -1762,7 +1751,18 @@ class Distribution(pulumi.CustomResource):
             },
             viewer_certificate={
                 "cloudfront_default_certificate": True,
-            })
+            },
+            origins=[{
+                "s3_origin_config": {
+                    "origin_access_identity": default["cloudfrontAccessIdentityPath"],
+                },
+                "domain_name": primary["bucketRegionalDomainName"],
+                "origin_id": "myS3Origin",
+            }],
+            enabled=True,
+            is_ipv6_enabled=True,
+            comment="Some comment",
+            default_root_object="index.html")
         ```
 
         ### With V2 logging to S3
@@ -1783,19 +1783,19 @@ class Distribution(pulumi.CustomResource):
             bucket="testbucket",
             force_destroy=True)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            region="us-east-1",
-            name="s3-destination",
-            output_format="parquet",
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn.apply(lambda arn: f"{arn}/prefix"),
-            })
-        example_log_delivery = aws.cloudwatch.LogDelivery("example",
+            },
             region="us-east-1",
-            delivery_source_name=example_log_delivery_source.name,
-            delivery_destination_arn=example_log_delivery_destination.arn,
+            name="s3-destination",
+            output_format="parquet")
+        example_log_delivery = aws.cloudwatch.LogDelivery("example",
             s3_delivery_configurations=[{
                 "suffix_path": "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
-            }])
+            }],
+            region="us-east-1",
+            delivery_source_name=example_log_delivery_source.name,
+            delivery_destination_arn=example_log_delivery_destination.arn)
         ```
 
         ### With V2 logging to Data Firehose
@@ -1818,12 +1818,12 @@ class Distribution(pulumi.CustomResource):
             log_type="ACCESS_LOGS",
             resource_arn=example.arn)
         example_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("example",
-            region="us-east-1",
-            name="firehose-destination",
-            output_format="json",
             delivery_destination_configuration={
                 "destination_resource_arn": cloudfront_logs.arn,
-            })
+            },
+            region="us-east-1",
+            name="firehose-destination",
+            output_format="json")
         example_log_delivery = aws.cloudwatch.LogDelivery("example",
             region="us-east-1",
             delivery_source_name=example_log_delivery_source.name,
@@ -1845,12 +1845,12 @@ class Distribution(pulumi.CustomResource):
                 "id": example.id,
             },
             viewer_mtls_config={
-                "mode": "verify",
                 "trust_store_config": {
                     "trust_store_id": example_trust_store.id,
                     "advertise_trust_store_ca_names": True,
                     "ignore_certificate_expiry": False,
                 },
+                "mode": "verify",
             })
         ```
 

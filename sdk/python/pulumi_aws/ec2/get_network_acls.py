@@ -137,11 +137,11 @@ def get_network_acls(filters: Optional[Sequence[Union['GetNetworkAclsFilterArgs'
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        filters=[{
+    example = aws.ec2.get_network_acls(filters=[{
             "name": "association.subnet-id",
             "values": [test["id"]],
-        }])
+        }],
+        vpc_id=vpc_id)
     ```
 
 
@@ -204,11 +204,11 @@ def get_network_acls_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_network_acls(vpc_id=vpc_id,
-        filters=[{
+    example = aws.ec2.get_network_acls(filters=[{
             "name": "association.subnet-id",
             "values": [test["id"]],
-        }])
+        }],
+        vpc_id=vpc_id)
     ```
 
 

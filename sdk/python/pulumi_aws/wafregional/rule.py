@@ -249,19 +249,19 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "type": "IPMatch",
                 "data_id": ipset.id,
                 "negated": False,
-            }])
+            }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule")
         ```
 
         ## Import
@@ -297,19 +297,19 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "type": "IPMatch",
                 "data_id": ipset.id,
                 "negated": False,
-            }])
+            }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule")
         ```
 
         ## Import

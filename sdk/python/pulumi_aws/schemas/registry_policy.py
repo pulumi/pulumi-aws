@@ -150,12 +150,12 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "example",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["109876543210"],
             }],
+            "sid": "example",
+            "effect": "Allow",
             "actions": ["schemas:*"],
             "resources": [
                 "arn:aws:schemas:us-east-1:123456789012:registry/example",
@@ -200,12 +200,12 @@ class RegistryPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "example",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["109876543210"],
             }],
+            "sid": "example",
+            "effect": "Allow",
             "actions": ["schemas:*"],
             "resources": [
                 "arn:aws:schemas:us-east-1:123456789012:registry/example",

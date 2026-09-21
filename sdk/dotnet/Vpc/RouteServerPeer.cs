@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Vpc
 {
     /// <summary>
-    /// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+    /// Provides a resource for managing a VPC Route Server Peer.
     /// 
     /// ## Example Usage
     /// 
@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Vpc
     /// {
     ///     var test = new Aws.Vpc.RouteServerPeer("test", new()
     ///     {
-    ///         RouteServerEndpointId = example.RouteServerEndpointId,
-    ///         PeerAddress = "10.0.1.250",
     ///         BgpOptions = new Aws.Vpc.Inputs.RouteServerPeerBgpOptionsArgs
     ///         {
     ///             PeerAsn = 65200,
     ///         },
+    ///         RouteServerEndpointId = example.RouteServerEndpointId,
+    ///         PeerAddress = "10.0.1.250",
     ///         Tags = 
     ///         {
     ///             { "Name", "Appliance 1" },
@@ -96,13 +96,13 @@ namespace Pulumi.Aws.Vpc
     /// 
     ///     var testRouteServerPeer = new Aws.Vpc.RouteServerPeer("test", new()
     ///     {
-    ///         RouteServerEndpointId = testRouteServerEndpoint.RouteServerEndpointId,
-    ///         PeerAddress = "10.0.1.250",
     ///         BgpOptions = new Aws.Vpc.Inputs.RouteServerPeerBgpOptionsArgs
     ///         {
     ///             PeerAsn = 65000,
     ///             PeerLivenessDetection = "bgp-keepalive",
     ///         },
+    ///         RouteServerEndpointId = testRouteServerEndpoint.RouteServerEndpointId,
+    ///         PeerAddress = "10.0.1.250",
     ///         Tags = 
     ///         {
     ///             { "Name", "Test Appliance" },
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `RouteServerPeerId`. For example:
+    /// Using `pulumi import`, import VPC Route Server using the `RouteServerPeerId`. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

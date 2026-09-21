@@ -32,14 +32,14 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The name of the rule set
+     * Name of the rule set
      * 
      */
     @Import(name="ruleSetName", required=true)
     private Output<String> ruleSetName;
 
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set
      * 
      */
     public Output<String> ruleSetName() {
@@ -93,7 +93,7 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ActiveReceiptRuleSetArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set
          * 
          * @return builder
          * 

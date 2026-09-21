@@ -116,7 +116,7 @@ class _GroupState:
         """
         Input properties used for looking up and filtering Group resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
+        :param pulumi.Input[_builtins.str] arn: ARN of group
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
@@ -140,7 +140,7 @@ class _GroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of group
+        ARN of group
         """
         return pulumi.get(self, "arn")
 
@@ -337,7 +337,7 @@ class Group(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of group
+        :param pulumi.Input[_builtins.str] arn: ARN of group
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] description: A description for the group.
         :param pulumi.Input[_builtins.str] group_name: A name for the group.
@@ -360,7 +360,7 @@ class Group(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of group
+        ARN of group
         """
         return pulumi.get(self, "arn")
 

@@ -26,12 +26,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const exampleCluster = new aws.msk.Cluster("example", {
- *     clusterName: "example",
  *     clientAuthentication: {
  *         sasl: {
  *             scram: true,
  *         },
  *     },
+ *     clusterName: "example",
  * });
  * const exampleKey = new aws.kms.Key("example", {description: "Example Key for MSK Cluster Scram Secret Association"});
  * const exampleSecret = new aws.secretsmanager.Secret("example", {
@@ -53,12 +53,12 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "AWSKafkaResourcePolicy",
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["kafka.amazonaws.com"],
  *         }],
+ *         sid: "AWSKafkaResourcePolicy",
+ *         effect: "Allow",
  *         actions: ["secretsmanager:getSecretValue"],
  *         resources: [exampleSecret.arn],
  *     }],
@@ -106,7 +106,7 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     declare public readonly clusterArn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class ScramSecretAssociation extends pulumi.CustomResource {
  */
 export interface ScramSecretAssociationState {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     clusterArn?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface ScramSecretAssociationState {
  */
 export interface ScramSecretAssociationArgs {
     /**
-     * Amazon Resource Name (ARN) of the MSK cluster.
+     * ARN of the MSK cluster.
      */
     clusterArn: pulumi.Input<string>;
     /**

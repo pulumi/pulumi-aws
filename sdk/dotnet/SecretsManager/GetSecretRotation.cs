@@ -153,7 +153,7 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly bool RotationEnabled;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the lambda function used for rotation.
+        /// ARN of the lambda function used for rotation.
         /// </summary>
         public readonly string RotationLambdaArn;
         /// <summary>

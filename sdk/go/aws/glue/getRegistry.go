@@ -60,7 +60,7 @@ type LookupRegistryArgs struct {
 
 // A collection of values returned by getRegistry.
 type LookupRegistryResult struct {
-	// Amazon Resource Name (ARN) of Glue Registry.
+	// ARN of Glue Registry.
 	Arn string `pulumi:"arn"`
 	// A description of the registry.
 	Description string `pulumi:"description"`
@@ -69,12 +69,8 @@ type LookupRegistryResult struct {
 }
 
 func LookupRegistryOutput(ctx *pulumi.Context, args LookupRegistryOutputArgs, opts ...pulumi.InvokeOption) LookupRegistryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRegistryResultOutput, error) {
-			args := v.(LookupRegistryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:glue/getRegistry:getRegistry", args, LookupRegistryResultOutput{}, options).(LookupRegistryResultOutput), nil
-		}).(LookupRegistryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:glue/getRegistry:getRegistry", args, LookupRegistryResultOutput{}, options).(LookupRegistryResultOutput)
 }
 
 // A collection of arguments for invoking getRegistry.
@@ -104,7 +100,7 @@ func (o LookupRegistryResultOutput) ToLookupRegistryResultOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of Glue Registry.
+// ARN of Glue Registry.
 func (o LookupRegistryResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupRegistryResult) string { return v.Arn }).(pulumi.StringOutput)
 }

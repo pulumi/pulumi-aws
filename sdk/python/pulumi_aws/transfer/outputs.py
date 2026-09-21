@@ -391,7 +391,7 @@ class ConnectorSftpConfig(dict):
                  user_secret_id: Optional[_builtins.str] = None):
         """
         :param Sequence[_builtins.str] trusted_host_keys: List of public portion of the host key, or keys, that are used to authenticate the user to the external server to which you are connecting.(https://docs.aws.amazon.com/transfer/latest/userguide/API_SftpConnectorConfig.html)
-        :param _builtins.str user_secret_id: Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        :param _builtins.str user_secret_id: Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
         """
         if trusted_host_keys is not None:
             pulumi.set(__self__, "trusted_host_keys", trusted_host_keys)
@@ -410,7 +410,7 @@ class ConnectorSftpConfig(dict):
     @pulumi.getter(name="userSecretId")
     def user_secret_id(self) -> Optional[_builtins.str]:
         """
-        Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+        Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
         """
         return pulumi.get(self, "user_secret_id")
 
@@ -453,7 +453,7 @@ class ServerEndpointDetails(dict):
         :param Sequence[_builtins.str] security_group_ids: List of security groups IDs that are available to attach to your server's endpoint. If no security groups are specified, the VPC's default security groups are automatically assigned to your endpoint. This property can only be used when `endpoint_type` is set to `VPC`.
         :param Sequence[_builtins.str] subnet_ids: List of subnet IDs that are required to host your SFTP server endpoint in your VPC. This property can only be used when `endpoint_type` is set to `VPC`.
         :param _builtins.str vpc_endpoint_id: ID of the VPC endpoint. This property can only be used when `endpoint_type` is set to `VPC_ENDPOINT`
-        :param _builtins.str vpc_id: VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
+        :param _builtins.str vpc_id: VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
         """
         if address_allocation_ids is not None:
             pulumi.set(__self__, "address_allocation_ids", address_allocation_ids)
@@ -502,7 +502,7 @@ class ServerEndpointDetails(dict):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[_builtins.str]:
         """
-        VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
+        VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpoint_type` is set to `VPC`.
         """
         return pulumi.get(self, "vpc_id")
 

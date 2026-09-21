@@ -29,15 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := docdb.NewClusterParameterGroup(ctx, "example", &docdb.ClusterParameterGroupArgs{
-//				Family:      pulumi.String("docdb3.6"),
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("docdb cluster parameter group"),
 //				Parameters: docdb.ClusterParameterGroupParameterArray{
 //					&docdb.ClusterParameterGroupParameterArgs{
 //						Name:  pulumi.String("tls"),
 //						Value: pulumi.String("enabled"),
 //					},
 //				},
+//				Family:      pulumi.String("docdb3.6"),
+//				Name:        pulumi.String("example"),
+//				Description: pulumi.String("docdb cluster parameter group"),
 //			})
 //			if err != nil {
 //				return err

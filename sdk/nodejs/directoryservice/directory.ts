@@ -30,9 +30,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const bar = new aws.directoryservice.Directory("bar", {
- *     name: "corp.notexample.com",
- *     password: "SuperSecretPassw0rd",
- *     size: "Small",
  *     vpcSettings: {
  *         vpcId: main.id,
  *         subnetIds: [
@@ -40,6 +37,9 @@ import * as utilities from "../utilities";
  *             barSubnet.id,
  *         ],
  *     },
+ *     name: "corp.notexample.com",
+ *     password: "SuperSecretPassw0rd",
+ *     size: "Small",
  *     tags: {
  *         Project: "foo",
  *     },
@@ -64,10 +64,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const bar = new aws.directoryservice.Directory("bar", {
- *     name: "corp.notexample.com",
- *     password: "SuperSecretPassw0rd",
- *     edition: "Standard",
- *     type: "MicrosoftAD",
  *     vpcSettings: {
  *         vpcId: main.id,
  *         subnetIds: [
@@ -75,6 +71,10 @@ import * as utilities from "../utilities";
  *             barSubnet.id,
  *         ],
  *     },
+ *     name: "corp.notexample.com",
+ *     password: "SuperSecretPassw0rd",
+ *     edition: "Standard",
+ *     type: "MicrosoftAD",
  *     tags: {
  *         Project: "foo",
  *     },
@@ -99,10 +99,6 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.2.0/24",
  * });
  * const connector = new aws.directoryservice.Directory("connector", {
- *     name: "corp.notexample.com",
- *     password: "SuperSecretPassw0rd",
- *     size: "Small",
- *     type: "ADConnector",
  *     connectSettings: {
  *         customerDnsIps: ["A.B.C.D"],
  *         customerUsername: "Admin",
@@ -112,6 +108,10 @@ import * as utilities from "../utilities";
  *         ],
  *         vpcId: main.id,
  *     },
+ *     name: "corp.notexample.com",
+ *     password: "SuperSecretPassw0rd",
+ *     size: "Small",
+ *     type: "ADConnector",
  * });
  * ```
  *

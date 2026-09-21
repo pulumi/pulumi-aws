@@ -223,8 +223,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example = aws.s3.Bucket("example", bucket="example")
         analytics = aws.s3.Bucket("analytics", bucket="analytics-destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
-            bucket=example.id,
-            name="EntireBucket",
             storage_class_analysis={
                 "data_export": {
                     "destination": {
@@ -233,7 +231,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            bucket=example.id,
+            name="EntireBucket")
         ```
 
         ### Add analytics configuration with S3 object filter
@@ -244,15 +244,15 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ## Import
@@ -294,8 +294,6 @@ class AnalyticsConfiguration(pulumi.CustomResource):
         example = aws.s3.Bucket("example", bucket="example")
         analytics = aws.s3.Bucket("analytics", bucket="analytics-destination")
         example_entire_bucket = aws.s3.AnalyticsConfiguration("example-entire-bucket",
-            bucket=example.id,
-            name="EntireBucket",
             storage_class_analysis={
                 "data_export": {
                     "destination": {
@@ -304,7 +302,9 @@ class AnalyticsConfiguration(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            bucket=example.id,
+            name="EntireBucket")
         ```
 
         ### Add analytics configuration with S3 object filter
@@ -315,15 +315,15 @@ class AnalyticsConfiguration(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="example")
         example_filtered = aws.s3.AnalyticsConfiguration("example-filtered",
-            bucket=example.id,
-            name="ImportantBlueDocuments",
             filter={
                 "prefix": "documents/",
                 "tags": {
                     "priority": "high",
                     "class": "blue",
                 },
-            })
+            },
+            bucket=example.id,
+            name="ImportantBlueDocuments")
         ```
 
         ## Import

@@ -78,14 +78,14 @@ public class VpnGateway extends com.pulumi.resources.CustomResource {
         return this.amazonSideAsn;
     }
     /**
-     * Amazon Resource Name (ARN) of the VPN Gateway.
+     * ARN of the VPN Gateway.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPN Gateway.
+     * @return ARN of the VPN Gateway.
      * 
      */
     public Output<String> arn() {

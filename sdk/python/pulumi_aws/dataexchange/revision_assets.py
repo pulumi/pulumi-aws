@@ -368,7 +368,6 @@ class RevisionAssets(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dataexchange.RevisionAssets("example",
-            data_set_id="example-data-set-id",
             assets=[{
                 "create_s3_data_access_from_s3_bucket": {
                     "asset_source": {
@@ -376,6 +375,7 @@ class RevisionAssets(pulumi.CustomResource):
                     },
                 },
             }],
+            data_set_id="example-data-set-id",
             tags={
                 "Environment": "Production",
             })
@@ -412,7 +412,6 @@ class RevisionAssets(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dataexchange.RevisionAssets("example",
-            data_set_id="example-data-set-id",
             assets=[{
                 "create_s3_data_access_from_s3_bucket": {
                     "asset_source": {
@@ -420,6 +419,7 @@ class RevisionAssets(pulumi.CustomResource):
                     },
                 },
             }],
+            data_set_id="example-data-set-id",
             tags={
                 "Environment": "Production",
             })

@@ -36,14 +36,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Items definition for array properties. See `items` above.
+     * Items definition for array properties. See `items` Block above.
      * 
      */
     @Import(name="items")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs> items;
 
     /**
-     * @return Items definition for array properties. See `items` above.
+     * @return Items definition for array properties. See `items` Block above.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsArgs>> items() {
@@ -161,7 +161,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Items definition for array properties. See `items` above.
+         * @param items Items definition for array properties. See `items` Block above.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param items Items definition for array properties. See `items` above.
+         * @param items Items definition for array properties. See `items` Block above.
          * 
          * @return builder
          * 

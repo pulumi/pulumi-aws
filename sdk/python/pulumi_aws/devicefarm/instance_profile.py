@@ -152,7 +152,7 @@ class _InstanceProfileState:
         """
         Input properties used for looking up and filtering InstanceProfile resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this instance profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of this instance profile.
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_app_packages_from_cleanups: An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         :param pulumi.Input[_builtins.str] name: The name for the instance profile.
@@ -185,7 +185,7 @@ class _InstanceProfileState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this instance profile.
+        ARN of this instance profile.
         """
         return pulumi.get(self, "arn")
 
@@ -324,7 +324,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+        - `arn` (String) ARN of the Device Farm instance profile.
 
         Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 
@@ -369,7 +369,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+        - `arn` (String) ARN of the Device Farm instance profile.
 
         Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
 
@@ -444,7 +444,7 @@ class InstanceProfile(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this instance profile.
+        :param pulumi.Input[_builtins.str] arn: ARN of this instance profile.
         :param pulumi.Input[_builtins.str] description: The description of the instance profile.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] exclude_app_packages_from_cleanups: An array of strings that specifies the list of app packages that should not be cleaned up from the device after a test run.
         :param pulumi.Input[_builtins.str] name: The name for the instance profile.
@@ -473,7 +473,7 @@ class InstanceProfile(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this instance profile.
+        ARN of this instance profile.
         """
         return pulumi.get(self, "arn")
 

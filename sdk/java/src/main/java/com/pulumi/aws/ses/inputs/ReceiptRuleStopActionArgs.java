@@ -18,14 +18,14 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
     public static final ReceiptRuleStopActionArgs Empty = new ReceiptRuleStopActionArgs();
 
     /**
-     * The position of the action in the receipt rule
+     * Position of the action in the receipt rule.
      * 
      */
     @Import(name="position", required=true)
     private Output<Integer> position;
 
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Output<Integer> position() {
@@ -33,14 +33,14 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The scope to apply. The only acceptable value is `RuleSet`.
+     * Scope to apply. The only acceptable value is `RuleSet`.
      * 
      */
     @Import(name="scope", required=true)
     private Output<String> scope;
 
     /**
-     * @return The scope to apply. The only acceptable value is `RuleSet`.
+     * @return Scope to apply. The only acceptable value is `RuleSet`.
      * 
      */
     public Output<String> scope() {
@@ -48,14 +48,14 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ARN of an SNS topic to notify
+     * ARN of an SNS topic to notify.
      * 
      */
     @Import(name="topicArn")
     private @Nullable Output<String> topicArn;
 
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     public Optional<Output<String>> topicArn() {
@@ -89,7 +89,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param position The position of the action in the receipt rule
+         * @param position Position of the action in the receipt rule.
          * 
          * @return builder
          * 
@@ -110,7 +110,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scope The scope to apply. The only acceptable value is `RuleSet`.
+         * @param scope Scope to apply. The only acceptable value is `RuleSet`.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param scope The scope to apply. The only acceptable value is `RuleSet`.
+         * @param scope Scope to apply. The only acceptable value is `RuleSet`.
          * 
          * @return builder
          * 
@@ -131,7 +131,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class ReceiptRuleStopActionArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param topicArn The ARN of an SNS topic to notify
+         * @param topicArn ARN of an SNS topic to notify.
          * 
          * @return builder
          * 

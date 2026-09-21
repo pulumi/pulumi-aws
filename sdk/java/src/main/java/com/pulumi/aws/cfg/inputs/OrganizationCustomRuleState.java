@@ -17,14 +17,14 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
     public static final OrganizationCustomRuleState Empty = new OrganizationCustomRuleState();
 
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * ARN of the rule
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule
+     * @return ARN of the rule
      * 
      */
     public Optional<Output<String>> arn() {
@@ -77,14 +77,14 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
     }
 
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      * 
      */
     @Import(name="lambdaFunctionArn")
     private @Nullable Output<String> lambdaFunctionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the rule Lambda Function
+     * @return ARN of the rule Lambda Function
      * 
      */
     public Optional<Output<String>> lambdaFunctionArn() {
@@ -248,7 +248,7 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the rule
+         * @param arn ARN of the rule
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the rule
+         * @param arn ARN of the rule
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lambdaFunctionArn Amazon Resource Name (ARN) of the rule Lambda Function
+         * @param lambdaFunctionArn ARN of the rule Lambda Function
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class OrganizationCustomRuleState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param lambdaFunctionArn Amazon Resource Name (ARN) of the rule Lambda Function
+         * @param lambdaFunctionArn ARN of the rule Lambda Function
          * 
          * @return builder
          * 

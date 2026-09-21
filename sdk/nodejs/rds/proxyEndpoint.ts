@@ -58,23 +58,23 @@ export class ProxyEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
     declare public readonly dbProxyEndpointName: pulumi.Output<string>;
     /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * Name of the DB proxy associated with the DB proxy endpoint that you create.
      */
     declare public readonly dbProxyName: pulumi.Output<string>;
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * Whether this endpoint is the default endpoint for the associated DB proxy.
      */
     declare public /*out*/ readonly isDefault: pulumi.Output<boolean>;
     /**
@@ -82,16 +82,16 @@ export class ProxyEndpoint extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
     declare public readonly targetRole: pulumi.Output<string | undefined>;
     /**
-     * The VPC ID of the DB proxy endpoint.
+     * VPC ID of the DB proxy endpoint.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -162,23 +162,23 @@ export class ProxyEndpoint extends pulumi.CustomResource {
  */
 export interface ProxyEndpointState {
     /**
-     * The Amazon Resource Name (ARN) for the proxy endpoint.
+     * ARN for the proxy endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
     dbProxyEndpointName?: pulumi.Input<string | undefined>;
     /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * Name of the DB proxy associated with the DB proxy endpoint that you create.
      */
     dbProxyName?: pulumi.Input<string | undefined>;
     /**
-     * The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+     * Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
-     * Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+     * Whether this endpoint is the default endpoint for the associated DB proxy.
      */
     isDefault?: pulumi.Input<boolean | undefined>;
     /**
@@ -186,16 +186,16 @@ export interface ProxyEndpointState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
     targetRole?: pulumi.Input<string | undefined>;
     /**
-     * The VPC ID of the DB proxy endpoint.
+     * VPC ID of the DB proxy endpoint.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**
@@ -213,11 +213,11 @@ export interface ProxyEndpointState {
  */
 export interface ProxyEndpointArgs {
     /**
-     * The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+     * Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
      */
     dbProxyEndpointName: pulumi.Input<string>;
     /**
-     * The name of the DB proxy associated with the DB proxy endpoint that you create.
+     * Name of the DB proxy associated with the DB proxy endpoint that you create.
      */
     dbProxyName: pulumi.Input<string>;
     /**
@@ -225,11 +225,11 @@ export interface ProxyEndpointArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A mapping of tags to assign to the resource.
+     * Map of tags to assign to the resource.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+     * Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
      */
     targetRole?: pulumi.Input<string | undefined>;
     /**

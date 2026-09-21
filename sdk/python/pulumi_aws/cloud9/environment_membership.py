@@ -28,7 +28,7 @@ class EnvironmentMembershipArgs:
 
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
-        :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
+        :param pulumi.Input[_builtins.str] user_arn: ARN of the environment member you want to add.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "environment_id", environment_id)
@@ -65,7 +65,7 @@ class EnvironmentMembershipArgs:
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
+        ARN of the environment member you want to add.
         """
         return pulumi.get(self, "user_arn")
 
@@ -100,7 +100,7 @@ class _EnvironmentMembershipState:
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
+        :param pulumi.Input[_builtins.str] user_arn: ARN of the environment member you want to add.
         :param pulumi.Input[_builtins.str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         if environment_id is not None:
@@ -154,7 +154,7 @@ class _EnvironmentMembershipState:
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
+        ARN of the environment member you want to add.
         """
         return pulumi.get(self, "user_arn")
 
@@ -219,7 +219,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
+        :param pulumi.Input[_builtins.str] user_arn: ARN of the environment member you want to add.
         """
         ...
     @overload
@@ -319,7 +319,7 @@ class EnvironmentMembership(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] environment_id: The ID of the environment that contains the environment member you want to add.
         :param pulumi.Input[_builtins.str] permissions: The type of environment member permissions you want to associate with this environment member. Allowed values are `read-only` and `read-write` .
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] user_arn: The Amazon Resource Name (ARN) of the environment member you want to add.
+        :param pulumi.Input[_builtins.str] user_arn: ARN of the environment member you want to add.
         :param pulumi.Input[_builtins.str] user_id: The user ID in AWS Identity and Access Management (AWS IAM) of the environment member.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -361,7 +361,7 @@ class EnvironmentMembership(pulumi.CustomResource):
     @pulumi.getter(name="userArn")
     def user_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the environment member you want to add.
+        ARN of the environment member you want to add.
         """
         return pulumi.get(self, "user_arn")
 

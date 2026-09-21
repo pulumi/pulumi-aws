@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+        /// Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
         /// </summary>
         [Input("defaultResourceSpec")]
         public Input<Inputs.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpecGetArgs>? DefaultResourceSpec { get; set; }
@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _lifecycleConfigArns;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+        /// ARN of the Lifecycle Configurations.
         /// </summary>
         public InputList<string> LifecycleConfigArns
         {

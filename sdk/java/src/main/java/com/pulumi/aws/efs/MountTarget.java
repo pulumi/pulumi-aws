@@ -119,14 +119,14 @@ public class MountTarget extends com.pulumi.resources.CustomResource {
         return this.dnsName;
     }
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="fileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> fileSystemArn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> fileSystemArn() {

@@ -27,7 +27,7 @@ class ProvisionedConcurrencyConfigArgs:
         """
         The set of arguments for constructing a ProvisionedConcurrencyConfig resource.
 
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
+        :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
@@ -47,7 +47,7 @@ class ProvisionedConcurrencyConfigArgs:
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
+        Name or ARN of the Lambda Function.
         """
         return pulumi.get(self, "function_name")
 
@@ -117,7 +117,7 @@ class _ProvisionedConcurrencyConfigState:
         """
         Input properties used for looking up and filtering ProvisionedConcurrencyConfig resources.
 
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
+        :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
@@ -140,7 +140,7 @@ class _ProvisionedConcurrencyConfigState:
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
+        Name or ARN of the Lambda Function.
         """
         return pulumi.get(self, "function_name")
 
@@ -253,7 +253,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
+        :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
@@ -369,7 +369,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] function_name: Name or Amazon Resource Name (ARN) of the Lambda Function.
+        :param pulumi.Input[_builtins.str] function_name: Name or ARN of the Lambda Function.
         :param pulumi.Input[_builtins.int] provisioned_concurrent_executions: Amount of capacity to allocate. Must be greater than or equal to 1.
         :param pulumi.Input[_builtins.str] qualifier: Lambda Function version or Lambda Alias name.
                
@@ -392,7 +392,7 @@ class ProvisionedConcurrencyConfig(pulumi.CustomResource):
     @pulumi.getter(name="functionName")
     def function_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the Lambda Function.
+        Name or ARN of the Lambda Function.
         """
         return pulumi.get(self, "function_name")
 

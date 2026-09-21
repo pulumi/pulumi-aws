@@ -70,28 +70,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamResourceDiscoveryAssociation:VpcIpamResourceDiscoveryAssociation")
 public class VpcIpamResourceDiscoveryAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+     * ARN of IPAM Resource Discovery Association.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+     * @return ARN of IPAM Resource Discovery Association.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IPAM.
+     * ARN of the IPAM.
      * 
      */
     @Export(name="ipamArn", refs={String.class}, tree="[0]")
     private Output<String> ipamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IPAM.
+     * @return ARN of the IPAM.
      * 
      */
     public Output<String> ipamArn() {

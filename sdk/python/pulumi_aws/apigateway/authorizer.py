@@ -35,7 +35,7 @@ class AuthorizerArgs:
         :param pulumi.Input[_builtins.str] rest_api: ID of the associated REST API
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         :param pulumi.Input[_builtins.str] identity_source: Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         :param pulumi.Input[_builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer
@@ -103,7 +103,7 @@ class AuthorizerArgs:
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         """
         return pulumi.get(self, "authorizer_uri")
 
@@ -204,7 +204,7 @@ class _AuthorizerState:
         :param pulumi.Input[_builtins.str] arn: ARN of the API Gateway Authorizer
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         :param pulumi.Input[_builtins.str] identity_source: Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         :param pulumi.Input[_builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer
@@ -276,7 +276,7 @@ class _AuthorizerState:
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         """
         return pulumi.get(self, "authorizer_uri")
 
@@ -398,11 +398,11 @@ class Authorizer(pulumi.CustomResource):
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["apigateway.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         invocation_role = aws.iam.Role("invocation_role",
@@ -410,12 +410,12 @@ class Authorizer(pulumi.CustomResource):
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",
@@ -455,7 +455,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         :param pulumi.Input[_builtins.str] identity_source: Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         :param pulumi.Input[_builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer
@@ -482,11 +482,11 @@ class Authorizer(pulumi.CustomResource):
 
         demo_rest_api = aws.apigateway.RestApi("demo", name="auth-demo")
         invocation_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["apigateway.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         invocation_role = aws.iam.Role("invocation_role",
@@ -494,12 +494,12 @@ class Authorizer(pulumi.CustomResource):
             path="/",
             assume_role_policy=invocation_assume_role.json)
         lambda_assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         lambda_ = aws.iam.Role("lambda",
             name="demo-lambda",
@@ -613,7 +613,7 @@ class Authorizer(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the API Gateway Authorizer
         :param pulumi.Input[_builtins.str] authorizer_credentials: Credentials required for the authorizer. To specify an IAM Role for API Gateway to assume, use the IAM Role ARN.
         :param pulumi.Input[_builtins.int] authorizer_result_ttl_in_seconds: TTL of cached authorizer results in seconds. Defaults to `300`.
-        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        :param pulumi.Input[_builtins.str] authorizer_uri: Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         :param pulumi.Input[_builtins.str] identity_source: Source of the identity in an incoming request. Defaults to `method.request.header.Authorization`. For `REQUEST` type, this may be a comma-separated list of values, including headers, query string parameters and stage variables - e.g., `"method.request.header.SomeHeaderName,method.request.querystring.SomeQueryStringName,stageVariables.SomeStageVariableName"`
         :param pulumi.Input[_builtins.str] identity_validation_expression: Validation expression for the incoming identity. For `TOKEN` type, this value should be a regular expression. The incoming token from the client is matched against this expression, and will proceed if the token matches. If the token doesn't match, the client receives a 401 Unauthorized response.
         :param pulumi.Input[_builtins.str] name: Name of the authorizer
@@ -667,7 +667,7 @@ class Authorizer(pulumi.CustomResource):
     @pulumi.getter(name="authorizerUri")
     def authorizer_uri(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Authorizer's Uniform Resource Identifier (URI). This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
+        Authorizer's URI. This must be a well-formed Lambda function URI in the form of `arn:aws:apigateway:{region}:lambda:path/{service_api}`, e.g., `arn:aws:apigateway:us-west-2:lambda:path/2015-03-31/functions/arn:aws:lambda:us-west-2:012345678912:function:my-function/invocations`
         """
         return pulumi.get(self, "authorizer_uri")
 

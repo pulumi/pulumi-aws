@@ -31,8 +31,6 @@ namespace Pulumi.Aws.ResilienceHub.Outputs
         public readonly ImmutableArray<Outputs.V2InputSourceResourceConfigurationResourceTag> ResourceTags;
         /// <summary>
         /// S3 URL.
-        /// 
-        /// Exactly one attribute must be configured.
         /// </summary>
         public readonly string? TfStateFileUrl;
 

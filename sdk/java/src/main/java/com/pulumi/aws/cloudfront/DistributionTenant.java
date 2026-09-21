@@ -57,12 +57,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DistributionTenant("example", DistributionTenantArgs.builder()
- *             .name("example-tenant")
- *             .distributionId(exampleAwsCloudfrontMultitenantDistribution.id())
- *             .enabled(true)
  *             .domains(DistributionTenantDomainArgs.builder()
  *                 .domain("tenant.example.com")
  *                 .build())
+ *             .name("example-tenant")
+ *             .distributionId(exampleAwsCloudfrontMultitenantDistribution.id())
+ *             .enabled(true)
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -82,11 +82,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudfront.DistributionTenant;
  * import com.pulumi.aws.cloudfront.DistributionTenantArgs;
- * import com.pulumi.aws.cloudfront.inputs.DistributionTenantDomainArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionTenantCustomizationsArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionTenantCustomizationsGeoRestrictionArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionTenantCustomizationsCertificateArgs;
  * import com.pulumi.aws.cloudfront.inputs.DistributionTenantCustomizationsWebAclArgs;
+ * import com.pulumi.aws.cloudfront.inputs.DistributionTenantDomainArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -101,12 +101,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DistributionTenant("example", DistributionTenantArgs.builder()
- *             .name("example-tenant")
- *             .distributionId(exampleAwsCloudfrontMultitenantDistribution.id())
- *             .enabled(false)
- *             .domains(DistributionTenantDomainArgs.builder()
- *                 .domain("tenant.example.com")
- *                 .build())
  *             .customizations(DistributionTenantCustomizationsArgs.builder()
  *                 .geoRestriction(DistributionTenantCustomizationsGeoRestrictionArgs.builder()
  *                     .restrictionType("whitelist")
@@ -122,6 +116,12 @@ import javax.annotation.Nullable;
  *                     .arn(tenantWaf.arn())
  *                     .build())
  *                 .build())
+ *             .domains(DistributionTenantDomainArgs.builder()
+ *                 .domain("tenant.example.com")
+ *                 .build())
+ *             .name("example-tenant")
+ *             .distributionId(exampleAwsCloudfrontMultitenantDistribution.id())
+ *             .enabled(false)
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Tenant", "example")

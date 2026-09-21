@@ -28,7 +28,6 @@ namespace Pulumi.Aws.DataExchange
     /// {
     ///     var example = new Aws.DataExchange.RevisionAssets("example", new()
     ///     {
-    ///         DataSetId = "example-data-set-id",
     ///         Assets = new[]
     ///         {
     ///             new Aws.DataExchange.Inputs.RevisionAssetsAssetArgs
@@ -42,6 +41,7 @@ namespace Pulumi.Aws.DataExchange
     ///                 },
     ///             },
     ///         },
+    ///         DataSetId = "example-data-set-id",
     ///         Tags = 
     ///         {
     ///             { "Environment", "Production" },

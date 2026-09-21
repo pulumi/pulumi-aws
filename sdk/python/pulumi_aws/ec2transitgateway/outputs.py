@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'DefaultRouteTableAssociationTimeouts',
@@ -21,6 +22,8 @@ __all__ = [
     'MeteringPolicyEntryTimeouts',
     'MeteringPolicyTimeouts',
     'PeeringAttachmentOptions',
+    'PolicyTableEntryPolicyRule',
+    'PolicyTableEntryPolicyRuleMetadata',
     'GetAttachmentFilterResult',
     'GetAttachmentsFilterResult',
     'GetConnectFilterResult',
@@ -268,6 +271,143 @@ class PeeringAttachmentOptions(dict):
         Indicates whether dynamic routing is enabled or disabled.. Supports `enable` and `disable`.
         """
         return pulumi.get(self, "dynamic_routing")
+
+
+@pulumi.output_type
+class PolicyTableEntryPolicyRule(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "destinationCidrBlock":
+            suggest = "destination_cidr_block"
+        elif key == "destinationPortRange":
+            suggest = "destination_port_range"
+        elif key == "sourceCidrBlock":
+            suggest = "source_cidr_block"
+        elif key == "sourcePortRange":
+            suggest = "source_port_range"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PolicyTableEntryPolicyRule. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PolicyTableEntryPolicyRule.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PolicyTableEntryPolicyRule.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 destination_cidr_block: Optional[_builtins.str] = None,
+                 destination_port_range: Optional[_builtins.str] = None,
+                 metadata: Optional['outputs.PolicyTableEntryPolicyRuleMetadata'] = None,
+                 protocol: Optional[_builtins.str] = None,
+                 source_cidr_block: Optional[_builtins.str] = None,
+                 source_port_range: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str destination_cidr_block: Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+        :param _builtins.str destination_port_range: Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+        :param 'PolicyTableEntryPolicyRuleMetadataArgs' metadata: Metadata key/value tag associated with the policy rule. See below.
+        :param _builtins.str protocol: Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+        :param _builtins.str source_cidr_block: Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+        :param _builtins.str source_port_range: Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+        """
+        if destination_cidr_block is not None:
+            pulumi.set(__self__, "destination_cidr_block", destination_cidr_block)
+        if destination_port_range is not None:
+            pulumi.set(__self__, "destination_port_range", destination_port_range)
+        if metadata is not None:
+            pulumi.set(__self__, "metadata", metadata)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+        if source_cidr_block is not None:
+            pulumi.set(__self__, "source_cidr_block", source_cidr_block)
+        if source_port_range is not None:
+            pulumi.set(__self__, "source_port_range", source_port_range)
+
+    @_builtins.property
+    @pulumi.getter(name="destinationCidrBlock")
+    def destination_cidr_block(self) -> Optional[_builtins.str]:
+        """
+        Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+        """
+        return pulumi.get(self, "destination_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="destinationPortRange")
+    def destination_port_range(self) -> Optional[_builtins.str]:
+        """
+        Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+        """
+        return pulumi.get(self, "destination_port_range")
+
+    @_builtins.property
+    @pulumi.getter
+    def metadata(self) -> Optional['outputs.PolicyTableEntryPolicyRuleMetadata']:
+        """
+        Metadata key/value tag associated with the policy rule. See below.
+        """
+        return pulumi.get(self, "metadata")
+
+    @_builtins.property
+    @pulumi.getter
+    def protocol(self) -> Optional[_builtins.str]:
+        """
+        Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+        """
+        return pulumi.get(self, "protocol")
+
+    @_builtins.property
+    @pulumi.getter(name="sourceCidrBlock")
+    def source_cidr_block(self) -> Optional[_builtins.str]:
+        """
+        Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+        """
+        return pulumi.get(self, "source_cidr_block")
+
+    @_builtins.property
+    @pulumi.getter(name="sourcePortRange")
+    def source_port_range(self) -> Optional[_builtins.str]:
+        """
+        Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+        """
+        return pulumi.get(self, "source_port_range")
+
+
+@pulumi.output_type
+class PolicyTableEntryPolicyRuleMetadata(dict):
+    def __init__(__self__, *,
+                 key: Optional[_builtins.str] = None,
+                 value: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str key: Metadata key name for the policy rule.
+        :param _builtins.str value: Metadata key value for the policy rule.
+               
+               > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+        """
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if value is not None:
+            pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> Optional[_builtins.str]:
+        """
+        Metadata key name for the policy rule.
+        """
+        return pulumi.get(self, "key")
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> Optional[_builtins.str]:
+        """
+        Metadata key value for the policy rule.
+
+        > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+        """
+        return pulumi.get(self, "value")
 
 
 @pulumi.output_type

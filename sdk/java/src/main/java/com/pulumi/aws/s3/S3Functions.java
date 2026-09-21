@@ -584,13 +584,13 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.id())
-     *             .name("bucket")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(selected.websiteDomain())
      *                 .zoneId(selected.hostedZoneId())
      *                 .build())
+     *             .zoneId(testZone.id())
+     *             .name("bucket")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -691,13 +691,13 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.id())
-     *             .name("bucket")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(selected.websiteDomain())
      *                 .zoneId(selected.hostedZoneId())
      *                 .build())
+     *             .zoneId(testZone.id())
+     *             .name("bucket")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -798,13 +798,13 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.id())
-     *             .name("bucket")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(selected.websiteDomain())
      *                 .zoneId(selected.hostedZoneId())
      *                 .build())
+     *             .zoneId(testZone.id())
+     *             .name("bucket")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -905,13 +905,13 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.id())
-     *             .name("bucket")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(selected.websiteDomain())
      *                 .zoneId(selected.hostedZoneId())
      *                 .build())
+     *             .zoneId(testZone.id())
+     *             .name("bucket")
+     *             .type("A")
      *             .build());
      * 
      *     }
@@ -1012,13 +1012,13 @@ public final class S3Functions {
      *             .build());
      * 
      *         var example = new Record("example", RecordArgs.builder()
-     *             .zoneId(testZone.id())
-     *             .name("bucket")
-     *             .type("A")
      *             .aliases(RecordAliasArgs.builder()
      *                 .name(selected.websiteDomain())
      *                 .zoneId(selected.hostedZoneId())
      *                 .build())
+     *             .zoneId(testZone.id())
+     *             .name("bucket")
+     *             .type("A")
      *             .build());
      * 
      *     }

@@ -112,6 +112,8 @@ class _CentralizationRuleForOrganizationState:
                  rule: pulumi.Input[Optional['CentralizationRuleForOrganizationRuleArgs']] = None,
                  rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_propagation_failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+                 tag_propagation_status: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['CentralizationRuleForOrganizationTimeoutsArgs']] = None):
@@ -124,6 +126,8 @@ class _CentralizationRuleForOrganizationState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] rule_arn: ARN of the centralization rule.
         :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
+        :param pulumi.Input[_builtins.str] tag_propagation_failure_reason: Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        :param pulumi.Input[_builtins.str] tag_propagation_status: Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -135,6 +139,10 @@ class _CentralizationRuleForOrganizationState:
             pulumi.set(__self__, "rule_arn", rule_arn)
         if rule_name is not None:
             pulumi.set(__self__, "rule_name", rule_name)
+        if tag_propagation_failure_reason is not None:
+            pulumi.set(__self__, "tag_propagation_failure_reason", tag_propagation_failure_reason)
+        if tag_propagation_status is not None:
+            pulumi.set(__self__, "tag_propagation_status", tag_propagation_status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -191,6 +199,30 @@ class _CentralizationRuleForOrganizationState:
     @rule_name.setter
     def rule_name(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "rule_name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagPropagationFailureReason")
+    def tag_propagation_failure_reason(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        """
+        return pulumi.get(self, "tag_propagation_failure_reason")
+
+    @tag_propagation_failure_reason.setter
+    def tag_propagation_failure_reason(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tag_propagation_failure_reason", value)
+
+    @_builtins.property
+    @pulumi.getter(name="tagPropagationStatus")
+    def tag_propagation_status(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+        """
+        return pulumi.get(self, "tag_propagation_status")
+
+    @tag_propagation_status.setter
+    def tag_propagation_status(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "tag_propagation_status", value)
 
     @_builtins.property
     @pulumi.getter
@@ -256,21 +288,21 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                     "source_logs_configuration": {
                         "encrypted_log_group_strategy": "SKIP",
                         "log_group_selection_criteria": "*",
                     },
+                    "regions": ["ap-southeast-1"],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                 },
             },
+            rule_name="example-centralization-rule",
             tags={
                 "Name": "example-centralization-rule",
                 "Environment": "production",
@@ -286,11 +318,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_logs_configuration": {
                         "logs_encryption_configuration": {
                             "encryption_strategy": "AWS_OWNED",
@@ -302,19 +331,22 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                             "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
                 },
             },
+            rule_name="advanced-centralization-rule",
             tags={
                 "Name": "advanced-centralization-rule",
                 "Environment": "production",
@@ -331,24 +363,24 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
                 },
             },
+            rule_name="filtered-centralization-rule",
             tags={
                 "Name": "filtered-centralization-rule",
                 "Filter": "lambda-logs",
@@ -364,28 +396,28 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
-            rule_name="metrics-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_metrics_configuration": {
                         "backup_configuration": {
                             "region": "us-west-1",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_metrics_configuration": {
-                        "metrics_selection_criteria": "*",
-                    },
                 },
-            })
+            },
+            rule_name="metrics-centralization-rule")
         ```
 
         ## Import
@@ -430,21 +462,21 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         example = aws.observabilityadmin.CentralizationRuleForOrganization("example",
-            rule_name="example-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
-                    "regions": ["ap-southeast-1"],
-                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                     "source_logs_configuration": {
                         "encrypted_log_group_strategy": "SKIP",
                         "log_group_selection_criteria": "*",
                     },
+                    "regions": ["ap-southeast-1"],
+                    "scope": f"OrganizationId = '{current_get_organization.id}'",
                 },
             },
+            rule_name="example-centralization-rule",
             tags={
                 "Name": "example-centralization-rule",
                 "Environment": "production",
@@ -460,11 +492,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         advanced = aws.observabilityadmin.CentralizationRuleForOrganization("advanced",
-            rule_name="advanced-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_logs_configuration": {
                         "logs_encryption_configuration": {
                             "encryption_strategy": "AWS_OWNED",
@@ -476,19 +505,22 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                             "log_group_name_pattern": "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "*",
-                    },
                 },
             },
+            rule_name="advanced-centralization-rule",
             tags={
                 "Name": "advanced-centralization-rule",
                 "Environment": "production",
@@ -505,24 +537,24 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         filtered = aws.observabilityadmin.CentralizationRuleForOrganization("filtered",
-            rule_name="filtered-centralization-rule",
             rule={
                 "destination": {
                     "region": "eu-west-1",
                     "account": current.account_id,
                 },
                 "source": {
+                    "source_logs_configuration": {
+                        "encrypted_log_group_strategy": "ALLOW",
+                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_logs_configuration": {
-                        "encrypted_log_group_strategy": "ALLOW",
-                        "log_group_selection_criteria": "LogGroupName LIKE '/aws/lambda%'",
-                    },
                 },
             },
+            rule_name="filtered-centralization-rule",
             tags={
                 "Name": "filtered-centralization-rule",
                 "Filter": "lambda-logs",
@@ -538,28 +570,28 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_organization = aws.organizations.get_organization()
         metrics = aws.observabilityadmin.CentralizationRuleForOrganization("metrics",
-            rule_name="metrics-centralization-rule",
             rule={
                 "destination": {
-                    "region": "eu-west-1",
-                    "account": current.account_id,
                     "destination_metrics_configuration": {
                         "backup_configuration": {
                             "region": "us-west-1",
                         },
                     },
+                    "region": "eu-west-1",
+                    "account": current.account_id,
                 },
                 "source": {
+                    "source_metrics_configuration": {
+                        "metrics_selection_criteria": "*",
+                    },
                     "regions": [
                         "ap-southeast-1",
                         "us-east-1",
                     ],
                     "scope": f"OrganizationId = '{current_get_organization.id}'",
-                    "source_metrics_configuration": {
-                        "metrics_selection_criteria": "*",
-                    },
                 },
-            })
+            },
+            rule_name="metrics-centralization-rule")
         ```
 
         ## Import
@@ -610,6 +642,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["rule_arn"] = None
+            __props__.__dict__["tag_propagation_failure_reason"] = None
+            __props__.__dict__["tag_propagation_status"] = None
             __props__.__dict__["tags_all"] = None
         super(CentralizationRuleForOrganization, __self__).__init__(
             'aws:observabilityadmin/centralizationRuleForOrganization:CentralizationRuleForOrganization',
@@ -625,6 +659,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
             rule: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationRuleArgs', 'CentralizationRuleForOrganizationRuleArgsDict']]] = None,
             rule_arn: pulumi.Input[Optional[_builtins.str]] = None,
             rule_name: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_propagation_failure_reason: pulumi.Input[Optional[_builtins.str]] = None,
+            tag_propagation_status: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['CentralizationRuleForOrganizationTimeoutsArgs', 'CentralizationRuleForOrganizationTimeoutsArgsDict']]] = None) -> 'CentralizationRuleForOrganization':
@@ -641,6 +677,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] rule_arn: ARN of the centralization rule.
         :param pulumi.Input[_builtins.str] rule_name: Name of the centralization rule. Must be unique within the organization.
+        :param pulumi.Input[_builtins.str] tag_propagation_failure_reason: Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        :param pulumi.Input[_builtins.str] tag_propagation_status: Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -652,6 +690,8 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         __props__.__dict__["rule"] = rule
         __props__.__dict__["rule_arn"] = rule_arn
         __props__.__dict__["rule_name"] = rule_name
+        __props__.__dict__["tag_propagation_failure_reason"] = tag_propagation_failure_reason
+        __props__.__dict__["tag_propagation_status"] = tag_propagation_status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -690,6 +730,22 @@ class CentralizationRuleForOrganization(pulumi.CustomResource):
         Name of the centralization rule. Must be unique within the organization.
         """
         return pulumi.get(self, "rule_name")
+
+    @_builtins.property
+    @pulumi.getter(name="tagPropagationFailureReason")
+    def tag_propagation_failure_reason(self) -> pulumi.Output[_builtins.str]:
+        """
+        Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+        """
+        return pulumi.get(self, "tag_propagation_failure_reason")
+
+    @_builtins.property
+    @pulumi.getter(name="tagPropagationStatus")
+    def tag_propagation_status(self) -> pulumi.Output[_builtins.str]:
+        """
+        Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+        """
+        return pulumi.get(self, "tag_propagation_status")
 
     @_builtins.property
     @pulumi.getter

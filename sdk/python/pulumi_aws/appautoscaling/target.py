@@ -443,7 +443,8 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             resource_id=f"service/{example['name']}/{example_aws_ecs_service['name']}",
             scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            service_namespace="ecs",
+            opts = pulumi.ResourceOptions(ignore_changes=[tags_all]))
         ```
 
         ### MSK / Kafka Autoscaling
@@ -576,7 +577,8 @@ class Target(pulumi.CustomResource):
             min_capacity=1,
             resource_id=f"service/{example['name']}/{example_aws_ecs_service['name']}",
             scalable_dimension="ecs:service:DesiredCount",
-            service_namespace="ecs")
+            service_namespace="ecs",
+            opts = pulumi.ResourceOptions(ignore_changes=[tags_all]))
         ```
 
         ### MSK / Kafka Autoscaling

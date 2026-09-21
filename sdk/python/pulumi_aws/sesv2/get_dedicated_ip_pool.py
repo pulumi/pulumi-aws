@@ -62,7 +62,7 @@ class GetDedicatedIpPoolResult:
     @pulumi.getter(name="dedicatedIps")
     def dedicated_ips(self) -> Sequence['outputs.GetDedicatedIpPoolDedicatedIpResult']:
         """
-        A list of objects describing the pool's dedicated IP's. See `dedicated_ips`.
+        List of objects describing the pool's dedicated IP's. See `dedicated_ips`.
         """
         return pulumi.get(self, "dedicated_ips")
 
@@ -88,7 +88,7 @@ class GetDedicatedIpPoolResult:
     @pulumi.getter(name="scalingMode")
     def scaling_mode(self) -> _builtins.str:
         """
-        (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+        IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
         """
         return pulumi.get(self, "scaling_mode")
 
@@ -96,7 +96,7 @@ class GetDedicatedIpPoolResult:
     @pulumi.getter
     def tags(self) -> Mapping[str, _builtins.str]:
         """
-        A map of tags attached to the pool.
+        Map of tags attached to the pool.
         """
         return pulumi.get(self, "tags")
 
@@ -137,7 +137,7 @@ def get_dedicated_ip_pool(pool_name: Optional[_builtins.str] = None,
 
     :param _builtins.str pool_name: Name of the dedicated IP pool.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags attached to the pool.
+    :param Mapping[str, _builtins.str] tags: Map of tags attached to the pool.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name
@@ -175,7 +175,7 @@ def get_dedicated_ip_pool_output(pool_name: pulumi.Input[Optional[_builtins.str]
 
     :param _builtins.str pool_name: Name of the dedicated IP pool.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param Mapping[str, _builtins.str] tags: A map of tags attached to the pool.
+    :param Mapping[str, _builtins.str] tags: Map of tags attached to the pool.
     """
     __args__ = dict()
     __args__['poolName'] = pool_name

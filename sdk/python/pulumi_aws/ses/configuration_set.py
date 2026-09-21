@@ -302,10 +302,10 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test",
-            name="some-configuration-set-test",
             delivery_options={
                 "tls_policy": "Require",
-            })
+            },
+            name="some-configuration-set-test")
         ```
 
         ### Tracking Options
@@ -315,10 +315,10 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test",
-            name="some-configuration-set-test",
             tracking_options={
                 "custom_redirect_domain": "sub.example.com",
-            })
+            },
+            name="some-configuration-set-test")
         ```
 
         ## Import
@@ -368,10 +368,10 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test",
-            name="some-configuration-set-test",
             delivery_options={
                 "tls_policy": "Require",
-            })
+            },
+            name="some-configuration-set-test")
         ```
 
         ### Tracking Options
@@ -381,10 +381,10 @@ class ConfigurationSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test",
-            name="some-configuration-set-test",
             tracking_options={
                 "custom_redirect_domain": "sub.example.com",
-            })
+            },
+            name="some-configuration-set-test")
         ```
 
         ## Import

@@ -158,7 +158,7 @@ class _PolicyState:
         """
         Input properties used for looking up and filtering Policy resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the policy.
         :param pulumi.Input[_builtins.str] content: The policy content to add to the new policy.
                For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
                For more information about the AI Services opt-out Policy syntax, see the [AI Services opt-out Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.html).
@@ -200,7 +200,7 @@ class _PolicyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the policy.
+        ARN of the policy.
         """
         return pulumi.get(self, "arn")
 
@@ -486,7 +486,7 @@ class Policy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the policy.
         :param pulumi.Input[_builtins.str] content: The policy content to add to the new policy.
                For example, if you create a [service control policy (SCP)](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scp.html), this string must be JSON text that specifies the permissions that admins in attached accounts can delegate to their users, groups, and roles.
                For more information about the AI Services opt-out Policy syntax, see the [AI Services opt-out Policy Syntax documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out_syntax.html).
@@ -525,7 +525,7 @@ class Policy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the policy.
+        ARN of the policy.
         """
         return pulumi.get(self, "arn")
 

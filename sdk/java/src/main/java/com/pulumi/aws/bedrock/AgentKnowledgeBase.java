@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
  *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
@@ -63,17 +61,19 @@ import javax.annotation.Nullable;
  *                 .type("VECTOR")
  *                 .build())
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
- *                 .type("OPENSEARCH_SERVERLESS")
  *                 .opensearchServerlessConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs.builder()
- *                     .collectionArn("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf")
- *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs.builder()
  *                         .vectorField("bedrock-knowledge-base-default-vector")
  *                         .textField("AMAZON_BEDROCK_TEXT_CHUNK")
  *                         .metadataField("AMAZON_BEDROCK_METADATA")
  *                         .build())
+ *                     .collectionArn("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf")
+ *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .build())
+ *                 .type("OPENSEARCH_SERVERLESS")
  *                 .build())
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -108,14 +108,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var kendraExample = new AgentKnowledgeBase("kendraExample", AgentKnowledgeBaseArgs.builder()
- *             .name("example-kendra-kb")
- *             .roleArn(example.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
- *                 .type("KENDRA")
  *                 .kendraKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationKendraKnowledgeBaseConfigurationArgs.builder()
  *                     .kendraIndexArn("arn:aws:kendra:us-east-1:123456789012:index/example-index-id")
  *                     .build())
+ *                 .type("KENDRA")
  *                 .build())
+ *             .name("example-kendra-kb")
+ *             .roleArn(example.arn())
  *             .build());
  * 
  *     }
@@ -156,32 +156,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example-kb")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
- *                 .type("SQL")
  *                 .sqlKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationArgs.builder()
- *                     .type("REDSHIFT")
  *                     .redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationArgs.builder()
  *                         .queryEngineConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationArgs.builder()
- *                             .type("PROVISIONED")
  *                             .provisionedConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationArgs.builder()
- *                                 .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *                                 .authConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationQueryEngineConfigurationProvisionedConfigurationAuthConfigurationArgs.builder()
  *                                     .type("USERNAME")
  *                                     .databaseUser(exampleAwsRedshiftCluster.masterUsername())
  *                                     .build())
+ *                                 .clusterIdentifier(exampleAwsRedshiftCluster.clusterIdentifier())
  *                                 .build())
+ *                             .type("PROVISIONED")
  *                             .build())
  *                         .storageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationArgs.builder()
- *                             .type("REDSHIFT")
  *                             .redshiftConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationSqlKnowledgeBaseConfigurationRedshiftConfigurationStorageConfigurationRedshiftConfigurationArgs.builder()
  *                                 .databaseName(exampleAwsRedshiftCluster.databaseName())
  *                                 .build())
+ *                             .type("REDSHIFT")
  *                             .build())
  *                         .build())
+ *                     .type("REDSHIFT")
  *                     .build())
+ *                 .type("SQL")
  *                 .build())
+ *             .name("example-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -219,8 +219,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
  *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
@@ -228,18 +226,20 @@ import javax.annotation.Nullable;
  *                 .type("VECTOR")
  *                 .build())
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
- *                 .type("OPENSEARCH_MANAGED_CLUSTER")
  *                 .opensearchManagedClusterConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationArgs.builder()
- *                     .domainArn("arn:aws:es:us-west-2:123456789012:domain/example-domain")
- *                     .domainEndpoint("https://search-example-domain.us-west-2.es.amazonaws.com")
- *                     .vectorIndexName("example_index")
  *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchManagedClusterConfigurationFieldMappingArgs.builder()
  *                         .metadataField("metadata")
  *                         .textField("chunks")
  *                         .vectorField("embedding")
  *                         .build())
+ *                     .domainArn("arn:aws:es:us-west-2:123456789012:domain/example-domain")
+ *                     .domainEndpoint("https://search-example-domain.us-west-2.es.amazonaws.com")
+ *                     .vectorIndexName("example_index")
  *                     .build())
+ *                 .type("OPENSEARCH_MANAGED_CLUSTER")
  *                 .build())
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -284,15 +284,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
- *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
  *                     .embeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs.builder()
  *                         .bedrockEmbeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs.builder()
- *                             .dimensions(1024)
- *                             .embeddingDataType("FLOAT32")
  *                             .audio(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioArgs.builder()
  *                                 .segmentationConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationAudioSegmentationConfigurationArgs.builder()
  *                                     .fixedLengthDuration(60)
@@ -303,29 +298,34 @@ import javax.annotation.Nullable;
  *                                     .fixedLengthDuration(60)
  *                                     .build())
  *                                 .build())
+ *                             .dimensions(1024)
+ *                             .embeddingDataType("FLOAT32")
  *                             .build())
  *                         .build())
  *                     .supplementalDataStorageConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationSupplementalDataStorageConfigurationArgs.builder()
  *                         .storageLocation(Map.ofEntries(
- *                             Map.entry("type", "S3"),
- *                             Map.entry("s3Location", Map.of("uri", "s3://my-bucket/chunk-processor/"))
+ *                             Map.entry("s3Location", Map.of("uri", "s3://my-bucket/chunk-processor/")),
+ *                             Map.entry("type", "S3")
  *                         ))
  *                         .build())
+ *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
  *                     .build())
  *                 .type("VECTOR")
  *                 .build())
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
- *                 .type("OPENSEARCH_SERVERLESS")
  *                 .opensearchServerlessConfiguration(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationArgs.builder()
- *                     .collectionArn("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf")
- *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .fieldMapping(AgentKnowledgeBaseStorageConfigurationOpensearchServerlessConfigurationFieldMappingArgs.builder()
  *                         .vectorField("bedrock-knowledge-base-default-vector")
  *                         .textField("AMAZON_BEDROCK_TEXT_CHUNK")
  *                         .metadataField("AMAZON_BEDROCK_METADATA")
  *                         .build())
+ *                     .collectionArn("arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf")
+ *                     .vectorIndexName("bedrock-knowledge-base-default-index")
  *                     .build())
+ *                 .type("OPENSEARCH_SERVERLESS")
  *                 .build())
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -380,26 +380,26 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentKnowledgeBase = new AgentKnowledgeBase("exampleAgentKnowledgeBase", AgentKnowledgeBaseArgs.builder()
- *             .name("example-s3vectors-kb")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
  *                 .vectorKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationArgs.builder()
- *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
  *                     .embeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs.builder()
  *                         .bedrockEmbeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationVectorKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs.builder()
  *                             .dimensions(256)
  *                             .embeddingDataType("FLOAT32")
  *                             .build())
  *                         .build())
+ *                     .embeddingModelArn("arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0")
  *                     .build())
  *                 .type("VECTOR")
  *                 .build())
  *             .storageConfiguration(AgentKnowledgeBaseStorageConfigurationArgs.builder()
- *                 .type("S3_VECTORS")
  *                 .s3VectorsConfiguration(AgentKnowledgeBaseStorageConfigurationS3VectorsConfigurationArgs.builder()
  *                     .indexArn(exampleVectorsIndex.indexArn())
  *                     .build())
+ *                 .type("S3_VECTORS")
  *                 .build())
+ *             .name("example-s3vectors-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -434,14 +434,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example-managed-kb")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
- *                 .type("MANAGED")
  *                 .managedKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs.builder()
  *                     .embeddingModelType("MANAGED")
  *                     .build())
+ *                 .type("MANAGED")
  *                 .build())
+ *             .name("example-managed-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -478,20 +478,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentKnowledgeBase("example", AgentKnowledgeBaseArgs.builder()
- *             .name("example-managed-multilingual-kb")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .knowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationArgs.builder()
- *                 .type("MANAGED")
  *                 .managedKnowledgeBaseConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationArgs.builder()
- *                     .embeddingModelType("CUSTOM")
- *                     .embeddingModelArn("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3")
  *                     .embeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationArgs.builder()
  *                         .bedrockEmbeddingModelConfiguration(AgentKnowledgeBaseKnowledgeBaseConfigurationManagedKnowledgeBaseConfigurationEmbeddingModelConfigurationBedrockEmbeddingModelConfigurationArgs.builder()
  *                             .dimensions(1024)
  *                             .build())
  *                         .build())
+ *                     .embeddingModelType("CUSTOM")
+ *                     .embeddingModelArn("arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3")
  *                     .build())
+ *                 .type("MANAGED")
  *                 .build())
+ *             .name("example-managed-multilingual-kb")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

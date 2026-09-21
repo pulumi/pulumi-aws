@@ -35,12 +35,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("ws-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
 //					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
+//				DomainName: pulumi.String("ws-api.example.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -67,20 +67,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := apigatewayv2.NewDomainName(ctx, "example", &apigatewayv2.DomainNameArgs{
-//				DomainName: pulumi.String("http-api.example.com"),
 //				DomainNameConfiguration: &apigatewayv2.DomainNameDomainNameConfigurationArgs{
 //					CertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
 //					EndpointType:   pulumi.String("REGIONAL"),
 //					SecurityPolicy: pulumi.String("TLS_1_2"),
 //				},
+//				DomainName: pulumi.String("http-api.example.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				Name:   example.DomainName,
-//				Type:   pulumi.String(route53.RecordTypeA),
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 example.DomainNameConfiguration.TargetDomainName(),
@@ -88,6 +85,9 @@ import (
 //						EvaluateTargetHealth: pulumi.Bool(false),
 //					},
 //				},
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //			})
 //			if err != nil {
 //				return err

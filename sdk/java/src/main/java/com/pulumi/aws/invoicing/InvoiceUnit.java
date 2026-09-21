@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new InvoiceUnit("example", InvoiceUnitArgs.builder()
- *             .name("example-unit")
- *             .description("Example invoice unit")
- *             .invoiceReceiver("123456789012")
  *             .rules(InvoiceUnitRuleArgs.builder()
  *                 .linkedAccounts("098765432109")
  *                 .build())
+ *             .name("example-unit")
+ *             .description("Example invoice unit")
+ *             .invoiceReceiver("123456789012")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+ * - `arn` (String) ARN of the invoice unit.
  * 
  * Using `pulumi import`, import Invoice Units using the ARN. For example:
  * 

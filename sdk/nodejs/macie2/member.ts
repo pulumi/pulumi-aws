@@ -70,7 +70,7 @@ export class Member extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly administratorAccountId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the account.
+     * ARN of the account.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -189,7 +189,7 @@ export interface MemberState {
      */
     administratorAccountId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the account.
+     * ARN of the account.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

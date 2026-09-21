@@ -282,18 +282,18 @@ class ServerlessCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.ServerlessCluster("example",
-            cluster_name="Example",
-            vpc_configs=[{
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [example_aws_security_group["id"]],
-            }],
             client_authentication={
                 "sasl": {
                     "iam": {
                         "enabled": True,
                     },
                 },
-            })
+            },
+            vpc_configs=[{
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [example_aws_security_group["id"]],
+            }],
+            cluster_name="Example")
         ```
 
         ## Import
@@ -302,7 +302,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the MSK serverless cluster.
+        - `arn` (String) ARN of the MSK serverless cluster.
 
         Using `pulumi import`, import MSK serverless cluster using the cluster ARN. For example:
 
@@ -337,18 +337,18 @@ class ServerlessCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.msk.ServerlessCluster("example",
-            cluster_name="Example",
-            vpc_configs=[{
-                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
-                "security_group_ids": [example_aws_security_group["id"]],
-            }],
             client_authentication={
                 "sasl": {
                     "iam": {
                         "enabled": True,
                     },
                 },
-            })
+            },
+            vpc_configs=[{
+                "subnet_ids": [__item["id"] for __item in example_aws_subnet],
+                "security_group_ids": [example_aws_security_group["id"]],
+            }],
+            cluster_name="Example")
         ```
 
         ## Import
@@ -357,7 +357,7 @@ class ServerlessCluster(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the MSK serverless cluster.
+        - `arn` (String) ARN of the MSK serverless cluster.
 
         Using `pulumi import`, import MSK serverless cluster using the cluster ARN. For example:
 

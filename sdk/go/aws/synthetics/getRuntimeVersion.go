@@ -111,12 +111,8 @@ type GetRuntimeVersionResult struct {
 }
 
 func GetRuntimeVersionOutput(ctx *pulumi.Context, args GetRuntimeVersionOutputArgs, opts ...pulumi.InvokeOption) GetRuntimeVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRuntimeVersionResultOutput, error) {
-			args := v.(GetRuntimeVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args, GetRuntimeVersionResultOutput{}, options).(GetRuntimeVersionResultOutput), nil
-		}).(GetRuntimeVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:synthetics/getRuntimeVersion:getRuntimeVersion", args, GetRuntimeVersionResultOutput{}, options).(GetRuntimeVersionResultOutput)
 }
 
 // A collection of arguments for invoking getRuntimeVersion.

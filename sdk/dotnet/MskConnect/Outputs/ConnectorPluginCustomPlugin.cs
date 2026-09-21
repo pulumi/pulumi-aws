@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorPluginCustomPlugin
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom plugin.
+        /// ARN of the custom plugin.
         /// </summary>
         public readonly string Arn;
         /// <summary>

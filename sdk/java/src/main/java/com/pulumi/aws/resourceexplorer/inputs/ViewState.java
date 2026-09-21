@@ -21,14 +21,14 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
     public static final ViewState Empty = new ViewState();
 
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer view.
+     * ARN of the Resource Explorer view.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Resource Explorer view.
+     * @return ARN of the Resource Explorer view.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -188,7 +188,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Resource Explorer view.
+         * @param arn ARN of the Resource Explorer view.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class ViewState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Resource Explorer view.
+         * @param arn ARN of the Resource Explorer view.
          * 
          * @return builder
          * 

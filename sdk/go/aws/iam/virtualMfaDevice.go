@@ -58,7 +58,7 @@ import (
 type VirtualMfaDevice struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+	// ARN, which is also the serial number, of the virtual MFA device.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
 	Base32StringSeed pulumi.StringOutput `pulumi:"base32StringSeed"`
@@ -113,7 +113,7 @@ func GetVirtualMfaDevice(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VirtualMfaDevice resources.
 type virtualMfaDeviceState struct {
-	// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+	// ARN, which is also the serial number, of the virtual MFA device.
 	Arn *string `pulumi:"arn"`
 	// Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
 	Base32StringSeed *string `pulumi:"base32StringSeed"`
@@ -136,7 +136,7 @@ type virtualMfaDeviceState struct {
 }
 
 type VirtualMfaDeviceState struct {
-	// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+	// ARN, which is also the serial number, of the virtual MFA device.
 	Arn pulumi.StringPtrInput
 	// Base32 seed defined as specified in [RFC3548](https://tools.ietf.org/html/rfc3548.txt). The `base32StringSeed` is base64-encoded.
 	Base32StringSeed pulumi.StringPtrInput
@@ -268,7 +268,7 @@ func (o VirtualMfaDeviceOutput) ToVirtualMfaDeviceOutputWithContext(ctx context.
 	return o
 }
 
-// Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+// ARN, which is also the serial number, of the virtual MFA device.
 func (o VirtualMfaDeviceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMfaDevice) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

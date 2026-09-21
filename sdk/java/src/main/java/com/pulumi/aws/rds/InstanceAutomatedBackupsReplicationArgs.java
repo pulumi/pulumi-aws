@@ -18,14 +18,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     public static final InstanceAutomatedBackupsReplicationArgs Empty = new InstanceAutomatedBackupsReplicationArgs();
 
     /**
-     * The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+     * @return AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -33,14 +33,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
-     * A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
     @Import(name="preSignedUrl")
     private @Nullable Output<String> preSignedUrl;
 
     /**
-     * @return A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+     * @return URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
      * 
      */
     public Optional<Output<String>> preSignedUrl() {
@@ -63,14 +63,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
-     * The retention period for the replicated automated backups, defaults to `7`.
+     * Retention period for the replicated automated backups, defaults to `7`.
      * 
      */
     @Import(name="retentionPeriod")
     private @Nullable Output<Integer> retentionPeriod;
 
     /**
-     * @return The retention period for the replicated automated backups, defaults to `7`.
+     * @return Retention period for the replicated automated backups, defaults to `7`.
      * 
      */
     public Optional<Output<Integer>> retentionPeriod() {
@@ -78,14 +78,14 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
     @Import(name="sourceDbInstanceArn", required=true)
     private Output<String> sourceDbInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+     * @return ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
      * 
      */
     public Output<String> sourceDbInstanceArn() {
@@ -121,7 +121,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+         * @param kmsKeyId AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param kmsKeyId The AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the Amazon Resource Name (ARN) for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
+         * @param kmsKeyId AWS KMS key identifier for encryption of the replicated automated backups. The KMS key ID is the ARN for the KMS encryption key in the destination AWS Region, for example, `arn:aws:kms:us-east-1:123456789012:key/AKIAIOSFODNN7EXAMPLE`.
          * 
          * @return builder
          * 
@@ -142,7 +142,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param preSignedUrl A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+         * @param preSignedUrl URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
          * 
          * @return builder
          * 
@@ -153,7 +153,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param preSignedUrl A URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
+         * @param preSignedUrl URL that contains a [Signature Version 4](https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html) signed request for the [`StartDBInstanceAutomatedBackupsReplication`](https://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_StartDBInstanceAutomatedBackupsReplication.html) action to be called in the AWS Region of the source DB instance.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param retentionPeriod The retention period for the replicated automated backups, defaults to `7`.
+         * @param retentionPeriod Retention period for the replicated automated backups, defaults to `7`.
          * 
          * @return builder
          * 
@@ -195,7 +195,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param retentionPeriod The retention period for the replicated automated backups, defaults to `7`.
+         * @param retentionPeriod Retention period for the replicated automated backups, defaults to `7`.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param sourceDbInstanceArn The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+         * @param sourceDbInstanceArn ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
          * 
          * @return builder
          * 
@@ -216,7 +216,7 @@ public final class InstanceAutomatedBackupsReplicationArgs extends com.pulumi.re
         }
 
         /**
-         * @param sourceDbInstanceArn The Amazon Resource Name (ARN) of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
+         * @param sourceDbInstanceArn ARN of the source DB instance for the replicated automated backups, for example, `arn:aws:rds:us-west-2:123456789012:db:mydatabase`.
          * 
          * @return builder
          * 

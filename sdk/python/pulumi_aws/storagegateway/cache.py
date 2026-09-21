@@ -26,7 +26,7 @@ class CacheArgs:
         The set of arguments for constructing a Cache resource.
 
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "disk_id", disk_id)
@@ -50,7 +50,7 @@ class CacheArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -81,7 +81,7 @@ class _CacheState:
         Input properties used for looking up and filtering Cache resources.
 
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if disk_id is not None:
@@ -107,7 +107,7 @@ class _CacheState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -156,7 +156,7 @@ class Cache(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.Cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+        Using `pulumi import`, import `storagegateway.Cache` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -166,7 +166,7 @@ class Cache(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -193,7 +193,7 @@ class Cache(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.Cache` using the gateway Amazon Resource Name (ARN) and local disk identifier separated with a colon (`:`). For example:
+        Using `pulumi import`, import `storagegateway.Cache` using the gateway ARN and local disk identifier separated with a colon (`:`). For example:
 
         ```sh
         $ pulumi import aws:storagegateway/cache:Cache example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678:pci-0000:03:00.0-scsi-0:0:0:0
@@ -255,7 +255,7 @@ class Cache(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] disk_id: Local disk identifier. For example, `pci-0000:03:00.0-scsi-0:0:0:0`.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -279,7 +279,7 @@ class Cache(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 

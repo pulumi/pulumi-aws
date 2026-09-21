@@ -159,10 +159,10 @@ class AllowedImagesSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AllowedImagesSettings("example",
-            state="enabled",
             image_criterions=[{
                 "image_providers": ["amazon"],
-            }])
+            }],
+            state="enabled")
         ```
 
         ### Enable audit mode with specific account IDs
@@ -172,13 +172,13 @@ class AllowedImagesSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AllowedImagesSettings("example",
-            state="audit-mode",
             image_criterions=[{
                 "image_providers": [
                     "amazon",
                     "123456789012",
                 ],
-            }])
+            }],
+            state="audit-mode")
         ```
 
         ## Import
@@ -220,10 +220,10 @@ class AllowedImagesSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AllowedImagesSettings("example",
-            state="enabled",
             image_criterions=[{
                 "image_providers": ["amazon"],
-            }])
+            }],
+            state="enabled")
         ```
 
         ### Enable audit mode with specific account IDs
@@ -233,13 +233,13 @@ class AllowedImagesSettings(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.AllowedImagesSettings("example",
-            state="audit-mode",
             image_criterions=[{
                 "image_providers": [
                     "amazon",
                     "123456789012",
                 ],
-            }])
+            }],
+            state="audit-mode")
         ```
 
         ## Import

@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the contact.
+ * - `arn` (String) ARN of the contact.
  *
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  *
@@ -90,7 +90,7 @@ export class Contact extends pulumi.CustomResource {
      */
     declare public readonly alias: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -167,7 +167,7 @@ export interface ContactState {
      */
     alias?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * The ARN of the contact or escalation plan.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

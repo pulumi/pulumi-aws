@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
  *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -28,17 +26,19 @@ import * as utilities from "../utilities";
  *         type: "VECTOR",
  *     },
  *     storageConfiguration: {
- *         type: "OPENSEARCH_SERVERLESS",
  *         opensearchServerlessConfiguration: {
- *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
- *             vectorIndexName: "bedrock-knowledge-base-default-index",
  *             fieldMapping: {
  *                 vectorField: "bedrock-knowledge-base-default-vector",
  *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
  *                 metadataField: "AMAZON_BEDROCK_METADATA",
  *             },
+ *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+ *             vectorIndexName: "bedrock-knowledge-base-default-index",
  *         },
+ *         type: "OPENSEARCH_SERVERLESS",
  *     },
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -49,14 +49,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const kendraExample = new aws.bedrock.AgentKnowledgeBase("kendra_example", {
- *     name: "example-kendra-kb",
- *     roleArn: example.arn,
  *     knowledgeBaseConfiguration: {
- *         type: "KENDRA",
  *         kendraKnowledgeBaseConfiguration: {
  *             kendraIndexArn: "arn:aws:kendra:us-east-1:123456789012:index/example-index-id",
  *         },
+ *         type: "KENDRA",
  *     },
+ *     name: "example-kendra-kb",
+ *     roleArn: example.arn,
  * });
  * ```
  *
@@ -67,32 +67,32 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-kb",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
- *         type: "SQL",
  *         sqlKnowledgeBaseConfiguration: {
- *             type: "REDSHIFT",
  *             redshiftConfiguration: {
  *                 queryEngineConfiguration: {
- *                     type: "PROVISIONED",
  *                     provisionedConfiguration: {
- *                         clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  *                         authConfiguration: {
  *                             type: "USERNAME",
  *                             databaseUser: exampleAwsRedshiftCluster.masterUsername,
  *                         },
+ *                         clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  *                     },
+ *                     type: "PROVISIONED",
  *                 },
  *                 storageConfiguration: {
- *                     type: "REDSHIFT",
  *                     redshiftConfiguration: {
  *                         databaseName: exampleAwsRedshiftCluster.databaseName,
  *                     },
+ *                     type: "REDSHIFT",
  *                 },
  *             },
+ *             type: "REDSHIFT",
  *         },
+ *         type: "SQL",
  *     },
+ *     name: "example-kb",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -103,8 +103,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
  *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
@@ -112,18 +110,20 @@ import * as utilities from "../utilities";
  *         type: "VECTOR",
  *     },
  *     storageConfiguration: {
- *         type: "OPENSEARCH_MANAGED_CLUSTER",
  *         opensearchManagedClusterConfiguration: {
- *             domainArn: "arn:aws:es:us-west-2:123456789012:domain/example-domain",
- *             domainEndpoint: "https://search-example-domain.us-west-2.es.amazonaws.com",
- *             vectorIndexName: "example_index",
  *             fieldMapping: {
  *                 metadataField: "metadata",
  *                 textField: "chunks",
  *                 vectorField: "embedding",
  *             },
+ *             domainArn: "arn:aws:es:us-west-2:123456789012:domain/example-domain",
+ *             domainEndpoint: "https://search-example-domain.us-west-2.es.amazonaws.com",
+ *             vectorIndexName: "example_index",
  *         },
+ *         type: "OPENSEARCH_MANAGED_CLUSTER",
  *     },
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -134,15 +134,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
  *             embeddingModelConfiguration: {
  *                 bedrockEmbeddingModelConfiguration: {
- *                     dimensions: 1024,
- *                     embeddingDataType: "FLOAT32",
  *                     audio: {
  *                         segmentationConfiguration: {
  *                             fixedLengthDuration: 60,
@@ -153,31 +148,36 @@ import * as utilities from "../utilities";
  *                             fixedLengthDuration: 60,
  *                         },
  *                     },
+ *                     dimensions: 1024,
+ *                     embeddingDataType: "FLOAT32",
  *                 },
  *             },
  *             supplementalDataStorageConfiguration: {
  *                 storageLocation: {
- *                     type: "S3",
  *                     s3Location: {
  *                         uri: "s3://my-bucket/chunk-processor/",
  *                     },
+ *                     type: "S3",
  *                 },
  *             },
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
  *         },
  *         type: "VECTOR",
  *     },
  *     storageConfiguration: {
- *         type: "OPENSEARCH_SERVERLESS",
  *         opensearchServerlessConfiguration: {
- *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
- *             vectorIndexName: "bedrock-knowledge-base-default-index",
  *             fieldMapping: {
  *                 vectorField: "bedrock-knowledge-base-default-vector",
  *                 textField: "AMAZON_BEDROCK_TEXT_CHUNK",
  *                 metadataField: "AMAZON_BEDROCK_METADATA",
  *             },
+ *             collectionArn: "arn:aws:aoss:us-west-2:123456789012:collection/142bezjddq707i5stcrf",
+ *             vectorIndexName: "bedrock-knowledge-base-default-index",
  *         },
+ *         type: "OPENSEARCH_SERVERLESS",
  *     },
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -196,26 +196,26 @@ import * as utilities from "../utilities";
  *     distanceMetric: "euclidean",
  * });
  * const exampleAgentKnowledgeBase = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-s3vectors-kb",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
  *         vectorKnowledgeBaseConfiguration: {
- *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
  *             embeddingModelConfiguration: {
  *                 bedrockEmbeddingModelConfiguration: {
  *                     dimensions: 256,
  *                     embeddingDataType: "FLOAT32",
  *                 },
  *             },
+ *             embeddingModelArn: "arn:aws:bedrock:us-west-2::foundation-model/amazon.titan-embed-text-v2:0",
  *         },
  *         type: "VECTOR",
  *     },
  *     storageConfiguration: {
- *         type: "S3_VECTORS",
  *         s3VectorsConfiguration: {
  *             indexArn: exampleVectorsIndex.indexArn,
  *         },
+ *         type: "S3_VECTORS",
  *     },
+ *     name: "example-s3vectors-kb",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -226,14 +226,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-managed-kb",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
- *         type: "MANAGED",
  *         managedKnowledgeBaseConfiguration: {
  *             embeddingModelType: "MANAGED",
  *         },
+ *         type: "MANAGED",
  *     },
+ *     name: "example-managed-kb",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -244,20 +244,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentKnowledgeBase("example", {
- *     name: "example-managed-multilingual-kb",
- *     roleArn: exampleAwsIamRole.arn,
  *     knowledgeBaseConfiguration: {
- *         type: "MANAGED",
  *         managedKnowledgeBaseConfiguration: {
- *             embeddingModelType: "CUSTOM",
- *             embeddingModelArn: "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
  *             embeddingModelConfiguration: {
  *                 bedrockEmbeddingModelConfiguration: {
  *                     dimensions: 1024,
  *                 },
  *             },
+ *             embeddingModelType: "CUSTOM",
+ *             embeddingModelArn: "arn:aws:bedrock:us-east-1::foundation-model/cohere.embed-multilingual-v3",
  *         },
+ *         type: "MANAGED",
  *     },
+ *     name: "example-managed-multilingual-kb",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

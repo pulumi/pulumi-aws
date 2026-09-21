@@ -34,14 +34,14 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Findings Filter.
+     * @return ARN of the Findings Filter.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -223,7 +223,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Findings Filter.
+         * @param arn ARN of the Findings Filter.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class FindingsFilterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Findings Filter.
+         * @param arn ARN of the Findings Filter.
          * 
          * @return builder
          * 

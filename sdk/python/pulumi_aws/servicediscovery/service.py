@@ -419,18 +419,18 @@ class Service(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example_private_dns_namespace.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example_private_dns_namespace.id,
                 "routing_policy": "MULTIVALUE",
             },
             health_check_config={
                 "failure_threshold": 1,
-            })
+            },
+            name="example")
         ```
 
         ```python
@@ -441,19 +441,19 @@ class Service(pulumi.CustomResource):
             name="example.mydomain.com",
             description="example")
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example.id,
             },
             health_check_config={
                 "failure_threshold": 10,
                 "resource_path": "path",
                 "type": "HTTP",
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -502,18 +502,18 @@ class Service(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example_private_dns_namespace.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example_private_dns_namespace.id,
                 "routing_policy": "MULTIVALUE",
             },
             health_check_config={
                 "failure_threshold": 1,
-            })
+            },
+            name="example")
         ```
 
         ```python
@@ -524,19 +524,19 @@ class Service(pulumi.CustomResource):
             name="example.mydomain.com",
             description="example")
         example_service = aws.servicediscovery.Service("example",
-            name="example",
             dns_config={
-                "namespace_id": example.id,
                 "dns_records": [{
                     "ttl": 10,
                     "type": "A",
                 }],
+                "namespace_id": example.id,
             },
             health_check_config={
                 "failure_threshold": 10,
                 "resource_path": "path",
                 "type": "HTTP",
-            })
+            },
+            name="example")
         ```
 
         ## Import

@@ -30,13 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewHoursOfOperation(ctx, "test", &connect.HoursOfOperationArgs{
-//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:        pulumi.String("Office Hours"),
-//				Description: pulumi.String("Monday office hours"),
-//				TimeZone:    pulumi.String("EST"),
 //				Configs: connect.HoursOfOperationConfigArray{
 //					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("MONDAY"),
 //						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
 //							Hours:   pulumi.Int(23),
 //							Minutes: pulumi.Int(8),
@@ -45,9 +40,9 @@ import (
 //							Hours:   pulumi.Int(8),
 //							Minutes: pulumi.Int(0),
 //						},
+//						Day: pulumi.String("MONDAY"),
 //					},
 //					&connect.HoursOfOperationConfigArgs{
-//						Day: pulumi.String("TUESDAY"),
 //						EndTime: &connect.HoursOfOperationConfigEndTimeArgs{
 //							Hours:   pulumi.Int(21),
 //							Minutes: pulumi.Int(0),
@@ -56,8 +51,13 @@ import (
 //							Hours:   pulumi.Int(9),
 //							Minutes: pulumi.Int(0),
 //						},
+//						Day: pulumi.String("TUESDAY"),
 //					},
 //				},
+//				InstanceId:  pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:        pulumi.String("Office Hours"),
+//				Description: pulumi.String("Monday office hours"),
+//				TimeZone:    pulumi.String("EST"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Hours of Operation"),
 //				},
@@ -81,7 +81,7 @@ import (
 type HoursOfOperation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// ARN of the Hours of Operation.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs HoursOfOperationConfigArrayOutput `pulumi:"configs"`
@@ -142,7 +142,7 @@ func GetHoursOfOperation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HoursOfOperation resources.
 type hoursOfOperationState struct {
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// ARN of the Hours of Operation.
 	Arn *string `pulumi:"arn"`
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs []HoursOfOperationConfig `pulumi:"configs"`
@@ -165,7 +165,7 @@ type hoursOfOperationState struct {
 }
 
 type HoursOfOperationState struct {
-	// The Amazon Resource Name (ARN) of the Hours of Operation.
+	// ARN of the Hours of Operation.
 	Arn pulumi.StringPtrInput
 	// One or more config blocks which define the configuration information for the hours of operation: day, start time, and end time . Config blocks are documented below.
 	Configs HoursOfOperationConfigArrayInput
@@ -313,7 +313,7 @@ func (o HoursOfOperationOutput) ToHoursOfOperationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Hours of Operation.
+// ARN of the Hours of Operation.
 func (o HoursOfOperationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HoursOfOperation) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

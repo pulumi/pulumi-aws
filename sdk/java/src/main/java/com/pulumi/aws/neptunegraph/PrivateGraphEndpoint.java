@@ -85,15 +85,15 @@ import javax.annotation.Nullable;
  * 
  *         // Security Group for Neptune Graph
  *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
- *             .namePrefix("neptune-graph-sg")
- *             .description("Security group for Neptune Graph")
- *             .vpcId(example.id())
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(8182)
  *                 .toPort(8182)
  *                 .protocol("tcp")
  *                 .cidrBlocks("10.0.0.0/16")
  *                 .build())
+ *             .namePrefix("neptune-graph-sg")
+ *             .description("Security group for Neptune Graph")
+ *             .vpcId(example.id())
  *             .tags(Map.of("Name", "neptune-graph-sg"))
  *             .build());
  * 

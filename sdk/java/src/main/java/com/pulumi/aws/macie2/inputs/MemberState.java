@@ -48,14 +48,14 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the account.
+     * ARN of the account.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the account.
+     * @return ARN of the account.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -315,7 +315,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the account.
+         * @param arn ARN of the account.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class MemberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the account.
+         * @param arn ARN of the account.
          * 
          * @return builder
          * 

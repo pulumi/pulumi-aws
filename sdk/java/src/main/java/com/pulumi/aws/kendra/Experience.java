@@ -50,10 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Experience("example", ExperienceArgs.builder()
- *             .indexId(exampleAwsKendraIndex.id())
- *             .description("My Kendra Experience")
- *             .name("example")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .configuration(ExperienceConfigurationArgs.builder()
  *                 .contentSourceConfiguration(ExperienceConfigurationContentSourceConfigurationArgs.builder()
  *                     .directPutContent(true)
@@ -63,6 +59,10 @@ import javax.annotation.Nullable;
  *                     .identityAttributeName("12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245")
  *                     .build())
  *                 .build())
+ *             .indexId(exampleAwsKendraIndex.id())
+ *             .description("My Kendra Experience")
+ *             .name("example")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -198,7 +198,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      * The following arguments are optional:
      * 
@@ -207,7 +207,7 @@ public class Experience extends com.pulumi.resources.CustomResource {
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * @return ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      * 
      * The following arguments are optional:
      * 

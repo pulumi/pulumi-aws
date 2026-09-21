@@ -30,11 +30,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
- *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [{
  *         minRange: 22,
  *         maxRange: 22,
  *     }],
+ *     blockPublicSecurityGroupRules: true,
  * });
  * ```
  *
@@ -49,7 +49,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.emr.BlockPublicAccessConfiguration("example", {
- *     blockPublicSecurityGroupRules: true,
  *     permittedPublicSecurityGroupRuleRanges: [
  *         {
  *             minRange: 22,
@@ -60,6 +59,7 @@ import * as utilities from "../utilities";
  *             maxRange: 101,
  *         },
  *     ],
+ *     blockPublicSecurityGroupRules: true,
  * });
  * ```
  *

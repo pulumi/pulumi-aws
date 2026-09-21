@@ -30,14 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := cloudwatch.GetLogDataProtectionPolicyDocument(ctx, &cloudwatch.GetLogDataProtectionPolicyDocumentArgs{
-//				Name: "Example",
 //				Statements: []cloudwatch.GetLogDataProtectionPolicyDocumentStatement{
 //					{
-//						Sid: pulumi.StringRef("Audit"),
-//						DataIdentifiers: []string{
-//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
-//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
-//						},
 //						Operation: {
 //							Audit: {
 //								FindingsDestination: {
@@ -53,20 +47,26 @@ import (
 //								},
 //							},
 //						},
-//					},
-//					{
-//						Sid: pulumi.StringRef("Deidentify"),
+//						Sid: pulumi.StringRef("Audit"),
 //						DataIdentifiers: []string{
 //							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
 //							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
 //						},
+//					},
+//					{
 //						Operation: {
 //							Deidentify: {
 //								MaskConfig: {},
 //							},
 //						},
+//						Sid: pulumi.StringRef("Deidentify"),
+//						DataIdentifiers: []string{
+//							"arn:aws:dataprotection::aws:data-identifier/EmailAddress",
+//							"arn:aws:dataprotection::aws:data-identifier/DriversLicense-US",
+//						},
 //					},
 //				},
+//				Name: "Example",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -122,12 +122,8 @@ type GetLogDataProtectionPolicyDocumentResult struct {
 }
 
 func GetLogDataProtectionPolicyDocumentOutput(ctx *pulumi.Context, args GetLogDataProtectionPolicyDocumentOutputArgs, opts ...pulumi.InvokeOption) GetLogDataProtectionPolicyDocumentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLogDataProtectionPolicyDocumentResultOutput, error) {
-			args := v.(GetLogDataProtectionPolicyDocumentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, GetLogDataProtectionPolicyDocumentResultOutput{}, options).(GetLogDataProtectionPolicyDocumentResultOutput), nil
-		}).(GetLogDataProtectionPolicyDocumentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudwatch/getLogDataProtectionPolicyDocument:getLogDataProtectionPolicyDocument", args, GetLogDataProtectionPolicyDocumentResultOutput{}, options).(GetLogDataProtectionPolicyDocumentResultOutput)
 }
 
 // A collection of arguments for invoking getLogDataProtectionPolicyDocument.

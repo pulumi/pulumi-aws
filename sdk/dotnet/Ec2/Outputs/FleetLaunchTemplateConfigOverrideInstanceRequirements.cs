@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         public readonly string? BurstablePerformance;
         /// <summary>
         /// The CPU manufacturers to include. Default is any manufacturer.
-        /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+        /// &gt; **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
         /// </summary>
         public readonly ImmutableArray<string> CpuManufacturers;
         /// <summary>

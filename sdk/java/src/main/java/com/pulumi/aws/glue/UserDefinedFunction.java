@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserDefinedFunction = new UserDefinedFunction("exampleUserDefinedFunction", UserDefinedFunctionArgs.builder()
+ *             .resourceUris(UserDefinedFunctionResourceUriArgs.builder()
+ *                 .resourceType("ARCHIVE")
+ *                 .uri("uri")
+ *                 .build())
  *             .name("my_func")
  *             .catalogId(example.catalogId())
  *             .databaseName(example.name())
  *             .className("class")
  *             .ownerName("owner")
  *             .ownerType("GROUP")
- *             .resourceUris(UserDefinedFunctionResourceUriArgs.builder()
- *                 .resourceType("ARCHIVE")
- *                 .uri("uri")
- *                 .build())
  *             .build());
  * 
  *     }

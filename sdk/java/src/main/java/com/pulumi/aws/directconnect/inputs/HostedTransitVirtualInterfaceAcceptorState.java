@@ -5,6 +5,7 @@ package com.pulumi.aws.directconnect.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.Map;
 import java.util.Objects;
@@ -44,6 +45,36 @@ public final class HostedTransitVirtualInterfaceAcceptorState extends com.pulumi
      */
     public Optional<Output<String>> dxGatewayId() {
         return Optional.ofNullable(this.dxGatewayId);
+    }
+
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv4")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv4() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv4);
+    }
+
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv6")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv6() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv6);
     }
 
     /**
@@ -111,6 +142,8 @@ public final class HostedTransitVirtualInterfaceAcceptorState extends com.pulumi
     private HostedTransitVirtualInterfaceAcceptorState(HostedTransitVirtualInterfaceAcceptorState $) {
         this.arn = $.arn;
         this.dxGatewayId = $.dxGatewayId;
+        this.prefixPoolAllocatedCountIpv4 = $.prefixPoolAllocatedCountIpv4;
+        this.prefixPoolAllocatedCountIpv6 = $.prefixPoolAllocatedCountIpv6;
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -175,6 +208,48 @@ public final class HostedTransitVirtualInterfaceAcceptorState extends com.pulumi
          */
         public Builder dxGatewayId(String dxGatewayId) {
             return dxGatewayId(Output.of(dxGatewayId));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(@Nullable Output<Integer> prefixPoolAllocatedCountIpv4) {
+            $.prefixPoolAllocatedCountIpv4 = prefixPoolAllocatedCountIpv4;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(Integer prefixPoolAllocatedCountIpv4) {
+            return prefixPoolAllocatedCountIpv4(Output.of(prefixPoolAllocatedCountIpv4));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(@Nullable Output<Integer> prefixPoolAllocatedCountIpv6) {
+            $.prefixPoolAllocatedCountIpv6 = prefixPoolAllocatedCountIpv6;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(Integer prefixPoolAllocatedCountIpv6) {
+            return prefixPoolAllocatedCountIpv6(Output.of(prefixPoolAllocatedCountIpv6));
         }
 
         /**

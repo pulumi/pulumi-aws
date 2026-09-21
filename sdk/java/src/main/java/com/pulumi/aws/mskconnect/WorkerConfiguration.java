@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:mskconnect/workerConfiguration:WorkerConfiguration")
 public class WorkerConfiguration extends com.pulumi.resources.CustomResource {
     /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
+     * the ARN of the worker configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return the Amazon Resource Name (ARN) of the worker configuration.
+     * @return the ARN of the worker configuration.
      * 
      */
     public Output<String> arn() {

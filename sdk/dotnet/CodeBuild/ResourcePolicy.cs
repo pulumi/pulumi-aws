@@ -25,12 +25,12 @@ namespace Pulumi.Aws.CodeBuild
     /// {
     ///     var example = new Aws.CodeBuild.ReportGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "TEST",
     ///         ExportConfig = new Aws.CodeBuild.Inputs.ReportGroupExportConfigArgs
     ///         {
     ///             Type = "NO_EXPORT",
     ///         },
+    ///         Name = "example",
+    ///         Type = "TEST",
     ///     });
     /// 
     ///     var current = Aws.GetPartition.Invoke();
@@ -81,7 +81,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+    /// - `ResourceArn` (String) ARN of the CodeBuild resource.
     /// 
     /// Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
     /// 

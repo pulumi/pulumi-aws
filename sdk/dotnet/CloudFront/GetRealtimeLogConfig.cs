@@ -118,7 +118,7 @@ namespace Pulumi.Aws.CloudFront
     public sealed class GetRealtimeLogConfigResult
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+        /// ARN of the CloudFront real-time log configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>

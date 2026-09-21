@@ -130,15 +130,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Instance("example", InstanceArgs.builder()
- *             .name("example")
- *             .availabilityZone("us-east-1b")
- *             .blueprintId("amazon_linux_2")
- *             .bundleId("nano_3_0")
  *             .addOn(InstanceAddOnArgs.builder()
  *                 .type("AutoSnapshot")
  *                 .snapshotTime("06:00")
  *                 .status("Enabled")
  *                 .build())
+ *             .name("example")
+ *             .availabilityZone("us-east-1b")
+ *             .blueprintId("amazon_linux_2")
+ *             .bundleId("nano_3_0")
  *             .tags(Map.of("foo", "bar"))
  *             .build());
  * 

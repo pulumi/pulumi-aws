@@ -37,8 +37,6 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
-        /// 
-        /// **NOTE:** Either `DbInstanceIdentifier` or `DbClusterIdentifier` should be specified and both should not be specified together
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string?> DbClusterIdentifier { get; private set; } = null!;
@@ -50,7 +48,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> DbInstanceIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the DB proxy.
+        /// Name of the DB proxy.
         /// </summary>
         [Output("dbProxyName")]
         public Output<string> DbProxyName { get; private set; } = null!;
@@ -80,13 +78,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        /// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the target group.
+        /// Name of the target group.
         /// </summary>
         [Output("targetGroupName")]
         public Output<string> TargetGroupName { get; private set; } = null!;
@@ -151,8 +149,6 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
-        /// 
-        /// **NOTE:** Either `DbInstanceIdentifier` or `DbClusterIdentifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
@@ -164,7 +160,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the DB proxy.
+        /// Name of the DB proxy.
         /// </summary>
         [Input("dbProxyName", required: true)]
         public Input<string> DbProxyName { get; set; } = null!;
@@ -176,7 +172,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The name of the target group.
+        /// Name of the target group.
         /// </summary>
         [Input("targetGroupName", required: true)]
         public Input<string> TargetGroupName { get; set; } = null!;
@@ -191,8 +187,6 @@ namespace Pulumi.Aws.Rds
     {
         /// <summary>
         /// DB cluster identifier.
-        /// 
-        /// **NOTE:** Either `DbInstanceIdentifier` or `DbClusterIdentifier` should be specified and both should not be specified together
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
@@ -204,7 +198,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DbInstanceIdentifier { get; set; }
 
         /// <summary>
-        /// The name of the DB proxy.
+        /// Name of the DB proxy.
         /// </summary>
         [Input("dbProxyName")]
         public Input<string>? DbProxyName { get; set; }
@@ -234,13 +228,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+        /// ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }
 
         /// <summary>
-        /// The name of the target group.
+        /// Name of the target group.
         /// </summary>
         [Input("targetGroupName")]
         public Input<string>? TargetGroupName { get; set; }

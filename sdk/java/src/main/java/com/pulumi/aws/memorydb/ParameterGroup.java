@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
- *             .name("my-parameter-group")
- *             .family("memorydb_redis6")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("activedefrag")
  *                 .value("yes")
  *                 .build())
+ *             .name("my-parameter-group")
+ *             .family("memorydb_redis6")
  *             .build());
  * 
  *     }

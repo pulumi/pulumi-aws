@@ -40,7 +40,7 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String defineAuthChallenge;
     /**
-     * @return The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+     * @return ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -122,7 +122,7 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.defineAuthChallenge);
     }
     /**
-     * @return The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+     * @return ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
      * 
      */
     public Optional<String> kmsKeyId() {

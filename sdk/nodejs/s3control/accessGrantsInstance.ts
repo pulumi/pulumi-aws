@@ -65,7 +65,7 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
+     * ARN of the S3 Access Grants instance.
      */
     declare public /*out*/ readonly accessGrantsInstanceArn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class AccessGrantsInstance extends pulumi.CustomResource {
  */
 export interface AccessGrantsInstanceState {
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants instance.
+     * ARN of the S3 Access Grants instance.
      */
     accessGrantsInstanceArn?: pulumi.Input<string | undefined>;
     /**

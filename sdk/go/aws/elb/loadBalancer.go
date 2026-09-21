@@ -39,16 +39,17 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create a new load balancer
 //			_, err := elb.NewLoadBalancer(ctx, "bar", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("foobar-elb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-west-2a"),
-//					pulumi.String("us-west-2b"),
-//					pulumi.String("us-west-2c"),
-//				},
 //				AccessLogs: &elb.LoadBalancerAccessLogsArgs{
 //					Bucket:       pulumi.String("foo"),
 //					BucketPrefix: pulumi.String("bar"),
 //					Interval:     pulumi.Int(60),
+//				},
+//				HealthCheck: &elb.LoadBalancerHealthCheckArgs{
+//					HealthyThreshold:   pulumi.Int(2),
+//					UnhealthyThreshold: pulumi.Int(2),
+//					Timeout:            pulumi.Int(3),
+//					Target:             pulumi.String("HTTP:8000/"),
+//					Interval:           pulumi.Int(30),
 //				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
@@ -65,12 +66,11 @@ import (
 //						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
 //					},
 //				},
-//				HealthCheck: &elb.LoadBalancerHealthCheckArgs{
-//					HealthyThreshold:   pulumi.Int(2),
-//					UnhealthyThreshold: pulumi.Int(2),
-//					Timeout:            pulumi.Int(3),
-//					Target:             pulumi.String("HTTP:8000/"),
-//					Interval:           pulumi.Int(30),
+//				Name: pulumi.String("foobar-elb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-west-2a"),
+//					pulumi.String("us-west-2b"),
+//					pulumi.String("us-west-2c"),
 //				},
 //				Instances: pulumi.StringArray{
 //					foo.Id,

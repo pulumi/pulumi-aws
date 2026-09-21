@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
 //					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
 //					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
@@ -44,6 +42,8 @@ import (
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
+//				FlowDefinitionName: pulumi.String("example"),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -69,25 +69,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
-//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
-//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
-//					TaskCount:                         pulumi.Int(1),
-//					TaskDescription:                   pulumi.String("example"),
-//					TaskTitle:                         pulumi.String("example"),
-//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Region),
 //					PublicWorkforceTaskPrice: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceArgs{
 //						AmountInUsd: &sagemaker.FlowDefinitionHumanLoopConfigPublicWorkforceTaskPriceAmountInUsdArgs{
 //							Cents:                 pulumi.Int(1),
 //							TenthFractionsOfACent: pulumi.Int(2),
 //						},
 //					},
+//					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
+//					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
+//					TaskCount:                         pulumi.Int(1),
+//					TaskDescription:                   pulumi.String("example"),
+//					TaskTitle:                         pulumi.String("example"),
+//					WorkteamArn:                       pulumi.Sprintf("arn:aws:sagemaker:%v:394669845002:workteam/public-crowd/default", current.Region),
 //				},
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
+//				FlowDefinitionName: pulumi.String("example"),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -113,8 +113,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewFlowDefinition(ctx, "example", &sagemaker.FlowDefinitionArgs{
-//				FlowDefinitionName: pulumi.String("example"),
-//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //				HumanLoopConfig: &sagemaker.FlowDefinitionHumanLoopConfigArgs{
 //					HumanTaskUiArn:                    pulumi.Any(exampleAwsSagemakerHumanTaskUi.Arn),
 //					TaskAvailabilityLifetimeInSeconds: pulumi.Int(1),
@@ -146,6 +144,8 @@ import (
 //				OutputConfig: &sagemaker.FlowDefinitionOutputConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/", exampleAwsS3Bucket.Bucket),
 //				},
+//				FlowDefinitionName: pulumi.String("example"),
+//				RoleArn:            pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -166,7 +166,7 @@ import (
 type FlowDefinition struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+	// ARN assigned by AWS to this Flow Definition.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of your flow definition.
 	FlowDefinitionName pulumi.StringOutput `pulumi:"flowDefinitionName"`
@@ -180,7 +180,7 @@ type FlowDefinition struct {
 	OutputConfig FlowDefinitionOutputConfigOutput `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+	// ARN of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -230,7 +230,7 @@ func GetFlowDefinition(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering FlowDefinition resources.
 type flowDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+	// ARN assigned by AWS to this Flow Definition.
 	Arn *string `pulumi:"arn"`
 	// The name of your flow definition.
 	FlowDefinitionName *string `pulumi:"flowDefinitionName"`
@@ -244,7 +244,7 @@ type flowDefinitionState struct {
 	OutputConfig *FlowDefinitionOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+	// ARN of the role needed to call other services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -253,7 +253,7 @@ type flowDefinitionState struct {
 }
 
 type FlowDefinitionState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+	// ARN assigned by AWS to this Flow Definition.
 	Arn pulumi.StringPtrInput
 	// The name of your flow definition.
 	FlowDefinitionName pulumi.StringPtrInput
@@ -267,7 +267,7 @@ type FlowDefinitionState struct {
 	OutputConfig FlowDefinitionOutputConfigPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+	// ARN of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -292,7 +292,7 @@ type flowDefinitionArgs struct {
 	OutputConfig FlowDefinitionOutputConfig `pulumi:"outputConfig"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+	// ARN of the role needed to call other services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -312,7 +312,7 @@ type FlowDefinitionArgs struct {
 	OutputConfig FlowDefinitionOutputConfigInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+	// ARN of the role needed to call other services on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -405,7 +405,7 @@ func (o FlowDefinitionOutput) ToFlowDefinitionOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+// ARN assigned by AWS to this Flow Definition.
 func (o FlowDefinitionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -442,7 +442,7 @@ func (o FlowDefinitionOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+// ARN of the role needed to call other services on your behalf.
 func (o FlowDefinitionOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *FlowDefinition) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

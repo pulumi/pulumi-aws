@@ -31,19 +31,19 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
 //				SourceEntity: &quicksight.AnalysisSourceEntityArgs{
 //					SourceTemplate: &quicksight.AnalysisSourceEntitySourceTemplateArgs{
-//						Arn: pulumi.Any(source.Arn),
 //						DataSetReferences: quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArray{
 //							&quicksight.AnalysisSourceEntitySourceTemplateDataSetReferenceArgs{
 //								DataSetArn:         pulumi.Any(dataset.Arn),
 //								DataSetPlaceholder: pulumi.String("1"),
 //							},
 //						},
+//						Arn: pulumi.Any(source.Arn),
 //					},
 //				},
+//				AnalysisId: pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //			})
 //			if err != nil {
 //				return err
@@ -69,8 +69,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewAnalysis(ctx, "example", &quicksight.AnalysisArgs{
-//				AnalysisId: pulumi.String("example-id"),
-//				Name:       pulumi.String("example-name"),
 //				Definition: map[string][]map[string]interface{}{
 //					"dataSetIdentifiersDeclarations": []map[string]interface{}{
 //						map[string]interface{}{
@@ -80,12 +78,9 @@ import (
 //					},
 //					"sheets": []map[string]interface{}{
 //						map[string]interface{}{
-//							"title":   "Example",
-//							"sheetId": "Example1",
 //							"visuals": []map[string]map[string]interface{}{
 //								map[string]map[string]interface{}{
 //									"lineChartVisual": map[string]interface{}{
-//										"visualId": "LineChart",
 //										"title": map[string]map[string]string{
 //											"formatText": map[string]string{
 //												"plainText": "Line Chart Example",
@@ -97,22 +92,22 @@ import (
 //													"categories": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalDimensionField": map[string]interface{}{
-//																"fieldId": "1",
 //																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},
+//																"fieldId": "1",
 //															},
 //														},
 //													},
 //													"values": []map[string]map[string]interface{}{
 //														map[string]map[string]interface{}{
 //															"categoricalMeasureField": map[string]interface{}{
-//																"fieldId": "2",
 //																"column": map[string]string{
 //																	"dataSetIdentifier": "1",
 //																	"columnName":        "Column1",
 //																},
+//																"fieldId":             "2",
 //																"aggregationFunction": "COUNT",
 //															},
 //														},
@@ -120,12 +115,17 @@ import (
 //												},
 //											},
 //										},
+//										"visualId": "LineChart",
 //									},
 //								},
 //							},
+//							"title":   "Example",
+//							"sheetId": "Example1",
 //						},
 //					},
 //				},
+//				AnalysisId: pulumi.String("example-id"),
+//				Name:       pulumi.String("example-name"),
 //			})
 //			if err != nil {
 //				return err
@@ -177,7 +177,7 @@ type Analysis struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+	// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn pulumi.StringPtrOutput `pulumi:"themeArn"`
 }
 
@@ -245,7 +245,7 @@ type analysisState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+	// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn *string `pulumi:"themeArn"`
 }
 
@@ -281,7 +281,7 @@ type AnalysisState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+	// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn pulumi.StringPtrInput
 }
 
@@ -310,7 +310,7 @@ type analysisArgs struct {
 	SourceEntity *AnalysisSourceEntity `pulumi:"sourceEntity"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+	// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn *string `pulumi:"themeArn"`
 }
 
@@ -336,7 +336,7 @@ type AnalysisArgs struct {
 	SourceEntity AnalysisSourceEntityPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+	// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 	ThemeArn pulumi.StringPtrInput
 }
 
@@ -503,7 +503,7 @@ func (o AnalysisOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+// ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
 func (o AnalysisOutput) ThemeArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Analysis) pulumi.StringPtrOutput { return v.ThemeArn }).(pulumi.StringPtrOutput)
 }

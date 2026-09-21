@@ -91,7 +91,7 @@ type ThreatIntelSet struct {
 
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	// ARN of the GuardDuty ThreatIntelSet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -155,7 +155,7 @@ func GetThreatIntelSet(ctx *pulumi.Context,
 type threatIntelSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate *bool `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	// ARN of the GuardDuty ThreatIntelSet.
 	Arn *string `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
@@ -178,7 +178,7 @@ type threatIntelSetState struct {
 type ThreatIntelSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded ThreatIntelSet.
 	Activate pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+	// ARN of the GuardDuty ThreatIntelSet.
 	Arn pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
@@ -329,7 +329,7 @@ func (o ThreatIntelSetOutput) Activate() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+// ARN of the GuardDuty ThreatIntelSet.
 func (o ThreatIntelSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ThreatIntelSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

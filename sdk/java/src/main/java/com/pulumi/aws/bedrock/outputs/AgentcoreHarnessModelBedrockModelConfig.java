@@ -15,6 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessModelBedrockModelConfig {
     /**
+     * @return JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+     * 
+     */
+    private @Nullable String additionalParams;
+    /**
+     * @return API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+     * 
+     */
+    private @Nullable String apiFormat;
+    /**
      * @return Maximum number of tokens to generate.
      * 
      */
@@ -36,6 +46,20 @@ public final class AgentcoreHarnessModelBedrockModelConfig {
     private @Nullable Double topP;
 
     private AgentcoreHarnessModelBedrockModelConfig() {}
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+     * 
+     */
+    public Optional<String> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
+    /**
+     * @return API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+     * 
+     */
+    public Optional<String> apiFormat() {
+        return Optional.ofNullable(this.apiFormat);
+    }
     /**
      * @return Maximum number of tokens to generate.
      * 
@@ -74,6 +98,8 @@ public final class AgentcoreHarnessModelBedrockModelConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalParams;
+        private @Nullable String apiFormat;
         private @Nullable Integer maxTokens;
         private String modelId;
         private @Nullable Double temperature;
@@ -81,12 +107,26 @@ public final class AgentcoreHarnessModelBedrockModelConfig {
         public Builder() {}
         public Builder(AgentcoreHarnessModelBedrockModelConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalParams = defaults.additionalParams;
+    	      this.apiFormat = defaults.apiFormat;
     	      this.maxTokens = defaults.maxTokens;
     	      this.modelId = defaults.modelId;
     	      this.temperature = defaults.temperature;
     	      this.topP = defaults.topP;
         }
 
+        @CustomType.Setter
+        public Builder additionalParams(@Nullable String additionalParams) {
+
+            this.additionalParams = additionalParams;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apiFormat(@Nullable String apiFormat) {
+
+            this.apiFormat = apiFormat;
+            return this;
+        }
         @CustomType.Setter
         public Builder maxTokens(@Nullable Integer maxTokens) {
 
@@ -115,6 +155,8 @@ public final class AgentcoreHarnessModelBedrockModelConfig {
         }
         public AgentcoreHarnessModelBedrockModelConfig build() {
             final var _resultValue = new AgentcoreHarnessModelBedrockModelConfig();
+            _resultValue.additionalParams = additionalParams;
+            _resultValue.apiFormat = apiFormat;
             _resultValue.maxTokens = maxTokens;
             _resultValue.modelId = modelId;
             _resultValue.temperature = temperature;

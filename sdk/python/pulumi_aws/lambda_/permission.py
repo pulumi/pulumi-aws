@@ -584,11 +584,11 @@ class Permission(pulumi.CustomResource):
 
         default = aws.cloudwatch.LogGroup("default", name="/default")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         default_role = aws.iam.Role("default",
@@ -779,11 +779,11 @@ class Permission(pulumi.CustomResource):
 
         default = aws.cloudwatch.LogGroup("default", name="/default")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         default_role = aws.iam.Role("default",

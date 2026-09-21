@@ -94,12 +94,8 @@ type LookupRestApiResult struct {
 }
 
 func LookupRestApiOutput(ctx *pulumi.Context, args LookupRestApiOutputArgs, opts ...pulumi.InvokeOption) LookupRestApiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupRestApiResultOutput, error) {
-			args := v.(LookupRestApiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getRestApi:getRestApi", args, LookupRestApiResultOutput{}, options).(LookupRestApiResultOutput), nil
-		}).(LookupRestApiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getRestApi:getRestApi", args, LookupRestApiResultOutput{}, options).(LookupRestApiResultOutput)
 }
 
 // A collection of arguments for invoking getRestApi.

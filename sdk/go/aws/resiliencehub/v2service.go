@@ -33,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2Service(ctx, "example", &resiliencehub.V2ServiceArgs{
+//				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
+//					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
+//				},
 //				Name: pulumi.String("example-service"),
 //				Regions: pulumi.StringArray{
 //					pulumi.String("us-west-2"),
-//				},
-//				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
-//					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
 //				},
 //			})
 //			if err != nil {
@@ -65,24 +65,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := resiliencehub.NewV2Policy(ctx, "example", &resiliencehub.V2PolicyArgs{
-//				Name: pulumi.String("example-policy"),
 //				AvailabilitySlo: &resiliencehub.V2PolicyAvailabilitySloArgs{
 //					Target: pulumi.Float64(99.9),
 //				},
+//				Name: pulumi.String("example-policy"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = resiliencehub.NewV2Service(ctx, "example", &resiliencehub.V2ServiceArgs{
+//				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
+//					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
+//				},
 //				Name:        pulumi.String("example-service"),
 //				Description: pulumi.String("Production API service"),
 //				PolicyArn:   example.Arn,
 //				Regions: pulumi.StringArray{
 //					pulumi.String("us-west-2"),
 //					pulumi.String("us-east-1"),
-//				},
-//				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
-//					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
@@ -118,10 +118,6 @@ import (
 //				return err
 //			}
 //			_, err = resiliencehub.NewV2Service(ctx, "example", &resiliencehub.V2ServiceArgs{
-//				Name: pulumi.String("example-service"),
-//				Regions: pulumi.StringArray{
-//					pulumi.String("us-west-2"),
-//				},
 //				PermissionModel: &resiliencehub.V2ServicePermissionModelArgs{
 //					InvokerRoleName: pulumi.String("AWSResilienceHubAssessmentRole"),
 //				},
@@ -129,6 +125,10 @@ import (
 //					&resiliencehub.V2ServiceAssociatedSystemArgs{
 //						SystemArn: example.Arn,
 //					},
+//				},
+//				Name: pulumi.String("example-service"),
+//				Regions: pulumi.StringArray{
+//					pulumi.String("us-west-2"),
 //				},
 //			})
 //			if err != nil {
@@ -146,7 +146,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 Service.
+// - `arn` (String) ARN of the Resilience Hub V2 Service.
 //
 // Using `pulumi import`, import Resilience Hub V2 Service using the `arn`. For example:
 //

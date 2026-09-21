@@ -18,11 +18,11 @@ namespace Pulumi.Aws.SesV2.Outputs
         /// </summary>
         public readonly string Ip;
         /// <summary>
-        /// Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+        /// How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
         /// </summary>
         public readonly int WarmupPercentage;
         /// <summary>
-        /// The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+        /// Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         /// </summary>
         public readonly string WarmupStatus;
 

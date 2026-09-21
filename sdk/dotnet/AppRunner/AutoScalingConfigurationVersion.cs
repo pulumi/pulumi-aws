@@ -43,7 +43,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the App Runner auto scaling configuration version.
+    /// - `Arn` (String) ARN of the App Runner auto scaling configuration version.
     /// 
     /// Using `pulumi import`, import App Runner AutoScaling Configuration Versions using the `Arn`. For example:
     /// 

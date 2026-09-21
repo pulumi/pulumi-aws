@@ -19,14 +19,14 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
     public static final AgentPromptState Empty = new AgentPromptState();
 
     /**
-     * Amazon Resource Name (ARN) of the prompt.
+     * ARN of the prompt.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the prompt.
+     * @return ARN of the prompt.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -49,14 +49,14 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * ARN of the KMS key that you encrypted the prompt with.
      * 
      */
     @Import(name="customerEncryptionKeyArn")
     private @Nullable Output<String> customerEncryptionKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * @return ARN of the KMS key that you encrypted the prompt with.
      * 
      */
     public Optional<Output<String>> customerEncryptionKeyArn() {
@@ -238,7 +238,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the prompt.
+         * @param arn ARN of the prompt.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the prompt.
+         * @param arn ARN of the prompt.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+         * @param customerEncryptionKeyArn ARN of the KMS key that you encrypted the prompt with.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class AgentPromptState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param customerEncryptionKeyArn Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+         * @param customerEncryptionKeyArn ARN of the KMS key that you encrypted the prompt with.
          * 
          * @return builder
          * 

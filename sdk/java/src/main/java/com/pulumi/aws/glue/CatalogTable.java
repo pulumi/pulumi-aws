@@ -90,17 +90,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTable("example", CatalogTableArgs.builder()
- *             .name("MyCatalogTable")
- *             .databaseName("MyCatalogDatabase")
- *             .tableType("EXTERNAL_TABLE")
- *             .parameters(Map.ofEntries(
- *                 Map.entry("EXTERNAL", "TRUE"),
- *                 Map.entry("parquet.compression", "SNAPPY")
- *             ))
  *             .storageDescriptor(CatalogTableStorageDescriptorArgs.builder()
- *                 .location("s3://my-bucket/event-streams/my-stream")
- *                 .inputFormat("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat")
- *                 .outputFormat("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat")
  *                 .serDeInfo(CatalogTableStorageDescriptorSerDeInfoArgs.builder()
  *                     .name("my-stream")
  *                     .serializationLibrary("org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe")
@@ -130,7 +120,17 @@ import javax.annotation.Nullable;
  *                         .type("struct<my_nested_string:string>")
  *                         .comment("")
  *                         .build())
+ *                 .location("s3://my-bucket/event-streams/my-stream")
+ *                 .inputFormat("org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat")
+ *                 .outputFormat("org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat")
  *                 .build())
+ *             .name("MyCatalogTable")
+ *             .databaseName("MyCatalogDatabase")
+ *             .tableType("EXTERNAL_TABLE")
+ *             .parameters(Map.ofEntries(
+ *                 Map.entry("EXTERNAL", "TRUE"),
+ *                 Map.entry("parquet.compression", "SNAPPY")
+ *             ))
  *             .build());
  * 
  *     }
@@ -172,17 +172,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTable("example", CatalogTableArgs.builder()
- *             .name("transactiontable1")
- *             .databaseName("bankdata_icebergdb")
  *             .openTableFormatInput(CatalogTableOpenTableFormatInputArgs.builder()
  *                 .icebergInput(CatalogTableOpenTableFormatInputIcebergInputArgs.builder()
- *                     .metadataOperation("CREATE")
- *                     .version("2")
  *                     .icebergTableInput(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputArgs.builder()
- *                         .location("s3://sampledatabucket/bankdataiceberg/transactiontable1/")
  *                         .schema(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaArgs.builder()
- *                             .schemaId(0)
- *                             .type("struct")
  *                             .fields(                            
  *                                 CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputSchemaFieldArgs.builder()
  *                                     .id(1)
@@ -208,6 +201,8 @@ import javax.annotation.Nullable;
  *             \"float\"
  *                                     """)
  *                                     .build())
+ *                             .schemaId(0)
+ *                             .type("struct")
  *                             .build())
  *                         .partitionSpec(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecArgs.builder()
  *                             .fields(CatalogTableOpenTableFormatInputIcebergInputIcebergTableInputPartitionSpecFieldArgs.builder()
@@ -226,9 +221,14 @@ import javax.annotation.Nullable;
  *                                 .build())
  *                             .orderId(1)
  *                             .build())
+ *                         .location("s3://sampledatabucket/bankdataiceberg/transactiontable1/")
  *                         .build())
+ *                     .metadataOperation("CREATE")
+ *                     .version("2")
  *                     .build())
  *                 .build())
+ *             .name("transactiontable1")
+ *             .databaseName("bankdata_icebergdb")
  *             .build());
  * 
  *     }
@@ -263,18 +263,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogTable("example", CatalogTableArgs.builder()
- *             .name("multidialect_view")
- *             .databaseName("catalog_database")
- *             .tableType("VIRTUAL_VIEW")
  *             .viewDefinition(CatalogTableViewDefinitionArgs.builder()
- *                 .isProtected(true)
  *                 .representations(CatalogTableViewDefinitionRepresentationArgs.builder()
  *                     .dialect("ATHENA")
  *                     .dialectVersion("3")
  *                     .viewOriginalText("SELECT * FROM catalog_database.base_table")
  *                     .validationConnection(exampleAwsGlueConnection.name())
  *                     .build())
+ *                 .isProtected(true)
  *                 .build())
+ *             .name("multidialect_view")
+ *             .databaseName("catalog_database")
+ *             .tableType("VIRTUAL_VIEW")
  *             .build());
  * 
  *     }
@@ -283,6 +283,19 @@ import javax.annotation.Nullable;
  * </pre>
  * 
  * ## Import
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `catalogId` - (String) ID of the Glue Catalog.
+ * * `databaseName` - (String) Name of the Glue Catalog Database.
+ * * `name` - (String) Name of the Glue Catalog Table.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
  * 
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  * 
@@ -512,14 +525,14 @@ public class CatalogTable extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="viewDefinition", refs={CatalogTableViewDefinition.class}, tree="[0]")
-    private Output</* @Nullable */ CatalogTableViewDefinition> viewDefinition;
+    private Output<CatalogTableViewDefinition> viewDefinition;
 
     /**
      * @return Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      * 
      */
-    public Output<Optional<CatalogTableViewDefinition>> viewDefinition() {
-        return Codegen.optional(this.viewDefinition);
+    public Output<CatalogTableViewDefinition> viewDefinition() {
+        return this.viewDefinition;
     }
     /**
      * If the table is a view, the expanded text of the view; otherwise null.

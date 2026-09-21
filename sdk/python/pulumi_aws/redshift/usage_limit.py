@@ -166,7 +166,7 @@ class _UsageLimitState:
         Input properties used for looking up and filtering UsageLimit resources.
 
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Usage Limit.
         :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
         :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
@@ -213,7 +213,7 @@ class _UsageLimitState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        ARN of the Redshift Usage Limit.
         """
         return pulumi.get(self, "arn")
 
@@ -478,7 +478,7 @@ class UsageLimit(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] amount: The limit amount. If time-based, this amount is in minutes. If data-based, this amount is in terabytes (TB). The value must be a positive number.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Redshift Usage Limit.
         :param pulumi.Input[_builtins.str] breach_action: The action that Amazon Redshift takes when the limit is reached. The default is `log`. Valid values are `log`, `emit-metric`, and `disable`.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the cluster that you want to limit usage.
         :param pulumi.Input[_builtins.str] feature_type: The Amazon Redshift feature that you want to limit. Valid values are `spectrum`, `concurrency-scaling`, and `cross-region-datasharing`.
@@ -516,7 +516,7 @@ class UsageLimit(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        ARN of the Redshift Usage Limit.
         """
         return pulumi.get(self, "arn")
 

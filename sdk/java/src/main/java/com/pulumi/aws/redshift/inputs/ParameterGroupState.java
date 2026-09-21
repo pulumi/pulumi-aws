@@ -20,14 +20,14 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
     public static final ParameterGroupState Empty = new ParameterGroupState();
 
     /**
-     * Amazon Resource Name (ARN) of parameter group
+     * ARN of parameter group
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of parameter group
+     * @return ARN of parameter group
      * 
      */
     public Optional<Output<String>> arn() {
@@ -175,7 +175,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of parameter group
+         * @param arn ARN of parameter group
          * 
          * @return builder
          * 
@@ -186,7 +186,7 @@ public final class ParameterGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of parameter group
+         * @param arn ARN of parameter group
          * 
          * @return builder
          * 

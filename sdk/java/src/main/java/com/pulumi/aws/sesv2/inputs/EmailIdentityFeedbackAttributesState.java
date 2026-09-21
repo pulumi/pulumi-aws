@@ -32,14 +32,14 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
     }
 
     /**
-     * The email identity.
+     * Email identity.
      * 
      */
     @Import(name="emailIdentity")
     private @Nullable Output<String> emailIdentity;
 
     /**
-     * @return The email identity.
+     * @return Email identity.
      * 
      */
     public Optional<Output<String>> emailIdentity() {
@@ -109,7 +109,7 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param emailIdentity The email identity.
+         * @param emailIdentity Email identity.
          * 
          * @return builder
          * 
@@ -120,7 +120,7 @@ public final class EmailIdentityFeedbackAttributesState extends com.pulumi.resou
         }
 
         /**
-         * @param emailIdentity The email identity.
+         * @param emailIdentity Email identity.
          * 
          * @return builder
          * 

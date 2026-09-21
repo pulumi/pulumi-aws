@@ -58,7 +58,7 @@ type ServiceQuota struct {
 
 	// Whether the service quota can be increased.
 	Adjustable pulumi.BoolOutput `pulumi:"adjustable"`
-	// Amazon Resource Name (ARN) of the service quota.
+	// ARN of the service quota.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Default value of the service quota.
 	DefaultValue pulumi.Float64Output `pulumi:"defaultValue"`
@@ -121,7 +121,7 @@ func GetServiceQuota(ctx *pulumi.Context,
 type serviceQuotaState struct {
 	// Whether the service quota can be increased.
 	Adjustable *bool `pulumi:"adjustable"`
-	// Amazon Resource Name (ARN) of the service quota.
+	// ARN of the service quota.
 	Arn *string `pulumi:"arn"`
 	// Default value of the service quota.
 	DefaultValue *float64 `pulumi:"defaultValue"`
@@ -146,7 +146,7 @@ type serviceQuotaState struct {
 type ServiceQuotaState struct {
 	// Whether the service quota can be increased.
 	Adjustable pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the service quota.
+	// ARN of the service quota.
 	Arn pulumi.StringPtrInput
 	// Default value of the service quota.
 	DefaultValue pulumi.Float64PtrInput
@@ -287,7 +287,7 @@ func (o ServiceQuotaOutput) Adjustable() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.BoolOutput { return v.Adjustable }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the service quota.
+// ARN of the service quota.
 func (o ServiceQuotaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ServiceQuota) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -143,7 +143,6 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
         ],
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("from_europe",
-        name="from_europe",
         ingress=[{
             "from_port": 443,
             "to_port": 443,
@@ -151,6 +150,7 @@ def get_ip_ranges(id: Optional[_builtins.str] = None,
             "cidr_blocks": european_ec2.cidr_blocks,
             "ipv6_cidr_blocks": european_ec2.ipv6_cidr_blocks,
         }],
+        name="from_europe",
         tags={
             "CreateDate": european_ec2.create_date,
             "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),
@@ -208,7 +208,6 @@ def get_ip_ranges_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = N
         ],
         services=["ec2"])
     from_europe = aws.ec2.SecurityGroup("from_europe",
-        name="from_europe",
         ingress=[{
             "from_port": 443,
             "to_port": 443,
@@ -216,6 +215,7 @@ def get_ip_ranges_output(id: pulumi.Input[Optional[Optional[_builtins.str]]] = N
             "cidr_blocks": european_ec2.cidr_blocks,
             "ipv6_cidr_blocks": european_ec2.ipv6_cidr_blocks,
         }],
+        name="from_europe",
         tags={
             "CreateDate": european_ec2.create_date,
             "SyncToken": output(european_ec2.sync_token).apply(lambda x: str(x)),

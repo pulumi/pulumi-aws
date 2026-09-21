@@ -97,14 +97,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.appType;
     }
     /**
-     * The Amazon Resource Name (ARN) of the app.
+     * ARN of the app.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the app.
+     * @return ARN of the app.
      * 
      */
     public Output<String> arn() {
@@ -139,14 +139,14 @@ public class App extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      * 
      */
     @Export(name="resourceSpec", refs={AppResourceSpec.class}, tree="[0]")
     private Output<AppResourceSpec> resourceSpec;
 
     /**
-     * @return The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * @return Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      * 
      */
     public Output<AppResourceSpec> resourceSpec() {

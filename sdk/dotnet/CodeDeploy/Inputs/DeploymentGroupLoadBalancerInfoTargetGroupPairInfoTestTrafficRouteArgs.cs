@@ -16,7 +16,7 @@ namespace Pulumi.Aws.CodeDeploy.Inputs
         private InputList<string>? _listenerArns;
 
         /// <summary>
-        /// List of Amazon Resource Names (ARNs) of the load balancer listeners.
+        /// List of ARNs of the load balancer listeners.
         /// </summary>
         public InputList<string> ListenerArns
         {

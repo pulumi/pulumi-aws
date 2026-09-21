@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? InstanceType;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        /// ARN of the Lifecycle Configuration attached to the Resource.
         /// </summary>
         public readonly string? LifecycleConfigArn;
         /// <summary>

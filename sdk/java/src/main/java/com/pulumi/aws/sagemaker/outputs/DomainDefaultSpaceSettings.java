@@ -50,7 +50,7 @@ public final class DomainDefaultSpaceSettings {
      */
     private @Nullable DomainDefaultSpaceSettingsKernelGatewayAppSettings kernelGatewayAppSettings;
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * @return Security groups for the VPC that the space uses for communication.
      * 
      */
     private @Nullable List<String> securityGroups;
@@ -104,7 +104,7 @@ public final class DomainDefaultSpaceSettings {
         return Optional.ofNullable(this.kernelGatewayAppSettings);
     }
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * @return Security groups for the VPC that the space uses for communication.
      * 
      */
     public List<String> securityGroups() {

@@ -16,14 +16,14 @@ public final class LogStreamState extends com.pulumi.resources.ResourceArgs {
     public static final LogStreamState Empty = new LogStreamState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the log stream.
+     * ARN specifying the log stream.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the log stream.
+     * @return ARN specifying the log stream.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -103,7 +103,7 @@ public final class LogStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the log stream.
+         * @param arn ARN specifying the log stream.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class LogStreamState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the log stream.
+         * @param arn ARN specifying the log stream.
          * 
          * @return builder
          * 

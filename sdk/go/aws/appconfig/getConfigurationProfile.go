@@ -91,12 +91,8 @@ type LookupConfigurationProfileResult struct {
 }
 
 func LookupConfigurationProfileOutput(ctx *pulumi.Context, args LookupConfigurationProfileOutputArgs, opts ...pulumi.InvokeOption) LookupConfigurationProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConfigurationProfileResultOutput, error) {
-			args := v.(LookupConfigurationProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, LookupConfigurationProfileResultOutput{}, options).(LookupConfigurationProfileResultOutput), nil
-		}).(LookupConfigurationProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appconfig/getConfigurationProfile:getConfigurationProfile", args, LookupConfigurationProfileResultOutput{}, options).(LookupConfigurationProfileResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationProfile.

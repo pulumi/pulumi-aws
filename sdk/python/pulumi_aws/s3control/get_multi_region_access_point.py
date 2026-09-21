@@ -79,7 +79,7 @@ class GetMultiRegionAccessPointResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        ARN of the Multi-Region Access Point.
         """
         return pulumi.get(self, "arn")
 

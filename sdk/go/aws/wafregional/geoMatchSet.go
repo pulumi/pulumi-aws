@@ -28,7 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewGeoMatchSet(ctx, "geo_match_set", &wafregional.GeoMatchSetArgs{
-//				Name: pulumi.String("geo_match_set"),
 //				GeoMatchConstraints: wafregional.GeoMatchSetGeoMatchConstraintArray{
 //					&wafregional.GeoMatchSetGeoMatchConstraintArgs{
 //						Type:  pulumi.String("Country"),
@@ -39,6 +38,7 @@ import (
 //						Value: pulumi.String("CA"),
 //					},
 //				},
+//				Name: pulumi.String("geo_match_set"),
 //			})
 //			if err != nil {
 //				return err

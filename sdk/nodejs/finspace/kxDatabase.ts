@@ -67,7 +67,7 @@ export class KxDatabase extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX database.
+     * ARN identifier of the KX database.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class KxDatabase extends pulumi.CustomResource {
  */
 export interface KxDatabaseState {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX database.
+     * ARN identifier of the KX database.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

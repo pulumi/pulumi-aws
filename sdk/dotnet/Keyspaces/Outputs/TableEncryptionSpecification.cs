@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Keyspaces.Outputs
     public sealed class TableEncryptionSpecification
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the customer managed KMS key.
+        /// ARN of the customer managed KMS key.
         /// </summary>
         public readonly string? KmsKeyIdentifier;
         /// <summary>

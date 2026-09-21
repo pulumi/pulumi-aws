@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EndpointGroup("example", EndpointGroupArgs.builder()
- *             .listenerArn(exampleAwsGlobalacceleratorListener.arn())
  *             .endpointConfigurations(EndpointGroupEndpointConfigurationArgs.builder()
  *                 .endpointId(exampleAwsLb.arn())
  *                 .weight(100)
  *                 .build())
+ *             .listenerArn(exampleAwsGlobalacceleratorListener.arn())
  *             .build());
  * 
  *     }
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator endpoint group.
+ * - `arn` (String) ARN of the Global Accelerator endpoint group.
  * 
  * Using `pulumi import`, import Global Accelerator endpoint groups using the `id`. For example:
  * 
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/endpointGroup:EndpointGroup")
 public class EndpointGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the endpoint group.
+     * ARN of the endpoint group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the endpoint group.
+     * @return ARN of the endpoint group.
      * 
      */
     public Output<String> arn() {
@@ -178,14 +178,14 @@ public class EndpointGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.healthCheckProtocol);
     }
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      * 
      */
     @Export(name="listenerArn", refs={String.class}, tree="[0]")
     private Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the listener.
+     * @return ARN of the listener.
      * 
      */
     public Output<String> listenerArn() {

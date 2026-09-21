@@ -25,17 +25,17 @@ import * as utilities from "../utilities";
  *     name: "test_key",
  * });
  * const test = new aws.cloudfront.FieldLevelEncryptionProfile("test", {
- *     comment: "test comment",
- *     name: "test profile",
  *     encryptionEntities: {
  *         items: [{
- *             publicKeyId: example.id,
- *             providerId: "test provider",
  *             fieldPatterns: {
  *                 items: ["DateOfBirth"],
  *             },
+ *             publicKeyId: example.id,
+ *             providerId: "test provider",
  *         }],
  *     },
+ *     comment: "test comment",
+ *     name: "test profile",
  * });
  * ```
  *

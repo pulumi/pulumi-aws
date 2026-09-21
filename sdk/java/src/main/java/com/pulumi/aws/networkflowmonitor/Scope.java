@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  * 
  *         var example = new Scope("example", ScopeArgs.builder()
  *             .targets(ScopeTargetArgs.builder()
- *                 .region("us-east-1")
  *                 .targetIdentifier(ScopeTargetTargetIdentifierArgs.builder()
- *                     .targetType("ACCOUNT")
  *                     .targetId(ScopeTargetTargetIdentifierTargetIdArgs.builder()
  *                         .accountId(current.accountId())
  *                         .build())
+ *                     .targetType("ACCOUNT")
  *                     .build())
+ *                 .region("us-east-1")
  *                 .build())
  *             .tags(Map.of("Name", "example"))
  *             .build());
@@ -99,14 +99,14 @@ public class Scope extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      * 
      */
     @Export(name="scopeArn", refs={String.class}, tree="[0]")
     private Output<String> scopeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope.
+     * @return ARN of the scope.
      * 
      */
     public Output<String> scopeArn() {

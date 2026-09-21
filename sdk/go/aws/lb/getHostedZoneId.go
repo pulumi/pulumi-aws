@@ -33,9 +33,6 @@ import (
 //				return err
 //			}
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(primary.ZoneId),
-//				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 pulumi.Any(mainAwsLb.DnsName),
@@ -43,6 +40,9 @@ import (
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},
+//				ZoneId: pulumi.Any(primary.ZoneId),
+//				Name:   pulumi.String("example.com"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //			})
 //			if err != nil {
 //				return err
@@ -79,12 +79,8 @@ type GetHostedZoneIdResult struct {
 }
 
 func GetHostedZoneIdOutput(ctx *pulumi.Context, args GetHostedZoneIdOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneIdResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetHostedZoneIdResultOutput, error) {
-			args := v.(GetHostedZoneIdArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lb/getHostedZoneId:getHostedZoneId", args, GetHostedZoneIdResultOutput{}, options).(GetHostedZoneIdResultOutput), nil
-		}).(GetHostedZoneIdResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lb/getHostedZoneId:getHostedZoneId", args, GetHostedZoneIdResultOutput{}, options).(GetHostedZoneIdResultOutput)
 }
 
 // A collection of arguments for invoking getHostedZoneId.

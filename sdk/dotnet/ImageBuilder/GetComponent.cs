@@ -179,7 +179,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// ARN of the Key Management Service (KMS) Key used to encrypt the component.
+        /// ARN of the KMS Key used to encrypt the component.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

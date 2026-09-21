@@ -43,13 +43,13 @@ namespace Pulumi.Aws.AppFabric
         public Output<string> App { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        /// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
         [Output("appAuthorizationArn")]
         public Output<string> AppAuthorizationArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -124,13 +124,13 @@ namespace Pulumi.Aws.AppFabric
     public sealed class AppAuthorizationConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        /// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
         [Input("appAuthorizationArn", required: true)]
         public Input<string> AppAuthorizationArn { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -167,13 +167,13 @@ namespace Pulumi.Aws.AppFabric
         public Input<string>? App { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) or Universal Unique Identifier (UUID) of the app authorization to use for the request.
+        /// ARN or Universal Unique Identifier (UUID) of the app authorization to use for the request.
         /// </summary>
         [Input("appAuthorizationArn")]
         public Input<string>? AppAuthorizationArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the app bundle to use for the request.
+        /// ARN of the app bundle to use for the request.
         /// 
         /// The following arguments are optional:
         /// </summary>

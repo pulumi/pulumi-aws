@@ -183,9 +183,29 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         public readonly string PartnerName;
         /// <summary>
+        /// The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        public readonly int PrefixPoolSizeIpv4;
+        /// <summary>
+        /// The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        /// </summary>
+        public readonly int PrefixPoolSizeIpv6;
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        public readonly int PrefixPoolUnallocatedCountIpv4;
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        /// </summary>
+        public readonly int PrefixPoolUnallocatedCountIpv6;
+        /// <summary>
         /// Name of the service provider associated with the connection.
         /// </summary>
         public readonly string ProviderName;
+        /// <summary>
+        /// Rate limiter status for the connection. See `RateLimiterStatus` Block below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetConnectionRateLimiterStatusResult> RateLimiterStatuses;
         public readonly string Region;
         /// <summary>
         /// State of the connection.
@@ -218,7 +238,17 @@ namespace Pulumi.Aws.DirectConnect
 
             string partnerName,
 
+            int prefixPoolSizeIpv4,
+
+            int prefixPoolSizeIpv6,
+
+            int prefixPoolUnallocatedCountIpv4,
+
+            int prefixPoolUnallocatedCountIpv6,
+
             string providerName,
+
+            ImmutableArray<Outputs.GetConnectionRateLimiterStatusResult> rateLimiterStatuses,
 
             string region,
 
@@ -236,7 +266,12 @@ namespace Pulumi.Aws.DirectConnect
             Name = name;
             OwnerAccountId = ownerAccountId;
             PartnerName = partnerName;
+            PrefixPoolSizeIpv4 = prefixPoolSizeIpv4;
+            PrefixPoolSizeIpv6 = prefixPoolSizeIpv6;
+            PrefixPoolUnallocatedCountIpv4 = prefixPoolUnallocatedCountIpv4;
+            PrefixPoolUnallocatedCountIpv6 = prefixPoolUnallocatedCountIpv6;
             ProviderName = providerName;
+            RateLimiterStatuses = rateLimiterStatuses;
             Region = region;
             State = state;
             Tags = tags;

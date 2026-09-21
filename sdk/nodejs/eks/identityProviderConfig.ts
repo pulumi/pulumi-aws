@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.IdentityProviderConfig("example", {
- *     clusterName: exampleAwsEksCluster.name,
  *     oidc: {
  *         clientId: "your client_id",
  *         identityProviderConfigName: "example",
  *         issuerUrl: "your issuer_url",
  *     },
+ *     clusterName: exampleAwsEksCluster.name,
  * });
  * ```
  *
@@ -75,7 +75,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class IdentityProviderConfig extends pulumi.CustomResource {
  */
 export interface IdentityProviderConfigState {
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

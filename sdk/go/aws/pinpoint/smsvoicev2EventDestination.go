@@ -39,14 +39,14 @@ import (
 //				return err
 //			}
 //			_, err = pinpoint.NewSmsvoicev2EventDestination(ctx, "example", &pinpoint.Smsvoicev2EventDestinationArgs{
+//				CloudwatchLogsDestination: &pinpoint.Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{
+//					IamRoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
+//					LogGroupArn: pulumi.Any(exampleAwsCloudwatchLogGroup.Arn),
+//				},
 //				ConfigurationSetName: example.Name,
 //				EventDestinationName: pulumi.String("example"),
 //				MatchingEventTypes: pulumi.StringArray{
 //					pulumi.String("ALL"),
-//				},
-//				CloudwatchLogsDestination: &pinpoint.Smsvoicev2EventDestinationCloudwatchLogsDestinationArgs{
-//					IamRoleArn:  pulumi.Any(exampleAwsIamRole.Arn),
-//					LogGroupArn: pulumi.Any(exampleAwsCloudwatchLogGroup.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -79,14 +79,14 @@ import (
 //				return err
 //			}
 //			_, err = pinpoint.NewSmsvoicev2EventDestination(ctx, "example", &pinpoint.Smsvoicev2EventDestinationArgs{
+//				KinesisFirehoseDestination: &pinpoint.Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{
+//					DeliveryStreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
+//					IamRoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
+//				},
 //				ConfigurationSetName: example.Name,
 //				EventDestinationName: pulumi.String("example"),
 //				MatchingEventTypes: pulumi.StringArray{
 //					pulumi.String("ALL"),
-//				},
-//				KinesisFirehoseDestination: &pinpoint.Smsvoicev2EventDestinationKinesisFirehoseDestinationArgs{
-//					DeliveryStreamArn: pulumi.Any(exampleAwsKinesisFirehoseDeliveryStream.Arn),
-//					IamRoleArn:        pulumi.Any(exampleAwsIamRole.Arn),
 //				},
 //			})
 //			if err != nil {
@@ -119,13 +119,13 @@ import (
 //				return err
 //			}
 //			_, err = pinpoint.NewSmsvoicev2EventDestination(ctx, "example", &pinpoint.Smsvoicev2EventDestinationArgs{
+//				SnsDestination: &pinpoint.Smsvoicev2EventDestinationSnsDestinationArgs{
+//					TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
+//				},
 //				ConfigurationSetName: example.Name,
 //				EventDestinationName: pulumi.String("example"),
 //				MatchingEventTypes: pulumi.StringArray{
 //					pulumi.String("ALL"),
-//				},
-//				SnsDestination: &pinpoint.Smsvoicev2EventDestinationSnsDestinationArgs{
-//					TopicArn: pulumi.Any(exampleAwsSnsTopic.Arn),
 //				},
 //			})
 //			if err != nil {

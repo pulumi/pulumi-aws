@@ -28,7 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupInstance(ctx, &ec2.LookupInstanceArgs{
-//				InstanceId: pulumi.StringRef("i-instanceid"),
 //				Filters: []ec2.GetInstanceFilter{
 //					{
 //						Name: "image-id",
@@ -43,6 +42,7 @@ import (
 //						},
 //					},
 //				},
+//				InstanceId: pulumi.StringRef("i-instanceid"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -189,12 +189,8 @@ type LookupInstanceResult struct {
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceResultOutput, error) {
-			args := v.(LookupInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getInstance:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput), nil
-		}).(LookupInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getInstance:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput)
 }
 
 // A collection of arguments for invoking getInstance.

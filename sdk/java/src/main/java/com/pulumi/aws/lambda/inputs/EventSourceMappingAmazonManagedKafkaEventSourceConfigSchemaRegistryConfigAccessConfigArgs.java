@@ -15,32 +15,16 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRe
 
     public static final EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs Empty = new EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs();
 
-    /**
-     * Authentication type Lambda uses to access the schema registry.
-     * 
-     */
     @Import(name="type")
     private @Nullable Output<String> type;
 
-    /**
-     * @return Authentication type Lambda uses to access the schema registry.
-     * 
-     */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
     }
 
-    /**
-     * URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-     * 
-     */
     @Import(name="uri")
     private @Nullable Output<String> uri;
 
-    /**
-     * @return URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-     * 
-     */
     public Optional<Output<String>> uri() {
         return Optional.ofNullable(this.uri);
     }
@@ -70,44 +54,20 @@ public final class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRe
             $ = new EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs(Objects.requireNonNull(defaults));
         }
 
-        /**
-         * @param type Authentication type Lambda uses to access the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(@Nullable Output<String> type) {
             $.type = type;
             return this;
         }
 
-        /**
-         * @param type Authentication type Lambda uses to access the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder type(String type) {
             return type(Output.of(type));
         }
 
-        /**
-         * @param uri URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(@Nullable Output<String> uri) {
             $.uri = uri;
             return this;
         }
 
-        /**
-         * @param uri URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-         * 
-         * @return builder
-         * 
-         */
         public Builder uri(String uri) {
             return uri(Output.of(uri));
         }

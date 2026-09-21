@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder workflow.
+ * - `arn` (String) ARN of the Image Builder workflow.
  *
  * Using `pulumi import`, import EC2 Image Builder Workflow using the `arn`. For example:
  *
@@ -96,7 +96,7 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the workflow.
+     * ARN of the workflow.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class Workflow extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
@@ -211,7 +211,7 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
-     * Amazon Resource Name (ARN) of the workflow.
+     * ARN of the workflow.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface WorkflowState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -284,7 +284,7 @@ export interface WorkflowArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

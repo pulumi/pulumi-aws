@@ -49,7 +49,7 @@ import (
 type ResolverFirewallRuleGroup struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the rule group.
+	// ARN of the rule group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -95,7 +95,7 @@ func GetResolverFirewallRuleGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.
 type resolverFirewallRuleGroupState struct {
-	// The ARN (Amazon Resource Name) of the rule group.
+	// ARN of the rule group.
 	Arn *string `pulumi:"arn"`
 	// A name that lets you identify the rule group, to manage and use it.
 	Name *string `pulumi:"name"`
@@ -112,7 +112,7 @@ type resolverFirewallRuleGroupState struct {
 }
 
 type ResolverFirewallRuleGroupState struct {
-	// The ARN (Amazon Resource Name) of the rule group.
+	// ARN of the rule group.
 	Arn pulumi.StringPtrInput
 	// A name that lets you identify the rule group, to manage and use it.
 	Name pulumi.StringPtrInput
@@ -238,7 +238,7 @@ func (o ResolverFirewallRuleGroupOutput) ToResolverFirewallRuleGroupOutputWithCo
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the rule group.
+// ARN of the rule group.
 func (o ResolverFirewallRuleGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverFirewallRuleGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -16,14 +16,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyArgs extends com.pu
     public static final VirtualNodeSpecBackendDefaultsClientPolicyArgs Empty = new VirtualNodeSpecBackendDefaultsClientPolicyArgs();
 
     /**
-     * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs> tls;
 
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs>> tls() {
@@ -55,7 +55,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyArgs extends com.pu
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyArgs extends com.pu
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 

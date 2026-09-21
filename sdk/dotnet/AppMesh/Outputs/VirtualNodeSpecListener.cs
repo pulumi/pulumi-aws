@@ -34,7 +34,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTimeout? Timeout;
         /// <summary>
-        /// Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        /// TLS properties for the listener. See `spec.listener.tls` Block for details.
         /// </summary>
         public readonly Outputs.VirtualNodeSpecListenerTls? Tls;
 

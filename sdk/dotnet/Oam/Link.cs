@@ -68,7 +68,6 @@ namespace Pulumi.Aws.Oam
     /// {
     ///     var example = new Aws.Oam.Link("example", new()
     ///     {
-    ///         LabelTemplate = "$AccountName",
     ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
     ///         {
     ///             LogGroupConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationLogGroupConfigurationArgs
@@ -76,6 +75,7 @@ namespace Pulumi.Aws.Oam
     ///                 Filter = "LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'",
     ///             },
     ///         },
+    ///         LabelTemplate = "$AccountName",
     ///         ResourceTypes = new[]
     ///         {
     ///             "AWS::Logs::LogGroup",
@@ -104,7 +104,6 @@ namespace Pulumi.Aws.Oam
     /// {
     ///     var example = new Aws.Oam.Link("example", new()
     ///     {
-    ///         LabelTemplate = "$AccountName",
     ///         LinkConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationArgs
     ///         {
     ///             MetricConfiguration = new Aws.Oam.Inputs.LinkLinkConfigurationMetricConfigurationArgs
@@ -112,6 +111,7 @@ namespace Pulumi.Aws.Oam
     ///                 Filter = "Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')",
     ///             },
     ///         },
+    ///         LabelTemplate = "$AccountName",
     ///         ResourceTypes = new[]
     ///         {
     ///             "AWS::CloudWatch::Metric",

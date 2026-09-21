@@ -32,14 +32,14 @@ public final class IngestionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      */
     @Import(name="appBundleArn")
     private @Nullable Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      */
     public Optional<Output<String>> appBundleArn() {
@@ -189,7 +189,7 @@ public final class IngestionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 
@@ -200,7 +200,7 @@ public final class IngestionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param appBundleArn Amazon Resource Name (ARN) of the app bundle to use for the request.
+         * @param appBundleArn ARN of the app bundle to use for the request.
          * 
          * @return builder
          * 

@@ -76,12 +76,8 @@ type GetReceivedLicensesResult struct {
 }
 
 func GetReceivedLicensesOutput(ctx *pulumi.Context, args GetReceivedLicensesOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicensesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetReceivedLicensesResultOutput, error) {
-			args := v.(GetReceivedLicensesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args, GetReceivedLicensesResultOutput{}, options).(GetReceivedLicensesResultOutput), nil
-		}).(GetReceivedLicensesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:licensemanager/getReceivedLicenses:getReceivedLicenses", args, GetReceivedLicensesResultOutput{}, options).(GetReceivedLicensesResultOutput)
 }
 
 // A collection of arguments for invoking getReceivedLicenses.

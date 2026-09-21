@@ -17,14 +17,14 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
     public static final ResolverQueryLogConfigState Empty = new ResolverQueryLogConfigState();
 
     /**
-     * The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * ARN of the Route 53 Resolver query logging configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+     * @return ARN of the Route 53 Resolver query logging configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -174,7 +174,7 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+         * @param arn ARN of the Route 53 Resolver query logging configuration.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class ResolverQueryLogConfigState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+         * @param arn ARN of the Route 53 Resolver query logging configuration.
          * 
          * @return builder
          * 

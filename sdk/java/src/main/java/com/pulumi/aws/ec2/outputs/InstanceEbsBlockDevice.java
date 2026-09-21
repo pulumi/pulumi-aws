@@ -36,7 +36,7 @@ public final class InstanceEbsBlockDevice {
      */
     private @Nullable Integer iops;
     /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+     * @return ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -108,7 +108,7 @@ public final class InstanceEbsBlockDevice {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+     * @return ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
      * 
      */
     public Optional<String> kmsKeyId() {

@@ -75,12 +75,8 @@ type LookupPullThroughCacheRuleResult struct {
 }
 
 func LookupPullThroughCacheRuleOutput(ctx *pulumi.Context, args LookupPullThroughCacheRuleOutputArgs, opts ...pulumi.InvokeOption) LookupPullThroughCacheRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPullThroughCacheRuleResultOutput, error) {
-			args := v.(LookupPullThroughCacheRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, LookupPullThroughCacheRuleResultOutput{}, options).(LookupPullThroughCacheRuleResultOutput), nil
-		}).(LookupPullThroughCacheRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecr/getPullThroughCacheRule:getPullThroughCacheRule", args, LookupPullThroughCacheRuleResultOutput{}, options).(LookupPullThroughCacheRuleResultOutput)
 }
 
 // A collection of arguments for invoking getPullThroughCacheRule.

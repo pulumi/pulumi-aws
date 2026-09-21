@@ -70,7 +70,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+    /// - `Arn` (String) ARN of the SNS topic.
     /// 
     /// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
     /// 

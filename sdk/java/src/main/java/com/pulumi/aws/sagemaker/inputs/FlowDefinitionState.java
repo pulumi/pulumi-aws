@@ -21,14 +21,14 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
     public static final FlowDefinitionState Empty = new FlowDefinitionState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * ARN assigned by AWS to this Flow Definition.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+     * @return ARN assigned by AWS to this Flow Definition.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -126,14 +126,14 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * ARN of the role needed to call other services on your behalf.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+     * @return ARN of the role needed to call other services on your behalf.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -204,7 +204,7 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+         * @param arn ARN assigned by AWS to this Flow Definition.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Flow Definition.
+         * @param arn ARN assigned by AWS to this Flow Definition.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+         * @param roleArn ARN of the role needed to call other services on your behalf.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class FlowDefinitionState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of the role needed to call other services on your behalf.
+         * @param roleArn ARN of the role needed to call other services on your behalf.
          * 
          * @return builder
          * 

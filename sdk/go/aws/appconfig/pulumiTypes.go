@@ -473,9 +473,9 @@ type ExtensionActionPointAction struct {
 	Description *string `pulumi:"description"`
 	// Action name.
 	Name string `pulumi:"name"`
-	// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	// ARN for an Identity and Access Management assume role.
 	RoleArn *string `pulumi:"roleArn"`
-	// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	// Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri string `pulumi:"uri"`
 }
 
@@ -495,9 +495,9 @@ type ExtensionActionPointActionArgs struct {
 	Description pulumi.StringPtrInput `pulumi:"description"`
 	// Action name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+	// ARN for an Identity and Access Management assume role.
 	RoleArn pulumi.StringPtrInput `pulumi:"roleArn"`
-	// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+	// Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 	Uri pulumi.StringInput `pulumi:"uri"`
 }
 
@@ -562,12 +562,12 @@ func (o ExtensionActionPointActionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+// ARN for an Identity and Access Management assume role.
 func (o ExtensionActionPointActionOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) *string { return v.RoleArn }).(pulumi.StringPtrOutput)
 }
 
-// Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+// Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
 func (o ExtensionActionPointActionOutput) Uri() pulumi.StringOutput {
 	return o.ApplyT(func(v ExtensionActionPointAction) string { return v.Uri }).(pulumi.StringOutput)
 }

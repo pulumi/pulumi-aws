@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetTrackingOptions
     {
         /// <summary>
-        /// The domain to use for tracking open and click events.
+        /// Domain to use for tracking open and click events.
         /// </summary>
         public readonly string CustomRedirectDomain;
         /// <summary>
-        /// The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        /// HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         /// </summary>
         public readonly string? HttpsPolicy;
 

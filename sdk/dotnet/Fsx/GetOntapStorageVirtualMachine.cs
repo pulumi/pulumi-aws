@@ -278,7 +278,7 @@ namespace Pulumi.Aws.Fsx
         /// </summary>
         public readonly ImmutableArray<Outputs.GetOntapStorageVirtualMachineActiveDirectoryConfigurationResult> ActiveDirectoryConfigurations;
         /// <summary>
-        /// Amazon Resource Name of the SVM.
+        /// ARN of the SVM.
         /// </summary>
         public readonly string Arn;
         /// <summary>

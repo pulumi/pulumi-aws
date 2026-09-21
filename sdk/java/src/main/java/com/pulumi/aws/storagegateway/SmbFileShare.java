@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -139,28 +139,28 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.adminUserLists);
     }
     /**
-     * Amazon Resource Name (ARN) of the SMB File Share.
+     * ARN of the SMB File Share.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the SMB File Share.
+     * @return ARN of the SMB File Share.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     * ARN of the CloudWatch Log Group used for the audit logs.
      * 
      */
     @Export(name="auditDestinationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> auditDestinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+     * @return ARN of the CloudWatch Log Group used for the audit logs.
      * 
      */
     public Output<Optional<String>> auditDestinationArn() {
@@ -265,14 +265,14 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return this.fileshareId;
     }
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      * 
      */
     @Export(name="gatewayArn", refs={String.class}, tree="[0]")
     private Output<String> gatewayArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the file gateway.
+     * @return ARN of the file gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -321,14 +321,14 @@ public class SmbFileShare extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kmsEncrypted);
     }
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * @return ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     public Output<Optional<String>> kmsKeyArn() {

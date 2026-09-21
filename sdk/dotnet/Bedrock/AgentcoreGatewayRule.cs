@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreGatewayRule("example", new()
     ///     {
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Priority = 100,
-    ///         Description = "Route all requests to the primary target",
     ///         Actions = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreGatewayRuleActionArgs
@@ -42,6 +39,9 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Priority = 100,
+    ///         Description = "Route all requests to the primary target",
     ///     });
     /// 
     /// });
@@ -59,8 +59,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var canary = new Aws.Bedrock.AgentcoreGatewayRule("canary", new()
     ///     {
-    ///         GatewayIdentifier = example.GatewayId,
-    ///         Priority = 100,
     ///         Actions = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreGatewayRuleActionArgs
@@ -88,6 +86,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         GatewayIdentifier = example.GatewayId,
+    ///         Priority = 100,
     ///     });
     /// 
     /// });
@@ -109,8 +109,6 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var restricted = new Aws.Bedrock.AgentcoreGatewayRule("restricted", new()
     ///     {
-    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
-    ///         Priority = 50,
     ///         Actions = new[]
     ///         {
     ///             new Aws.Bedrock.Inputs.AgentcoreGatewayRuleActionArgs
@@ -159,6 +157,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         GatewayIdentifier = exampleAwsBedrockagentcoreGateway.GatewayId,
+    ///         Priority = 50,
     ///     });
     /// 
     /// });

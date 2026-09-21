@@ -37,10 +37,10 @@ import * as utilities from "../utilities";
  *     releaseLabel: releaseLabel,
  * });
  * const testCluster = new aws.emr.Cluster("test", {
- *     releaseLabel: releaseLabel,
  *     masterInstanceGroup: {
  *         instanceType: instanceType,
  *     },
+ *     releaseLabel: releaseLabel,
  * });
  * ```
  */
@@ -108,10 +108,10 @@ export interface GetSupportedInstanceTypesResult {
  *     releaseLabel: releaseLabel,
  * });
  * const testCluster = new aws.emr.Cluster("test", {
- *     releaseLabel: releaseLabel,
  *     masterInstanceGroup: {
  *         instanceType: instanceType,
  *     },
+ *     releaseLabel: releaseLabel,
  * });
  * ```
  */

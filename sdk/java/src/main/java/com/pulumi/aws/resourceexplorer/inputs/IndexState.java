@@ -18,14 +18,14 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
     public static final IndexState Empty = new IndexState();
 
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer index.
+     * ARN of the Resource Explorer index.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Resource Explorer index.
+     * @return ARN of the Resource Explorer index.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -129,7 +129,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Resource Explorer index.
+         * @param arn ARN of the Resource Explorer index.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class IndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Resource Explorer index.
+         * @param arn ARN of the Resource Explorer index.
          * 
          * @return builder
          * 

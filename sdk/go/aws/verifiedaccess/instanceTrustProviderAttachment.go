@@ -33,12 +33,12 @@ import (
 //				return err
 //			}
 //			exampleTrustProvider, err := verifiedaccess.NewTrustProvider(ctx, "example", &verifiedaccess.TrustProviderArgs{
-//				DeviceTrustProviderType: pulumi.String("jamf"),
-//				PolicyReferenceName:     pulumi.String("example"),
-//				TrustProviderType:       pulumi.String("device"),
 //				DeviceOptions: &verifiedaccess.TrustProviderDeviceOptionsArgs{
 //					TenantId: pulumi.String("example"),
 //				},
+//				DeviceTrustProviderType: pulumi.String("jamf"),
+//				PolicyReferenceName:     pulumi.String("example"),
+//				TrustProviderType:       pulumi.String("device"),
 //			})
 //			if err != nil {
 //				return err

@@ -17,14 +17,14 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
     public static final RevisionState Empty = new RevisionState();
 
     /**
-     * The Amazon Resource Name of this data set.
+     * ARN of this data set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this data set.
+     * @return ARN of this data set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -152,7 +152,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this data set.
+         * @param arn ARN of this data set.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class RevisionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this data set.
+         * @param arn ARN of this data set.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
     public static final DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs Empty = new DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettingsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     @Import(name="executionRoleArn")
     private @Nullable Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * @return ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     public Optional<Output<String>> executionRoleArn() {
@@ -71,7 +71,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * @param executionRoleArn ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
         }
 
         /**
-         * @param executionRoleArn The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * @param executionRoleArn ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          * 
          * @return builder
          * 

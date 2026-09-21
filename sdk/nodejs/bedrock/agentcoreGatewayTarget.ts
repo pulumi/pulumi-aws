@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const gatewayAssume = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const gatewayRole = new aws.iam.Role("gateway_role", {
@@ -34,12 +34,12 @@ import * as utilities from "../utilities";
  * });
  * const lambdaAssume = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["lambda.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const lambdaRole = new aws.iam.Role("lambda_role", {
@@ -54,32 +54,24 @@ import * as utilities from "../utilities";
  *     runtime: aws.lambda.Runtime.NodeJS24dX,
  * });
  * const exampleAgentcoreGateway = new aws.bedrock.AgentcoreGateway("example", {
- *     name: "example-gateway",
- *     roleArn: gatewayRole.arn,
  *     authorizerConfiguration: {
  *         customJwtAuthorizer: {
  *             discoveryUrl: "https://accounts.google.com/.well-known/openid-configuration",
  *         },
  *     },
+ *     name: "example-gateway",
+ *     roleArn: gatewayRole.arn,
  * });
  * const exampleAgentcoreGatewayTarget = new aws.bedrock.AgentcoreGatewayTarget("example", {
- *     name: "example-target",
- *     gatewayIdentifier: exampleAgentcoreGateway.gatewayId,
- *     description: "Lambda function target for processing requests",
  *     credentialProviderConfiguration: {
  *         gatewayIamRole: {},
  *     },
  *     targetConfiguration: {
  *         mcp: {
  *             lambda: {
- *                 lambdaArn: example.arn,
  *                 toolSchema: {
  *                     inlinePayloads: [{
- *                         name: "process_request",
- *                         description: "Process incoming requests",
  *                         inputSchema: {
- *                             type: "object",
- *                             description: "Request processing schema",
  *                             properties: [
  *                                 {
  *                                     name: "message",
@@ -88,26 +80,27 @@ import * as utilities from "../utilities";
  *                                     required: true,
  *                                 },
  *                                 {
- *                                     name: "options",
- *                                     type: "object",
  *                                     properties: [
  *                                         {
  *                                             name: "priority",
  *                                             type: "string",
  *                                         },
  *                                         {
- *                                             name: "tags",
- *                                             type: "array",
  *                                             items: [{
  *                                                 type: "string",
  *                                             }],
+ *                                             name: "tags",
+ *                                             type: "array",
  *                                         },
  *                                     ],
+ *                                     name: "options",
+ *                                     type: "object",
  *                                 },
  *                             ],
+ *                             type: "object",
+ *                             description: "Request processing schema",
  *                         },
  *                         outputSchema: {
- *                             type: "object",
  *                             properties: [
  *                                 {
  *                                     name: "status",
@@ -119,12 +112,19 @@ import * as utilities from "../utilities";
  *                                     type: "string",
  *                                 },
  *                             ],
+ *                             type: "object",
  *                         },
+ *                         name: "process_request",
+ *                         description: "Process incoming requests",
  *                     }],
  *                 },
+ *                 lambdaArn: example.arn,
  *             },
  *         },
  *     },
+ *     name: "example-target",
+ *     gatewayIdentifier: exampleAgentcoreGateway.gatewayId,
+ *     description: "Lambda function target for processing requests",
  * });
  * ```
  *
@@ -135,9 +135,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const apiKeyExample = new aws.bedrock.AgentcoreGatewayTarget("api_key_example", {
- *     name: "api-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     description: "External API target with API key authentication",
  *     credentialProviderConfiguration: {
  *         apiKey: {
  *             providerArn: "arn:aws:iam::123456789012:oidc-provider/example.com",
@@ -149,20 +146,23 @@ import * as utilities from "../utilities";
  *     targetConfiguration: {
  *         mcp: {
  *             lambda: {
- *                 lambdaArn: example.arn,
  *                 toolSchema: {
  *                     inlinePayloads: [{
- *                         name: "api_tool",
- *                         description: "External API integration tool",
  *                         inputSchema: {
  *                             type: "string",
  *                             description: "Simple string input for API calls",
  *                         },
+ *                         name: "api_tool",
+ *                         description: "External API integration tool",
  *                     }],
  *                 },
+ *                 lambdaArn: example.arn,
  *             },
  *         },
  *     },
+ *     name: "api-target",
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     description: "External API target with API key authentication",
  * });
  * ```
  *
@@ -173,8 +173,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const oauthExample = new aws.bedrock.AgentcoreGatewayTarget("oauth_example", {
- *     name: "oauth-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
  *     credentialProviderConfiguration: {
  *         oauth: {
  *             providerArn: "arn:aws:iam::123456789012:oidc-provider/oauth.example.com",
@@ -192,15 +190,10 @@ import * as utilities from "../utilities";
  *     targetConfiguration: {
  *         mcp: {
  *             lambda: {
- *                 lambdaArn: example.arn,
  *                 toolSchema: {
  *                     inlinePayloads: [{
- *                         name: "oauth_tool",
- *                         description: "OAuth-authenticated service",
  *                         inputSchema: {
- *                             type: "array",
  *                             items: {
- *                                 type: "object",
  *                                 properties: [
  *                                     {
  *                                         name: "id",
@@ -212,13 +205,20 @@ import * as utilities from "../utilities";
  *                                         type: "number",
  *                                     },
  *                                 ],
+ *                                 type: "object",
  *                             },
+ *                             type: "array",
  *                         },
+ *                         name: "oauth_tool",
+ *                         description: "OAuth-authenticated service",
  *                     }],
  *                 },
+ *                 lambdaArn: example.arn,
  *             },
  *         },
  *     },
+ *     name: "oauth-target",
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
  * });
  * ```
  *
@@ -231,8 +231,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sigv4Example = new aws.bedrock.AgentcoreGatewayTarget("sigv4_example", {
- *     name: "sigv4-target",
- *     gatewayIdentifier: example.gatewayId,
  *     credentialProviderConfiguration: {
  *         gatewayIamRole: {
  *             service: "bedrock-agentcore",
@@ -245,6 +243,8 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "sigv4-target",
+ *     gatewayIdentifier: example.gatewayId,
  * });
  * ```
  *
@@ -255,24 +255,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const complexSchema = new aws.bedrock.AgentcoreGatewayTarget("complex_schema", {
- *     name: "complex-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
  *     credentialProviderConfiguration: {
  *         gatewayIamRole: {},
  *     },
  *     targetConfiguration: {
  *         mcp: {
  *             lambda: {
- *                 lambdaArn: example.arn,
  *                 toolSchema: {
  *                     inlinePayloads: [{
- *                         name: "complex_tool",
- *                         description: "Tool with complex nested schema",
  *                         inputSchema: {
- *                             type: "object",
  *                             properties: [{
- *                                 name: "profile",
- *                                 type: "object",
  *                                 properties: [
  *                                     {
  *                                         name: "nested_tags",
@@ -297,13 +289,21 @@ import * as utilities from "../utilities";
  *                                         }),
  *                                     },
  *                                 ],
+ *                                 name: "profile",
+ *                                 type: "object",
  *                             }],
+ *                             type: "object",
  *                         },
+ *                         name: "complex_tool",
+ *                         description: "Tool with complex nested schema",
  *                     }],
  *                 },
+ *                 lambdaArn: example.arn,
  *             },
  *         },
  *     },
+ *     name: "complex-target",
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
  * });
  * ```
  *
@@ -314,9 +314,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mcpWithHeaders = new aws.bedrock.AgentcoreGatewayTarget("mcp_with_headers", {
- *     name: "mcp-target-with-headers",
- *     gatewayIdentifier: example.gatewayId,
- *     description: "MCP server target with header propagation",
  *     targetConfiguration: {
  *         mcp: {
  *             mcpServer: {
@@ -332,43 +329,9 @@ import * as utilities from "../utilities";
  *         allowedResponseHeaders: ["x-rate-limit-remaining"],
  *         allowedQueryParameters: ["version"],
  *     },
- * });
- * ```
- *
- * ### HTTP Target Routing to an AgentCore Runtime
- *
- * Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * const example = new aws.bedrock.AgentcoreAgentRuntime("example", {
- *     agentRuntimeName: "example-runtime",
- *     roleArn: runtimeRole.arn,
- *     agentRuntimeArtifact: {
- *         containerConfiguration: {
- *             containerUri: "111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest",
- *         },
- *     },
- *     networkConfiguration: {
- *         networkMode: "PUBLIC",
- *     },
- * });
- * const runtime = new aws.bedrock.AgentcoreGatewayTarget("runtime", {
- *     name: "runtime-target",
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     credentialProviderConfiguration: {
- *         gatewayIamRole: {},
- *     },
- *     targetConfiguration: {
- *         http: {
- *             agentcoreRuntime: {
- *                 arn: example.agentRuntimeArn,
- *                 qualifier: "DEFAULT",
- *             },
- *         },
- *     },
+ *     name: "mcp-target-with-headers",
+ *     gatewayIdentifier: example.gatewayId,
+ *     description: "MCP server target with header propagation",
  * });
  * ```
  *
@@ -379,8 +342,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreGatewayTarget("example", {
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     name: "my-private-mcp-target",
  *     targetConfiguration: {
  *         mcp: {
  *             mcpServer: {
@@ -396,6 +357,8 @@ import * as utilities from "../utilities";
  *             securityGroupIds: [mcpLattice.id],
  *         },
  *     },
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     name: "my-private-mcp-target",
  * });
  * ```
  *
@@ -408,8 +371,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreGatewayTarget("example", {
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     name: "my-private-mcp-via-alb",
  *     targetConfiguration: {
  *         mcp: {
  *             mcpServer: {
@@ -425,6 +386,8 @@ import * as utilities from "../utilities";
  *             routingDomain: mcpAlb.dnsName,
  *         },
  *     },
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     name: "my-private-mcp-via-alb",
  * });
  * ```
  *
@@ -435,8 +398,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreGatewayTarget("example", {
- *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
- *     name: "my-private-mcp-self-managed",
  *     targetConfiguration: {
  *         mcp: {
  *             mcpServer: {
@@ -449,12 +410,26 @@ import * as utilities from "../utilities";
  *             resourceConfigurationIdentifier: mcp.arn,
  *         },
  *     },
+ *     gatewayIdentifier: exampleAwsBedrockagentcoreGateway.gatewayId,
+ *     name: "my-private-mcp-self-managed",
  * });
  * ```
  *
  * ## Import
  *
- * Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `gatewayIdentifier` (String) Gateway identifier.
+ * * `targetId` (String) Gateway target ID.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
+ * Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:
  *
  * ```sh
  * $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
@@ -489,7 +464,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     declare public readonly credentialProviderConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -501,7 +476,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly gatewayIdentifier: pulumi.Output<string>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     declare public readonly metadataConfiguration: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -509,7 +484,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     declare public readonly privateEndpoint: pulumi.Output<outputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -517,7 +492,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */
@@ -580,7 +555,7 @@ export class AgentcoreGatewayTarget extends pulumi.CustomResource {
  */
 export interface AgentcoreGatewayTargetState {
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -592,7 +567,7 @@ export interface AgentcoreGatewayTargetState {
      */
     gatewayIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -600,7 +575,7 @@ export interface AgentcoreGatewayTargetState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -608,7 +583,7 @@ export interface AgentcoreGatewayTargetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */
@@ -625,7 +600,7 @@ export interface AgentcoreGatewayTargetState {
  */
 export interface AgentcoreGatewayTargetArgs {
     /**
-     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+     * Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
      */
     credentialProviderConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfiguration | undefined>;
     /**
@@ -637,7 +612,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     gatewayIdentifier: pulumi.Input<string>;
     /**
-     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+     * Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
      */
     metadataConfiguration?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetMetadataConfiguration | undefined>;
     /**
@@ -645,7 +620,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+     * Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
      */
     privateEndpoint?: pulumi.Input<inputs.bedrock.AgentcoreGatewayTargetPrivateEndpoint | undefined>;
     /**
@@ -653,7 +628,7 @@ export interface AgentcoreGatewayTargetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration for the target endpoint. See `targetConfiguration` below.
+     * Configuration for the target endpoint. See `targetConfiguration` Block below.
      *
      * The following arguments are optional:
      */

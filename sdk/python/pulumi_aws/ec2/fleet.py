@@ -677,16 +677,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.Fleet("example",
+            target_capacity_specification={
+                "default_target_capacity_type": "spot",
+                "total_target_capacity": 5,
+            },
             launch_template_configs=[{
                 "launch_template_specification": {
                     "launch_template_id": example_aws_launch_template["id"],
                     "version": example_aws_launch_template["latestVersion"],
                 },
-            }],
-            target_capacity_specification={
-                "default_target_capacity_type": "spot",
-                "total_target_capacity": 5,
-            })
+            }])
         ```
 
         ## Import
@@ -735,16 +735,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.Fleet("example",
+            target_capacity_specification={
+                "default_target_capacity_type": "spot",
+                "total_target_capacity": 5,
+            },
             launch_template_configs=[{
                 "launch_template_specification": {
                     "launch_template_id": example_aws_launch_template["id"],
                     "version": example_aws_launch_template["latestVersion"],
                 },
-            }],
-            target_capacity_specification={
-                "default_target_capacity_type": "spot",
-                "total_target_capacity": 5,
-            })
+            }])
         ```
 
         ## Import

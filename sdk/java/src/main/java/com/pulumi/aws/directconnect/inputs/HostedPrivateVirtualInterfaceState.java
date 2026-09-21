@@ -85,18 +85,33 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
     }
 
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Import(name="bgpAsn")
     private @Nullable Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     public Optional<Output<Integer>> bgpAsn() {
         return Optional.ofNullable(this.bgpAsn);
+    }
+
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    @Import(name="bgpAsnLong")
+    private @Nullable Output<String> bgpAsnLong;
+
+    /**
+     * @return BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     * 
+     */
+    public Optional<Output<String>> bgpAsnLong() {
+        return Optional.ofNullable(this.bgpAsnLong);
     }
 
     /**
@@ -205,6 +220,51 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
     }
 
     /**
+     * The number of inbound IPv4 route prefixes allocated to the virtual interface.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv4")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes allocated to the virtual interface.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv4() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv4);
+    }
+
+    /**
+     * The number of inbound IPv6 route prefixes allocated to the virtual interface.
+     * 
+     */
+    @Import(name="prefixPoolAllocatedCountIpv6")
+    private @Nullable Output<Integer> prefixPoolAllocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes allocated to the virtual interface.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolAllocatedCountIpv6() {
+        return Optional.ofNullable(this.prefixPoolAllocatedCountIpv6);
+    }
+
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    @Import(name="rateLimit")
+    private @Nullable Output<String> rateLimit;
+
+    /**
+     * @return Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    public Optional<Output<String>> rateLimit() {
+        return Optional.ofNullable(this.rateLimit);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -243,6 +303,7 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
         this.arn = $.arn;
         this.awsDevice = $.awsDevice;
         this.bgpAsn = $.bgpAsn;
+        this.bgpAsnLong = $.bgpAsnLong;
         this.bgpAuthKey = $.bgpAuthKey;
         this.connectionId = $.connectionId;
         this.customerAddress = $.customerAddress;
@@ -250,6 +311,9 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
         this.mtu = $.mtu;
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
+        this.prefixPoolAllocatedCountIpv4 = $.prefixPoolAllocatedCountIpv4;
+        this.prefixPoolAllocatedCountIpv6 = $.prefixPoolAllocatedCountIpv6;
+        this.rateLimit = $.rateLimit;
         this.region = $.region;
         this.vlan = $.vlan;
     }
@@ -366,7 +430,7 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
@@ -377,13 +441,34 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
          */
         public Builder bgpAsn(Integer bgpAsn) {
             return bgpAsn(Output.of(bgpAsn));
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(@Nullable Output<String> bgpAsnLong) {
+            $.bgpAsnLong = bgpAsnLong;
+            return this;
+        }
+
+        /**
+         * @param bgpAsnLong BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder bgpAsnLong(String bgpAsnLong) {
+            return bgpAsnLong(Output.of(bgpAsnLong));
         }
 
         /**
@@ -531,6 +616,69 @@ public final class HostedPrivateVirtualInterfaceState extends com.pulumi.resourc
          */
         public Builder ownerAccountId(String ownerAccountId) {
             return ownerAccountId(Output.of(ownerAccountId));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes allocated to the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(@Nullable Output<Integer> prefixPoolAllocatedCountIpv4) {
+            $.prefixPoolAllocatedCountIpv4 = prefixPoolAllocatedCountIpv4;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv4 The number of inbound IPv4 route prefixes allocated to the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv4(Integer prefixPoolAllocatedCountIpv4) {
+            return prefixPoolAllocatedCountIpv4(Output.of(prefixPoolAllocatedCountIpv4));
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes allocated to the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(@Nullable Output<Integer> prefixPoolAllocatedCountIpv6) {
+            $.prefixPoolAllocatedCountIpv6 = prefixPoolAllocatedCountIpv6;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolAllocatedCountIpv6 The number of inbound IPv6 route prefixes allocated to the virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolAllocatedCountIpv6(Integer prefixPoolAllocatedCountIpv6) {
+            return prefixPoolAllocatedCountIpv6(Output.of(prefixPoolAllocatedCountIpv6));
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(@Nullable Output<String> rateLimit) {
+            $.rateLimit = rateLimit;
+            return this;
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Changing this forces a new resource to be created. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(String rateLimit) {
+            return rateLimit(Output.of(rateLimit));
         }
 
         /**

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections host.
+ * - `arn` (String) ARN of the CodeConnections host.
  *
  * Using `pulumi import`, import CodeConnections Host using the ARN. For example:
  *

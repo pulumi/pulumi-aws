@@ -18,14 +18,14 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
     public static final ProxyDefaultTargetGroupArgs Empty = new ProxyDefaultTargetGroupArgs();
 
     /**
-     * The settings that determine the size and behavior of the connection pool for the target group.
+     * Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     @Import(name="connectionPoolConfig")
     private @Nullable Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs> connectionPoolConfig;
 
     /**
-     * @return The settings that determine the size and behavior of the connection pool for the target group.
+     * @return Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
      * 
      */
     public Optional<Output<ProxyDefaultTargetGroupConnectionPoolConfigArgs>> connectionPoolConfig() {
@@ -89,7 +89,7 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * @param connectionPoolConfig Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
          * 
          * @return builder
          * 
@@ -100,7 +100,7 @@ public final class ProxyDefaultTargetGroupArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param connectionPoolConfig The settings that determine the size and behavior of the connection pool for the target group.
+         * @param connectionPoolConfig Settings that determine the size and behavior of the connection pool for the target group. See `connectionPoolConfig` Block for details.
          * 
          * @return builder
          * 

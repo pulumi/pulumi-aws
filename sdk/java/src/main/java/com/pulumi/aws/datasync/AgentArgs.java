@@ -108,14 +108,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
     @Import(name="subnetArns")
     private @Nullable Output<List<String>> subnetArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * @return ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
     public Optional<Output<List<String>>> subnetArns() {
@@ -138,14 +138,14 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * ID of the VPC endpoint that the agent has access to.
      * 
      */
     @Import(name="vpcEndpointId")
     private @Nullable Output<String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * @return ID of the VPC endpoint that the agent has access to.
      * 
      */
     public Optional<Output<String>> vpcEndpointId() {
@@ -321,7 +321,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+         * @param subnetArns ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+         * @param subnetArns ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subnetArns The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+         * @param subnetArns ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
          * 
          * @return builder
          * 
@@ -373,7 +373,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+         * @param vpcEndpointId ID of the VPC endpoint that the agent has access to.
          * 
          * @return builder
          * 
@@ -384,7 +384,7 @@ public final class AgentArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcEndpointId The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+         * @param vpcEndpointId ID of the VPC endpoint that the agent has access to.
          * 
          * @return builder
          * 

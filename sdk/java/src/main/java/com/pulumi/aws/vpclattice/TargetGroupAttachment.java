@@ -45,11 +45,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TargetGroupAttachment("example", TargetGroupAttachmentArgs.builder()
- *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
  *             .target(TargetGroupAttachmentTargetArgs.builder()
  *                 .id(exampleAwsLb.arn())
  *                 .port(80)
  *                 .build())
+ *             .targetGroupIdentifier(exampleAwsVpclatticeTargetGroup.id())
  *             .build());
  * 
  *     }
@@ -89,14 +89,14 @@ public class TargetGroupAttachment extends com.pulumi.resources.CustomResource {
         return this.target;
     }
     /**
-     * ID or Amazon Resource Name (ARN) of the target group.
+     * ID or ARN of the target group.
      * 
      */
     @Export(name="targetGroupIdentifier", refs={String.class}, tree="[0]")
     private Output<String> targetGroupIdentifier;
 
     /**
-     * @return ID or Amazon Resource Name (ARN) of the target group.
+     * @return ID or ARN of the target group.
      * 
      */
     public Output<String> targetGroupIdentifier() {

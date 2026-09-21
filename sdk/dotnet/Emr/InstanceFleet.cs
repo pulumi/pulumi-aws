@@ -29,40 +29,6 @@ namespace Pulumi.Aws.Emr
     /// {
     ///     var task = new Aws.Emr.InstanceFleet("task", new()
     ///     {
-    ///         ClusterId = cluster.Id,
-    ///         InstanceTypeConfigs = new[]
-    ///         {
-    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
-    ///             {
-    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                 EbsConfigs = new[]
-    ///                 {
-    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
-    ///                     {
-    ///                         Size = 100,
-    ///                         Type = "gp2",
-    ///                         VolumesPerInstance = 1,
-    ///                     },
-    ///                 },
-    ///                 InstanceType = "m4.xlarge",
-    ///                 WeightedCapacity = 1,
-    ///             },
-    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
-    ///             {
-    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
-    ///                 EbsConfigs = new[]
-    ///                 {
-    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
-    ///                     {
-    ///                         Size = 100,
-    ///                         Type = "gp2",
-    ///                         VolumesPerInstance = 1,
-    ///                     },
-    ///                 },
-    ///                 InstanceType = "m4.2xlarge",
-    ///                 WeightedCapacity = 2,
-    ///             },
-    ///         },
     ///         LaunchSpecifications = new Aws.Emr.Inputs.InstanceFleetLaunchSpecificationsArgs
     ///         {
     ///             SpotSpecifications = new[]
@@ -76,6 +42,40 @@ namespace Pulumi.Aws.Emr
     ///                 },
     ///             },
     ///         },
+    ///         InstanceTypeConfigs = new[]
+    ///         {
+    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///             {
+    ///                 EbsConfigs = new[]
+    ///                 {
+    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                     {
+    ///                         Size = 100,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
+    ///                     },
+    ///                 },
+    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                 InstanceType = "m4.xlarge",
+    ///                 WeightedCapacity = 1,
+    ///             },
+    ///             new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigArgs
+    ///             {
+    ///                 EbsConfigs = new[]
+    ///                 {
+    ///                     new Aws.Emr.Inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs
+    ///                     {
+    ///                         Size = 100,
+    ///                         Type = "gp2",
+    ///                         VolumesPerInstance = 1,
+    ///                     },
+    ///                 },
+    ///                 BidPriceAsPercentageOfOnDemandPrice = 100,
+    ///                 InstanceType = "m4.2xlarge",
+    ///                 WeightedCapacity = 2,
+    ///             },
+    ///         },
+    ///         ClusterId = cluster.Id,
     ///         Name = "task fleet",
     ///         TargetOnDemandCapacity = 1,
     ///         TargetSpotCapacity = 1,

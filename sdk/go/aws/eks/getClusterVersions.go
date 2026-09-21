@@ -110,12 +110,8 @@ type GetClusterVersionsResult struct {
 }
 
 func GetClusterVersionsOutput(ctx *pulumi.Context, args GetClusterVersionsOutputArgs, opts ...pulumi.InvokeOption) GetClusterVersionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetClusterVersionsResultOutput, error) {
-			args := v.(GetClusterVersionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getClusterVersions:getClusterVersions", args, GetClusterVersionsResultOutput{}, options).(GetClusterVersionsResultOutput), nil
-		}).(GetClusterVersionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getClusterVersions:getClusterVersions", args, GetClusterVersionsResultOutput{}, options).(GetClusterVersionsResultOutput)
 }
 
 // A collection of arguments for invoking getClusterVersions.

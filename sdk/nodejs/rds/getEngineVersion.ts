@@ -34,13 +34,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     version: "10.14",
- *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
+ *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  * });
  * ```
  */
@@ -78,7 +78,7 @@ export interface GetEngineVersionArgs {
      */
     engine: string;
     /**
-     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * Configuration block for filtering versions. See `filter` Block below.
      */
     filters?: inputs.rds.GetEngineVersionFilter[];
     /**
@@ -256,13 +256,13 @@ export interface GetEngineVersionResult {
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.rds.getEngineVersion({
- *     engine: "aurora-postgresql",
- *     version: "10.14",
- *     includeAll: true,
  *     filters: [{
  *         name: "engine-mode",
  *         values: ["serverless"],
  *     }],
+ *     engine: "aurora-postgresql",
+ *     version: "10.14",
+ *     includeAll: true,
  * });
  * ```
  */
@@ -300,7 +300,7 @@ export interface GetEngineVersionOutputArgs {
      */
     engine: pulumi.Input<string>;
     /**
-     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * Configuration block for filtering versions. See `filter` Block below.
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[] | undefined>;
     /**

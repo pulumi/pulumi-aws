@@ -80,14 +80,14 @@ public class TemplateAlias extends com.pulumi.resources.CustomResource {
         return this.aliasName;
     }
     /**
-     * Amazon Resource Name (ARN) of the template alias.
+     * ARN of the template alias.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the template alias.
+     * @return ARN of the template alias.
      * 
      */
     public Output<String> arn() {

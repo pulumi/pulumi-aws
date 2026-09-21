@@ -349,7 +349,7 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
         return this.snapshotTime;
     }
     /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
+     * ARN of the snapshot to export.
      * 
      * The following arguments are optional:
      * 
@@ -358,7 +358,7 @@ public class ExportTask extends com.pulumi.resources.CustomResource {
     private Output<String> sourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the snapshot to export.
+     * @return ARN of the snapshot to export.
      * 
      * The following arguments are optional:
      * 

@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/vpcConnection:VpcConnection")
 public class VpcConnection extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the VPC connection.
+     * ARN of the VPC connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPC connection.
+     * @return ARN of the VPC connection.
      * 
      */
     public Output<String> arn() {
@@ -166,14 +166,14 @@ public class VpcConnection extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) of the cluster.
+     * ARN of the cluster.
      * 
      */
     @Export(name="targetClusterArn", refs={String.class}, tree="[0]")
     private Output<String> targetClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public Output<String> targetClusterArn() {

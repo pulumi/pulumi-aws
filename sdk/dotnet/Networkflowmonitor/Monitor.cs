@@ -35,8 +35,6 @@ namespace Pulumi.Aws.Networkflowmonitor
     /// 
     ///     var exampleMonitor = new Aws.Networkflowmonitor.Monitor("example", new()
     ///     {
-    ///         MonitorName = "example-monitor",
-    ///         ScopeArn = exampleAwsNetworkflowmonitorScope.ScopeArn,
     ///         LocalResources = new[]
     ///         {
     ///             new Aws.Networkflowmonitor.Inputs.MonitorLocalResourceArgs
@@ -53,6 +51,8 @@ namespace Pulumi.Aws.Networkflowmonitor
     ///                 Identifier = example.Arn,
     ///             },
     ///         },
+    ///         MonitorName = "example-monitor",
+    ///         ScopeArn = exampleAwsNetworkflowmonitorScope.ScopeArn,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         public Output<ImmutableArray<Outputs.MonitorLocalResource>> LocalResources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the monitor.
+        /// ARN of the monitor.
         /// </summary>
         [Output("monitorArn")]
         public Output<string> MonitorArn { get; private set; } = null!;
@@ -104,7 +104,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         public Output<ImmutableArray<Outputs.MonitorRemoteResource>> RemoteResources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+        /// ARN of the scope for the monitor. Cannot be changed after creation.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -209,7 +209,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+        /// ARN of the scope for the monitor. Cannot be changed after creation.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the monitor.
+        /// ARN of the monitor.
         /// </summary>
         [Input("monitorArn")]
         public Input<string>? MonitorArn { get; set; }
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Networkflowmonitor
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the scope for the monitor. Cannot be changed after creation.
+        /// ARN of the scope for the monitor. Cannot be changed after creation.
         /// 
         /// The following arguments are optional:
         /// </summary>

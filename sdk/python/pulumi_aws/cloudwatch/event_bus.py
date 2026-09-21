@@ -35,7 +35,7 @@ class EventBusArgs:
         :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input['EventBusLogConfigArgs'] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
@@ -100,7 +100,7 @@ class EventBusArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -179,7 +179,7 @@ class _EventBusState:
         :param pulumi.Input['EventBusDeadLetterConfigArgs'] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input['EventBusLogConfigArgs'] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
@@ -261,7 +261,7 @@ class _EventBusState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -409,11 +409,11 @@ class EventBus(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.cloudwatch.EventBus("example",
-            name="example-event-bus",
             log_config={
                 "include_detail": "FULL",
                 "level": "TRACE",
-            })
+            },
+            name="example-event-bus")
         # CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
         info_logs = aws.cloudwatch.LogDeliverySource("info_logs",
             name=example.name.apply(lambda name: f"EventBusSource-{name}-INFO_LOGS"),
@@ -430,13 +430,6 @@ class EventBus(pulumi.CustomResource):
         # Logging to S3 Bucket
         example_bucket = aws.s3.Bucket("example", bucket="example-event-bus-logs")
         bucket = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -458,15 +451,22 @@ class EventBus(pulumi.CustomResource):
                     ],
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["s3:PutObject"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.bucket,
             policy=bucket.json)
         s3 = aws.cloudwatch.LogDeliveryDestination("s3",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-S3"),
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-S3"))
         s3_info_logs = aws.cloudwatch.LogDelivery("s3_info_logs",
             delivery_destination_arn=s3.arn,
             delivery_source_name=info_logs.name)
@@ -481,16 +481,6 @@ class EventBus(pulumi.CustomResource):
         # Logging to CloudWatch Log Group
         event_bus_logs = aws.cloudwatch.LogGroup("event_bus_logs", name=example.name.apply(lambda name: f"/aws/vendedlogs/events/event-bus/{name}"))
         cwlogs = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -507,15 +497,25 @@ class EventBus(pulumi.CustomResource):
                     ],
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
         }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=cwlogs.json,
             policy_name=example.name.apply(lambda name: f"AWSLogDeliveryWrite-{name}"))
         cwlogs_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("cwlogs",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-CWLogs"),
             delivery_destination_configuration={
                 "destination_resource_arn": event_bus_logs.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-CWLogs"))
         cwlogs_info_logs = aws.cloudwatch.LogDelivery("cwlogs_info_logs",
             delivery_destination_arn=cwlogs_log_delivery_destination.arn,
             delivery_source_name=info_logs.name,
@@ -539,10 +539,10 @@ class EventBus(pulumi.CustomResource):
             "LogDeliveryEnabled": "true",
         })
         firehose = aws.cloudwatch.LogDeliveryDestination("firehose",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-Firehose"),
             delivery_destination_configuration={
                 "destination_resource_arn": cloudfront_logs.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-Firehose"))
         firehose_info_logs = aws.cloudwatch.LogDelivery("firehose_info_logs",
             delivery_destination_arn=firehose.arn,
             delivery_source_name=info_logs.name,
@@ -588,7 +588,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
@@ -664,11 +664,11 @@ class EventBus(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.cloudwatch.EventBus("example",
-            name="example-event-bus",
             log_config={
                 "include_detail": "FULL",
                 "level": "TRACE",
-            })
+            },
+            name="example-event-bus")
         # CloudWatch Log Delivery Sources for INFO, ERROR, and TRACE logs
         info_logs = aws.cloudwatch.LogDeliverySource("info_logs",
             name=example.name.apply(lambda name: f"EventBusSource-{name}-INFO_LOGS"),
@@ -685,13 +685,6 @@ class EventBus(pulumi.CustomResource):
         # Logging to S3 Bucket
         example_bucket = aws.s3.Bucket("example", bucket="example-event-bus-logs")
         bucket = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-            "actions": ["s3:PutObject"],
-            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -713,15 +706,22 @@ class EventBus(pulumi.CustomResource):
                     ],
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": ["s3:PutObject"],
+            "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/AWSLogs/{current.account_id}/EventBusLogs/*")],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example_bucket.bucket,
             policy=bucket.json)
         s3 = aws.cloudwatch.LogDeliveryDestination("s3",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-S3"),
             delivery_destination_configuration={
                 "destination_resource_arn": example_bucket.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-S3"))
         s3_info_logs = aws.cloudwatch.LogDelivery("s3_info_logs",
             delivery_destination_arn=s3.arn,
             delivery_source_name=info_logs.name)
@@ -736,16 +736,6 @@ class EventBus(pulumi.CustomResource):
         # Logging to CloudWatch Log Group
         event_bus_logs = aws.cloudwatch.LogGroup("event_bus_logs", name=example.name.apply(lambda name: f"/aws/vendedlogs/events/event-bus/{name}"))
         cwlogs = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["delivery.logs.amazonaws.com"],
-            }],
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
-            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -762,15 +752,25 @@ class EventBus(pulumi.CustomResource):
                     ],
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["delivery.logs.amazonaws.com"],
+            }],
+            "effect": "Allow",
+            "actions": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
+            "resources": [event_bus_logs.arn.apply(lambda arn: f"{arn}:log-stream:*")],
         }])
         example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
             policy_document=cwlogs.json,
             policy_name=example.name.apply(lambda name: f"AWSLogDeliveryWrite-{name}"))
         cwlogs_log_delivery_destination = aws.cloudwatch.LogDeliveryDestination("cwlogs",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-CWLogs"),
             delivery_destination_configuration={
                 "destination_resource_arn": event_bus_logs.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-CWLogs"))
         cwlogs_info_logs = aws.cloudwatch.LogDelivery("cwlogs_info_logs",
             delivery_destination_arn=cwlogs_log_delivery_destination.arn,
             delivery_source_name=info_logs.name,
@@ -794,10 +794,10 @@ class EventBus(pulumi.CustomResource):
             "LogDeliveryEnabled": "true",
         })
         firehose = aws.cloudwatch.LogDeliveryDestination("firehose",
-            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-Firehose"),
             delivery_destination_configuration={
                 "destination_resource_arn": cloudfront_logs.arn,
-            })
+            },
+            name=example.name.apply(lambda name: f"EventsDeliveryDestination-{name}-Firehose"))
         firehose_info_logs = aws.cloudwatch.LogDelivery("firehose_info_logs",
             delivery_destination_arn=firehose.arn,
             delivery_source_name=info_logs.name,
@@ -911,7 +911,7 @@ class EventBus(pulumi.CustomResource):
         :param pulumi.Input[Union['EventBusDeadLetterConfigArgs', 'EventBusDeadLetterConfigArgsDict']] dead_letter_config: Configuration details of the Amazon SQS queue for EventBridge to use as a dead-letter queue (DLQ). This block supports the following arguments:
         :param pulumi.Input[_builtins.str] description: Event bus description.
         :param pulumi.Input[_builtins.str] event_source_name: Partner event source that the new event bus will be matched with. Must match `name`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[Union['EventBusLogConfigArgs', 'EventBusLogConfigArgsDict']] log_config: Block for logging configuration settings for the event bus.
         :param pulumi.Input[_builtins.str] name: Name of the new event bus. The names of custom event buses can't contain the / character. To create a partner event bus, ensure that the `name` matches the `event_source_name`.
                
@@ -972,7 +972,7 @@ class EventBus(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt events on this event bus. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 

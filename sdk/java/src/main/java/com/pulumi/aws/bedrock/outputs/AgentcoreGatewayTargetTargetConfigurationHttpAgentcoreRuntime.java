@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -22,6 +23,11 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
      * 
      */
     private @Nullable String qualifier;
+    /**
+     * @return API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema schema;
 
     private AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime() {}
     /**
@@ -38,6 +44,13 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
     public Optional<String> qualifier() {
         return Optional.ofNullable(this.qualifier);
     }
+    /**
+     * @return API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema> schema() {
+        return Optional.ofNullable(this.schema);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -50,11 +63,13 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
     public static final class Builder {
         private String arn;
         private @Nullable String qualifier;
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema schema;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.arn = defaults.arn;
     	      this.qualifier = defaults.qualifier;
+    	      this.schema = defaults.schema;
         }
 
         @CustomType.Setter
@@ -71,10 +86,17 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
             this.qualifier = qualifier;
             return this;
         }
+        @CustomType.Setter
+        public Builder schema(@Nullable AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema schema) {
+
+            this.schema = schema;
+            return this;
+        }
         public AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime();
             _resultValue.arn = arn;
             _resultValue.qualifier = qualifier;
+            _resultValue.schema = schema;
             return _resultValue;
         }
     }

@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ivs.NewRecordingConfiguration(ctx, "example", &ivs.RecordingConfigurationArgs{
-//				Name: pulumi.String("recording_configuration-1"),
 //				DestinationConfiguration: &ivs.RecordingConfigurationDestinationConfigurationArgs{
 //					S3: &ivs.RecordingConfigurationDestinationConfigurationS3Args{
 //						BucketName: pulumi.String("ivs-stream-archive"),
 //					},
 //				},
+//				Name: pulumi.String("recording_configuration-1"),
 //			})
 //			if err != nil {
 //				return err
@@ -53,7 +53,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the IVS recording configuration.
+// - `arn` (String) ARN of the IVS recording configuration.
 //
 // Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 //

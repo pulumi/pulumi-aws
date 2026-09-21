@@ -173,11 +173,11 @@ def get_offerings(currencies: Optional[Sequence[_builtins.str]] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.savingsplans.get_offerings(product_type="EC2",
-        filters=[{
+    example = aws.savingsplans.get_offerings(filters=[{
             "name": "region",
             "values": ["us-west-2"],
-        }])
+        }],
+        product_type="EC2")
     ```
 
 
@@ -244,11 +244,11 @@ def get_offerings_output(currencies: pulumi.Input[Optional[Optional[Sequence[_bu
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.savingsplans.get_offerings(product_type="EC2",
-        filters=[{
+    example = aws.savingsplans.get_offerings(filters=[{
             "name": "region",
             "values": ["us-west-2"],
-        }])
+        }],
+        product_type="EC2")
     ```
 
 

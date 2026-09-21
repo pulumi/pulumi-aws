@@ -37,7 +37,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
         ///     {
-        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Protocol = "tcp",
         ///             },
         ///         },
+        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///     });
         /// 
         /// });
@@ -115,7 +115,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
         ///     {
-        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -129,6 +128,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Protocol = "tcp",
         ///             },
         ///         },
+        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///     });
         /// 
         /// });
@@ -193,7 +193,6 @@ namespace Pulumi.Aws.Ec2
         /// 
         ///     var subnetSecurityGroup = new Aws.Ec2.SecurityGroup("subnet_security_group", new()
         ///     {
-        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///         Ingress = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -207,6 +206,7 @@ namespace Pulumi.Aws.Ec2
         ///                 Protocol = "tcp",
         ///             },
         ///         },
+        ///         VpcId = selected.Apply(getSubnetResult =&gt; getSubnetResult.VpcId),
         ///     });
         /// 
         /// });

@@ -84,7 +84,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
+    /// - `Arn` (String) ARN of the CodeBuild source credential.
     /// 
     /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
     /// 

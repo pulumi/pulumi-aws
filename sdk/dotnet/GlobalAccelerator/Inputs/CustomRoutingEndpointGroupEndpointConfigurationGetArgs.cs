@@ -13,7 +13,7 @@ namespace Pulumi.Aws.GlobalAccelerator.Inputs
     public sealed class CustomRoutingEndpointGroupEndpointConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+        /// ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
         /// </summary>
         [Input("endpointId")]
         public Input<string>? EndpointId { get; set; }

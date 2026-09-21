@@ -471,9 +471,9 @@ class Secret(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `arn` (String) ARN of the Secrets Manager secret.
 
-        Using `pulumi import`, import `secretsmanager.Secret` using the secret Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `secretsmanager.Secret` using the secret ARN. For example:
 
         ```sh
         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -533,9 +533,9 @@ class Secret(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `arn` (String) ARN of the Secrets Manager secret.
 
-        Using `pulumi import`, import `secretsmanager.Secret` using the secret Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `secretsmanager.Secret` using the secret ARN. For example:
 
         ```sh
         $ pulumi import aws:secretsmanager/secret:Secret example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -727,7 +727,7 @@ class Secret(pulumi.CustomResource):
 
     @_builtins.property
     @pulumi.getter
-    def replicas(self) -> pulumi.Output[Sequence['outputs.SecretReplica']]:
+    def replicas(self) -> pulumi.Output[Optional[Sequence['outputs.SecretReplica']]]:
         """
         Configuration block to support secret replication. See details below.
         """

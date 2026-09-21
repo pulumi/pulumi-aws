@@ -77,14 +77,14 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * ARN that specifies the topic for a backup vault’s events
      * 
      */
     @Import(name="snsTopicArn")
     private @Nullable Output<String> snsTopicArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * @return ARN that specifies the topic for a backup vault’s events
      * 
      */
     public Optional<Output<String>> snsTopicArn() {
@@ -214,7 +214,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snsTopicArn The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+         * @param snsTopicArn ARN that specifies the topic for a backup vault’s events
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class VaultNotificationsState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param snsTopicArn The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+         * @param snsTopicArn ARN that specifies the topic for a backup vault’s events
          * 
          * @return builder
          * 

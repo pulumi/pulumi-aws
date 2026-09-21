@@ -35,10 +35,6 @@ import (
 //			gatewayAssume, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -46,6 +42,10 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -63,10 +63,6 @@ import (
 //			lambdaAssume, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -74,6 +70,10 @@ import (
 //									"lambda.amazonaws.com",
 //								},
 //							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -99,36 +99,28 @@ import (
 //				return err
 //			}
 //			exampleAgentcoreGateway, err := bedrock.NewAgentcoreGateway(ctx, "example", &bedrock.AgentcoreGatewayArgs{
-//				Name:    pulumi.String("example-gateway"),
-//				RoleArn: gatewayRole.Arn,
 //				AuthorizerConfiguration: &bedrock.AgentcoreGatewayAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerArgs{
 //						DiscoveryUrl: pulumi.String("https://accounts.google.com/.well-known/openid-configuration"),
 //					},
 //				},
+//				Name:    pulumi.String("example-gateway"),
+//				RoleArn: gatewayRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("example-target"),
-//				GatewayIdentifier: exampleAgentcoreGateway.GatewayId,
-//				Description:       pulumi.String("Lambda function target for processing requests"),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
 //				},
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							LambdaArn: example.Arn,
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										Name:        pulumi.String("process_request"),
-//										Description: pulumi.String("Process incoming requests"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
-//											Type:        pulumi.String("object"),
-//											Description: pulumi.String("Request processing schema"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
 //													Name:        pulumi.String("message"),
@@ -137,28 +129,29 @@ import (
 //													Required:    pulumi.Bool(true),
 //												},
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
-//													Name: pulumi.String("options"),
-//													Type: pulumi.String("object"),
 //													Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name: pulumi.String("priority"),
 //															Type: pulumi.String("string"),
 //														},
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
-//															Name: pulumi.String("tags"),
-//															Type: pulumi.String("array"),
 //															Items: []map[string]string{
 //																{
 //																	"type": "string",
 //																},
 //															},
+//															Name: pulumi.String("tags"),
+//															Type: pulumi.String("array"),
 //														},
 //													},
+//													Name: pulumi.String("options"),
+//													Type: pulumi.String("object"),
 //												},
 //											},
+//											Type:        pulumi.String("object"),
+//											Description: pulumi.String("Request processing schema"),
 //										},
 //										OutputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaArgs{
-//											Type: pulumi.String("object"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyArgs{
 //													Name:     pulumi.String("status"),
@@ -170,13 +163,20 @@ import (
 //													Type: pulumi.String("string"),
 //												},
 //											},
+//											Type: pulumi.String("object"),
 //										},
+//										Name:        pulumi.String("process_request"),
+//										Description: pulumi.String("Process incoming requests"),
 //									},
 //								},
 //							},
+//							LambdaArn: example.Arn,
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("example-target"),
+//				GatewayIdentifier: exampleAgentcoreGateway.GatewayId,
+//				Description:       pulumi.String("Lambda function target for processing requests"),
 //			})
 //			if err != nil {
 //				return err
@@ -202,9 +202,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "api_key_example", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("api-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Description:       pulumi.String("External API target with API key authentication"),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					ApiKey: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKeyArgs{
 //						ProviderArn:             pulumi.String("arn:aws:iam::123456789012:oidc-provider/example.com"),
@@ -216,22 +213,25 @@ import (
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										Name:        pulumi.String("api_tool"),
-//										Description: pulumi.String("External API integration tool"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
 //											Type:        pulumi.String("string"),
 //											Description: pulumi.String("Simple string input for API calls"),
 //										},
+//										Name:        pulumi.String("api_tool"),
+//										Description: pulumi.String("External API integration tool"),
 //									},
 //								},
 //							},
+//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("api-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Description:       pulumi.String("External API target with API key authentication"),
 //			})
 //			if err != nil {
 //				return err
@@ -257,8 +257,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "oauth_example", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("oauth-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					Oauth: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauthArgs{
 //						ProviderArn: pulumi.String("arn:aws:iam::123456789012:oidc-provider/oauth.example.com"),
@@ -276,16 +274,11 @@ import (
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										Name:        pulumi.String("oauth_tool"),
-//										Description: pulumi.String("OAuth-authenticated service"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
-//											Type: pulumi.String("array"),
 //											Items: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsArgs{
-//												Type: pulumi.String("object"),
 //												Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArray{
 //													&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyArgs{
 //														Name:     pulumi.String("id"),
@@ -297,14 +290,21 @@ import (
 //														Type: pulumi.String("number"),
 //													},
 //												},
+//												Type: pulumi.String("object"),
 //											},
+//											Type: pulumi.String("array"),
 //										},
+//										Name:        pulumi.String("oauth_tool"),
+//										Description: pulumi.String("OAuth-authenticated service"),
 //									},
 //								},
 //							},
+//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("oauth-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -332,8 +332,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "sigv4_example", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("sigv4-target"),
-//				GatewayIdentifier: pulumi.Any(example.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{
 //						Service: pulumi.String("bedrock-agentcore"),
@@ -346,6 +344,8 @@ import (
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("sigv4-target"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -397,26 +397,18 @@ import (
 //			}
 //			json1 := string(tmpJSON1)
 //			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "complex_schema", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("complex-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
 //					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
 //				},
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						Lambda: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs{
-//							LambdaArn: pulumi.Any(example.Arn),
 //							ToolSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaArgs{
 //								InlinePayloads: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArray{
 //									&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadArgs{
-//										Name:        pulumi.String("complex_tool"),
-//										Description: pulumi.String("Tool with complex nested schema"),
 //										InputSchema: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaArgs{
-//											Type: pulumi.String("object"),
 //											Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArray{
 //												&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyArgs{
-//													Name: pulumi.String("profile"),
-//													Type: pulumi.String("object"),
 //													Properties: bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArray{
 //														&bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyPropertyArgs{
 //															Name:      pulumi.String("nested_tags"),
@@ -429,15 +421,23 @@ import (
 //															PropertiesJson: pulumi.String(json1),
 //														},
 //													},
+//													Name: pulumi.String("profile"),
+//													Type: pulumi.String("object"),
 //												},
 //											},
+//											Type: pulumi.String("object"),
 //										},
+//										Name:        pulumi.String("complex_tool"),
+//										Description: pulumi.String("Tool with complex nested schema"),
 //									},
 //								},
 //							},
+//							LambdaArn: pulumi.Any(example.Arn),
 //						},
 //					},
 //				},
+//				Name:              pulumi.String("complex-target"),
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
 //			})
 //			if err != nil {
 //				return err
@@ -463,9 +463,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "mcp_with_headers", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("mcp-target-with-headers"),
-//				GatewayIdentifier: pulumi.Any(example.GatewayId),
-//				Description:       pulumi.String("MCP server target with header propagation"),
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -485,61 +482,9 @@ import (
 //						pulumi.String("version"),
 //					},
 //				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ### HTTP Target Routing to an AgentCore Runtime
-//
-// Routes gateway traffic directly to an AgentCore Runtime agent over HTTP, without MCP aggregation. The gateway must not have a `protocolType` set.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/bedrock"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example-runtime"),
-//				RoleArn:          pulumi.Any(runtimeRole.Arn),
-//				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
-//					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
-//						ContainerUri: pulumi.String("111122223333.dkr.ecr.us-west-2.amazonaws.com/example-runtime:latest"),
-//					},
-//				},
-//				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("PUBLIC"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = bedrock.NewAgentcoreGatewayTarget(ctx, "runtime", &bedrock.AgentcoreGatewayTargetArgs{
-//				Name:              pulumi.String("runtime-target"),
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				CredentialProviderConfiguration: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationArgs{
-//					GatewayIamRole: &bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRoleArgs{},
-//				},
-//				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
-//					Http: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpArgs{
-//						AgentcoreRuntime: &bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs{
-//							Arn:       example.AgentRuntimeArn,
-//							Qualifier: pulumi.String("DEFAULT"),
-//						},
-//					},
-//				},
+//				Name:              pulumi.String("mcp-target-with-headers"),
+//				GatewayIdentifier: pulumi.Any(example.GatewayId),
+//				Description:       pulumi.String("MCP server target with header propagation"),
 //			})
 //			if err != nil {
 //				return err
@@ -564,8 +509,6 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
-// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-// Name: pulumi.String("my-private-mcp-target"),
 // TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 // Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 // McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -576,13 +519,15 @@ import (
 // PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
 // ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
 // VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:13,31-53)),
 // EndpointIpAddressType: pulumi.String("IPV4"),
 // SecurityGroupIds: pulumi.StringArray{
 // mcpLattice.Id,
 // },
 // },
 // },
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-target"),
 // })
 // if err != nil {
 // return err
@@ -608,8 +553,6 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
-// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-// Name: pulumi.String("my-private-mcp-via-alb"),
 // TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 // Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 // McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -620,11 +563,13 @@ import (
 // PrivateEndpoint: &bedrock.AgentcoreGatewayTargetPrivateEndpointArgs{
 // ManagedVpcResource: &bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResourceArgs{
 // VpcIdentifier: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:15,31-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:13,31-53)),
 // EndpointIpAddressType: pulumi.String("IPV4"),
 // RoutingDomain: pulumi.Any(mcpAlb.DnsName),
 // },
 // },
+// GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+// Name: pulumi.String("my-private-mcp-via-alb"),
 // })
 // if err != nil {
 // return err
@@ -649,8 +594,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreGatewayTarget(ctx, "example", &bedrock.AgentcoreGatewayTargetArgs{
-//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
-//				Name:              pulumi.String("my-private-mcp-self-managed"),
 //				TargetConfiguration: &bedrock.AgentcoreGatewayTargetTargetConfigurationArgs{
 //					Mcp: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpArgs{
 //						McpServer: &bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs{
@@ -663,6 +606,8 @@ import (
 //						ResourceConfigurationIdentifier: pulumi.Any(mcp.Arn),
 //					},
 //				},
+//				GatewayIdentifier: pulumi.Any(exampleAwsBedrockagentcoreGateway.GatewayId),
+//				Name:              pulumi.String("my-private-mcp-self-managed"),
 //			})
 //			if err != nil {
 //				return err
@@ -675,7 +620,19 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Bedrock AgentCore Gateway Target using the gateway identifier and target ID separated by a comma. For example:
+// ### Identity Schema
+//
+// #### Required
+//
+// * `gatewayIdentifier` (String) Gateway identifier.
+// * `targetId` (String) Gateway target ID.
+//
+// #### Optional
+//
+// * `accountId` (String) Account ID where this resource is managed.
+// * `region` (String) Region where this resource is managed.
+//
+// Using `pulumi import`, import gateway targets using `gatewayIdentifier` and `targetId` separated by a comma (`,`). For example:
 //
 // ```sh
 // $ pulumi import aws:bedrock/agentcoreGatewayTarget:AgentcoreGatewayTarget example GATEWAY1234567890,TARGET0987654321
@@ -683,21 +640,21 @@ import (
 type AgentcoreGatewayTarget struct {
 	pulumi.CustomResourceState
 
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringOutput `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrOutput `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrOutput `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationOutput `pulumi:"targetConfiguration"`
@@ -742,21 +699,21 @@ func GetAgentcoreGatewayTarget(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AgentcoreGatewayTarget resources.
 type agentcoreGatewayTargetState struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration *AgentcoreGatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier *string `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration *AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
@@ -766,21 +723,21 @@ type agentcoreGatewayTargetState struct {
 }
 
 type AgentcoreGatewayTargetState struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput
 	// Description of the gateway target.
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringPtrInput
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationPtrInput
@@ -794,21 +751,21 @@ func (AgentcoreGatewayTargetState) ElementType() reflect.Type {
 }
 
 type agentcoreGatewayTargetArgs struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration *AgentcoreGatewayTargetCredentialProviderConfiguration `pulumi:"credentialProviderConfiguration"`
 	// Description of the gateway target.
 	Description *string `pulumi:"description"`
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier string `pulumi:"gatewayIdentifier"`
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration *AgentcoreGatewayTargetMetadataConfiguration `pulumi:"metadataConfiguration"`
 	// Name of the gateway target.
 	Name *string `pulumi:"name"`
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint *AgentcoreGatewayTargetPrivateEndpoint `pulumi:"privateEndpoint"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfiguration `pulumi:"targetConfiguration"`
@@ -817,21 +774,21 @@ type agentcoreGatewayTargetArgs struct {
 
 // The set of arguments for constructing a AgentcoreGatewayTarget resource.
 type AgentcoreGatewayTargetArgs struct {
-	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+	// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 	CredentialProviderConfiguration AgentcoreGatewayTargetCredentialProviderConfigurationPtrInput
 	// Description of the gateway target.
 	Description pulumi.StringPtrInput
 	// Identifier of the gateway that this target belongs to.
 	GatewayIdentifier pulumi.StringInput
-	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+	// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 	MetadataConfiguration AgentcoreGatewayTargetMetadataConfigurationPtrInput
 	// Name of the gateway target.
 	Name pulumi.StringPtrInput
-	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+	// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 	PrivateEndpoint AgentcoreGatewayTargetPrivateEndpointPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Configuration for the target endpoint. See `targetConfiguration` below.
+	// Configuration for the target endpoint. See `targetConfiguration` Block below.
 	//
 	// The following arguments are optional:
 	TargetConfiguration AgentcoreGatewayTargetTargetConfigurationInput
@@ -925,7 +882,7 @@ func (o AgentcoreGatewayTargetOutput) ToAgentcoreGatewayTargetOutputWithContext(
 	return o
 }
 
-// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` below.
+// Configuration for authenticating requests to the target. Required when using `lambda`, `openApiSchema` and `smithyModel` in `mcp` block. If using `mcpServer` in `mcp` block with no authorization, it should not be specified. See `credentialProviderConfiguration` Block below.
 func (o AgentcoreGatewayTargetOutput) CredentialProviderConfiguration() AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetCredentialProviderConfigurationPtrOutput {
 		return v.CredentialProviderConfiguration
@@ -942,7 +899,7 @@ func (o AgentcoreGatewayTargetOutput) GatewayIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.GatewayIdentifier }).(pulumi.StringOutput)
 }
 
-// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` below.
+// Configuration for HTTP header and query parameter propagation between the gateway and target servers. See `metadataConfiguration` Block below.
 func (o AgentcoreGatewayTargetOutput) MetadataConfiguration() AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetMetadataConfigurationPtrOutput {
 		return v.MetadataConfiguration
@@ -954,7 +911,7 @@ func (o AgentcoreGatewayTargetOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` below.
+// Configuration for private connectivity from AgentCore Gateway to a resource inside your VPC. Traffic is routed through Amazon VPC Lattice and never traverses the public internet. See `privateEndpoint` Block below.
 func (o AgentcoreGatewayTargetOutput) PrivateEndpoint() AgentcoreGatewayTargetPrivateEndpointPtrOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) AgentcoreGatewayTargetPrivateEndpointPtrOutput {
 		return v.PrivateEndpoint
@@ -966,7 +923,7 @@ func (o AgentcoreGatewayTargetOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AgentcoreGatewayTarget) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Configuration for the target endpoint. See `targetConfiguration` below.
+// Configuration for the target endpoint. See `targetConfiguration` Block below.
 //
 // The following arguments are optional:
 func (o AgentcoreGatewayTargetOutput) TargetConfiguration() AgentcoreGatewayTargetTargetConfigurationOutput {

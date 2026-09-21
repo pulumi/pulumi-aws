@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetVocabularyResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the Vocabulary.
+     * @return ARN of the Vocabulary.
      * 
      */
     private String arn;
@@ -62,7 +62,7 @@ public final class GetVocabularyResult {
 
     private GetVocabularyResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Vocabulary.
+     * @return ARN of the Vocabulary.
      * 
      */
     public String arn() {

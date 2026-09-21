@@ -18,21 +18,21 @@ import * as utilities from "../utilities";
  * const exampleDomain = new aws.cloudsearch.Domain("example", {name: "example-domain"});
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "search_only",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: [
- *             "cloudsearch:search",
- *             "cloudsearch:document",
- *         ],
  *         conditions: [{
  *             test: "IpAddress",
  *             variable: "aws:SourceIp",
  *             values: ["192.0.2.0/32"],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "search_only",
+ *         effect: "Allow",
+ *         actions: [
+ *             "cloudsearch:search",
+ *             "cloudsearch:document",
+ *         ],
  *     }],
  * });
  * const exampleDomainServiceAccessPolicy = new aws.cloudsearch.DomainServiceAccessPolicy("example", {

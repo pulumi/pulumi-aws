@@ -13,13 +13,7 @@ namespace Pulumi.Aws.Lambda.Outputs
     [OutputType]
     public sealed class EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig
     {
-        /// <summary>
-        /// Authentication type Lambda uses to access the schema registry.
-        /// </summary>
         public readonly string? Type;
-        /// <summary>
-        /// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-        /// </summary>
         public readonly string? Uri;
 
         [OutputConstructor]

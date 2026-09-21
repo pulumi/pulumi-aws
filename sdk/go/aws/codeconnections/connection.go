@@ -50,7 +50,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
+// - `arn` (String) ARN of the CodeConnections connection.
 //
 // Using `pulumi import`, import CodeConnections connection using the ARN. For example:
 //
@@ -64,7 +64,7 @@ type Connection struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringOutput `pulumi:"connectionStatus"`
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn pulumi.StringPtrOutput `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name           pulumi.StringOutput `pulumi:"name"`
@@ -114,7 +114,7 @@ type connectionState struct {
 	Arn *string `pulumi:"arn"`
 	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus *string `pulumi:"connectionStatus"`
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name           *string `pulumi:"name"`
@@ -135,7 +135,7 @@ type ConnectionState struct {
 	Arn pulumi.StringPtrInput
 	// The codeconnections connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
 	ConnectionStatus pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name           pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (ConnectionState) ElementType() reflect.Type {
 }
 
 type connectionArgs struct {
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn *string `pulumi:"hostArn"`
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name *string `pulumi:"name"`
@@ -171,7 +171,7 @@ type connectionArgs struct {
 
 // The set of arguments for constructing a Connection resource.
 type ConnectionArgs struct {
-	// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+	// ARN of the host associated with the connection. Conflicts with `providerType`
 	HostArn pulumi.StringPtrInput
 	// The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
 	Name pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (o ConnectionOutput) ConnectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringOutput { return v.ConnectionStatus }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+// ARN of the host associated with the connection. Conflicts with `providerType`
 func (o ConnectionOutput) HostArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Connection) pulumi.StringPtrOutput { return v.HostArn }).(pulumi.StringPtrOutput)
 }

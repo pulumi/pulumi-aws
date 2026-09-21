@@ -45,7 +45,7 @@ public final class GetComponentResult {
      */
     private String id;
     /**
-     * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
+     * @return ARN of the KMS Key used to encrypt the component.
      * 
      */
     private String kmsKeyId;
@@ -133,7 +133,7 @@ public final class GetComponentResult {
         return this.id;
     }
     /**
-     * @return ARN of the Key Management Service (KMS) Key used to encrypt the component.
+     * @return ARN of the KMS Key used to encrypt the component.
      * 
      */
     public String kmsKeyId() {

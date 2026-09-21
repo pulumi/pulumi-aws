@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Outposts
         public readonly string? OwnerId;
         public readonly string Region;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the site.
+        /// ARN of the site.
         /// </summary>
         public readonly string SiteArn;
         /// <summary>

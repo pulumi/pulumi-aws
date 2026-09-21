@@ -58,9 +58,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new IdentityPool("main", IdentityPoolArgs.builder()
- *             .identityPoolName("identity pool")
- *             .allowUnauthenticatedIdentities(false)
- *             .allowClassicFlow(false)
  *             .cognitoIdentityProviders(            
  *                 IdentityPoolCognitoIdentityProviderArgs.builder()
  *                     .clientId("6lhlkkfbfb4q5kpp90urffae")
@@ -72,6 +69,9 @@ import javax.annotation.Nullable;
  *                     .providerName("cognito-idp.us-east-1.amazonaws.com/eu-west-1_Zr231apJu")
  *                     .serverSideTokenCheck(false)
  *                     .build())
+ *             .identityPoolName("identity pool")
+ *             .allowUnauthenticatedIdentities(false)
+ *             .allowClassicFlow(false)
  *             .supportedLoginProviders(Map.ofEntries(
  *                 Map.entry("graph.facebook.com", "7346241598935552"),
  *                 Map.entry("accounts.google.com", "123456789012.apps.googleusercontent.com")
@@ -211,14 +211,14 @@ public class IdentityPool extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * An array of ARNs of the SAML provider for your identity.
      * 
      */
     @Export(name="samlProviderArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> samlProviderArns;
 
     /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * @return An array of ARNs of the SAML provider for your identity.
      * 
      */
     public Output<Optional<List<String>>> samlProviderArns() {

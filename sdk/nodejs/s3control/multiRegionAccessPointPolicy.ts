@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  * const currentGetPartition = aws.getPartition({});
  * const fooBucket = new aws.s3.Bucket("foo_bucket", {bucket: "example-bucket-foo"});
  * const example = new aws.s3control.MultiRegionAccessPoint("example", {details: {
- *     name: "example",
  *     regions: [{
  *         bucket: fooBucket.id,
  *     }],
+ *     name: "example",
  * }});
  * const exampleMultiRegionAccessPointPolicy = new aws.s3control.MultiRegionAccessPointPolicy("example", {details: {
  *     name: std.splitOutput({

@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: test.arn,
  *     as2Config: {
  *         compression: "DISABLED",
  *         encryptionAlgorithm: "AWS128_CBC",
@@ -30,6 +29,7 @@ import * as utilities from "../utilities";
  *         partnerProfileId: partner.profileId,
  *         signingAlgorithm: "NONE",
  *     },
+ *     accessRole: test.arn,
  *     url: "http://www.test.com",
  * });
  * ```
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: test.arn,
  *     sftpConfig: {
  *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],
  *         userSecretId: exampleAwsSecretsmanagerSecret.id,
  *     },
+ *     accessRole: test.arn,
  *     url: "sftp://test.com",
  * });
  * ```
@@ -57,7 +57,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Connector("example", {
- *     accessRole: test.arn,
  *     sftpConfig: {
  *         trustedHostKeys: ["ssh-rsa AAAAB3NYourKeysHere"],
  *         userSecretId: exampleAwsSecretsmanagerSecret.id,
@@ -68,6 +67,7 @@ import * as utilities from "../utilities";
  *             portNumber: 22,
  *         },
  *     },
+ *     accessRole: test.arn,
  * });
  * ```
  *

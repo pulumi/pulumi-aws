@@ -84,12 +84,8 @@ type GetEngineVersionResult struct {
 }
 
 func GetEngineVersionOutput(ctx *pulumi.Context, args GetEngineVersionOutputArgs, opts ...pulumi.InvokeOption) GetEngineVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEngineVersionResultOutput, error) {
-			args := v.(GetEngineVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:docdb/getEngineVersion:getEngineVersion", args, GetEngineVersionResultOutput{}, options).(GetEngineVersionResultOutput), nil
-		}).(GetEngineVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:docdb/getEngineVersion:getEngineVersion", args, GetEngineVersionResultOutput{}, options).(GetEngineVersionResultOutput)
 }
 
 // A collection of arguments for invoking getEngineVersion.

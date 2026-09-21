@@ -161,14 +161,14 @@ public class Tracker extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     @Export(name="trackerArn", refs={String.class}, tree="[0]")
     private Output<String> trackerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the tracker resource. Used when you need to specify a resource across all AWS.
+     * @return ARN for the tracker resource. Used when you need to specify a resource across all AWS.
      * 
      */
     public Output<String> trackerArn() {

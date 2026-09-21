@@ -65,12 +65,8 @@ type GetAccessKeysResult struct {
 }
 
 func GetAccessKeysOutput(ctx *pulumi.Context, args GetAccessKeysOutputArgs, opts ...pulumi.InvokeOption) GetAccessKeysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccessKeysResultOutput, error) {
-			args := v.(GetAccessKeysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getAccessKeys:getAccessKeys", args, GetAccessKeysResultOutput{}, options).(GetAccessKeysResultOutput), nil
-		}).(GetAccessKeysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getAccessKeys:getAccessKeys", args, GetAccessKeysResultOutput{}, options).(GetAccessKeysResultOutput)
 }
 
 // A collection of arguments for invoking getAccessKeys.

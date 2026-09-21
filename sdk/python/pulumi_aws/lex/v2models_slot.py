@@ -541,17 +541,8 @@ class V2modelsSlot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlot("example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            intent_id=test_aws_lexv2models_intent["intentId"],
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
-            name="example",
             value_elicitation_setting={
-                "slot_constraint": "Required",
                 "prompt_specification": {
-                    "allow_interrupt": True,
-                    "max_retries": 1,
-                    "message_selection_strategy": "Random",
                     "message_groups": [{
                         "message": {
                             "plain_text_message": {
@@ -561,38 +552,35 @@ class V2modelsSlot(pulumi.CustomResource):
                     }],
                     "prompt_attempts_specifications": [
                         {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
                             "allow_interrupt": True,
                             "map_block_key": "Initial",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
                         },
                         {
-                            "allow_interrupt": True,
-                            "map_block_key": "Retry1",
                             "allowed_input_types": {
                                 "allow_audio_input": True,
                                 "allow_dtmf_input": True,
                             },
                             "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
                                 "audio_specification": {
                                     "end_timeout_ms": 640,
                                     "max_length_ms": 15000,
@@ -603,14 +591,26 @@ class V2modelsSlot(pulumi.CustomResource):
                                     "end_timeout_ms": 5000,
                                     "max_length": 513,
                                 },
+                                "start_timeout_ms": 4000,
                             },
                             "text_input_specification": {
                                 "start_timeout_ms": 30000,
                             },
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
                         },
                     ],
+                    "allow_interrupt": True,
+                    "max_retries": 1,
+                    "message_selection_strategy": "Random",
                 },
-            })
+                "slot_constraint": "Required",
+            },
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            intent_id=test_aws_lexv2models_intent["intentId"],
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            name="example")
         ```
 
         ## Import
@@ -682,17 +682,8 @@ class V2modelsSlot(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lex.V2modelsSlot("example",
-            bot_id=test["id"],
-            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
-            intent_id=test_aws_lexv2models_intent["intentId"],
-            locale_id=test_aws_lexv2models_bot_locale["localeId"],
-            name="example",
             value_elicitation_setting={
-                "slot_constraint": "Required",
                 "prompt_specification": {
-                    "allow_interrupt": True,
-                    "max_retries": 1,
-                    "message_selection_strategy": "Random",
                     "message_groups": [{
                         "message": {
                             "plain_text_message": {
@@ -702,38 +693,35 @@ class V2modelsSlot(pulumi.CustomResource):
                     }],
                     "prompt_attempts_specifications": [
                         {
+                            "allowed_input_types": {
+                                "allow_audio_input": True,
+                                "allow_dtmf_input": True,
+                            },
+                            "audio_and_dtmf_input_specification": {
+                                "audio_specification": {
+                                    "end_timeout_ms": 640,
+                                    "max_length_ms": 15000,
+                                },
+                                "dtmf_specification": {
+                                    "deletion_character": "*",
+                                    "end_character": "#",
+                                    "end_timeout_ms": 5000,
+                                    "max_length": 513,
+                                },
+                                "start_timeout_ms": 4000,
+                            },
+                            "text_input_specification": {
+                                "start_timeout_ms": 30000,
+                            },
                             "allow_interrupt": True,
                             "map_block_key": "Initial",
-                            "allowed_input_types": {
-                                "allow_audio_input": True,
-                                "allow_dtmf_input": True,
-                            },
-                            "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
-                                "audio_specification": {
-                                    "end_timeout_ms": 640,
-                                    "max_length_ms": 15000,
-                                },
-                                "dtmf_specification": {
-                                    "deletion_character": "*",
-                                    "end_character": "#",
-                                    "end_timeout_ms": 5000,
-                                    "max_length": 513,
-                                },
-                            },
-                            "text_input_specification": {
-                                "start_timeout_ms": 30000,
-                            },
                         },
                         {
-                            "allow_interrupt": True,
-                            "map_block_key": "Retry1",
                             "allowed_input_types": {
                                 "allow_audio_input": True,
                                 "allow_dtmf_input": True,
                             },
                             "audio_and_dtmf_input_specification": {
-                                "start_timeout_ms": 4000,
                                 "audio_specification": {
                                     "end_timeout_ms": 640,
                                     "max_length_ms": 15000,
@@ -744,14 +732,26 @@ class V2modelsSlot(pulumi.CustomResource):
                                     "end_timeout_ms": 5000,
                                     "max_length": 513,
                                 },
+                                "start_timeout_ms": 4000,
                             },
                             "text_input_specification": {
                                 "start_timeout_ms": 30000,
                             },
+                            "allow_interrupt": True,
+                            "map_block_key": "Retry1",
                         },
                     ],
+                    "allow_interrupt": True,
+                    "max_retries": 1,
+                    "message_selection_strategy": "Random",
                 },
-            })
+                "slot_constraint": "Required",
+            },
+            bot_id=test["id"],
+            bot_version=test_aws_lexv2models_bot_locale["botVersion"],
+            intent_id=test_aws_lexv2models_intent["intentId"],
+            locale_id=test_aws_lexv2models_bot_locale["localeId"],
+            name="example")
         ```
 
         ## Import

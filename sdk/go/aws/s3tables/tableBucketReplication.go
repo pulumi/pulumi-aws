@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3tables.NewTableBucketReplication(ctx, "example", &s3tables.TableBucketReplicationArgs{
-//				TableBucketArn: pulumi.Any(source.Arn),
-//				Role:           pulumi.Any(exampleAwsIamRole.Arn),
 //				Rule: &s3tables.TableBucketReplicationRuleArgs{
 //					Destinations: s3tables.TableBucketReplicationRuleDestinationArray{
 //						&s3tables.TableBucketReplicationRuleDestinationArgs{
@@ -40,6 +38,8 @@ import (
 //						},
 //					},
 //				},
+//				TableBucketArn: pulumi.Any(source.Arn),
+//				Role:           pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

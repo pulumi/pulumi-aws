@@ -96,12 +96,8 @@ type LookupThemeResult struct {
 }
 
 func LookupThemeOutput(ctx *pulumi.Context, args LookupThemeOutputArgs, opts ...pulumi.InvokeOption) LookupThemeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupThemeResultOutput, error) {
-			args := v.(LookupThemeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:quicksight/getTheme:getTheme", args, LookupThemeResultOutput{}, options).(LookupThemeResultOutput), nil
-		}).(LookupThemeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:quicksight/getTheme:getTheme", args, LookupThemeResultOutput{}, options).(LookupThemeResultOutput)
 }
 
 // A collection of arguments for invoking getTheme.

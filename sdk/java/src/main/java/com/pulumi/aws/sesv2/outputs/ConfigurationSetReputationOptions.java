@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationSetReputationOptions {
     /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+     * @return Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
      * 
      */
     private @Nullable String lastFreshStart;
@@ -25,7 +25,7 @@ public final class ConfigurationSetReputationOptions {
 
     private ConfigurationSetReputationOptions() {}
     /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+     * @return Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
      * 
      */
     public Optional<String> lastFreshStart() {

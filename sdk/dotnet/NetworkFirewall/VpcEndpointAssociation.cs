@@ -28,12 +28,12 @@ namespace Pulumi.Aws.NetworkFirewall
     /// {
     ///     var example = new Aws.NetworkFirewall.VpcEndpointAssociation("example", new()
     ///     {
-    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
-    ///         VpcId = exampleAwsVpc.Id,
     ///         SubnetMapping = new Aws.NetworkFirewall.Inputs.VpcEndpointAssociationSubnetMappingArgs
     ///         {
     ///             SubnetId = exampleAwsSubnet.Id,
     ///         },
+    ///         FirewallArn = exampleAwsNetworkfirewallFirewall.Arn,
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example endpoint" },
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
+        /// The ARN that identifies the firewall.
         /// </summary>
         [Output("firewallArn")]
         public Output<string> FirewallArn { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
+        /// The ARN that identifies the firewall.
         /// </summary>
         [Input("firewallArn", required: true)]
         public Input<string> FirewallArn { get; set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) that identifies the firewall.
+        /// The ARN that identifies the firewall.
         /// </summary>
         [Input("firewallArn")]
         public Input<string>? FirewallArn { get; set; }

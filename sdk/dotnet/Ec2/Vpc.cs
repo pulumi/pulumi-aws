@@ -131,37 +131,37 @@ namespace Pulumi.Aws.Ec2
     public partial class Vpc : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of VPC
+        /// ARN of VPC.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`.
         /// </summary>
         [Output("assignGeneratedIpv6CidrBlock")]
         public Output<bool?> AssignGeneratedIpv6CidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
+        /// IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Output("cidrBlock")]
         public Output<string> CidrBlock { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the network ACL created by default on VPC creation
+        /// ID of the network ACL created by default on VPC creation.
         /// </summary>
         [Output("defaultNetworkAclId")]
         public Output<string> DefaultNetworkAclId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the route table created by default on VPC creation
+        /// ID of the route table created by default on VPC creation.
         /// </summary>
         [Output("defaultRouteTableId")]
         public Output<string> DefaultRouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the security group created by default on VPC creation
+        /// ID of the security group created by default on VPC creation.
         /// </summary>
         [Output("defaultSecurityGroupId")]
         public Output<string> DefaultSecurityGroupId { get; private set; } = null!;
@@ -173,43 +173,43 @@ namespace Pulumi.Aws.Ec2
         public Output<string> DhcpOptionsId { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        /// Whether to enable DNS hostnames in the VPC. Defaults to `False`.
         /// </summary>
         [Output("enableDnsHostnames")]
         public Output<bool> EnableDnsHostnames { get; private set; } = null!;
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        /// Whether to enable DNS support in the VPC. Defaults to `True`.
         /// </summary>
         [Output("enableDnsSupport")]
         public Output<bool?> EnableDnsSupport { get; private set; } = null!;
 
         /// <summary>
-        /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        /// Whether to enable Network Address Usage metrics for your VPC. Defaults to `False`.
         /// </summary>
         [Output("enableNetworkAddressUsageMetrics")]
         public Output<bool> EnableNetworkAddressUsageMetrics { get; private set; } = null!;
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+        /// Tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         /// </summary>
         [Output("instanceTenancy")]
         public Output<string?> InstanceTenancy { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+        /// ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
         [Output("ipv4IpamPoolId")]
         public Output<string?> Ipv4IpamPoolId { get; private set; } = null!;
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
+        /// Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Output("ipv4NetmaskLength")]
         public Output<int?> Ipv4NetmaskLength { get; private set; } = null!;
 
         /// <summary>
-        /// The association ID for the IPv6 CIDR block.
+        /// Association ID for the IPv6 CIDR block.
         /// </summary>
         [Output("ipv6AssociationId")]
         public Output<string> Ipv6AssociationId { get; private set; } = null!;
@@ -239,15 +239,13 @@ namespace Pulumi.Aws.Ec2
         public Output<int?> Ipv6NetmaskLength { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the main route table associated with
-        /// this VPC. Note that you can change a VPC's main route table by using an
-        /// `aws.ec2.MainRouteTableAssociation`.
+        /// ID of the main route table associated with this VPC. Note that you can change a VPC's main route table by using an `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Output("mainRouteTableId")]
         public Output<string> MainRouteTableId { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the AWS account that owns the VPC.
+        /// ID of the AWS account that owns the VPC.
         /// </summary>
         [Output("ownerId")]
         public Output<string> OwnerId { get; private set; } = null!;
@@ -259,13 +257,13 @@ namespace Pulumi.Aws.Ec2
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
@@ -317,49 +315,49 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`.
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
+        /// IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        /// Whether to enable DNS hostnames in the VPC. Defaults to `False`.
         /// </summary>
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        /// Whether to enable DNS support in the VPC. Defaults to `True`.
         /// </summary>
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        /// Whether to enable Network Address Usage metrics for your VPC. Defaults to `False`.
         /// </summary>
         [Input("enableNetworkAddressUsageMetrics")]
         public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+        /// Tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+        /// ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
+        /// Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
@@ -398,7 +396,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -415,37 +413,37 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of VPC
+        /// ARN of VPC.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`
+        /// Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `False`. Conflicts with `Ipv6IpamPoolId`.
         /// </summary>
         [Input("assignGeneratedIpv6CidrBlock")]
         public Input<bool>? AssignGeneratedIpv6CidrBlock { get; set; }
 
         /// <summary>
-        /// The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
+        /// IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `Ipv4NetmaskLength`.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// The ID of the network ACL created by default on VPC creation
+        /// ID of the network ACL created by default on VPC creation.
         /// </summary>
         [Input("defaultNetworkAclId")]
         public Input<string>? DefaultNetworkAclId { get; set; }
 
         /// <summary>
-        /// The ID of the route table created by default on VPC creation
+        /// ID of the route table created by default on VPC creation.
         /// </summary>
         [Input("defaultRouteTableId")]
         public Input<string>? DefaultRouteTableId { get; set; }
 
         /// <summary>
-        /// The ID of the security group created by default on VPC creation
+        /// ID of the security group created by default on VPC creation.
         /// </summary>
         [Input("defaultSecurityGroupId")]
         public Input<string>? DefaultSecurityGroupId { get; set; }
@@ -457,43 +455,43 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? DhcpOptionsId { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+        /// Whether to enable DNS hostnames in the VPC. Defaults to `False`.
         /// </summary>
         [Input("enableDnsHostnames")]
         public Input<bool>? EnableDnsHostnames { get; set; }
 
         /// <summary>
-        /// A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+        /// Whether to enable DNS support in the VPC. Defaults to `True`.
         /// </summary>
         [Input("enableDnsSupport")]
         public Input<bool>? EnableDnsSupport { get; set; }
 
         /// <summary>
-        /// Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+        /// Whether to enable Network Address Usage metrics for your VPC. Defaults to `False`.
         /// </summary>
         [Input("enableNetworkAddressUsageMetrics")]
         public Input<bool>? EnableNetworkAddressUsageMetrics { get; set; }
 
         /// <summary>
-        /// A tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+        /// Tenancy option for instances launched into the VPC. Default is `Default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `Dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
         /// </summary>
         [Input("instanceTenancy")]
         public Input<string>? InstanceTenancy { get; set; }
 
         /// <summary>
-        /// The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+        /// ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
         /// </summary>
         [Input("ipv4IpamPoolId")]
         public Input<string>? Ipv4IpamPoolId { get; set; }
 
         /// <summary>
-        /// The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
+        /// Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `Ipv4IpamPoolId`.
         /// </summary>
         [Input("ipv4NetmaskLength")]
         public Input<int>? Ipv4NetmaskLength { get; set; }
 
         /// <summary>
-        /// The association ID for the IPv6 CIDR block.
+        /// Association ID for the IPv6 CIDR block.
         /// </summary>
         [Input("ipv6AssociationId")]
         public Input<string>? Ipv6AssociationId { get; set; }
@@ -523,15 +521,13 @@ namespace Pulumi.Aws.Ec2
         public Input<int>? Ipv6NetmaskLength { get; set; }
 
         /// <summary>
-        /// The ID of the main route table associated with
-        /// this VPC. Note that you can change a VPC's main route table by using an
-        /// `aws.ec2.MainRouteTableAssociation`.
+        /// ID of the main route table associated with this VPC. Note that you can change a VPC's main route table by using an `aws.ec2.MainRouteTableAssociation`.
         /// </summary>
         [Input("mainRouteTableId")]
         public Input<string>? MainRouteTableId { get; set; }
 
         /// <summary>
-        /// The ID of the AWS account that owns the VPC.
+        /// ID of the AWS account that owns the VPC.
         /// </summary>
         [Input("ownerId")]
         public Input<string>? OwnerId { get; set; }
@@ -546,7 +542,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -558,7 +554,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {

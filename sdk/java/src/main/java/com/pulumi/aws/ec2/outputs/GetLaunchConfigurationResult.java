@@ -17,7 +17,7 @@ import java.util.Objects;
 @CustomType
 public final class GetLaunchConfigurationResult {
     /**
-     * @return Amazon Resource Name of the launch configuration.
+     * @return ARN of the launch configuration.
      * 
      */
     private String arn;
@@ -110,7 +110,7 @@ public final class GetLaunchConfigurationResult {
 
     private GetLaunchConfigurationResult() {}
     /**
-     * @return Amazon Resource Name of the launch configuration.
+     * @return ARN of the launch configuration.
      * 
      */
     public String arn() {

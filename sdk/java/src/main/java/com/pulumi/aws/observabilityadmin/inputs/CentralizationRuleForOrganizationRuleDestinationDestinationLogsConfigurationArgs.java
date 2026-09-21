@@ -6,6 +6,7 @@ package com.pulumi.aws.observabilityadmin.inputs;
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfigurationArgs;
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogGroupNameConfigurationArgs;
 import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs;
+import com.pulumi.aws.observabilityadmin.inputs.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.util.Objects;
@@ -62,12 +63,28 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
         return Optional.ofNullable(this.logsEncryptionConfiguration);
     }
 
+    /**
+     * Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+     * 
+     */
+    @Import(name="tagPropagationConfiguration")
+    private @Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs> tagPropagationConfiguration;
+
+    /**
+     * @return Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+     * 
+     */
+    public Optional<Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs>> tagPropagationConfiguration() {
+        return Optional.ofNullable(this.tagPropagationConfiguration);
+    }
+
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs() {}
 
     private CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs $) {
         this.backupConfiguration = $.backupConfiguration;
         this.logGroupNameConfiguration = $.logGroupNameConfiguration;
         this.logsEncryptionConfiguration = $.logsEncryptionConfiguration;
+        this.tagPropagationConfiguration = $.tagPropagationConfiguration;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class CentralizationRuleForOrganizationRuleDestinationDestinationLo
          */
         public Builder logsEncryptionConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfigurationArgs logsEncryptionConfiguration) {
             return logsEncryptionConfiguration(Output.of(logsEncryptionConfiguration));
+        }
+
+        /**
+         * @param tagPropagationConfiguration Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationConfiguration(@Nullable Output<CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs> tagPropagationConfiguration) {
+            $.tagPropagationConfiguration = tagPropagationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param tagPropagationConfiguration Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tagPropagationConfiguration(CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfigurationArgs tagPropagationConfiguration) {
+            return tagPropagationConfiguration(Output.of(tagPropagationConfiguration));
         }
 
         public CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationArgs build() {

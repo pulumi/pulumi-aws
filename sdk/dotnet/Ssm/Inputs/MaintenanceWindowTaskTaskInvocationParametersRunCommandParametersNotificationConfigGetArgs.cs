@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Ssm.Inputs
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        /// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
         /// </summary>
         [Input("notificationArn")]
         public Input<string>? NotificationArn { get; set; }

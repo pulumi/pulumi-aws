@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var prodSp = new SigningProfile("prodSp", SigningProfileArgs.builder()
- *             .platformId("AWSLambda-SHA384-ECDSA")
- *             .namePrefix("prod_sp_")
  *             .signatureValidityPeriod(SigningProfileSignatureValidityPeriodArgs.builder()
  *                 .value(5)
  *                 .type("YEARS")
  *                 .build())
+ *             .platformId("AWSLambda-SHA384-ECDSA")
+ *             .namePrefix("prod_sp_")
  *             .tags(Map.ofEntries(
  *                 Map.entry("tag1", "value1"),
  *                 Map.entry("tag2", "value2")

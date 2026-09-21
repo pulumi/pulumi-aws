@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Vpc
     public static class GetEndpointAssociations
     {
         /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+        /// Data source for managing an AWS EC2 Vpc Endpoint Associations.
         /// 
         /// ## Example Usage
         /// 
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Vpc
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEndpointAssociationsResult>("aws:vpc/getEndpointAssociations:getEndpointAssociations", args ?? new GetEndpointAssociationsArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+        /// Data source for managing an AWS EC2 Vpc Endpoint Associations.
         /// 
         /// ## Example Usage
         /// 
@@ -64,7 +64,7 @@ namespace Pulumi.Aws.Vpc
             => global::Pulumi.Deployment.Instance.Invoke<GetEndpointAssociationsResult>("aws:vpc/getEndpointAssociations:getEndpointAssociations", args ?? new GetEndpointAssociationsInvokeArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+        /// Data source for managing an AWS EC2 Vpc Endpoint Associations.
         /// 
         /// ## Example Usage
         /// 

@@ -108,12 +108,8 @@ type LookupProfilesProfileResult struct {
 }
 
 func LookupProfilesProfileOutput(ctx *pulumi.Context, args LookupProfilesProfileOutputArgs, opts ...pulumi.InvokeOption) LookupProfilesProfileResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProfilesProfileResultOutput, error) {
-			args := v.(LookupProfilesProfileArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getProfilesProfile:getProfilesProfile", args, LookupProfilesProfileResultOutput{}, options).(LookupProfilesProfileResultOutput), nil
-		}).(LookupProfilesProfileResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getProfilesProfile:getProfilesProfile", args, LookupProfilesProfileResultOutput{}, options).(LookupProfilesProfileResultOutput)
 }
 
 // A collection of arguments for invoking getProfilesProfile.

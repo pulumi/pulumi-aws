@@ -53,28 +53,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new OptionGroup("example", OptionGroupArgs.builder()
- *             .name("option-group-test")
- *             .optionGroupDescription("Option Group")
- *             .engineName("sqlserver-ee")
- *             .majorEngineVersion("11.00")
  *             .options(            
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName("Timezone")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name("TIME_ZONE")
  *                         .value("UTC")
  *                         .build())
+ *                     .optionName("Timezone")
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
- *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .optionSettings(OptionGroupOptionOptionSettingArgs.builder()
  *                         .name("IAM_ROLE_ARN")
  *                         .value(exampleAwsIamRole.arn())
  *                         .build())
+ *                     .optionName("SQLSERVER_BACKUP_RESTORE")
  *                     .build(),
  *                 OptionGroupOptionArgs.builder()
  *                     .optionName("TDE")
  *                     .build())
+ *             .name("option-group-test")
+ *             .optionGroupDescription("Option Group")
+ *             .engineName("sqlserver-ee")
+ *             .majorEngineVersion("11.00")
  *             .build());
  * 
  *     }
@@ -118,28 +118,28 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      * 
      */
     @Export(name="engineName", refs={String.class}, tree="[0]")
     private Output<String> engineName;
 
     /**
-     * @return Specifies the name of the engine that this option group should be associated with.
+     * @return Name of the engine that this option group should be associated with.
      * 
      */
     public Output<String> engineName() {
         return this.engineName;
     }
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      * 
      */
     @Export(name="majorEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> majorEngineVersion;
 
     /**
-     * @return Specifies the major version of the engine that this option group should be associated with.
+     * @return Major version of the engine that this option group should be associated with.
      * 
      */
     public Output<String> majorEngineVersion() {
@@ -188,14 +188,14 @@ public class OptionGroup extends com.pulumi.resources.CustomResource {
         return this.optionGroupDescription;
     }
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      * 
      */
     @Export(name="options", refs={List.class,OptionGroupOption.class}, tree="[0,1]")
     private Output</* @Nullable */ List<OptionGroupOption>> options;
 
     /**
-     * @return The options to apply. See `option` Block below for more details.
+     * @return Options to apply. See `option` Block below for more details.
      * 
      */
     public Output<Optional<List<OptionGroupOption>>> options() {

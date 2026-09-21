@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ecs.Inputs
         private InputList<string>? _acceleratorTypes;
 
         /// <summary>
-        /// Accelerator types to include. You can specify `Gpu` for graphics processing units, `Fpga` for field programmable gate arrays, or `Inference` for machine learning inference accelerators. Valid values are `Gpu`, `Fpga`, `Inference`.
+        /// Accelerator types to include. You can specify `Gpu` for GPUs, `Fpga` for field programmable gate arrays, or `Inference` for machine learning inference accelerators. Valid values are `Gpu`, `Fpga`, `Inference`.
         /// </summary>
         public InputList<string> AcceleratorTypes
         {

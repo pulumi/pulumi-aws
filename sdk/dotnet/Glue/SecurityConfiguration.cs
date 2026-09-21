@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.SecurityConfiguration("example", new()
     ///     {
-    ///         Name = "example",
     ///         EncryptionConfiguration = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationArgs
     ///         {
     ///             CloudwatchEncryption = new Aws.Glue.Inputs.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs
@@ -41,6 +40,7 @@ namespace Pulumi.Aws.Glue
     ///                 S3EncryptionMode = "SSE-KMS",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

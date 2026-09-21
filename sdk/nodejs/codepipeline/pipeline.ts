@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  * const codepipelineBucket = new aws.s3.Bucket("codepipeline_bucket", {bucket: "test-bucket"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codepipeline.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -39,19 +39,16 @@ import * as utilities from "../utilities";
  *     name: "alias/myKmsKey",
  * });
  * const codepipeline = new aws.codepipeline.Pipeline("codepipeline", {
- *     name: "tf-test-pipeline",
- *     roleArn: codepipelineRole.arn,
  *     artifactStores: [{
- *         location: codepipelineBucket.bucket,
- *         type: "S3",
  *         encryptionKey: {
  *             id: s3kmskey.then(s3kmskey => s3kmskey.arn),
  *             type: "KMS",
  *         },
+ *         location: codepipelineBucket.bucket,
+ *         type: "S3",
  *     }],
  *     stages: [
  *         {
- *             name: "Source",
  *             actions: [{
  *                 name: "Source",
  *                 category: "Source",
@@ -65,9 +62,9 @@ import * as utilities from "../utilities";
  *                     BranchName: "main",
  *                 },
  *             }],
+ *             name: "Source",
  *         },
  *         {
- *             name: "Build",
  *             actions: [{
  *                 name: "Build",
  *                 category: "Build",
@@ -80,9 +77,9 @@ import * as utilities from "../utilities";
  *                     ProjectName: "test",
  *                 },
  *             }],
+ *             name: "Build",
  *         },
  *         {
- *             name: "Deploy",
  *             actions: [{
  *                 name: "Deploy",
  *                 category: "Deploy",
@@ -98,8 +95,11 @@ import * as utilities from "../utilities";
  *                     TemplatePath: "build_output::sam-templated.yaml",
  *                 },
  *             }],
+ *             name: "Deploy",
  *         },
  *     ],
+ *     name: "tf-test-pipeline",
+ *     roleArn: codepipelineRole.arn,
  * });
  * const codepipelineBucketPab = new aws.s3.BucketPublicAccessBlock("codepipeline_bucket_pab", {
  *     bucket: codepipelineBucket.id,
@@ -218,7 +218,7 @@ export class Pipeline extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -333,7 +333,7 @@ export interface PipelineState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -389,7 +389,7 @@ export interface PipelineArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+     * Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
      */
     roleArn: pulumi.Input<string>;
     /**

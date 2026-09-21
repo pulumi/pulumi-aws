@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IndexingRule("example", IndexingRuleArgs.builder()
- *             .name("Default")
  *             .rule(IndexingRuleRuleArgs.builder()
  *                 .probabilistic(IndexingRuleRuleProbabilisticArgs.builder()
  *                     .desiredSamplingPercentage(0.66)
  *                     .build())
  *                 .build())
+ *             .name("Default")
  *             .build());
  * 
  *     }

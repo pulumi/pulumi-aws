@@ -29,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ebs.LookupVolume(ctx, &ebs.LookupVolumeArgs{
-//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ebs.GetVolumeFilter{
 //					{
 //						Name: "volume-type",
@@ -44,6 +43,7 @@ import (
 //						},
 //					},
 //				},
+//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -118,12 +118,8 @@ type LookupVolumeResult struct {
 }
 
 func LookupVolumeOutput(ctx *pulumi.Context, args LookupVolumeOutputArgs, opts ...pulumi.InvokeOption) LookupVolumeResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVolumeResultOutput, error) {
-			args := v.(LookupVolumeArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ebs/getVolume:getVolume", args, LookupVolumeResultOutput{}, options).(LookupVolumeResultOutput), nil
-		}).(LookupVolumeResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ebs/getVolume:getVolume", args, LookupVolumeResultOutput{}, options).(LookupVolumeResultOutput)
 }
 
 // A collection of arguments for invoking getVolume.

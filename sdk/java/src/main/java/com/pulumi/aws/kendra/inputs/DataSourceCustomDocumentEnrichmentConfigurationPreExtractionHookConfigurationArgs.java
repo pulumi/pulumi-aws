@@ -33,14 +33,14 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
     }
 
     /**
-     * The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+     * ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+     * @return ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
      * 
      */
     public Output<String> lambdaArn() {
@@ -110,7 +110,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+         * @param lambdaArn ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class DataSourceCustomDocumentEnrichmentConfigurationPreExtractionH
         }
 
         /**
-         * @param lambdaArn The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+         * @param lambdaArn ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
          * 
          * @return builder
          * 

@@ -18,14 +18,14 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
     public static final ByteMatchSetState Empty = new ByteMatchSetState();
 
     /**
-     * Amazon Resource Name (ARN) of the byte match set.
+     * ARN of the byte match set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the byte match set.
+     * @return ARN of the byte match set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,7 +93,7 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the byte match set.
+         * @param arn ARN of the byte match set.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ByteMatchSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the byte match set.
+         * @param arn ARN of the byte match set.
          * 
          * @return builder
          * 

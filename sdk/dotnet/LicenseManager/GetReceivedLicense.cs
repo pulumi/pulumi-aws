@@ -164,7 +164,7 @@ namespace Pulumi.Aws.LicenseManager
         /// </summary>
         public readonly ImmutableArray<Outputs.GetReceivedLicenseIssuerResult> Issuers;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the license.
+        /// ARN of the license.
         /// </summary>
         public readonly string LicenseArn;
         /// <summary>

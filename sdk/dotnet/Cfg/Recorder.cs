@@ -32,7 +32,6 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -44,6 +43,7 @@ namespace Pulumi.Aws.Cfg
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -79,11 +79,8 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
-    ///             AllSupported = false,
     ///             ExclusionByResourceTypes = new[]
     ///             {
     ///                 new Aws.Cfg.Inputs.RecorderRecordingGroupExclusionByResourceTypeArgs
@@ -101,7 +98,10 @@ namespace Pulumi.Aws.Cfg
     ///                     UseOnly = "EXCLUSION_BY_RESOURCE_TYPES",
     ///                 },
     ///             },
+    ///             AllSupported = false,
     ///         },
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///     });
     /// 
     /// });
@@ -119,8 +119,6 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var foo = new Aws.Cfg.Recorder("foo", new()
     ///     {
-    ///         Name = "example",
-    ///         RoleArn = r.Arn,
     ///         RecordingGroup = new Aws.Cfg.Inputs.RecorderRecordingGroupArgs
     ///         {
     ///             AllSupported = false,
@@ -133,7 +131,6 @@ namespace Pulumi.Aws.Cfg
     ///         },
     ///         RecordingMode = new Aws.Cfg.Inputs.RecorderRecordingModeArgs
     ///         {
-    ///             RecordingFrequency = "CONTINUOUS",
     ///             RecordingModeOverride = new Aws.Cfg.Inputs.RecorderRecordingModeRecordingModeOverrideArgs
     ///             {
     ///                 Description = "Only record EC2 network interfaces daily",
@@ -143,7 +140,10 @@ namespace Pulumi.Aws.Cfg
     ///                 },
     ///                 RecordingFrequency = "DAILY",
     ///             },
+    ///             RecordingFrequency = "CONTINUOUS",
     ///         },
+    ///         Name = "example",
+    ///         RoleArn = r.Arn,
     ///     });
     /// 
     /// });
@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        /// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        /// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
+        /// ARN of the IAM role. Used to make read or write requests to the delivery channel and to describe the AWS resources associated with the account. See [AWS Docs](http://docs.aws.amazon.com/config/latest/developerguide/iamrole-permissions.html) for more details.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

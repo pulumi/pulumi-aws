@@ -47,10 +47,6 @@ namespace Pulumi.Aws.Lambda
     /// {
     ///     var example = new Aws.Lambda.FunctionUrl("example", new()
     ///     {
-    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
-    ///         Qualifier = "my_alias",
-    ///         AuthorizationType = "AWS_IAM",
-    ///         InvokeMode = "RESPONSE_STREAM",
     ///         Cors = new Aws.Lambda.Inputs.FunctionUrlCorsArgs
     ///         {
     ///             AllowCredentials = true,
@@ -75,6 +71,10 @@ namespace Pulumi.Aws.Lambda
     ///             },
     ///             MaxAge = 86400,
     ///         },
+    ///         FunctionName = exampleAwsLambdaFunction.FunctionName,
+    ///         Qualifier = "my_alias",
+    ///         AuthorizationType = "AWS_IAM",
+    ///         InvokeMode = "RESPONSE_STREAM",
     ///     });
     /// 
     /// });

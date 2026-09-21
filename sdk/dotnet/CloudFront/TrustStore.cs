@@ -26,7 +26,6 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.TrustStore("example", new()
     ///     {
-    ///         Name = "example-trust-store",
     ///         CaCertificatesBundleSource = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceArgs
     ///         {
     ///             CaCertificatesBundleS3Location = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs
@@ -36,6 +35,7 @@ namespace Pulumi.Aws.CloudFront
     ///                 Region = "us-east-1",
     ///             },
     ///         },
+    ///         Name = "example-trust-store",
     ///     });
     /// 
     /// });
@@ -53,7 +53,6 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.TrustStore("example", new()
     ///     {
-    ///         Name = "example-trust-store",
     ///         CaCertificatesBundleSource = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceArgs
     ///         {
     ///             CaCertificatesBundleS3Location = new Aws.CloudFront.Inputs.TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs
@@ -64,6 +63,7 @@ namespace Pulumi.Aws.CloudFront
     ///                 Version = "abc123",
     ///             },
     ///         },
+    ///         Name = "example-trust-store",
     ///     });
     /// 
     /// });

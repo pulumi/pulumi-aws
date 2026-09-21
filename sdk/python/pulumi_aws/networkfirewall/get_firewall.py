@@ -141,7 +141,7 @@ class GetFirewallResult:
     @pulumi.getter(name="encryptionConfigurations")
     def encryption_configurations(self) -> Sequence['outputs.GetFirewallEncryptionConfigurationResult']:
         """
-        AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+        KMS encryption settings for the firewall.
         """
         return pulumi.get(self, "encryption_configurations")
 

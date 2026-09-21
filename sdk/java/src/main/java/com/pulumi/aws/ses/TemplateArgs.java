@@ -16,14 +16,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     public static final TemplateArgs Empty = new TemplateArgs();
 
     /**
-     * The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     * HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
     @Import(name="html")
     private @Nullable Output<String> html;
 
     /**
-     * @return The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+     * @return HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
     public Optional<Output<String>> html() {
@@ -31,14 +31,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     * Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+     * @return Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
      * 
      */
     public Optional<Output<String>> name() {
@@ -61,14 +61,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The subject line of the email.
+     * Subject line of the email.
      * 
      */
     @Import(name="subject")
     private @Nullable Output<String> subject;
 
     /**
-     * @return The subject line of the email.
+     * @return Subject line of the email.
      * 
      */
     public Optional<Output<String>> subject() {
@@ -76,14 +76,14 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     * Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
     @Import(name="text")
     private @Nullable Output<String> text;
 
     /**
-     * @return The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+     * @return Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
      * 
      */
     public Optional<Output<String>> text() {
@@ -119,7 +119,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param html The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+         * @param html HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
          * 
          * @return builder
          * 
@@ -130,7 +130,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param html The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+         * @param html HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+         * @param name Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+         * @param name Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subject The subject line of the email.
+         * @param subject Subject line of the email.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param subject The subject line of the email.
+         * @param subject Subject line of the email.
          * 
          * @return builder
          * 
@@ -203,7 +203,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param text The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+         * @param text Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class TemplateArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param text The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+         * @param text Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
          * 
          * @return builder
          * 

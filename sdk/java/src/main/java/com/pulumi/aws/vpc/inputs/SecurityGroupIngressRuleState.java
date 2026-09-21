@@ -18,14 +18,14 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
     public static final SecurityGroupIngressRuleState Empty = new SecurityGroupIngressRuleState();
 
     /**
-     * The Amazon Resource Name (ARN) of the security group rule.
+     * ARN of the security group rule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the security group rule.
+     * @return ARN of the security group rule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -269,7 +269,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the security group rule.
+         * @param arn ARN of the security group rule.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class SecurityGroupIngressRuleState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the security group rule.
+         * @param arn ARN of the security group rule.
          * 
          * @return builder
          * 

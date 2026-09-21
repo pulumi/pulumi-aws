@@ -29,7 +29,7 @@ class IngestionArgs:
         The set of arguments for constructing a Ingestion resource.
 
         :param pulumi.Input[_builtins.str] app: Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
         :param pulumi.Input[_builtins.str] tenant_id: ID of the application tenant.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -60,7 +60,7 @@ class IngestionArgs:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -132,7 +132,7 @@ class _IngestionState:
         Input properties used for looking up and filtering Ingestion resources.
 
         :param pulumi.Input[_builtins.str] app: Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion.
         :param pulumi.Input[_builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -173,7 +173,7 @@ class _IngestionState:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -300,7 +300,7 @@ class Ingestion(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -414,7 +414,7 @@ class Ingestion(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app: Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion.
         :param pulumi.Input[_builtins.str] ingestion_type: Ingestion type. Valid values are `auditLog`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -448,7 +448,7 @@ class Ingestion(pulumi.CustomResource):
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 

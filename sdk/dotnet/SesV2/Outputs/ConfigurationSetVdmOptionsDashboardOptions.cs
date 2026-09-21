@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetVdmOptionsDashboardOptions
     {
         /// <summary>
-        /// Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string? EngagementMetrics;
 

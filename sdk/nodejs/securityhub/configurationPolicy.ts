@@ -22,27 +22,27 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {
- *     autoEnable: false,
- *     autoEnableStandards: "NONE",
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ *     autoEnable: false,
+ *     autoEnableStandards: "NONE",
  * }, {
  *     dependsOn: [example],
  * });
  * const exampleConfigurationPolicy = new aws.securityhub.ConfigurationPolicy("example", {
- *     name: "Example",
- *     description: "This is an example configuration policy",
  *     configurationPolicy: {
+ *         securityControlsConfiguration: {
+ *             disabledControlIdentifiers: [],
+ *         },
  *         serviceEnabled: true,
  *         enabledStandardArns: [
  *             "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *             "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
  *         ],
- *         securityControlsConfiguration: {
- *             disabledControlIdentifiers: [],
- *         },
  *     },
+ *     name: "Example",
+ *     description: "This is an example configuration policy",
  * }, {
  *     dependsOn: [exampleOrganizationConfiguration],
  * });
@@ -55,11 +55,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const disabled = new aws.securityhub.ConfigurationPolicy("disabled", {
- *     name: "Disabled",
- *     description: "This is an example of disabled configuration policy",
  *     configurationPolicy: {
  *         serviceEnabled: false,
  *     },
+ *     name: "Disabled",
+ *     description: "This is an example of disabled configuration policy",
  * }, {
  *     dependsOn: [example],
  * });
@@ -72,52 +72,52 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const disabled = new aws.securityhub.ConfigurationPolicy("disabled", {
- *     name: "Custom Controls",
- *     description: "This is an example of configuration policy with custom control settings",
  *     configurationPolicy: {
+ *         securityControlsConfiguration: {
+ *             securityControlCustomParameters: [
+ *                 {
+ *                     parameters: [{
+ *                         "enum": {
+ *                             value: "INFO",
+ *                         },
+ *                         name: "loggingLevel",
+ *                         valueType: "CUSTOM",
+ *                     }],
+ *                     securityControlId: "APIGateway.1",
+ *                 },
+ *                 {
+ *                     parameters: [
+ *                         {
+ *                             bool: {
+ *                                 value: false,
+ *                             },
+ *                             name: "RequireLowercaseCharacters",
+ *                             valueType: "CUSTOM",
+ *                         },
+ *                         {
+ *                             int: {
+ *                                 value: 60,
+ *                             },
+ *                             name: "MaxPasswordAge",
+ *                             valueType: "CUSTOM",
+ *                         },
+ *                     ],
+ *                     securityControlId: "IAM.7",
+ *                 },
+ *             ],
+ *             enabledControlIdentifiers: [
+ *                 "APIGateway.1",
+ *                 "IAM.7",
+ *             ],
+ *         },
  *         serviceEnabled: true,
  *         enabledStandardArns: [
  *             "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *             "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
  *         ],
- *         securityControlsConfiguration: {
- *             enabledControlIdentifiers: [
- *                 "APIGateway.1",
- *                 "IAM.7",
- *             ],
- *             securityControlCustomParameters: [
- *                 {
- *                     securityControlId: "APIGateway.1",
- *                     parameters: [{
- *                         name: "loggingLevel",
- *                         valueType: "CUSTOM",
- *                         "enum": {
- *                             value: "INFO",
- *                         },
- *                     }],
- *                 },
- *                 {
- *                     securityControlId: "IAM.7",
- *                     parameters: [
- *                         {
- *                             name: "RequireLowercaseCharacters",
- *                             valueType: "CUSTOM",
- *                             bool: {
- *                                 value: false,
- *                             },
- *                         },
- *                         {
- *                             name: "MaxPasswordAge",
- *                             valueType: "CUSTOM",
- *                             int: {
- *                                 value: 60,
- *                             },
- *                         },
- *                     ],
- *                 },
- *             ],
- *         },
  *     },
+ *     name: "Custom Controls",
+ *     description: "This is an example of configuration policy with custom control settings",
  * }, {
  *     dependsOn: [example],
  * });

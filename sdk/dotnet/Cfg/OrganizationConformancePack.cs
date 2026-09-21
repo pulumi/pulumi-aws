@@ -37,7 +37,6 @@ namespace Pulumi.Aws.Cfg
     /// 
     ///     var example = new Aws.Cfg.OrganizationConformancePack("example", new()
     ///     {
-    ///         Name = "example",
     ///         InputParameters = new[]
     ///         {
     ///             new Aws.Cfg.Inputs.OrganizationConformancePackInputParameterArgs
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.Cfg
     ///                 ParameterValue = "90",
     ///             },
     ///         },
+    ///         Name = "example",
     ///         TemplateBody = @"Parameters:
     ///   AccessKeysRotatedParameterMaxAccessKeyAge:
     ///     Type: String
@@ -153,7 +153,7 @@ namespace Pulumi.Aws.Cfg
     public partial class OrganizationConformancePack : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the organization conformance pack.
+        /// ARN of the organization conformance pack.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -321,7 +321,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class OrganizationConformancePackState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the organization conformance pack.
+        /// ARN of the organization conformance pack.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

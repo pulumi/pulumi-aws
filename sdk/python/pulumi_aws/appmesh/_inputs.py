@@ -5744,7 +5744,7 @@ class VirtualGatewaySpecBackendDefaultsArgs:
 class VirtualGatewaySpecBackendDefaultsClientPolicyArgsDict(TypedDict):
     tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict']]]
     """
-    Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+    TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
     """
 
 @pulumi.input_type
@@ -5752,7 +5752,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
     def __init__(__self__, *,
                  tls: pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']] = None):
         """
-        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs'] tls: Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs'] tls: TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -5761,7 +5761,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs']]:
         """
-        Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+        TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
         """
         return pulumi.get(self, "tls")
 
@@ -5773,7 +5773,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyArgs:
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
     validation: pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict']
     """
-    Listener's Transport Layer Security (TLS) validation context.
+    Listener's TLS validation context.
     """
     certificate: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]]
     """
@@ -5796,7 +5796,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
                  enforce: pulumi.Input[Optional[_builtins.bool]] = None,
                  ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs'] validation: Listener's Transport Layer Security (TLS) validation context.
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs'] validation: Listener's TLS validation context.
         :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateArgs'] certificate: Listener's TLS certificate.
         :param pulumi.Input[_builtins.bool] enforce: Whether the policy is enforced. Default is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ports: One or more ports that the policy is enforced for.
@@ -5813,7 +5813,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsArgs:
     @pulumi.getter
     def validation(self) -> pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs']:
         """
-        Listener's Transport Layer Security (TLS) validation context.
+        Listener's TLS validation context.
         """
         return pulumi.get(self, "validation")
 
@@ -5950,7 +5950,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -5958,7 +5958,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -5966,7 +5966,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -5982,7 +5982,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgsDict(TypedDi
     """
     subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
-    SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+    SANs for a virtual gateway's listener's TLS validation context.
     """
 
 @pulumi.input_type
@@ -5992,7 +5992,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs:
                  subject_alternative_names: pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs']] = None):
         """
         :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustArgs'] trust: TLS validation context trust.
-        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs'] subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param pulumi.Input['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs'] subject_alternative_names: SANs for a virtual gateway's listener's TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -6014,7 +6014,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Input[Optional['VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNamesArgs']]:
         """
-        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        SANs for a virtual gateway's listener's TLS validation context.
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -6200,7 +6200,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
 class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -6208,7 +6208,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -6216,7 +6216,7 @@ class VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -6240,7 +6240,7 @@ class VirtualGatewaySpecListenerArgsDict(TypedDict):
     """
     tls: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsArgsDict']]]
     """
-    Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+    TLS properties for the listener. See `spec.listener.tls` Block for details.
     """
 
 @pulumi.input_type
@@ -6254,7 +6254,7 @@ class VirtualGatewaySpecListenerArgs:
         :param pulumi.Input['VirtualGatewaySpecListenerPortMappingArgs'] port_mapping: Port mapping information for the listener. See `port_mapping` Block for details.
         :param pulumi.Input['VirtualGatewaySpecListenerConnectionPoolArgs'] connection_pool: Connection pool information for the listener. See `connection_pool` Block for details.
         :param pulumi.Input['VirtualGatewaySpecListenerHealthCheckArgs'] health_check: Health check information for the listener. See `health_check` Block for details.
-        :param pulumi.Input['VirtualGatewaySpecListenerTlsArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsArgs'] tls: TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
@@ -6304,7 +6304,7 @@ class VirtualGatewaySpecListenerArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['VirtualGatewaySpecListenerTlsArgs']]:
         """
-        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         return pulumi.get(self, "tls")
 
@@ -6688,7 +6688,7 @@ class VirtualGatewaySpecListenerTlsArgsDict(TypedDict):
     """
     validation: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationArgsDict']]]
     """
-    Listener's Transport Layer Security (TLS) validation context.
+    Listener's TLS validation context.
     """
 
 @pulumi.input_type
@@ -6700,7 +6700,7 @@ class VirtualGatewaySpecListenerTlsArgs:
         """
         :param pulumi.Input['VirtualGatewaySpecListenerTlsCertificateArgs'] certificate: Listener's TLS certificate.
         :param pulumi.Input[_builtins.str] mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        :param pulumi.Input['VirtualGatewaySpecListenerTlsValidationArgs'] validation: Listener's Transport Layer Security (TLS) validation context.
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsValidationArgs'] validation: Listener's TLS validation context.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
@@ -6735,7 +6735,7 @@ class VirtualGatewaySpecListenerTlsArgs:
     @pulumi.getter
     def validation(self) -> pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationArgs']]:
         """
-        Listener's Transport Layer Security (TLS) validation context.
+        Listener's TLS validation context.
         """
         return pulumi.get(self, "validation")
 
@@ -6884,7 +6884,7 @@ class VirtualGatewaySpecListenerTlsCertificateFileArgs:
 class VirtualGatewaySpecListenerTlsCertificateSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -6892,7 +6892,7 @@ class VirtualGatewaySpecListenerTlsCertificateSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -6900,7 +6900,7 @@ class VirtualGatewaySpecListenerTlsCertificateSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -6916,7 +6916,7 @@ class VirtualGatewaySpecListenerTlsValidationArgsDict(TypedDict):
     """
     subject_alternative_names: NotRequired[pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgsDict']]]
     """
-    SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+    SANs for a virtual gateway's listener's TLS validation context.
     """
 
 @pulumi.input_type
@@ -6926,7 +6926,7 @@ class VirtualGatewaySpecListenerTlsValidationArgs:
                  subject_alternative_names: pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs']] = None):
         """
         :param pulumi.Input['VirtualGatewaySpecListenerTlsValidationTrustArgs'] trust: TLS validation context trust.
-        :param pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs'] subject_alternative_names: SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        :param pulumi.Input['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs'] subject_alternative_names: SANs for a virtual gateway's listener's TLS validation context.
         """
         pulumi.set(__self__, "trust", trust)
         if subject_alternative_names is not None:
@@ -6948,7 +6948,7 @@ class VirtualGatewaySpecListenerTlsValidationArgs:
     @pulumi.getter(name="subjectAlternativeNames")
     def subject_alternative_names(self) -> pulumi.Input[Optional['VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNamesArgs']]:
         """
-        SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+        SANs for a virtual gateway's listener's TLS validation context.
         """
         return pulumi.get(self, "subject_alternative_names")
 
@@ -7086,7 +7086,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustFileArgs:
 class VirtualGatewaySpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -7094,7 +7094,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -7102,7 +7102,7 @@ class VirtualGatewaySpecListenerTlsValidationTrustSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -7475,7 +7475,7 @@ class VirtualNodeSpecBackendDefaultsArgs:
 class VirtualNodeSpecBackendDefaultsClientPolicyArgsDict(TypedDict):
     tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict']]]
     """
-    Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+    TLS properties for the listener. See `spec.listener.tls` Block for details.
     """
 
 @pulumi.input_type
@@ -7483,7 +7483,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyArgs:
     def __init__(__self__, *,
                  tls: pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs']] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs'] tls: TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -7492,7 +7492,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs']]:
         """
-        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         return pulumi.get(self, "tls")
 
@@ -7504,7 +7504,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyArgs:
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgsDict(TypedDict):
     validation: pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgsDict']
     """
-    Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+    Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
     """
     certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgsDict']]]
     """
@@ -7527,7 +7527,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs:
                  enforce: pulumi.Input[Optional[_builtins.bool]] = None,
                  ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs'] validation: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs'] validation: Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         :param pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateArgs'] certificate: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
         :param pulumi.Input[_builtins.bool] enforce: Whether the policy is enforced. Default is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ports: One or more ports that the policy is enforced for.
@@ -7544,7 +7544,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs:
     @pulumi.getter
     def validation(self) -> pulumi.Input['VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs']:
         """
-        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         """
         return pulumi.get(self, "validation")
 
@@ -7688,7 +7688,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateFileArgs:
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -7696,7 +7696,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -7704,7 +7704,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -7945,7 +7945,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustFileArgs:
 class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -7953,7 +7953,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -7961,7 +7961,7 @@ class VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -8021,7 +8021,7 @@ class VirtualNodeSpecBackendVirtualServiceArgs:
 class VirtualNodeSpecBackendVirtualServiceClientPolicyArgsDict(TypedDict):
     tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict']]]
     """
-    Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+    TLS properties for the listener. See `spec.listener.tls` Block for details.
     """
 
 @pulumi.input_type
@@ -8029,7 +8029,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs:
     def __init__(__self__, *,
                  tls: pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs']] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs'] tls: TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         if tls is not None:
             pulumi.set(__self__, "tls", tls)
@@ -8038,7 +8038,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs']]:
         """
-        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         return pulumi.get(self, "tls")
 
@@ -8050,7 +8050,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyArgs:
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgsDict(TypedDict):
     validation: pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgsDict']
     """
-    Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+    Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
     """
     certificate: NotRequired[pulumi.Input[Optional['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgsDict']]]
     """
@@ -8073,7 +8073,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs:
                  enforce: pulumi.Input[Optional[_builtins.bool]] = None,
                  ports: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None):
         """
-        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs'] validation: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs'] validation: Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         :param pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateArgs'] certificate: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
         :param pulumi.Input[_builtins.bool] enforce: Whether the policy is enforced. Default is `true`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] ports: One or more ports that the policy is enforced for.
@@ -8090,7 +8090,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsArgs:
     @pulumi.getter
     def validation(self) -> pulumi.Input['VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs']:
         """
-        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         """
         return pulumi.get(self, "validation")
 
@@ -8234,7 +8234,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateFileArgs:
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -8242,7 +8242,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -8250,7 +8250,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -8491,7 +8491,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustFileArgs
 class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -8499,7 +8499,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -8507,7 +8507,7 @@ class VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -8539,7 +8539,7 @@ class VirtualNodeSpecListenerArgsDict(TypedDict):
     """
     tls: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsArgsDict']]]
     """
-    Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+    TLS properties for the listener. See `spec.listener.tls` Block for details.
     """
 
 @pulumi.input_type
@@ -8557,7 +8557,7 @@ class VirtualNodeSpecListenerArgs:
         :param pulumi.Input['VirtualNodeSpecListenerHealthCheckArgs'] health_check: Health check information for the listener. See `spec.listener.health_check` Block for details.
         :param pulumi.Input['VirtualNodeSpecListenerOutlierDetectionArgs'] outlier_detection: Outlier detection information for the listener. See `spec.listener.outlier_detection` Block for details.
         :param pulumi.Input['VirtualNodeSpecListenerTimeoutArgs'] timeout: Timeouts for different protocols. See `spec.listener.timeout` Block for details.
-        :param pulumi.Input['VirtualNodeSpecListenerTlsArgs'] tls: Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        :param pulumi.Input['VirtualNodeSpecListenerTlsArgs'] tls: TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         pulumi.set(__self__, "port_mapping", port_mapping)
         if connection_pool is not None:
@@ -8635,7 +8635,7 @@ class VirtualNodeSpecListenerArgs:
     @pulumi.getter
     def tls(self) -> pulumi.Input[Optional['VirtualNodeSpecListenerTlsArgs']]:
         """
-        Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+        TLS properties for the listener. See `spec.listener.tls` Block for details.
         """
         return pulumi.get(self, "tls")
 
@@ -9840,7 +9840,7 @@ class VirtualNodeSpecListenerTlsArgsDict(TypedDict):
     """
     validation: NotRequired[pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationArgsDict']]]
     """
-    Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+    Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
     """
 
 @pulumi.input_type
@@ -9852,7 +9852,7 @@ class VirtualNodeSpecListenerTlsArgs:
         """
         :param pulumi.Input['VirtualNodeSpecListenerTlsCertificateArgs'] certificate: Listener's TLS certificate. See `spec.listener.tls.certificate` Block for details.
         :param pulumi.Input[_builtins.str] mode: Listener's TLS mode. Valid values: `DISABLED`, `PERMISSIVE`, `STRICT`.
-        :param pulumi.Input['VirtualNodeSpecListenerTlsValidationArgs'] validation: Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        :param pulumi.Input['VirtualNodeSpecListenerTlsValidationArgs'] validation: Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         """
         pulumi.set(__self__, "certificate", certificate)
         pulumi.set(__self__, "mode", mode)
@@ -9887,7 +9887,7 @@ class VirtualNodeSpecListenerTlsArgs:
     @pulumi.getter
     def validation(self) -> pulumi.Input[Optional['VirtualNodeSpecListenerTlsValidationArgs']]:
         """
-        Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         """
         return pulumi.get(self, "validation")
 
@@ -10043,7 +10043,7 @@ class VirtualNodeSpecListenerTlsCertificateFileArgs:
 class VirtualNodeSpecListenerTlsCertificateSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -10051,7 +10051,7 @@ class VirtualNodeSpecListenerTlsCertificateSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -10059,7 +10059,7 @@ class VirtualNodeSpecListenerTlsCertificateSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 
@@ -10252,7 +10252,7 @@ class VirtualNodeSpecListenerTlsValidationTrustFileArgs:
 class VirtualNodeSpecListenerTlsValidationTrustSdsArgsDict(TypedDict):
     secret_name: pulumi.Input[_builtins.str]
     """
-    Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+    Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
     """
 
 @pulumi.input_type
@@ -10260,7 +10260,7 @@ class VirtualNodeSpecListenerTlsValidationTrustSdsArgs:
     def __init__(__self__, *,
                  secret_name: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        :param pulumi.Input[_builtins.str] secret_name: Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         pulumi.set(__self__, "secret_name", secret_name)
 
@@ -10268,7 +10268,7 @@ class VirtualNodeSpecListenerTlsValidationTrustSdsArgs:
     @pulumi.getter(name="secretName")
     def secret_name(self) -> pulumi.Input[_builtins.str]:
         """
-        Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+        Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
         """
         return pulumi.get(self, "secret_name")
 

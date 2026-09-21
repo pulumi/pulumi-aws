@@ -15,14 +15,14 @@ public final class UserPoolLambdaConfigCustomSmsSenderArgs extends com.pulumi.re
     public static final UserPoolLambdaConfigCustomSmsSenderArgs Empty = new UserPoolLambdaConfigCustomSmsSenderArgs();
 
     /**
-     * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
     @Import(name="lambdaArn", required=true)
     private Output<String> lambdaArn;
 
     /**
-     * @return The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+     * @return Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
      * 
      */
     public Output<String> lambdaArn() {
@@ -70,7 +70,7 @@ public final class UserPoolLambdaConfigCustomSmsSenderArgs extends com.pulumi.re
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * @param lambdaArn Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class UserPoolLambdaConfigCustomSmsSenderArgs extends com.pulumi.re
         }
 
         /**
-         * @param lambdaArn The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * @param lambdaArn Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
          * 
          * @return builder
          * 

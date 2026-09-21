@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
+ * Provides a resource for managing a VPC Route Server Endpoint.
  *
  * ## Example Usage
  *
@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `routeServerEndpointId`. For example:
+ * Using `pulumi import`, import VPC Route Server Endpoint using the `routeServerEndpointId`. For example:
  *
  * ```sh
  * $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678

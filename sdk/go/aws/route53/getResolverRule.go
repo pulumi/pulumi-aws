@@ -71,7 +71,7 @@ type LookupResolverRuleArgs struct {
 
 // A collection of values returned by getResolverRule.
 type LookupResolverRuleResult struct {
-	// ARN (Amazon Resource Name) for the resolver rule.
+	// ARN for the resolver rule.
 	Arn        string `pulumi:"arn"`
 	DomainName string `pulumi:"domainName"`
 	// The provider-assigned unique ID for this managed resource.
@@ -93,12 +93,8 @@ type LookupResolverRuleResult struct {
 }
 
 func LookupResolverRuleOutput(ctx *pulumi.Context, args LookupResolverRuleOutputArgs, opts ...pulumi.InvokeOption) LookupResolverRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverRuleResultOutput, error) {
-			args := v.(LookupResolverRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverRule:getResolverRule", args, LookupResolverRuleResultOutput{}, options).(LookupResolverRuleResultOutput), nil
-		}).(LookupResolverRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverRule:getResolverRule", args, LookupResolverRuleResultOutput{}, options).(LookupResolverRuleResultOutput)
 }
 
 // A collection of arguments for invoking getResolverRule.
@@ -138,7 +134,7 @@ func (o LookupResolverRuleResultOutput) ToLookupResolverRuleResultOutputWithCont
 	return o
 }
 
-// ARN (Amazon Resource Name) for the resolver rule.
+// ARN for the resolver rule.
 func (o LookupResolverRuleResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverRuleResult) string { return v.Arn }).(pulumi.StringOutput)
 }

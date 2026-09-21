@@ -93,7 +93,7 @@ namespace Pulumi.Aws.Fsx
     public partial class OpenZfsSnapshot : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class OpenZfsSnapshotState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the snapshot.
+        /// ARN of the snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `imagebuilder.getComponents` resources using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `imagebuilder.getComponents` resources using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -57,7 +57,7 @@ import (
 type Component struct {
 	pulumi.CustomResourceState
 
-	// (Required) Amazon Resource Name (ARN) of the component.
+	// (Required) ARN of the component.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrOutput `pulumi:"changeDescription"`
@@ -69,7 +69,7 @@ type Component struct {
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Encryption status of the component.
 	Encrypted pulumi.BoolOutput `pulumi:"encrypted"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -135,7 +135,7 @@ func GetComponent(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Component resources.
 type componentState struct {
-	// (Required) Amazon Resource Name (ARN) of the component.
+	// (Required) ARN of the component.
 	Arn *string `pulumi:"arn"`
 	// Change description of the component.
 	ChangeDescription *string `pulumi:"changeDescription"`
@@ -147,7 +147,7 @@ type componentState struct {
 	Description *string `pulumi:"description"`
 	// Encryption status of the component.
 	Encrypted *bool `pulumi:"encrypted"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name *string `pulumi:"name"`
@@ -178,7 +178,7 @@ type componentState struct {
 }
 
 type ComponentState struct {
-	// (Required) Amazon Resource Name (ARN) of the component.
+	// (Required) ARN of the component.
 	Arn pulumi.StringPtrInput
 	// Change description of the component.
 	ChangeDescription pulumi.StringPtrInput
@@ -190,7 +190,7 @@ type ComponentState struct {
 	Description pulumi.StringPtrInput
 	// Encryption status of the component.
 	Encrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the component.
 	Name pulumi.StringPtrInput
@@ -231,7 +231,7 @@ type componentArgs struct {
 	Data *string `pulumi:"data"`
 	// Description of the component.
 	Description *string `pulumi:"description"`
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Name of the component.
 	Name *string `pulumi:"name"`
@@ -263,7 +263,7 @@ type ComponentArgs struct {
 	Data pulumi.StringPtrInput
 	// Description of the component.
 	Description pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+	// ARN of the KMS Key used to encrypt the component.
 	KmsKeyId pulumi.StringPtrInput
 	// Name of the component.
 	Name pulumi.StringPtrInput
@@ -374,7 +374,7 @@ func (o ComponentOutput) ToComponentOutputWithContext(ctx context.Context) Compo
 	return o
 }
 
-// (Required) Amazon Resource Name (ARN) of the component.
+// (Required) ARN of the component.
 func (o ComponentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -404,7 +404,7 @@ func (o ComponentOutput) Encrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Component) pulumi.BoolOutput { return v.Encrypted }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+// ARN of the KMS Key used to encrypt the component.
 func (o ComponentOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Component) pulumi.StringPtrOutput { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }

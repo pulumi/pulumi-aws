@@ -19,25 +19,25 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
+ *     taskInvocationParameters: {
+ *         automationParameters: {
+ *             parameters: [{
+ *                 name: "InstanceId",
+ *                 values: [exampleAwsInstance.id],
+ *             }],
+ *             documentVersion: "$LATEST",
+ *         },
+ *     },
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
  *     maxConcurrency: "2",
  *     maxErrors: "1",
  *     priority: 1,
  *     taskArn: "AWS-RestartEC2Instance",
  *     taskType: "AUTOMATION",
  *     windowId: exampleAwsSsmMaintenanceWindow.id,
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [exampleAwsInstance.id],
- *     }],
- *     taskInvocationParameters: {
- *         automationParameters: {
- *             documentVersion: "$LATEST",
- *             parameters: [{
- *                 name: "InstanceId",
- *                 values: [exampleAwsInstance.id],
- *             }],
- *         },
- *     },
  * });
  * ```
  *
@@ -49,16 +49,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: "2",
- *     maxErrors: "1",
- *     priority: 1,
- *     taskArn: exampleAwsLambdaFunction.arn,
- *     taskType: "LAMBDA",
- *     windowId: exampleAwsSsmMaintenanceWindow.id,
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [exampleAwsInstance.id],
- *     }],
  *     taskInvocationParameters: {
  *         lambdaParameters: {
  *             clientContext: std.base64encode({
@@ -67,6 +57,16 @@ import * as utilities from "../utilities";
  *             payload: "{\"key1\":\"value1\"}",
  *         },
  *     },
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
+ *     priority: 1,
+ *     taskArn: exampleAwsLambdaFunction.arn,
+ *     taskType: "LAMBDA",
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  * });
  * ```
  *
@@ -77,22 +77,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: "2",
- *     maxErrors: "1",
- *     priority: 1,
- *     taskArn: "AWS-RunShellScript",
- *     taskType: "RUN_COMMAND",
- *     windowId: exampleAwsSsmMaintenanceWindow.id,
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [exampleAwsInstance.id],
- *     }],
  *     taskInvocationParameters: {
  *         runCommandParameters: {
- *             outputS3Bucket: exampleAwsS3Bucket.id,
- *             outputS3KeyPrefix: "output",
- *             serviceRoleArn: exampleAwsIamRole.arn,
- *             timeoutSeconds: 600,
  *             notificationConfig: {
  *                 notificationArn: exampleAwsSnsTopic.arn,
  *                 notificationEvents: ["All"],
@@ -102,8 +88,22 @@ import * as utilities from "../utilities";
  *                 name: "commands",
  *                 values: ["date"],
  *             }],
+ *             outputS3Bucket: exampleAwsS3Bucket.id,
+ *             outputS3KeyPrefix: "output",
+ *             serviceRoleArn: exampleAwsIamRole.arn,
+ *             timeoutSeconds: 600,
  *         },
  *     },
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
+ *     priority: 1,
+ *     taskArn: "AWS-RunShellScript",
+ *     taskType: "RUN_COMMAND",
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  * });
  * ```
  *
@@ -114,22 +114,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.MaintenanceWindowTask("example", {
- *     maxConcurrency: "2",
- *     maxErrors: "1",
- *     priority: 1,
- *     taskArn: exampleAwsSfnActivity.id,
- *     taskType: "STEP_FUNCTIONS",
- *     windowId: exampleAwsSsmMaintenanceWindow.id,
- *     targets: [{
- *         key: "InstanceIds",
- *         values: [exampleAwsInstance.id],
- *     }],
  *     taskInvocationParameters: {
  *         stepFunctionsParameters: {
  *             input: "{\"key1\":\"value1\"}",
  *             name: "example",
  *         },
  *     },
+ *     targets: [{
+ *         key: "InstanceIds",
+ *         values: [exampleAwsInstance.id],
+ *     }],
+ *     maxConcurrency: "2",
+ *     maxErrors: "1",
+ *     priority: 1,
+ *     taskArn: exampleAwsSfnActivity.id,
+ *     taskType: "STEP_FUNCTIONS",
+ *     windowId: exampleAwsSsmMaintenanceWindow.id,
  * });
  * ```
  *

@@ -54,11 +54,11 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewPackage(ctx, "example", &opensearch.PackageArgs{
-//				PackageName: pulumi.String("example-txt"),
 //				PackageSource: &opensearch.PackagePackageSourceArgs{
 //					S3BucketName: myOpensearchPackages.Bucket,
 //					S3Key:        example.Key,
 //				},
+//				PackageName: pulumi.String("example-txt"),
 //				PackageType: pulumi.String("TXT-DICTIONARY"),
 //			})
 //			if err != nil {

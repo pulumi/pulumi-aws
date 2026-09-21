@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreMemoryStreamDeliveryResourcesGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// List of stream delivery resource configurations. See `Resource` below.
+        /// List of stream delivery resource configurations. See `Resource` Block below.
         /// </summary>
         [Input("resource")]
         public Input<Inputs.AgentcoreMemoryStreamDeliveryResourcesResourceGetArgs>? Resource { get; set; }

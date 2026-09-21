@@ -378,10 +378,10 @@ class Group(pulumi.CustomResource):
 
         test_key = aws.kms.Key("test_key", description="KMS key for Verified Access Group test")
         test = aws.verifiedaccess.Group("test",
-            verifiedaccess_instance_id=test_aws_verifiedaccess_instance_trust_provider_attachment["verifiedaccessInstanceId"],
             sse_configuration={
                 "kms_key_arn": test_key.arn,
-            })
+            },
+            verifiedaccess_instance_id=test_aws_verifiedaccess_instance_trust_provider_attachment["verifiedaccessInstanceId"])
         ```
 
 
@@ -424,10 +424,10 @@ class Group(pulumi.CustomResource):
 
         test_key = aws.kms.Key("test_key", description="KMS key for Verified Access Group test")
         test = aws.verifiedaccess.Group("test",
-            verifiedaccess_instance_id=test_aws_verifiedaccess_instance_trust_provider_attachment["verifiedaccessInstanceId"],
             sse_configuration={
                 "kms_key_arn": test_key.arn,
-            })
+            },
+            verifiedaccess_instance_id=test_aws_verifiedaccess_instance_trust_provider_attachment["verifiedaccessInstanceId"])
         ```
 
 

@@ -72,7 +72,7 @@ namespace Pulumi.Aws.SesV2
     public partial class EmailIdentityPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Output("emailIdentity")]
         public Output<string> EmailIdentity { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class EmailIdentityPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("emailIdentity", required: true)]
         public Input<string> EmailIdentity { get; set; } = null!;
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.SesV2
     public sealed class EmailIdentityPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The email identity.
+        /// Email identity.
         /// </summary>
         [Input("emailIdentity")]
         public Input<string>? EmailIdentity { get; set; }

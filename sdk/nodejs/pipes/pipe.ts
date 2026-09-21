@@ -88,11 +88,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
- *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
  *     enrichmentParameters: {
  *         httpParameters: {
  *             pathParameterValues: "example-path-param",
@@ -106,6 +101,11 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
+ *     enrichment: exampleAwsCloudwatchEventApiDestination.arn,
  * });
  * ```
  *
@@ -116,10 +116,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
  *     sourceParameters: {
  *         filterCriteria: {
  *             filters: [{
@@ -129,6 +125,10 @@ import * as utilities from "../utilities";
  *             }],
  *         },
  *     },
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  * });
  * ```
  *
@@ -140,17 +140,17 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.cloudwatch.LogGroup("example", {name: "example-pipe-target"});
  * const examplePipe = new aws.pipes.Pipe("example", {
+ *     logConfiguration: {
+ *         cloudwatchLogsLogDestination: {
+ *             logGroupArn: targetAwsCloudwatchLogGroup.arn,
+ *         },
+ *         includeExecutionDatas: ["ALL"],
+ *         level: "INFO",
+ *     },
  *     name: "example-pipe",
  *     roleArn: exampleAwsIamRole.arn,
  *     source: sourceAwsSqsQueue.arn,
  *     target: targetAwsSqsQueue.arn,
- *     logConfiguration: {
- *         includeExecutionDatas: ["ALL"],
- *         level: "INFO",
- *         cloudwatchLogsLogDestination: {
- *             logGroupArn: targetAwsCloudwatchLogGroup.arn,
- *         },
- *     },
  * }, {
  *     dependsOn: [
  *         source,
@@ -166,10 +166,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pipes.Pipe("example", {
- *     name: "example-pipe",
- *     roleArn: exampleAwsIamRole.arn,
- *     source: source.arn,
- *     target: target.arn,
  *     sourceParameters: {
  *         sqsQueueParameters: {
  *             batchSize: 1,
@@ -182,6 +178,10 @@ import * as utilities from "../utilities";
  *             messageGroupId: "example-group",
  *         },
  *     },
+ *     name: "example-pipe",
+ *     roleArn: exampleAwsIamRole.arn,
+ *     source: source.arn,
+ *     target: target.arn,
  * });
  * ```
  *
@@ -242,7 +242,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly enrichmentParameters: pulumi.Output<outputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
     declare public readonly kmsKeyIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export class Pipe extends pulumi.CustomResource {
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
-     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
      */
     declare public readonly source: pulumi.Output<string>;
     /**
@@ -381,7 +381,7 @@ export interface PipeState {
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -405,7 +405,7 @@ export interface PipeState {
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
-     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
      */
     source?: pulumi.Input<string | undefined>;
     /**
@@ -453,7 +453,7 @@ export interface PipeArgs {
      */
     enrichmentParameters?: pulumi.Input<inputs.pipes.PipeEnrichmentParameters | undefined>;
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
      */
     kmsKeyIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -477,7 +477,7 @@ export interface PipeArgs {
      */
     roleArn: pulumi.Input<string>;
     /**
-     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
      */
     source: pulumi.Input<string>;
     /**

@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.LookupOpenZfsSnapshot(ctx, &fsx.LookupOpenZfsSnapshotArgs{
-//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []fsx.GetOpenZfsSnapshotFilter{
 //					{
 //						Name: "volume-id",
@@ -39,6 +38,7 @@ import (
 //						},
 //					},
 //				},
+//				MostRecent: pulumi.BoolRef(true),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -76,7 +76,7 @@ type LookupOpenZfsSnapshotArgs struct {
 
 // A collection of values returned by getOpenZfsSnapshot.
 type LookupOpenZfsSnapshotResult struct {
-	// Amazon Resource Name of the snapshot.
+	// ARN of the snapshot.
 	Arn string `pulumi:"arn"`
 	// Time that the resource was created.
 	CreationTime string                     `pulumi:"creationTime"`
@@ -97,12 +97,8 @@ type LookupOpenZfsSnapshotResult struct {
 }
 
 func LookupOpenZfsSnapshotOutput(ctx *pulumi.Context, args LookupOpenZfsSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupOpenZfsSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOpenZfsSnapshotResultOutput, error) {
-			args := v.(LookupOpenZfsSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, LookupOpenZfsSnapshotResultOutput{}, options).(LookupOpenZfsSnapshotResultOutput), nil
-		}).(LookupOpenZfsSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args, LookupOpenZfsSnapshotResultOutput{}, options).(LookupOpenZfsSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getOpenZfsSnapshot.
@@ -140,7 +136,7 @@ func (o LookupOpenZfsSnapshotResultOutput) ToLookupOpenZfsSnapshotResultOutputWi
 	return o
 }
 
-// Amazon Resource Name of the snapshot.
+// ARN of the snapshot.
 func (o LookupOpenZfsSnapshotResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupOpenZfsSnapshotResult) string { return v.Arn }).(pulumi.StringOutput)
 }

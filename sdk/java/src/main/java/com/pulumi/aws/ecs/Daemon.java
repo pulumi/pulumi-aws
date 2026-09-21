@@ -87,18 +87,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Daemon("example", DaemonArgs.builder()
- *             .name("example-daemon")
- *             .clusterArn(exampleAwsEcsCluster.arn())
- *             .daemonTaskDefinitionArn(exampleAwsEcsDaemonTaskDefinition.arn())
- *             .capacityProviderArns(exampleAwsEcsCapacityProvider.arn())
  *             .deploymentConfiguration(DaemonDeploymentConfigurationArgs.builder()
- *                 .drainPercent(50.0)
- *                 .bakeTimeInMinutes(10)
  *                 .alarms(DaemonDeploymentConfigurationAlarmsArgs.builder()
  *                     .alarmNames("example-alarm")
  *                     .enable(true)
  *                     .build())
+ *                 .drainPercent(50.0)
+ *                 .bakeTimeInMinutes(10)
  *                 .build())
+ *             .name("example-daemon")
+ *             .clusterArn(exampleAwsEcsCluster.arn())
+ *             .daemonTaskDefinitionArn(exampleAwsEcsDaemonTaskDefinition.arn())
+ *             .capacityProviderArns(exampleAwsEcsCapacityProvider.arn())
  *             .build());
  * 
  *     }

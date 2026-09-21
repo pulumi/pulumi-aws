@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreBrowser(ctx, "example", &bedrock.AgentcoreBrowserArgs{
-//				Name:        pulumi.String("example-browser"),
-//				Description: pulumi.String("Browser for web data extraction"),
 //				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
+//				Name:        pulumi.String("example-browser"),
+//				Description: pulumi.String("Browser for web data extraction"),
 //			})
 //			if err != nil {
 //				return err
@@ -61,10 +61,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreBrowser(ctx, "vpc_example", &bedrock.AgentcoreBrowserArgs{
-//				Name:        pulumi.String("vpc-browser"),
-//				Description: pulumi.String("Browser with VPC configuration"),
 //				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
-//					NetworkMode: pulumi.String("VPC"),
 //					VpcConfig: &bedrock.AgentcoreBrowserNetworkConfigurationVpcConfigArgs{
 //						SecurityGroups: pulumi.StringArray{
 //							pulumi.String("sg-12345678"),
@@ -74,7 +71,10 @@ import (
 //							pulumi.String("subnet-87654321"),
 //						},
 //					},
+//					NetworkMode: pulumi.String("VPC"),
 //				},
+//				Name:        pulumi.String("vpc-browser"),
+//				Description: pulumi.String("Browser with VPC configuration"),
 //			})
 //			if err != nil {
 //				return err
@@ -104,10 +104,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -115,6 +111,10 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -136,19 +136,19 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreBrowser(ctx, "example", &bedrock.AgentcoreBrowserArgs{
-//				Name:             pulumi.String("example-browser"),
-//				Description:      pulumi.String("Browser with recording enabled"),
-//				ExecutionRoleArn: example.Arn,
 //				NetworkConfiguration: &bedrock.AgentcoreBrowserNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
 //				Recording: &bedrock.AgentcoreBrowserRecordingArgs{
-//					Enabled: pulumi.Bool(true),
 //					S3Location: &bedrock.AgentcoreBrowserRecordingS3LocationArgs{
 //						Bucket: recording.Bucket,
 //						Prefix: pulumi.String("browser-sessions/"),
 //					},
+//					Enabled: pulumi.Bool(true),
 //				},
+//				Name:             pulumi.String("example-browser"),
+//				Description:      pulumi.String("Browser with recording enabled"),
+//				ExecutionRoleArn: example.Arn,
 //			})
 //			if err != nil {
 //				return err

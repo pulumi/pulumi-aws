@@ -104,14 +104,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var eksRuntimeMonitoring = new DetectorFeature("eksRuntimeMonitoring", DetectorFeatureArgs.builder()
- *             .detectorId(example.id())
- *             .accountId("123456789012")
- *             .name("EKS_RUNTIME_MONITORING")
- *             .status("ENABLED")
  *             .additionalConfigurations(DetectorFeatureAdditionalConfigurationArgs.builder()
  *                 .name("EKS_ADDON_MANAGEMENT")
  *                 .status("ENABLED")
  *                 .build())
+ *             .detectorId(example.id())
+ *             .accountId("123456789012")
+ *             .name("EKS_RUNTIME_MONITORING")
+ *             .status("ENABLED")
  *             .build());
  * 
  *     }

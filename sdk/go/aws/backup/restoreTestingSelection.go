@@ -63,10 +63,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewRestoreTestingSelection(ctx, "example", &backup.RestoreTestingSelectionArgs{
-//				Name:                   pulumi.String("ec2_selection"),
-//				RestoreTestingPlanName: pulumi.Any(exampleAwsBackupRestoreTestingPlan.Name),
-//				ProtectedResourceType:  pulumi.String("EC2"),
-//				IamRoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //				ProtectedResourceConditions: &backup.RestoreTestingSelectionProtectedResourceConditionsArgs{
 //					StringEquals: backup.RestoreTestingSelectionProtectedResourceConditionsStringEqualArray{
 //						&backup.RestoreTestingSelectionProtectedResourceConditionsStringEqualArgs{
@@ -75,6 +71,10 @@ import (
 //						},
 //					},
 //				},
+//				Name:                   pulumi.String("ec2_selection"),
+//				RestoreTestingPlanName: pulumi.Any(exampleAwsBackupRestoreTestingPlan.Name),
+//				ProtectedResourceType:  pulumi.String("EC2"),
+//				IamRoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

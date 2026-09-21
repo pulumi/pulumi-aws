@@ -52,7 +52,7 @@ import (
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+	// Neptune Cluster Endpoint ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
@@ -113,7 +113,7 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type clusterEndpointState struct {
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+	// Neptune Cluster Endpoint ARN.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the endpoint.
 	ClusterEndpointIdentifier *string `pulumi:"clusterEndpointIdentifier"`
@@ -136,7 +136,7 @@ type clusterEndpointState struct {
 }
 
 type ClusterEndpointState struct {
-	// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+	// Neptune Cluster Endpoint ARN.
 	Arn pulumi.StringPtrInput
 	// The identifier of the endpoint.
 	ClusterEndpointIdentifier pulumi.StringPtrInput
@@ -284,7 +284,7 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+// Neptune Cluster Endpoint ARN.
 func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

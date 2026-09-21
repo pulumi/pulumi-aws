@@ -23,7 +23,6 @@ import {InstanceProfile} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const ubuntu = aws.ec2.getAmi({
- *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -34,6 +33,7 @@ import {InstanceProfile} from "../iam";
  *             values: ["hvm"],
  *         },
  *     ],
+ *     mostRecent: true,
  *     owners: ["099720109477"],
  * });
  * const example = new aws.ec2.Instance("example", {
@@ -67,8 +67,6 @@ import {InstanceProfile} from "../iam";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
  *     filters: [
  *         {
  *             name: "architecture",
@@ -79,15 +77,17 @@ import {InstanceProfile} from "../iam";
  *             values: ["al2023-ami-2023*"],
  *         },
  *     ],
+ *     mostRecent: true,
+ *     owners: ["amazon"],
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
- *     ami: example.then(example => example.id),
  *     instanceMarketOptions: {
- *         marketType: "spot",
  *         spotOptions: {
  *             maxPrice: "0.0031",
  *         },
+ *         marketType: "spot",
  *     },
+ *     ami: example.then(example => example.id),
  *     instanceType: aws.ec2.InstanceType.T4g_Nano,
  *     tags: {
  *         Name: "test-spot",
@@ -123,14 +123,14 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
- *     ami: "ami-005e54dee72cc1d00",
- *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     primaryNetworkInterface: {
  *         networkInterfaceId: example.id,
  *     },
  *     creditSpecification: {
  *         cpuCredits: "unlimited",
  *     },
+ *     ami: "ami-005e54dee72cc1d00",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  * });
  * ```
  *
@@ -155,21 +155,21 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * const amzn_linux_2023_ami = aws.ec2.getAmi({
- *     mostRecent: true,
- *     owners: ["amazon"],
  *     filters: [{
  *         name: "name",
  *         values: ["al2023-ami-2023.*-x86_64"],
  *     }],
+ *     mostRecent: true,
+ *     owners: ["amazon"],
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
- *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
- *     instanceType: aws.ec2.InstanceType.C6a_2XLarge,
- *     subnetId: exampleSubnet.id,
  *     cpuOptions: {
  *         coreCount: 2,
  *         threadsPerCore: 2,
  *     },
+ *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
+ *     instanceType: aws.ec2.InstanceType.C6a_2XLarge,
+ *     subnetId: exampleSubnet.id,
  *     tags: {
  *         Name: "tf-example",
  *     },

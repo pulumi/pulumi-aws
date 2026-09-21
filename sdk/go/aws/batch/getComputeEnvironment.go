@@ -86,12 +86,8 @@ type LookupComputeEnvironmentResult struct {
 }
 
 func LookupComputeEnvironmentOutput(ctx *pulumi.Context, args LookupComputeEnvironmentOutputArgs, opts ...pulumi.InvokeOption) LookupComputeEnvironmentResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupComputeEnvironmentResultOutput, error) {
-			args := v.(LookupComputeEnvironmentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", args, LookupComputeEnvironmentResultOutput{}, options).(LookupComputeEnvironmentResultOutput), nil
-		}).(LookupComputeEnvironmentResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:batch/getComputeEnvironment:getComputeEnvironment", args, LookupComputeEnvironmentResultOutput{}, options).(LookupComputeEnvironmentResultOutput)
 }
 
 // A collection of arguments for invoking getComputeEnvironment.

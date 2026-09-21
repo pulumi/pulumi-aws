@@ -27,12 +27,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [example],
  * });
  * const exampleConnectorV2 = new aws.securityhub.ConnectorV2("example", {
- *     name: "jira-connector",
  *     connectorProvider: {
  *         jiraCloud: {
  *             projectKey: "SEC",
  *         },
  *     },
+ *     name: "jira-connector",
  * }, {
  *     dependsOn: [exampleAggregatorV2],
  * });
@@ -46,14 +46,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.ConnectorV2("example", {
- *     name: "jira-connector",
- *     description: "Jira Cloud integration for security findings",
- *     kmsKeyArn: exampleAwsKmsKey.arn,
  *     connectorProvider: {
  *         jiraCloud: {
  *             projectKey: "SEC",
  *         },
  *     },
+ *     name: "jira-connector",
+ *     description: "Jira Cloud integration for security findings",
+ *     kmsKeyArn: exampleAwsKmsKey.arn,
  * }, {
  *     dependsOn: [exampleAwsSecurityhubAggregatorV2],
  * });

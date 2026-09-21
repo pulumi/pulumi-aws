@@ -17,18 +17,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.fsx.S3AccessPointAttachment("example", {
- *     name: "example-attachment",
- *     type: "OPENZFS",
  *     openzfsConfiguration: {
- *         volumeId: exampleAwsFsxOpenzfsVolume.id,
  *         fileSystemIdentity: {
- *             type: "POSIX",
  *             posixUser: {
  *                 uid: 1001,
  *                 gid: 1001,
  *             },
+ *             type: "POSIX",
  *         },
+ *         volumeId: exampleAwsFsxOpenzfsVolume.id,
  *     },
+ *     name: "example-attachment",
+ *     type: "OPENZFS",
  * });
  * ```
  *

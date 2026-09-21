@@ -23,19 +23,19 @@ import * as utilities from "../utilities";
  * const q = new aws.sqs.Queue("q", {name: "examplequeue"});
  * const test = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "First",
- *         effect: "Allow",
- *         principals: [{
- *             type: "*",
- *             identifiers: ["*"],
- *         }],
- *         actions: ["sqs:SendMessage"],
- *         resources: [q.arn],
  *         conditions: [{
  *             test: "ArnEquals",
  *             variable: "aws:SourceArn",
  *             values: [example.arn],
  *         }],
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         sid: "First",
+ *         effect: "Allow",
+ *         actions: ["sqs:SendMessage"],
+ *         resources: [q.arn],
  *     }],
  * });
  * const testQueuePolicy = new aws.sqs.QueuePolicy("test", {

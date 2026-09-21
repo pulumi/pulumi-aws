@@ -13,7 +13,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessEntryResult {
     /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
+     * @return ARN of the Access Entry.
      * 
      */
     private String accessEntryArn;
@@ -63,7 +63,7 @@ public final class GetAccessEntryResult {
 
     private GetAccessEntryResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
+     * @return ARN of the Access Entry.
      * 
      */
     public String accessEntryArn() {

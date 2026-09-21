@@ -68,8 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new CoreNetworkConnector("example", CoreNetworkConnectorArgs.builder()
- *             .name("example")
- *             .operatorRole(exampleRole.arn())
  *             .configuration(CoreNetworkConnectorConfigurationArgs.builder()
  *                 .vpcEgressConfiguration(CoreNetworkConnectorConfigurationVpcEgressConfigurationArgs.builder()
  *                     .associatedComputeResourceTypes("MicroVm")
@@ -78,6 +76,8 @@ import javax.annotation.Nullable;
  *                     .securityGroupIds(exampleAwsSecurityGroup.id())
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .operatorRole(exampleRole.arn())
  *             .build());
  * 
  *         var exampleRolePolicy = new RolePolicy("exampleRolePolicy", RolePolicyArgs.builder()

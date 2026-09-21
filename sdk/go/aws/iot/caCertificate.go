@@ -36,13 +36,13 @@ import (
 //				return err
 //			}
 //			ca, err := tls.NewSelfSignedCert(ctx, "ca", &tls.SelfSignedCertArgs{
-//				PrivateKeyPem: caPrivateKey.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
 //					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},
 //				},
+//				PrivateKeyPem:       caPrivateKey.PrivateKeyPem,
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
 //					pulumi.String("key_encipherment"),
@@ -65,12 +65,12 @@ import (
 //				return err
 //			}
 //			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
-//				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
 //				Subject: tls.CertRequestSubjectArgs{
 //					map[string]interface{}{
 //						"commonName": example.RegistrationCode,
 //					},
 //				},
+//				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
 //			})
 //			if err != nil {
 //				return err

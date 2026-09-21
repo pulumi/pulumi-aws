@@ -13,10 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource
     {
-        public readonly string ResourceConfigurationIdentifier;
+        /// <summary>
+        /// Identifier of the VPC Lattice resource configuration.
+        /// </summary>
+        public readonly string? ResourceConfigurationIdentifier;
 
         [OutputConstructor]
-        private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(string resourceConfigurationIdentifier)
+        private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource(string? resourceConfigurationIdentifier)
         {
             ResourceConfigurationIdentifier = resourceConfigurationIdentifier;
         }

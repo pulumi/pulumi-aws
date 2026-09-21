@@ -57,8 +57,6 @@ export class ProxyTarget extends pulumi.CustomResource {
 
     /**
      * DB cluster identifier.
-     *
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     declare public readonly dbClusterIdentifier: pulumi.Output<string | undefined>;
     /**
@@ -66,7 +64,7 @@ export class ProxyTarget extends pulumi.CustomResource {
      */
     declare public readonly dbInstanceIdentifier: pulumi.Output<string | undefined>;
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      */
     declare public readonly dbProxyName: pulumi.Output<string>;
     /**
@@ -86,11 +84,11 @@ export class ProxyTarget extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     declare public /*out*/ readonly targetArn: pulumi.Output<string>;
     /**
-     * The name of the target group.
+     * Name of the target group.
      */
     declare public readonly targetGroupName: pulumi.Output<string>;
     /**
@@ -157,8 +155,6 @@ export class ProxyTarget extends pulumi.CustomResource {
 export interface ProxyTargetState {
     /**
      * DB cluster identifier.
-     *
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -166,7 +162,7 @@ export interface ProxyTargetState {
      */
     dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      */
     dbProxyName?: pulumi.Input<string | undefined>;
     /**
@@ -186,11 +182,11 @@ export interface ProxyTargetState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      */
     targetArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the target group.
+     * Name of the target group.
      */
     targetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -209,8 +205,6 @@ export interface ProxyTargetState {
 export interface ProxyTargetArgs {
     /**
      * DB cluster identifier.
-     *
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      */
     dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -218,7 +212,7 @@ export interface ProxyTargetArgs {
      */
     dbInstanceIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      */
     dbProxyName: pulumi.Input<string>;
     /**
@@ -226,7 +220,7 @@ export interface ProxyTargetArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The name of the target group.
+     * Name of the target group.
      */
     targetGroupName: pulumi.Input<string>;
 }

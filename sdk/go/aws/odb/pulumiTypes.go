@@ -3909,7 +3909,7 @@ func (o GetCloudAutonomousVmClusterMaintenanceWindowMonthArrayOutput) Index(i pu
 }
 
 type GetCloudAutonomousVmClustersCloudAutonomousVmCluster struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
@@ -3939,7 +3939,7 @@ type GetCloudAutonomousVmClustersCloudAutonomousVmClusterInput interface {
 }
 
 type GetCloudAutonomousVmClustersCloudAutonomousVmClusterArgs struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
@@ -4008,7 +4008,7 @@ func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) ToGetCloudAu
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o GetCloudAutonomousVmClustersCloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudAutonomousVmClustersCloudAutonomousVmCluster) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -4499,7 +4499,7 @@ func (o GetCloudExadataInfrastructureMaintenanceWindowMonthArrayOutput) Index(i 
 }
 
 type GetCloudExadataInfrastructuresCloudExadataInfrastructure struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Display name of the Exadata infrastructure.
 	DisplayName string `pulumi:"displayName"`
@@ -4525,7 +4525,7 @@ type GetCloudExadataInfrastructuresCloudExadataInfrastructureInput interface {
 }
 
 type GetCloudExadataInfrastructuresCloudExadataInfrastructureArgs struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Display name of the Exadata infrastructure.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -4590,7 +4590,7 @@ func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) ToGetClo
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o GetCloudExadataInfrastructuresCloudExadataInfrastructureOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudExadataInfrastructuresCloudExadataInfrastructure) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -4967,7 +4967,7 @@ func (o GetCloudVmClusterIormConfigCacheDbPlanArrayOutput) Index(i pulumi.IntInp
 }
 
 type GetCloudVmClustersCloudVmCluster struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn string `pulumi:"arn"`
 	// ID of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureId string `pulumi:"cloudExadataInfrastructureId"`
@@ -4997,7 +4997,7 @@ type GetCloudVmClustersCloudVmClusterInput interface {
 }
 
 type GetCloudVmClustersCloudVmClusterArgs struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// ID of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureId pulumi.StringInput `pulumi:"cloudExadataInfrastructureId"`
@@ -5066,7 +5066,7 @@ func (o GetCloudVmClustersCloudVmClusterOutput) ToGetCloudVmClustersCloudVmClust
 	return o
 }
 
-// Amazon Resource Name (ARN) for the cloud vm cluster.
+// ARN for the cloud vm cluster.
 func (o GetCloudVmClustersCloudVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCloudVmClustersCloudVmCluster) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -5129,7 +5129,7 @@ func (o GetCloudVmClustersCloudVmClusterArrayOutput) Index(i pulumi.IntInput) Ge
 type GetDbNodesDbNode struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails string `pulumi:"additionalDetails"`
-	// Amazon Resource Name (ARN) of the DB node.
+	// ARN of the DB node.
 	Arn string `pulumi:"arn"`
 	// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 	BackupIpId string `pulumi:"backupIpId"`
@@ -5195,7 +5195,7 @@ type GetDbNodesDbNodeInput interface {
 type GetDbNodesDbNodeArgs struct {
 	// Additional information about the planned maintenance.
 	AdditionalDetails pulumi.StringInput `pulumi:"additionalDetails"`
-	// Amazon Resource Name (ARN) of the DB node.
+	// ARN of the DB node.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
 	BackupIpId pulumi.StringInput `pulumi:"backupIpId"`
@@ -5303,7 +5303,7 @@ func (o GetDbNodesDbNodeOutput) AdditionalDetails() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.AdditionalDetails }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the DB node.
+// ARN of the DB node.
 func (o GetDbNodesDbNodeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDbNodesDbNode) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7367,7 +7367,7 @@ func (o GetNetworkOciDnsForwardingConfigArrayOutput) Index(i pulumi.IntInput) Ge
 }
 
 type GetNetworkPeeringConnectionsOdbPeeringConnection struct {
-	// Amazon Resource Name (ARN) for the ODB network peering connection.
+	// ARN for the ODB network peering connection.
 	Arn string `pulumi:"arn"`
 	// Display name of the ODB network peering connection.
 	DisplayName string `pulumi:"displayName"`
@@ -7391,7 +7391,7 @@ type GetNetworkPeeringConnectionsOdbPeeringConnectionInput interface {
 }
 
 type GetNetworkPeeringConnectionsOdbPeeringConnectionArgs struct {
-	// Amazon Resource Name (ARN) for the ODB network peering connection.
+	// ARN for the ODB network peering connection.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Display name of the ODB network peering connection.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -7454,7 +7454,7 @@ func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) ToGetNetworkPeer
 	return o
 }
 
-// Amazon Resource Name (ARN) for the ODB network peering connection.
+// ARN for the ODB network peering connection.
 func (o GetNetworkPeeringConnectionsOdbPeeringConnectionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworkPeeringConnectionsOdbPeeringConnection) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -7500,7 +7500,7 @@ func (o GetNetworkPeeringConnectionsOdbPeeringConnectionArrayOutput) Index(i pul
 }
 
 type GetNetworksOdbNetwork struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn string `pulumi:"arn"`
 	// Display name for the network resource.
 	DisplayName string `pulumi:"displayName"`
@@ -7526,7 +7526,7 @@ type GetNetworksOdbNetworkInput interface {
 }
 
 type GetNetworksOdbNetworkArgs struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Display name for the network resource.
 	DisplayName pulumi.StringInput `pulumi:"displayName"`
@@ -7591,7 +7591,7 @@ func (o GetNetworksOdbNetworkOutput) ToGetNetworksOdbNetworkOutputWithContext(ct
 	return o
 }
 
-// Amazon Resource Name (ARN) of the odb network resource.
+// ARN of the odb network resource.
 func (o GetNetworksOdbNetworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNetworksOdbNetwork) string { return v.Arn }).(pulumi.StringOutput)
 }

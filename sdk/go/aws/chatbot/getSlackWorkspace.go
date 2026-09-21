@@ -67,12 +67,8 @@ type GetSlackWorkspaceResult struct {
 }
 
 func GetSlackWorkspaceOutput(ctx *pulumi.Context, args GetSlackWorkspaceOutputArgs, opts ...pulumi.InvokeOption) GetSlackWorkspaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSlackWorkspaceResultOutput, error) {
-			args := v.(GetSlackWorkspaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", args, GetSlackWorkspaceResultOutput{}, options).(GetSlackWorkspaceResultOutput), nil
-		}).(GetSlackWorkspaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:chatbot/getSlackWorkspace:getSlackWorkspace", args, GetSlackWorkspaceResultOutput{}, options).(GetSlackWorkspaceResultOutput)
 }
 
 // A collection of arguments for invoking getSlackWorkspace.

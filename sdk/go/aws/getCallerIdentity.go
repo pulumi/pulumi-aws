@@ -69,12 +69,8 @@ type GetCallerIdentityResult struct {
 }
 
 func GetCallerIdentityOutput(ctx *pulumi.Context, args GetCallerIdentityOutputArgs, opts ...pulumi.InvokeOption) GetCallerIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCallerIdentityResultOutput, error) {
-			args := v.(GetCallerIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getCallerIdentity:getCallerIdentity", args, GetCallerIdentityResultOutput{}, options).(GetCallerIdentityResultOutput), nil
-		}).(GetCallerIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getCallerIdentity:getCallerIdentity", args, GetCallerIdentityResultOutput{}, options).(GetCallerIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getCallerIdentity.

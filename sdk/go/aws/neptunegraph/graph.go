@@ -34,15 +34,15 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create Neptune Graph
 //			_, err := neptunegraph.NewGraph(ctx, "example", &neptunegraph.GraphArgs{
+//				VectorSearchConfiguration: &neptunegraph.GraphVectorSearchConfigurationArgs{
+//					VectorSearchDimension: pulumi.Int(128),
+//				},
 //				GraphName:          pulumi.String("example-graph-test-20250203"),
 //				ProvisionedMemory:  pulumi.Int(16),
 //				DeletionProtection: pulumi.Bool(false),
 //				PublicConnectivity: pulumi.Bool(false),
 //				ReplicaCount:       pulumi.Int(1),
 //				KmsKeyIdentifier:   pulumi.String("arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"),
-//				VectorSearchConfiguration: &neptunegraph.GraphVectorSearchConfigurationArgs{
-//					VectorSearchDimension: pulumi.Int(128),
-//				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Development"),
 //					"ModifiedBy":  pulumi.String("AWS"),
@@ -83,7 +83,7 @@ type Graph struct {
 	//
 	// The following arguments are optional:
 	ProvisionedMemory pulumi.IntOutput `pulumi:"provisionedMemory"`
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolOutput `pulumi:"publicConnectivity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -147,7 +147,7 @@ type graphState struct {
 	//
 	// The following arguments are optional:
 	ProvisionedMemory *int `pulumi:"provisionedMemory"`
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -179,7 +179,7 @@ type GraphState struct {
 	//
 	// The following arguments are optional:
 	ProvisionedMemory pulumi.IntPtrInput
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -211,7 +211,7 @@ type graphArgs struct {
 	//
 	// The following arguments are optional:
 	ProvisionedMemory int `pulumi:"provisionedMemory"`
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity *bool `pulumi:"publicConnectivity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -238,7 +238,7 @@ type GraphArgs struct {
 	//
 	// The following arguments are optional:
 	ProvisionedMemory pulumi.IntInput
-	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+	// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 	PublicConnectivity pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -375,7 +375,7 @@ func (o GraphOutput) ProvisionedMemory() pulumi.IntOutput {
 	return o.ApplyT(func(v *Graph) pulumi.IntOutput { return v.ProvisionedMemory }).(pulumi.IntOutput)
 }
 
-// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its Domain Name System (DNS) endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
+// Specifies whether the Graph can be reached over the internet. Access to all graphs requires IAM authentication.  When the Graph is publicly reachable, its DNS endpoint resolves to the public IP address from the internet.  When the Graph isn't publicly reachable, you need to create a PrivateGraphEndpoint in a given VPC to ensure the DNS name resolves to a private IP address that is reachable from the VPC.
 func (o GraphOutput) PublicConnectivity() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Graph) pulumi.BoolOutput { return v.PublicConnectivity }).(pulumi.BoolOutput)
 }

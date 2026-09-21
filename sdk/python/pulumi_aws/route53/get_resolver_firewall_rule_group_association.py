@@ -77,7 +77,7 @@ class GetResolverFirewallRuleGroupAssociationResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the firewall rule group association.
+        ARN of the firewall rule group association.
         """
         return pulumi.get(self, "arn")
 

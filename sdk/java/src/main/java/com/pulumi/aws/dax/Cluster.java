@@ -178,7 +178,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * A valid Amazon Resource Name (ARN) that identifies
+     * Valid ARN that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
      * permissions to access DynamoDB on your behalf
      * 
@@ -187,7 +187,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output<String> iamRoleArn;
 
     /**
-     * @return A valid Amazon Resource Name (ARN) that identifies
+     * @return Valid ARN that identifies
      * an IAM role. At runtime, DAX will assume this role and use the role&#39;s
      * permissions to access DynamoDB on your behalf
      * 
@@ -250,7 +250,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.nodes;
     }
     /**
-     * An Amazon Resource Name (ARN) of an
+     * ARN of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 
@@ -259,7 +259,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ String> notificationTopicArn;
 
     /**
-     * @return An Amazon Resource Name (ARN) of an
+     * @return ARN of an
      * SNS topic to send DAX notifications to. Example:
      * `arn:aws:sns:us-east-1:012345678999:my_sns_topic`
      * 

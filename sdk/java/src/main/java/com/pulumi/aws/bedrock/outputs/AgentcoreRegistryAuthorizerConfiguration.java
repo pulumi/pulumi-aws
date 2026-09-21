@@ -11,9 +11,17 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfiguration {
+    /**
+     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * 
+     */
     private @Nullable AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer customJwtAuthorizer;
 
     private AgentcoreRegistryAuthorizerConfiguration() {}
+    /**
+     * @return JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+     * 
+     */
     public Optional<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer> customJwtAuthorizer() {
         return Optional.ofNullable(this.customJwtAuthorizer);
     }

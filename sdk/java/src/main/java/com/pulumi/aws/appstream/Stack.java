@@ -35,9 +35,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.appstream.Stack;
  * import com.pulumi.aws.appstream.StackArgs;
+ * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
  * import com.pulumi.aws.appstream.inputs.StackStorageConnectorArgs;
  * import com.pulumi.aws.appstream.inputs.StackUserSettingArgs;
- * import com.pulumi.aws.appstream.inputs.StackApplicationSettingsArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,11 +52,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Stack("example", StackArgs.builder()
- *             .name("stack name")
- *             .description("stack description")
- *             .displayName("stack display name")
- *             .feedbackUrl("http://your-domain/feedback")
- *             .redirectUrl("http://your-domain/redirect")
+ *             .applicationSettings(StackApplicationSettingsArgs.builder()
+ *                 .enabled(true)
+ *                 .settingsGroup("SettingsGroup")
+ *                 .build())
  *             .storageConnectors(StackStorageConnectorArgs.builder()
  *                 .connectorType("HOMEFOLDERS")
  *                 .build())
@@ -93,10 +92,11 @@ import javax.annotation.Nullable;
  *                     .action("PRINTING_TO_LOCAL_DEVICE")
  *                     .permission("ENABLED")
  *                     .build())
- *             .applicationSettings(StackApplicationSettingsArgs.builder()
- *                 .enabled(true)
- *                 .settingsGroup("SettingsGroup")
- *                 .build())
+ *             .name("stack name")
+ *             .description("stack description")
+ *             .displayName("stack display name")
+ *             .feedbackUrl("http://your-domain/feedback")
+ *             .redirectUrl("http://your-domain/redirect")
  *             .tags(Map.of("TagName", "TagValue"))
  *             .build());
  * 

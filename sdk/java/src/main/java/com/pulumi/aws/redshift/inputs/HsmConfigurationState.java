@@ -17,14 +17,14 @@ public final class HsmConfigurationState extends com.pulumi.resources.ResourceAr
     public static final HsmConfigurationState Empty = new HsmConfigurationState();
 
     /**
-     * Amazon Resource Name (ARN) of the Hsm Client Certificate.
+     * ARN of the Hsm Client Certificate.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Hsm Client Certificate.
+     * @return ARN of the Hsm Client Certificate.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -200,7 +200,7 @@ public final class HsmConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Hsm Client Certificate.
+         * @param arn ARN of the Hsm Client Certificate.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class HsmConfigurationState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Hsm Client Certificate.
+         * @param arn ARN of the Hsm Client Certificate.
          * 
          * @return builder
          * 

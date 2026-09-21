@@ -32,7 +32,7 @@ public final class EndpointRedshiftSettings {
      */
     private @Nullable String serverSideEncryptionKmsKeyId;
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     private @Nullable String serviceAccessRoleArn;
@@ -67,7 +67,7 @@ public final class EndpointRedshiftSettings {
         return Optional.ofNullable(this.serverSideEncryptionKmsKeyId);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+     * @return ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
      * 
      */
     public Optional<String> serviceAccessRoleArn() {

@@ -3,11 +3,13 @@
 
 package com.pulumi.aws.directconnect.inputs;
 
+import com.pulumi.aws.directconnect.inputs.ConnectionRateLimiterStatusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -199,6 +201,66 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    @Import(name="prefixPoolSizeIpv4")
+    private @Nullable Output<Integer> prefixPoolSizeIpv4;
+
+    /**
+     * @return The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolSizeIpv4() {
+        return Optional.ofNullable(this.prefixPoolSizeIpv4);
+    }
+
+    /**
+     * The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    @Import(name="prefixPoolSizeIpv6")
+    private @Nullable Output<Integer> prefixPoolSizeIpv6;
+
+    /**
+     * @return The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolSizeIpv6() {
+        return Optional.ofNullable(this.prefixPoolSizeIpv6);
+    }
+
+    /**
+     * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    @Import(name="prefixPoolUnallocatedCountIpv4")
+    private @Nullable Output<Integer> prefixPoolUnallocatedCountIpv4;
+
+    /**
+     * @return The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolUnallocatedCountIpv4() {
+        return Optional.ofNullable(this.prefixPoolUnallocatedCountIpv4);
+    }
+
+    /**
+     * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    @Import(name="prefixPoolUnallocatedCountIpv6")
+    private @Nullable Output<Integer> prefixPoolUnallocatedCountIpv6;
+
+    /**
+     * @return The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     * 
+     */
+    public Optional<Output<Integer>> prefixPoolUnallocatedCountIpv6() {
+        return Optional.ofNullable(this.prefixPoolUnallocatedCountIpv6);
+    }
+
+    /**
      * The name of the service provider associated with the connection.
      * 
      */
@@ -211,6 +273,21 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> providerName() {
         return Optional.ofNullable(this.providerName);
+    }
+
+    /**
+     * Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    @Import(name="rateLimiterStatuses")
+    private @Nullable Output<List<ConnectionRateLimiterStatusArgs>> rateLimiterStatuses;
+
+    /**
+     * @return Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     * 
+     */
+    public Optional<Output<List<ConnectionRateLimiterStatusArgs>>> rateLimiterStatuses() {
+        return Optional.ofNullable(this.rateLimiterStatuses);
     }
 
     /**
@@ -337,7 +414,12 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         this.ownerAccountId = $.ownerAccountId;
         this.partnerName = $.partnerName;
         this.portEncryptionStatus = $.portEncryptionStatus;
+        this.prefixPoolSizeIpv4 = $.prefixPoolSizeIpv4;
+        this.prefixPoolSizeIpv6 = $.prefixPoolSizeIpv6;
+        this.prefixPoolUnallocatedCountIpv4 = $.prefixPoolUnallocatedCountIpv4;
+        this.prefixPoolUnallocatedCountIpv6 = $.prefixPoolUnallocatedCountIpv6;
         this.providerName = $.providerName;
+        this.rateLimiterStatuses = $.rateLimiterStatuses;
         this.region = $.region;
         this.requestMacsec = $.requestMacsec;
         this.skipDestroy = $.skipDestroy;
@@ -618,6 +700,90 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param prefixPoolSizeIpv4 The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolSizeIpv4(@Nullable Output<Integer> prefixPoolSizeIpv4) {
+            $.prefixPoolSizeIpv4 = prefixPoolSizeIpv4;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolSizeIpv4 The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolSizeIpv4(Integer prefixPoolSizeIpv4) {
+            return prefixPoolSizeIpv4(Output.of(prefixPoolSizeIpv4));
+        }
+
+        /**
+         * @param prefixPoolSizeIpv6 The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolSizeIpv6(@Nullable Output<Integer> prefixPoolSizeIpv6) {
+            $.prefixPoolSizeIpv6 = prefixPoolSizeIpv6;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolSizeIpv6 The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolSizeIpv6(Integer prefixPoolSizeIpv6) {
+            return prefixPoolSizeIpv6(Output.of(prefixPoolSizeIpv6));
+        }
+
+        /**
+         * @param prefixPoolUnallocatedCountIpv4 The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolUnallocatedCountIpv4(@Nullable Output<Integer> prefixPoolUnallocatedCountIpv4) {
+            $.prefixPoolUnallocatedCountIpv4 = prefixPoolUnallocatedCountIpv4;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolUnallocatedCountIpv4 The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolUnallocatedCountIpv4(Integer prefixPoolUnallocatedCountIpv4) {
+            return prefixPoolUnallocatedCountIpv4(Output.of(prefixPoolUnallocatedCountIpv4));
+        }
+
+        /**
+         * @param prefixPoolUnallocatedCountIpv6 The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolUnallocatedCountIpv6(@Nullable Output<Integer> prefixPoolUnallocatedCountIpv6) {
+            $.prefixPoolUnallocatedCountIpv6 = prefixPoolUnallocatedCountIpv6;
+            return this;
+        }
+
+        /**
+         * @param prefixPoolUnallocatedCountIpv6 The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder prefixPoolUnallocatedCountIpv6(Integer prefixPoolUnallocatedCountIpv6) {
+            return prefixPoolUnallocatedCountIpv6(Output.of(prefixPoolUnallocatedCountIpv6));
+        }
+
+        /**
          * @param providerName The name of the service provider associated with the connection.
          * 
          * @return builder
@@ -636,6 +802,37 @@ public final class ConnectionState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(@Nullable Output<List<ConnectionRateLimiterStatusArgs>> rateLimiterStatuses) {
+            $.rateLimiterStatuses = rateLimiterStatuses;
+            return this;
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(List<ConnectionRateLimiterStatusArgs> rateLimiterStatuses) {
+            return rateLimiterStatuses(Output.of(rateLimiterStatuses));
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(ConnectionRateLimiterStatusArgs... rateLimiterStatuses) {
+            return rateLimiterStatuses(List.of(rateLimiterStatuses));
         }
 
         /**

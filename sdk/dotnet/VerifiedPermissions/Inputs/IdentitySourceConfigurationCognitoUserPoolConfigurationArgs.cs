@@ -31,7 +31,7 @@ namespace Pulumi.Aws.VerifiedPermissions.Inputs
         public Input<Inputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs>? GroupConfiguration { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        /// ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         /// </summary>
         [Input("userPoolArn", required: true)]
         public Input<string> UserPoolArn { get; set; } = null!;

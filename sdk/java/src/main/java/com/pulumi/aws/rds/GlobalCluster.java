@@ -89,6 +89,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
+ *                 .ignoreChanges("replicationSourceIdentifier")
  *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
@@ -170,6 +171,7 @@ import javax.annotation.Nullable;
  *             .dbSubnetGroupName("default")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(primaryClusterInstance)
+ *                 .ignoreChanges("replicationSourceIdentifier")
  *                 .build());
  * 
  *         var secondaryClusterInstance = new ClusterInstance("secondaryClusterInstance", ClusterInstanceArgs.builder()
@@ -196,8 +198,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.Cluster;
+ * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.GlobalCluster;
  * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -211,7 +215,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new Cluster("example");
+ *         var example = new Cluster("example", ClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("globalClusterIdentifier")
+ *             .build());
  * 
  *         var exampleGlobalCluster = new GlobalCluster("exampleGlobalCluster", GlobalClusterArgs.builder()
  *             .forceDestroy(true)
@@ -241,6 +247,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.rds.ClusterArgs;
  * import com.pulumi.aws.rds.ClusterInstance;
  * import com.pulumi.aws.rds.ClusterInstanceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -271,7 +278,9 @@ import javax.annotation.Nullable;
  *             .masterPassword("satsukimae")
  *             .masterUsername("maesatsuki")
  *             .skipFinalSnapshot(true)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("engineVersion")
+ *                 .build());
  * 
  *         var primaryClusterInstance = new ClusterInstance("primaryClusterInstance", ClusterInstanceArgs.builder()
  *             .applyImmediately(true)
@@ -307,6 +316,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.rds.GlobalCluster;
+ * import com.pulumi.aws.rds.GlobalClusterArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -320,7 +331,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new GlobalCluster("example");
+ *         var example = new GlobalCluster("example", GlobalClusterArgs.Empty, CustomResourceOptions.builder()
+ *             .ignoreChanges("sourceDbClusterIdentifier")
+ *             .build());
  * 
  *     }
  * }
@@ -331,14 +344,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/globalCluster:GlobalCluster")
 public class GlobalCluster extends com.pulumi.resources.CustomResource {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN).
+     * RDS Global Cluster ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return RDS Global Cluster Amazon Resource Name (ARN).
+     * @return RDS Global Cluster ARN.
      * 
      */
     public Output<String> arn() {
@@ -401,14 +414,14 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.engine;
     }
     /**
-     * The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     @Export(name="engineLifecycleSupport", refs={String.class}, tree="[0]")
     private Output<String> engineLifecycleSupport;
 
     /**
-     * @return The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+     * @return Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
      * 
      */
     public Output<String> engineLifecycleSupport() {
@@ -428,9 +441,17 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
+    /**
+     * Running version of the database engine.
+     * 
+     */
     @Export(name="engineVersionActual", refs={String.class}, tree="[0]")
     private Output<String> engineVersionActual;
 
+    /**
+     * @return Running version of the database engine.
+     * 
+     */
     public Output<String> engineVersionActual() {
         return this.engineVersionActual;
     }
@@ -509,35 +530,35 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     @Export(name="sourceDbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> sourceDbClusterIdentifier;
 
     /**
-     * @return Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
+     * @return ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `engine` and `engineVersion`. This allows upgrading the engine version of the Global Cluster.
      * 
      */
     public Output<String> sourceDbClusterIdentifier() {
         return this.sourceDbClusterIdentifier;
     }
     /**
-     * Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+     * @return Whether the DB cluster is encrypted. The default is `false` unless `sourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
      * 
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 
@@ -546,7 +567,7 @@ public class GlobalCluster extends com.pulumi.resources.CustomResource {
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; When both `sourceDbClusterIdentifier` and `engine`/`engineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `engine` and `engineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
      * 

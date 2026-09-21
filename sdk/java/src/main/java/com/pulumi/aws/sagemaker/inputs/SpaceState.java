@@ -20,14 +20,14 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
     public static final SpaceState Empty = new SpaceState();
 
     /**
-     * The space&#39;s Amazon Resource Name (ARN).
+     * Space&#39;s ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The space&#39;s Amazon Resource Name (ARN).
+     * @return Space&#39;s ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -235,7 +235,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The space&#39;s Amazon Resource Name (ARN).
+         * @param arn Space&#39;s ARN.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class SpaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The space&#39;s Amazon Resource Name (ARN).
+         * @param arn Space&#39;s ARN.
          * 
          * @return builder
          * 

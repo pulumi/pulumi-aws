@@ -59,12 +59,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
- *             .name("example")
- *             .role(exampleAwsIamRole.arn())
  *             .dynamodbTargets(CrawlerDynamodbTargetArgs.builder()
  *                 .path("table-name")
  *                 .build())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -98,13 +98,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
- *             .name("example")
- *             .role(exampleAwsIamRole.arn())
  *             .jdbcTargets(CrawlerJdbcTargetArgs.builder()
  *                 .connectionName(exampleAwsGlueConnection.name())
  *                 .path("database-name/%")
  *                 .build())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -138,12 +138,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
- *             .name("example")
- *             .role(exampleAwsIamRole.arn())
  *             .s3Targets(CrawlerS3TargetArgs.builder()
  *                 .path(String.format("s3://%s", exampleAwsS3Bucket.bucket()))
  *                 .build())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -162,8 +162,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.glue.Crawler;
  * import com.pulumi.aws.glue.CrawlerArgs;
- * import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
  * import com.pulumi.aws.glue.inputs.CrawlerSchemaChangePolicyArgs;
+ * import com.pulumi.aws.glue.inputs.CrawlerCatalogTargetArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -178,16 +178,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
- *             .name("example")
- *             .role(exampleAwsIamRole.arn())
+ *             .schemaChangePolicy(CrawlerSchemaChangePolicyArgs.builder()
+ *                 .deleteBehavior("LOG")
+ *                 .build())
  *             .catalogTargets(CrawlerCatalogTargetArgs.builder()
  *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
  *                 .tables(exampleAwsGlueCatalogTable.name())
  *                 .build())
- *             .schemaChangePolicy(CrawlerSchemaChangePolicyArgs.builder()
- *                 .deleteBehavior("LOG")
- *                 .build())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
  *             .configuration("""
  * {
  *   \"Version\":1.0,
@@ -229,13 +229,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Crawler("example", CrawlerArgs.builder()
- *             .databaseName(exampleAwsGlueCatalogDatabase.name())
- *             .name("example")
- *             .role(exampleAwsIamRole.arn())
  *             .mongodbTargets(CrawlerMongodbTargetArgs.builder()
  *                 .connectionName(exampleAwsGlueConnection.name())
  *                 .path("database-name/%")
  *                 .build())
+ *             .databaseName(exampleAwsGlueCatalogDatabase.name())
+ *             .name("example")
+ *             .role(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }
@@ -270,6 +270,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var eventsCrawler = new Crawler("eventsCrawler", CrawlerArgs.builder()
+ *             .s3Targets(CrawlerS3TargetArgs.builder()
+ *                 .path(String.format("s3://%s", dataLakeBucket.bucket()))
+ *                 .build())
  *             .databaseName(glueDatabase.name())
  *             .schedule("cron(0 1 * * ? *)")
  *             .name(String.format("events_crawler_%s", environmentName))
@@ -287,9 +290,6 @@ import javax.annotation.Nullable;
  *                     )),
  *                     jsonProperty("Version", 1)
  *                 )))
- *             .s3Targets(CrawlerS3TargetArgs.builder()
- *                 .path(String.format("s3://%s", dataLakeBucket.bucket()))
- *                 .build())
  *             .build());
  * 
  *     }

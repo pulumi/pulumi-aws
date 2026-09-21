@@ -516,7 +516,8 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example", name="izizavle")
+        example = aws.ec2.SecurityGroup("example", name="izizavle",
+        opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="2m")))
         ```
 
         ### Provisioners
@@ -542,8 +543,8 @@ class SecurityGroup(pulumi.CustomResource):
         example_provisioner0 = command.local.Command("exampleProvisioner0",
             create=true,
             update=true,
-            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\"Name=tag:Name,Values={tags.workaround1}\\" --query \\"VpcEndpoints[0].VpcEndpointId\\" --output text` &&
-                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
+            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\"Name=tag:Name,Values={example.tags.workaround1}\\" --query \\"VpcEndpoints[0].VpcEndpointId\\" --output text` &&
+                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {example.tags.workaround2} --remove-security-group-ids {example.id}
         ,
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_resource = null.Resource("example", triggers={
@@ -717,7 +718,8 @@ class SecurityGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.SecurityGroup("example", name="izizavle")
+        example = aws.ec2.SecurityGroup("example", name="izizavle",
+        opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(delete="2m")))
         ```
 
         ### Provisioners
@@ -743,8 +745,8 @@ class SecurityGroup(pulumi.CustomResource):
         example_provisioner0 = command.local.Command("exampleProvisioner0",
             create=true,
             update=true,
-            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\"Name=tag:Name,Values={tags.workaround1}\\" --query \\"VpcEndpoints[0].VpcEndpointId\\" --output text` &&
-                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {tags.workaround2} --remove-security-group-ids {id}
+            delete=f            ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \\"Name=tag:Name,Values={example.tags.workaround1}\\" --query \\"VpcEndpoints[0].VpcEndpointId\\" --output text` &&
+                    aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${{ENDPOINT_ID}} --add-security-group-ids {example.tags.workaround2} --remove-security-group-ids {example.id}
         ,
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_resource = null.Resource("example", triggers={

@@ -22,10 +22,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         region: "us-west-2",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *
@@ -37,11 +37,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         availabilityZoneName: "us-west-2b",
  *         kmsKeyId: "1234abcd-12ab-34cd-56ef-1234567890ab",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.efs.FileSystem("example", {});
  * const exampleReplicationConfiguration = new aws.efs.ReplicationConfiguration("example", {
- *     sourceFileSystemId: example.id,
  *     destination: {
  *         fileSystemId: "fs-1234567890",
  *         region: "us-west-2",
  *     },
+ *     sourceFileSystemId: example.id,
  * });
  * ```
  *
@@ -108,7 +108,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      */
     declare public readonly destination: pulumi.Output<outputs.efs.ReplicationConfigurationDestination>;
     /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * ARN of the original source Amazon EFS file system in the replication configuration.
      */
     declare public /*out*/ readonly originalSourceFileSystemArn: pulumi.Output<string>;
     /**
@@ -116,7 +116,7 @@ export class ReplicationConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * ARN of the current source file system in the replication configuration.
      */
     declare public /*out*/ readonly sourceFileSystemArn: pulumi.Output<string>;
     /**
@@ -184,7 +184,7 @@ export interface ReplicationConfigurationState {
      */
     destination?: pulumi.Input<inputs.efs.ReplicationConfigurationDestination | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * ARN of the original source Amazon EFS file system in the replication configuration.
      */
     originalSourceFileSystemArn?: pulumi.Input<string | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface ReplicationConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * ARN of the current source file system in the replication configuration.
      */
     sourceFileSystemArn?: pulumi.Input<string | undefined>;
     /**

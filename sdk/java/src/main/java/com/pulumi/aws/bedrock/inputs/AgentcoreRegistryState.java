@@ -19,50 +19,94 @@ public final class AgentcoreRegistryState extends com.pulumi.resources.ResourceA
 
     public static final AgentcoreRegistryState Empty = new AgentcoreRegistryState();
 
+    /**
+     * Approval configuration for registry records. See below.
+     * 
+     */
     @Import(name="approvalConfigurations")
     private @Nullable Output<List<AgentcoreRegistryApprovalConfigurationArgs>> approvalConfigurations;
 
+    /**
+     * @return Approval configuration for registry records. See below.
+     * 
+     */
     public Optional<Output<List<AgentcoreRegistryApprovalConfigurationArgs>>> approvalConfigurations() {
         return Optional.ofNullable(this.approvalConfigurations);
     }
 
+    /**
+     * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+     * 
+     */
     @Import(name="authorizerConfiguration")
     private @Nullable Output<AgentcoreRegistryAuthorizerConfigurationArgs> authorizerConfiguration;
 
+    /**
+     * @return Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+     * 
+     */
     public Optional<Output<AgentcoreRegistryAuthorizerConfigurationArgs>> authorizerConfiguration() {
         return Optional.ofNullable(this.authorizerConfiguration);
     }
 
+    /**
+     * Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+     * 
+     */
     @Import(name="authorizerType")
     private @Nullable Output<String> authorizerType;
 
+    /**
+     * @return Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+     * 
+     */
     public Optional<Output<String>> authorizerType() {
         return Optional.ofNullable(this.authorizerType);
     }
 
+    /**
+     * Description of the registry.
+     * 
+     */
     @Import(name="description")
     private @Nullable Output<String> description;
 
+    /**
+     * @return Description of the registry.
+     * 
+     */
     public Optional<Output<String>> description() {
         return Optional.ofNullable(this.description);
     }
 
+    /**
+     * Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     @Import(name="name")
     private @Nullable Output<String> name;
 
+    /**
+     * @return Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+     * 
+     * The following arguments are optional:
+     * 
+     */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
     }
 
     /**
-     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     @Import(name="region")
     private @Nullable Output<String> region;
 
     /**
-     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+     * @return Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
     public Optional<Output<String>> region() {
@@ -138,57 +182,127 @@ public final class AgentcoreRegistryState extends com.pulumi.resources.ResourceA
             $ = new AgentcoreRegistryState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param approvalConfigurations Approval configuration for registry records. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder approvalConfigurations(@Nullable Output<List<AgentcoreRegistryApprovalConfigurationArgs>> approvalConfigurations) {
             $.approvalConfigurations = approvalConfigurations;
             return this;
         }
 
+        /**
+         * @param approvalConfigurations Approval configuration for registry records. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder approvalConfigurations(List<AgentcoreRegistryApprovalConfigurationArgs> approvalConfigurations) {
             return approvalConfigurations(Output.of(approvalConfigurations));
         }
 
+        /**
+         * @param approvalConfigurations Approval configuration for registry records. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder approvalConfigurations(AgentcoreRegistryApprovalConfigurationArgs... approvalConfigurations) {
             return approvalConfigurations(List.of(approvalConfigurations));
         }
 
+        /**
+         * @param authorizerConfiguration Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizerConfiguration(@Nullable Output<AgentcoreRegistryAuthorizerConfigurationArgs> authorizerConfiguration) {
             $.authorizerConfiguration = authorizerConfiguration;
             return this;
         }
 
+        /**
+         * @param authorizerConfiguration Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizerConfiguration(AgentcoreRegistryAuthorizerConfigurationArgs authorizerConfiguration) {
             return authorizerConfiguration(Output.of(authorizerConfiguration));
         }
 
+        /**
+         * @param authorizerType Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizerType(@Nullable Output<String> authorizerType) {
             $.authorizerType = authorizerType;
             return this;
         }
 
+        /**
+         * @param authorizerType Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+         * 
+         * @return builder
+         * 
+         */
         public Builder authorizerType(String authorizerType) {
             return authorizerType(Output.of(authorizerType));
         }
 
+        /**
+         * @param description Description of the registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(@Nullable Output<String> description) {
             $.description = description;
             return this;
         }
 
+        /**
+         * @param description Description of the registry.
+         * 
+         * @return builder
+         * 
+         */
         public Builder description(String description) {
             return description(Output.of(description));
         }
 
+        /**
+         * @param name Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
 
+        /**
+         * @param name Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+         * 
+         * The following arguments are optional:
+         * 
+         * @return builder
+         * 
+         */
         public Builder name(String name) {
             return name(Output.of(name));
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 
@@ -199,7 +313,7 @@ public final class AgentcoreRegistryState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+         * @param region Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
          * 
          * @return builder
          * 

@@ -54,10 +54,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSdkvoiceVoiceProfileDomain = new SdkvoiceVoiceProfileDomain("exampleSdkvoiceVoiceProfileDomain", SdkvoiceVoiceProfileDomainArgs.builder()
- *             .name("ExampleVoiceProfileDomain")
  *             .serverSideEncryptionConfiguration(SdkvoiceVoiceProfileDomainServerSideEncryptionConfigurationArgs.builder()
  *                 .kmsKeyArn(example.arn())
  *                 .build())
+ *             .name("ExampleVoiceProfileDomain")
  *             .description("My Voice Profile Domain")
  *             .tags(Map.of("key1", "value1"))
  *             .build());

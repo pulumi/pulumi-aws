@@ -17,14 +17,14 @@ public final class GetContactChannelArgs extends com.pulumi.resources.InvokeArgs
     public static final GetContactChannelArgs Empty = new GetContactChannelArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
+     * @return ARN of the contact channel.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class GetContactChannelArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the contact channel.
+         * @param arn ARN of the contact channel.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class GetContactChannelArgs extends com.pulumi.resources.InvokeArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the contact channel.
+         * @param arn ARN of the contact channel.
          * 
          * @return builder
          * 

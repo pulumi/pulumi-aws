@@ -34,14 +34,14 @@ public final class EndpointAccessState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * ARN of the Redshift Serverless Endpoint Access.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * @return ARN of the Redshift Serverless Endpoint Access.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -223,7 +223,7 @@ public final class EndpointAccessState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+         * @param arn ARN of the Redshift Serverless Endpoint Access.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class EndpointAccessState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+         * @param arn ARN of the Redshift Serverless Endpoint Access.
          * 
          * @return builder
          * 

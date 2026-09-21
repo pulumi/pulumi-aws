@@ -28,24 +28,24 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // example, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
+// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// VpcId: pulumi.Any(exampleAwsVpc.Id),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,17-39)),
+// },
 // Name: pulumi.String("tf-example"),
 // Password: pulumi.String("SuperSecretPassw0rd"),
 // Type: pulumi.String("MicrosoftAD"),
 // Edition: pulumi.String("Standard"),
-// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:7,17-39)),
-// },
 // })
 // if err != nil {
 // return err
 // }
 // _, err = directoryservice.NewSharedDirectory(ctx, "example", &directoryservice.SharedDirectoryArgs{
-// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
-// Notes: pulumi.String("You wanna have a catch?"),
 // Target: &directoryservice.SharedDirectoryTargetArgs{
 // Id: pulumi.Any(receiver.AccountId),
 // },
+// DirectoryId: example.ID().ToIDOutput().ToStringOutput(),
+// Notes: pulumi.String("You wanna have a catch?"),
 // })
 // if err != nil {
 // return err

@@ -723,45 +723,41 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="TargetTrackingScaling",
             target_tracking_configuration={
-                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
-                            "label": "Get the queue size (the number of messages waiting to be processed)",
-                            "id": "m1",
                             "metric_stat": {
                                 "metric": {
-                                    "namespace": "AWS/SQS",
-                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "dimensions": [{
                                         "name": "QueueName",
                                         "value": "my-queue",
                                     }],
+                                    "namespace": "AWS/SQS",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                 },
                                 "stat": "Sum",
                                 "period": 10,
                             },
+                            "label": "Get the queue size (the number of messages waiting to be processed)",
+                            "id": "m1",
                             "return_data": False,
                         },
                         {
-                            "label": "Get the group size (the number of InService instances)",
-                            "id": "m2",
                             "metric_stat": {
                                 "metric": {
-                                    "namespace": "AWS/AutoScaling",
-                                    "metric_name": "GroupInServiceInstances",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-asg",
                                     }],
+                                    "namespace": "AWS/AutoScaling",
+                                    "metric_name": "GroupInServiceInstances",
                                 },
                                 "stat": "Average",
                                 "period": 10,
                             },
+                            "label": "Get the group size (the number of InService instances)",
+                            "id": "m2",
                             "return_data": False,
                         },
                         {
@@ -772,7 +768,11 @@ class Policy(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+                "target_value": float(100),
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="TargetTrackingScaling")
         ```
 
         ### Create predictive scaling policy using customized metrics
@@ -782,12 +782,8 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -818,8 +814,12 @@ class Policy(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "target_value": float(10),
                 },
-            })
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling")
         ```
 
         ### Create predictive scaling policy using customized scaling and predefined load metric
@@ -829,34 +829,34 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     },
                     "customized_scaling_metric_specification": {
                         "metric_data_queries": [{
-                            "id": "scaling",
                             "metric_stat": {
                                 "metric": {
-                                    "metric_name": "CPUUtilization",
-                                    "namespace": "AWS/EC2",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-test-asg",
                                     }],
+                                    "metric_name": "CPUUtilization",
+                                    "namespace": "AWS/EC2",
                                 },
                                 "stat": "Average",
                             },
+                            "id": "scaling",
                         }],
                     },
+                    "target_value": float(10),
                 },
-            })
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling")
         ```
 
         ## Import
@@ -983,45 +983,41 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="TargetTrackingScaling",
             target_tracking_configuration={
-                "target_value": float(100),
                 "customized_metric_specification": {
                     "metrics": [
                         {
-                            "label": "Get the queue size (the number of messages waiting to be processed)",
-                            "id": "m1",
                             "metric_stat": {
                                 "metric": {
-                                    "namespace": "AWS/SQS",
-                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                     "dimensions": [{
                                         "name": "QueueName",
                                         "value": "my-queue",
                                     }],
+                                    "namespace": "AWS/SQS",
+                                    "metric_name": "ApproximateNumberOfMessagesVisible",
                                 },
                                 "stat": "Sum",
                                 "period": 10,
                             },
+                            "label": "Get the queue size (the number of messages waiting to be processed)",
+                            "id": "m1",
                             "return_data": False,
                         },
                         {
-                            "label": "Get the group size (the number of InService instances)",
-                            "id": "m2",
                             "metric_stat": {
                                 "metric": {
-                                    "namespace": "AWS/AutoScaling",
-                                    "metric_name": "GroupInServiceInstances",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-asg",
                                     }],
+                                    "namespace": "AWS/AutoScaling",
+                                    "metric_name": "GroupInServiceInstances",
                                 },
                                 "stat": "Average",
                                 "period": 10,
                             },
+                            "label": "Get the group size (the number of InService instances)",
+                            "id": "m2",
                             "return_data": False,
                         },
                         {
@@ -1032,7 +1028,11 @@ class Policy(pulumi.CustomResource):
                         },
                     ],
                 },
-            })
+                "target_value": float(100),
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="TargetTrackingScaling")
         ```
 
         ### Create predictive scaling policy using customized metrics
@@ -1042,12 +1042,8 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": float(10),
                     "customized_load_metric_specification": {
                         "metric_data_queries": [{
                             "id": "load_sum",
@@ -1078,8 +1074,12 @@ class Policy(pulumi.CustomResource):
                             },
                         ],
                     },
+                    "target_value": float(10),
                 },
-            })
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling")
         ```
 
         ### Create predictive scaling policy using customized scaling and predefined load metric
@@ -1089,34 +1089,34 @@ class Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.autoscaling.Policy("example",
-            autoscaling_group_name="my-test-asg",
-            name="foo",
-            policy_type="PredictiveScaling",
             predictive_scaling_configuration={
                 "metric_specification": {
-                    "target_value": float(10),
                     "predefined_load_metric_specification": {
                         "predefined_metric_type": "ASGTotalCPUUtilization",
                         "resource_label": "app/my-alb/778d41231b141a0f/targetgroup/my-alb-target-group/943f017f100becff",
                     },
                     "customized_scaling_metric_specification": {
                         "metric_data_queries": [{
-                            "id": "scaling",
                             "metric_stat": {
                                 "metric": {
-                                    "metric_name": "CPUUtilization",
-                                    "namespace": "AWS/EC2",
                                     "dimensions": [{
                                         "name": "AutoScalingGroupName",
                                         "value": "my-test-asg",
                                     }],
+                                    "metric_name": "CPUUtilization",
+                                    "namespace": "AWS/EC2",
                                 },
                                 "stat": "Average",
                             },
+                            "id": "scaling",
                         }],
                     },
+                    "target_value": float(10),
                 },
-            })
+            },
+            autoscaling_group_name="my-test-asg",
+            name="foo",
+            policy_type="PredictiveScaling")
         ```
 
         ## Import

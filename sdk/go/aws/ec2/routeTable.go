@@ -44,7 +44,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewRouteTable(ctx, "example", &ec2.RouteTableArgs{
-//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.0.1.0/24"),
@@ -55,6 +54,7 @@ import (
 //						EgressOnlyGatewayId: pulumi.Any(exampleAwsEgressOnlyInternetGateway.Id),
 //					},
 //				},
+//				VpcId: pulumi.Any(exampleAwsVpc.Id),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example"),
 //				},
@@ -123,13 +123,13 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewRouteTable(ctx, "test", &ec2.RouteTableArgs{
-//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock: pulumi.String("10.1.0.0/16"),
 //						GatewayId: pulumi.String("local"),
 //					},
 //				},
+//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -174,13 +174,13 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewRouteTable(ctx, "test", &ec2.RouteTableArgs{
-//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
 //				Routes: ec2.RouteTableRouteArray{
 //					&ec2.RouteTableRouteArgs{
 //						CidrBlock:          test.CidrBlock,
 //						NetworkInterfaceId: testNetworkInterface.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				VpcId: test.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

@@ -105,7 +105,7 @@ import (
 type ProtectionHealthCheckAssociation struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn pulumi.StringOutput `pulumi:"healthCheckArn"`
 	// The ID of the protected resource.
 	ShieldProtectionId pulumi.StringOutput `pulumi:"shieldProtectionId"`
@@ -147,14 +147,14 @@ func GetProtectionHealthCheckAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProtectionHealthCheckAssociation resources.
 type protectionHealthCheckAssociationState struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn *string `pulumi:"healthCheckArn"`
 	// The ID of the protected resource.
 	ShieldProtectionId *string `pulumi:"shieldProtectionId"`
 }
 
 type ProtectionHealthCheckAssociationState struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn pulumi.StringPtrInput
 	// The ID of the protected resource.
 	ShieldProtectionId pulumi.StringPtrInput
@@ -165,7 +165,7 @@ func (ProtectionHealthCheckAssociationState) ElementType() reflect.Type {
 }
 
 type protectionHealthCheckAssociationArgs struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn string `pulumi:"healthCheckArn"`
 	// The ID of the protected resource.
 	ShieldProtectionId string `pulumi:"shieldProtectionId"`
@@ -173,7 +173,7 @@ type protectionHealthCheckAssociationArgs struct {
 
 // The set of arguments for constructing a ProtectionHealthCheckAssociation resource.
 type ProtectionHealthCheckAssociationArgs struct {
-	// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+	// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 	HealthCheckArn pulumi.StringInput
 	// The ID of the protected resource.
 	ShieldProtectionId pulumi.StringInput
@@ -266,7 +266,7 @@ func (o ProtectionHealthCheckAssociationOutput) ToProtectionHealthCheckAssociati
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+// ARN of the Route53 Health Check resource which will be associated to the protected resource.
 func (o ProtectionHealthCheckAssociationOutput) HealthCheckArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProtectionHealthCheckAssociation) pulumi.StringOutput { return v.HealthCheckArn }).(pulumi.StringOutput)
 }

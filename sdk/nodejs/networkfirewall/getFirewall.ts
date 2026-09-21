@@ -110,7 +110,7 @@ export interface GetFirewallResult {
      */
     readonly enabledAnalysisTypes: string[];
     /**
-     * AWS Key Management Service (AWS KMS) encryption settings for the firewall.
+     * KMS encryption settings for the firewall.
      */
     readonly encryptionConfigurations: outputs.networkfirewall.GetFirewallEncryptionConfiguration[];
     /**

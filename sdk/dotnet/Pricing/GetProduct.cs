@@ -27,7 +27,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonEC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -66,6 +65,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "Used",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonEC2",
         ///     });
         /// 
         /// });
@@ -81,7 +81,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonRedshift",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -95,6 +94,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "US East (N. Virginia)",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonRedshift",
         ///     });
         /// 
         /// });
@@ -119,7 +119,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonEC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -158,6 +157,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "Used",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonEC2",
         ///     });
         /// 
         /// });
@@ -173,7 +173,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonRedshift",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -187,6 +186,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "US East (N. Virginia)",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonRedshift",
         ///     });
         /// 
         /// });
@@ -211,7 +211,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonEC2",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -250,6 +249,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "Used",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonEC2",
         ///     });
         /// 
         /// });
@@ -265,7 +265,6 @@ namespace Pulumi.Aws.Pricing
         /// {
         ///     var example = Aws.Pricing.GetProduct.Invoke(new()
         ///     {
-        ///         ServiceCode = "AmazonRedshift",
         ///         Filters = new[]
         ///         {
         ///             new Aws.Pricing.Inputs.GetProductFilterInputArgs
@@ -279,6 +278,7 @@ namespace Pulumi.Aws.Pricing
         ///                 Value = "US East (N. Virginia)",
         ///             },
         ///         },
+        ///         ServiceCode = "AmazonRedshift",
         ///     });
         /// 
         /// });

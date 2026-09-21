@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreMemoryStrategyConfigurationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Consolidation configuration for the memory strategy. See `Consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+        /// Consolidation configuration for the memory strategy. See `Consolidation` Block below. Cannot be used with `Type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         [Input("consolidation")]
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs>? Consolidation { get; set; }
 
         /// <summary>
-        /// Extraction configuration for the memory strategy. See `Extraction` Block below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        /// Extraction configuration for the memory strategy. See `Extraction` Block below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         [Input("extraction")]
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs>? Extraction { get; set; }
@@ -31,7 +31,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<Inputs.AgentcoreMemoryStrategyConfigurationReflectionArgs>? Reflection { get; set; }
 
         /// <summary>
-        /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+        /// Self-managed processing configuration. Required when `Type` is `SELF_MANAGED` and only valid for that type. See `SelfManagedConfiguration` Block below.
+        /// </summary>
+        [Input("selfManagedConfiguration")]
+        public Input<Inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs>? SelfManagedConfiguration { get; set; }
+
+        /// <summary>
+        /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;

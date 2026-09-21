@@ -44,8 +44,6 @@ namespace Pulumi.Aws.ResilienceHub.Inputs
 
         /// <summary>
         /// S3 URL.
-        /// 
-        /// Exactly one attribute must be configured.
         /// </summary>
         [Input("tfStateFileUrl")]
         public Input<string>? TfStateFileUrl { get; set; }

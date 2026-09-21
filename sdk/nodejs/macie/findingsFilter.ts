@@ -18,16 +18,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.macie2.Account("example", {});
  * const test = new aws.macie.FindingsFilter("test", {
- *     name: "NAME OF THE FINDINGS FILTER",
- *     description: "DESCRIPTION",
- *     position: 1,
- *     action: "ARCHIVE",
  *     findingCriteria: {
  *         criterions: [{
  *             field: "region",
  *             eqs: [current.region],
  *         }],
  *     },
+ *     name: "NAME OF THE FINDINGS FILTER",
+ *     description: "DESCRIPTION",
+ *     position: 1,
+ *     action: "ARCHIVE",
  * }, {
  *     dependsOn: [testAwsMacie2Account],
  * });
@@ -74,7 +74,7 @@ export class FindingsFilter extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export interface FindingsFilterState {
      */
     action?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Findings Filter.
+     * ARN of the Findings Filter.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

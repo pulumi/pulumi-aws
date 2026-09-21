@@ -35,7 +35,7 @@ class MlflowAppArgs:
         The set of arguments for constructing a MlflowApp resource.
 
         :param pulumi.Input[_builtins.str] artifact_store_uri: S3 URI for a general purpose bucket to use as the MLflow App artifact store.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         :param pulumi.Input[_builtins.str] account_default_status: Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_domain_id_lists: List of SageMaker domain IDs for which this MLflow App is used as the default.
         :param pulumi.Input[_builtins.str] model_registration_mode: Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
@@ -79,7 +79,7 @@ class MlflowAppArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         """
         return pulumi.get(self, "role_arn")
 
@@ -200,13 +200,13 @@ class _MlflowAppState:
         Input properties used for looking up and filtering MlflowApp resources.
 
         :param pulumi.Input[_builtins.str] account_default_status: Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the MLflow App.
+        :param pulumi.Input[_builtins.str] arn: ARN of the MLflow App.
         :param pulumi.Input[_builtins.str] artifact_store_uri: S3 URI for a general purpose bucket to use as the MLflow App artifact store.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_domain_id_lists: List of SageMaker domain IDs for which this MLflow App is used as the default.
         :param pulumi.Input[_builtins.str] model_registration_mode: Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
         :param pulumi.Input[_builtins.str] name: MLflow app name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: `SUN:03:00`.
@@ -252,7 +252,7 @@ class _MlflowAppState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the MLflow App.
+        ARN of the MLflow App.
         """
         return pulumi.get(self, "arn")
 
@@ -324,7 +324,7 @@ class _MlflowAppState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         """
         return pulumi.get(self, "role_arn")
 
@@ -435,7 +435,7 @@ class MlflowApp(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] model_registration_mode: Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
         :param pulumi.Input[_builtins.str] name: MLflow app name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: `SUN:03:00`.
         """
@@ -557,13 +557,13 @@ class MlflowApp(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_default_status: Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the MLflow App.
+        :param pulumi.Input[_builtins.str] arn: ARN of the MLflow App.
         :param pulumi.Input[_builtins.str] artifact_store_uri: S3 URI for a general purpose bucket to use as the MLflow App artifact store.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] default_domain_id_lists: List of SageMaker domain IDs for which this MLflow App is used as the default.
         :param pulumi.Input[_builtins.str] model_registration_mode: Whether to enable or disable automatic registration of new MLflow models to the SageMaker Model Registry. Valid values are `AutoModelRegistrationEnabled` and `AutoModelRegistrationDisabled`. Defaults to `AutoModelRegistrationDisabled`.
         :param pulumi.Input[_builtins.str] name: MLflow app name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        :param pulumi.Input[_builtins.str] role_arn: ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] weekly_maintenance_window_start: Day and time of the week in Coordinated Universal Time (UTC) 24-hour standard time that weekly maintenance updates are scheduled. For example: `SUN:03:00`.
@@ -598,7 +598,7 @@ class MlflowApp(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the MLflow App.
+        ARN of the MLflow App.
         """
         return pulumi.get(self, "arn")
 
@@ -646,7 +646,7 @@ class MlflowApp(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+        ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
         """
         return pulumi.get(self, "role_arn")
 

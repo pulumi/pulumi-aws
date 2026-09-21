@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentialsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The AWS region for the credentials.
+        /// AWS region for the credentials.
         /// </summary>
         [Input("region")]
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The service name for the credentials.
+        /// Service name for the credentials.
         /// </summary>
         [Input("service", required: true)]
         public Input<string> Service { get; set; } = null!;

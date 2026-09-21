@@ -75,54 +75,6 @@ import javax.annotation.Nullable;
  * 
  * ### Disabling security control in all standards
  * 
- * <pre>
- * {@code
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.aws.securityhub.Account;
- * import com.pulumi.aws.securityhub.SecurityhubFunctions;
- * import com.pulumi.aws.securityhub.inputs.GetStandardsControlAssociationsArgs;
- * import com.pulumi.aws.securityhub.StandardsControlAssociation;
- * import com.pulumi.aws.securityhub.StandardsControlAssociationArgs;
- * import com.pulumi.codegen.internal.KeyedValue;
- * import java.util.ArrayList;
- * import java.util.Arrays;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var example = new Account("example");
- * 
- *         final var iam1 = SecurityhubFunctions.getStandardsControlAssociations(GetStandardsControlAssociationsArgs.builder()
- *             .securityControlId("IAM.1")
- *             .build());
- * 
- *         for (var range : KeyedValue.of(com.pulumi.std.StdFunctions(com.pulumi.std.inputs.TosetArgs.builder()
- *             .input(iam1.standardsControlAssociations().stream().map(element -> element.standardsArn()).collect(toList()))
- *             .build()).result())) {
- *             new StandardsControlAssociation("iam1StandardsControlAssociation-" + range.key(), StandardsControlAssociationArgs.builder()
- *                 .standardsArn(range.key())
- *                 .securityControlId(iam1.securityControlId())
- *                 .associationStatus("DISABLED")
- *                 .updatedReason("Not needed")
- *                 .build());
- *         }
- * 
- *     }
- * }
- * }
- * </pre>
- * 
  * ## Import
  * 
  * ### Identity Schema
@@ -189,7 +141,7 @@ public class StandardsControlAssociation extends com.pulumi.resources.CustomReso
         return this.securityControlId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 
@@ -198,7 +150,7 @@ public class StandardsControlAssociation extends com.pulumi.resources.CustomReso
     private Output<String> standardsArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the standard in which you want to update the control&#39;s enablement status.
+     * @return ARN of the standard in which you want to update the control&#39;s enablement status.
      * 
      * The following arguments are optional:
      * 

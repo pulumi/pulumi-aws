@@ -29,14 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				ExecutableUsers: []string{
-//					"self",
-//				},
-//				MostRecent: pulumi.BoolRef(true),
-//				NameRegex:  pulumi.StringRef("^myami-[0-9]{3}"),
-//				Owners: []string{
-//					"self",
-//				},
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -56,6 +48,14 @@ import (
 //							"hvm",
 //						},
 //					},
+//				},
+//				ExecutableUsers: []string{
+//					"self",
+//				},
+//				MostRecent: pulumi.BoolRef(true),
+//				NameRegex:  pulumi.StringRef("^myami-[0-9]{3}"),
+//				Owners: []string{
+//					"self",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -184,12 +184,8 @@ type LookupAmiResult struct {
 }
 
 func LookupAmiOutput(ctx *pulumi.Context, args LookupAmiOutputArgs, opts ...pulumi.InvokeOption) LookupAmiResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAmiResultOutput, error) {
-			args := v.(LookupAmiArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getAmi:getAmi", args, LookupAmiResultOutput{}, options).(LookupAmiResultOutput), nil
-		}).(LookupAmiResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getAmi:getAmi", args, LookupAmiResultOutput{}, options).(LookupAmiResultOutput)
 }
 
 // A collection of arguments for invoking getAmi.

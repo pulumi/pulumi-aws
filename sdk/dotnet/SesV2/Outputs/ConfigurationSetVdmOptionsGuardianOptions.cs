@@ -14,7 +14,7 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetVdmOptionsGuardianOptions
     {
         /// <summary>
-        /// Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        /// Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         /// </summary>
         public readonly string? OptimizedSharedDelivery;
 

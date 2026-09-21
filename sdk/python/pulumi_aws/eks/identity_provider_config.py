@@ -103,7 +103,7 @@ class _IdentityProviderConfigState:
         """
         Input properties used for looking up and filtering IdentityProviderConfig resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Identity Provider Configuration.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input['IdentityProviderConfigOidcArgs'] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -132,7 +132,7 @@ class _IdentityProviderConfigState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+        ARN of the EKS Identity Provider Configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -243,12 +243,12 @@ class IdentityProviderConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=example_aws_eks_cluster["name"],
             oidc={
                 "client_id": "your client_id",
                 "identity_provider_config_name": "example",
                 "issuer_url": "your issuer_url",
-            })
+            },
+            cluster_name=example_aws_eks_cluster["name"])
         ```
 
         ## Import
@@ -295,12 +295,12 @@ class IdentityProviderConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.eks.IdentityProviderConfig("example",
-            cluster_name=example_aws_eks_cluster["name"],
             oidc={
                 "client_id": "your client_id",
                 "identity_provider_config_name": "example",
                 "issuer_url": "your issuer_url",
-            })
+            },
+            cluster_name=example_aws_eks_cluster["name"])
         ```
 
         ## Import
@@ -389,7 +389,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EKS Identity Provider Configuration.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[Union['IdentityProviderConfigOidcArgs', 'IdentityProviderConfigOidcArgsDict']] oidc: Nested attribute containing [OpenID Connect](https://openid.net/connect/) identity provider information for the cluster. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -415,7 +415,7 @@ class IdentityProviderConfig(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+        ARN of the EKS Identity Provider Configuration.
         """
         return pulumi.get(self, "arn")
 

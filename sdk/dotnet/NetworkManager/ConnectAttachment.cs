@@ -35,13 +35,13 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
     ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
     ///         {
     ///             Protocol = "GRE",
     ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
     ///     });
     /// 
     /// });
@@ -72,13 +72,13 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     ///     var exampleConnectAttachment = new Aws.NetworkManager.ConnectAttachment("example", new()
     ///     {
-    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
-    ///         TransportAttachmentId = example.Id,
-    ///         EdgeLocation = example.EdgeLocation,
     ///         Options = new Aws.NetworkManager.Inputs.ConnectAttachmentOptionsArgs
     ///         {
     ///             Protocol = "GRE",
     ///         },
+    ///         CoreNetworkId = exampleAwsccNetworkmanagerCoreNetwork.Id,
+    ///         TransportAttachmentId = example.Id,
+    ///         EdgeLocation = example.EdgeLocation,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

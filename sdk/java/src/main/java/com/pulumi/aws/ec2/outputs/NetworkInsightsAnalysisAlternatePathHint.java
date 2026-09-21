@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class NetworkInsightsAnalysisAlternatePathHint {
     /**
-     * @return The Amazon Resource Name (ARN) of the component.
+     * @return ARN of the component.
      * 
      */
     private @Nullable String componentArn;
@@ -24,7 +24,7 @@ public final class NetworkInsightsAnalysisAlternatePathHint {
 
     private NetworkInsightsAnalysisAlternatePathHint() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the component.
+     * @return ARN of the component.
      * 
      */
     public Optional<String> componentArn() {

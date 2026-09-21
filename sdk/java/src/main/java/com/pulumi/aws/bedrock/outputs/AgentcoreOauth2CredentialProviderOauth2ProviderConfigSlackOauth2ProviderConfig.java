@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.outputs;
 
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.Integer;
@@ -14,44 +15,118 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+    /**
+     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+     * 
+     * **Microsoft-Specific Configuration:**
+     * 
+     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+     * 
+     * **Standard Tenant ID:**
+     * 
+     */
     private @Nullable Integer clientCredentialsWoVersion;
+    /**
+     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * 
+     */
     private @Nullable String clientId;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     private @Nullable String clientIdWo;
+    /**
+     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+     * 
+     * **Write-Only Credentials (choose one pair):**
+     * 
+     */
     private @Nullable String clientSecret;
     /**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+     * 
+     * **Advanced Configuration:**
+     * 
+     */
+    private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig clientSecretConfig;
+    /**
+     * @return Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+     * 
+     */
+    private @Nullable String clientSecretSource;
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     private @Nullable String clientSecretWo;
     /**
      * @return OAuth discovery configuration. See `oauthDiscovery` below.
      * 
+     * **Externally-Managed Client Secret:**
+     * 
      */
     private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
 
     private AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig() {}
+    /**
+     * @return Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+     * 
+     * **Microsoft-Specific Configuration:**
+     * 
+     * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+     * 
+     * **Standard Tenant ID:**
+     * 
+     */
     public Optional<Integer> clientCredentialsWoVersion() {
         return Optional.ofNullable(this.clientCredentialsWoVersion);
     }
+    /**
+     * @return OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+     * 
+     */
     public Optional<String> clientId() {
         return Optional.ofNullable(this.clientId);
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     public Optional<String> clientIdWo() {
         return Optional.ofNullable(this.clientIdWo);
     }
+    /**
+     * @return OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+     * 
+     * **Write-Only Credentials (choose one pair):**
+     * 
+     */
     public Optional<String> clientSecret() {
         return Optional.ofNullable(this.clientSecret);
     }
     /**
+     * @return Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+     * 
+     * **Advanced Configuration:**
+     * 
+     */
+    public Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig> clientSecretConfig() {
+        return Optional.ofNullable(this.clientSecretConfig);
+    }
+    /**
+     * @return Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+     * 
+     */
+    public Optional<String> clientSecretSource() {
+        return Optional.ofNullable(this.clientSecretSource);
+    }
+    /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
      * 
      */
     public Optional<String> clientSecretWo() {
@@ -59,6 +134,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
     }
     /**
      * @return OAuth discovery configuration. See `oauthDiscovery` below.
+     * 
+     * **Externally-Managed Client Secret:**
      * 
      */
     public List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery> oauthDiscoveries() {
@@ -78,6 +155,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
         private @Nullable String clientId;
         private @Nullable String clientIdWo;
         private @Nullable String clientSecret;
+        private @Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig clientSecretConfig;
+        private @Nullable String clientSecretSource;
         private @Nullable String clientSecretWo;
         private @Nullable List<AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery> oauthDiscoveries;
         public Builder() {}
@@ -87,6 +166,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
     	      this.clientId = defaults.clientId;
     	      this.clientIdWo = defaults.clientIdWo;
     	      this.clientSecret = defaults.clientSecret;
+    	      this.clientSecretConfig = defaults.clientSecretConfig;
+    	      this.clientSecretSource = defaults.clientSecretSource;
     	      this.clientSecretWo = defaults.clientSecretWo;
     	      this.oauthDiscoveries = defaults.oauthDiscoveries;
         }
@@ -116,6 +197,18 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
             return this;
         }
         @CustomType.Setter
+        public Builder clientSecretConfig(@Nullable AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig clientSecretConfig) {
+
+            this.clientSecretConfig = clientSecretConfig;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder clientSecretSource(@Nullable String clientSecretSource) {
+
+            this.clientSecretSource = clientSecretSource;
+            return this;
+        }
+        @CustomType.Setter
         public Builder clientSecretWo(@Nullable String clientSecretWo) {
 
             this.clientSecretWo = clientSecretWo;
@@ -136,6 +229,8 @@ public final class AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOau
             _resultValue.clientId = clientId;
             _resultValue.clientIdWo = clientIdWo;
             _resultValue.clientSecret = clientSecret;
+            _resultValue.clientSecretConfig = clientSecretConfig;
+            _resultValue.clientSecretSource = clientSecretSource;
             _resultValue.clientSecretWo = clientSecretWo;
             _resultValue.oauthDiscoveries = oauthDiscoveries;
             return _resultValue;

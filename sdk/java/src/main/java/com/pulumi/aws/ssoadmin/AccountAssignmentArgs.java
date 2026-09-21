@@ -17,14 +17,14 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
     public static final AccountAssignmentArgs Empty = new AccountAssignmentArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      * 
      */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * @return ARN of the SSO Instance.
      * 
      */
     public Output<String> instanceArn() {
@@ -32,14 +32,14 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * ARN of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
     @Import(name="permissionSetArn", required=true)
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+     * @return ARN of the Permission Set that the admin wants to grant the principal access to.
      * 
      */
     public Output<String> permissionSetArn() {
@@ -152,7 +152,7 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
+         * @param instanceArn ARN of the SSO Instance.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance.
+         * @param instanceArn ARN of the SSO Instance.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+         * @param permissionSetArn ARN of the Permission Set that the admin wants to grant the principal access to.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class AccountAssignmentArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set that the admin wants to grant the principal access to.
+         * @param permissionSetArn ARN of the Permission Set that the admin wants to grant the principal access to.
          * 
          * @return builder
          * 

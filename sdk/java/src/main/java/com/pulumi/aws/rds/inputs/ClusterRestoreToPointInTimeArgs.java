@@ -32,16 +32,14 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
     }
 
     /**
-     * Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
      * 
      */
     @Import(name="restoreType")
     private @Nullable Output<String> restoreType;
 
     /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * @return Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
      * 
      */
     public Optional<Output<String>> restoreType() {
@@ -143,8 +141,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreType Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * @param restoreType Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
          * 
          * @return builder
          * 
@@ -155,8 +152,7 @@ public final class ClusterRestoreToPointInTimeArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param restoreType Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * @param restoreType Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
          * 
          * @return builder
          * 

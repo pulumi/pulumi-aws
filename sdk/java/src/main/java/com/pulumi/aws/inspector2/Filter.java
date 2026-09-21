@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Filter("example", FilterArgs.builder()
- *             .name("test")
- *             .action("NONE")
  *             .filterCriterias(FilterFilterCriteriaArgs.builder()
  *                 .awsAccountIds(FilterFilterCriteriaAwsAccountIdArgs.builder()
  *                     .comparison("EQUALS")
  *                     .value("111222333444")
  *                     .build())
  *                 .build())
+ *             .name("test")
+ *             .action("NONE")
  *             .build());
  * 
  *     }
@@ -70,7 +70,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Inspector filter.
+ * - `arn` (String) ARN of the Inspector filter.
  * 
  * Using `pulumi import`, import Inspector Filter using the `arn`. For example:
  * 

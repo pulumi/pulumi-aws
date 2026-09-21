@@ -54,15 +54,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var some = new Canary("some", CanaryArgs.builder()
+ *             .schedule(CanaryScheduleArgs.builder()
+ *                 .expression("rate(0 minute)")
+ *                 .build())
  *             .name("some-canary")
  *             .artifactS3Location("s3://some-bucket/")
  *             .executionRoleArn("some-role")
  *             .handler("exports.handler")
  *             .zipFile("test-fixtures/lambdatest.zip")
  *             .runtimeVersion("syn-1.0")
- *             .schedule(CanaryScheduleArgs.builder()
- *                 .expression("rate(0 minute)")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:synthetics/canary:Canary")
 public class Canary extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Canary.
+     * ARN of the Canary.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Canary.
+     * @return ARN of the Canary.
      * 
      */
     public Output<String> arn() {
@@ -192,6 +192,20 @@ public class Canary extends com.pulumi.resources.CustomResource {
      */
     public Output<String> handler() {
         return this.handler;
+    }
+    /**
+     * ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    @Export(name="kmsKeyArn", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kmsKeyArn;
+
+    /**
+     * @return ARN of the customer-managed KMS key used to encrypt the environment variables of the canary&#39;s Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+     * 
+     */
+    public Output<Optional<String>> kmsKeyArn() {
+        return Codegen.optional(this.kmsKeyArn);
     }
     /**
      * Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.

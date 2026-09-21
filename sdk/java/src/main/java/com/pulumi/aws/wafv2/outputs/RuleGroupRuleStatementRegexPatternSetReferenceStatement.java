@@ -17,7 +17,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
     /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * @return ARN of the Regex Pattern Set that this statement references.
      * 
      */
     private String arn;
@@ -41,7 +41,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatement {
 
     private RuleGroupRuleStatementRegexPatternSetReferenceStatement() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * @return ARN of the Regex Pattern Set that this statement references.
      * 
      */
     public String arn() {

@@ -71,7 +71,7 @@ export class TopicRuleDestination extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      */
     declare public readonly vpcConfiguration: pulumi.Output<outputs.iot.TopicRuleDestinationVpcConfiguration>;
 
@@ -124,7 +124,7 @@ export interface TopicRuleDestinationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      */
     vpcConfiguration?: pulumi.Input<inputs.iot.TopicRuleDestinationVpcConfiguration | undefined>;
 }
@@ -142,7 +142,7 @@ export interface TopicRuleDestinationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      */
     vpcConfiguration: pulumi.Input<inputs.iot.TopicRuleDestinationVpcConfiguration>;
 }

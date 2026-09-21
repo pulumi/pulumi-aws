@@ -166,11 +166,7 @@ class RecordsExclusive(pulumi.CustomResource):
             name="example.com",
             force_destroy=True)
         test = aws.route53.RecordsExclusive("test",
-            zone_id=test_aws_route53_zone["zoneId"],
             resource_record_sets=[{
-                "name": "subdomain.example.com",
-                "type": "A",
-                "ttl": 30,
                 "resource_records": [
                     {
                         "value": "127.0.0.1",
@@ -179,7 +175,11 @@ class RecordsExclusive(pulumi.CustomResource):
                         "value": "127.0.0.27",
                     },
                 ],
-            }])
+                "name": "subdomain.example.com",
+                "type": "A",
+                "ttl": 30,
+            }],
+            zone_id=test_aws_route53_zone["zoneId"])
         ```
 
         ### Disallow Record Sets
@@ -239,11 +239,7 @@ class RecordsExclusive(pulumi.CustomResource):
             name="example.com",
             force_destroy=True)
         test = aws.route53.RecordsExclusive("test",
-            zone_id=test_aws_route53_zone["zoneId"],
             resource_record_sets=[{
-                "name": "subdomain.example.com",
-                "type": "A",
-                "ttl": 30,
                 "resource_records": [
                     {
                         "value": "127.0.0.1",
@@ -252,7 +248,11 @@ class RecordsExclusive(pulumi.CustomResource):
                         "value": "127.0.0.27",
                     },
                 ],
-            }])
+                "name": "subdomain.example.com",
+                "type": "A",
+                "ttl": 30,
+            }],
+            zone_id=test_aws_route53_zone["zoneId"])
         ```
 
         ### Disallow Record Sets

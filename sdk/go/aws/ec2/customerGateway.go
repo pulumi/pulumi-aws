@@ -61,7 +61,7 @@ type CustomerGateway struct {
 	BgpAsn pulumi.StringPtrOutput `pulumi:"bgpAsn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 	BgpAsnExtended pulumi.StringPtrOutput `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// ARN for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrOutput `pulumi:"deviceName"`
@@ -117,7 +117,7 @@ type customerGatewayState struct {
 	BgpAsn *string `pulumi:"bgpAsn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// ARN for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
@@ -141,7 +141,7 @@ type CustomerGatewayState struct {
 	BgpAsn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 	BgpAsnExtended pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// ARN for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrInput
@@ -167,7 +167,7 @@ type customerGatewayArgs struct {
 	BgpAsn *string `pulumi:"bgpAsn"`
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 	BgpAsnExtended *string `pulumi:"bgpAsnExtended"`
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// ARN for the customer gateway certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// A name for the customer gateway device.
 	DeviceName *string `pulumi:"deviceName"`
@@ -188,7 +188,7 @@ type CustomerGatewayArgs struct {
 	BgpAsn pulumi.StringPtrInput
 	// The gateway's Border Gateway Protocol (BGP) Autonomous System Number (ASN). Valid values are from  `2147483648` to `4294967295` Conflicts with `bgpAsn`.
 	BgpAsnExtended pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the customer gateway certificate.
+	// ARN for the customer gateway certificate.
 	CertificateArn pulumi.StringPtrInput
 	// A name for the customer gateway device.
 	DeviceName pulumi.StringPtrInput
@@ -305,7 +305,7 @@ func (o CustomerGatewayOutput) BgpAsnExtended() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.BgpAsnExtended }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the customer gateway certificate.
+// ARN for the customer gateway certificate.
 func (o CustomerGatewayOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomerGateway) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }

@@ -23,7 +23,7 @@ public final class StateMachineLoggingConfiguration {
      */
     private @Nullable String level;
     /**
-     * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+     * @return ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
     private @Nullable String logDestination;
@@ -44,7 +44,7 @@ public final class StateMachineLoggingConfiguration {
         return Optional.ofNullable(this.level);
     }
     /**
-     * @return Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+     * @return ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
      * 
      */
     public Optional<String> logDestination() {

@@ -17,16 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.imagebuilder.ContainerRecipe("example", {
- *     name: "example",
- *     version: "1.0.0",
- *     containerType: "DOCKER",
- *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
  *     targetRepository: {
  *         repositoryName: exampleAwsEcrRepository.name,
  *         service: "ECR",
  *     },
  *     components: [{
- *         componentArn: exampleAwsImagebuilderComponent.arn,
  *         parameters: [
  *             {
  *                 name: "Parameter1",
@@ -37,7 +32,12 @@ import * as utilities from "../utilities";
  *                 value: "Value2",
  *             },
  *         ],
+ *         componentArn: exampleAwsImagebuilderComponent.arn,
  *     }],
+ *     name: "example",
+ *     version: "1.0.0",
+ *     containerType: "DOCKER",
+ *     parentImage: "arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
  *     dockerfileTemplateData: `FROM {{{ imagebuilder:parentImage }}}
  * {{{ imagebuilder:environments }}}
  * {{{ imagebuilder:components }}}
@@ -51,9 +51,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
+ * - `arn` (String) ARN of the Image Builder container recipe.
  *
- * Using `pulumi import`, import `aws.imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ContainerRecipe` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -88,7 +88,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
     }
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the container recipe.
+     * (Required) ARN of the container recipe.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -257,7 +257,7 @@ export class ContainerRecipe extends pulumi.CustomResource {
  */
 export interface ContainerRecipeState {
     /**
-     * (Required) Amazon Resource Name (ARN) of the container recipe.
+     * (Required) ARN of the container recipe.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

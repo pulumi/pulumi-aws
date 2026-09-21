@@ -143,7 +143,7 @@ class EndpointClientConnectOptions(dict):
                  lambda_function_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Indicates whether client connect options are enabled. The default is `false` (not enabled).
-        :param _builtins.str lambda_function_arn: The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        :param _builtins.str lambda_function_arn: ARN of the Lambda function used for connection authorization.
         """
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
@@ -162,7 +162,7 @@ class EndpointClientConnectOptions(dict):
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        ARN of the Lambda function used for connection authorization.
         """
         return pulumi.get(self, "lambda_function_arn")
 

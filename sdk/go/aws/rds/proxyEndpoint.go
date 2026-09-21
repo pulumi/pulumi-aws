@@ -62,24 +62,24 @@ import (
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringOutput `pulumi:"dbProxyEndpointName"`
-	// The name of the DB proxy associated with the DB proxy endpoint that you create.
+	// Name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringOutput `pulumi:"dbProxyName"`
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+	// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
-	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+	// Whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolOutput `pulumi:"isDefault"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags    pulumi.StringMapOutput `pulumi:"tags"`
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+	// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrOutput `pulumi:"targetRole"`
-	// The VPC ID of the DB proxy endpoint.
+	// VPC ID of the DB proxy endpoint.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
@@ -126,24 +126,24 @@ func GetProxyEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ProxyEndpoint resources.
 type proxyEndpointState struct {
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn *string `pulumi:"arn"`
-	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName *string `pulumi:"dbProxyEndpointName"`
-	// The name of the DB proxy associated with the DB proxy endpoint that you create.
+	// Name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName *string `pulumi:"dbProxyName"`
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+	// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint *string `pulumi:"endpoint"`
-	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+	// Whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault *bool `pulumi:"isDefault"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags    map[string]string `pulumi:"tags"`
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+	// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole *string `pulumi:"targetRole"`
-	// The VPC ID of the DB proxy endpoint.
+	// VPC ID of the DB proxy endpoint.
 	VpcId *string `pulumi:"vpcId"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -152,24 +152,24 @@ type proxyEndpointState struct {
 }
 
 type ProxyEndpointState struct {
-	// The Amazon Resource Name (ARN) for the proxy endpoint.
+	// ARN for the proxy endpoint.
 	Arn pulumi.StringPtrInput
-	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringPtrInput
-	// The name of the DB proxy associated with the DB proxy endpoint that you create.
+	// Name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringPtrInput
-	// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+	// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 	Endpoint pulumi.StringPtrInput
-	// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+	// Whether this endpoint is the default endpoint for the associated DB proxy.
 	IsDefault pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags    pulumi.StringMapInput
 	TagsAll pulumi.StringMapInput
-	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+	// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrInput
-	// The VPC ID of the DB proxy endpoint.
+	// VPC ID of the DB proxy endpoint.
 	VpcId pulumi.StringPtrInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -182,15 +182,15 @@ func (ProxyEndpointState) ElementType() reflect.Type {
 }
 
 type proxyEndpointArgs struct {
-	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName string `pulumi:"dbProxyEndpointName"`
-	// The name of the DB proxy associated with the DB proxy endpoint that you create.
+	// Name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName string `pulumi:"dbProxyName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A mapping of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags map[string]string `pulumi:"tags"`
-	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+	// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole *string `pulumi:"targetRole"`
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
@@ -200,15 +200,15 @@ type proxyEndpointArgs struct {
 
 // The set of arguments for constructing a ProxyEndpoint resource.
 type ProxyEndpointArgs struct {
-	// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+	// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 	DbProxyEndpointName pulumi.StringInput
-	// The name of the DB proxy associated with the DB proxy endpoint that you create.
+	// Name of the DB proxy associated with the DB proxy endpoint that you create.
 	DbProxyName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A mapping of tags to assign to the resource.
+	// Map of tags to assign to the resource.
 	Tags pulumi.StringMapInput
-	// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+	// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 	TargetRole pulumi.StringPtrInput
 	// One or more VPC security group IDs to associate with the new proxy.
 	VpcSecurityGroupIds pulumi.StringArrayInput
@@ -303,27 +303,27 @@ func (o ProxyEndpointOutput) ToProxyEndpointOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the proxy endpoint.
+// ARN for the proxy endpoint.
 func (o ProxyEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
+// Identifier for the proxy endpoint. An identifier must begin with a letter and must contain only ASCII letters, digits, and hyphens; it can't end with a hyphen or contain two consecutive hyphens.
 func (o ProxyEndpointOutput) DbProxyEndpointName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.DbProxyEndpointName }).(pulumi.StringOutput)
 }
 
-// The name of the DB proxy associated with the DB proxy endpoint that you create.
+// Name of the DB proxy associated with the DB proxy endpoint that you create.
 func (o ProxyEndpointOutput) DbProxyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.DbProxyName }).(pulumi.StringOutput)
 }
 
-// The endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
+// Endpoint that you can use to connect to the proxy. You include the endpoint value in the connection string for a database client application.
 func (o ProxyEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
 
-// Indicates whether this endpoint is the default endpoint for the associated DB proxy.
+// Whether this endpoint is the default endpoint for the associated DB proxy.
 func (o ProxyEndpointOutput) IsDefault() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.BoolOutput { return v.IsDefault }).(pulumi.BoolOutput)
 }
@@ -333,7 +333,7 @@ func (o ProxyEndpointOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A mapping of tags to assign to the resource.
+// Map of tags to assign to the resource.
 func (o ProxyEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -342,12 +342,12 @@ func (o ProxyEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Indicates whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
+// Whether the DB proxy endpoint can be used for read/write or read-only operations. The default is `READ_WRITE`. Valid values are `READ_WRITE` and `READ_ONLY`.
 func (o ProxyEndpointOutput) TargetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringPtrOutput { return v.TargetRole }).(pulumi.StringPtrOutput)
 }
 
-// The VPC ID of the DB proxy endpoint.
+// VPC ID of the DB proxy endpoint.
 func (o ProxyEndpointOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ProxyEndpoint) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

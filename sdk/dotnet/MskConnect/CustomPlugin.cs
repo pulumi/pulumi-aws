@@ -38,8 +38,6 @@ namespace Pulumi.Aws.MskConnect
     /// 
     ///     var exampleCustomPlugin = new Aws.MskConnect.CustomPlugin("example", new()
     ///     {
-    ///         Name = "debezium-example",
-    ///         ContentType = "ZIP",
     ///         Location = new Aws.MskConnect.Inputs.CustomPluginLocationArgs
     ///         {
     ///             S3 = new Aws.MskConnect.Inputs.CustomPluginLocationS3Args
@@ -48,6 +46,8 @@ namespace Pulumi.Aws.MskConnect
     ///                 FileKey = exampleBucketObjectv2.Key,
     ///             },
     ///         },
+    ///         Name = "debezium-example",
+    ///         ContentType = "ZIP",
     ///     });
     /// 
     /// });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.MskConnect
     public partial class CustomPlugin : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the Amazon Resource Name (ARN) of the custom plugin.
+        /// the ARN of the custom plugin.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.MskConnect
     public sealed class CustomPluginState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the Amazon Resource Name (ARN) of the custom plugin.
+        /// the ARN of the custom plugin.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				Name:                    pulumi.String("example"),
-//				IdleSessionTtlInSeconds: pulumi.Int(60),
-//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
 //				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
 //					&lex.V2modelsBotDataPrivacyArgs{
 //						ChildDirected: pulumi.Bool(true),
 //					},
 //				},
+//				Name:                    pulumi.String("example"),
+//				IdleSessionTtlInSeconds: pulumi.Int(60),
+//				RoleArn:                 pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -95,17 +95,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsSlotType(ctx, "example", &lex.V2modelsSlotTypeArgs{
-//				BotId:      pulumi.Any(exampleAwsLexv2modelsBot.Id),
-//				BotVersion: pulumi.Any(exampleAwsLexv2modelsBotLocale.BotVersion),
-//				Name:       pulumi.String("example"),
-//				LocaleId:   pulumi.Any(exampleAwsLexv2modelsBotLocale.LocaleId),
 //				ValueSelectionSetting: &lex.V2modelsSlotTypeValueSelectionSettingArgs{
-//					ResolutionStrategy: pulumi.String("OriginalValue"),
 //					AdvancedRecognitionSettings: lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArray{
 //						&lex.V2modelsSlotTypeValueSelectionSettingAdvancedRecognitionSettingArgs{
 //							AudioRecognitionStrategy: pulumi.String("UseSlotValuesAsCustomVocabulary"),
 //						},
 //					},
+//					ResolutionStrategy: pulumi.String("OriginalValue"),
 //				},
 //				SlotTypeValues: lex.V2modelsSlotTypeSlotTypeValueArray{
 //					&lex.V2modelsSlotTypeSlotTypeValueArgs{
@@ -116,6 +112,10 @@ import (
 //						},
 //					},
 //				},
+//				BotId:      pulumi.Any(exampleAwsLexv2modelsBot.Id),
+//				BotVersion: pulumi.Any(exampleAwsLexv2modelsBotLocale.BotVersion),
+//				Name:       pulumi.String("example"),
+//				LocaleId:   pulumi.Any(exampleAwsLexv2modelsBotLocale.LocaleId),
 //			})
 //			if err != nil {
 //				return err

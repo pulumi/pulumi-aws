@@ -46,12 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ParameterGroup("example", ParameterGroupArgs.builder()
- *             .family("neptune1")
- *             .name("example")
  *             .parameters(ParameterGroupParameterArgs.builder()
  *                 .name("neptune_query_timeout")
  *                 .value("25")
  *                 .build())
+ *             .family("neptune1")
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -71,14 +71,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:neptune/parameterGroup:ParameterGroup")
 public class ParameterGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Neptune parameter group Amazon Resource Name (ARN).
+     * Neptune parameter group ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Neptune parameter group Amazon Resource Name (ARN).
+     * @return Neptune parameter group ARN.
      * 
      */
     public Output<String> arn() {

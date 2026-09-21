@@ -74,12 +74,8 @@ type GetLaunchPathsResult struct {
 }
 
 func GetLaunchPathsOutput(ctx *pulumi.Context, args GetLaunchPathsOutputArgs, opts ...pulumi.InvokeOption) GetLaunchPathsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLaunchPathsResultOutput, error) {
-			args := v.(GetLaunchPathsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, GetLaunchPathsResultOutput{}, options).(GetLaunchPathsResultOutput), nil
-		}).(GetLaunchPathsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getLaunchPaths:getLaunchPaths", args, GetLaunchPathsResultOutput{}, options).(GetLaunchPathsResultOutput)
 }
 
 // A collection of arguments for invoking getLaunchPaths.

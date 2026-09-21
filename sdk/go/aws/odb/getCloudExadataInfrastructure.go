@@ -68,7 +68,7 @@ type LookupCloudExadataInfrastructureResult struct {
 	ActivatedStorageCount int `pulumi:"activatedStorageCount"`
 	// Number of storage servers requested for the Exadata infrastructure.
 	AdditionalStorageCount int `pulumi:"additionalStorageCount"`
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Name of the Availability Zone (AZ) where the Exadata infrastructure is located.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -146,12 +146,8 @@ type LookupCloudExadataInfrastructureResult struct {
 }
 
 func LookupCloudExadataInfrastructureOutput(ctx *pulumi.Context, args LookupCloudExadataInfrastructureOutputArgs, opts ...pulumi.InvokeOption) LookupCloudExadataInfrastructureResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudExadataInfrastructureResultOutput, error) {
-			args := v.(LookupCloudExadataInfrastructureArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getCloudExadataInfrastructure:getCloudExadataInfrastructure", args, LookupCloudExadataInfrastructureResultOutput{}, options).(LookupCloudExadataInfrastructureResultOutput), nil
-		}).(LookupCloudExadataInfrastructureResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getCloudExadataInfrastructure:getCloudExadataInfrastructure", args, LookupCloudExadataInfrastructureResultOutput{}, options).(LookupCloudExadataInfrastructureResultOutput)
 }
 
 // A collection of arguments for invoking getCloudExadataInfrastructure.
@@ -193,7 +189,7 @@ func (o LookupCloudExadataInfrastructureResultOutput) AdditionalStorageCount() p
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) int { return v.AdditionalStorageCount }).(pulumi.IntOutput)
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o LookupCloudExadataInfrastructureResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudExadataInfrastructureResult) string { return v.Arn }).(pulumi.StringOutput)
 }

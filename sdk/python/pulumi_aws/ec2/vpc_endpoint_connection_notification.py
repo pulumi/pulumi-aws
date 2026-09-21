@@ -255,11 +255,11 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         topic = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["vpce.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["SNS:Publish"],
             "resources": ["arn:aws:sns:*:*:vpce-notification-topic"],
         }])
@@ -314,11 +314,11 @@ class VpcEndpointConnectionNotification(pulumi.CustomResource):
         import pulumi_aws as aws
 
         topic = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["vpce.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["SNS:Publish"],
             "resources": ["arn:aws:sns:*:*:vpce-notification-topic"],
         }])

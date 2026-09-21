@@ -42,7 +42,6 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSecurityGroup(ctx, "subnet_security_group", &ec2.SecurityGroupArgs{
-//				VpcId: pulumi.String(selected.VpcId),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						CidrBlocks: pulumi.StringArray{
@@ -53,6 +52,7 @@ import (
 //						Protocol: pulumi.String("tcp"),
 //					},
 //				},
+//				VpcId: pulumi.String(selected.VpcId),
 //			})
 //			if err != nil {
 //				return err
@@ -179,12 +179,8 @@ type LookupSubnetResult struct {
 }
 
 func LookupSubnetOutput(ctx *pulumi.Context, args LookupSubnetOutputArgs, opts ...pulumi.InvokeOption) LookupSubnetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSubnetResultOutput, error) {
-			args := v.(LookupSubnetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSubnet:getSubnet", args, LookupSubnetResultOutput{}, options).(LookupSubnetResultOutput), nil
-		}).(LookupSubnetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSubnet:getSubnet", args, LookupSubnetResultOutput{}, options).(LookupSubnetResultOutput)
 }
 
 // A collection of arguments for invoking getSubnet.

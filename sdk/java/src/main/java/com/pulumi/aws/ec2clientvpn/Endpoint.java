@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2clientvpn.Endpoint;
  * import com.pulumi.aws.ec2clientvpn.EndpointArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
  * import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
+ * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Endpoint("example", EndpointArgs.builder()
- *             .description("clientvpn-example")
- *             .serverCertificateArn(cert.arn())
- *             .clientCidrBlock("10.0.0.0/16")
- *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
- *                 .type("certificate-authentication")
- *                 .rootCertificateChainArn(rootCert.arn())
- *                 .build())
  *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
  *                 .enabled(true)
  *                 .cloudwatchLogGroup(lg.name())
  *                 .cloudwatchLogStream(ls.name())
  *                 .build())
+ *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
+ *                 .type("certificate-authentication")
+ *                 .rootCertificateChainArn(rootCert.arn())
+ *                 .build())
+ *             .description("clientvpn-example")
+ *             .serverCertificateArn(cert.arn())
+ *             .clientCidrBlock("10.0.0.0/16")
  *             .build());
  * 
  *     }

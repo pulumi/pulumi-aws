@@ -57,8 +57,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sesv2.NewContactList(ctx, "example", &sesv2.ContactListArgs{
-//				ContactListName: pulumi.String("example"),
-//				Description:     pulumi.String("description"),
 //				Topics: sesv2.ContactListTopicArray{
 //					&sesv2.ContactListTopicArgs{
 //						DefaultSubscriptionStatus: pulumi.String("OPT_IN"),
@@ -67,6 +65,8 @@ import (
 //						TopicName:                 pulumi.String("example-topic"),
 //					},
 //				},
+//				ContactListName: pulumi.String("example"),
+//				Description:     pulumi.String("description"),
 //			})
 //			if err != nil {
 //				return err
@@ -87,6 +87,7 @@ import (
 type ContactList struct {
 	pulumi.CustomResourceState
 
+	// ARN of the contact list.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the contact list.
 	//
@@ -140,6 +141,7 @@ func GetContactList(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactList resources.
 type contactListState struct {
+	// ARN of the contact list.
 	Arn *string `pulumi:"arn"`
 	// Name of the contact list.
 	//
@@ -161,6 +163,7 @@ type contactListState struct {
 }
 
 type ContactListState struct {
+	// ARN of the contact list.
 	Arn pulumi.StringPtrInput
 	// Name of the contact list.
 	//
@@ -303,6 +306,7 @@ func (o ContactListOutput) ToContactListOutputWithContext(ctx context.Context) C
 	return o
 }
 
+// ARN of the contact list.
 func (o ContactListOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactList) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

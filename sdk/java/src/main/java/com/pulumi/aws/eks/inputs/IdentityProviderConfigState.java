@@ -18,14 +18,14 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
     public static final IdentityProviderConfigState Empty = new IdentityProviderConfigState();
 
     /**
-     * Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * ARN of the EKS Identity Provider Configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+     * @return ARN of the EKS Identity Provider Configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -161,7 +161,7 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+         * @param arn ARN of the EKS Identity Provider Configuration.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class IdentityProviderConfigState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the EKS Identity Provider Configuration.
+         * @param arn ARN of the EKS Identity Provider Configuration.
          * 
          * @return builder
          * 

@@ -110,7 +110,7 @@ import (
 type OpenZfsSnapshot struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Time that the snapshot was created.
 	CreationTime pulumi.StringOutput `pulumi:"creationTime"`
@@ -159,7 +159,7 @@ func GetOpenZfsSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering OpenZfsSnapshot resources.
 type openZfsSnapshotState struct {
-	// Amazon Resource Name of the snapshot.
+	// ARN of the snapshot.
 	Arn *string `pulumi:"arn"`
 	// Time that the snapshot was created.
 	CreationTime *string `pulumi:"creationTime"`
@@ -176,7 +176,7 @@ type openZfsSnapshotState struct {
 }
 
 type OpenZfsSnapshotState struct {
-	// Amazon Resource Name of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringPtrInput
 	// Time that the snapshot was created.
 	CreationTime pulumi.StringPtrInput
@@ -306,7 +306,7 @@ func (o OpenZfsSnapshotOutput) ToOpenZfsSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name of the snapshot.
+// ARN of the snapshot.
 func (o OpenZfsSnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OpenZfsSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

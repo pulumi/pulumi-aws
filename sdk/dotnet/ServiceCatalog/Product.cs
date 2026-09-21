@@ -30,13 +30,13 @@ namespace Pulumi.Aws.ServiceCatalog
     /// {
     ///     var example = new Aws.ServiceCatalog.Product("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Owner = "example-owner",
-    ///         Type = "CLOUD_FORMATION_TEMPLATE",
     ///         ProvisioningArtifactParameters = new Aws.ServiceCatalog.Inputs.ProductProvisioningArtifactParametersArgs
     ///         {
     ///             TemplateUrl = "https://s3.amazonaws.com/cf-templates-ozkq9d3hgiq2-us-east-1/temp1.json",
     ///         },
+    ///         Name = "example",
+    ///         Owner = "example-owner",
+    ///         Type = "CLOUD_FORMATION_TEMPLATE",
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

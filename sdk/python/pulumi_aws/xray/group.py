@@ -248,12 +248,12 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            group_name="example",
-            filter_expression="responsetime > 5",
             insights_configuration={
                 "insights_enabled": True,
                 "notifications_enabled": True,
-            })
+            },
+            group_name="example",
+            filter_expression="responsetime > 5")
         ```
 
         ## Import
@@ -262,7 +262,7 @@ class Group(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+        - `arn` (String) ARN of the X-Ray group.
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 
@@ -295,12 +295,12 @@ class Group(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.xray.Group("example",
-            group_name="example",
-            filter_expression="responsetime > 5",
             insights_configuration={
                 "insights_enabled": True,
                 "notifications_enabled": True,
-            })
+            },
+            group_name="example",
+            filter_expression="responsetime > 5")
         ```
 
         ## Import
@@ -309,7 +309,7 @@ class Group(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+        - `arn` (String) ARN of the X-Ray group.
 
         Using `pulumi import`, import XRay Groups using the ARN. For example:
 

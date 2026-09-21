@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.QuickConnect("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "quick connect phone number",
  *     quickConnectConfig: {
- *         quickConnectType: "PHONE_NUMBER",
  *         phoneConfigs: [{
  *             phoneNumber: "+12345678912",
  *         }],
+ *         quickConnectType: "PHONE_NUMBER",
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
+ *     description: "quick connect phone number",
  *     tags: {
  *         Name: "Example Quick Connect",
  *     },
@@ -70,7 +70,7 @@ export class QuickConnect extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class QuickConnect extends pulumi.CustomResource {
  */
 export interface QuickConnectState {
     /**
-     * The Amazon Resource Name (ARN) of the Quick Connect.
+     * ARN of the Quick Connect.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

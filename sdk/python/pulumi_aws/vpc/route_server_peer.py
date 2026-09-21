@@ -367,7 +367,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['RouteServerPeerTimeoutsArgs', 'RouteServerPeerTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+        Provides a resource for managing a VPC Route Server Peer.
 
         ## Example Usage
 
@@ -378,11 +378,11 @@ class RouteServerPeer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpc.RouteServerPeer("test",
-            route_server_endpoint_id=example["routeServerEndpointId"],
-            peer_address="10.0.1.250",
             bgp_options={
                 "peer_asn": 65200,
             },
+            route_server_endpoint_id=example["routeServerEndpointId"],
+            peer_address="10.0.1.250",
             tags={
                 "Name": "Appliance 1",
             })
@@ -414,12 +414,12 @@ class RouteServerPeer(pulumi.CustomResource):
             route_table_id=test_aws_route_table["id"],
             opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_peer = aws.vpc.RouteServerPeer("test",
-            route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
-            peer_address="10.0.1.250",
             bgp_options={
                 "peer_asn": 65000,
                 "peer_liveness_detection": "bgp-keepalive",
             },
+            route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
+            peer_address="10.0.1.250",
             tags={
                 "Name": "Test Appliance",
             })
@@ -427,7 +427,7 @@ class RouteServerPeer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
+        Using `pulumi import`, import VPC Route Server using the `route_server_peer_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678
@@ -451,7 +451,7 @@ class RouteServerPeer(pulumi.CustomResource):
                  args: RouteServerPeerArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+        Provides a resource for managing a VPC Route Server Peer.
 
         ## Example Usage
 
@@ -462,11 +462,11 @@ class RouteServerPeer(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.vpc.RouteServerPeer("test",
-            route_server_endpoint_id=example["routeServerEndpointId"],
-            peer_address="10.0.1.250",
             bgp_options={
                 "peer_asn": 65200,
             },
+            route_server_endpoint_id=example["routeServerEndpointId"],
+            peer_address="10.0.1.250",
             tags={
                 "Name": "Appliance 1",
             })
@@ -498,12 +498,12 @@ class RouteServerPeer(pulumi.CustomResource):
             route_table_id=test_aws_route_table["id"],
             opts = pulumi.ResourceOptions(depends_on=[test_route_server_vpc_association]))
         test_route_server_peer = aws.vpc.RouteServerPeer("test",
-            route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
-            peer_address="10.0.1.250",
             bgp_options={
                 "peer_asn": 65000,
                 "peer_liveness_detection": "bgp-keepalive",
             },
+            route_server_endpoint_id=test_route_server_endpoint.route_server_endpoint_id,
+            peer_address="10.0.1.250",
             tags={
                 "Name": "Test Appliance",
             })
@@ -511,7 +511,7 @@ class RouteServerPeer(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `route_server_peer_id`. For example:
+        Using `pulumi import`, import VPC Route Server using the `route_server_peer_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

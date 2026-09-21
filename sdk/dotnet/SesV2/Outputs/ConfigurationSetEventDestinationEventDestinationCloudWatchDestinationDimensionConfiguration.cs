@@ -14,15 +14,15 @@ namespace Pulumi.Aws.SesV2.Outputs
     public sealed class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration
     {
         /// <summary>
-        /// The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+        /// Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
         /// </summary>
         public readonly string DefaultDimensionValue;
         /// <summary>
-        /// The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        /// Name of an Amazon CloudWatch dimension associated with an email sending metric.
         /// </summary>
         public readonly string DimensionName;
         /// <summary>
-        /// The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        /// Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         /// </summary>
         public readonly string DimensionValueSource;
 

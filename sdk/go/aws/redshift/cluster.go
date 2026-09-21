@@ -102,7 +102,7 @@ type Cluster struct {
 	//
 	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringOutput `pulumi:"aquaConfigurationStatus"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"automatedSnapshotRetentionPeriod"`
@@ -112,7 +112,7 @@ type Cluster struct {
 	AvailabilityZoneRelocationEnabled pulumi.BoolPtrOutput `pulumi:"availabilityZoneRelocationEnabled"`
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The namespace Amazon Resource Name (ARN) of the cluster
+	// Namespace ARN of the cluster
 	ClusterNamespaceArn pulumi.StringOutput `pulumi:"clusterNamespaceArn"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayOutput `pulumi:"clusterNodes"`
@@ -122,7 +122,7 @@ type Cluster struct {
 	ClusterPublicKey pulumi.StringOutput `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringOutput `pulumi:"clusterRevisionNumber"`
-	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 	ClusterSubnetGroupName pulumi.StringOutput `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
 	ClusterType pulumi.StringOutput `pulumi:"clusterType"`
@@ -132,7 +132,7 @@ type Cluster struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringOutput `pulumi:"databaseName"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringOutput `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
 	DnsName pulumi.StringOutput `pulumi:"dnsName"`
@@ -153,30 +153,20 @@ type Cluster struct {
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrOutput `pulumi:"maintenanceTrackName"`
-	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword` and `masterPasswordWo`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrOutput `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs, and it will be stored in the state file.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrOutput `pulumi:"masterPassword"`
 	// ARN of the cluster admin credentials secret
 	MasterPasswordSecretArn pulumi.StringOutput `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringOutput `pulumi:"masterPasswordSecretKmsKeyId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPassword`.
-	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrOutput `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrOutput `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrOutput `pulumi:"masterUsername"`
@@ -215,7 +205,7 @@ type Cluster struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+	// List of VPC security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayOutput `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -276,7 +266,7 @@ type clusterState struct {
 	//
 	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus *string `pulumi:"aquaConfigurationStatus"`
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn *string `pulumi:"arn"`
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod *int `pulumi:"automatedSnapshotRetentionPeriod"`
@@ -286,7 +276,7 @@ type clusterState struct {
 	AvailabilityZoneRelocationEnabled *bool `pulumi:"availabilityZoneRelocationEnabled"`
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The namespace Amazon Resource Name (ARN) of the cluster
+	// Namespace ARN of the cluster
 	ClusterNamespaceArn *string `pulumi:"clusterNamespaceArn"`
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []ClusterClusterNode `pulumi:"clusterNodes"`
@@ -296,7 +286,7 @@ type clusterState struct {
 	ClusterPublicKey *string `pulumi:"clusterPublicKey"`
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber *string `pulumi:"clusterRevisionNumber"`
-	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
 	ClusterType *string `pulumi:"clusterType"`
@@ -306,7 +296,7 @@ type clusterState struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// The DNS name of the cluster
 	DnsName *string `pulumi:"dnsName"`
@@ -327,30 +317,20 @@ type clusterState struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
-	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword` and `masterPasswordWo`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs, and it will be stored in the state file.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// ARN of the cluster admin credentials secret
 	MasterPasswordSecretArn *string `pulumi:"masterPasswordSecretArn"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPassword`.
-	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -389,7 +369,7 @@ type clusterState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+	// List of VPC security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -404,7 +384,7 @@ type ClusterState struct {
 	//
 	// Deprecated: aqua_configuration_status is deprecated. This parameter is no longer supported by the AWS API. It will be removed in the next major version of the provider.
 	AquaConfigurationStatus pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringPtrInput
 	// The number of days that automated snapshots are retained. If the value is 0, automated snapshots are disabled. Even if automated snapshots are disabled, you can still create manual snapshots when you want with create-cluster-snapshot. Default is 1.
 	AutomatedSnapshotRetentionPeriod pulumi.IntPtrInput
@@ -414,7 +394,7 @@ type ClusterState struct {
 	AvailabilityZoneRelocationEnabled pulumi.BoolPtrInput
 	// The Cluster Identifier. Must be a lower case string.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The namespace Amazon Resource Name (ARN) of the cluster
+	// Namespace ARN of the cluster
 	ClusterNamespaceArn pulumi.StringPtrInput
 	// The nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes ClusterClusterNodeArrayInput
@@ -424,7 +404,7 @@ type ClusterState struct {
 	ClusterPublicKey pulumi.StringPtrInput
 	// The specific revision number of the database in the cluster
 	ClusterRevisionNumber pulumi.StringPtrInput
-	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 	ClusterSubnetGroupName pulumi.StringPtrInput
 	// The cluster type to use. Either `single-node` or `multi-node`.
 	ClusterType pulumi.StringPtrInput
@@ -434,7 +414,7 @@ type ClusterState struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// The DNS name of the cluster
 	DnsName pulumi.StringPtrInput
@@ -455,30 +435,20 @@ type ClusterState struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
-	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword` and `masterPasswordWo`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs, and it will be stored in the state file.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
 	// ARN of the cluster admin credentials secret
 	MasterPasswordSecretArn pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPassword`.
-	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -517,7 +487,7 @@ type ClusterState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+	// List of VPC security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -546,7 +516,7 @@ type clusterArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName *string `pulumi:"clusterParameterGroupName"`
-	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 	ClusterSubnetGroupName *string `pulumi:"clusterSubnetGroupName"`
 	// The cluster type to use. Either `single-node` or `multi-node`.
 	ClusterType *string `pulumi:"clusterType"`
@@ -556,7 +526,7 @@ type clusterArgs struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName *string `pulumi:"databaseName"`
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn *string `pulumi:"defaultIamRoleArn"`
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp *string `pulumi:"elasticIp"`
@@ -573,28 +543,18 @@ type clusterArgs struct {
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName *string `pulumi:"maintenanceTrackName"`
-	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword` and `masterPasswordWo`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword *bool `pulumi:"manageMasterPassword"`
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs, and it will be stored in the state file.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword *string `pulumi:"masterPassword"`
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId *string `pulumi:"masterPasswordSecretKmsKeyId"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPassword`.
-	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo *string `pulumi:"masterPasswordWo"`
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion *int `pulumi:"masterPasswordWoVersion"`
 	// Username for the master DB user.
 	MasterUsername *string `pulumi:"masterUsername"`
@@ -631,7 +591,7 @@ type clusterArgs struct {
 	// For more detailed documentation about each argument, refer to
 	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags map[string]string `pulumi:"tags"`
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+	// List of VPC security groups to be associated with the cluster.
 	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
@@ -657,7 +617,7 @@ type ClusterArgs struct {
 	ClusterIdentifier pulumi.StringInput
 	// The name of the parameter group to be associated with this cluster.
 	ClusterParameterGroupName pulumi.StringPtrInput
-	// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+	// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 	ClusterSubnetGroupName pulumi.StringPtrInput
 	// The cluster type to use. Either `single-node` or `multi-node`.
 	ClusterType pulumi.StringPtrInput
@@ -667,7 +627,7 @@ type ClusterArgs struct {
 	// The name of the first database to be created when the cluster is created.
 	// If you do not provide a name, Amazon Redshift will create a default database called `dev`.
 	DatabaseName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+	// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 	DefaultIamRoleArn pulumi.StringPtrInput
 	// The Elastic IP (EIP) address for the cluster.
 	ElasticIp pulumi.StringPtrInput
@@ -684,28 +644,18 @@ type ClusterArgs struct {
 	KmsKeyId pulumi.StringPtrInput
 	// The name of the maintenance track for the restored cluster. When you take a snapshot, the snapshot inherits the MaintenanceTrack value from the cluster. The snapshot might be on a different track than the cluster that was the source for the snapshot. For example, suppose that you take a snapshot of  a cluster that is on the current track and then change the cluster to be on the trailing track. In this case, the snapshot and the source cluster are on different tracks. Default value is `current`.
 	MaintenanceTrackName pulumi.StringPtrInput
-	// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-	// Conflicts with `masterPassword` and `masterPasswordWo`.
-	// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+	// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 	ManageMasterPassword pulumi.BoolPtrInput
 	// The default number of days to retain a manual snapshot. If the value is -1, the snapshot is retained indefinitely. This setting doesn't change the retention period of existing snapshots. Valid values are between `-1` and `3653`. Default value is `-1`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-	// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs, and it will be stored in the state file.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 	MasterPassword pulumi.StringPtrInput
 	// ID of the KMS key used to encrypt the cluster admin credentials secret.
 	MasterPasswordSecretKmsKeyId pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Password for the master DB user.
-	// Conflicts with `manageMasterPassword` and `masterPassword`.
-	// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-	// Note that this may show up in logs.
-	// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+	// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 	MasterPasswordWo pulumi.StringPtrInput
-	// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+	// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 	MasterPasswordWoVersion pulumi.IntPtrInput
 	// Username for the master DB user.
 	MasterUsername pulumi.StringPtrInput
@@ -742,7 +692,7 @@ type ClusterArgs struct {
 	// For more detailed documentation about each argument, refer to
 	// the [AWS official documentation](http://docs.aws.amazon.com/cli/latest/reference/redshift/index.html#cli-aws-redshift).
 	Tags pulumi.StringMapInput
-	// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+	// List of VPC security groups to be associated with the cluster.
 	VpcSecurityGroupIds pulumi.StringArrayInput
 }
 
@@ -852,7 +802,7 @@ func (o ClusterOutput) AquaConfigurationStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.AquaConfigurationStatus }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of cluster
+// ARN of cluster
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -877,7 +827,7 @@ func (o ClusterOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The namespace Amazon Resource Name (ARN) of the cluster
+// Namespace ARN of the cluster
 func (o ClusterOutput) ClusterNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
 }
@@ -902,7 +852,7 @@ func (o ClusterOutput) ClusterRevisionNumber() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterRevisionNumber }).(pulumi.StringOutput)
 }
 
-// The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+// Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
 func (o ClusterOutput) ClusterSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.ClusterSubnetGroupName }).(pulumi.StringOutput)
 }
@@ -924,7 +874,7 @@ func (o ClusterOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+// ARN for the IAM role that was set as default for the cluster when the cluster was created.
 func (o ClusterOutput) DefaultIamRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.DefaultIamRoleArn }).(pulumi.StringOutput)
 }
@@ -975,9 +925,7 @@ func (o ClusterOutput) MaintenanceTrackName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MaintenanceTrackName }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use AWS SecretsManager to manage the cluster admin credentials.
-// Conflicts with `masterPassword` and `masterPasswordWo`.
-// One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+// Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
 func (o ClusterOutput) ManageMasterPassword() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.ManageMasterPassword }).(pulumi.BoolPtrOutput)
 }
@@ -987,11 +935,7 @@ func (o ClusterOutput) ManualSnapshotRetentionPeriod() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.ManualSnapshotRetentionPeriod }).(pulumi.IntPtrOutput)
 }
 
-// Password for the master DB user.
-// Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-// One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-// Note that this may show up in logs, and it will be stored in the state file.
-// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
 func (o ClusterOutput) MasterPassword() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPassword }).(pulumi.StringPtrOutput)
 }
@@ -1007,16 +951,12 @@ func (o ClusterOutput) MasterPasswordSecretKmsKeyId() pulumi.StringOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Password for the master DB user.
-// Conflicts with `manageMasterPassword` and `masterPassword`.
-// One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-// Note that this may show up in logs.
-// Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+// Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
 func (o ClusterOutput) MasterPasswordWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.MasterPasswordWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+// Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
 func (o ClusterOutput) MasterPasswordWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.IntPtrOutput { return v.MasterPasswordWoVersion }).(pulumi.IntPtrOutput)
 }
@@ -1103,7 +1043,7 @@ func (o ClusterOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+// List of VPC security groups to be associated with the cluster.
 func (o ClusterOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringArrayOutput { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

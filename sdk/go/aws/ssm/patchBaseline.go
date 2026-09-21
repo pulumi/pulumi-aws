@@ -65,39 +65,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewPatchBaseline(ctx, "production", &ssm.PatchBaselineArgs{
-//				Name:        pulumi.String("patch-baseline"),
-//				Description: pulumi.String("Patch Baseline Description"),
-//				ApprovedPatches: pulumi.StringArray{
-//					pulumi.String("KB123456"),
-//					pulumi.String("KB456789"),
-//				},
-//				RejectedPatches: pulumi.StringArray{
-//					pulumi.String("KB987654"),
-//				},
-//				GlobalFilters: ssm.PatchBaselineGlobalFilterArray{
-//					&ssm.PatchBaselineGlobalFilterArgs{
-//						Key: pulumi.String("PRODUCT"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("WindowsServer2008"),
-//						},
-//					},
-//					&ssm.PatchBaselineGlobalFilterArgs{
-//						Key: pulumi.String("CLASSIFICATION"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("ServicePacks"),
-//						},
-//					},
-//					&ssm.PatchBaselineGlobalFilterArgs{
-//						Key: pulumi.String("MSRC_SEVERITY"),
-//						Values: pulumi.StringArray{
-//							pulumi.String("Low"),
-//						},
-//					},
-//				},
 //				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
 //					&ssm.PatchBaselineApprovalRuleArgs{
-//						ApproveAfterDays: pulumi.Int(7),
-//						ComplianceLevel:  pulumi.String("HIGH"),
 //						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
 //							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
 //								Key: pulumi.String("PRODUCT"),
@@ -122,9 +91,10 @@ import (
 //								},
 //							},
 //						},
+//						ApproveAfterDays: pulumi.Int(7),
+//						ComplianceLevel:  pulumi.String("HIGH"),
 //					},
 //					&ssm.PatchBaselineApprovalRuleArgs{
-//						ApproveAfterDays: pulumi.Int(7),
 //						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
 //							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
 //								Key: pulumi.String("PRODUCT"),
@@ -133,7 +103,37 @@ import (
 //								},
 //							},
 //						},
+//						ApproveAfterDays: pulumi.Int(7),
 //					},
+//				},
+//				GlobalFilters: ssm.PatchBaselineGlobalFilterArray{
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("PRODUCT"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("WindowsServer2008"),
+//						},
+//					},
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("CLASSIFICATION"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("ServicePacks"),
+//						},
+//					},
+//					&ssm.PatchBaselineGlobalFilterArgs{
+//						Key: pulumi.String("MSRC_SEVERITY"),
+//						Values: pulumi.StringArray{
+//							pulumi.String("Low"),
+//						},
+//					},
+//				},
+//				Name:        pulumi.String("patch-baseline"),
+//				Description: pulumi.String("Patch Baseline Description"),
+//				ApprovedPatches: pulumi.StringArray{
+//					pulumi.String("KB123456"),
+//					pulumi.String("KB456789"),
+//				},
+//				RejectedPatches: pulumi.StringArray{
+//					pulumi.String("KB987654"),
 //				},
 //			})
 //			if err != nil {
@@ -160,12 +160,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewPatchBaseline(ctx, "windows_os_apps", &ssm.PatchBaselineArgs{
-//				Name:            pulumi.String("WindowsOSAndMicrosoftApps"),
-//				Description:     pulumi.String("Patch both Windows and Microsoft apps"),
-//				OperatingSystem: pulumi.String("WINDOWS"),
 //				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
 //					&ssm.PatchBaselineApprovalRuleArgs{
-//						ApproveAfterDays: pulumi.Int(7),
 //						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
 //							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
 //								Key: pulumi.String("CLASSIFICATION"),
@@ -182,9 +178,9 @@ import (
 //								},
 //							},
 //						},
+//						ApproveAfterDays: pulumi.Int(7),
 //					},
 //					&ssm.PatchBaselineApprovalRuleArgs{
-//						ApproveAfterDays: pulumi.Int(7),
 //						PatchFilters: ssm.PatchBaselineApprovalRulePatchFilterArray{
 //							&ssm.PatchBaselineApprovalRulePatchFilterArgs{
 //								Key: pulumi.String("PATCH_SET"),
@@ -200,8 +196,12 @@ import (
 //								},
 //							},
 //						},
+//						ApproveAfterDays: pulumi.Int(7),
 //					},
 //				},
+//				Name:            pulumi.String("WindowsOSAndMicrosoftApps"),
+//				Description:     pulumi.String("Patch both Windows and Microsoft apps"),
+//				OperatingSystem: pulumi.String("WINDOWS"),
 //			})
 //			if err != nil {
 //				return err
@@ -230,9 +230,6 @@ import (
 //				ApprovalRules: ssm.PatchBaselineApprovalRuleArray{
 //					&ssm.PatchBaselineApprovalRuleArgs{},
 //				},
-//				Name:            pulumi.String("Amazon-Linux-2017.09"),
-//				Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),
-//				OperatingSystem: pulumi.String("AMAZON_LINUX"),
 //				Sources: ssm.PatchBaselineSourceArray{
 //					&ssm.PatchBaselineSourceArgs{
 //						Name: pulumi.String("My-AL2017.09"),
@@ -258,6 +255,9 @@ import (
 //
 //					},
 //				},
+//				Name:            pulumi.String("Amazon-Linux-2017.09"),
+//				Description:     pulumi.String("My patch repository for Amazon Linux 2017.09"),
+//				OperatingSystem: pulumi.String("AMAZON_LINUX"),
 //			})
 //			if err != nil {
 //				return err

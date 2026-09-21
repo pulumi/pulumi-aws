@@ -26,13 +26,6 @@ namespace Pulumi.Aws.FinSpace
     /// {
     ///     var example = new Aws.FinSpace.KxDataview("example", new()
     ///     {
-    ///         Name = "my-tf-kx-dataview",
-    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
-    ///         DatabaseName = exampleAwsFinspaceKxDatabase.Name,
-    ///         AvailabilityZoneId = "use1-az2",
-    ///         Description = "Terraform managed Kx Dataview",
-    ///         AzMode = "SINGLE",
-    ///         AutoUpdate = true,
     ///         SegmentConfigurations = new[]
     ///         {
     ///             new Aws.FinSpace.Inputs.KxDataviewSegmentConfigurationArgs
@@ -44,6 +37,13 @@ namespace Pulumi.Aws.FinSpace
     ///                 },
     ///             },
     ///         },
+    ///         Name = "my-tf-kx-dataview",
+    ///         EnvironmentId = exampleAwsFinspaceKxEnvironment.Id,
+    ///         DatabaseName = exampleAwsFinspaceKxDatabase.Name,
+    ///         AvailabilityZoneId = "use1-az2",
+    ///         Description = "Terraform managed Kx Dataview",
+    ///         AzMode = "SINGLE",
+    ///         AutoUpdate = true,
     ///     });
     /// 
     /// });
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxDataview : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX dataview.
+        /// ARN identifier of the KX dataview.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxDataviewState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX dataview.
+        /// ARN identifier of the KX dataview.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -13,7 +13,7 @@ import (
 
 // > There is only a single spot data feed subscription per account.
 //
-// Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+// Data source for accessing an AWS EC2 spot data feed subscription.
 //
 // ## Example Usage
 //
@@ -64,12 +64,8 @@ type LookupSpotDatafeedSubscriptionResult struct {
 }
 
 func LookupSpotDatafeedSubscriptionOutput(ctx *pulumi.Context, args LookupSpotDatafeedSubscriptionOutputArgs, opts ...pulumi.InvokeOption) LookupSpotDatafeedSubscriptionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSpotDatafeedSubscriptionResultOutput, error) {
-			args := v.(LookupSpotDatafeedSubscriptionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args, LookupSpotDatafeedSubscriptionResultOutput{}, options).(LookupSpotDatafeedSubscriptionResultOutput), nil
-		}).(LookupSpotDatafeedSubscriptionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSpotDatafeedSubscription:getSpotDatafeedSubscription", args, LookupSpotDatafeedSubscriptionResultOutput{}, options).(LookupSpotDatafeedSubscriptionResultOutput)
 }
 
 // A collection of arguments for invoking getSpotDatafeedSubscription.

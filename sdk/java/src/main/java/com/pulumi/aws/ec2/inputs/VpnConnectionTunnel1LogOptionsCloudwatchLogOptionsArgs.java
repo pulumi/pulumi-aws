@@ -32,14 +32,14 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * ARN of the CloudWatch log group to send BGP logs to.
      * 
      */
     @Import(name="bgpLogGroupArn")
     private @Nullable Output<String> bgpLogGroupArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * @return ARN of the CloudWatch log group to send BGP logs to.
      * 
      */
     public Optional<Output<String>> bgpLogGroupArn() {
@@ -77,14 +77,14 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * ARN of the CloudWatch log group to send logs to.
      * 
      */
     @Import(name="logGroupArn")
     private @Nullable Output<String> logGroupArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * @return ARN of the CloudWatch log group to send logs to.
      * 
      */
     public Optional<Output<String>> logGroupArn() {
@@ -157,7 +157,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * @param bgpLogGroupArn ARN of the CloudWatch log group to send BGP logs to.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param bgpLogGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * @param bgpLogGroupArn ARN of the CloudWatch log group to send BGP logs to.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * @param logGroupArn ARN of the CloudWatch log group to send logs to.
          * 
          * @return builder
          * 
@@ -231,7 +231,7 @@ public final class VpnConnectionTunnel1LogOptionsCloudwatchLogOptionsArgs extend
         }
 
         /**
-         * @param logGroupArn The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * @param logGroupArn ARN of the CloudWatch log group to send logs to.
          * 
          * @return builder
          * 

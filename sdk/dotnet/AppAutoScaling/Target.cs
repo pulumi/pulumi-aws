@@ -123,6 +123,12 @@ namespace Pulumi.Aws.AppAutoScaling
     ///         ResourceId = $"service/{example.Name}/{exampleAwsEcsService.Name}",
     ///         ScalableDimension = "ecs:service:DesiredCount",
     ///         ServiceNamespace = "ecs",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "tagsAll",
+    ///         },
     ///     });
     /// 
     /// });

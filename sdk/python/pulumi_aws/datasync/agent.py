@@ -37,9 +37,9 @@ class AgentArgs:
         :param pulumi.Input[_builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint that the agent has access to.
         """
         if activation_key is not None:
             pulumi.set(__self__, "activation_key", activation_key)
@@ -136,7 +136,7 @@ class AgentArgs:
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
@@ -160,7 +160,7 @@ class AgentArgs:
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -187,16 +187,16 @@ class _AgentState:
         Input properties used for looking up and filtering Agent resources.
 
         :param pulumi.Input[_builtins.str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Agent.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Agent.
         :param pulumi.Input[_builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[_builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[_builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint that the agent has access to.
         """
         if activation_key is not None:
             pulumi.set(__self__, "activation_key", activation_key)
@@ -237,7 +237,7 @@ class _AgentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Agent.
+        ARN of the DataSync Agent.
         """
         return pulumi.get(self, "arn")
 
@@ -309,7 +309,7 @@ class _AgentState:
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
@@ -345,7 +345,7 @@ class _AgentState:
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 
@@ -415,9 +415,9 @@ class Agent(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
+        - `arn` (String) ARN of the DataSync agent.
 
-        Using `pulumi import`, import `datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.Agent` using the DataSync Agent ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
@@ -432,9 +432,9 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint that the agent has access to.
         """
         ...
     @overload
@@ -487,9 +487,9 @@ class Agent(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
+        - `arn` (String) ARN of the DataSync agent.
 
-        Using `pulumi import`, import `datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.Agent` using the DataSync Agent ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
@@ -569,16 +569,16 @@ class Agent(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] activation_key: DataSync Agent activation key during resource creation. Conflicts with `ip_address`. If an `ip_address` is provided instead, the provider will retrieve the `activation_key` as part of the resource creation.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Agent.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Agent.
         :param pulumi.Input[_builtins.str] ip_address: DataSync Agent IP address to retrieve activation key during resource creation. Conflicts with `activation_key`. DataSync Agent must be accessible on port 80 from where the provider is running.
         :param pulumi.Input[_builtins.str] name: Name of the DataSync Agent.
         :param pulumi.Input[_builtins.str] private_link_endpoint: The IP address of the VPC endpoint the agent should connect to when retrieving an activation key during resource creation. Conflicts with `activation_key`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: The ARNs of the security groups used to protect your data transfer task subnets.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_arns: ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value pairs of resource tags to assign to the DataSync Agent. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_endpoint_id: The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: ID of the VPC endpoint that the agent has access to.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -609,7 +609,7 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Agent.
+        ARN of the DataSync Agent.
         """
         return pulumi.get(self, "arn")
 
@@ -657,7 +657,7 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="subnetArns")
     def subnet_arns(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+        ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
         """
         return pulumi.get(self, "subnet_arns")
 
@@ -681,7 +681,7 @@ class Agent(pulumi.CustomResource):
     @pulumi.getter(name="vpcEndpointId")
     def vpc_endpoint_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+        ID of the VPC endpoint that the agent has access to.
         """
         return pulumi.get(self, "vpc_endpoint_id")
 

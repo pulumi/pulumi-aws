@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreCodeInterpreter("example", new()
     ///     {
-    ///         Name = "example-code-interpreter",
-    ///         Description = "Code interpreter for data analysis",
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs
     ///         {
     ///             NetworkMode = "PUBLIC",
     ///         },
+    ///         Name = "example-code-interpreter",
+    ///         Description = "Code interpreter for data analysis",
     ///     });
     /// 
     /// });
@@ -53,11 +53,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -68,6 +63,11 @@ namespace Pulumi.Aws.Bedrock
     ///                             "bedrock-agentcore.amazonaws.com",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -81,13 +81,13 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentcoreCodeInterpreter = new Aws.Bedrock.AgentcoreCodeInterpreter("example", new()
     ///     {
-    ///         Name = "example-code-interpreter",
-    ///         Description = "Code interpreter with custom execution role",
-    ///         ExecutionRoleArn = example.Arn,
     ///         NetworkConfiguration = new Aws.Bedrock.Inputs.AgentcoreCodeInterpreterNetworkConfigurationArgs
     ///         {
     ///             NetworkMode = "SANDBOX",
     ///         },
+    ///         Name = "example-code-interpreter",
+    ///         Description = "Code interpreter with custom execution role",
+    ///         ExecutionRoleArn = example.Arn,
     ///     });
     /// 
     /// });

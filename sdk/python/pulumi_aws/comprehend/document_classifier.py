@@ -598,12 +598,12 @@ class DocumentClassifier(pulumi.CustomResource):
 
         documents = aws.s3.BucketObjectv2("documents")
         example = aws.comprehend.DocumentClassifier("example",
-            name="example",
-            data_access_role_arn=example_aws_iam_role["arn"],
-            language_code="en",
             input_data_config={
                 "s3_uri": documents.key.apply(lambda key: f"s3://{test['bucket']}/{key}"),
             },
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
+            language_code="en",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
@@ -614,7 +614,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+        - `arn` (String) ARN of the Comprehend document classifier.
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 
@@ -679,12 +679,12 @@ class DocumentClassifier(pulumi.CustomResource):
 
         documents = aws.s3.BucketObjectv2("documents")
         example = aws.comprehend.DocumentClassifier("example",
-            name="example",
-            data_access_role_arn=example_aws_iam_role["arn"],
-            language_code="en",
             input_data_config={
                 "s3_uri": documents.key.apply(lambda key: f"s3://{test['bucket']}/{key}"),
             },
+            name="example",
+            data_access_role_arn=example_aws_iam_role["arn"],
+            language_code="en",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_iam_role_policy]))
         entities = aws.s3.BucketObjectv2("entities")
         ```
@@ -695,7 +695,7 @@ class DocumentClassifier(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Comprehend document classifier.
+        - `arn` (String) ARN of the Comprehend document classifier.
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 

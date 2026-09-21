@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class EventDestinationKinesisDestination {
     /**
-     * @return The ARN of the role that has permissions to access the Kinesis Stream
+     * @return ARN of the role that has permissions to access the Kinesis Stream
      * 
      */
     private String roleArn;
     /**
-     * @return The ARN of the Kinesis Stream
+     * @return ARN of the Kinesis Stream
      * 
      */
     private String streamArn;
 
     private EventDestinationKinesisDestination() {}
     /**
-     * @return The ARN of the role that has permissions to access the Kinesis Stream
+     * @return ARN of the role that has permissions to access the Kinesis Stream
      * 
      */
     public String roleArn() {
         return this.roleArn;
     }
     /**
-     * @return The ARN of the Kinesis Stream
+     * @return ARN of the Kinesis Stream
      * 
      */
     public String streamArn() {

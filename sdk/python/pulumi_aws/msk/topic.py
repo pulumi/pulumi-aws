@@ -31,7 +31,7 @@ class TopicArgs:
         """
         The set of arguments for constructing a Topic resource.
 
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies MSK Cluster.
         :param pulumi.Input[_builtins.int] partition_count: Number of partitions for Topic.
         :param pulumi.Input[_builtins.int] replication_factor: Replication factor for Topic.
                
@@ -56,7 +56,7 @@ class TopicArgs:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        ARN that uniquely identifies MSK Cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -152,7 +152,7 @@ class _TopicState:
         Input properties used for looking up and filtering Topic resources.
 
         :param pulumi.Input[_builtins.str] arn: ARN of the Topic.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies MSK Cluster.
         :param pulumi.Input[_builtins.str] configs: Explicit configured Kafka configuration in JSON format for Topic.
         :param pulumi.Input[_builtins.str] configs_actual: Aggregated Kafka configuration in JSON format for Topic, both explicit set values from `configs` and implicit set values (AWS default configuration, historically set values or manual configuration from outside Terraform).
         :param pulumi.Input[_builtins.str] name: Name of Topic.
@@ -197,7 +197,7 @@ class _TopicState:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        ARN that uniquely identifies MSK Cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -334,7 +334,7 @@ class Topic(pulumi.CustomResource):
 
         #### Required
 
-        * `cluster_arn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        * `cluster_arn` (String) ARN that uniquely identifies MSK Cluster.
         * `name` (String) Name of Topic.
 
         #### Optional
@@ -351,7 +351,7 @@ class Topic(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies MSK Cluster.
         :param pulumi.Input[_builtins.str] configs: Explicit configured Kafka configuration in JSON format for Topic.
         :param pulumi.Input[_builtins.str] name: Name of Topic.
         :param pulumi.Input[_builtins.int] partition_count: Number of partitions for Topic.
@@ -397,7 +397,7 @@ class Topic(pulumi.CustomResource):
 
         #### Required
 
-        * `cluster_arn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        * `cluster_arn` (String) ARN that uniquely identifies MSK Cluster.
         * `name` (String) Name of Topic.
 
         #### Optional
@@ -485,7 +485,7 @@ class Topic(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the Topic.
-        :param pulumi.Input[_builtins.str] cluster_arn: Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies MSK Cluster.
         :param pulumi.Input[_builtins.str] configs: Explicit configured Kafka configuration in JSON format for Topic.
         :param pulumi.Input[_builtins.str] configs_actual: Aggregated Kafka configuration in JSON format for Topic, both explicit set values from `configs` and implicit set values (AWS default configuration, historically set values or manual configuration from outside Terraform).
         :param pulumi.Input[_builtins.str] name: Name of Topic.
@@ -522,7 +522,7 @@ class Topic(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        ARN that uniquely identifies MSK Cluster.
         """
         return pulumi.get(self, "cluster_arn")
 

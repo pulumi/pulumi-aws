@@ -26,7 +26,6 @@ namespace Pulumi.Aws.AppRunner
     /// {
     ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
-    ///         ServiceName = "example",
     ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///         {
     ///             AuthenticationConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationAuthenticationConfigurationArgs
@@ -46,12 +45,12 @@ namespace Pulumi.Aws.AppRunner
     ///                     },
     ///                     ConfigurationSource = "API",
     ///                 },
-    ///                 RepositoryUrl = "https://github.com/example/my-example-python-app",
     ///                 SourceCodeVersion = new Aws.AppRunner.Inputs.ServiceSourceConfigurationCodeRepositorySourceCodeVersionArgs
     ///                 {
     ///                     Type = "BRANCH",
     ///                     Value = "main",
     ///                 },
+    ///                 RepositoryUrl = "https://github.com/example/my-example-python-app",
     ///             },
     ///         },
     ///         NetworkConfiguration = new Aws.AppRunner.Inputs.ServiceNetworkConfigurationArgs
@@ -62,6 +61,7 @@ namespace Pulumi.Aws.AppRunner
     ///                 VpcConnectorArn = connector.Arn,
     ///             },
     ///         },
+    ///         ServiceName = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-apprunner-service" },
@@ -83,7 +83,6 @@ namespace Pulumi.Aws.AppRunner
     /// {
     ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
-    ///         ServiceName = "example",
     ///         SourceConfiguration = new Aws.AppRunner.Inputs.ServiceSourceConfigurationArgs
     ///         {
     ///             ImageRepository = new Aws.AppRunner.Inputs.ServiceSourceConfigurationImageRepositoryArgs
@@ -97,6 +96,7 @@ namespace Pulumi.Aws.AppRunner
     ///             },
     ///             AutoDeploymentsEnabled = false,
     ///         },
+    ///         ServiceName = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-apprunner-service" },
@@ -118,16 +118,15 @@ namespace Pulumi.Aws.AppRunner
     /// {
     ///     var exampleObservabilityConfiguration = new Aws.AppRunner.ObservabilityConfiguration("example", new()
     ///     {
-    ///         ObservabilityConfigurationName = "example",
     ///         TraceConfiguration = new Aws.AppRunner.Inputs.ObservabilityConfigurationTraceConfigurationArgs
     ///         {
     ///             Vendor = "AWSXRAY",
     ///         },
+    ///         ObservabilityConfigurationName = "example",
     ///     });
     /// 
     ///     var example = new Aws.AppRunner.Service("example", new()
     ///     {
-    ///         ServiceName = "example",
     ///         ObservabilityConfiguration = new Aws.AppRunner.Inputs.ServiceObservabilityConfigurationArgs
     ///         {
     ///             ObservabilityConfigurationArn = exampleObservabilityConfiguration.Arn,
@@ -146,6 +145,7 @@ namespace Pulumi.Aws.AppRunner
     ///             },
     ///             AutoDeploymentsEnabled = false,
     ///         },
+    ///         ServiceName = "example",
     ///         Tags = 
     ///         {
     ///             { "Name", "example-apprunner-service" },
@@ -161,7 +161,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the App Runner service.
+    /// - `Arn` (String) ARN of the App Runner service.
     /// 
     /// Using `pulumi import`, import App Runner Services using the `Arn`. For example:
     /// 

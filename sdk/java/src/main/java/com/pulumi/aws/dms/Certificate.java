@@ -67,14 +67,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dms/certificate:Certificate")
 public class Certificate extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the certificate.
+     * ARN for the certificate.
      * 
      */
     @Export(name="certificateArn", refs={String.class}, tree="[0]")
     private Output<String> certificateArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the certificate.
+     * @return ARN for the certificate.
      * 
      */
     public Output<String> certificateArn() {

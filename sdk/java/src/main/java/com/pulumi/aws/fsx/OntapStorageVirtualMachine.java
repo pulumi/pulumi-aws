@@ -87,10 +87,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new OntapStorageVirtualMachine("test", OntapStorageVirtualMachineArgs.builder()
- *             .fileSystemId(testAwsFsxOntapFileSystem.id())
- *             .name("mysvm")
  *             .activeDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationArgs.builder()
- *                 .netbiosName("mysvm")
  *                 .selfManagedActiveDirectoryConfiguration(OntapStorageVirtualMachineActiveDirectoryConfigurationSelfManagedActiveDirectoryConfigurationArgs.builder()
  *                     .dnsIps(                    
  *                         "10.0.0.111",
@@ -99,7 +96,10 @@ import javax.annotation.Nullable;
  *                     .password("avoid-plaintext-passwords")
  *                     .username("Admin")
  *                     .build())
+ *                 .netbiosName("mysvm")
  *                 .build())
+ *             .fileSystemId(testAwsFsxOntapFileSystem.id())
+ *             .name("mysvm")
  *             .build());
  * 
  *     }
@@ -126,6 +126,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.OntapStorageVirtualMachine;
  * import com.pulumi.aws.fsx.OntapStorageVirtualMachineArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -141,7 +142,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new OntapStorageVirtualMachine("example", OntapStorageVirtualMachineArgs.builder()
  *             .svmAdminPassword("avoid-plaintext-passwords")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("svmAdminPassword")
+ *                 .build());
  * 
  *     }
  * }
@@ -166,14 +169,14 @@ public class OntapStorageVirtualMachine extends com.pulumi.resources.CustomResou
         return Codegen.optional(this.activeDirectoryConfiguration);
     }
     /**
-     * Amazon Resource Name of the storage virtual machine.
+     * ARN of the storage virtual machine.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the storage virtual machine.
+     * @return ARN of the storage virtual machine.
      * 
      */
     public Output<String> arn() {

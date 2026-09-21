@@ -415,12 +415,6 @@ class Workspace(pulumi.CustomResource):
         value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
         workspaces = aws.kms.get_key(key_id="alias/aws/workspaces")
         example = aws.workspaces.Workspace("example",
-            directory_id=example_aws_workspaces_directory["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key=workspaces.arn,
             workspace_properties={
                 "compute_type_name": "VALUE",
                 "user_volume_size_gib": 10,
@@ -428,6 +422,12 @@ class Workspace(pulumi.CustomResource):
                 "running_mode": "AUTO_STOP",
                 "running_mode_auto_stop_timeout_in_minutes": 60,
             },
+            directory_id=example_aws_workspaces_directory["id"],
+            bundle_id=value_windows10.id,
+            user_name="john.doe",
+            root_volume_encryption_enabled=True,
+            user_volume_encryption_enabled=True,
+            volume_encryption_key=workspaces.arn,
             tags={
                 "Department": "IT",
             })
@@ -474,12 +474,6 @@ class Workspace(pulumi.CustomResource):
         value_windows10 = aws.workspaces.get_bundle(bundle_id="wsb-bh8rsxt14")
         workspaces = aws.kms.get_key(key_id="alias/aws/workspaces")
         example = aws.workspaces.Workspace("example",
-            directory_id=example_aws_workspaces_directory["id"],
-            bundle_id=value_windows10.id,
-            user_name="john.doe",
-            root_volume_encryption_enabled=True,
-            user_volume_encryption_enabled=True,
-            volume_encryption_key=workspaces.arn,
             workspace_properties={
                 "compute_type_name": "VALUE",
                 "user_volume_size_gib": 10,
@@ -487,6 +481,12 @@ class Workspace(pulumi.CustomResource):
                 "running_mode": "AUTO_STOP",
                 "running_mode_auto_stop_timeout_in_minutes": 60,
             },
+            directory_id=example_aws_workspaces_directory["id"],
+            bundle_id=value_windows10.id,
+            user_name="john.doe",
+            root_volume_encryption_enabled=True,
+            user_volume_encryption_enabled=True,
+            volume_encryption_key=workspaces.arn,
             tags={
                 "Department": "IT",
             })

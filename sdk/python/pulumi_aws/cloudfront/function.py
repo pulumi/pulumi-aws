@@ -29,13 +29,13 @@ class FunctionArgs:
         """
         The set of arguments for constructing a Function resource.
 
-        :param pulumi.Input[_builtins.str] code: Source code of the function
+        :param pulumi.Input[_builtins.str] code: Source code of the function. Must be between 1 and 40960 bytes.
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] comment: Comment.
+        :param pulumi.Input[_builtins.str] comment: Comment. Must not exceed 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
+        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -56,7 +56,7 @@ class FunctionArgs:
     @pulumi.getter
     def code(self) -> pulumi.Input[_builtins.str]:
         """
-        Source code of the function
+        Source code of the function. Must be between 1 and 40960 bytes.
         """
         return pulumi.get(self, "code")
 
@@ -82,7 +82,7 @@ class FunctionArgs:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Comment.
+        Comment. Must not exceed 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -106,7 +106,7 @@ class FunctionArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique name for your CloudFront Function.
+        Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         """
         return pulumi.get(self, "name")
 
@@ -157,13 +157,13 @@ class _FunctionState:
         """
         Input properties used for looking up and filtering Function resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
-        :param pulumi.Input[_builtins.str] code: Source code of the function
-        :param pulumi.Input[_builtins.str] comment: Comment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your CloudFront Function.
+        :param pulumi.Input[_builtins.str] code: Source code of the function. Must be between 1 and 40960 bytes.
+        :param pulumi.Input[_builtins.str] comment: Comment. Must not exceed 128 characters.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
+        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
@@ -201,7 +201,7 @@ class _FunctionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifying your CloudFront Function.
+        ARN identifying your CloudFront Function.
         """
         return pulumi.get(self, "arn")
 
@@ -213,7 +213,7 @@ class _FunctionState:
     @pulumi.getter
     def code(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Source code of the function
+        Source code of the function. Must be between 1 and 40960 bytes.
         """
         return pulumi.get(self, "code")
 
@@ -225,7 +225,7 @@ class _FunctionState:
     @pulumi.getter
     def comment(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Comment.
+        Comment. Must not exceed 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -273,7 +273,7 @@ class _FunctionState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Unique name for your CloudFront Function.
+        Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         """
         return pulumi.get(self, "name")
 
@@ -378,10 +378,10 @@ class Function(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] code: Source code of the function
-        :param pulumi.Input[_builtins.str] comment: Comment.
+        :param pulumi.Input[_builtins.str] code: Source code of the function. Must be between 1 and 40960 bytes.
+        :param pulumi.Input[_builtins.str] comment: Comment. Must not exceed 128 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
+        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
@@ -488,13 +488,13 @@ class Function(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifying your CloudFront Function.
-        :param pulumi.Input[_builtins.str] code: Source code of the function
-        :param pulumi.Input[_builtins.str] comment: Comment.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your CloudFront Function.
+        :param pulumi.Input[_builtins.str] code: Source code of the function. Must be between 1 and 40960 bytes.
+        :param pulumi.Input[_builtins.str] comment: Comment. Must not exceed 128 characters.
         :param pulumi.Input[_builtins.str] etag: ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] key_value_store_associations: List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
         :param pulumi.Input[_builtins.str] live_stage_etag: ETag hash of any `LIVE` stage of the function.
-        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function.
+        :param pulumi.Input[_builtins.str] name: Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         :param pulumi.Input[_builtins.bool] publish: Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
         :param pulumi.Input[_builtins.str] runtime: Identifier of the function's runtime. Valid values are `cloudfront-js-1.0` and `cloudfront-js-2.0`.
                
@@ -525,7 +525,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifying your CloudFront Function.
+        ARN identifying your CloudFront Function.
         """
         return pulumi.get(self, "arn")
 
@@ -533,7 +533,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def code(self) -> pulumi.Output[_builtins.str]:
         """
-        Source code of the function
+        Source code of the function. Must be between 1 and 40960 bytes.
         """
         return pulumi.get(self, "code")
 
@@ -541,7 +541,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def comment(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Comment.
+        Comment. Must not exceed 128 characters.
         """
         return pulumi.get(self, "comment")
 
@@ -573,7 +573,7 @@ class Function(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        Unique name for your CloudFront Function.
+        Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
         """
         return pulumi.get(self, "name")
 

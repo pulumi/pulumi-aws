@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class CustomPluginLocationS3 {
     /**
-     * @return The Amazon Resource Name (ARN) of an S3 bucket.
+     * @return ARN of an S3 bucket.
      * 
      */
     private String bucketArn;
@@ -30,7 +30,7 @@ public final class CustomPluginLocationS3 {
 
     private CustomPluginLocationS3() {}
     /**
-     * @return The Amazon Resource Name (ARN) of an S3 bucket.
+     * @return ARN of an S3 bucket.
      * 
      */
     public String bucketArn() {

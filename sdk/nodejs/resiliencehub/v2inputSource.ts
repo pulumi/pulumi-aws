@@ -23,10 +23,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2InputSource("example", {
- *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  *     resourceConfiguration: {
  *         cfnStackArn: "arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123",
  *     },
+ *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  * });
  * ```
  *
@@ -37,10 +37,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2InputSource("example", {
- *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  *     resourceConfiguration: {
  *         tfStateFileUrl: "s3://my-bucket/terraform.tfstate",
  *     },
+ *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  * });
  * ```
  *
@@ -51,7 +51,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.resiliencehub.V2InputSource("example", {
- *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  *     resourceConfiguration: {
  *         eks: {
  *             clusterArn: "arn:aws:eks:us-west-2:123456789012:cluster/my-cluster",
@@ -61,6 +60,7 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     serviceArn: exampleAwsResiliencehubv2Service.arn,
  * });
  * ```
  *

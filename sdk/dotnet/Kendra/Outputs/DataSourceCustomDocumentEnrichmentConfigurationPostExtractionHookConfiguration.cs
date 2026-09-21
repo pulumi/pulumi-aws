@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kendra.Outputs
         /// </summary>
         public readonly Outputs.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition? InvocationCondition;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+        /// ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
         /// </summary>
         public readonly string LambdaArn;
         /// <summary>

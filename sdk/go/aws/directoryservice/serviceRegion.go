@@ -39,7 +39,6 @@ import (
 // return err
 // }
 // available, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-// State: pulumi.StringRef("available"),
 // Filters: []aws.GetAvailabilityZonesFilter{
 // {
 // Name: "opt-in-status",
@@ -48,6 +47,7 @@ import (
 // },
 // },
 // },
+// State: pulumi.StringRef("available"),
 // }, nil);
 // if err != nil {
 // return err
@@ -85,19 +85,18 @@ import (
 // exampleSubnet = append(exampleSubnet, __res)
 // }
 // exampleDirectory, err := directoryservice.NewDirectory(ctx, "example", &directoryservice.DirectoryArgs{
+// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
+// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:41,17-36)),
+// },
 // Name: pulumi.String("example.com"),
 // Password: pulumi.String("SuperSecretPassw0rd"),
 // Type: pulumi.String("MicrosoftAD"),
-// VpcSettings: &directoryservice.DirectoryVpcSettingsArgs{
-// VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:44,17-36)),
-// },
 // })
 // if err != nil {
 // return err
 // }
 // available_secondary, err := aws.GetAvailabilityZones(ctx, &aws.GetAvailabilityZonesArgs{
-// State: pulumi.StringRef("available"),
 // Filters: []aws.GetAvailabilityZonesFilter{
 // {
 // Name: "opt-in-status",
@@ -106,6 +105,7 @@ import (
 // },
 // },
 // },
+// State: pulumi.StringRef("available"),
 // }, nil);
 // if err != nil {
 // return err
@@ -143,12 +143,12 @@ import (
 // example_secondarySubnet = append(example_secondarySubnet, __res)
 // }
 // _, err = directoryservice.NewServiceRegion(ctx, "example", &directoryservice.ServiceRegionArgs{
-// DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
-// RegionName: pulumi.String(example.Region),
 // VpcSettings: &directoryservice.ServiceRegionVpcSettingsArgs{
 // VpcId: example_secondary.ID().ToIDOutput().ToStringOutput(),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:87,17-46)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:85,17-46)),
 // },
+// DirectoryId: exampleDirectory.ID().ToIDOutput().ToStringOutput(),
+// RegionName: pulumi.String(example.Region),
 // Tags: pulumi.StringMap{
 // "Name": pulumi.String("Secondary"),
 // },

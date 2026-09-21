@@ -8,6 +8,7 @@ import com.pulumi.aws.bedrock.AgentcoreOauth2CredentialProviderArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderState;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderClientSecretArn;
 import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfig;
+import com.pulumi.aws.bedrock.outputs.AgentcoreOauth2CredentialProviderTimeouts;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -52,14 +53,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var github = new AgentcoreOauth2CredentialProvider("github", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("github-oauth-provider")
- *             .credentialProviderVendor("GithubOauth2")
  *             .oauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs.builder()
  *                 .githubOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigArgs.builder()
  *                     .clientId("your-github-client-id")
  *                     .clientSecret("your-github-client-secret")
  *                     .build())
  *                 .build())
+ *             .name("github-oauth-provider")
+ *             .credentialProviderVendor("GithubOauth2")
  *             .build());
  * 
  *     }
@@ -92,14 +93,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var auth0 = new AgentcoreOauth2CredentialProvider("auth0", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("auth0-oauth-provider")
- *             .credentialProviderVendor("CustomOauth2")
  *             .customOauth2ProviderConfig(Arrays.asList(Map.of("custom", Arrays.asList(Map.ofEntries(
+ *                 Map.entry("oauthDiscovery", Arrays.asList(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration"))),
  *                 Map.entry("clientIdWo", "auth0-client-id"),
  *                 Map.entry("clientSecretWo", "auth0-client-secret"),
- *                 Map.entry("clientCredentialsWoVersion", 1),
- *                 Map.entry("oauthDiscovery", Arrays.asList(Map.of("discoveryUrl", "https://dev-company.auth0.com/.well-known/openid-configuration")))
+ *                 Map.entry("clientCredentialsWoVersion", 1)
  *             )))))
+ *             .name("auth0-oauth-provider")
+ *             .credentialProviderVendor("CustomOauth2")
  *             .build());
  * 
  *     }
@@ -136,13 +137,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var keycloak = new AgentcoreOauth2CredentialProvider("keycloak", AgentcoreOauth2CredentialProviderArgs.builder()
- *             .name("keycloak-oauth-provider")
- *             .credentialProviderVendor("CustomOauth2")
  *             .oauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs.builder()
  *                 .customOauth2ProviderConfig(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigArgs.builder()
- *                     .clientIdWo("keycloak-client-id")
- *                     .clientSecretWo("keycloak-client-secret")
- *                     .clientCredentialsWoVersion(1)
  *                     .oauthDiscovery(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryArgs.builder()
  *                         .authorizationServerMetadata(AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadataArgs.builder()
  *                             .issuer("https://auth.company.com/realms/production")
@@ -151,10 +147,16 @@ import javax.annotation.Nullable;
  *                             .responseTypes(                            
  *                                 "code",
  *                                 "id_token")
+ *                             .tokenEndpointAuthMethods("client_secret_basic")
  *                             .build())
  *                         .build())
+ *                     .clientIdWo("keycloak-client-id")
+ *                     .clientSecretWo("keycloak-client-secret")
+ *                     .clientCredentialsWoVersion(1)
  *                     .build())
  *                 .build())
+ *             .name("keycloak-oauth-provider")
+ *             .credentialProviderVendor("CustomOauth2")
  *             .build());
  * 
  *     }
@@ -164,15 +166,42 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using the provider name. For example:
+ * &gt; **Note:** OAuth2 client credentials are input-only in the AgentCore API and are not returned by the read operation. On import, `clientId`, `clientSecret`, `clientSecretSource`, `clientSecretConfig`, and the write-only `clientIdWo`/`clientSecretWo`/`clientCredentialsWoVersion` arguments cannot be recovered from the service, so the first `pulumi preview` after import shows them as additions. Run `pulumi up` once to reconcile state from your configuration; subsequent plans are clean.
+ * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `name` (String) OAuth2 credential provider name.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) Account ID where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
+ * Using `pulumi import`, import Bedrock AgentCore OAuth2 Credential Provider using `name`. For example:
  * 
  * ```sh
- * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example oauth2-provider-name
+ * $ pulumi import aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider example example-oauth2-provider
  * ```
  * 
  */
 @ResourceType(type="aws:bedrock/agentcoreOauth2CredentialProvider:AgentcoreOauth2CredentialProvider")
 public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.CustomResource {
+    /**
+     * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    @Export(name="callbackUrl", refs={String.class}, tree="[0]")
+    private Output<String> callbackUrl;
+
+    /**
+     * @return Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    public Output<String> callbackUrl() {
+        return this.callbackUrl;
+    }
     /**
      * ARN of the AWS Secrets Manager secret containing the client secret.
      * 
@@ -202,14 +231,14 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
         return this.credentialProviderArn;
     }
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     @Export(name="credentialProviderVendor", refs={String.class}, tree="[0]")
     private Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     public Output<String> credentialProviderVendor() {
@@ -236,7 +265,7 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      * 
      */
     @Export(name="oauth2ProviderConfig", refs={AgentcoreOauth2CredentialProviderOauth2ProviderConfig.class}, tree="[0]")
-    private Output</* @Nullable */ AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig;
+    private Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig;
 
     /**
      * @return OAuth2 provider configuration. Must contain exactly one provider type. See `oauth2ProviderConfig` below.
@@ -244,8 +273,8 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      * The following arguments are optional:
      * 
      */
-    public Output<Optional<AgentcoreOauth2CredentialProviderOauth2ProviderConfig>> oauth2ProviderConfig() {
-        return Codegen.optional(this.oauth2ProviderConfig);
+    public Output<AgentcoreOauth2CredentialProviderOauth2ProviderConfig> oauth2ProviderConfig() {
+        return this.oauth2ProviderConfig;
     }
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -288,6 +317,12 @@ public class AgentcoreOauth2CredentialProvider extends com.pulumi.resources.Cust
      */
     public Output<Map<String,String>> tagsAll() {
         return this.tagsAll;
+    }
+    @Export(name="timeouts", refs={AgentcoreOauth2CredentialProviderTimeouts.class}, tree="[0]")
+    private Output</* @Nullable */ AgentcoreOauth2CredentialProviderTimeouts> timeouts;
+
+    public Output<Optional<AgentcoreOauth2CredentialProviderTimeouts>> timeouts() {
+        return Codegen.optional(this.timeouts);
     }
 
     /**

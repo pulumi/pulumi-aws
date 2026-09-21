@@ -16,14 +16,14 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
     public static final CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs Empty = new CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs();
 
     /**
-     * The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+     * Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     @Import(name="predefinedMetricType", required=true)
     private Output<String> predefinedMetricType;
 
     /**
-     * @return The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+     * @return Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     public Output<String> predefinedMetricType() {
@@ -31,14 +31,14 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
     }
 
     /**
-     * The target value for the scaling policy.
+     * Target value for the scaling policy.
      * 
      */
     @Import(name="targetValue", required=true)
     private Output<Double> targetValue;
 
     /**
-     * @return The target value for the scaling policy.
+     * @return Target value for the scaling policy.
      * 
      */
     public Output<Double> targetValue() {
@@ -71,7 +71,7 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
         }
 
         /**
-         * @param predefinedMetricType The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+         * @param predefinedMetricType Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
         }
 
         /**
-         * @param predefinedMetricType The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+         * @param predefinedMetricType Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
         }
 
         /**
-         * @param targetValue The target value for the scaling policy.
+         * @param targetValue Target value for the scaling policy.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class CapacityProviderCapacityProviderScalingConfigScalingPolicyArg
         }
 
         /**
-         * @param targetValue The target value for the scaling policy.
+         * @param targetValue Target value for the scaling policy.
          * 
          * @return builder
          * 

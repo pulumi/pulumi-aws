@@ -15,6 +15,16 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreHarnessModelOpenaiModelConfig {
     /**
+     * @return JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+     * 
+     */
+    private @Nullable String additionalParams;
+    /**
+     * @return API format for the model. Valid values are `responses` and `chatCompletions`.
+     * 
+     */
+    private @Nullable String apiFormat;
+    /**
      * @return ARN of the secret containing the API key.
      * 
      */
@@ -41,6 +51,20 @@ public final class AgentcoreHarnessModelOpenaiModelConfig {
     private @Nullable Double topP;
 
     private AgentcoreHarnessModelOpenaiModelConfig() {}
+    /**
+     * @return JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+     * 
+     */
+    public Optional<String> additionalParams() {
+        return Optional.ofNullable(this.additionalParams);
+    }
+    /**
+     * @return API format for the model. Valid values are `responses` and `chatCompletions`.
+     * 
+     */
+    public Optional<String> apiFormat() {
+        return Optional.ofNullable(this.apiFormat);
+    }
     /**
      * @return ARN of the secret containing the API key.
      * 
@@ -86,6 +110,8 @@ public final class AgentcoreHarnessModelOpenaiModelConfig {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable String additionalParams;
+        private @Nullable String apiFormat;
         private String apiKeyArn;
         private @Nullable Integer maxTokens;
         private String modelId;
@@ -94,6 +120,8 @@ public final class AgentcoreHarnessModelOpenaiModelConfig {
         public Builder() {}
         public Builder(AgentcoreHarnessModelOpenaiModelConfig defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalParams = defaults.additionalParams;
+    	      this.apiFormat = defaults.apiFormat;
     	      this.apiKeyArn = defaults.apiKeyArn;
     	      this.maxTokens = defaults.maxTokens;
     	      this.modelId = defaults.modelId;
@@ -101,6 +129,18 @@ public final class AgentcoreHarnessModelOpenaiModelConfig {
     	      this.topP = defaults.topP;
         }
 
+        @CustomType.Setter
+        public Builder additionalParams(@Nullable String additionalParams) {
+
+            this.additionalParams = additionalParams;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apiFormat(@Nullable String apiFormat) {
+
+            this.apiFormat = apiFormat;
+            return this;
+        }
         @CustomType.Setter
         public Builder apiKeyArn(String apiKeyArn) {
             if (apiKeyArn == null) {
@@ -137,6 +177,8 @@ public final class AgentcoreHarnessModelOpenaiModelConfig {
         }
         public AgentcoreHarnessModelOpenaiModelConfig build() {
             final var _resultValue = new AgentcoreHarnessModelOpenaiModelConfig();
+            _resultValue.additionalParams = additionalParams;
+            _resultValue.apiFormat = apiFormat;
             _resultValue.apiKeyArn = apiKeyArn;
             _resultValue.maxTokens = maxTokens;
             _resultValue.modelId = modelId;

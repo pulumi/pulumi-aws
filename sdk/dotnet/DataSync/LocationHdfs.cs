@@ -26,12 +26,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationHdfs("example", new()
     ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         AuthenticationType = "SIMPLE",
-    ///         SimpleUser = "example",
     ///         NameNodes = new[]
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
@@ -40,6 +34,12 @@ namespace Pulumi.Aws.DataSync
     ///                 Port = 80,
     ///             },
     ///         },
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         AuthenticationType = "SIMPLE",
+    ///         SimpleUser = "example",
     ///     });
     /// 
     /// });
@@ -58,11 +58,6 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationHdfs("example", new()
     ///     {
-    ///         AgentArns = new[]
-    ///         {
-    ///             exampleAwsDatasyncAgent.Arn,
-    ///         },
-    ///         AuthenticationType = "KERBEROS",
     ///         NameNodes = new[]
     ///         {
     ///             new Aws.DataSync.Inputs.LocationHdfsNameNodeArgs
@@ -71,6 +66,11 @@ namespace Pulumi.Aws.DataSync
     ///                 Port = 80,
     ///             },
     ///         },
+    ///         AgentArns = new[]
+    ///         {
+    ///             exampleAwsDatasyncAgent.Arn,
+    ///         },
+    ///         AuthenticationType = "KERBEROS",
     ///         KerberosPrincipal = "user@example.com",
     ///         KerberosKeytabBase64 = Std.Filebase64.Invoke(new()
     ///         {
@@ -91,9 +91,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync HDFS location.
+    /// - `Arn` (String) ARN of the DataSync HDFS location.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.LocationHdfs` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.LocationHdfs` using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/locationHdfs:LocationHdfs example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -109,7 +109,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -394,7 +394,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

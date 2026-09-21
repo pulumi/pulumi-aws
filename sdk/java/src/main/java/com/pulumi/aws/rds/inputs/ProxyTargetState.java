@@ -19,16 +19,12 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     /**
      * DB cluster identifier.
      * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-     * 
      */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
     /**
      * @return DB cluster identifier.
-     * 
-     * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
      * 
      */
     public Optional<Output<String>> dbClusterIdentifier() {
@@ -51,14 +47,14 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the DB proxy.
+     * Name of the DB proxy.
      * 
      */
     @Import(name="dbProxyName")
     private @Nullable Output<String> dbProxyName;
 
     /**
-     * @return The name of the DB proxy.
+     * @return Name of the DB proxy.
      * 
      */
     public Optional<Output<String>> dbProxyName() {
@@ -126,14 +122,14 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+     * @return ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -141,14 +137,14 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of the target group.
+     * Name of the target group.
      * 
      */
     @Import(name="targetGroupName")
     private @Nullable Output<String> targetGroupName;
 
     /**
-     * @return The name of the target group.
+     * @return Name of the target group.
      * 
      */
     public Optional<Output<String>> targetGroupName() {
@@ -222,8 +218,6 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         /**
          * @param dbClusterIdentifier DB cluster identifier.
          * 
-         * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
-         * 
          * @return builder
          * 
          */
@@ -234,8 +228,6 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param dbClusterIdentifier DB cluster identifier.
-         * 
-         * **NOTE:** Either `dbInstanceIdentifier` or `dbClusterIdentifier` should be specified and both should not be specified together
          * 
          * @return builder
          * 
@@ -266,7 +258,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbProxyName The name of the DB proxy.
+         * @param dbProxyName Name of the DB proxy.
          * 
          * @return builder
          * 
@@ -277,7 +269,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbProxyName The name of the DB proxy.
+         * @param dbProxyName Name of the DB proxy.
          * 
          * @return builder
          * 
@@ -371,7 +363,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+         * @param targetArn ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
          * 
          * @return builder
          * 
@@ -382,7 +374,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn Amazon Resource Name (ARN) for the DB instance or DB cluster. Currently not returned by the RDS API.
+         * @param targetArn ARN for the DB instance or DB cluster. Currently not returned by the RDS API.
          * 
          * @return builder
          * 
@@ -392,7 +384,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupName The name of the target group.
+         * @param targetGroupName Name of the target group.
          * 
          * @return builder
          * 
@@ -403,7 +395,7 @@ public final class ProxyTargetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetGroupName The name of the target group.
+         * @param targetGroupName Name of the target group.
          * 
          * @return builder
          * 

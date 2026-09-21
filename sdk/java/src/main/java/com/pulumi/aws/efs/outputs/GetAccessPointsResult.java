@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessPointsResult {
     /**
-     * @return Set of Amazon Resource Names (ARNs).
+     * @return Set of ARNs.
      * 
      */
     private List<String> arns;
@@ -31,7 +31,7 @@ public final class GetAccessPointsResult {
 
     private GetAccessPointsResult() {}
     /**
-     * @return Set of Amazon Resource Names (ARNs).
+     * @return Set of ARNs.
      * 
      */
     public List<String> arns() {

@@ -13,6 +13,7 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from .. import _utilities
+from . import outputs
 
 __all__ = [
     'GetConnectionResult',
@@ -26,7 +27,7 @@ class GetConnectionResult:
     """
     A collection of values returned by getConnection.
     """
-    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, partner_name=None, provider_name=None, region=None, state=None, tags=None, vlan_id=None):
+    def __init__(__self__, arn=None, aws_device=None, bandwidth=None, id=None, location=None, name=None, owner_account_id=None, partner_name=None, prefix_pool_size_ipv4=None, prefix_pool_size_ipv6=None, prefix_pool_unallocated_count_ipv4=None, prefix_pool_unallocated_count_ipv6=None, provider_name=None, rate_limiter_statuses=None, region=None, state=None, tags=None, vlan_id=None):
         if arn and not isinstance(arn, str):
             raise TypeError("Expected argument 'arn' to be a str")
         pulumi.set(__self__, "arn", arn)
@@ -51,9 +52,24 @@ class GetConnectionResult:
         if partner_name and not isinstance(partner_name, str):
             raise TypeError("Expected argument 'partner_name' to be a str")
         pulumi.set(__self__, "partner_name", partner_name)
+        if prefix_pool_size_ipv4 and not isinstance(prefix_pool_size_ipv4, int):
+            raise TypeError("Expected argument 'prefix_pool_size_ipv4' to be a int")
+        pulumi.set(__self__, "prefix_pool_size_ipv4", prefix_pool_size_ipv4)
+        if prefix_pool_size_ipv6 and not isinstance(prefix_pool_size_ipv6, int):
+            raise TypeError("Expected argument 'prefix_pool_size_ipv6' to be a int")
+        pulumi.set(__self__, "prefix_pool_size_ipv6", prefix_pool_size_ipv6)
+        if prefix_pool_unallocated_count_ipv4 and not isinstance(prefix_pool_unallocated_count_ipv4, int):
+            raise TypeError("Expected argument 'prefix_pool_unallocated_count_ipv4' to be a int")
+        pulumi.set(__self__, "prefix_pool_unallocated_count_ipv4", prefix_pool_unallocated_count_ipv4)
+        if prefix_pool_unallocated_count_ipv6 and not isinstance(prefix_pool_unallocated_count_ipv6, int):
+            raise TypeError("Expected argument 'prefix_pool_unallocated_count_ipv6' to be a int")
+        pulumi.set(__self__, "prefix_pool_unallocated_count_ipv6", prefix_pool_unallocated_count_ipv6)
         if provider_name and not isinstance(provider_name, str):
             raise TypeError("Expected argument 'provider_name' to be a str")
         pulumi.set(__self__, "provider_name", provider_name)
+        if rate_limiter_statuses and not isinstance(rate_limiter_statuses, list):
+            raise TypeError("Expected argument 'rate_limiter_statuses' to be a list")
+        pulumi.set(__self__, "rate_limiter_statuses", rate_limiter_statuses)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -129,12 +145,52 @@ class GetConnectionResult:
         return pulumi.get(self, "partner_name")
 
     @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv4")
+    def prefix_pool_size_ipv4(self) -> _builtins.int:
+        """
+        The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolSizeIpv6")
+    def prefix_pool_size_ipv6(self) -> _builtins.int:
+        """
+        The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+        """
+        return pulumi.get(self, "prefix_pool_size_ipv6")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv4")
+    def prefix_pool_unallocated_count_ipv4(self) -> _builtins.int:
+        """
+        The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv4")
+
+    @_builtins.property
+    @pulumi.getter(name="prefixPoolUnallocatedCountIpv6")
+    def prefix_pool_unallocated_count_ipv6(self) -> _builtins.int:
+        """
+        The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+        """
+        return pulumi.get(self, "prefix_pool_unallocated_count_ipv6")
+
+    @_builtins.property
     @pulumi.getter(name="providerName")
     def provider_name(self) -> _builtins.str:
         """
         Name of the service provider associated with the connection.
         """
         return pulumi.get(self, "provider_name")
+
+    @_builtins.property
+    @pulumi.getter(name="rateLimiterStatuses")
+    def rate_limiter_statuses(self) -> Sequence['outputs.GetConnectionRateLimiterStatusResult']:
+        """
+        Rate limiter status for the connection. See `rate_limiter_status` Block below.
+        """
+        return pulumi.get(self, "rate_limiter_statuses")
 
     @_builtins.property
     @pulumi.getter
@@ -180,7 +236,12 @@ class AwaitableGetConnectionResult(GetConnectionResult):
             name=self.name,
             owner_account_id=self.owner_account_id,
             partner_name=self.partner_name,
+            prefix_pool_size_ipv4=self.prefix_pool_size_ipv4,
+            prefix_pool_size_ipv6=self.prefix_pool_size_ipv6,
+            prefix_pool_unallocated_count_ipv4=self.prefix_pool_unallocated_count_ipv4,
+            prefix_pool_unallocated_count_ipv6=self.prefix_pool_unallocated_count_ipv6,
             provider_name=self.provider_name,
+            rate_limiter_statuses=self.rate_limiter_statuses,
             region=self.region,
             state=self.state,
             tags=self.tags,
@@ -224,7 +285,12 @@ def get_connection(name: Optional[_builtins.str] = None,
         name=pulumi.get(__ret__, 'name'),
         owner_account_id=pulumi.get(__ret__, 'owner_account_id'),
         partner_name=pulumi.get(__ret__, 'partner_name'),
+        prefix_pool_size_ipv4=pulumi.get(__ret__, 'prefix_pool_size_ipv4'),
+        prefix_pool_size_ipv6=pulumi.get(__ret__, 'prefix_pool_size_ipv6'),
+        prefix_pool_unallocated_count_ipv4=pulumi.get(__ret__, 'prefix_pool_unallocated_count_ipv4'),
+        prefix_pool_unallocated_count_ipv6=pulumi.get(__ret__, 'prefix_pool_unallocated_count_ipv6'),
         provider_name=pulumi.get(__ret__, 'provider_name'),
+        rate_limiter_statuses=pulumi.get(__ret__, 'rate_limiter_statuses'),
         region=pulumi.get(__ret__, 'region'),
         state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
@@ -265,7 +331,12 @@ def get_connection_output(name: pulumi.Input[Optional[_builtins.str]] = None,
         name=pulumi.get(__response__, 'name'),
         owner_account_id=pulumi.get(__response__, 'owner_account_id'),
         partner_name=pulumi.get(__response__, 'partner_name'),
+        prefix_pool_size_ipv4=pulumi.get(__response__, 'prefix_pool_size_ipv4'),
+        prefix_pool_size_ipv6=pulumi.get(__response__, 'prefix_pool_size_ipv6'),
+        prefix_pool_unallocated_count_ipv4=pulumi.get(__response__, 'prefix_pool_unallocated_count_ipv4'),
+        prefix_pool_unallocated_count_ipv6=pulumi.get(__response__, 'prefix_pool_unallocated_count_ipv6'),
         provider_name=pulumi.get(__response__, 'provider_name'),
+        rate_limiter_statuses=pulumi.get(__response__, 'rate_limiter_statuses'),
         region=pulumi.get(__response__, 'region'),
         state=pulumi.get(__response__, 'state'),
         tags=pulumi.get(__response__, 'tags'),

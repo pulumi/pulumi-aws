@@ -34,8 +34,6 @@ import (
 //				return err
 //			}
 //			_, err = iot.NewThingGroup(ctx, "example", &iot.ThingGroupArgs{
-//				Name:            pulumi.String("example"),
-//				ParentGroupName: parent.Name,
 //				Properties: &iot.ThingGroupPropertiesArgs{
 //					AttributePayload: &iot.ThingGroupPropertiesAttributePayloadArgs{
 //						Attributes: pulumi.StringMap{
@@ -45,6 +43,8 @@ import (
 //					},
 //					Description: pulumi.String("This is my thing group"),
 //				},
+//				Name:            pulumi.String("example"),
+//				ParentGroupName: parent.Name,
 //				Tags: pulumi.StringMap{
 //					"managed": pulumi.String("true"),
 //				},

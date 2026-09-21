@@ -26,16 +26,16 @@ namespace Pulumi.Aws.DataSync
     /// {
     ///     var example = new Aws.DataSync.LocationAzureBlob("example", new()
     ///     {
+    ///         SasConfiguration = new Aws.DataSync.Inputs.LocationAzureBlobSasConfigurationArgs
+    ///         {
+    ///             Token = "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
+    ///         },
     ///         AgentArns = new[]
     ///         {
     ///             exampleAwsDatasyncAgent.Arn,
     ///         },
     ///         AuthenticationType = "SAS",
     ///         ContainerUrl = "https://myaccount.blob.core.windows.net/mycontainer",
-    ///         SasConfiguration = new Aws.DataSync.Inputs.LocationAzureBlobSasConfigurationArgs
-    ///         {
-    ///             Token = "sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
-    ///         },
     ///     });
     /// 
     /// });
@@ -47,9 +47,9 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+    /// - `Arn` (String) ARN of the DataSync Azure Blob location.
     /// 
-    /// Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.DataSync
         public Output<ImmutableArray<string>> AgentArns { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -266,7 +266,7 @@ namespace Pulumi.Aws.DataSync
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DataSync Location.
+        /// ARN of the DataSync Location.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

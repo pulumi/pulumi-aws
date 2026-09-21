@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.BotAssociation("example", {
- *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
  *         lexRegion: "us-west-2",
  *         name: "Test",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
  * });
  * ```
  *
@@ -38,11 +38,11 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const example = new aws.lex.Intent("example", {
- *     createVersion: true,
- *     name: "connect_lex_intent",
  *     fulfillmentActivity: {
  *         type: "ReturnIntent",
  *     },
+ *     createVersion: true,
+ *     name: "connect_lex_intent",
  *     sampleUtterances: ["I would like to pick up flowers."],
  * });
  * const exampleBot = new aws.lex.Bot("example", {
@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  *     clarificationPrompt: {
- *         maxAttempts: 2,
  *         messages: [{
  *             content: "I didn't understand you, what would you like to do?",
  *             contentType: "PlainText",
  *         }],
+ *         maxAttempts: 2,
  *     },
  *     intents: [{
  *         intentName: example.name,
@@ -68,11 +68,11 @@ import * as utilities from "../utilities";
  *     processBehavior: "BUILD",
  * });
  * const exampleBotAssociation = new aws.connect.BotAssociation("example", {
- *     instanceId: exampleAwsConnectInstance.id,
  *     lexBot: {
  *         lexRegion: current.then(current => current.region),
  *         name: exampleBot.name,
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
  * });
  * ```
  *

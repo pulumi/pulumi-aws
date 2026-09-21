@@ -229,9 +229,9 @@ def get_listener(listener_identifier: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param _builtins.str listener_identifier: ID or ARN of the listener
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param _builtins.str service_identifier: ID or ARN of the service network
     :param Mapping[str, _builtins.str] tags: List of tags associated with the listener.
     """
     __args__ = dict()
@@ -278,9 +278,9 @@ def get_listener_output(listener_identifier: pulumi.Input[Optional[_builtins.str
     ```
 
 
-    :param _builtins.str listener_identifier: ID or Amazon Resource Name (ARN) of the listener
+    :param _builtins.str listener_identifier: ID or ARN of the listener
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service network
+    :param _builtins.str service_identifier: ID or ARN of the service network
     :param Mapping[str, _builtins.str] tags: List of tags associated with the listener.
     """
     __args__ = dict()

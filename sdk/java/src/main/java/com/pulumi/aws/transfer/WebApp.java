@@ -42,8 +42,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -80,19 +80,19 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRoleTransfer = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions(                
- *                     "sts:AssumeRole",
- *                     "sts:SetContext")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("Service")
- *                     .identifiers("transfer.amazonaws.com")
- *                     .build())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("StringEquals")
  *                     .values(current.accountId())
  *                     .variable("aws:SourceAccount")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("Service")
+ *                     .identifiers("transfer.amazonaws.com")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions(                
+ *                     "sts:AssumeRole",
+ *                     "sts:SetContext")
  *                 .build())
  *             .build());
  * 
@@ -104,26 +104,26 @@ import javax.annotation.Nullable;
  *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
+ *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                         .test("StringEquals")
+ *                         .values(current.accountId())
+ *                         .variable("s3:ResourceAccount")
+ *                         .build())
  *                     .effect("Allow")
  *                     .actions(                    
  *                         "s3:GetDataAccess",
  *                         "s3:ListCallerAccessGrants")
  *                     .resources(String.format("arn:%s:s3:%s:%s:access-grants/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
+ *                     .build(),
+ *                 GetPolicyDocumentStatementArgs.builder()
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .values(current.accountId())
  *                         .variable("s3:ResourceAccount")
  *                         .build())
- *                     .build(),
- *                 GetPolicyDocumentStatementArgs.builder()
  *                     .effect("Allow")
  *                     .actions("s3:ListAccessGrantsInstances")
  *                     .resources("*")
- *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
- *                         .test("StringEquals")
- *                         .values(current.accountId())
- *                         .variable("s3:ResourceAccount")
- *                         .build())
  *                     .build())
  *             .build());
  * 

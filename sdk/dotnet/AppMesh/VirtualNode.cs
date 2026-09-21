@@ -28,10 +28,15 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         Name = "serviceBv1",
-    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
+    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             {
+    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 {
+    ///                     Hostname = "serviceb.simpleapp.local",
+    ///                 },
+    ///             },
     ///             Backends = new[]
     ///             {
     ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
@@ -53,14 +58,9 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
-    ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
-    ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });
@@ -83,10 +83,20 @@ namespace Pulumi.Aws.AppMesh
     /// 
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         Name = "serviceBv1",
-    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
+    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             {
+    ///                 AwsCloudMap = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs
+    ///                 {
+    ///                     Attributes = 
+    ///                     {
+    ///                         { "stack", "blue" },
+    ///                     },
+    ///                     ServiceName = "serviceb1",
+    ///                     NamespaceName = example.Name,
+    ///                 },
+    ///             },
     ///             Backends = new[]
     ///             {
     ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
@@ -108,19 +118,9 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
-    ///             {
-    ///                 AwsCloudMap = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryAwsCloudMapArgs
-    ///                 {
-    ///                     Attributes = 
-    ///                     {
-    ///                         { "stack", "blue" },
-    ///                     },
-    ///                     ServiceName = "serviceb1",
-    ///                     NamespaceName = example.Name,
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });
@@ -138,10 +138,15 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         Name = "serviceBv1",
-    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
+    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             {
+    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 {
+    ///                     Hostname = "serviceb.simpleapp.local",
+    ///                 },
+    ///             },
     ///             Backends = new[]
     ///             {
     ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
@@ -172,14 +177,9 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
-    ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
-    ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });
@@ -197,10 +197,25 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var serviceb1 = new Aws.AppMesh.VirtualNode("serviceb1", new()
     ///     {
-    ///         Name = "serviceBv1",
-    ///         MeshName = simple.Id,
     ///         Spec = new Aws.AppMesh.Inputs.VirtualNodeSpecArgs
     ///         {
+    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
+    ///             {
+    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
+    ///                 {
+    ///                     Hostname = "serviceb.simpleapp.local",
+    ///                 },
+    ///             },
+    ///             Logging = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingArgs
+    ///             {
+    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogArgs
+    ///                 {
+    ///                     File = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogFileArgs
+    ///                     {
+    ///                         Path = "/dev/stdout",
+    ///                     },
+    ///                 },
+    ///             },
     ///             Backends = new[]
     ///             {
     ///                 new Aws.AppMesh.Inputs.VirtualNodeSpecBackendArgs
@@ -222,24 +237,9 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             ServiceDiscovery = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryArgs
-    ///             {
-    ///                 Dns = new Aws.AppMesh.Inputs.VirtualNodeSpecServiceDiscoveryDnsArgs
-    ///                 {
-    ///                     Hostname = "serviceb.simpleapp.local",
-    ///                 },
-    ///             },
-    ///             Logging = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingArgs
-    ///             {
-    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogArgs
-    ///                 {
-    ///                     File = new Aws.AppMesh.Inputs.VirtualNodeSpecLoggingAccessLogFileArgs
-    ///                     {
-    ///                         Path = "/dev/stdout",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "serviceBv1",
+    ///         MeshName = simple.Id,
     ///     });
     /// 
     /// });

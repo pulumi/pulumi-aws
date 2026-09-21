@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+ * Provides a resource for managing a VPC Route Server Peer.
  *
  * ## Example Usage
  *
@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.vpc.RouteServerPeer("test", {
- *     routeServerEndpointId: example.routeServerEndpointId,
- *     peerAddress: "10.0.1.250",
  *     bgpOptions: {
  *         peerAsn: 65200,
  *     },
+ *     routeServerEndpointId: example.routeServerEndpointId,
+ *     peerAddress: "10.0.1.250",
  *     tags: {
  *         Name: "Appliance 1",
  *     },
@@ -62,12 +62,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [testRouteServerVpcAssociation],
  * });
  * const testRouteServerPeer = new aws.vpc.RouteServerPeer("test", {
- *     routeServerEndpointId: testRouteServerEndpoint.routeServerEndpointId,
- *     peerAddress: "10.0.1.250",
  *     bgpOptions: {
  *         peerAsn: 65000,
  *         peerLivenessDetection: "bgp-keepalive",
  *     },
+ *     routeServerEndpointId: testRouteServerEndpoint.routeServerEndpointId,
+ *     peerAddress: "10.0.1.250",
  *     tags: {
  *         Name: "Test Appliance",
  *     },
@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `routeServerPeerId`. For example:
+ * Using `pulumi import`, import VPC Route Server using the `routeServerPeerId`. For example:
  *
  * ```sh
  * $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

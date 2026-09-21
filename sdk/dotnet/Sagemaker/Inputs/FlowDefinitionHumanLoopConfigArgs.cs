@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class FlowDefinitionHumanLoopConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface.
+        /// ARN of the human task user interface.
         /// </summary>
         [Input("humanTaskUiArn", required: true)]
         public Input<string> HumanTaskUiArn { get; set; } = null!;
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string> TaskTitle { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+        /// ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
         /// </summary>
         [Input("workteamArn", required: true)]
         public Input<string> WorkteamArn { get; set; } = null!;

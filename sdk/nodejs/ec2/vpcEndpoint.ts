@@ -86,9 +86,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ec2 = new aws.ec2.VpcEndpoint("ec2", {
- *     vpcId: example.id,
- *     serviceName: "com.amazonaws.us-west-2.ec2",
- *     vpcEndpointType: "Interface",
  *     subnetConfigurations: [
  *         {
  *             ipv4: "10.0.1.10",
@@ -99,6 +96,9 @@ import * as utilities from "../utilities";
  *             subnetId: example2.id,
  *         },
  *     ],
+ *     vpcId: example.id,
+ *     serviceName: "com.amazonaws.us-west-2.ec2",
+ *     vpcEndpointType: "Interface",
  *     subnetIds: [
  *         example1.id,
  *         example2.id,
@@ -232,7 +232,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -419,7 +419,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
  */
 export interface VpcEndpointState {
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

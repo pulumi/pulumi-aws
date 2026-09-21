@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
- *             .engine("memcached")
- *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
@@ -65,6 +63,8 @@ import javax.annotation.Nullable;
  *                     .maximum(5000)
  *                     .build())
  *                 .build())
+ *             .engine("memcached")
+ *             .name("example")
  *             .description("Test Server")
  *             .kmsKeyId(test.arn())
  *             .majorEngineVersion("1.6")
@@ -105,8 +105,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
- *             .engine("redis")
- *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
@@ -116,6 +114,8 @@ import javax.annotation.Nullable;
  *                     .maximum(5000)
  *                     .build())
  *                 .build())
+ *             .engine("redis")
+ *             .name("example")
  *             .dailySnapshotTime("09:00")
  *             .description("Test Server")
  *             .kmsKeyId(test.arn())
@@ -158,8 +158,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCache("example", ServerlessCacheArgs.builder()
- *             .engine("valkey")
- *             .name("example")
  *             .cacheUsageLimits(ServerlessCacheCacheUsageLimitsArgs.builder()
  *                 .dataStorage(ServerlessCacheCacheUsageLimitsDataStorageArgs.builder()
  *                     .maximum(10)
@@ -169,6 +167,8 @@ import javax.annotation.Nullable;
  *                     .maximum(5000)
  *                     .build())
  *                 .build())
+ *             .engine("valkey")
+ *             .name("example")
  *             .dailySnapshotTime("09:00")
  *             .description("Test Server")
  *             .kmsKeyId(test.arn())
@@ -195,14 +195,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:elasticache/serverlessCache:ServerlessCache")
 public class ServerlessCache extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
+     * @return ARN of the serverless cache.
      * 
      */
     public Output<String> arn() {

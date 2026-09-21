@@ -47,17 +47,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Catalog("example", {
- *     name: "example",
- *     description: "Example Glue Catalog with data lake access",
  *     catalogProperties: {
- *         customProperties: {
- *             property1: "value1",
- *         },
  *         dataLakeAccessProperties: {
  *             dataLakeAccess: true,
  *             catalogType: "aws:glue:datacatalog",
  *         },
+ *         customProperties: {
+ *             property1: "value1",
+ *         },
  *     },
+ *     name: "example",
+ *     description: "Example Glue Catalog with data lake access",
  * });
  * ```
  *
@@ -68,11 +68,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Catalog("example", {
- *     name: "example",
  *     federatedCatalog: {
  *         connectionName: exampleAwsGlueConnection.name,
  *         identifier: "arn:aws:glue:us-east-1:123456789012:catalog",
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -83,20 +83,20 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Catalog("example", {
- *     name: "example",
- *     description: "Example Glue Catalog",
  *     createDatabaseDefaultPermissions: [{
- *         permissions: ["ALL"],
  *         principal: {
  *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
  *         },
+ *         permissions: ["ALL"],
  *     }],
  *     createTableDefaultPermissions: [{
- *         permissions: ["ALL"],
  *         principal: {
  *             dataLakePrincipalIdentifier: "IAM_ALLOWED_PRINCIPALS",
  *         },
+ *         permissions: ["ALL"],
  *     }],
+ *     name: "example",
+ *     description: "Example Glue Catalog",
  * });
  * ```
  *

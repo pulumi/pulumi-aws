@@ -26,7 +26,7 @@ class EmailIdentityPolicyArgs:
         """
         The set of arguments for constructing a EmailIdentityPolicy resource.
 
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
+        :param pulumi.Input[_builtins.str] email_identity: Email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -41,7 +41,7 @@ class EmailIdentityPolicyArgs:
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[_builtins.str]:
         """
-        The email identity.
+        Email identity.
         """
         return pulumi.get(self, "email_identity")
 
@@ -96,7 +96,7 @@ class _EmailIdentityPolicyState:
         """
         Input properties used for looking up and filtering EmailIdentityPolicy resources.
 
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
+        :param pulumi.Input[_builtins.str] email_identity: Email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -114,7 +114,7 @@ class _EmailIdentityPolicyState:
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The email identity.
+        Email identity.
         """
         return pulumi.get(self, "email_identity")
 
@@ -220,7 +220,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
+        :param pulumi.Input[_builtins.str] email_identity: Email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -338,7 +338,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] email_identity: The email identity.
+        :param pulumi.Input[_builtins.str] email_identity: Email identity.
         :param pulumi.Input[_builtins.str] policy: The text of the policy in JSON format.
         :param pulumi.Input[_builtins.str] policy_name: The name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -357,7 +357,7 @@ class EmailIdentityPolicy(pulumi.CustomResource):
     @pulumi.getter(name="emailIdentity")
     def email_identity(self) -> pulumi.Output[_builtins.str]:
         """
-        The email identity.
+        Email identity.
         """
         return pulumi.get(self, "email_identity")
 

@@ -35,7 +35,6 @@ import (
 //				return err
 //			}
 //			_, err = codecommit.NewTrigger(ctx, "test", &codecommit.TriggerArgs{
-//				RepositoryName: test.RepositoryName,
 //				Triggers: codecommit.TriggerTriggerArray{
 //					&codecommit.TriggerTriggerArgs{
 //						Name: pulumi.String("all"),
@@ -45,6 +44,7 @@ import (
 //						DestinationArn: pulumi.Any(testAwsSnsTopic.Arn),
 //					},
 //				},
+//				RepositoryName: test.RepositoryName,
 //			})
 //			if err != nil {
 //				return err

@@ -120,12 +120,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServerlessCollection = new ServerlessCollection("exampleServerlessCollection", ServerlessCollectionArgs.builder()
- *             .name("example")
- *             .type("SEARCH")
- *             .collectionGroupName(exampleServerlessCollectionGroup.name())
  *             .encryptionConfigs(ServerlessCollectionEncryptionConfigArgs.builder()
  *                 .kmsKeyArn(example.arn())
  *                 .build())
+ *             .name("example")
+ *             .type("SEARCH")
+ *             .collectionGroupName(exampleServerlessCollectionGroup.name())
  *             .build());
  * 
  *     }
@@ -156,14 +156,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/serverlessCollection:ServerlessCollection")
 public class ServerlessCollection extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the collection.
+     * ARN of the collection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the collection.
+     * @return ARN of the collection.
      * 
      */
     public Output<String> arn() {

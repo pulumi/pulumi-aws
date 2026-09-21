@@ -124,7 +124,7 @@ namespace Pulumi.Aws.SsoAdmin
     public sealed class GetInstancesResult
     {
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of the SSO Instances.
+        /// Set of ARNs of the SSO Instances.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         /// <summary>

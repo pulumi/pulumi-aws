@@ -153,7 +153,8 @@ class Tag(pulumi.CustomResource):
         example = aws.organizations.get_organization()
         example_organizational_unit = aws.organizations.OrganizationalUnit("example",
             name="ExampleOU",
-            parent_id=example.roots[0].id)
+            parent_id=example.roots[0].id,
+            opts = pulumi.ResourceOptions(ignore_changes=["tags"]))
         example_tag = aws.organizations.Tag("example",
             resource_id=example_organizational_unit.id,
             key="ExampleKey",
@@ -197,7 +198,8 @@ class Tag(pulumi.CustomResource):
         example = aws.organizations.get_organization()
         example_organizational_unit = aws.organizations.OrganizationalUnit("example",
             name="ExampleOU",
-            parent_id=example.roots[0].id)
+            parent_id=example.roots[0].id,
+            opts = pulumi.ResourceOptions(ignore_changes=["tags"]))
         example_tag = aws.organizations.Tag("example",
             resource_id=example_organizational_unit.id,
             key="ExampleKey",

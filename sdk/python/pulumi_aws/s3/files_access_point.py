@@ -330,11 +330,11 @@ class FilesAccessPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.FilesAccessPoint("example",
-            file_system_id=example_aws_s3files_file_system["id"],
             posix_users=[{
                 "gid": 1001,
                 "uid": 1001,
-            }])
+            }],
+            file_system_id=example_aws_s3files_file_system["id"])
         ```
 
         ## Import
@@ -383,11 +383,11 @@ class FilesAccessPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.FilesAccessPoint("example",
-            file_system_id=example_aws_s3files_file_system["id"],
             posix_users=[{
                 "gid": 1001,
                 "uid": 1001,
-            }])
+            }],
+            file_system_id=example_aws_s3files_file_system["id"])
         ```
 
         ## Import

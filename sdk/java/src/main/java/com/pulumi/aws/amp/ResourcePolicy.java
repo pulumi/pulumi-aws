@@ -67,11 +67,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers(current.accountId())
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "aps:RemoteWrite",
  *                     "aps:QueryMetrics",
@@ -128,11 +128,11 @@ import javax.annotation.Nullable;
  * 
  *         final var crossAccount = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("arn:aws:iam::123456789012:root")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "aps:RemoteWrite",
  *                     "aps:QueryMetrics")
@@ -186,11 +186,11 @@ import javax.annotation.Nullable;
  * 
  *         final var serviceAccess = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("grafana.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "aps:QueryMetrics",
  *                     "aps:GetSeries",

@@ -14,7 +14,7 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type ReplicationSetRegion struct {
-	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+	// ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name string `pulumi:"name"`
@@ -37,7 +37,7 @@ type ReplicationSetRegionInput interface {
 }
 
 type ReplicationSetRegionArgs struct {
-	// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+	// ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// The name of the Region, such as `ap-southeast-2`.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -99,7 +99,7 @@ func (o ReplicationSetRegionOutput) ToReplicationSetRegionOutputWithContext(ctx 
 	return o
 }
 
-// The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+// ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
 func (o ReplicationSetRegionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ReplicationSetRegion) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -286,7 +286,7 @@ type ResponsePlanActionSsmAutomation struct {
 	DynamicParameters map[string]string `pulumi:"dynamicParameters"`
 	// The key-value pair parameters to use when the automation document runs. The following values are supported:
 	Parameters []ResponsePlanActionSsmAutomationParameter `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	// The ARN of the role that the automation document assumes when it runs commands.
 	RoleArn string `pulumi:"roleArn"`
 	// The account that the automation document runs in. This can be in either the management account or an application account.
 	TargetAccount *string `pulumi:"targetAccount"`
@@ -312,7 +312,7 @@ type ResponsePlanActionSsmAutomationArgs struct {
 	DynamicParameters pulumi.StringMapInput `pulumi:"dynamicParameters"`
 	// The key-value pair parameters to use when the automation document runs. The following values are supported:
 	Parameters ResponsePlanActionSsmAutomationParameterArrayInput `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	// The ARN of the role that the automation document assumes when it runs commands.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The account that the automation document runs in. This can be in either the management account or an application account.
 	TargetAccount pulumi.StringPtrInput `pulumi:"targetAccount"`
@@ -391,7 +391,7 @@ func (o ResponsePlanActionSsmAutomationOutput) Parameters() ResponsePlanActionSs
 	}).(ResponsePlanActionSsmAutomationParameterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+// The ARN of the role that the automation document assumes when it runs commands.
 func (o ResponsePlanActionSsmAutomationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ResponsePlanActionSsmAutomation) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -1117,7 +1117,7 @@ func (o ResponsePlanIntegrationPagerdutyArrayOutput) Index(i pulumi.IntInput) Re
 }
 
 type GetReplicationSetRegion struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+	// ARN of the KMS encryption key.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// The name of the Region.
 	Name string `pulumi:"name"`
@@ -1140,7 +1140,7 @@ type GetReplicationSetRegionInput interface {
 }
 
 type GetReplicationSetRegionArgs struct {
-	// The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+	// ARN of the KMS encryption key.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// The name of the Region.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -1202,7 +1202,7 @@ func (o GetReplicationSetRegionOutput) ToGetReplicationSetRegionOutputWithContex
 	return o
 }
 
-// The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+// ARN of the KMS encryption key.
 func (o GetReplicationSetRegionOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReplicationSetRegion) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -1349,7 +1349,7 @@ type GetResponsePlanActionSsmAutomation struct {
 	DynamicParameters map[string]string `pulumi:"dynamicParameters"`
 	// The key-value pair parameters used when the automation document runs. The following values are supported:
 	Parameters []GetResponsePlanActionSsmAutomationParameter `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	// The ARN of the role that the automation document assumes when it runs commands.
 	RoleArn string `pulumi:"roleArn"`
 	// The account that runs the automation document. This can be in either the management account or an application account.
 	TargetAccount string `pulumi:"targetAccount"`
@@ -1375,7 +1375,7 @@ type GetResponsePlanActionSsmAutomationArgs struct {
 	DynamicParameters pulumi.StringMapInput `pulumi:"dynamicParameters"`
 	// The key-value pair parameters used when the automation document runs. The following values are supported:
 	Parameters GetResponsePlanActionSsmAutomationParameterArrayInput `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+	// The ARN of the role that the automation document assumes when it runs commands.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 	// The account that runs the automation document. This can be in either the management account or an application account.
 	TargetAccount pulumi.StringInput `pulumi:"targetAccount"`
@@ -1454,7 +1454,7 @@ func (o GetResponsePlanActionSsmAutomationOutput) Parameters() GetResponsePlanAc
 	}).(GetResponsePlanActionSsmAutomationParameterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+// The ARN of the role that the automation document assumes when it runs commands.
 func (o GetResponsePlanActionSsmAutomationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetResponsePlanActionSsmAutomation) string { return v.RoleArn }).(pulumi.StringOutput)
 }

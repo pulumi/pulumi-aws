@@ -12,38 +12,38 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationSetDeliveryOption {
     /**
-     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * @return Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
      * 
      */
     private Integer maxDeliverySeconds;
     /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
+     * @return Name of the dedicated IP pool to associate with the configuration set.
      * 
      */
     private String sendingPoolName;
     /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     * @return Whether messages that use the configuration set are required to use TLS.
      * 
      */
     private String tlsPolicy;
 
     private GetConfigurationSetDeliveryOption() {}
     /**
-     * @return The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+     * @return Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
      * 
      */
     public Integer maxDeliverySeconds() {
         return this.maxDeliverySeconds;
     }
     /**
-     * @return The name of the dedicated IP pool to associate with the configuration set.
+     * @return Name of the dedicated IP pool to associate with the configuration set.
      * 
      */
     public String sendingPoolName() {
         return this.sendingPoolName;
     }
     /**
-     * @return Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+     * @return Whether messages that use the configuration set are required to use TLS.
      * 
      */
     public String tlsPolicy() {

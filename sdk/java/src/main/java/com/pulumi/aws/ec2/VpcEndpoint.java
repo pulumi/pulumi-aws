@@ -202,9 +202,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ec2 = new VpcEndpoint("ec2", VpcEndpointArgs.builder()
- *             .vpcId(example.id())
- *             .serviceName("com.amazonaws.us-west-2.ec2")
- *             .vpcEndpointType("Interface")
  *             .subnetConfigurations(            
  *                 VpcEndpointSubnetConfigurationArgs.builder()
  *                     .ipv4("10.0.1.10")
@@ -214,6 +211,9 @@ import javax.annotation.Nullable;
  *                     .ipv4("10.0.2.10")
  *                     .subnetId(example2.id())
  *                     .build())
+ *             .vpcId(example.id())
+ *             .serviceName("com.amazonaws.us-west-2.ec2")
+ *             .vpcEndpointType("Interface")
  *             .subnetIds(            
  *                 example1.id(),
  *                 example2.id())
@@ -426,14 +426,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the VPC endpoint.
+     * ARN of the VPC endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC endpoint.
+     * @return ARN of the VPC endpoint.
      * 
      */
     public Output<String> arn() {

@@ -25,7 +25,7 @@ public final class GetDistributionResult {
      */
     private String anycastIpListId;
     /**
-     * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * @return ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
     private String arn;
@@ -95,7 +95,7 @@ public final class GetDistributionResult {
         return this.anycastIpListId;
     }
     /**
-     * @return ARN (Amazon Resource Name) for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
+     * @return ARN for the distribution. For example: arn:aws:cloudfront::123456789012:distribution/EDFDVBD632BHDS5, where 123456789012 is your AWS account ID.
      * 
      */
     public String arn() {

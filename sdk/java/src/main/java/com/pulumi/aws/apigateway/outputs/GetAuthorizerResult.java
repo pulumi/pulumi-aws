@@ -29,7 +29,7 @@ public final class GetAuthorizerResult {
      */
     private Integer authorizerResultTtlInSeconds;
     /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
+     * @return Authorizer&#39;s URI.
      * 
      */
     private String authorizerUri;
@@ -92,7 +92,7 @@ public final class GetAuthorizerResult {
         return this.authorizerResultTtlInSeconds;
     }
     /**
-     * @return Authorizer&#39;s Uniform Resource Identifier (URI).
+     * @return Authorizer&#39;s URI.
      * 
      */
     public String authorizerUri() {

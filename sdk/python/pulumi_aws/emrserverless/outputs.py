@@ -492,7 +492,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration(dict):
                  log_types: Optional[Sequence['outputs.ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogType']] = None):
         """
         :param _builtins.bool enabled: Enables CloudWatch logging.
-        :param _builtins.str encryption_key_arn: The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        :param _builtins.str encryption_key_arn: KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
         :param _builtins.str log_group_name: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
         :param _builtins.str log_stream_name_prefix: Prefix for the CloudWatch log stream name.
         :param Sequence['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs'] log_types: The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
@@ -519,7 +519,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfiguration(dict):
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> Optional[_builtins.str]:
         """
-        The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
         """
         return pulumi.get(self, "encryption_key_arn")
 

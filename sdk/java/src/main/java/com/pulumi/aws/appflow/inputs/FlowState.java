@@ -83,14 +83,14 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+     * ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     @Import(name="kmsArn")
     private @Nullable Output<String> kmsArn;
 
     /**
-     * @return ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+     * @return ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
      * 
      */
     public Optional<Output<String>> kmsArn() {
@@ -348,7 +348,7 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+         * @param kmsArn ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
          * 
          * @return builder
          * 
@@ -359,7 +359,7 @@ public final class FlowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsArn ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+         * @param kmsArn ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
          * 
          * @return builder
          * 

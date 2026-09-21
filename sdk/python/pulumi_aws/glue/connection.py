@@ -490,16 +490,16 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
+            },
             name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -716,6 +716,15 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            authentication_configuration={
+                "authentication_type": "BASIC",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
+            },
             name="athenafederatedcatalog_mysql",
             connection_type="MYSQL",
             athena_properties={
@@ -726,15 +735,6 @@ class Connection(pulumi.CustomResource):
                 "HOST": example_aws_rds_cluster["endpoint"],
                 "PORT": example_aws_rds_cluster["port"],
                 "DATABASE": example_aws_rds_cluster["databaseName"],
-            },
-            authentication_configuration={
-                "authentication_type": "BASIC",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -813,16 +813,16 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
+            },
             name="example",
             connection_properties={
                 "JDBC_CONNECTION_URL": f"jdbc:mysql://{example_aws_rds_cluster['endpoint']}/exampledatabase",
                 "PASSWORD": "examplepassword",
                 "USERNAME": "exampleusername",
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
             })
         ```
 
@@ -1039,6 +1039,15 @@ class Connection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.Connection("example",
+            authentication_configuration={
+                "authentication_type": "BASIC",
+                "secret_arn": example_aws_secretsmanager_secret["arn"],
+            },
+            physical_connection_requirements={
+                "availability_zone": example_aws_subnet["availabilityZone"],
+                "security_group_id_lists": [example_aws_security_group["id"]],
+                "subnet_id": example_aws_subnet["id"],
+            },
             name="athenafederatedcatalog_mysql",
             connection_type="MYSQL",
             athena_properties={
@@ -1049,15 +1058,6 @@ class Connection(pulumi.CustomResource):
                 "HOST": example_aws_rds_cluster["endpoint"],
                 "PORT": example_aws_rds_cluster["port"],
                 "DATABASE": example_aws_rds_cluster["databaseName"],
-            },
-            authentication_configuration={
-                "authentication_type": "BASIC",
-                "secret_arn": example_aws_secretsmanager_secret["arn"],
-            },
-            physical_connection_requirements={
-                "availability_zone": example_aws_subnet["availabilityZone"],
-                "security_group_id_lists": [example_aws_security_group["id"]],
-                "subnet_id": example_aws_subnet["id"],
             })
         ```
 

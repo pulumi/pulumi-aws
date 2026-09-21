@@ -56,10 +56,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String("some-configuration-set-test"),
 //				DeliveryOptions: &ses.ConfigurationSetDeliveryOptionsArgs{
 //					TlsPolicy: pulumi.String("Require"),
 //				},
+//				Name: pulumi.String("some-configuration-set-test"),
 //			})
 //			if err != nil {
 //				return err
@@ -85,10 +85,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ses.NewConfigurationSet(ctx, "test", &ses.ConfigurationSetArgs{
-//				Name: pulumi.String("some-configuration-set-test"),
 //				TrackingOptions: &ses.ConfigurationSetTrackingOptionsArgs{
 //					CustomRedirectDomain: pulumi.String("sub.example.com"),
 //				},
+//				Name: pulumi.String("some-configuration-set-test"),
 //			})
 //			if err != nil {
 //				return err

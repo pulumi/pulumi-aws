@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
  *                 .dailySettings(ContactsRotationRecurrenceDailySettingArgs.builder()
  *                     .hourOfDay(9)
  *                     .minuteOfHour(0)
  *                     .build())
+ *                 .numberOfOnCalls(1)
+ *                 .recurrenceMultiplier(1)
  *                 .build())
+ *             .contactIds(exampleAwsSsmcontactsContact.arn())
+ *             .name("rotation")
  *             .timeZoneId("Australia/Sydney")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
@@ -84,12 +84,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ssm.ContactsRotation;
  * import com.pulumi.aws.ssm.ContactsRotationArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceWeeklySettingArgs;
- * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceShiftCoverageArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs;
  * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceShiftCoverageCoverageTimeEndArgs;
+ * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceWeeklySettingArgs;
+ * import com.pulumi.aws.ssm.inputs.ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -105,28 +105,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
- *                 .weeklySettings(                
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek("WED")
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(4)
- *                             .minuteOfHour(25)
- *                             .build())
- *                         .build(),
- *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
- *                         .dayOfWeek("FRI")
- *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
- *                             .hourOfDay(15)
- *                             .minuteOfHour(57)
- *                             .build())
- *                         .build())
  *                 .shiftCoverages(ContactsRotationRecurrenceShiftCoverageArgs.builder()
- *                     .mapBlockKey("MON")
  *                     .coverageTimes(ContactsRotationRecurrenceShiftCoverageCoverageTimeArgs.builder()
  *                         .start(ContactsRotationRecurrenceShiftCoverageCoverageTimeStartArgs.builder()
  *                             .hourOfDay(1)
@@ -137,8 +117,28 @@ import javax.annotation.Nullable;
  *                             .minuteOfHour(0)
  *                             .build())
  *                         .build())
+ *                     .mapBlockKey("MON")
  *                     .build())
+ *                 .weeklySettings(                
+ *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
+ *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
+ *                             .hourOfDay(4)
+ *                             .minuteOfHour(25)
+ *                             .build())
+ *                         .dayOfWeek("WED")
+ *                         .build(),
+ *                     ContactsRotationRecurrenceWeeklySettingArgs.builder()
+ *                         .handOffTime(ContactsRotationRecurrenceWeeklySettingHandOffTimeArgs.builder()
+ *                             .hourOfDay(15)
+ *                             .minuteOfHour(57)
+ *                             .build())
+ *                         .dayOfWeek("FRI")
+ *                         .build())
+ *                 .numberOfOnCalls(1)
+ *                 .recurrenceMultiplier(1)
  *                 .build())
+ *             .contactIds(exampleAwsSsmcontactsContact.arn())
+ *             .name("rotation")
  *             .startTime("2023-07-20T02:21:49+00:00")
  *             .timeZoneId("Australia/Sydney")
  *             .tags(Map.ofEntries(
@@ -183,27 +183,27 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContactsRotation("example", ContactsRotationArgs.builder()
- *             .contactIds(exampleAwsSsmcontactsContact.arn())
- *             .name("rotation")
  *             .recurrence(ContactsRotationRecurrenceArgs.builder()
- *                 .numberOfOnCalls(1)
- *                 .recurrenceMultiplier(1)
  *                 .monthlySettings(                
  *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(20)
  *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
  *                             .hourOfDay(8)
  *                             .minuteOfHour(0)
  *                             .build())
+ *                         .dayOfMonth(20)
  *                         .build(),
  *                     ContactsRotationRecurrenceMonthlySettingArgs.builder()
- *                         .dayOfMonth(13)
  *                         .handOffTime(ContactsRotationRecurrenceMonthlySettingHandOffTimeArgs.builder()
  *                             .hourOfDay(12)
  *                             .minuteOfHour(34)
  *                             .build())
+ *                         .dayOfMonth(13)
  *                         .build())
+ *                 .numberOfOnCalls(1)
+ *                 .recurrenceMultiplier(1)
  *                 .build())
+ *             .contactIds(exampleAwsSsmcontactsContact.arn())
+ *             .name("rotation")
  *             .timeZoneId("Australia/Sydney")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSsmincidentsReplicationSet)
@@ -220,7 +220,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+ * - `arn` (String) ARN of the SSM Contacts rotation.
  * 
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  * 
@@ -232,28 +232,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssm/contactsRotation:ContactsRotation")
 public class ContactsRotation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rotation.
+     * @return ARN of the rotation.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     @Export(name="contactIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> contactIds;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * @return ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      * 
      */
     public Output<List<String>> contactIds() {

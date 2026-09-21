@@ -28,12 +28,6 @@ namespace Pulumi.Aws.DynamoDB
     /// {
     ///     var us_east_1 = new Aws.DynamoDB.Table("us-east-1", new()
     ///     {
-    ///         HashKey = "myAttribute",
-    ///         Name = "myTable",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -42,16 +36,16 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
+    ///         HashKey = "myAttribute",
+    ///         Name = "myTable",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
     ///     });
     /// 
     ///     var us_west_2 = new Aws.DynamoDB.Table("us-west-2", new()
     ///     {
-    ///         HashKey = "myAttribute",
-    ///         Name = "myTable",
-    ///         StreamEnabled = true,
-    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
-    ///         ReadCapacity = 1,
-    ///         WriteCapacity = 1,
     ///         Attributes = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.TableAttributeArgs
@@ -60,11 +54,16 @@ namespace Pulumi.Aws.DynamoDB
     ///                 Type = "S",
     ///             },
     ///         },
+    ///         HashKey = "myAttribute",
+    ///         Name = "myTable",
+    ///         StreamEnabled = true,
+    ///         StreamViewType = "NEW_AND_OLD_IMAGES",
+    ///         ReadCapacity = 1,
+    ///         WriteCapacity = 1,
     ///     });
     /// 
     ///     var myTable = new Aws.DynamoDB.GlobalTable("myTable", new()
     ///     {
-    ///         Name = "myTable",
     ///         Replicas = new[]
     ///         {
     ///             new Aws.DynamoDB.Inputs.GlobalTableReplicaArgs
@@ -76,6 +75,7 @@ namespace Pulumi.Aws.DynamoDB
     ///                 RegionName = "us-west-2",
     ///             },
     ///         },
+    ///         Name = "myTable",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

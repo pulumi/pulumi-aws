@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.rds.ClusterParameterGroup("default", {
- *     name: "rds-cluster-pg",
- *     family: "aurora5.6",
- *     description: "RDS default cluster parameter group",
  *     parameters: [
  *         {
  *             name: "character_set_server",
@@ -33,6 +30,9 @@ import * as utilities from "../utilities";
  *             value: "utf8",
  *         },
  *     ],
+ *     name: "rds-cluster-pg",
+ *     family: "aurora5.6",
+ *     description: "RDS default cluster parameter group",
  * });
  * ```
  *
@@ -73,19 +73,19 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the db cluster parameter group.
+     * ARN of the DB cluster parameter group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * The family of the DB cluster parameter group.
+     * Family of the DB cluster parameter group.
      */
     declare public readonly family: pulumi.Output<string>;
     /**
-     * The name of the DB parameter.
+     * Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -93,7 +93,7 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     declare public readonly namePrefix: pulumi.Output<string>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+     * Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
      */
     declare public readonly parameters: pulumi.Output<outputs.rds.ClusterParameterGroupParameter[] | undefined>;
     /**
@@ -101,11 +101,11 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -156,19 +156,19 @@ export class ClusterParameterGroup extends pulumi.CustomResource {
  */
 export interface ClusterParameterGroupState {
     /**
-     * The ARN of the db cluster parameter group.
+     * ARN of the DB cluster parameter group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The family of the DB cluster parameter group.
+     * Family of the DB cluster parameter group.
      */
     family?: pulumi.Input<string | undefined>;
     /**
-     * The name of the DB parameter.
+     * Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -176,7 +176,7 @@ export interface ClusterParameterGroupState {
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+     * Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[] | undefined>;
     /**
@@ -184,11 +184,11 @@ export interface ClusterParameterGroupState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -198,15 +198,15 @@ export interface ClusterParameterGroupState {
  */
 export interface ClusterParameterGroupArgs {
     /**
-     * The description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
+     * Description of the DB cluster parameter group. Defaults to "Managed by Pulumi".
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The family of the DB cluster parameter group.
+     * Family of the DB cluster parameter group.
      */
     family: pulumi.Input<string>;
     /**
-     * The name of the DB parameter.
+     * Name of the DB cluster parameter group. If omitted, the provider will assign a random, unique name.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -214,7 +214,7 @@ export interface ClusterParameterGroupArgs {
      */
     namePrefix?: pulumi.Input<string | undefined>;
     /**
-     * A list of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group.
+     * Set of DB parameters to apply. Note that parameters may differ from a family to an other. Full list of all parameters can be discovered via [`aws rds describe-db-cluster-parameters`](https://docs.aws.amazon.com/cli/latest/reference/rds/describe-db-cluster-parameters.html) after initial creation of the group. See `parameter` Block below for details.
      */
     parameters?: pulumi.Input<pulumi.Input<inputs.rds.ClusterParameterGroupParameter>[] | undefined>;
     /**
@@ -222,7 +222,7 @@ export interface ClusterParameterGroupArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

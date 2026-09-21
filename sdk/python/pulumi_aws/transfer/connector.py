@@ -395,7 +395,6 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             as2_config={
                 "compression": "DISABLED",
                 "encryption_algorithm": "AWS128_CBC",
@@ -406,6 +405,7 @@ class Connector(pulumi.CustomResource):
                 "partner_profile_id": partner["profileId"],
                 "signing_algorithm": "NONE",
             },
+            access_role=test["arn"],
             url="http://www.test.com")
         ```
 
@@ -416,11 +416,11 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             sftp_config={
                 "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
                 "user_secret_id": example_aws_secretsmanager_secret["id"],
             },
+            access_role=test["arn"],
             url="sftp://test.com")
         ```
 
@@ -431,7 +431,6 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             sftp_config={
                 "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
                 "user_secret_id": example_aws_secretsmanager_secret["id"],
@@ -441,7 +440,8 @@ class Connector(pulumi.CustomResource):
                     "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567",
                     "port_number": 22,
                 },
-            })
+            },
+            access_role=test["arn"])
         ```
 
         ## Import
@@ -483,7 +483,6 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             as2_config={
                 "compression": "DISABLED",
                 "encryption_algorithm": "AWS128_CBC",
@@ -494,6 +493,7 @@ class Connector(pulumi.CustomResource):
                 "partner_profile_id": partner["profileId"],
                 "signing_algorithm": "NONE",
             },
+            access_role=test["arn"],
             url="http://www.test.com")
         ```
 
@@ -504,11 +504,11 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             sftp_config={
                 "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
                 "user_secret_id": example_aws_secretsmanager_secret["id"],
             },
+            access_role=test["arn"],
             url="sftp://test.com")
         ```
 
@@ -519,7 +519,6 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.transfer.Connector("example",
-            access_role=test["arn"],
             sftp_config={
                 "trusted_host_keys": ["ssh-rsa AAAAB3NYourKeysHere"],
                 "user_secret_id": example_aws_secretsmanager_secret["id"],
@@ -529,7 +528,8 @@ class Connector(pulumi.CustomResource):
                     "resource_configuration_arn": "arn:aws:vpc-lattice:us-east-1:123456789012:resourceconfiguration/rcfg-12345678901234567",
                     "port_number": 22,
                 },
-            })
+            },
+            access_role=test["arn"])
         ```
 
         ## Import

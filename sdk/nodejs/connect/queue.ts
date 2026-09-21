@@ -55,15 +55,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.connect.Queue("test", {
- *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
- *     name: "Example Name",
- *     description: "Example Description",
- *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
  *     outboundCallerConfig: {
  *         outboundCallerIdName: "example",
  *         outboundCallerIdNumberId: "12345678-abcd-1234-abcd-123456789012",
  *         outboundFlowId: "87654321-defg-1234-defg-987654321234",
  *     },
+ *     instanceId: "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+ *     name: "Example Name",
+ *     description: "Example Description",
+ *     hoursOfOperationId: "12345678-1234-1234-1234-123456789012",
  *     tags: {
  *         Name: "Example Queue with Outbound Caller Config",
  *     },
@@ -107,7 +107,7 @@ export class Queue extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -217,7 +217,7 @@ export class Queue extends pulumi.CustomResource {
  */
 export interface QueueState {
     /**
-     * The Amazon Resource Name (ARN) of the Queue.
+     * ARN of the Queue.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

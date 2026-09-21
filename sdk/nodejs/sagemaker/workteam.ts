@@ -19,9 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
- *     workteamName: "example",
- *     workforceName: exampleAwsSagemakerWorkforce.id,
- *     description: "example",
  *     memberDefinitions: [{
  *         cognitoMemberDefinition: {
  *             clientId: exampleAwsCognitoUserPoolClient.id,
@@ -29,6 +26,9 @@ import * as utilities from "../utilities";
  *             userGroup: exampleAwsCognitoUserGroup.name,
  *         },
  *     }],
+ *     workteamName: "example",
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
+ *     description: "example",
  * });
  * ```
  *
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Workteam("example", {
- *     workteamName: "example",
- *     workforceName: exampleAwsSagemakerWorkforce.id,
- *     description: "example",
  *     memberDefinitions: [{
  *         oidcMemberDefinition: {
  *             groups: ["example"],
  *         },
  *     }],
+ *     workteamName: "example",
+ *     workforceName: exampleAwsSagemakerWorkforce.id,
+ *     description: "example",
  * });
  * ```
  *
@@ -87,7 +87,7 @@ export class Workteam extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Workteam extends pulumi.CustomResource {
  */
 export interface WorkteamState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

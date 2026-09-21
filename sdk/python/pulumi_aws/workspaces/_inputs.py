@@ -27,6 +27,10 @@ __all__ = [
     'DirectorySelfServicePermissionsArgsDict',
     'DirectoryWorkspaceAccessPropertiesArgs',
     'DirectoryWorkspaceAccessPropertiesArgsDict',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgsDict',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs',
+    'DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgsDict',
     'DirectoryWorkspaceCreationPropertiesArgs',
     'DirectoryWorkspaceCreationPropertiesArgsDict',
     'IpGroupRuleArgs',
@@ -144,7 +148,7 @@ class DirectoryActiveDirectoryConfigArgs:
 class DirectoryCertificateBasedAuthPropertiesArgsDict(TypedDict):
     certificate_authority_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+    ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -157,7 +161,7 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
                  certificate_authority_arn: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] certificate_authority_arn: The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        :param pulumi.Input[_builtins.str] certificate_authority_arn: ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
         :param pulumi.Input[_builtins.str] status: Status of certificate-based authentication. Default `DISABLED`.
         """
         if certificate_authority_arn is not None:
@@ -169,7 +173,7 @@ class DirectoryCertificateBasedAuthPropertiesArgs:
     @pulumi.getter(name="certificateAuthorityArn")
     def certificate_authority_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
         """
         return pulumi.get(self, "certificate_authority_arn")
 
@@ -369,6 +373,10 @@ class DirectorySelfServicePermissionsArgs:
 
 
 class DirectoryWorkspaceAccessPropertiesArgsDict(TypedDict):
+    access_endpoint_config: NotRequired[pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgsDict']]]
+    """
+    Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+    """
     device_type_android: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Indicates whether users can use Android devices to access their WorkSpaces.
@@ -405,6 +413,7 @@ class DirectoryWorkspaceAccessPropertiesArgsDict(TypedDict):
 @pulumi.input_type
 class DirectoryWorkspaceAccessPropertiesArgs:
     def __init__(__self__, *,
+                 access_endpoint_config: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs']] = None,
                  device_type_android: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type_chromeos: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type_ios: pulumi.Input[Optional[_builtins.str]] = None,
@@ -414,6 +423,7 @@ class DirectoryWorkspaceAccessPropertiesArgs:
                  device_type_windows: pulumi.Input[Optional[_builtins.str]] = None,
                  device_type_zeroclient: pulumi.Input[Optional[_builtins.str]] = None):
         """
+        :param pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs'] access_endpoint_config: Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
         :param pulumi.Input[_builtins.str] device_type_android: Indicates whether users can use Android devices to access their WorkSpaces.
         :param pulumi.Input[_builtins.str] device_type_chromeos: Indicates whether users can use Chromebooks to access their WorkSpaces.
         :param pulumi.Input[_builtins.str] device_type_ios: Indicates whether users can use iOS devices to access their WorkSpaces.
@@ -423,6 +433,8 @@ class DirectoryWorkspaceAccessPropertiesArgs:
         :param pulumi.Input[_builtins.str] device_type_windows: Indicates whether users can use Windows clients to access their WorkSpaces.
         :param pulumi.Input[_builtins.str] device_type_zeroclient: Indicates whether users can use zero client devices to access their WorkSpaces.
         """
+        if access_endpoint_config is not None:
+            pulumi.set(__self__, "access_endpoint_config", access_endpoint_config)
         if device_type_android is not None:
             pulumi.set(__self__, "device_type_android", device_type_android)
         if device_type_chromeos is not None:
@@ -439,6 +451,18 @@ class DirectoryWorkspaceAccessPropertiesArgs:
             pulumi.set(__self__, "device_type_windows", device_type_windows)
         if device_type_zeroclient is not None:
             pulumi.set(__self__, "device_type_zeroclient", device_type_zeroclient)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointConfig")
+    def access_endpoint_config(self) -> pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs']]:
+        """
+        Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+        """
+        return pulumi.get(self, "access_endpoint_config")
+
+    @access_endpoint_config.setter
+    def access_endpoint_config(self, value: pulumi.Input[Optional['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs']]):
+        pulumi.set(self, "access_endpoint_config", value)
 
     @_builtins.property
     @pulumi.getter(name="deviceTypeAndroid")
@@ -535,6 +559,101 @@ class DirectoryWorkspaceAccessPropertiesArgs:
     @device_type_zeroclient.setter
     def device_type_zeroclient(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "device_type_zeroclient", value)
+
+
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgsDict(TypedDict):
+    access_endpoints: pulumi.Input[Sequence[pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgsDict']]]
+    """
+    Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+    """
+    internet_fallback_protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+    """
+
+@pulumi.input_type
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs:
+    def __init__(__self__, *,
+                 access_endpoints: pulumi.Input[Sequence[pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs']]],
+                 internet_fallback_protocols: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs']]] access_endpoints: Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] internet_fallback_protocols: List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+        """
+        pulumi.set(__self__, "access_endpoints", access_endpoints)
+        if internet_fallback_protocols is not None:
+            pulumi.set(__self__, "internet_fallback_protocols", internet_fallback_protocols)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpoints")
+    def access_endpoints(self) -> pulumi.Input[Sequence[pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs']]]:
+        """
+        Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+        """
+        return pulumi.get(self, "access_endpoints")
+
+    @access_endpoints.setter
+    def access_endpoints(self, value: pulumi.Input[Sequence[pulumi.Input['DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs']]]):
+        pulumi.set(self, "access_endpoints", value)
+
+    @_builtins.property
+    @pulumi.getter(name="internetFallbackProtocols")
+    def internet_fallback_protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+        """
+        return pulumi.get(self, "internet_fallback_protocols")
+
+    @internet_fallback_protocols.setter
+    def internet_fallback_protocols(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "internet_fallback_protocols", value)
+
+
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgsDict(TypedDict):
+    access_endpoint_type: pulumi.Input[_builtins.str]
+    """
+    Type of access endpoint. Valid value is `STREAMING_WSP`.
+    """
+    vpc_endpoint_id: pulumi.Input[_builtins.str]
+    """
+    Identifier of the VPC endpoint that the access endpoint uses.
+    """
+
+@pulumi.input_type
+class DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpointArgs:
+    def __init__(__self__, *,
+                 access_endpoint_type: pulumi.Input[_builtins.str],
+                 vpc_endpoint_id: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] access_endpoint_type: Type of access endpoint. Valid value is `STREAMING_WSP`.
+        :param pulumi.Input[_builtins.str] vpc_endpoint_id: Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        pulumi.set(__self__, "access_endpoint_type", access_endpoint_type)
+        pulumi.set(__self__, "vpc_endpoint_id", vpc_endpoint_id)
+
+    @_builtins.property
+    @pulumi.getter(name="accessEndpointType")
+    def access_endpoint_type(self) -> pulumi.Input[_builtins.str]:
+        """
+        Type of access endpoint. Valid value is `STREAMING_WSP`.
+        """
+        return pulumi.get(self, "access_endpoint_type")
+
+    @access_endpoint_type.setter
+    def access_endpoint_type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "access_endpoint_type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="vpcEndpointId")
+    def vpc_endpoint_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Identifier of the VPC endpoint that the access endpoint uses.
+        """
+        return pulumi.get(self, "vpc_endpoint_id")
+
+    @vpc_endpoint_id.setter
+    def vpc_endpoint_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "vpc_endpoint_id", value)
 
 
 class DirectoryWorkspaceCreationPropertiesArgsDict(TypedDict):

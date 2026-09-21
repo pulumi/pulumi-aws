@@ -37,7 +37,7 @@ export function getProducerDataShares(args: GetProducerDataSharesArgs, opts?: pu
  */
 export interface GetProducerDataSharesArgs {
     /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+     * ARN of the producer namespace that returns in the list of datashares.
      *
      * The following arguments are optional:
      */
@@ -65,7 +65,7 @@ export interface GetProducerDataSharesResult {
      */
     readonly id: string;
     /**
-     * ARN (Amazon Resource Name) of the producer.
+     * ARN of the producer.
      */
     readonly producerArn: string;
     readonly region: string;
@@ -101,7 +101,7 @@ export function getProducerDataSharesOutput(args: GetProducerDataSharesOutputArg
  */
 export interface GetProducerDataSharesOutputArgs {
     /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+     * ARN of the producer namespace that returns in the list of datashares.
      *
      * The following arguments are optional:
      */

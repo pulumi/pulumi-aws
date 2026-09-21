@@ -19,14 +19,14 @@ public final class CustomDataIdentifierState extends com.pulumi.resources.Resour
     public static final CustomDataIdentifierState Empty = new CustomDataIdentifierState();
 
     /**
-     * The Amazon Resource Name (ARN) of the custom data identifier.
+     * ARN of the custom data identifier.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom data identifier.
+     * @return ARN of the custom data identifier.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -234,7 +234,7 @@ public final class CustomDataIdentifierState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom data identifier.
+         * @param arn ARN of the custom data identifier.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class CustomDataIdentifierState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom data identifier.
+         * @param arn ARN of the custom data identifier.
          * 
          * @return builder
          * 

@@ -78,9 +78,6 @@ import * as utilities from "../utilities";
  * // SNS Topic for Amplify notifications
  * const amplifyAppMasterTopic = new aws.sns.Topic("amplify_app_master", {name: pulumi.interpolate`amplify-${app.id}_${master.branchName}`});
  * const amplifyAppMasterEventTarget = new aws.cloudwatch.EventTarget("amplify_app_master", {
- *     rule: amplifyAppMasterEventRule.name,
- *     targetId: master.branchName,
- *     arn: amplifyAppMasterTopic.arn,
  *     inputTransformer: {
  *         inputPaths: {
  *             jobId: "$.detail.jobId",
@@ -91,16 +88,19 @@ import * as utilities from "../utilities";
  *         },
  *         inputTemplate: "\"Build notification from the AWS Amplify Console for app: https://<branch>.<appId>.amplifyapp.com/. Your build status is <status>. Go to https://console.aws.amazon.com/amplify/home?region=<region>#<appId>/<branch>/<jobId> to view details on your build. \"",
  *     },
+ *     rule: amplifyAppMasterEventRule.name,
+ *     targetId: master.branchName,
+ *     arn: amplifyAppMasterTopic.arn,
  * });
  * const amplifyAppMaster = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: pulumi.interpolate`Allow_Publish_Events ${master.arn}`,
- *         effect: "Allow",
- *         actions: ["SNS:Publish"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["events.amazonaws.com"],
  *         }],
+ *         sid: pulumi.interpolate`Allow_Publish_Events ${master.arn}`,
+ *         effect: "Allow",
+ *         actions: ["SNS:Publish"],
  *         resources: [amplifyAppMasterTopic.arn],
  *     }],
  * });

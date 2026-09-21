@@ -55,12 +55,8 @@ type GetEbsVolumesResult struct {
 }
 
 func GetEbsVolumesOutput(ctx *pulumi.Context, args GetEbsVolumesOutputArgs, opts ...pulumi.InvokeOption) GetEbsVolumesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEbsVolumesResultOutput, error) {
-			args := v.(GetEbsVolumesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ebs/getEbsVolumes:getEbsVolumes", args, GetEbsVolumesResultOutput{}, options).(GetEbsVolumesResultOutput), nil
-		}).(GetEbsVolumesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ebs/getEbsVolumes:getEbsVolumes", args, GetEbsVolumesResultOutput{}, options).(GetEbsVolumesResultOutput)
 }
 
 // A collection of arguments for invoking getEbsVolumes.

@@ -52,14 +52,14 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// ARN of the SES resource to associate with the tenant.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
 
         /// <summary>
         /// Name of SES Tenant.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("tenantName")]
         public Output<string> TenantName { get; private set; } = null!;
@@ -118,14 +118,14 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// ARN of the SES resource to associate with the tenant.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
 
         /// <summary>
         /// Name of SES Tenant.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tenantName", required: true)]
         public Input<string> TenantName { get; set; } = null!;
@@ -146,14 +146,14 @@ namespace Pulumi.Aws.SesV2
 
         /// <summary>
         /// ARN of the SES resource to associate with the tenant.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }
 
         /// <summary>
         /// Name of SES Tenant.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("tenantName")]
         public Input<string>? TenantName { get; set; }

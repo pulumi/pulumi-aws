@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Cfg
     public partial class OrganizationCustomRule : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// ARN of the rule
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Cfg
         public Output<string?> InputParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule Lambda Function
+        /// ARN of the rule Lambda Function
         /// </summary>
         [Output("lambdaFunctionArn")]
         public Output<string> LambdaFunctionArn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule Lambda Function
+        /// ARN of the rule Lambda Function
         /// </summary>
         [Input("lambdaFunctionArn", required: true)]
         public Input<string> LambdaFunctionArn { get; set; } = null!;
@@ -308,7 +308,7 @@ namespace Pulumi.Aws.Cfg
     public sealed class OrganizationCustomRuleState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule
+        /// ARN of the rule
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -338,7 +338,7 @@ namespace Pulumi.Aws.Cfg
         public Input<string>? InputParameters { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the rule Lambda Function
+        /// ARN of the rule Lambda Function
         /// </summary>
         [Input("lambdaFunctionArn")]
         public Input<string>? LambdaFunctionArn { get; set; }

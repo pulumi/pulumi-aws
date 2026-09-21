@@ -36,7 +36,7 @@ public final class ResponsePlanActionSsmAutomation {
      */
     private @Nullable List<ResponsePlanActionSsmAutomationParameter> parameters;
     /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * @return The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     private String roleArn;
@@ -76,7 +76,7 @@ public final class ResponsePlanActionSsmAutomation {
         return this.parameters == null ? List.of() : this.parameters;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+     * @return The ARN of the role that the automation document assumes when it runs commands.
      * 
      */
     public String roleArn() {

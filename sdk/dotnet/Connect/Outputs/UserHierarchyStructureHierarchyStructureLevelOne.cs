@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Connect.Outputs
     public sealed class UserHierarchyStructureHierarchyStructureLevelOne
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy level.
+        /// The ARN of the hierarchy level.
         /// </summary>
         public readonly string? Arn;
         /// <summary>

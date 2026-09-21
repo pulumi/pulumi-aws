@@ -57,11 +57,11 @@ type Snapshot struct {
 	AccountsWithRestoreAccesses pulumi.StringArrayOutput `pulumi:"accountsWithRestoreAccesses"`
 	// The username of the database within a snapshot.
 	AdminUsername pulumi.StringOutput `pulumi:"adminUsername"`
-	// The Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The unique identifier of the KMS key used to encrypt the snapshot.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+	// ARN of the namespace the snapshot was created from.
 	NamespaceArn pulumi.StringOutput `pulumi:"namespaceArn"`
 	// The namespace to create a snapshot for.
 	NamespaceName pulumi.StringOutput `pulumi:"namespaceName"`
@@ -117,11 +117,11 @@ type snapshotState struct {
 	AccountsWithRestoreAccesses []string `pulumi:"accountsWithRestoreAccesses"`
 	// The username of the database within a snapshot.
 	AdminUsername *string `pulumi:"adminUsername"`
-	// The Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn *string `pulumi:"arn"`
 	// The unique identifier of the KMS key used to encrypt the snapshot.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+	// ARN of the namespace the snapshot was created from.
 	NamespaceArn *string `pulumi:"namespaceArn"`
 	// The namespace to create a snapshot for.
 	NamespaceName *string `pulumi:"namespaceName"`
@@ -142,11 +142,11 @@ type SnapshotState struct {
 	AccountsWithRestoreAccesses pulumi.StringArrayInput
 	// The username of the database within a snapshot.
 	AdminUsername pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringPtrInput
 	// The unique identifier of the KMS key used to encrypt the snapshot.
 	KmsKeyId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+	// ARN of the namespace the snapshot was created from.
 	NamespaceArn pulumi.StringPtrInput
 	// The namespace to create a snapshot for.
 	NamespaceName pulumi.StringPtrInput
@@ -289,7 +289,7 @@ func (o SnapshotOutput) AdminUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.AdminUsername }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the snapshot.
+// ARN of the snapshot.
 func (o SnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -299,7 +299,7 @@ func (o SnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+// ARN of the namespace the snapshot was created from.
 func (o SnapshotOutput) NamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Snapshot) pulumi.StringOutput { return v.NamespaceArn }).(pulumi.StringOutput)
 }

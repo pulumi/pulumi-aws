@@ -49,11 +49,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -96,11 +96,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -143,11 +143,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -190,11 +190,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -237,11 +237,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -284,11 +284,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }
@@ -331,11 +331,11 @@ public final class SavingsplansFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = SavingsplansFunctions.getOfferings(GetOfferingsArgs.builder()
-     *             .productType("EC2")
      *             .filters(GetOfferingsFilterArgs.builder()
      *                 .name("region")
      *                 .values("us-west-2")
      *                 .build())
+     *             .productType("EC2")
      *             .build());
      * 
      *     }

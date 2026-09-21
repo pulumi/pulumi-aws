@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.getComponents` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -62,7 +62,7 @@ export class Component extends pulumi.CustomResource {
     }
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the component.
+     * (Required) ARN of the component.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class Component extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly encrypted: pulumi.Output<boolean>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      */
     declare public readonly kmsKeyId: pulumi.Output<string | undefined>;
     /**
@@ -206,7 +206,7 @@ export class Component extends pulumi.CustomResource {
  */
 export interface ComponentState {
     /**
-     * (Required) Amazon Resource Name (ARN) of the component.
+     * (Required) ARN of the component.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -230,7 +230,7 @@ export interface ComponentState {
      */
     encrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -300,7 +300,7 @@ export interface ComponentArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

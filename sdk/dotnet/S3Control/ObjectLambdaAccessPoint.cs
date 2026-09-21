@@ -36,18 +36,12 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var exampleObjectLambdaAccessPoint = new Aws.S3Control.ObjectLambdaAccessPoint("example", new()
     ///     {
-    ///         Name = "example",
     ///         Configuration = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationArgs
     ///         {
-    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
     ///             TransformationConfigurations = new[]
     ///             {
     ///                 new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs
     ///                 {
-    ///                     Actions = new[]
-    ///                     {
-    ///                         "GetObject",
-    ///                     },
     ///                     ContentTransformation = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs
     ///                     {
     ///                         AwsLambda = new Aws.S3Control.Inputs.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs
@@ -55,9 +49,15 @@ namespace Pulumi.Aws.S3Control
     ///                             FunctionArn = exampleAwsLambdaFunction.Arn,
     ///                         },
     ///                     },
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "GetObject",
+    ///                     },
     ///                 },
     ///             },
+    ///             SupportingAccessPoint = exampleAccessPoint.Arn,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -87,7 +87,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        /// ARN of the Object Lambda Access Point.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+        /// ARN of the Object Lambda Access Point.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

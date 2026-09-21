@@ -32,7 +32,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
      */
     private @Nullable Integer priority;
     /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * @return ARN of the stateful rule group.
      * 
      */
     private String resourceArn;
@@ -62,7 +62,7 @@ public final class FirewallPolicyFirewallPolicyStatefulRuleGroupReference {
         return Optional.ofNullable(this.priority);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the stateful rule group.
+     * @return ARN of the stateful rule group.
      * 
      */
     public String resourceArn() {

@@ -48,9 +48,6 @@ import * as utilities from "../utilities";
  *     clusterType: "single-node",
  * });
  * const exampleConnectorProfile = new aws.appflow.ConnectorProfile("example", {
- *     name: "example_profile",
- *     connectorType: "Redshift",
- *     connectionMode: "Public",
  *     connectorProfileConfig: {
  *         connectorProfileCredentials: {
  *             redshift: {
@@ -66,6 +63,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "example_profile",
+ *     connectorType: "Redshift",
+ *     connectionMode: "Public",
  * });
  * ```
  *
@@ -141,7 +141,7 @@ export class ConnectorProfile extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly credentialsArn: pulumi.Output<string>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     declare public readonly kmsArn: pulumi.Output<string>;
     /**
@@ -230,7 +230,7 @@ export interface ConnectorProfileState {
      */
     credentialsArn?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**
@@ -264,7 +264,7 @@ export interface ConnectorProfileArgs {
      */
     connectorType: pulumi.Input<string>;
     /**
-     * ARN of the Key Management Service (KMS) key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
+     * ARN of the KMS key you provide for encryption. This is required if you do not want to use the Amazon AppFlow-managed KMS key. If you don't provide anything here, Amazon AppFlow uses the Amazon AppFlow-managed KMS key.
      */
     kmsArn?: pulumi.Input<string | undefined>;
     /**

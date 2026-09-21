@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Macie
     /// 
     ///     var test = new Aws.Macie.FindingsFilter("test", new()
     ///     {
-    ///         Name = "NAME OF THE FINDINGS FILTER",
-    ///         Description = "DESCRIPTION",
-    ///         Position = 1,
-    ///         Action = "ARCHIVE",
     ///         FindingCriteria = new Aws.Macie.Inputs.FindingsFilterFindingCriteriaArgs
     ///         {
     ///             Criterions = new[]
@@ -44,6 +40,10 @@ namespace Pulumi.Aws.Macie
     ///                 },
     ///             },
     ///         },
+    ///         Name = "NAME OF THE FINDINGS FILTER",
+    ///         Description = "DESCRIPTION",
+    ///         Position = 1,
+    ///         Action = "ARCHIVE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Macie
         public Output<string> Action { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Findings Filter.
+        /// ARN of the Findings Filter.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Macie
         public Input<string>? Action { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Findings Filter.
+        /// ARN of the Findings Filter.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

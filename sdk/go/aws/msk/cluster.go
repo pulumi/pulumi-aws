@@ -109,7 +109,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -118,6 +117,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -135,34 +135,33 @@ import (
 //				return err
 //			}
 //			testStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "test_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-msk-broker-logs-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehoseRole.Arn,
 //					BucketArn: bucket.Arn,
 //				},
+//				Name:        pulumi.String("kinesis-firehose-msk-broker-logs-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //				Tags: pulumi.StringMap{
 //					"LogDeliveryEnabled": pulumi.String("placeholder"),
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"tags[\"LogDeliveryEnabled\"]",
+//			}))
 //			if err != nil {
 //				return err
 //			}
 //			example, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				ClusterName:         pulumi.String("example"),
-//				KafkaVersion:        pulumi.String("3.8.x"),
-//				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
+//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
+//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
+//							VolumeSize: pulumi.Int(1000),
+//						},
+//					},
 //					InstanceType: pulumi.String("kafka.m5.large"),
 //					ClientSubnets: pulumi.StringArray{
 //						subnetAz1.ID().ToIDOutput().ToStringOutput(),
 //						subnetAz2.ID().ToIDOutput().ToStringOutput(),
 //						subnetAz3.ID().ToIDOutput().ToStringOutput(),
-//					},
-//					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
-//						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
-//							VolumeSize: pulumi.Int(1000),
-//						},
 //					},
 //					SecurityGroups: pulumi.StringArray{
 //						sg.ID().ToIDOutput().ToStringOutput(),
@@ -198,6 +197,9 @@ import (
 //						},
 //					},
 //				},
+//				ClusterName:         pulumi.String("example"),
+//				KafkaVersion:        pulumi.String("3.8.x"),
+//				NumberOfBrokerNodes: pulumi.Int(3),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
@@ -228,16 +230,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := msk.NewCluster(ctx, "example", &msk.ClusterArgs{
-//				ClusterName:         pulumi.String("example"),
-//				KafkaVersion:        pulumi.String("3.8.x"),
-//				NumberOfBrokerNodes: pulumi.Int(3),
 //				BrokerNodeGroupInfo: &msk.ClusterBrokerNodeGroupInfoArgs{
-//					InstanceType: pulumi.String("kafka.m5.4xlarge"),
-//					ClientSubnets: pulumi.StringArray{
-//						subnetAz1.Id,
-//						subnetAz2.Id,
-//						subnetAz3.Id,
-//					},
 //					StorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoArgs{
 //						EbsStorageInfo: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoArgs{
 //							ProvisionedThroughput: &msk.ClusterBrokerNodeGroupInfoStorageInfoEbsStorageInfoProvisionedThroughputArgs{
@@ -247,10 +240,19 @@ import (
 //							VolumeSize: pulumi.Int(1000),
 //						},
 //					},
+//					InstanceType: pulumi.String("kafka.m5.4xlarge"),
+//					ClientSubnets: pulumi.StringArray{
+//						subnetAz1.Id,
+//						subnetAz2.Id,
+//						subnetAz3.Id,
+//					},
 //					SecurityGroups: pulumi.StringArray{
 //						sg.Id,
 //					},
 //				},
+//				ClusterName:         pulumi.String("example"),
+//				KafkaVersion:        pulumi.String("3.8.x"),
+//				NumberOfBrokerNodes: pulumi.Int(3),
 //			})
 //			if err != nil {
 //				return err
@@ -267,7 +269,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the MSK cluster.
+// - `arn` (String) ARN of the MSK cluster.
 //
 // Using `pulumi import`, import MSK cluster using the cluster ARN. For example:
 //
@@ -277,7 +279,7 @@ import (
 type Cluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringOutput `pulumi:"bootstrapBrokers"`
@@ -388,7 +390,7 @@ func GetCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Cluster resources.
 type clusterState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn *string `pulumi:"arn"`
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers *string `pulumi:"bootstrapBrokers"`
@@ -461,7 +463,7 @@ type clusterState struct {
 }
 
 type ClusterState struct {
-	// Amazon Resource Name (ARN) of the MSK cluster.
+	// ARN of the MSK cluster.
 	Arn pulumi.StringPtrInput
 	// Comma separated list of one or more hostname:port pairs of kafka brokers suitable to bootstrap connectivity to the kafka cluster. Contains a value if `encryption_info.0.encryption_in_transit.0.client_broker` is set to `PLAINTEXT` or `TLS_PLAINTEXT`. The resource sorts values alphabetically. AWS may not always return all endpoints so this value is not guaranteed to be stable across applies.
 	BootstrapBrokers pulumi.StringPtrInput
@@ -687,7 +689,7 @@ func (o ClusterOutput) ToClusterOutputWithContext(ctx context.Context) ClusterOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the MSK cluster.
+// ARN of the MSK cluster.
 func (o ClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

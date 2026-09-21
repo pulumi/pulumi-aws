@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Neptune
     public partial class ClusterEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        /// Neptune Cluster Endpoint ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -218,7 +218,7 @@ namespace Pulumi.Aws.Neptune
     public sealed class ClusterEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+        /// Neptune Cluster Endpoint ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

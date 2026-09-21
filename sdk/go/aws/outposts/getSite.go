@@ -70,12 +70,8 @@ type GetSiteResult struct {
 }
 
 func GetSiteOutput(ctx *pulumi.Context, args GetSiteOutputArgs, opts ...pulumi.InvokeOption) GetSiteResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSiteResultOutput, error) {
-			args := v.(GetSiteArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:outposts/getSite:getSite", args, GetSiteResultOutput{}, options).(GetSiteResultOutput), nil
-		}).(GetSiteResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:outposts/getSite:getSite", args, GetSiteResultOutput{}, options).(GetSiteResultOutput)
 }
 
 // A collection of arguments for invoking getSite.

@@ -843,9 +843,9 @@ class GetDataSharesDataShareResult(dict):
                  managed_by: _builtins.str,
                  producer_arn: _builtins.str):
         """
-        :param _builtins.str data_share_arn: ARN (Amazon Resource Name) of the data share.
+        :param _builtins.str data_share_arn: ARN of the data share.
         :param _builtins.str managed_by: Identifier of a datashare to show its managing entity.
-        :param _builtins.str producer_arn: ARN (Amazon Resource Name) of the producer.
+        :param _builtins.str producer_arn: ARN of the producer.
         """
         pulumi.set(__self__, "data_share_arn", data_share_arn)
         pulumi.set(__self__, "managed_by", managed_by)
@@ -855,7 +855,7 @@ class GetDataSharesDataShareResult(dict):
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the data share.
+        ARN of the data share.
         """
         return pulumi.get(self, "data_share_arn")
 
@@ -871,7 +871,7 @@ class GetDataSharesDataShareResult(dict):
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the producer.
+        ARN of the producer.
         """
         return pulumi.get(self, "producer_arn")
 
@@ -883,9 +883,9 @@ class GetProducerDataSharesDataShareResult(dict):
                  managed_by: _builtins.str,
                  producer_arn: _builtins.str):
         """
-        :param _builtins.str data_share_arn: ARN (Amazon Resource Name) of the data share.
+        :param _builtins.str data_share_arn: ARN of the data share.
         :param _builtins.str managed_by: Identifier of a datashare to show its managing entity.
-        :param _builtins.str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+        :param _builtins.str producer_arn: ARN of the producer namespace that returns in the list of datashares.
                
                The following arguments are optional:
         """
@@ -897,7 +897,7 @@ class GetProducerDataSharesDataShareResult(dict):
     @pulumi.getter(name="dataShareArn")
     def data_share_arn(self) -> _builtins.str:
         """
-        ARN (Amazon Resource Name) of the data share.
+        ARN of the data share.
         """
         return pulumi.get(self, "data_share_arn")
 
@@ -913,7 +913,7 @@ class GetProducerDataSharesDataShareResult(dict):
     @pulumi.getter(name="producerArn")
     def producer_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+        ARN of the producer namespace that returns in the list of datashares.
 
         The following arguments are optional:
         """

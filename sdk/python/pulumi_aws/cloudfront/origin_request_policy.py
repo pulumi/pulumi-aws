@@ -247,26 +247,26 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
-            name="example-policy",
-            comment="example comment",
             cookies_config={
-                "cookie_behavior": "whitelist",
                 "cookies": {
                     "items": ["example"],
                 },
+                "cookie_behavior": "whitelist",
             },
             headers_config={
-                "header_behavior": "whitelist",
                 "headers": {
                     "items": ["example"],
                 },
+                "header_behavior": "whitelist",
             },
             query_strings_config={
-                "query_string_behavior": "whitelist",
                 "query_strings": {
                     "items": ["example"],
                 },
-            })
+                "query_string_behavior": "whitelist",
+            },
+            name="example-policy",
+            comment="example comment")
         ```
 
         ## Import
@@ -302,26 +302,26 @@ class OriginRequestPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginRequestPolicy("example",
-            name="example-policy",
-            comment="example comment",
             cookies_config={
-                "cookie_behavior": "whitelist",
                 "cookies": {
                     "items": ["example"],
                 },
+                "cookie_behavior": "whitelist",
             },
             headers_config={
-                "header_behavior": "whitelist",
                 "headers": {
                     "items": ["example"],
                 },
+                "header_behavior": "whitelist",
             },
             query_strings_config={
-                "query_string_behavior": "whitelist",
                 "query_strings": {
                     "items": ["example"],
                 },
-            })
+                "query_string_behavior": "whitelist",
+            },
+            name="example-policy",
+            comment="example comment")
         ```
 
         ## Import

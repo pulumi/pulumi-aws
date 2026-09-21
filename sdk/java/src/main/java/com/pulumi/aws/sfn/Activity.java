@@ -82,12 +82,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sfnActivity = new Activity("sfnActivity", ActivityArgs.builder()
- *             .name("my-activity")
  *             .encryptionConfiguration(ActivityEncryptionConfigurationArgs.builder()
  *                 .kmsKeyId(kmsKeyForSfn.arn())
  *                 .type("CUSTOMER_MANAGED_KMS_KEY")
  *                 .kmsDataKeyReusePeriodSeconds(900)
  *                 .build())
+ *             .name("my-activity")
  *             .build());
  * 
  *     }
@@ -113,14 +113,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sfn/activity:Activity")
 public class Activity extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the activity.
+     * @return ARN of the activity.
      * 
      */
     public Output<String> arn() {

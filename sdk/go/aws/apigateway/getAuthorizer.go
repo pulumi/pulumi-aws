@@ -68,7 +68,7 @@ type LookupAuthorizerResult struct {
 	AuthorizerId          string `pulumi:"authorizerId"`
 	// TTL of cached authorizer results in seconds.
 	AuthorizerResultTtlInSeconds int `pulumi:"authorizerResultTtlInSeconds"`
-	// Authorizer's Uniform Resource Identifier (URI).
+	// Authorizer's URI.
 	AuthorizerUri string `pulumi:"authorizerUri"`
 	// The provider-assigned unique ID for this managed resource.
 	Id string `pulumi:"id"`
@@ -87,12 +87,8 @@ type LookupAuthorizerResult struct {
 }
 
 func LookupAuthorizerOutput(ctx *pulumi.Context, args LookupAuthorizerOutputArgs, opts ...pulumi.InvokeOption) LookupAuthorizerResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAuthorizerResultOutput, error) {
-			args := v.(LookupAuthorizerArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", args, LookupAuthorizerResultOutput{}, options).(LookupAuthorizerResultOutput), nil
-		}).(LookupAuthorizerResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getAuthorizer:getAuthorizer", args, LookupAuthorizerResultOutput{}, options).(LookupAuthorizerResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizer.
@@ -143,7 +139,7 @@ func (o LookupAuthorizerResultOutput) AuthorizerResultTtlInSeconds() pulumi.IntO
 	return o.ApplyT(func(v LookupAuthorizerResult) int { return v.AuthorizerResultTtlInSeconds }).(pulumi.IntOutput)
 }
 
-// Authorizer's Uniform Resource Identifier (URI).
+// Authorizer's URI.
 func (o LookupAuthorizerResultOutput) AuthorizerUri() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAuthorizerResult) string { return v.AuthorizerUri }).(pulumi.StringOutput)
 }

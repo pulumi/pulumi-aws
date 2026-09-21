@@ -88,14 +88,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * ARN of the Redshift event notification subscription
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * @return ARN of the Redshift event notification subscription
      * 
      */
     public Output<String> arn() {

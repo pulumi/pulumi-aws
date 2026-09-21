@@ -43,7 +43,7 @@ export interface GetRealtimeLogConfigArgs {
  */
 export interface GetRealtimeLogConfigResult {
     /**
-     * ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      */
     readonly arn: string;
     /**

@@ -182,11 +182,11 @@ def get_resource_share(filters: Optional[Sequence[Union['GetResourceShareFilterA
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[{
+    tag_filter = aws.ram.get_resource_share(filters=[{
             "name": "NameOfTag",
             "values": ["exampleNameTagValue"],
-        }])
+        }],
+        resource_owner="SELF")
     ```
 
 
@@ -245,11 +245,11 @@ def get_resource_share_output(filters: pulumi.Input[Optional[Optional[Sequence[U
     import pulumi
     import pulumi_aws as aws
 
-    tag_filter = aws.ram.get_resource_share(resource_owner="SELF",
-        filters=[{
+    tag_filter = aws.ram.get_resource_share(filters=[{
             "name": "NameOfTag",
             "values": ["exampleNameTagValue"],
-        }])
+        }],
+        resource_owner="SELF")
     ```
 
 

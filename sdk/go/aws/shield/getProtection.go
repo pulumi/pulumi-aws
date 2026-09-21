@@ -80,7 +80,7 @@ func LookupProtection(ctx *pulumi.Context, args *LookupProtectionArgs, opts ...p
 type LookupProtectionArgs struct {
 	// Unique identifier for the protection.
 	ProtectionId *string `pulumi:"protectionId"`
-	// ARN (Amazon Resource Name) of the resource being protected.
+	// ARN of the resource being protected.
 	//
 	// > Exactly one of `protectionId` or `resourceArn` is required.
 	ResourceArn *string `pulumi:"resourceArn"`
@@ -98,19 +98,15 @@ type LookupProtectionResult struct {
 }
 
 func LookupProtectionOutput(ctx *pulumi.Context, args LookupProtectionOutputArgs, opts ...pulumi.InvokeOption) LookupProtectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProtectionResultOutput, error) {
-			args := v.(LookupProtectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:shield/getProtection:getProtection", args, LookupProtectionResultOutput{}, options).(LookupProtectionResultOutput), nil
-		}).(LookupProtectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:shield/getProtection:getProtection", args, LookupProtectionResultOutput{}, options).(LookupProtectionResultOutput)
 }
 
 // A collection of arguments for invoking getProtection.
 type LookupProtectionOutputArgs struct {
 	// Unique identifier for the protection.
 	ProtectionId pulumi.StringPtrInput `pulumi:"protectionId"`
-	// ARN (Amazon Resource Name) of the resource being protected.
+	// ARN of the resource being protected.
 	//
 	// > Exactly one of `protectionId` or `resourceArn` is required.
 	ResourceArn pulumi.StringPtrInput `pulumi:"resourceArn"`

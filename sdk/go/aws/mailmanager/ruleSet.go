@@ -30,10 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewRuleSet(ctx, "example", &mailmanager.RuleSetArgs{
-//				Name: pulumi.String("example"),
 //				Rules: mailmanager.RuleSetRuleArray{
 //					&mailmanager.RuleSetRuleArgs{
-//						Name: pulumi.String("add-header"),
 //						Actions: mailmanager.RuleSetRuleActionArray{
 //							&mailmanager.RuleSetRuleActionArgs{
 //								AddHeader: &mailmanager.RuleSetRuleActionAddHeaderArgs{
@@ -42,8 +40,10 @@ import (
 //								},
 //							},
 //						},
+//						Name: pulumi.String("add-header"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

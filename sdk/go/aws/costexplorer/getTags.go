@@ -79,12 +79,8 @@ type GetTagsResult struct {
 }
 
 func GetTagsOutput(ctx *pulumi.Context, args GetTagsOutputArgs, opts ...pulumi.InvokeOption) GetTagsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTagsResultOutput, error) {
-			args := v.(GetTagsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:costexplorer/getTags:getTags", args, GetTagsResultOutput{}, options).(GetTagsResultOutput), nil
-		}).(GetTagsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:costexplorer/getTags:getTags", args, GetTagsResultOutput{}, options).(GetTagsResultOutput)
 }
 
 // A collection of arguments for invoking getTags.

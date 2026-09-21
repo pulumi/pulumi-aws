@@ -22,44 +22,44 @@ import * as utilities from "../utilities";
  * const bucketPol = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
+ *             principals: [{
+ *                 type: "Service",
+ *                 identifiers: ["guardduty.amazonaws.com"],
+ *             }],
  *             sid: "Allow PutObject",
  *             actions: ["s3:PutObject"],
  *             resources: [pulumi.interpolate`${gdBucket.arn}/*`],
+ *         },
+ *         {
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
  *             }],
- *         },
- *         {
  *             sid: "Allow GetBucketLocation",
  *             actions: ["s3:GetBucketLocation"],
  *             resources: [gdBucket.arn],
- *             principals: [{
- *                 type: "Service",
- *                 identifiers: ["guardduty.amazonaws.com"],
- *             }],
  *         },
  *     ],
  * });
  * const kmsPol = Promise.all([currentGetRegion, current]).then(([currentGetRegion, current]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
- *             sid: "Allow GuardDuty to encrypt findings",
- *             actions: ["kms:GenerateDataKey"],
- *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "Service",
  *                 identifiers: ["guardduty.amazonaws.com"],
  *             }],
+ *             sid: "Allow GuardDuty to encrypt findings",
+ *             actions: ["kms:GenerateDataKey"],
+ *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *         },
  *         {
- *             sid: "Allow all users to modify/delete key (test only)",
- *             actions: ["kms:*"],
- *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [`arn:aws:iam::${current.accountId}:root`],
  *             }],
+ *             sid: "Allow all users to modify/delete key (test only)",
+ *             actions: ["kms:*"],
+ *             resources: [`arn:aws:kms:${currentGetRegion.region}:${current.accountId}:key/*`],
  *         },
  *     ],
  * }));

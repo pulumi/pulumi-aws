@@ -15,14 +15,14 @@ public final class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs extend
     public static final TemplateSourceEntitySourceAnalysisDataSetReferenceArgs Empty = new TemplateSourceEntitySourceAnalysisDataSetReferenceArgs();
 
     /**
-     * Dataset Amazon Resource Name (ARN).
+     * Dataset ARN.
      * 
      */
     @Import(name="dataSetArn", required=true)
     private Output<String> dataSetArn;
 
     /**
-     * @return Dataset Amazon Resource Name (ARN).
+     * @return Dataset ARN.
      * 
      */
     public Output<String> dataSetArn() {
@@ -70,7 +70,7 @@ public final class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs extend
         }
 
         /**
-         * @param dataSetArn Dataset Amazon Resource Name (ARN).
+         * @param dataSetArn Dataset ARN.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class TemplateSourceEntitySourceAnalysisDataSetReferenceArgs extend
         }
 
         /**
-         * @param dataSetArn Dataset Amazon Resource Name (ARN).
+         * @param dataSetArn Dataset ARN.
          * 
          * @return builder
          * 

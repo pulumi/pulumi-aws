@@ -32,7 +32,7 @@ class ServiceArgs:
         The set of arguments for constructing a Service resource.
 
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
@@ -72,7 +72,7 @@ class ServiceArgs:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -162,7 +162,7 @@ class _ServiceState:
 
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input['ServiceDnsEntryArgs']]] dns_entries: DNS name of the service.
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
@@ -225,7 +225,7 @@ class _ServiceState:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -375,7 +375,7 @@ class Service(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
         :param pulumi.Input[_builtins.str] name: Name of the service. The name must be unique within the account. The valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.Must be between 3 and 40 characters in length.
@@ -488,7 +488,7 @@ class Service(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: ARN of the service.
         :param pulumi.Input[_builtins.str] auth_type: Type of IAM policy. Either `NONE` or `AWS_IAM`.
-        :param pulumi.Input[_builtins.str] certificate_arn: Amazon Resource Name (ARN) of the certificate.
+        :param pulumi.Input[_builtins.str] certificate_arn: ARN of the certificate.
         :param pulumi.Input[_builtins.str] custom_domain_name: Custom domain name of the service.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ServiceDnsEntryArgs', 'ServiceDnsEntryArgsDict']]]] dns_entries: DNS name of the service.
         :param pulumi.Input[_builtins.int] idle_timeout_seconds: Amount of time, in seconds, that a connection can remain idle (no data sent) before VPC Lattice closes it. The valid range is 60 to 600 seconds. Default is 60 seconds.
@@ -537,7 +537,7 @@ class Service(pulumi.CustomResource):
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

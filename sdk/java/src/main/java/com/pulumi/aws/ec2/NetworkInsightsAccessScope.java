@@ -84,14 +84,14 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.NetworkInsightsAccessScope;
  * import com.pulumi.aws.ec2.NetworkInsightsAccessScopeArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathSourceArgs;
- * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathSourceArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathThroughResourceArgs;
  * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs;
+ * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathArgs;
+ * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathSourceArgs;
+ * import com.pulumi.aws.ec2.inputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -106,13 +106,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new NetworkInsightsAccessScope("example", NetworkInsightsAccessScopeArgs.builder()
- *             .matchPaths(NetworkInsightsAccessScopeMatchPathArgs.builder()
- *                 .source(NetworkInsightsAccessScopeMatchPathSourceArgs.builder()
- *                     .resourceStatement(NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs.builder()
- *                         .resourceTypes("AWS::EC2::NetworkInterface")
- *                         .build())
- *                     .build())
- *                 .build())
  *             .excludePaths(NetworkInsightsAccessScopeExcludePathArgs.builder()
  *                 .source(NetworkInsightsAccessScopeExcludePathSourceArgs.builder()
  *                     .resourceStatement(NetworkInsightsAccessScopeExcludePathSourceResourceStatementArgs.builder()
@@ -122,6 +115,13 @@ import javax.annotation.Nullable;
  *                 .throughResources(NetworkInsightsAccessScopeExcludePathThroughResourceArgs.builder()
  *                     .resourceStatement(NetworkInsightsAccessScopeExcludePathThroughResourceResourceStatementArgs.builder()
  *                         .resourceTypes("AWS::EC2::NatGateway")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .matchPaths(NetworkInsightsAccessScopeMatchPathArgs.builder()
+ *                 .source(NetworkInsightsAccessScopeMatchPathSourceArgs.builder()
+ *                     .resourceStatement(NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs.builder()
+ *                         .resourceTypes("AWS::EC2::NetworkInterface")
  *                         .build())
  *                     .build())
  *                 .build())

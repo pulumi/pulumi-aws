@@ -257,11 +257,11 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="example-org-telemetry-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
+            rule_name="example-org-telemetry-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -273,23 +273,23 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-vpc-flow-logs-rule",
             rule={
+                "destination_configuration": {
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                },
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
                 "telemetry_source_types": ["VPC_FLOW_LOGS"],
                 "all_regions": True,
                 "allow_field_updates": True,
-                "destination_configuration": {
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
-                    "retention_in_days": 30,
-                    "vpc_flow_log_parameters": {
-                        "traffic_type": "ALL",
-                        "max_aggregation_interval": 60,
-                    },
-                },
             },
+            rule_name="org-vpc-flow-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -302,7 +302,6 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
         current = aws.organizations.get_organization()
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-scoped-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EKS::Cluster",
@@ -313,6 +312,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                     "us-west-2",
                 ],
             },
+            rule_name="org-scoped-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -324,11 +324,11 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
+            rule_name="org-tagged-rule",
             tags={
                 "Environment": "production",
                 "Purpose": "organization-monitoring",
@@ -390,11 +390,11 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="example-org-telemetry-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
+            rule_name="example-org-telemetry-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -406,23 +406,23 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-vpc-flow-logs-rule",
             rule={
+                "destination_configuration": {
+                    "vpc_flow_log_parameters": {
+                        "traffic_type": "ALL",
+                        "max_aggregation_interval": 60,
+                    },
+                    "destination_type": "cloud-watch-logs",
+                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
+                    "retention_in_days": 30,
+                },
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
                 "telemetry_source_types": ["VPC_FLOW_LOGS"],
                 "all_regions": True,
                 "allow_field_updates": True,
-                "destination_configuration": {
-                    "destination_type": "cloud-watch-logs",
-                    "destination_pattern": "/aws/vpcflowlogs/<resourceId>",
-                    "retention_in_days": 30,
-                    "vpc_flow_log_parameters": {
-                        "traffic_type": "ALL",
-                        "max_aggregation_interval": 60,
-                    },
-                },
             },
+            rule_name="org-vpc-flow-logs-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -435,7 +435,6 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
         current = aws.organizations.get_organization()
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-scoped-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EKS::Cluster",
@@ -446,6 +445,7 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
                     "us-west-2",
                 ],
             },
+            rule_name="org-scoped-rule",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -457,11 +457,11 @@ class TelemetryRuleForOrganization(pulumi.CustomResource):
 
         example = aws.observabilityadmin.TelemetryEvaluationForOrganization("example")
         example_telemetry_rule_for_organization = aws.observabilityadmin.TelemetryRuleForOrganization("example",
-            rule_name="org-tagged-rule",
             rule={
                 "telemetry_type": "Logs",
                 "resource_type": "AWS::EC2::VPC",
             },
+            rule_name="org-tagged-rule",
             tags={
                 "Environment": "production",
                 "Purpose": "organization-monitoring",

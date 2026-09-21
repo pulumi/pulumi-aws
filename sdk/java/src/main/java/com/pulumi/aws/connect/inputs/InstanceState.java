@@ -18,14 +18,14 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
     public static final InstanceState Empty = new InstanceState();
 
     /**
-     * Amazon Resource Name (ARN) of the instance.
+     * ARN of the instance.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the instance.
+     * @return ARN of the instance.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -315,7 +315,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the instance.
+         * @param arn ARN of the instance.
          * 
          * @return builder
          * 
@@ -326,7 +326,7 @@ public final class InstanceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the instance.
+         * @param arn ARN of the instance.
          * 
          * @return builder
          * 

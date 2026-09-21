@@ -70,12 +70,8 @@ type GetObjectsResult struct {
 }
 
 func GetObjectsOutput(ctx *pulumi.Context, args GetObjectsOutputArgs, opts ...pulumi.InvokeOption) GetObjectsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetObjectsResultOutput, error) {
-			args := v.(GetObjectsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getObjects:getObjects", args, GetObjectsResultOutput{}, options).(GetObjectsResultOutput), nil
-		}).(GetObjectsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getObjects:getObjects", args, GetObjectsResultOutput{}, options).(GetObjectsResultOutput)
 }
 
 // A collection of arguments for invoking getObjects.

@@ -77,12 +77,8 @@ type LookupIamRoleAssociationResult struct {
 }
 
 func LookupIamRoleAssociationOutput(ctx *pulumi.Context, args LookupIamRoleAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupIamRoleAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupIamRoleAssociationResultOutput, error) {
-			args := v.(LookupIamRoleAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getIamRoleAssociation:getIamRoleAssociation", args, LookupIamRoleAssociationResultOutput{}, options).(LookupIamRoleAssociationResultOutput), nil
-		}).(LookupIamRoleAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getIamRoleAssociation:getIamRoleAssociation", args, LookupIamRoleAssociationResultOutput{}, options).(LookupIamRoleAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getIamRoleAssociation.

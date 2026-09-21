@@ -14,74 +14,74 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ReceiptRuleBounceAction {
     /**
-     * @return The message to send
+     * @return Message to send.
      * 
      */
     private String message;
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     private Integer position;
     /**
-     * @return The email address of the sender
+     * @return Email address of the sender.
      * 
      */
     private String sender;
     /**
-     * @return The RFC 5321 SMTP reply code
+     * @return RFC 5321 SMTP reply code.
      * 
      */
     private String smtpReplyCode;
     /**
-     * @return The RFC 3463 SMTP enhanced status code
+     * @return RFC 3463 SMTP enhanced status code.
      * 
      */
     private @Nullable String statusCode;
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     private @Nullable String topicArn;
 
     private ReceiptRuleBounceAction() {}
     /**
-     * @return The message to send
+     * @return Message to send.
      * 
      */
     public String message() {
         return this.message;
     }
     /**
-     * @return The position of the action in the receipt rule
+     * @return Position of the action in the receipt rule.
      * 
      */
     public Integer position() {
         return this.position;
     }
     /**
-     * @return The email address of the sender
+     * @return Email address of the sender.
      * 
      */
     public String sender() {
         return this.sender;
     }
     /**
-     * @return The RFC 5321 SMTP reply code
+     * @return RFC 5321 SMTP reply code.
      * 
      */
     public String smtpReplyCode() {
         return this.smtpReplyCode;
     }
     /**
-     * @return The RFC 3463 SMTP enhanced status code
+     * @return RFC 3463 SMTP enhanced status code.
      * 
      */
     public Optional<String> statusCode() {
         return Optional.ofNullable(this.statusCode);
     }
     /**
-     * @return The ARN of an SNS topic to notify
+     * @return ARN of an SNS topic to notify.
      * 
      */
     public Optional<String> topicArn() {

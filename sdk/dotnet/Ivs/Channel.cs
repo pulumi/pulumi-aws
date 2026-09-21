@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ivs
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IVS channel.
+    /// - `Arn` (String) ARN of the IVS channel.
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Channel using the ARN. For example:
     /// 

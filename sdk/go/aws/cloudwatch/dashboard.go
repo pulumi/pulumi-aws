@@ -103,7 +103,7 @@ import (
 type Dashboard struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the dashboard.
+	// ARN of the dashboard.
 	DashboardArn pulumi.StringOutput `pulumi:"dashboardArn"`
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
 	DashboardBody pulumi.StringOutput `pulumi:"dashboardBody"`
@@ -149,7 +149,7 @@ func GetDashboard(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Dashboard resources.
 type dashboardState struct {
-	// The Amazon Resource Name (ARN) of the dashboard.
+	// ARN of the dashboard.
 	DashboardArn *string `pulumi:"dashboardArn"`
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
 	DashboardBody *string `pulumi:"dashboardBody"`
@@ -160,7 +160,7 @@ type dashboardState struct {
 }
 
 type DashboardState struct {
-	// The Amazon Resource Name (ARN) of the dashboard.
+	// ARN of the dashboard.
 	DashboardArn pulumi.StringPtrInput
 	// The detailed information about the dashboard, including what widgets are included and their location on the dashboard. You can read more about the body structure in the [documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CloudWatch-Dashboard-Body-Structure.html).
 	DashboardBody pulumi.StringPtrInput
@@ -280,7 +280,7 @@ func (o DashboardOutput) ToDashboardOutputWithContext(ctx context.Context) Dashb
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the dashboard.
+// ARN of the dashboard.
 func (o DashboardOutput) DashboardArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Dashboard) pulumi.StringOutput { return v.DashboardArn }).(pulumi.StringOutput)
 }

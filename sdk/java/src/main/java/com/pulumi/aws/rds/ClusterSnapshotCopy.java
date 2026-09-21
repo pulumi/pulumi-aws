@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterSnapshotCopy:ClusterSnapshotCopy")
 public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Export(name="allocatedStorage", refs={Integer.class}, tree="[0]")
     private Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Output<Integer> allocatedStorage() {
@@ -114,56 +114,56 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.copyTags);
     }
     /**
-     * The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * ARN for the DB cluster snapshot.
      * 
      */
     @Export(name="dbClusterSnapshotArn", refs={String.class}, tree="[0]")
     private Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * @return ARN for the DB cluster snapshot.
      * 
      */
     public Output<String> dbClusterSnapshotArn() {
         return this.dbClusterSnapshotArn;
     }
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      * 
      */
     @Export(name="destinationRegion", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination region to place the snapshot copy.
      * 
      */
     public Output<Optional<String>> destinationRegion() {
         return Codegen.optional(this.destinationRegion);
     }
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Output<String> engine() {
         return this.engine;
     }
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return Specifies the version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Output<String> engineVersion() {
@@ -239,9 +239,17 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
     public Output<Optional<List<String>>> sharedAccounts() {
         return Codegen.optional(this.sharedAccounts);
     }
+    /**
+     * Type of the DB cluster snapshot.
+     * 
+     */
     @Export(name="snapshotType", refs={String.class}, tree="[0]")
     private Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB cluster snapshot.
+     * 
+     */
     public Output<String> snapshotType() {
         return this.snapshotType;
     }
@@ -260,28 +268,28 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
         return this.sourceDbClusterSnapshotIdentifier;
     }
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      * 
      */
     @Export(name="storageEncrypted", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     public Output<Boolean> storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * Specifies the storage type associated with DB cluster snapshot.
+     * Storage type associated with DB cluster snapshot.
      * 
      */
     @Export(name="storageType", refs={String.class}, tree="[0]")
     private Output<String> storageType;
 
     /**
-     * @return Specifies the storage type associated with DB cluster snapshot.
+     * @return Storage type associated with DB cluster snapshot.
      * 
      */
     public Output<String> storageType() {
@@ -302,14 +310,14 @@ public class ClusterSnapshotCopy extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

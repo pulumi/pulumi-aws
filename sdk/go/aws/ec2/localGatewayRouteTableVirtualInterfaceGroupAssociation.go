@@ -68,7 +68,7 @@ type LocalGatewayRouteTableVirtualInterfaceGroupAssociation struct {
 
 	// Identifier of the EC2 Local Gateway.
 	LocalGatewayId pulumi.StringOutput `pulumi:"localGatewayId"`
-	// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+	// ARN of the EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableArn pulumi.StringOutput `pulumi:"localGatewayRouteTableArn"`
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringOutput `pulumi:"localGatewayRouteTableId"`
@@ -126,7 +126,7 @@ func GetLocalGatewayRouteTableVirtualInterfaceGroupAssociation(ctx *pulumi.Conte
 type localGatewayRouteTableVirtualInterfaceGroupAssociationState struct {
 	// Identifier of the EC2 Local Gateway.
 	LocalGatewayId *string `pulumi:"localGatewayId"`
-	// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+	// ARN of the EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableArn *string `pulumi:"localGatewayRouteTableArn"`
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId *string `pulumi:"localGatewayRouteTableId"`
@@ -149,7 +149,7 @@ type localGatewayRouteTableVirtualInterfaceGroupAssociationState struct {
 type LocalGatewayRouteTableVirtualInterfaceGroupAssociationState struct {
 	// Identifier of the EC2 Local Gateway.
 	LocalGatewayId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+	// ARN of the EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableArn pulumi.StringPtrInput
 	// Identifier of EC2 Local Gateway Route Table.
 	LocalGatewayRouteTableId pulumi.StringPtrInput
@@ -294,7 +294,7 @@ func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) LocalGatew
 	}).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+// ARN of the EC2 Local Gateway Route Table.
 func (o LocalGatewayRouteTableVirtualInterfaceGroupAssociationOutput) LocalGatewayRouteTableArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LocalGatewayRouteTableVirtualInterfaceGroupAssociation) pulumi.StringOutput {
 		return v.LocalGatewayRouteTableArn

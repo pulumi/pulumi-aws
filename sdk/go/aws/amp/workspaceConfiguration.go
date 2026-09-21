@@ -35,26 +35,26 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId:           example.ID().ToIDOutput().ToStringOutput(),
-//				RetentionPeriodInDays: pulumi.Int(60),
 //				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
 //					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{
-//							"env": pulumi.String("dev"),
-//						},
 //						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
 //							MaxSeries: pulumi.Int(100000),
 //						},
+//						LabelSet: pulumi.StringMap{
+//							"env": pulumi.String("dev"),
+//						},
 //					},
 //					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{
-//							"env": pulumi.String("prod"),
-//						},
 //						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
 //							MaxSeries: pulumi.Int(400000),
 //						},
+//						LabelSet: pulumi.StringMap{
+//							"env": pulumi.String("prod"),
+//						},
 //					},
 //				},
+//				WorkspaceId:           example.ID().ToIDOutput().ToStringOutput(),
+//				RetentionPeriodInDays: pulumi.Int(60),
 //			})
 //			if err != nil {
 //				return err
@@ -88,15 +88,15 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewWorkspaceConfiguration(ctx, "example", &amp.WorkspaceConfigurationArgs{
-//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				LimitsPerLabelSets: amp.WorkspaceConfigurationLimitsPerLabelSetArray{
 //					&amp.WorkspaceConfigurationLimitsPerLabelSetArgs{
-//						LabelSet: pulumi.StringMap{},
 //						Limits: &amp.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs{
 //							MaxSeries: pulumi.Int(50000),
 //						},
+//						LabelSet: pulumi.StringMap{},
 //					},
 //				},
+//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

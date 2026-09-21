@@ -21,10 +21,13 @@ import * as utilities from "../utilities";
  * const documents = new aws.s3.BucketObjectv2("documents", {});
  * const entities = new aws.s3.BucketObjectv2("entities", {});
  * const example = new aws.comprehend.EntityRecognizer("example", {
- *     name: "example",
- *     dataAccessRoleArn: exampleAwsIamRole.arn,
- *     languageCode: "en",
  *     inputDataConfig: {
+ *         documents: {
+ *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.key}`,
+ *         },
+ *         entityList: {
+ *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.key}`,
+ *         },
  *         entityTypes: [
  *             {
  *                 type: "ENTITY_1",
@@ -33,13 +36,10 @@ import * as utilities from "../utilities";
  *                 type: "ENTITY_2",
  *             },
  *         ],
- *         documents: {
- *             s3Uri: pulumi.interpolate`s3://${documentsAwsS3Bucket.bucket}/${documents.key}`,
- *         },
- *         entityList: {
- *             s3Uri: pulumi.interpolate`s3://${entitiesAwsS3Bucket.bucket}/${entities.key}`,
- *         },
  *     },
+ *     name: "example",
+ *     dataAccessRoleArn: exampleAwsIamRole.arn,
+ *     languageCode: "en",
  * }, {
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Comprehend entity recognizer.
+ * - `arn` (String) ARN of the Comprehend entity recognizer.
  *
  * Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
  *

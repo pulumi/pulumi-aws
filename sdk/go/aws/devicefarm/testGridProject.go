@@ -29,12 +29,12 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := devicefarm.NewTestGridProject(ctx, "example", &devicefarm.TestGridProjectArgs{
-// Name: pulumi.String("example"),
 // VpcConfig: &devicefarm.TestGridProjectVpcConfigArgs{
 // VpcId: pulumi.Any(exampleAwsVpc.Id),
-// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-46)),
-// SecurityGroupIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:5,24-53)),
+// SubnetIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:3,24-46)),
+// SecurityGroupIds: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:4,24-53)),
 // },
+// Name: pulumi.String("example"),
 // })
 // if err != nil {
 // return err
@@ -50,7 +50,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+// - `arn` (String) ARN of the Device Farm test grid project.
 //
 // Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
 //
@@ -60,7 +60,7 @@ import (
 type TestGridProject struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this Test Grid Project.
+	// ARN of this Test Grid Project.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Human-readable description of the project.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -106,7 +106,7 @@ func GetTestGridProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TestGridProject resources.
 type testGridProjectState struct {
-	// The Amazon Resource Name of this Test Grid Project.
+	// ARN of this Test Grid Project.
 	Arn *string `pulumi:"arn"`
 	// Human-readable description of the project.
 	Description *string `pulumi:"description"`
@@ -123,7 +123,7 @@ type testGridProjectState struct {
 }
 
 type TestGridProjectState struct {
-	// The Amazon Resource Name of this Test Grid Project.
+	// ARN of this Test Grid Project.
 	Arn pulumi.StringPtrInput
 	// Human-readable description of the project.
 	Description pulumi.StringPtrInput
@@ -257,7 +257,7 @@ func (o TestGridProjectOutput) ToTestGridProjectOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name of this Test Grid Project.
+// ARN of this Test Grid Project.
 func (o TestGridProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TestGridProject) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -20,12 +20,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
@@ -47,8 +47,6 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleAgentcoreHarness = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "example_harness",
- *     executionRoleArn: example.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
@@ -57,6 +55,8 @@ import * as utilities from "../utilities";
  *     systemPrompts: [{
  *         text: "You are a helpful assistant.",
  *     }],
+ *     harnessName: "example_harness",
+ *     executionRoleArn: example.arn,
  * });
  * ```
  *
@@ -67,8 +67,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "example_with_tools",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
@@ -79,13 +77,7 @@ import * as utilities from "../utilities";
  *     systemPrompts: [{
  *         text: "You are a coding assistant.",
  *     }],
- *     allowedTools: ["*"],
- *     maxIterations: 10,
- *     maxTokens: 4096,
- *     timeoutSeconds: 300,
  *     tools: [{
- *         type: "inline_function",
- *         name: "get_weather",
  *         config: {
  *             inlineFunction: {
  *                 description: "Get the current weather for a location",
@@ -101,15 +93,23 @@ import * as utilities from "../utilities";
  *                 }),
  *             },
  *         },
+ *         type: "inline_function",
+ *         name: "get_weather",
  *     }],
  *     truncations: [{
- *         strategy: "sliding_window",
  *         config: [{
  *             slidingWindow: [{
  *                 messagesCount: 50,
  *             }],
  *         }],
+ *         strategy: "sliding_window",
  *     }],
+ *     harnessName: "example_with_tools",
+ *     executionRoleArn: exampleAwsIamRole.arn,
+ *     allowedTools: ["*"],
+ *     maxIterations: 10,
+ *     maxTokens: 4096,
+ *     timeoutSeconds: 300,
  * });
  * ```
  *
@@ -120,16 +120,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreHarness("example", {
- *     harnessName: "my_harness",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     model: {
  *         bedrockModelConfig: {
  *             modelId: "anthropic.claude-sonnet-4-20250514",
  *         },
  *     },
- *     systemPrompts: [{
- *         text: "You are a helpful assistant.",
- *     }],
  *     memory: {
  *         managedMemoryConfiguration: {
  *             eventExpiryDuration: 14,
@@ -139,6 +134,11 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     systemPrompts: [{
+ *         text: "You are a helpful assistant.",
+ *     }],
+ *     harnessName: "my_harness",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -236,7 +236,7 @@ export class AgentcoreHarness extends pulumi.CustomResource {
     /**
      * Maximum number of tokens in the model response.
      */
-    declare public readonly maxTokens: pulumi.Output<number | undefined>;
+    declare public readonly maxTokens: pulumi.Output<number>;
     /**
      * Memory configuration. See `memory` Block below. If not specified, configured values can be found in `memoryActual`. Clearing this value will reset the memory configuration to default values.
      */
@@ -247,8 +247,6 @@ export class AgentcoreHarness extends pulumi.CustomResource {
     declare public /*out*/ readonly memoryActuals: pulumi.Output<outputs.bedrock.AgentcoreHarnessMemoryActual[]>;
     /**
      * Model configuration for the harness. See `model` Block below.
-     *
-     * The following arguments are optional:
      */
     declare public readonly model: pulumi.Output<outputs.bedrock.AgentcoreHarnessModel>;
     /**
@@ -261,8 +259,10 @@ export class AgentcoreHarness extends pulumi.CustomResource {
     declare public readonly skills: pulumi.Output<outputs.bedrock.AgentcoreHarnessSkill[] | undefined>;
     /**
      * System prompt blocks for the harness. See `systemPrompt` Block below.
+     *
+     * The following arguments are optional:
      */
-    declare public readonly systemPrompts: pulumi.Output<outputs.bedrock.AgentcoreHarnessSystemPrompt[] | undefined>;
+    declare public readonly systemPrompts: pulumi.Output<outputs.bedrock.AgentcoreHarnessSystemPrompt[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -332,6 +332,9 @@ export class AgentcoreHarness extends pulumi.CustomResource {
             }
             if (args?.model === undefined && !opts.urn) {
                 throw new Error("Missing required property 'model'");
+            }
+            if (args?.systemPrompts === undefined && !opts.urn) {
+                throw new Error("Missing required property 'systemPrompts'");
             }
             resourceInputs["allowedTools"] = args?.allowedTools;
             resourceInputs["authorizerConfiguration"] = args?.authorizerConfiguration;
@@ -427,8 +430,6 @@ export interface AgentcoreHarnessState {
     memoryActuals?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessMemoryActual>[] | undefined>;
     /**
      * Model configuration for the harness. See `model` Block below.
-     *
-     * The following arguments are optional:
      */
     model?: pulumi.Input<inputs.bedrock.AgentcoreHarnessModel | undefined>;
     /**
@@ -441,6 +442,8 @@ export interface AgentcoreHarnessState {
     skills?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSkill>[] | undefined>;
     /**
      * System prompt blocks for the harness. See `systemPrompt` Block below.
+     *
+     * The following arguments are optional:
      */
     systemPrompts?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSystemPrompt>[] | undefined>;
     /**
@@ -512,8 +515,6 @@ export interface AgentcoreHarnessArgs {
     memory?: pulumi.Input<inputs.bedrock.AgentcoreHarnessMemory | undefined>;
     /**
      * Model configuration for the harness. See `model` Block below.
-     *
-     * The following arguments are optional:
      */
     model: pulumi.Input<inputs.bedrock.AgentcoreHarnessModel>;
     /**
@@ -526,8 +527,10 @@ export interface AgentcoreHarnessArgs {
     skills?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSkill>[] | undefined>;
     /**
      * System prompt blocks for the harness. See `systemPrompt` Block below.
+     *
+     * The following arguments are optional:
      */
-    systemPrompts?: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSystemPrompt>[] | undefined>;
+    systemPrompts: pulumi.Input<pulumi.Input<inputs.bedrock.AgentcoreHarnessSystemPrompt>[]>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

@@ -55,6 +55,11 @@ export type GlossaryTerm = import("./glossaryTerm").GlossaryTerm;
 export const GlossaryTerm: typeof import("./glossaryTerm").GlossaryTerm = null as any;
 utilities.lazyLoad(exports, ["GlossaryTerm"], () => require("./glossaryTerm"));
 
+export { PolicyGrantArgs, PolicyGrantState } from "./policyGrant";
+export type PolicyGrant = import("./policyGrant").PolicyGrant;
+export const PolicyGrant: typeof import("./policyGrant").PolicyGrant = null as any;
+utilities.lazyLoad(exports, ["PolicyGrant"], () => require("./policyGrant"));
+
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -86,6 +91,8 @@ const _module = {
                 return new Glossary(name, <any>undefined, { urn })
             case "aws:datazone/glossaryTerm:GlossaryTerm":
                 return new GlossaryTerm(name, <any>undefined, { urn })
+            case "aws:datazone/policyGrant:PolicyGrant":
+                return new PolicyGrant(name, <any>undefined, { urn })
             case "aws:datazone/project:Project":
                 return new Project(name, <any>undefined, { urn })
             case "aws:datazone/userProfile:UserProfile":
@@ -103,5 +110,6 @@ pulumi.runtime.registerResourceModule("aws", "datazone/environmentProfile", _mod
 pulumi.runtime.registerResourceModule("aws", "datazone/formType", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/glossary", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/glossaryTerm", _module)
+pulumi.runtime.registerResourceModule("aws", "datazone/policyGrant", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/project", _module)
 pulumi.runtime.registerResourceModule("aws", "datazone/userProfile", _module)

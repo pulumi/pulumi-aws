@@ -18,14 +18,14 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
     public static final SchedulingPolicyState Empty = new SchedulingPolicyState();
 
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the scheduling policy.
+     * @return ARN of the scheduling policy.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -129,7 +129,7 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name of the scheduling policy.
+         * @param arn ARN of the scheduling policy.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class SchedulingPolicyState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name of the scheduling policy.
+         * @param arn ARN of the scheduling policy.
          * 
          * @return builder
          * 

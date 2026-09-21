@@ -26,15 +26,16 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.RuleGroup("example", new()
     ///     {
-    ///         Name = "example-rule",
-    ///         Scope = "REGIONAL",
-    ///         Capacity = 2,
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
     ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
     ///                     Allow = null,
@@ -56,14 +57,13 @@ namespace Pulumi.Aws.WafV2
     ///                     MetricName = "friendly-rule-metric-name",
     ///                     SampledRequestsEnabled = false,
     ///                 },
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
     ///             },
     ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
+    ///         Name = "example-rule",
+    ///         Scope = "REGIONAL",
+    ///         Capacity = 2,
     ///     });
     /// 
     /// });
@@ -93,8 +93,6 @@ namespace Pulumi.Aws.WafV2
     /// 
     ///     var testRegexPatternSet = new Aws.WafV2.RegexPatternSet("test", new()
     ///     {
-    ///         Name = "test",
-    ///         Scope = "REGIONAL",
     ///         RegularExpressions = new[]
     ///         {
     ///             new Aws.WafV2.Inputs.RegexPatternSetRegularExpressionArgs
@@ -102,20 +100,35 @@ namespace Pulumi.Aws.WafV2
     ///                 RegexString = "one",
     ///             },
     ///         },
+    ///         Name = "test",
+    ///         Scope = "REGIONAL",
     ///     });
     /// 
     ///     var example = new Aws.WafV2.RuleGroup("example", new()
     ///     {
-    ///         Name = "complex-example",
-    ///         Description = "An rule group containing all statements",
-    ///         Scope = "REGIONAL",
-    ///         Capacity = 500,
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
+    ///         CaptchaConfig = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "immunityTimeProperty", new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "immunityTime", 120 },
+    ///                     },
+    ///                 } },
+    ///             },
+    ///         },
     ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
     ///                     Block = null,
@@ -146,8 +159,6 @@ namespace Pulumi.Aws.WafV2
     ///                                         {
     ///                                             ByteMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementByteMatchStatementArgs
     ///                                             {
-    ///                                                 PositionalConstraint = "CONTAINS",
-    ///                                                 SearchString = "word",
     ///                                                 FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementByteMatchStatementFieldToMatchArgs
     ///                                                 {
     ///                                                     AllQueryArguments = null,
@@ -165,6 +176,8 @@ namespace Pulumi.Aws.WafV2
     ///                                                         Type = "LOWERCASE",
     ///                                                     },
     ///                                                 },
+    ///                                                 PositionalConstraint = "CONTAINS",
+    ///                                                 SearchString = "word",
     ///                                             },
     ///                                         },
     ///                                     },
@@ -179,11 +192,11 @@ namespace Pulumi.Aws.WafV2
     ///                     MetricName = "rule-1",
     ///                     SampledRequestsEnabled = false,
     ///                 },
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
     ///             },
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 Name = "rule-2",
-    ///                 Priority = 2,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
     ///                     Count = null,
@@ -198,7 +211,6 @@ namespace Pulumi.Aws.WafV2
     ///                             {
     ///                                 RegexMatchStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexMatchStatementArgs
     ///                                 {
-    ///                                     RegexString = "a-z?",
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchArgs
     ///                                     {
     ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeaderArgs
@@ -214,6 +226,7 @@ namespace Pulumi.Aws.WafV2
     ///                                             Type = "NONE",
     ///                                         },
     ///                                     },
+    ///                                     RegexString = "a-z?",
     ///                                 },
     ///                             },
     ///                             new Aws.WafV2.Inputs.RuleGroupRuleStatementArgs
@@ -278,11 +291,11 @@ namespace Pulumi.Aws.WafV2
     ///                         ImmunityTime = 240,
     ///                     },
     ///                 },
+    ///                 Name = "rule-2",
+    ///                 Priority = 2,
     ///             },
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 Name = "rule-3",
-    ///                 Priority = 3,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
     ///                     Block = null,
@@ -291,8 +304,6 @@ namespace Pulumi.Aws.WafV2
     ///                 {
     ///                     SizeConstraintStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementArgs
     ///                     {
-    ///                         ComparisonOperator = "GT",
-    ///                         Size = 100,
     ///                         FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchArgs
     ///                         {
     ///                             SingleQueryArgument = new Aws.WafV2.Inputs.RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgumentArgs
@@ -308,6 +319,8 @@ namespace Pulumi.Aws.WafV2
     ///                                 Type = "NONE",
     ///                             },
     ///                         },
+    ///                         ComparisonOperator = "GT",
+    ///                         Size = 100,
     ///                     },
     ///                 },
     ///                 VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupRuleVisibilityConfigArgs
@@ -316,11 +329,11 @@ namespace Pulumi.Aws.WafV2
     ///                     MetricName = "rule-3",
     ///                     SampledRequestsEnabled = false,
     ///                 },
+    ///                 Name = "rule-3",
+    ///                 Priority = 3,
     ///             },
     ///             new Aws.WafV2.Inputs.RuleGroupRuleArgs
     ///             {
-    ///                 Name = "rule-4",
-    ///                 Priority = 4,
     ///                 Action = new Aws.WafV2.Inputs.RuleGroupRuleActionArgs
     ///                 {
     ///                     Block = null,
@@ -342,7 +355,6 @@ namespace Pulumi.Aws.WafV2
     ///                             {
     ///                                 RegexPatternSetReferenceStatement = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs
     ///                                 {
-    ///                                     Arn = testRegexPatternSet.Arn,
     ///                                     FieldToMatch = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchArgs
     ///                                     {
     ///                                         SingleHeader = new Aws.WafV2.Inputs.RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeaderArgs
@@ -358,6 +370,7 @@ namespace Pulumi.Aws.WafV2
     ///                                             Type = "NONE",
     ///                                         },
     ///                                     },
+    ///                                     Arn = testRegexPatternSet.Arn,
     ///                                 },
     ///                             },
     ///                         },
@@ -369,27 +382,14 @@ namespace Pulumi.Aws.WafV2
     ///                     MetricName = "rule-4",
     ///                     SampledRequestsEnabled = false,
     ///                 },
+    ///                 Name = "rule-4",
+    ///                 Priority = 4,
     ///             },
     ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
-    ///         CaptchaConfig = new[]
-    ///         {
-    ///             
-    ///             {
-    ///                 { "immunityTimeProperty", new[]
-    ///                 {
-    ///                     
-    ///                     {
-    ///                         { "immunityTime", 120 },
-    ///                     },
-    ///                 } },
-    ///             },
-    ///         },
+    ///         Name = "complex-example",
+    ///         Description = "An rule group containing all statements",
+    ///         Scope = "REGIONAL",
+    ///         Capacity = 500,
     ///         Tags = 
     ///         {
     ///             { "Name", "example-and-statement" },
@@ -413,6 +413,12 @@ namespace Pulumi.Aws.WafV2
     /// {
     ///     var example = new Aws.WafV2.RuleGroup("example", new()
     ///     {
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
+    ///         },
     ///         Name = "example-rule-group",
     ///         Scope = "REGIONAL",
     ///         Capacity = 100,
@@ -458,12 +464,6 @@ namespace Pulumi.Aws.WafV2
     ///                 },
     ///             },
     ///         }),
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.RuleGroupVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
     ///     });
     /// 
     /// });

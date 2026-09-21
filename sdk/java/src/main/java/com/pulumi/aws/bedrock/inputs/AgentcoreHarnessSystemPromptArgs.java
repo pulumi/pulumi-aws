@@ -5,9 +5,10 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreHarnessSystemPromptArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,15 +19,15 @@ public final class AgentcoreHarnessSystemPromptArgs extends com.pulumi.resources
      * Text content of the system prompt.
      * 
      */
-    @Import(name="text", required=true)
-    private Output<String> text;
+    @Import(name="text")
+    private @Nullable Output<String> text;
 
     /**
      * @return Text content of the system prompt.
      * 
      */
-    public Output<String> text() {
-        return this.text;
+    public Optional<Output<String>> text() {
+        return Optional.ofNullable(this.text);
     }
 
     private AgentcoreHarnessSystemPromptArgs() {}
@@ -59,7 +60,7 @@ public final class AgentcoreHarnessSystemPromptArgs extends com.pulumi.resources
          * @return builder
          * 
          */
-        public Builder text(Output<String> text) {
+        public Builder text(@Nullable Output<String> text) {
             $.text = text;
             return this;
         }
@@ -75,9 +76,6 @@ public final class AgentcoreHarnessSystemPromptArgs extends com.pulumi.resources
         }
 
         public AgentcoreHarnessSystemPromptArgs build() {
-            if ($.text == null) {
-                throw new MissingRequiredPropertyException("AgentcoreHarnessSystemPromptArgs", "text");
-            }
             return $;
         }
     }

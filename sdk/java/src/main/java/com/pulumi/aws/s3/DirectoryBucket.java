@@ -48,10 +48,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--usw2-az1--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name("usw2-az1")
  *                 .build())
+ *             .bucket("example--usw2-az1--x-s3")
  *             .build());
  * 
  *     }
@@ -85,11 +85,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleLocalZone = new DirectoryBucket("exampleLocalZone", DirectoryBucketArgs.builder()
- *             .bucket("example--usw2-xxx-lz1--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name("usw2-xxx-lz1")
  *                 .type("LocalZone")
  *                 .build())
+ *             .bucket("example--usw2-xxx-lz1--x-s3")
  *             .build());
  * 
  *     }

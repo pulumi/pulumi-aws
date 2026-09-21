@@ -30,10 +30,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := auditmanager.NewFramework(ctx, "test", &auditmanager.FrameworkArgs{
-//				Name: pulumi.String("example"),
 //				ControlSets: auditmanager.FrameworkControlSetArray{
 //					&auditmanager.FrameworkControlSetArgs{
-//						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
 //								Id: pulumi.Any(test1.Id),
@@ -42,8 +40,10 @@ import (
 //								Id: pulumi.Any(test2.Id),
 //							},
 //						},
+//						Name: pulumi.String("example"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -75,7 +75,7 @@ import (
 type Framework struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the framework.
+	// ARN of the framework.
 	// * `control_sets[*].id` - Unique identifier for the framework control set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -127,7 +127,7 @@ func GetFramework(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Framework resources.
 type frameworkState struct {
-	// Amazon Resource Name (ARN) of the framework.
+	// ARN of the framework.
 	// * `control_sets[*].id` - Unique identifier for the framework control set.
 	Arn *string `pulumi:"arn"`
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -150,7 +150,7 @@ type frameworkState struct {
 }
 
 type FrameworkState struct {
-	// Amazon Resource Name (ARN) of the framework.
+	// ARN of the framework.
 	// * `control_sets[*].id` - Unique identifier for the framework control set.
 	Arn pulumi.StringPtrInput
 	// Compliance type that the new custom framework supports, such as `CIS` or `HIPAA`.
@@ -298,7 +298,7 @@ func (o FrameworkOutput) ToFrameworkOutputWithContext(ctx context.Context) Frame
 	return o
 }
 
-// Amazon Resource Name (ARN) of the framework.
+// ARN of the framework.
 // * `control_sets[*].id` - Unique identifier for the framework control set.
 func (o FrameworkOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Framework) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)

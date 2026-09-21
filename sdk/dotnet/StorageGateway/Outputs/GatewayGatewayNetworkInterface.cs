@@ -14,7 +14,7 @@ namespace Pulumi.Aws.StorageGateway.Outputs
     public sealed class GatewayGatewayNetworkInterface
     {
         /// <summary>
-        /// The Internet Protocol version 4 (IPv4) address of the interface.
+        /// IP version 4 (IPv4) address of the interface.
         /// </summary>
         public readonly string? Ipv4Address;
 

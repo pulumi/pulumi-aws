@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Odb
     public sealed class GetCloudVmClusterResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the cloud vm cluster.
+        /// ARN for the cloud vm cluster.
         /// </summary>
         public readonly string Arn;
         /// <summary>

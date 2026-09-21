@@ -33,16 +33,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleTable, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
-//				Name:          pulumi.String("example-name"),
-//				ReadCapacity:  pulumi.Int(10),
-//				WriteCapacity: pulumi.Int(10),
-//				HashKey:       pulumi.String("exampleHashKey"),
 //				Attributes: dynamodb.TableAttributeArray{
 //					&dynamodb.TableAttributeArgs{
 //						Name: pulumi.String("exampleHashKey"),
 //						Type: pulumi.String("S"),
 //					},
 //				},
+//				Name:          pulumi.String("example-name"),
+//				ReadCapacity:  pulumi.Int(10),
+//				WriteCapacity: pulumi.Int(10),
+//				HashKey:       pulumi.String("exampleHashKey"),
 //			})
 //			if err != nil {
 //				return err

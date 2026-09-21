@@ -289,17 +289,17 @@ class Multiplex(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
             multiplex_settings={
                 "transport_stream_bitrate": 1000000,
                 "transport_stream_id": 1,
                 "transport_stream_reserved_bitrate": 1,
                 "maximum_video_buffer_delay_milliseconds": 1000,
             },
+            name="example-multiplex-changed",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
             start_multiplex=True,
             tags={
                 "tag1": "value1",
@@ -356,17 +356,17 @@ class Multiplex(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.medialive.Multiplex("example",
-            name="example-multiplex-changed",
-            availability_zones=[
-                available.names[0],
-                available.names[1],
-            ],
             multiplex_settings={
                 "transport_stream_bitrate": 1000000,
                 "transport_stream_id": 1,
                 "transport_stream_reserved_bitrate": 1,
                 "maximum_video_buffer_delay_milliseconds": 1000,
             },
+            name="example-multiplex-changed",
+            availability_zones=[
+                available.names[0],
+                available.names[1],
+            ],
             start_multiplex=True,
             tags={
                 "tag1": "value1",

@@ -73,7 +73,7 @@ export class EventSubscription extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * ARN of the Redshift event notification subscription
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export class EventSubscription extends pulumi.CustomResource {
  */
 export interface EventSubscriptionState {
     /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * ARN of the Redshift event notification subscription
      */
     arn?: pulumi.Input<string | undefined>;
     /**

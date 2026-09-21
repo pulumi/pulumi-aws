@@ -29,17 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
+//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
+//					Inverted:  pulumi.Bool(false),
+//					Threshold: pulumi.Int(1),
+//					Type:      pulumi.String("ATLEAST"),
+//				},
 //				AssertedControls: pulumi.StringArray{
 //					exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
 //				},
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //				Name:            pulumi.String("daisyguttridge"),
 //				WaitPeriodMs:    pulumi.Int(5000),
-//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-//					Inverted:  pulumi.Bool(false),
-//					Threshold: pulumi.Int(1),
-//					Type:      pulumi.String("ATLEAST"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -63,6 +63,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := route53recoverycontrol.NewSafetyRule(ctx, "example", &route53recoverycontrol.SafetyRuleArgs{
+//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
+//					Inverted:  pulumi.Bool(false),
+//					Threshold: pulumi.Int(1),
+//					Type:      pulumi.String("ATLEAST"),
+//				},
 //				Name:            pulumi.String("i_o"),
 //				ControlPanelArn: pulumi.String("arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8"),
 //				WaitPeriodMs:    pulumi.Int(5000),
@@ -71,11 +76,6 @@ import (
 //				},
 //				TargetControls: pulumi.StringArray{
 //					exampleAwsRoute53recoverycontrolconfigRoutingControl.Arn,
-//				},
-//				RuleConfig: &route53recoverycontrol.SafetyRuleRuleConfigArgs{
-//					Inverted:  pulumi.Bool(false),
-//					Threshold: pulumi.Int(1),
-//					Type:      pulumi.String("ATLEAST"),
 //				},
 //			})
 //			if err != nil {

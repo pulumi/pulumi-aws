@@ -68,7 +68,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var ubuntu = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name("name")
@@ -78,6 +77,7 @@ import javax.annotation.Nullable;
  *                     .name("virtualization-type")
  *                     .values("hvm")
  *                     .build())
+ *             .mostRecent(true)
  *             .owners("099720109477")
  *             .build());
  * 
@@ -157,8 +157,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var example = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners("amazon")
  *             .filters(            
  *                 GetAmiFilterArgs.builder()
  *                     .name("architecture")
@@ -168,16 +166,18 @@ import javax.annotation.Nullable;
  *                     .name("name")
  *                     .values("al2023-ami-2023*")
  *                     .build())
+ *             .mostRecent(true)
+ *             .owners("amazon")
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .ami(example.id())
  *             .instanceMarketOptions(InstanceInstanceMarketOptionsArgs.builder()
- *                 .marketType("spot")
  *                 .spotOptions(InstanceInstanceMarketOptionsSpotOptionsArgs.builder()
  *                     .maxPrice("0.0031")
  *                     .build())
+ *                 .marketType("spot")
  *                 .build())
+ *             .ami(example.id())
  *             .instanceType("t4g.nano")
  *             .tags(Map.of("Name", "test-spot"))
  *             .build());
@@ -238,14 +238,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .ami("ami-005e54dee72cc1d00")
- *             .instanceType("t2.micro")
  *             .primaryNetworkInterface(InstancePrimaryNetworkInterfaceArgs.builder()
  *                 .networkInterfaceId(example.id())
  *                 .build())
  *             .creditSpecification(InstanceCreditSpecificationArgs.builder()
  *                 .cpuCredits("unlimited")
  *                 .build())
+ *             .ami("ami-005e54dee72cc1d00")
+ *             .instanceType("t2.micro")
  *             .build());
  * 
  *     }
@@ -298,22 +298,22 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         final var amzn-linux-2023-ami = Ec2Functions.getAmi(GetAmiArgs.builder()
- *             .mostRecent(true)
- *             .owners("amazon")
  *             .filters(GetAmiFilterArgs.builder()
  *                 .name("name")
  *                 .values("al2023-ami-2023.*-x86_64")
  *                 .build())
+ *             .mostRecent(true)
+ *             .owners("amazon")
  *             .build());
  * 
  *         var exampleInstance = new Instance("exampleInstance", InstanceArgs.builder()
- *             .ami(amzn_linux_2023_ami.id())
- *             .instanceType("c6a.2xlarge")
- *             .subnetId(exampleSubnet.id())
  *             .cpuOptions(InstanceCpuOptionsArgs.builder()
  *                 .coreCount(2)
  *                 .threadsPerCore(2)
  *                 .build())
+ *             .ami(amzn_linux_2023_ami.id())
+ *             .instanceType("c6a.2xlarge")
+ *             .subnetId(exampleSubnet.id())
  *             .tags(Map.of("Name", "tf-example"))
  *             .build());
  * 

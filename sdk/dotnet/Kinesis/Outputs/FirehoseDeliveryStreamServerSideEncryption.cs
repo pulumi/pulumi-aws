@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Kinesis.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
+        /// ARN of the encryption key. Required when `KeyType` is `CUSTOMER_MANAGED_CMK`.
         /// </summary>
         public readonly string? KeyArn;
         /// <summary>

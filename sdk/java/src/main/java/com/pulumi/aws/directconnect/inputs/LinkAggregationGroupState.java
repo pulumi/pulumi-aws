@@ -3,10 +3,12 @@
 
 package com.pulumi.aws.directconnect.inputs;
 
+import com.pulumi.aws.directconnect.inputs.LinkAggregationGroupRateLimiterStatusArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -168,6 +170,21 @@ public final class LinkAggregationGroupState extends com.pulumi.resources.Resour
     }
 
     /**
+     * Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+     * 
+     */
+    @Import(name="rateLimiterStatuses")
+    private @Nullable Output<List<LinkAggregationGroupRateLimiterStatusArgs>> rateLimiterStatuses;
+
+    /**
+     * @return Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+     * 
+     */
+    public Optional<Output<List<LinkAggregationGroupRateLimiterStatusArgs>>> rateLimiterStatuses() {
+        return Optional.ofNullable(this.rateLimiterStatuses);
+    }
+
+    /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      * 
      */
@@ -225,6 +242,7 @@ public final class LinkAggregationGroupState extends com.pulumi.resources.Resour
         this.name = $.name;
         this.ownerAccountId = $.ownerAccountId;
         this.providerName = $.providerName;
+        this.rateLimiterStatuses = $.rateLimiterStatuses;
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
@@ -456,6 +474,37 @@ public final class LinkAggregationGroupState extends com.pulumi.resources.Resour
          */
         public Builder providerName(String providerName) {
             return providerName(Output.of(providerName));
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(@Nullable Output<List<LinkAggregationGroupRateLimiterStatusArgs>> rateLimiterStatuses) {
+            $.rateLimiterStatuses = rateLimiterStatuses;
+            return this;
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(List<LinkAggregationGroupRateLimiterStatusArgs> rateLimiterStatuses) {
+            return rateLimiterStatuses(Output.of(rateLimiterStatuses));
+        }
+
+        /**
+         * @param rateLimiterStatuses Rate limiter status for the LAG. See `rateLimiterStatus` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimiterStatuses(LinkAggregationGroupRateLimiterStatusArgs... rateLimiterStatuses) {
+            return rateLimiterStatuses(List.of(rateLimiterStatuses));
         }
 
         /**

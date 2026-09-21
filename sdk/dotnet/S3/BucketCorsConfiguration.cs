@@ -33,7 +33,6 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketCorsConfiguration = new Aws.S3.BucketCorsConfiguration("example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         CorsRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketCorsConfigurationCorsRuleArgs
@@ -69,6 +68,7 @@ namespace Pulumi.Aws.S3
     ///                 },
     ///             },
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });

@@ -46,15 +46,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sizeConstraintSet = new SizeConstraintSet("sizeConstraintSet", SizeConstraintSetArgs.builder()
- *             .name("tfsize_constraints")
  *             .sizeConstraints(SizeConstraintSetSizeConstraintArgs.builder()
- *                 .textTransformation("NONE")
- *                 .comparisonOperator("EQ")
- *                 .size(4096)
  *                 .fieldToMatch(SizeConstraintSetSizeConstraintFieldToMatchArgs.builder()
  *                     .type("BODY")
  *                     .build())
+ *                 .textTransformation("NONE")
+ *                 .comparisonOperator("EQ")
+ *                 .size(4096)
  *                 .build())
+ *             .name("tfsize_constraints")
  *             .build());
  * 
  *     }
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:waf/sizeConstraintSet:SizeConstraintSet")
 public class SizeConstraintSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN).
+     * ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN).
+     * @return ARN.
      * 
      */
     public Output<String> arn() {

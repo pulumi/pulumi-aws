@@ -50,7 +50,7 @@ class GetAliasResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name(ARN) of the key alias.
+        ARN of the key alias.
         """
         return pulumi.get(self, "arn")
 

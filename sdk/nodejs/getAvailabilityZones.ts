@@ -43,7 +43,6 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getAvailabilityZones({
- *     allAvailabilityZones: true,
  *     filters: [{
  *         name: "opt-in-status",
  *         values: [
@@ -51,6 +50,7 @@ import * as utilities from "./utilities";
  *             "opted-in",
  *         ],
  *     }],
+ *     allAvailabilityZones: true,
  * });
  * ```
  *
@@ -174,7 +174,6 @@ export interface GetAvailabilityZonesResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.getAvailabilityZones({
- *     allAvailabilityZones: true,
  *     filters: [{
  *         name: "opt-in-status",
  *         values: [
@@ -182,6 +181,7 @@ export interface GetAvailabilityZonesResult {
  *             "opted-in",
  *         ],
  *     }],
+ *     allAvailabilityZones: true,
  * });
  * ```
  *

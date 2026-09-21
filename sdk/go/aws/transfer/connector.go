@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
 //				As2Config: &transfer.ConnectorAs2ConfigArgs{
 //					Compression:         pulumi.String("DISABLED"),
 //					EncryptionAlgorithm: pulumi.String("AWS128_CBC"),
@@ -42,7 +41,8 @@ import (
 //					PartnerProfileId:    pulumi.Any(partner.ProfileId),
 //					SigningAlgorithm:    pulumi.String("NONE"),
 //				},
-//				Url: pulumi.String("http://www.test.com"),
+//				AccessRole: pulumi.Any(test.Arn),
+//				Url:        pulumi.String("http://www.test.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -68,14 +68,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
 //				SftpConfig: &transfer.ConnectorSftpConfigArgs{
 //					TrustedHostKeys: pulumi.StringArray{
 //						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
 //					},
 //					UserSecretId: pulumi.Any(exampleAwsSecretsmanagerSecret.Id),
 //				},
-//				Url: pulumi.String("sftp://test.com"),
+//				AccessRole: pulumi.Any(test.Arn),
+//				Url:        pulumi.String("sftp://test.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -101,7 +101,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := transfer.NewConnector(ctx, "example", &transfer.ConnectorArgs{
-//				AccessRole: pulumi.Any(test.Arn),
 //				SftpConfig: &transfer.ConnectorSftpConfigArgs{
 //					TrustedHostKeys: pulumi.StringArray{
 //						pulumi.String("ssh-rsa AAAAB3NYourKeysHere"),
@@ -114,6 +113,7 @@ import (
 //						PortNumber:               pulumi.Int(22),
 //					},
 //				},
+//				AccessRole: pulumi.Any(test.Arn),
 //			})
 //			if err != nil {
 //				return err

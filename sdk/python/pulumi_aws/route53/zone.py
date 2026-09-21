@@ -159,7 +159,7 @@ class _ZoneState:
         """
         Input properties used for looking up and filtering Zone resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hosted Zone.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
@@ -204,7 +204,7 @@ class _ZoneState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Hosted Zone.
+        ARN of the Hosted Zone.
         """
         return pulumi.get(self, "arn")
 
@@ -361,7 +361,7 @@ class Zone(pulumi.CustomResource):
                  vpcs: pulumi.Input[Optional[Sequence[pulumi.Input[Union['ZoneVpcArgs', 'ZoneVpcArgsDict']]]]] = None,
                  __props__=None):
         """
-        Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
+        Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 
         ## Example Usage
 
@@ -417,7 +417,6 @@ class Zone(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         private = aws.route53.Zone("private",
-            name="example.com",
             vpcs=[
                 {
                     "vpc_id": primary.id,
@@ -425,7 +424,8 @@ class Zone(pulumi.CustomResource):
                 {
                     "vpc_id": secondary.id,
                 },
-            ])
+            ],
+            name="example.com")
         ```
 
         ## Import
@@ -464,7 +464,7 @@ class Zone(pulumi.CustomResource):
                  args: Optional[ZoneArgs] = None,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
+        Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 
         ## Example Usage
 
@@ -520,7 +520,6 @@ class Zone(pulumi.CustomResource):
             enable_dns_hostnames=True,
             enable_dns_support=True)
         private = aws.route53.Zone("private",
-            name="example.com",
             vpcs=[
                 {
                     "vpc_id": primary.id,
@@ -528,7 +527,8 @@ class Zone(pulumi.CustomResource):
                 {
                     "vpc_id": secondary.id,
                 },
-            ])
+            ],
+            name="example.com")
         ```
 
         ## Import
@@ -624,7 +624,7 @@ class Zone(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Hosted Zone.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hosted Zone.
         :param pulumi.Input[_builtins.str] comment: A comment for the hosted zone. Defaults to 'Managed by Pulumi'.
         :param pulumi.Input[_builtins.str] delegation_set_id: The ID of the reusable delegation set whose NS records you want to assign to the hosted zone. Conflicts with `vpc` as delegation sets can only be used for public zones.
         :param pulumi.Input[_builtins.bool] enable_accelerated_recovery: Boolean to indicate whether to enable accelerated recovery for the hosted zone. Defaults to `false`. Once set, switching to `false` requires explicitly specifying `false` rather than removing the argument.
@@ -660,7 +660,7 @@ class Zone(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Hosted Zone.
+        ARN of the Hosted Zone.
         """
         return pulumi.get(self, "arn")
 

@@ -117,7 +117,7 @@ class _AccessGrantsLocationState:
         """
         Input properties used for looking up and filtering AccessGrantsLocation resources.
 
-        :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
+        :param pulumi.Input[_builtins.str] access_grants_location_arn: ARN of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
@@ -147,7 +147,7 @@ class _AccessGrantsLocationState:
     @pulumi.getter(name="accessGrantsLocationArn")
     def access_grants_location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Grants location.
+        ARN of the S3 Access Grants location.
         """
         return pulumi.get(self, "access_grants_location_arn")
 
@@ -388,7 +388,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_grants_location_arn: Amazon Resource Name (ARN) of the S3 Access Grants location.
+        :param pulumi.Input[_builtins.str] access_grants_location_arn: ARN of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] access_grants_location_id: Unique ID of the S3 Access Grants location.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants location. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] iam_role_arn: ARN of the IAM role that S3 Access Grants should use when fulfilling runtime access requests to the location.
@@ -415,7 +415,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
     @pulumi.getter(name="accessGrantsLocationArn")
     def access_grants_location_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Grants location.
+        ARN of the S3 Access Grants location.
         """
         return pulumi.get(self, "access_grants_location_arn")
 

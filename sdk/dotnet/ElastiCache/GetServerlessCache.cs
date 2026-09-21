@@ -130,7 +130,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class GetServerlessCacheResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the serverless cache.
+        /// ARN of the serverless cache.
         /// </summary>
         public readonly string Arn;
         /// <summary>

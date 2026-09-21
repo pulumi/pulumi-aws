@@ -24,7 +24,7 @@ public final class GetTaskExecutionOverrides {
      */
     private @Nullable String cpu;
     /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
+     * @return ARN of the task execution role override for the task.
      * 
      */
     private @Nullable String executionRoleArn;
@@ -34,7 +34,7 @@ public final class GetTaskExecutionOverrides {
      */
     private @Nullable String memory;
     /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * @return ARN of the role that containers in this task can assume.
      * 
      */
     private @Nullable String taskRoleArn;
@@ -55,7 +55,7 @@ public final class GetTaskExecutionOverrides {
         return Optional.ofNullable(this.cpu);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the task execution role override for the task.
+     * @return ARN of the task execution role override for the task.
      * 
      */
     public Optional<String> executionRoleArn() {
@@ -69,7 +69,7 @@ public final class GetTaskExecutionOverrides {
         return Optional.ofNullable(this.memory);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the role that containers in this task can assume.
+     * @return ARN of the role that containers in this task can assume.
      * 
      */
     public Optional<String> taskRoleArn() {

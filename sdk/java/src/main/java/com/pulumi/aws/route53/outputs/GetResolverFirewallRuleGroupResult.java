@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetResolverFirewallRuleGroupResult {
     /**
-     * @return The ARN (Amazon Resource Name) of the rule group.
+     * @return ARN of the rule group.
      * 
      */
     private String arn;
@@ -71,7 +71,7 @@ public final class GetResolverFirewallRuleGroupResult {
 
     private GetResolverFirewallRuleGroupResult() {}
     /**
-     * @return The ARN (Amazon Resource Name) of the rule group.
+     * @return ARN of the rule group.
      * 
      */
     public String arn() {

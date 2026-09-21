@@ -53,7 +53,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("*"),
@@ -62,6 +61,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("codeartifact:ReadFromRepository"),
 //						},
@@ -91,7 +91,7 @@ import (
 //
 // #### Required
 //
-// - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+// - `resourceArn` (String) ARN of the CodeArtifact repository.
 //
 // Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
 //

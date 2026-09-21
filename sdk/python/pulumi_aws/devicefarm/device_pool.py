@@ -153,7 +153,7 @@ class _DevicePoolState:
         """
         Input properties used for looking up and filtering DevicePool resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Device Pool
+        :param pulumi.Input[_builtins.str] arn: ARN of this Device Pool
         :param pulumi.Input[_builtins.str] description: The device pool's description.
         :param pulumi.Input[_builtins.int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[_builtins.str] name: The name of the Device Pool
@@ -188,7 +188,7 @@ class _DevicePoolState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of this Device Pool
+        ARN of this Device Pool
         """
         return pulumi.get(self, "arn")
 
@@ -326,13 +326,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
-            name="example",
-            project_arn=example_aws_devicefarm_project["arn"],
             rules=[{
                 "attribute": "OS_VERSION",
                 "operator": "EQUALS",
                 "value": "\\"AVAILABLE\\"",
-            }])
+            }],
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"])
         ```
 
         ## Import
@@ -341,7 +341,7 @@ class DevicePool(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+        - `arn` (String) ARN of the Device Farm device pool.
 
         Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 
@@ -376,13 +376,13 @@ class DevicePool(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.devicefarm.DevicePool("example",
-            name="example",
-            project_arn=example_aws_devicefarm_project["arn"],
             rules=[{
                 "attribute": "OS_VERSION",
                 "operator": "EQUALS",
                 "value": "\\"AVAILABLE\\"",
-            }])
+            }],
+            name="example",
+            project_arn=example_aws_devicefarm_project["arn"])
         ```
 
         ## Import
@@ -391,7 +391,7 @@ class DevicePool(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Device Farm device pool.
+        - `arn` (String) ARN of the Device Farm device pool.
 
         Using `pulumi import`, import DeviceFarm Device Pools using their ARN. For example:
 
@@ -472,7 +472,7 @@ class DevicePool(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of this Device Pool
+        :param pulumi.Input[_builtins.str] arn: ARN of this Device Pool
         :param pulumi.Input[_builtins.str] description: The device pool's description.
         :param pulumi.Input[_builtins.int] max_devices: The number of devices that Device Farm can add to your device pool.
         :param pulumi.Input[_builtins.str] name: The name of the Device Pool
@@ -502,7 +502,7 @@ class DevicePool(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of this Device Pool
+        ARN of this Device Pool
         """
         return pulumi.get(self, "arn")
 

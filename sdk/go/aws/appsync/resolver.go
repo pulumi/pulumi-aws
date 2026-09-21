@@ -56,18 +56,25 @@ import (
 //				return err
 //			}
 //			testDataSource, err := appsync.NewDataSource(ctx, "test", &appsync.DataSourceArgs{
-//				ApiId: test.ID().ToIDOutput().ToStringOutput(),
-//				Name:  pulumi.String("my_example"),
-//				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
 //					Endpoint: pulumi.String("http://example.com"),
 //				},
+//				ApiId: test.ID().ToIDOutput().ToStringOutput(),
+//				Name:  pulumi.String("my_example"),
+//				Type:  pulumi.String("HTTP"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// UNIT type resolver (default)
 //			_, err = appsync.NewResolver(ctx, "test", &appsync.ResolverArgs{
+//				CachingConfig: &appsync.ResolverCachingConfigArgs{
+//					CachingKeys: pulumi.StringArray{
+//						pulumi.String("$context.identity.sub"),
+//						pulumi.String("$context.arguments.id"),
+//					},
+//					Ttl: pulumi.Int(60),
+//				},
 //				ApiId:      test.ID().ToIDOutput().ToStringOutput(),
 //				Field:      pulumi.String("singlePost"),
 //				Type:       pulumi.String("Query"),
@@ -93,25 +100,12 @@ import (
 // #end
 // `),
 //
-//				CachingConfig: &appsync.ResolverCachingConfigArgs{
-//					CachingKeys: pulumi.StringArray{
-//						pulumi.String("$context.identity.sub"),
-//						pulumi.String("$context.arguments.id"),
-//					},
-//					Ttl: pulumi.Int(60),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// PIPELINE type resolver
 //			_, err = appsync.NewResolver(ctx, "Mutation_pipelineTest", &appsync.ResolverArgs{
-//				Type:             pulumi.String("Mutation"),
-//				ApiId:            test.ID().ToIDOutput().ToStringOutput(),
-//				Field:            pulumi.String("pipelineTest"),
-//				RequestTemplate:  pulumi.String("{}"),
-//				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),
-//				Kind:             pulumi.String("PIPELINE"),
 //				PipelineConfig: &appsync.ResolverPipelineConfigArgs{
 //					Functions: pulumi.StringArray{
 //						test1.FunctionId,
@@ -119,6 +113,12 @@ import (
 //						test3.FunctionId,
 //					},
 //				},
+//				Type:             pulumi.String("Mutation"),
+//				ApiId:            test.ID().ToIDOutput().ToStringOutput(),
+//				Field:            pulumi.String("pipelineTest"),
+//				RequestTemplate:  pulumi.String("{}"),
+//				ResponseTemplate: pulumi.String("$util.toJson($ctx.result)"),
+//				Kind:             pulumi.String("PIPELINE"),
 //			})
 //			if err != nil {
 //				return err
@@ -151,11 +151,6 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewResolver(ctx, "example", &appsync.ResolverArgs{
-//				Type:  pulumi.String("Query"),
-//				ApiId: pulumi.Any(testAwsAppsyncGraphqlApi.Id),
-//				Field: pulumi.String("pipelineTest"),
-//				Kind:  pulumi.String("PIPELINE"),
-//				Code:  pulumi.String(invokeFile.Result),
 //				Runtime: &appsync.ResolverRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),
@@ -165,6 +160,11 @@ import (
 //						test.FunctionId,
 //					},
 //				},
+//				Type:  pulumi.String("Query"),
+//				ApiId: pulumi.Any(testAwsAppsyncGraphqlApi.Id),
+//				Field: pulumi.String("pipelineTest"),
+//				Kind:  pulumi.String("PIPELINE"),
+//				Code:  pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

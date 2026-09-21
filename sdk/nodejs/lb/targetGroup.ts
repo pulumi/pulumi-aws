@@ -79,13 +79,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
+ *     targetHealthStates: [{
+ *         enableUnhealthyConnectionTermination: false,
+ *     }],
  *     name: "tf-example-lb-nlb-tg",
  *     port: 25,
  *     protocol: "TCP",
  *     vpcId: main.id,
- *     targetHealthStates: [{
- *         enableUnhealthyConnectionTermination: false,
- *     }],
  * });
  * ```
  *
@@ -96,10 +96,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tcp_example = new aws.lb.TargetGroup("tcp-example", {
- *     name: "tf-example-lb-nlb-tg",
- *     port: 80,
- *     protocol: "TCP",
- *     vpcId: main.id,
  *     targetGroupHealth: {
  *         dnsFailover: {
  *             minimumHealthyTargetsCount: "1",
@@ -110,6 +106,10 @@ import * as utilities from "../utilities";
  *             minimumHealthyTargetsPercentage: "off",
  *         },
  *     },
+ *     name: "tf-example-lb-nlb-tg",
+ *     port: 80,
+ *     protocol: "TCP",
+ *     vpcId: main.id,
  * });
  * ```
  *
@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the target group.
+ * - `arn` (String) ARN of the target group.
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
@@ -273,7 +273,7 @@ export class TargetGroup extends pulumi.CustomResource {
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
      *
      * Network Load Balancers do not support the `lambda` target type.
      *
@@ -488,7 +488,7 @@ export interface TargetGroupState {
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
      *
      * Network Load Balancers do not support the `lambda` target type.
      *
@@ -607,7 +607,7 @@ export interface TargetGroupArgs {
      *
      * Note that you can't specify targets for a target group using both instance IDs and IP addresses.
      *
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.
      *
      * Network Load Balancers do not support the `lambda` target type.
      *

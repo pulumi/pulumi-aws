@@ -23,7 +23,7 @@ public final class GetInferenceProfilesInferenceProfileSummary {
      */
     private String description;
     /**
-     * @return Amazon Resource Name (ARN) of the inference profile.
+     * @return ARN of the inference profile.
      * 
      */
     private String inferenceProfileArn;
@@ -74,7 +74,7 @@ public final class GetInferenceProfilesInferenceProfileSummary {
         return this.description;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the inference profile.
+     * @return ARN of the inference profile.
      * 
      */
     public String inferenceProfileArn() {

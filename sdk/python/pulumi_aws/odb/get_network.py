@@ -105,7 +105,7 @@ class GetNetworkResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the odb network resource.
+        ARN of the odb network resource.
         """
         return pulumi.get(self, "arn")
 

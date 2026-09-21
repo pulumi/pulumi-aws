@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.sqs.QueuePolicy;
  * import com.pulumi.aws.sqs.QueuePolicyArgs;
  * import java.util.ArrayList;
@@ -57,19 +57,19 @@ import javax.annotation.Nullable;
  * 
  *         final var test = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("First")
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("sqs:SendMessage")
- *                 .resources(q.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("ArnEquals")
  *                     .variable("aws:SourceArn")
  *                     .values(example.arn())
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .sid("First")
+ *                 .effect("Allow")
+ *                 .actions("sqs:SendMessage")
+ *                 .resources(q.arn())
  *                 .build())
  *             .build());
  * 

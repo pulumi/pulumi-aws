@@ -17,9 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.RegexPatternSet("example", {
- *     name: "example",
- *     description: "Example regex pattern set",
- *     scope: "REGIONAL",
  *     regularExpressions: [
  *         {
  *             regexString: "one",
@@ -28,6 +25,9 @@ import * as utilities from "../utilities";
  *             regexString: "two",
  *         },
  *     ],
+ *     name: "example",
+ *     description: "Example regex pattern set",
+ *     scope: "REGIONAL",
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
@@ -72,7 +72,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
  */
 export interface RegexPatternSetState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

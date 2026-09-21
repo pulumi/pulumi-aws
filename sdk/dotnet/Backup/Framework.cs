@@ -26,13 +26,10 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Framework("Example", new()
     ///     {
-    ///         Name = "exampleFramework",
-    ///         Description = "this is an example framework",
     ///         Controls = new[]
     ///         {
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -41,10 +38,10 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "35",
     ///                     },
     ///                 },
+    ///                 Name = "BACKUP_RECOVERY_POINT_MINIMUM_RETENTION_CHECK",
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -63,6 +60,7 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
+    ///                 Name = "BACKUP_PLAN_MIN_FREQUENCY_AND_MIN_RETENTION_CHECK",
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
@@ -70,7 +68,6 @@ namespace Pulumi.Aws.Backup
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
     ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
     ///                 {
     ///                     ComplianceResourceTypes = new[]
@@ -78,6 +75,7 @@ namespace Pulumi.Aws.Backup
     ///                         "EBS",
     ///                     },
     ///                 },
+    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_PLAN",
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
@@ -85,7 +83,13 @@ namespace Pulumi.Aws.Backup
     ///             },
     ///             new Aws.Backup.Inputs.FrameworkControlArgs
     ///             {
-    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
+    ///                 {
+    ///                     ComplianceResourceTypes = new[]
+    ///                     {
+    ///                         "EBS",
+    ///                     },
+    ///                 },
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -99,6 +103,10 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
+    ///                 Name = "BACKUP_RESOURCES_PROTECTED_BY_BACKUP_VAULT_LOCK",
+    ///             },
+    ///             new Aws.Backup.Inputs.FrameworkControlArgs
+    ///             {
     ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
     ///                 {
     ///                     ComplianceResourceTypes = new[]
@@ -106,10 +114,6 @@ namespace Pulumi.Aws.Backup
     ///                         "EBS",
     ///                     },
     ///                 },
-    ///             },
-    ///             new Aws.Backup.Inputs.FrameworkControlArgs
-    ///             {
-    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
     ///                 InputParameters = new[]
     ///                 {
     ///                     new Aws.Backup.Inputs.FrameworkControlInputParameterArgs
@@ -123,15 +127,11 @@ namespace Pulumi.Aws.Backup
     ///                         Value = "1",
     ///                     },
     ///                 },
-    ///                 Scope = new Aws.Backup.Inputs.FrameworkControlScopeArgs
-    ///                 {
-    ///                     ComplianceResourceTypes = new[]
-    ///                     {
-    ///                         "EBS",
-    ///                     },
-    ///                 },
+    ///                 Name = "BACKUP_LAST_RECOVERY_POINT_CREATED",
     ///             },
     ///         },
+    ///         Name = "exampleFramework",
+    ///         Description = "this is an example framework",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Framework" },

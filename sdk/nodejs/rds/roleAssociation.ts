@@ -61,7 +61,7 @@ export class RoleAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * ARN of the IAM Role to associate with the DB Instance.
      */
     declare public readonly roleArn: pulumi.Output<string>;
 
@@ -120,7 +120,7 @@ export interface RoleAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * ARN of the IAM Role to associate with the DB Instance.
      */
     roleArn?: pulumi.Input<string | undefined>;
 }
@@ -142,7 +142,7 @@ export interface RoleAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to associate with the DB Instance.
+     * ARN of the IAM Role to associate with the DB Instance.
      */
     roleArn: pulumi.Input<string>;
 }

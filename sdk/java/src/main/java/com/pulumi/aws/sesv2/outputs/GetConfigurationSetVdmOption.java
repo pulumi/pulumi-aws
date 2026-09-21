@@ -13,26 +13,26 @@ import java.util.Objects;
 @CustomType
 public final class GetConfigurationSetVdmOption {
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+     * @return Additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
     private List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions;
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
+     * @return Additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     private List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions;
 
     private GetConfigurationSetVdmOption() {}
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+     * @return Additional settings for your VDM configuration as applicable to the Dashboard.
      * 
      */
     public List<GetConfigurationSetVdmOptionDashboardOption> dashboardOptions() {
         return this.dashboardOptions;
     }
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian.
+     * @return Additional settings for your VDM configuration as applicable to the Guardian.
      * 
      */
     public List<GetConfigurationSetVdmOptionGuardianOption> guardianOptions() {

@@ -77,7 +77,7 @@ export interface GetVocabularyArgs {
  */
 export interface GetVocabularyResult {
     /**
-     * The Amazon Resource Name (ARN) of the Vocabulary.
+     * ARN of the Vocabulary.
      */
     readonly arn: string;
     /**

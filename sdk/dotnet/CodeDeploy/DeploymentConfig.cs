@@ -26,20 +26,32 @@ namespace Pulumi.Aws.CodeDeploy
     /// {
     ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
-    ///         DeploymentConfigName = "test-deployment-config",
     ///         MinimumHealthyHosts = new Aws.CodeDeploy.Inputs.DeploymentConfigMinimumHealthyHostsArgs
     ///         {
     ///             Type = "HOST_COUNT",
     ///             Value = 2,
     ///         },
+    ///         DeploymentConfigName = "test-deployment-config",
     ///     });
     /// 
     ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = fooApp.Name,
-    ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = fooRole.Arn,
-    ///         DeploymentConfigName = foo.Id,
+    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
+    ///         {
+    ///             Enabled = true,
+    ///             Events = new[]
+    ///             {
+    ///                 "DEPLOYMENT_FAILURE",
+    ///             },
+    ///         },
+    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
+    ///         {
+    ///             Alarms = new[]
+    ///             {
+    ///                 "my-alarm-name",
+    ///             },
+    ///             Enabled = true,
+    ///         },
     ///         Ec2TagFilters = new[]
     ///         {
     ///             new Aws.CodeDeploy.Inputs.DeploymentGroupEc2TagFilterArgs
@@ -61,22 +73,10 @@ namespace Pulumi.Aws.CodeDeploy
     ///                 TriggerTargetArn = "foo-topic-arn",
     ///             },
     ///         },
-    ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
-    ///         {
-    ///             Enabled = true,
-    ///             Events = new[]
-    ///             {
-    ///                 "DEPLOYMENT_FAILURE",
-    ///             },
-    ///         },
-    ///         AlarmConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAlarmConfigurationArgs
-    ///         {
-    ///             Alarms = new[]
-    ///             {
-    ///                 "my-alarm-name",
-    ///             },
-    ///             Enabled = true,
-    ///         },
+    ///         AppName = fooApp.Name,
+    ///         DeploymentGroupName = "bar",
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///     });
     /// 
     /// });
@@ -94,25 +94,21 @@ namespace Pulumi.Aws.CodeDeploy
     /// {
     ///     var foo = new Aws.CodeDeploy.DeploymentConfig("foo", new()
     ///     {
-    ///         DeploymentConfigName = "test-deployment-config",
-    ///         ComputePlatform = "Lambda",
     ///         TrafficRoutingConfig = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigArgs
     ///         {
-    ///             Type = "TimeBasedLinear",
     ///             TimeBasedLinear = new Aws.CodeDeploy.Inputs.DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs
     ///             {
     ///                 Interval = 10,
     ///                 Percentage = 10,
     ///             },
+    ///             Type = "TimeBasedLinear",
     ///         },
+    ///         DeploymentConfigName = "test-deployment-config",
+    ///         ComputePlatform = "Lambda",
     ///     });
     /// 
     ///     var fooDeploymentGroup = new Aws.CodeDeploy.DeploymentGroup("foo", new()
     ///     {
-    ///         AppName = fooApp.Name,
-    ///         DeploymentGroupName = "bar",
-    ///         ServiceRoleArn = fooRole.Arn,
-    ///         DeploymentConfigName = foo.Id,
     ///         AutoRollbackConfiguration = new Aws.CodeDeploy.Inputs.DeploymentGroupAutoRollbackConfigurationArgs
     ///         {
     ///             Enabled = true,
@@ -129,6 +125,10 @@ namespace Pulumi.Aws.CodeDeploy
     ///             },
     ///             Enabled = true,
     ///         },
+    ///         AppName = fooApp.Name,
+    ///         DeploymentGroupName = "bar",
+    ///         ServiceRoleArn = fooRole.Arn,
+    ///         DeploymentConfigName = foo.Id,
     ///     });
     /// 
     /// });

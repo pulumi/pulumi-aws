@@ -46,8 +46,8 @@ class CapacityReservationArgs:
         :param pulumi.Input[_builtins.str] end_date_type: Indicates the way in which the Capacity Reservation ends. Specify either `unlimited` or `limited`.
         :param pulumi.Input[_builtins.bool] ephemeral_storage: Indicates whether the Capacity Reservation supports instances with temporary, block-level storage.
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] placement_group_arn: ARN of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -189,7 +189,7 @@ class CapacityReservationArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        ARN of the Outpost on which to create the Capacity Reservation.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -201,7 +201,7 @@ class CapacityReservationArgs:
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        ARN of the cluster placement group in which to create the Capacity Reservation.
         """
         return pulumi.get(self, "placement_group_arn")
 
@@ -279,9 +279,9 @@ class _CapacityReservationState:
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[Union[_builtins.str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] placement_group_arn: ARN of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
@@ -446,7 +446,7 @@ class _CapacityReservationState:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        ARN of the Outpost on which to create the Capacity Reservation.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -470,7 +470,7 @@ class _CapacityReservationState:
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        ARN of the cluster placement group in which to create the Capacity Reservation.
         """
         return pulumi.get(self, "placement_group_arn")
 
@@ -584,8 +584,8 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[Union[_builtins.str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] placement_group_arn: ARN of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union[_builtins.str, 'Tenancy']] tenancy: Indicates the tenancy of the Capacity Reservation. Specify either `default` or `dedicated`.
@@ -728,9 +728,9 @@ class CapacityReservation(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] instance_match_criteria: Indicates the type of instance launches that the Capacity Reservation accepts. Specify either `open` or `targeted`.
         :param pulumi.Input[Union[_builtins.str, 'InstancePlatform']] instance_platform: The type of operating system for which to reserve capacity. Valid options are `Linux/UNIX`, `Red Hat Enterprise Linux`, `SUSE Linux`, `Windows`, `Windows with SQL Server`, `Windows with SQL Server Enterprise`, `Windows with SQL Server Standard` or `Windows with SQL Server Web`.
         :param pulumi.Input[Union[_builtins.str, 'InstanceType']] instance_type: The instance type for which to reserve capacity.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] owner_id: The ID of the AWS account that owns the Capacity Reservation.
-        :param pulumi.Input[_builtins.str] placement_group_arn: The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        :param pulumi.Input[_builtins.str] placement_group_arn: ARN of the cluster placement group in which to create the Capacity Reservation.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block
@@ -843,7 +843,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+        ARN of the Outpost on which to create the Capacity Reservation.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -859,7 +859,7 @@ class CapacityReservation(pulumi.CustomResource):
     @pulumi.getter(name="placementGroupArn")
     def placement_group_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+        ARN of the cluster placement group in which to create the Capacity Reservation.
         """
         return pulumi.get(self, "placement_group_arn")
 

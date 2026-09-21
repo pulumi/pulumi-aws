@@ -50,7 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .name("example-trust-store")
  *             .caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs.builder()
  *                 .caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs.builder()
  *                     .bucket("example-bucket")
@@ -58,6 +57,7 @@ import javax.annotation.Nullable;
  *                     .region("us-east-1")
  *                     .build())
  *                 .build())
+ *             .name("example-trust-store")
  *             .build());
  * 
  *     }
@@ -92,7 +92,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TrustStore("example", TrustStoreArgs.builder()
- *             .name("example-trust-store")
  *             .caCertificatesBundleSource(TrustStoreCaCertificatesBundleSourceArgs.builder()
  *                 .caCertificatesBundleS3Location(TrustStoreCaCertificatesBundleSourceCaCertificatesBundleS3LocationArgs.builder()
  *                     .bucket("example-bucket")
@@ -101,6 +100,7 @@ import javax.annotation.Nullable;
  *                     .version("abc123")
  *                     .build())
  *                 .build())
+ *             .name("example-trust-store")
  *             .build());
  * 
  *     }

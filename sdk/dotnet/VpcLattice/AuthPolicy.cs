@@ -85,7 +85,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Output("resourceIdentifier")]
         public Output<string> ResourceIdentifier { get; private set; } = null!;
@@ -155,7 +155,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier", required: true)]
         public Input<string> ResourceIdentifier { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        /// ID or ARN of the service network or service for which the policy is created.
         /// </summary>
         [Input("resourceIdentifier")]
         public Input<string>? ResourceIdentifier { get; set; }

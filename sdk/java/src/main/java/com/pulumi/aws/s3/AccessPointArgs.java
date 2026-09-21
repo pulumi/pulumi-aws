@@ -144,14 +144,14 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     @Import(name="vpcConfiguration")
     private @Nullable Output<AccessPointVpcConfigurationArgs> vpcConfiguration;
 
     /**
-     * @return Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * @return Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     public Optional<Output<AccessPointVpcConfigurationArgs>> vpcConfiguration() {
@@ -363,7 +363,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+         * @param vpcConfiguration Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class AccessPointArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcConfiguration Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+         * @param vpcConfiguration Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
          * 
          * @return builder
          * 

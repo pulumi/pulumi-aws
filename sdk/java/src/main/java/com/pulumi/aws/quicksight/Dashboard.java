@@ -54,18 +54,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Dashboard("example", DashboardArgs.builder()
- *             .dashboardId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
  *             .sourceEntity(DashboardSourceEntityArgs.builder()
  *                 .sourceTemplate(DashboardSourceEntitySourceTemplateArgs.builder()
- *                     .arn(source.arn())
  *                     .dataSetReferences(DashboardSourceEntitySourceTemplateDataSetReferenceArgs.builder()
  *                         .dataSetArn(dataset.arn())
  *                         .dataSetPlaceholder("1")
  *                         .build())
+ *                     .arn(source.arn())
  *                     .build())
  *                 .build())
+ *             .dashboardId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .build());
  * 
  *     }
@@ -98,40 +98,40 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Dashboard("example", DashboardArgs.builder()
- *             .dashboardId("example-id")
- *             .name("example-name")
- *             .versionDescription("version")
  *             .definition(Map.ofEntries(
  *                 Map.entry("dataSetIdentifiersDeclarations", Arrays.asList(Map.ofEntries(
  *                     Map.entry("dataSetArn", dataset.arn()),
  *                     Map.entry("identifier", "1")
  *                 ))),
  *                 Map.entry("sheets", Arrays.asList(Map.ofEntries(
- *                     Map.entry("title", "Example"),
- *                     Map.entry("sheetId", "Example1"),
  *                     Map.entry("visuals", Arrays.asList(Map.of("lineChartVisual", Map.ofEntries(
- *                         Map.entry("visualId", "LineChart"),
  *                         Map.entry("title", Map.of("formatText", Map.of("plainText", "Line Chart Example"))),
  *                         Map.entry("chartConfiguration", Map.of("fieldWells", Map.of("lineChartAggregatedFieldWells", Map.ofEntries(
  *                             Map.entry("categories", Arrays.asList(Map.of("categoricalDimensionField", Map.ofEntries(
- *                                 Map.entry("fieldId", "1"),
- *                                 Map.entry("column", Map.ofEntries(
- *                                     Map.entry("dataSetIdentifier", "1"),
- *                                     Map.entry("columnName", "Column1")
- *                                 ))
- *                             )))),
- *                             Map.entry("values", Arrays.asList(Map.of("categoricalMeasureField", Map.ofEntries(
- *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("column", Map.ofEntries(
  *                                     Map.entry("dataSetIdentifier", "1"),
  *                                     Map.entry("columnName", "Column1")
  *                                 )),
+ *                                 Map.entry("fieldId", "1")
+ *                             )))),
+ *                             Map.entry("values", Arrays.asList(Map.of("categoricalMeasureField", Map.ofEntries(
+ *                                 Map.entry("column", Map.ofEntries(
+ *                                     Map.entry("dataSetIdentifier", "1"),
+ *                                     Map.entry("columnName", "Column1")
+ *                                 )),
+ *                                 Map.entry("fieldId", "2"),
  *                                 Map.entry("aggregationFunction", "COUNT")
  *                             ))))
- *                         ))))
- *                     ))))
+ *                         )))),
+ *                         Map.entry("visualId", "LineChart")
+ *                     )))),
+ *                     Map.entry("title", "Example"),
+ *                     Map.entry("sheetId", "Example1")
  *                 )))
  *             ))
+ *             .dashboardId("example-id")
+ *             .name("example-name")
+ *             .versionDescription("version")
  *             .build());
  * 
  *     }
@@ -311,14 +311,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.sourceEntity);
     }
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      * 
      */
     @Export(name="sourceEntityArn", refs={String.class}, tree="[0]")
     private Output<String> sourceEntityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * @return ARN of a template that was used to create this dashboard.
      * 
      */
     public Output<String> sourceEntityArn() {
@@ -367,14 +367,14 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     @Export(name="themeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> themeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * @return ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     public Output<Optional<String>> themeArn() {

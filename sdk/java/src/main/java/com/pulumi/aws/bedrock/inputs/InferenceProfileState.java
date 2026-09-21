@@ -21,14 +21,14 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
     public static final InferenceProfileState Empty = new InferenceProfileState();
 
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the inference profile.
+     * @return The ARN of the inference profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -240,7 +240,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the inference profile.
+         * @param arn The ARN of the inference profile.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class InferenceProfileState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the inference profile.
+         * @param arn The ARN of the inference profile.
          * 
          * @return builder
          * 

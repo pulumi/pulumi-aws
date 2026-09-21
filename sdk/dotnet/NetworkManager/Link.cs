@@ -24,13 +24,13 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var example = new Aws.NetworkManager.Link("example", new()
     ///     {
-    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
-    ///         SiteId = exampleAwsNetworkmanagerSite.Id,
     ///         Bandwidth = new Aws.NetworkManager.Inputs.LinkBandwidthArgs
     ///         {
     ///             UploadSpeed = 10,
     ///             DownloadSpeed = 50,
     ///         },
+    ///         GlobalNetworkId = exampleAwsNetworkmanagerGlobalNetwork.Id,
+    ///         SiteId = exampleAwsNetworkmanagerSite.Id,
     ///         ProviderName = "MegaCorp",
     ///     });
     /// 

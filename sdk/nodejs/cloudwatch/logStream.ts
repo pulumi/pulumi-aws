@@ -69,7 +69,7 @@ export class LogStream extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the log stream.
+     * ARN specifying the log stream.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -122,7 +122,7 @@ export class LogStream extends pulumi.CustomResource {
  */
 export interface LogStreamState {
     /**
-     * The Amazon Resource Name (ARN) specifying the log stream.
+     * ARN specifying the log stream.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -399,10 +399,7 @@ class Membership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_membership = aws.cleanrooms.Membership("test_membership",
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
             default_result_configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
                 "output_configuration": {
                     "s3": {
                         "bucket": "test-bucket",
@@ -410,7 +407,10 @@ class Membership(pulumi.CustomResource):
                         "key_prefix": "test-prefix",
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/role-name",
             },
+            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            query_log_status="DISABLED",
             tags={
                 "Project": "Terraform",
             })
@@ -462,10 +462,7 @@ class Membership(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_membership = aws.cleanrooms.Membership("test_membership",
-            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
-            query_log_status="DISABLED",
             default_result_configuration={
-                "role_arn": "arn:aws:iam::123456789012:role/role-name",
                 "output_configuration": {
                     "s3": {
                         "bucket": "test-bucket",
@@ -473,7 +470,10 @@ class Membership(pulumi.CustomResource):
                         "key_prefix": "test-prefix",
                     },
                 },
+                "role_arn": "arn:aws:iam::123456789012:role/role-name",
             },
+            collaboration_id="1234abcd-12ab-34cd-56ef-1234567890ab",
+            query_log_status="DISABLED",
             tags={
                 "Project": "Terraform",
             })

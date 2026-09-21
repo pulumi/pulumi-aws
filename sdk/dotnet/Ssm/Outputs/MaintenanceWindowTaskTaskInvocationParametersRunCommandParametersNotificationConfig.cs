@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ssm.Outputs
     public sealed class MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig
     {
         /// <summary>
-        /// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+        /// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
         /// </summary>
         public readonly string? NotificationArn;
         /// <summary>

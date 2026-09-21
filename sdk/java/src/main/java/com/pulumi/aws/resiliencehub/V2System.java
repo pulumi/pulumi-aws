@@ -98,7 +98,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 System.
+ * - `arn` (String) ARN of the Resilience Hub V2 System.
  * 
  * Using `pulumi import`, import Resilience Hub V2 System using the `arn`. For example:
  * 

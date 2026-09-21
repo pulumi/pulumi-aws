@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Odb
     public partial class Network : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
+        /// ARN of the odb network resource.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -459,7 +459,7 @@ namespace Pulumi.Aws.Odb
     public sealed class NetworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the odb network resource.
+        /// ARN of the odb network resource.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

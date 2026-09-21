@@ -122,13 +122,13 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     ///     var exampleDelegationSignerRecord = new Aws.Route53Domains.DelegationSignerRecord("example", new()
     ///     {
-    ///         DomainName = "example.com",
     ///         SigningAttributes = new Aws.Route53Domains.Inputs.DelegationSignerRecordSigningAttributesArgs
     ///         {
     ///             Algorithm = exampleKeySigningKey.SigningAlgorithmType,
     ///             Flags = exampleKeySigningKey.Flag,
     ///             PublicKey = exampleKeySigningKey.PublicKey,
     ///         },
+    ///         DomainName = "example.com",
     ///     });
     /// 
     /// });

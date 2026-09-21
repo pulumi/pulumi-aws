@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Efs
     public sealed class GetAccessPointsResult
     {
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs).
+        /// Set of ARNs.
         /// </summary>
         public readonly ImmutableArray<string> Arns;
         public readonly string FileSystemId;

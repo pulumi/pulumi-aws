@@ -19,7 +19,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
+ * Manages a Route53 Hosted Zone. For managing DNS Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
  * 
  * ## Example Usage
  * 
@@ -152,7 +152,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var private_ = new Zone("private", ZoneArgs.builder()
- *             .name("example.com")
  *             .vpcs(            
  *                 ZoneVpcArgs.builder()
  *                     .vpcId(primary.id())
@@ -160,6 +159,7 @@ import javax.annotation.Nullable;
  *                 ZoneVpcArgs.builder()
  *                     .vpcId(secondary.id())
  *                     .build())
+ *             .name("example.com")
  *             .build());
  * 
  *     }
@@ -189,14 +189,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:route53/zone:Zone")
 public class Zone extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Hosted Zone.
+     * ARN of the Hosted Zone.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Hosted Zone.
+     * @return ARN of the Hosted Zone.
      * 
      */
     public Output<String> arn() {

@@ -35,7 +35,6 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     ///     var exampleLfTagExpression = new Aws.LakeFormation.LfTagExpression("example", new()
     ///     {
-    ///         Name = "example",
     ///         Expressions = new[]
     ///         {
     ///             new Aws.LakeFormation.Inputs.LfTagExpressionExpressionArgs
@@ -44,6 +43,7 @@ namespace Pulumi.Aws.LakeFormation
     ///                 TagValues = example.Values,
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

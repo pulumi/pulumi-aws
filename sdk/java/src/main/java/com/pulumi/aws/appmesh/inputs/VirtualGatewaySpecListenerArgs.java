@@ -65,14 +65,14 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     @Import(name="tls")
     private @Nullable Output<VirtualGatewaySpecListenerTlsArgs> tls;
 
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<Output<VirtualGatewaySpecListenerTlsArgs>> tls() {
@@ -170,7 +170,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 
@@ -181,7 +181,7 @@ public final class VirtualGatewaySpecListenerArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param tls Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * @param tls TLS properties for the listener. See `spec.listener.tls` Block for details.
          * 
          * @return builder
          * 

@@ -65,7 +65,6 @@ import (
 // return err
 // }
 // _, err = amp.NewScraperLoggingConfiguration(ctx, "example", &amp.ScraperLoggingConfigurationArgs{
-// ScraperId: example.ID().ToIDOutput().ToStringOutput(),
 // LoggingDestination: &amp.ScraperLoggingConfigurationLoggingDestinationArgs{
 // CloudwatchLogs: &amp.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{
 // LogGroupArn: exampleLogGroup.Arn.ApplyT(func(arn string) (string, error) {
@@ -73,6 +72,7 @@ import (
 // }).(pulumi.StringOutput),
 // },
 // },
+// ScraperId: example.ID().ToIDOutput().ToStringOutput(),
 // })
 // if err != nil {
 // return err
@@ -97,15 +97,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := amp.NewScraperLoggingConfiguration(ctx, "example", &amp.ScraperLoggingConfigurationArgs{
-//				ScraperId: pulumi.Any(exampleAwsPrometheusScraper.Id),
-//				ScraperComponents: pulumi.StringArray{
-//					pulumi.String("COLLECTOR"),
-//					pulumi.String("EXPORTER"),
-//				},
 //				LoggingDestination: &amp.ScraperLoggingConfigurationLoggingDestinationArgs{
 //					CloudwatchLogs: &amp.ScraperLoggingConfigurationLoggingDestinationCloudwatchLogsArgs{
 //						LogGroupArn: pulumi.Sprintf("%v:*", exampleAwsCloudwatchLogGroup.Arn),
 //					},
+//				},
+//				ScraperId: pulumi.Any(exampleAwsPrometheusScraper.Id),
+//				ScraperComponents: pulumi.StringArray{
+//					pulumi.String("COLLECTOR"),
+//					pulumi.String("EXPORTER"),
 //				},
 //			})
 //			if err != nil {

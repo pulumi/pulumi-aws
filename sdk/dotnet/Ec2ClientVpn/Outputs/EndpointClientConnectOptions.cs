@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Ec2ClientVpn.Outputs
         /// </summary>
         public readonly bool? Enabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+        /// ARN of the Lambda function used for connection authorization.
         /// </summary>
         public readonly string? LambdaFunctionArn;
 

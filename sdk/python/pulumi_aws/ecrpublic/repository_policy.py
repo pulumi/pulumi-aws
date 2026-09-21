@@ -169,12 +169,12 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         example_repository = aws.ecrpublic.Repository("example", repository_name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "sid": "new policy",
+            "effect": "Allow",
             "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
@@ -233,12 +233,12 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         example_repository = aws.ecrpublic.Repository("example", repository_name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "sid": "new policy",
+            "effect": "Allow",
             "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",

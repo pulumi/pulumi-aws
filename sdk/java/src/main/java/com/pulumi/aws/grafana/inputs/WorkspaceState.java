@@ -35,14 +35,14 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
+     * ARN of the Grafana workspace.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Grafana workspace.
+     * @return ARN of the Grafana workspace.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -412,7 +412,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Grafana workspace.
+         * @param arn ARN of the Grafana workspace.
          * 
          * @return builder
          * 
@@ -423,7 +423,7 @@ public final class WorkspaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Grafana workspace.
+         * @param arn ARN of the Grafana workspace.
          * 
          * @return builder
          * 

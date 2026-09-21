@@ -115,14 +115,14 @@ public class ThreatIntelSet extends com.pulumi.resources.CustomResource {
         return this.activate;
     }
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * ARN of the GuardDuty ThreatIntelSet.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty ThreatIntelSet.
+     * @return ARN of the GuardDuty ThreatIntelSet.
      * 
      */
     public Output<String> arn() {

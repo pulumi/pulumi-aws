@@ -2907,7 +2907,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters struct {
 	OutputS3KeyPrefix *string `pulumi:"outputS3KeyPrefix"`
 	// The parameters for the RUN_COMMAND task execution. Documented below.
 	Parameters []MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+	// ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 	ServiceRoleArn *string `pulumi:"serviceRoleArn"`
 	// If this time is reached and the command has not already started executing, it doesn't run.
 	TimeoutSeconds *int `pulumi:"timeoutSeconds"`
@@ -2943,7 +2943,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersArgs struc
 	OutputS3KeyPrefix pulumi.StringPtrInput `pulumi:"outputS3KeyPrefix"`
 	// The parameters for the RUN_COMMAND task execution. Documented below.
 	Parameters MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayInput `pulumi:"parameters"`
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+	// ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 	ServiceRoleArn pulumi.StringPtrInput `pulumi:"serviceRoleArn"`
 	// If this time is reached and the command has not already started executing, it doesn't run.
 	TimeoutSeconds pulumi.IntPtrInput `pulumi:"timeoutSeconds"`
@@ -3087,7 +3087,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput)
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+// ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		return v.ServiceRoleArn
@@ -3215,7 +3215,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutp
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameterArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+// ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersPtrOutput) ServiceRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParameters) *string {
 		if v == nil {
@@ -3396,7 +3396,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersCloudwa
 }
 
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig struct {
-	// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+	// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
 	NotificationArn *string `pulumi:"notificationArn"`
 	// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
 	NotificationEvents []string `pulumi:"notificationEvents"`
@@ -3416,7 +3416,7 @@ type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificati
 }
 
 type MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigArgs struct {
-	// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+	// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
 	NotificationArn pulumi.StringPtrInput `pulumi:"notificationArn"`
 	// The different events for which you can receive notifications. Valid values: `All`, `InProgress`, `Success`, `TimedOut`, `Cancelled`, and `Failed`
 	NotificationEvents pulumi.StringArrayInput `pulumi:"notificationEvents"`
@@ -3501,7 +3501,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput)
 }
 
-// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput) NotificationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) *string {
 		return v.NotificationArn
@@ -3546,7 +3546,7 @@ func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotific
 	}).(MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigOutput)
 }
 
-// An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+// ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
 func (o MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfigPtrOutput) NotificationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig) *string {
 		if v == nil {

@@ -16,6 +16,8 @@ from .. import _utilities
 from . import outputs
 
 __all__ = [
+    'ArchiveRetention',
+    'ArchiveRetentionActual',
     'IngressPointIngressPointConfiguration',
     'IngressPointIngressPointConfigurationTlsAuthConfiguration',
     'IngressPointIngressPointConfigurationTlsAuthConfigurationTrustStore',
@@ -89,6 +91,76 @@ __all__ = [
 ]
 
 @pulumi.output_type
+class ArchiveRetention(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArchiveRetention. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArchiveRetention.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArchiveRetention.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_period: _builtins.str):
+        """
+        :param _builtins.str retention_period: Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> _builtins.str:
+        """
+        Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        return pulumi.get(self, "retention_period")
+
+
+@pulumi.output_type
+class ArchiveRetentionActual(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "retentionPeriod":
+            suggest = "retention_period"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ArchiveRetentionActual. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ArchiveRetentionActual.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ArchiveRetentionActual.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 retention_period: _builtins.str):
+        """
+        :param _builtins.str retention_period: Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        pulumi.set(__self__, "retention_period", retention_period)
+
+    @_builtins.property
+    @pulumi.getter(name="retentionPeriod")
+    def retention_period(self) -> _builtins.str:
+        """
+        Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+        """
+        return pulumi.get(self, "retention_period")
+
+
+@pulumi.output_type
 class IngressPointIngressPointConfiguration(dict):
     @staticmethod
     def __key_warning(key: str):
@@ -121,8 +193,8 @@ class IngressPointIngressPointConfiguration(dict):
         """
         :param _builtins.str secret_arn: ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
         :param _builtins.str smtp_password_wo: **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-               SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
-        :param _builtins.int smtp_password_wo_version: Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+               SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtp_password_wo_version` to be set.
+        :param _builtins.int smtp_password_wo_version: Required when `smtp_password_wo` is set. Changing this value triggers an update to `smtp_password_wo`.
         :param 'IngressPointIngressPointConfigurationTlsAuthConfigurationArgs' tls_auth_configuration: Configuration used to authenticate with `MTLS` ingress points. See `tls_auth_configuration` Block for details.
         """
         if secret_arn is not None:
@@ -147,7 +219,7 @@ class IngressPointIngressPointConfiguration(dict):
     def smtp_password_wo(self) -> Optional[_builtins.str]:
         """
         **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtp_password_wo_version` to be set. See Write-Only Arguments for more information.
+        SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtp_password_wo_version` to be set.
         """
         return pulumi.get(self, "smtp_password_wo")
 
@@ -155,7 +227,7 @@ class IngressPointIngressPointConfiguration(dict):
     @pulumi.getter(name="smtpPasswordWoVersion")
     def smtp_password_wo_version(self) -> Optional[_builtins.int]:
         """
-        Version number for `smtp_password_wo`. Increment this value to trigger a password update. Required when using `smtp_password_wo`.
+        Required when `smtp_password_wo` is set. Changing this value triggers an update to `smtp_password_wo`.
         """
         return pulumi.get(self, "smtp_password_wo_version")
 

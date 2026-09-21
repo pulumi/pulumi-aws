@@ -7,7 +7,7 @@ Subject: [PATCH] Patch ACM retry to not retry after LimitExceededException
 
 diff --git a/internal/service/acm/service_package_extra.go b/internal/service/acm/service_package_extra.go
 new file mode 100644
-index 00000000000..b432bed386e
+index 000000000000..b432bed386eb
 --- /dev/null
 +++ b/internal/service/acm/service_package_extra.go
 @@ -0,0 +1,21 @@
@@ -33,7 +33,7 @@ index 00000000000..b432bed386e
 +	}
 +}
 diff --git a/internal/service/acm/service_package_gen.go b/internal/service/acm/service_package_gen.go
-index e0b364be519..45c0921708b 100644
+index e0b364be519d..45c0921708b8 100644
 --- a/internal/service/acm/service_package_gen.go
 +++ b/internal/service/acm/service_package_gen.go
 @@ -116,6 +116,7 @@ func (p *servicePackage) NewClient(ctx context.Context, config map[string]any) (

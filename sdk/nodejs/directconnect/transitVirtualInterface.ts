@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directconnect/transitVirtualInterface:TransitVirtualInterface test dxvif-33cc44dd
  * ```
+ *
+ * > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
  */
 export class TransitVirtualInterface extends pulumi.CustomResource {
     /**
@@ -82,9 +84,13 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    declare public readonly bgpAsn: pulumi.Output<number>;
+    declare public readonly bgpAsn: pulumi.Output<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    declare public readonly bgpAsnLong: pulumi.Output<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -114,6 +120,18 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
      * The name for the virtual interface.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv4: pulumi.Output<number>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    declare public readonly prefixPoolAllocatedCountIpv6: pulumi.Output<number>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    declare public readonly rateLimit: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -154,6 +172,7 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["arn"] = state?.arn;
             resourceInputs["awsDevice"] = state?.awsDevice;
             resourceInputs["bgpAsn"] = state?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = state?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = state?.bgpAuthKey;
             resourceInputs["connectionId"] = state?.connectionId;
             resourceInputs["customerAddress"] = state?.customerAddress;
@@ -161,6 +180,9 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["jumboFrameCapable"] = state?.jumboFrameCapable;
             resourceInputs["mtu"] = state?.mtu;
             resourceInputs["name"] = state?.name;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = state?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = state?.prefixPoolAllocatedCountIpv6;
+            resourceInputs["rateLimit"] = state?.rateLimit;
             resourceInputs["region"] = state?.region;
             resourceInputs["sitelinkEnabled"] = state?.sitelinkEnabled;
             resourceInputs["tags"] = state?.tags;
@@ -170,9 +192,6 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             const args = argsOrState as TransitVirtualInterfaceArgs | undefined;
             if (args?.addressFamily === undefined && !opts.urn) {
                 throw new Error("Missing required property 'addressFamily'");
-            }
-            if (args?.bgpAsn === undefined && !opts.urn) {
-                throw new Error("Missing required property 'bgpAsn'");
             }
             if (args?.connectionId === undefined && !opts.urn) {
                 throw new Error("Missing required property 'connectionId'");
@@ -186,12 +205,16 @@ export class TransitVirtualInterface extends pulumi.CustomResource {
             resourceInputs["addressFamily"] = args?.addressFamily;
             resourceInputs["amazonAddress"] = args?.amazonAddress;
             resourceInputs["bgpAsn"] = args?.bgpAsn;
+            resourceInputs["bgpAsnLong"] = args?.bgpAsnLong;
             resourceInputs["bgpAuthKey"] = args?.bgpAuthKey;
             resourceInputs["connectionId"] = args?.connectionId;
             resourceInputs["customerAddress"] = args?.customerAddress;
             resourceInputs["dxGatewayId"] = args?.dxGatewayId;
             resourceInputs["mtu"] = args?.mtu;
             resourceInputs["name"] = args?.name;
+            resourceInputs["prefixPoolAllocatedCountIpv4"] = args?.prefixPoolAllocatedCountIpv4;
+            resourceInputs["prefixPoolAllocatedCountIpv6"] = args?.prefixPoolAllocatedCountIpv6;
+            resourceInputs["rateLimit"] = args?.rateLimit;
             resourceInputs["region"] = args?.region;
             resourceInputs["sitelinkEnabled"] = args?.sitelinkEnabled;
             resourceInputs["tags"] = args?.tags;
@@ -229,9 +252,13 @@ export interface TransitVirtualInterfaceState {
      */
     awsDevice?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -261,6 +288,18 @@ export interface TransitVirtualInterfaceState {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -296,9 +335,13 @@ export interface TransitVirtualInterfaceArgs {
      */
     amazonAddress?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
-    bgpAsn: pulumi.Input<number>;
+    bgpAsn?: pulumi.Input<number | undefined>;
+    /**
+     * BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `bgpAsn` range. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
+     */
+    bgpAsnLong?: pulumi.Input<string | undefined>;
     /**
      * The authentication key for BGP configuration.
      */
@@ -324,6 +367,18 @@ export interface TransitVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv4?: pulumi.Input<number | undefined>;
+    /**
+     * The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+     */
+    prefixPoolAllocatedCountIpv6?: pulumi.Input<number | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

@@ -46,14 +46,14 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * ARN of the rule group or firewall policy.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the rule group or firewall policy.
+     * @return ARN of the rule group or firewall policy.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -129,7 +129,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the rule group or firewall policy.
+         * @param resourceArn ARN of the rule group or firewall policy.
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ResourcePolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) of the rule group or firewall policy.
+         * @param resourceArn ARN of the rule group or firewall policy.
          * 
          * @return builder
          * 

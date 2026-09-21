@@ -120,9 +120,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
+ * - `arn` (String) ARN of the DataSync agent.
  * 
- * Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
@@ -146,14 +146,14 @@ public class Agent extends com.pulumi.resources.CustomResource {
         return this.activationKey;
     }
     /**
-     * Amazon Resource Name (ARN) of the DataSync Agent.
+     * ARN of the DataSync Agent.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Agent.
+     * @return ARN of the DataSync Agent.
      * 
      */
     public Output<String> arn() {
@@ -230,14 +230,14 @@ public class Agent extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.securityGroupArns);
     }
     /**
-     * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
     @Export(name="subnetArns", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> subnetArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * @return ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      * 
      */
     public Output<Optional<List<String>>> subnetArns() {
@@ -272,14 +272,14 @@ public class Agent extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * ID of the VPC endpoint that the agent has access to.
      * 
      */
     @Export(name="vpcEndpointId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> vpcEndpointId;
 
     /**
-     * @return The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * @return ID of the VPC endpoint that the agent has access to.
      * 
      */
     public Output<Optional<String>> vpcEndpointId() {

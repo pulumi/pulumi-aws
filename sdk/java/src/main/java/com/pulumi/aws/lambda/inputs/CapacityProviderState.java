@@ -68,14 +68,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * ARN of the KMS key used to encrypt the Capacity Provider.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * @return ARN of the KMS key used to encrypt the Capacity Provider.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -83,14 +83,14 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The name of the Capacity Provider.
+     * Name of the Capacity Provider.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the Capacity Provider.
+     * @return Name of the Capacity Provider.
      * 
      */
     public Optional<Output<String>> name() {
@@ -100,16 +100,12 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     /**
      * Configuration block for permissions settings. See Permissions Config below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="permissionsConfig")
     private @Nullable Output<CapacityProviderPermissionsConfigArgs> permissionsConfig;
 
     /**
      * @return Configuration block for permissions settings. See Permissions Config below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<CapacityProviderPermissionsConfigArgs>> permissionsConfig() {
@@ -171,12 +167,16 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
     /**
      * Configuration block for VPC settings. See VPC Config below.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="vpcConfig")
     private @Nullable Output<CapacityProviderVpcConfigArgs> vpcConfig;
 
     /**
      * @return Configuration block for VPC settings. See VPC Config below.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<CapacityProviderVpcConfigArgs>> vpcConfig() {
@@ -301,7 +301,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt the Capacity Provider.
          * 
          * @return builder
          * 
@@ -312,7 +312,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKeyArn ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+         * @param kmsKeyArn ARN of the KMS key used to encrypt the Capacity Provider.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the Capacity Provider.
+         * @param name Name of the Capacity Provider.
          * 
          * @return builder
          * 
@@ -333,7 +333,7 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param name The name of the Capacity Provider.
+         * @param name Name of the Capacity Provider.
          * 
          * @return builder
          * 
@@ -345,8 +345,6 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         /**
          * @param permissionsConfig Configuration block for permissions settings. See Permissions Config below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -357,8 +355,6 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param permissionsConfig Configuration block for permissions settings. See Permissions Config below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -442,6 +438,8 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
         /**
          * @param vpcConfig Configuration block for VPC settings. See VPC Config below.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -452,6 +450,8 @@ public final class CapacityProviderState extends com.pulumi.resources.ResourceAr
 
         /**
          * @param vpcConfig Configuration block for VPC settings. See VPC Config below.
+         * 
+         * The following arguments are optional:
          * 
          * @return builder
          * 

@@ -331,15 +331,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            name="servicea.simpleapp.local",
-            mesh_name=simple["id"],
             spec={
                 "provider": {
                     "virtual_node": {
                         "virtual_node_name": serviceb1["name"],
                     },
                 },
-            })
+            },
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"])
         ```
 
         ### Virtual Router Provider
@@ -349,15 +349,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            name="servicea.simpleapp.local",
-            mesh_name=simple["id"],
             spec={
                 "provider": {
                     "virtual_router": {
                         "virtual_router_name": serviceb["name"],
                     },
                 },
-            })
+            },
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"])
         ```
 
         ## Import
@@ -396,15 +396,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            name="servicea.simpleapp.local",
-            mesh_name=simple["id"],
             spec={
                 "provider": {
                     "virtual_node": {
                         "virtual_node_name": serviceb1["name"],
                     },
                 },
-            })
+            },
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"])
         ```
 
         ### Virtual Router Provider
@@ -414,15 +414,15 @@ class VirtualService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         servicea = aws.appmesh.VirtualService("servicea",
-            name="servicea.simpleapp.local",
-            mesh_name=simple["id"],
             spec={
                 "provider": {
                     "virtual_router": {
                         "virtual_router_name": serviceb["name"],
                     },
                 },
-            })
+            },
+            name="servicea.simpleapp.local",
+            mesh_name=simple["id"])
         ```
 
         ## Import

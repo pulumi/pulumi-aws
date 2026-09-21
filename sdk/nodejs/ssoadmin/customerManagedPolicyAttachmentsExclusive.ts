@@ -42,12 +42,12 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleCustomerManagedPolicyAttachmentsExclusive = new aws.ssoadmin.CustomerManagedPolicyAttachmentsExclusive("example", {
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     permissionSetArn: examplePermissionSet.arn,
  *     customerManagedPolicyReferences: [{
  *         name: examplePolicy.name,
  *         path: "/",
  *     }],
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ *     permissionSetArn: examplePermissionSet.arn,
  * });
  * ```
  *

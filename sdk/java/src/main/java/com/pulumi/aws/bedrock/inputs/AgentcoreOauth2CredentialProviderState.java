@@ -5,6 +5,7 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderClientSecretArnArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreOauth2CredentialProviderTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreOauth2CredentialProviderState Empty = new AgentcoreOauth2CredentialProviderState();
+
+    /**
+     * Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    @Import(name="callbackUrl")
+    private @Nullable Output<String> callbackUrl;
+
+    /**
+     * @return Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+     * 
+     */
+    public Optional<Output<String>> callbackUrl() {
+        return Optional.ofNullable(this.callbackUrl);
+    }
 
     /**
      * ARN of the AWS Secrets Manager secret containing the client secret.
@@ -50,14 +66,14 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
     }
 
     /**
-     * Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     @Import(name="credentialProviderVendor")
     private @Nullable Output<String> credentialProviderVendor;
 
     /**
-     * @return Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+     * @return Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
      * 
      */
     public Optional<Output<String>> credentialProviderVendor() {
@@ -143,9 +159,17 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         return Optional.ofNullable(this.tagsAll);
     }
 
+    @Import(name="timeouts")
+    private @Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts;
+
+    public Optional<Output<AgentcoreOauth2CredentialProviderTimeoutsArgs>> timeouts() {
+        return Optional.ofNullable(this.timeouts);
+    }
+
     private AgentcoreOauth2CredentialProviderState() {}
 
     private AgentcoreOauth2CredentialProviderState(AgentcoreOauth2CredentialProviderState $) {
+        this.callbackUrl = $.callbackUrl;
         this.clientSecretArns = $.clientSecretArns;
         this.credentialProviderArn = $.credentialProviderArn;
         this.credentialProviderVendor = $.credentialProviderVendor;
@@ -154,6 +178,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         this.region = $.region;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
+        this.timeouts = $.timeouts;
     }
 
     public static Builder builder() {
@@ -172,6 +197,27 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
 
         public Builder(AgentcoreOauth2CredentialProviderState defaults) {
             $ = new AgentcoreOauth2CredentialProviderState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param callbackUrl Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callbackUrl(@Nullable Output<String> callbackUrl) {
+            $.callbackUrl = callbackUrl;
+            return this;
+        }
+
+        /**
+         * @param callbackUrl Callback URL to register on the OAuth2 credential provider as an allowed callback URL. This URL is where the OAuth2 authorization server redirects users after they complete the authorization flow.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder callbackUrl(String callbackUrl) {
+            return callbackUrl(Output.of(callbackUrl));
         }
 
         /**
@@ -227,7 +273,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
          * 
          * @return builder
          * 
@@ -238,7 +284,7 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
         }
 
         /**
-         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values: `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `Microsoft`, `SalesforceOauth2`, `SlackOauth2`.
+         * @param credentialProviderVendor Vendor of the OAuth2 credential provider. Valid values include `CustomOauth2`, `GithubOauth2`, `GoogleOauth2`, `MicrosoftOauth2`, `SalesforceOauth2`, `SlackOauth2`, `AtlassianOauth2`, `LinkedinOauth2`, and a number of additional supported vendors (e.g. `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`) configured via `includedOauth2ProviderConfig`. Refer to the AWS API for the full, current list. See the note under `includedOauth2ProviderConfig` for vendors that are not yet supported.
          * 
          * @return builder
          * 
@@ -354,6 +400,15 @@ public final class AgentcoreOauth2CredentialProviderState extends com.pulumi.res
          */
         public Builder tagsAll(Map<String,String> tagsAll) {
             return tagsAll(Output.of(tagsAll));
+        }
+
+        public Builder timeouts(@Nullable Output<AgentcoreOauth2CredentialProviderTimeoutsArgs> timeouts) {
+            $.timeouts = timeouts;
+            return this;
+        }
+
+        public Builder timeouts(AgentcoreOauth2CredentialProviderTimeoutsArgs timeouts) {
+            return timeouts(Output.of(timeouts));
         }
 
         public AgentcoreOauth2CredentialProviderState build() {

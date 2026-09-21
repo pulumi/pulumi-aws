@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("cloudfront.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -91,18 +91,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
+ *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
+ *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
+ *                     .roleArn(exampleRole.arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .build())
+ *                 .streamType("Kinesis")
+ *                 .build())
  *             .name("example")
  *             .samplingRate(75)
  *             .fields(            
  *                 "timestamp",
  *                 "c-ip")
- *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType("Kinesis")
- *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleRolePolicy)
  *                 .build());
@@ -159,6 +159,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRealtimeLogConfig = new RealtimeLogConfig("exampleRealtimeLogConfig", RealtimeLogConfigArgs.builder()
+ *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
+ *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
+ *                     .roleArn(exampleAwsIamRole.arn())
+ *                     .streamArn(exampleAwsKinesisStream.arn())
+ *                     .build())
+ *                 .streamType("Kinesis")
+ *                 .build())
  *             .name("example")
  *             .samplingRate(100)
  *             .fields(            
@@ -167,13 +174,6 @@ import javax.annotation.Nullable;
  *                 "sc-status",
  *                 "viewer-request-log-data",
  *                 "viewer-response-log-data")
- *             .endpoint(RealtimeLogConfigEndpointArgs.builder()
- *                 .streamType("Kinesis")
- *                 .kinesisStreamConfig(RealtimeLogConfigEndpointKinesisStreamConfigArgs.builder()
- *                     .roleArn(exampleAwsIamRole.arn())
- *                     .streamArn(exampleAwsKinesisStream.arn())
- *                     .build())
- *                 .build())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsIamRolePolicy)
  *                 .build());
@@ -191,7 +191,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+ * - `arn` (String) ARN of the CloudFront real-time log configuration.
  * 
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  * 
@@ -203,14 +203,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudfront/realtimeLogConfig:RealtimeLogConfig")
 public class RealtimeLogConfig extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * @return ARN of the CloudFront real-time log configuration.
      * 
      */
     public Output<String> arn() {

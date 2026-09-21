@@ -16,14 +16,14 @@ public final class GetDistributionTenantArgs extends com.pulumi.resources.Invoke
     public static final GetDistributionTenantArgs Empty = new GetDistributionTenantArgs();
 
     /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
+     * ARN for the distribution tenant.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) for the distribution tenant.
+     * @return ARN for the distribution tenant.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -95,7 +95,7 @@ public final class GetDistributionTenantArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
+         * @param arn ARN for the distribution tenant.
          * 
          * @return builder
          * 
@@ -106,7 +106,7 @@ public final class GetDistributionTenantArgs extends com.pulumi.resources.Invoke
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) for the distribution tenant.
+         * @param arn ARN for the distribution tenant.
          * 
          * @return builder
          * 

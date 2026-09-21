@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.ofEntries(
@@ -58,6 +57,7 @@ import javax.annotation.Nullable;
  *                     .logType("FLOW")
  *                     .build())
  *                 .build())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .build());
  * 
  *     }
@@ -92,7 +92,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.of("logGroup", exampleAwsCloudwatchLogGroup.name()))
@@ -100,6 +99,7 @@ import javax.annotation.Nullable;
  *                     .logType("ALERT")
  *                     .build())
  *                 .build())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .build());
  * 
  *     }
@@ -134,7 +134,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new LoggingConfiguration("example", LoggingConfigurationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .loggingConfiguration(LoggingConfigurationLoggingConfigurationArgs.builder()
  *                 .logDestinationConfigs(LoggingConfigurationLoggingConfigurationLogDestinationConfigArgs.builder()
  *                     .logDestination(Map.of("deliveryStream", exampleAwsKinesisFirehoseDeliveryStream.name()))
@@ -142,6 +141,7 @@ import javax.annotation.Nullable;
  *                     .logType("TLS")
  *                     .build())
  *                 .build())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
  *             .build());
  * 
  *     }
@@ -175,14 +175,14 @@ public class LoggingConfiguration extends com.pulumi.resources.CustomResource {
         return this.enableMonitoringDashboard;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      * 
      */
     @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * @return ARN of the Network Firewall firewall.
      * 
      */
     public Output<String> firewallArn() {

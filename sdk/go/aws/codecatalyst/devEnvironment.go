@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := codecatalyst.NewDevEnvironment(ctx, "test", &codecatalyst.DevEnvironmentArgs{
-//				Alias:        pulumi.String("devenv"),
-//				SpaceName:    pulumi.String("myspace"),
-//				ProjectName:  pulumi.String("myproject"),
-//				InstanceType: pulumi.String("dev.standard1.small"),
 //				PersistentStorage: &codecatalyst.DevEnvironmentPersistentStorageArgs{
 //					Size: pulumi.Int(16),
 //				},
@@ -40,13 +36,17 @@ import (
 //					Name:    pulumi.String("PyCharm"),
 //					Runtime: pulumi.String("public.ecr.aws/jetbrains/py"),
 //				},
-//				InactivityTimeoutMinutes: pulumi.Int(40),
 //				Repositories: codecatalyst.DevEnvironmentRepositoryArray{
 //					&codecatalyst.DevEnvironmentRepositoryArgs{
 //						RepositoryName: pulumi.String("pulumi-provider-aws"),
 //						BranchName:     pulumi.String("main"),
 //					},
 //				},
+//				Alias:                    pulumi.String("devenv"),
+//				SpaceName:                pulumi.String("myspace"),
+//				ProjectName:              pulumi.String("myproject"),
+//				InstanceType:             pulumi.String("dev.standard1.small"),
+//				InactivityTimeoutMinutes: pulumi.Int(40),
 //			})
 //			if err != nil {
 //				return err

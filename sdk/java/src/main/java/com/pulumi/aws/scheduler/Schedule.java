@@ -52,16 +52,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Schedule("example", ScheduleArgs.builder()
- *             .name("my-schedule")
- *             .groupName("default")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode("OFF")
  *                 .build())
- *             .scheduleExpression("rate(1 hours)")
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn(exampleAwsSqsQueue.arn())
  *                 .roleArn(exampleAwsIamRole.arn())
  *                 .build())
+ *             .name("my-schedule")
+ *             .groupName("default")
+ *             .scheduleExpression("rate(1 hours)")
  *             .build());
  * 
  *     }
@@ -100,11 +100,9 @@ import javax.annotation.Nullable;
  *         var example = new Queue("example");
  * 
  *         var exampleSchedule = new Schedule("exampleSchedule", ScheduleArgs.builder()
- *             .name("my-schedule")
  *             .flexibleTimeWindow(ScheduleFlexibleTimeWindowArgs.builder()
  *                 .mode("OFF")
  *                 .build())
- *             .scheduleExpression("rate(1 hours)")
  *             .target(ScheduleTargetArgs.builder()
  *                 .arn("arn:aws:scheduler:::aws-sdk:sqs:sendMessage")
  *                 .roleArn(exampleAwsIamRole.arn())
@@ -114,6 +112,8 @@ import javax.annotation.Nullable;
  *                         jsonProperty("QueueUrl", _url)
  *                     ))))
  *                 .build())
+ *             .name("my-schedule")
+ *             .scheduleExpression("rate(1 hours)")
  *             .build());
  * 
  *     }

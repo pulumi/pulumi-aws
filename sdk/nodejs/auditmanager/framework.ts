@@ -19,9 +19,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.auditmanager.Framework("test", {
- *     name: "example",
  *     controlSets: [{
- *         name: "example",
  *         controls: [
  *             {
  *                 id: test1.id,
@@ -30,7 +28,9 @@ import * as utilities from "../utilities";
  *                 id: test2.id,
  *             },
  *         ],
+ *         name: "example",
  *     }],
+ *     name: "example",
  * });
  * ```
  *
@@ -82,7 +82,7 @@ export class Framework extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the framework.
+     * ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
@@ -162,7 +162,7 @@ export class Framework extends pulumi.CustomResource {
  */
 export interface FrameworkState {
     /**
-     * Amazon Resource Name (ARN) of the framework.
+     * ARN of the framework.
      * * `control_sets[*].id` - Unique identifier for the framework control set.
      */
     arn?: pulumi.Input<string | undefined>;

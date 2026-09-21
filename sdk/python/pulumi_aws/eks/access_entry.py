@@ -156,7 +156,7 @@ class _AccessEntryState:
         """
         Input properties used for looking up and filtering AccessEntry resources.
 
-        :param pulumi.Input[_builtins.str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
+        :param pulumi.Input[_builtins.str] access_entry_arn: ARN of the Access Entry.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
@@ -197,7 +197,7 @@ class _AccessEntryState:
     @pulumi.getter(name="accessEntryArn")
     def access_entry_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Access Entry.
+        ARN of the Access Entry.
         """
         return pulumi.get(self, "access_entry_arn")
 
@@ -514,7 +514,7 @@ class AccessEntry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_entry_arn: Amazon Resource Name (ARN) of the Access Entry.
+        :param pulumi.Input[_builtins.str] access_entry_arn: ARN of the Access Entry.
         :param pulumi.Input[_builtins.str] cluster_name: Name of the EKS Cluster.
         :param pulumi.Input[_builtins.str] created_at: Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] kubernetes_groups: List of string which can optionally specify the Kubernetes groups the user would belong to when creating an access entry.
@@ -549,7 +549,7 @@ class AccessEntry(pulumi.CustomResource):
     @pulumi.getter(name="accessEntryArn")
     def access_entry_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Access Entry.
+        ARN of the Access Entry.
         """
         return pulumi.get(self, "access_entry_arn")
 

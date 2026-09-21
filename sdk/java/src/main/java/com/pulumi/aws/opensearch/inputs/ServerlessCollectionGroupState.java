@@ -19,14 +19,14 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
     public static final ServerlessCollectionGroupState Empty = new ServerlessCollectionGroupState();
 
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the collection group.
+     * @return ARN of the collection group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -206,7 +206,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the collection group.
+         * @param arn ARN of the collection group.
          * 
          * @return builder
          * 
@@ -217,7 +217,7 @@ public final class ServerlessCollectionGroupState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the collection group.
+         * @param arn ARN of the collection group.
          * 
          * @return builder
          * 

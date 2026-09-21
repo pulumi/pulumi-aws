@@ -41,11 +41,11 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
-//				RuleName: pulumi.String("example-org-telemetry-rule"),
 //				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
 //					TelemetryType: pulumi.String("Logs"),
 //					ResourceType:  pulumi.String("AWS::EC2::VPC"),
 //				},
+//				RuleName: pulumi.String("example-org-telemetry-rule"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -77,8 +77,16 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
-//				RuleName: pulumi.String("org-vpc-flow-logs-rule"),
 //				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
+//					DestinationConfiguration: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{
+//						VpcFlowLogParameters: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{
+//							TrafficType:            pulumi.String("ALL"),
+//							MaxAggregationInterval: pulumi.Int(60),
+//						},
+//						DestinationType:    pulumi.String("cloud-watch-logs"),
+//						DestinationPattern: pulumi.String("/aws/vpcflowlogs/<resourceId>"),
+//						RetentionInDays:    pulumi.Int(30),
+//					},
 //					TelemetryType: pulumi.String("Logs"),
 //					ResourceType:  pulumi.String("AWS::EC2::VPC"),
 //					TelemetrySourceTypes: pulumi.StringArray{
@@ -86,16 +94,8 @@ import (
 //					},
 //					AllRegions:        pulumi.Bool(true),
 //					AllowFieldUpdates: pulumi.Bool(true),
-//					DestinationConfiguration: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationArgs{
-//						DestinationType:    pulumi.String("cloud-watch-logs"),
-//						DestinationPattern: pulumi.String("/aws/vpcflowlogs/<resourceId>"),
-//						RetentionInDays:    pulumi.Int(30),
-//						VpcFlowLogParameters: &observabilityadmin.TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs{
-//							TrafficType:            pulumi.String("ALL"),
-//							MaxAggregationInterval: pulumi.Int(60),
-//						},
-//					},
 //				},
+//				RuleName: pulumi.String("org-vpc-flow-logs-rule"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -132,7 +132,6 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
-//				RuleName: pulumi.String("org-scoped-rule"),
 //				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
 //					TelemetryType:     pulumi.String("Logs"),
 //					ResourceType:      pulumi.String("AWS::EKS::Cluster"),
@@ -143,6 +142,7 @@ import (
 //						pulumi.String("us-west-2"),
 //					},
 //				},
+//				RuleName: pulumi.String("org-scoped-rule"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -174,11 +174,11 @@ import (
 //				return err
 //			}
 //			_, err = observabilityadmin.NewTelemetryRuleForOrganization(ctx, "example", &observabilityadmin.TelemetryRuleForOrganizationArgs{
-//				RuleName: pulumi.String("org-tagged-rule"),
 //				Rule: &observabilityadmin.TelemetryRuleForOrganizationRuleArgs{
 //					TelemetryType: pulumi.String("Logs"),
 //					ResourceType:  pulumi.String("AWS::EC2::VPC"),
 //				},
+//				RuleName: pulumi.String("org-tagged-rule"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("production"),
 //					"Purpose":     pulumi.String("organization-monitoring"),

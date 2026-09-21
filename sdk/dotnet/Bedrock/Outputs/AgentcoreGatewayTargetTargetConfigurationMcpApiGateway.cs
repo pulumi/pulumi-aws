@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetTargetConfigurationMcpApiGateway
     {
         /// <summary>
-        /// Configuration for API Gateway tools. See `ApiGatewayToolConfiguration` below.
+        /// Configuration for API Gateway tools. See `ApiGatewayToolConfiguration` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration? ApiGatewayToolConfiguration;
         /// <summary>

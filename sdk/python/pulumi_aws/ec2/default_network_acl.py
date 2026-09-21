@@ -335,7 +335,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            default_network_acl_id=mainvpc.default_network_acl_id,
+            egress=[{
+                "protocol": "-1",
+                "rule_no": 100,
+                "action": "allow",
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
+            }],
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -344,14 +351,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "from_port": 0,
                 "to_port": 0,
             }],
-            egress=[{
-                "protocol": "-1",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "0.0.0.0/0",
-                "from_port": 0,
-                "to_port": 0,
-            }])
+            default_network_acl_id=mainvpc.default_network_acl_id)
         ```
 
         ### Example: Deny All Egress Traffic, Allow Ingress
@@ -364,7 +364,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -372,7 +371,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
                 "from_port": 0,
                 "to_port": 0,
-            }])
+            }],
+            default_network_acl_id=mainvpc.default_network_acl_id)
         ```
 
         ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
@@ -401,7 +401,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultNetworkAcl("default")
+        default = aws.ec2.DefaultNetworkAcl("default", opts = pulumi.ResourceOptions(ignore_changes=["subnetIds"]))
         ```
 
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration
@@ -457,7 +457,14 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            default_network_acl_id=mainvpc.default_network_acl_id,
+            egress=[{
+                "protocol": "-1",
+                "rule_no": 100,
+                "action": "allow",
+                "cidr_block": "0.0.0.0/0",
+                "from_port": 0,
+                "to_port": 0,
+            }],
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -466,14 +473,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "from_port": 0,
                 "to_port": 0,
             }],
-            egress=[{
-                "protocol": "-1",
-                "rule_no": 100,
-                "action": "allow",
-                "cidr_block": "0.0.0.0/0",
-                "from_port": 0,
-                "to_port": 0,
-            }])
+            default_network_acl_id=mainvpc.default_network_acl_id)
         ```
 
         ### Example: Deny All Egress Traffic, Allow Ingress
@@ -486,7 +486,6 @@ class DefaultNetworkAcl(pulumi.CustomResource):
 
         mainvpc = aws.ec2.Vpc("mainvpc", cidr_block="10.1.0.0/16")
         default = aws.ec2.DefaultNetworkAcl("default",
-            default_network_acl_id=mainvpc.default_network_acl_id,
             ingress=[{
                 "protocol": "-1",
                 "rule_no": 100,
@@ -494,7 +493,8 @@ class DefaultNetworkAcl(pulumi.CustomResource):
                 "cidr_block": mainvpc_aws_default_vpc["cidrBlock"],
                 "from_port": 0,
                 "to_port": 0,
-            }])
+            }],
+            default_network_acl_id=mainvpc.default_network_acl_id)
         ```
 
         ### Example: Deny All Traffic To Any Subnet In The Default Network ACL
@@ -523,7 +523,7 @@ class DefaultNetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        default = aws.ec2.DefaultNetworkAcl("default")
+        default = aws.ec2.DefaultNetworkAcl("default", opts = pulumi.ResourceOptions(ignore_changes=["subnetIds"]))
         ```
 
         ### Removing `ec2.DefaultNetworkAcl` From Your Configuration

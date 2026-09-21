@@ -20,6 +20,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const testStream = new aws.kinesis.Stream("test_stream", {
+ *     streamModeDetails: {
+ *         streamMode: "PROVISIONED",
+ *     },
  *     name: "kinesis-test",
  *     shardCount: 1,
  *     retentionPeriod: 48,
@@ -27,9 +30,6 @@ import * as utilities from "../utilities";
  *         "IncomingBytes",
  *         "OutgoingBytes",
  *     ],
- *     streamModeDetails: {
- *         streamMode: "PROVISIONED",
- *     },
  *     tags: {
  *         Environment: "test",
  *     },
@@ -84,7 +84,7 @@ export class Stream extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * ARN specifying the stream (same as `id`).
      */
     declare public readonly arn: pulumi.Output<string>;
     /**
@@ -194,7 +194,7 @@ export class Stream extends pulumi.CustomResource {
  */
 export interface StreamState {
     /**
-     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * ARN specifying the stream (same as `id`).
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -256,7 +256,7 @@ export interface StreamState {
  */
 export interface StreamArgs {
     /**
-     * The Amazon Resource Name (ARN) specifying the stream (same as `id`).
+     * ARN specifying the stream (same as `id`).
      */
     arn?: pulumi.Input<string | undefined>;
     /**

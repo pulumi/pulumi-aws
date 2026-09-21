@@ -78,7 +78,7 @@ export interface GetReceivedLicenseResult {
      */
     readonly issuers: outputs.licensemanager.GetReceivedLicenseIssuer[];
     /**
-     * Amazon Resource Name (ARN) of the license.
+     * ARN of the license.
      */
     readonly licenseArn: string;
     /**

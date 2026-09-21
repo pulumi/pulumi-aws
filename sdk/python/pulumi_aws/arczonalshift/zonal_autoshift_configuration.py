@@ -346,12 +346,12 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                 "LoadBalancer": example_load_balancer.arn_suffix,
             })
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_load_balancer.arn,
-            zonal_autoshift_status="ENABLED",
             outcome_alarms=[{
                 "alarm_identifier": example_metric_alarm.arn,
                 "type": "CLOUDWATCH",
-            }])
+            }],
+            resource_arn=example_load_balancer.arn,
+            zonal_autoshift_status="ENABLED")
         ```
 
         ### With Blocking Alarms
@@ -361,16 +361,16 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_aws_lb["arn"],
-            zonal_autoshift_status="ENABLED",
+            blocking_alarms=[{
+                "alarm_identifier": blocking["arn"],
+                "type": "CLOUDWATCH",
+            }],
             outcome_alarms=[{
                 "alarm_identifier": outcome["arn"],
                 "type": "CLOUDWATCH",
             }],
-            blocking_alarms=[{
-                "alarm_identifier": blocking["arn"],
-                "type": "CLOUDWATCH",
-            }])
+            resource_arn=example_aws_lb["arn"],
+            zonal_autoshift_status="ENABLED")
         ```
 
         ### With Blocked Windows
@@ -380,13 +380,13 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_aws_lb["arn"],
-            zonal_autoshift_status="ENABLED",
-            blocked_windows=["Mon:00:00-Mon:08:00"],
             outcome_alarms=[{
                 "alarm_identifier": example_aws_cloudwatch_metric_alarm["arn"],
                 "type": "CLOUDWATCH",
-            }])
+            }],
+            resource_arn=example_aws_lb["arn"],
+            zonal_autoshift_status="ENABLED",
+            blocked_windows=["Mon:00:00-Mon:08:00"])
         ```
 
         ## Import
@@ -456,12 +456,12 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
                 "LoadBalancer": example_load_balancer.arn_suffix,
             })
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_load_balancer.arn,
-            zonal_autoshift_status="ENABLED",
             outcome_alarms=[{
                 "alarm_identifier": example_metric_alarm.arn,
                 "type": "CLOUDWATCH",
-            }])
+            }],
+            resource_arn=example_load_balancer.arn,
+            zonal_autoshift_status="ENABLED")
         ```
 
         ### With Blocking Alarms
@@ -471,16 +471,16 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_aws_lb["arn"],
-            zonal_autoshift_status="ENABLED",
+            blocking_alarms=[{
+                "alarm_identifier": blocking["arn"],
+                "type": "CLOUDWATCH",
+            }],
             outcome_alarms=[{
                 "alarm_identifier": outcome["arn"],
                 "type": "CLOUDWATCH",
             }],
-            blocking_alarms=[{
-                "alarm_identifier": blocking["arn"],
-                "type": "CLOUDWATCH",
-            }])
+            resource_arn=example_aws_lb["arn"],
+            zonal_autoshift_status="ENABLED")
         ```
 
         ### With Blocked Windows
@@ -490,13 +490,13 @@ class ZonalAutoshiftConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.arczonalshift.ZonalAutoshiftConfiguration("example",
-            resource_arn=example_aws_lb["arn"],
-            zonal_autoshift_status="ENABLED",
-            blocked_windows=["Mon:00:00-Mon:08:00"],
             outcome_alarms=[{
                 "alarm_identifier": example_aws_cloudwatch_metric_alarm["arn"],
                 "type": "CLOUDWATCH",
-            }])
+            }],
+            resource_arn=example_aws_lb["arn"],
+            zonal_autoshift_status="ENABLED",
+            blocked_windows=["Mon:00:00-Mon:08:00"])
         ```
 
         ## Import

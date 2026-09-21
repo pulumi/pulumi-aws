@@ -50,7 +50,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm project.
+// - `arn` (String) ARN of the Device Farm project.
 //
 // Using `pulumi import`, import DeviceFarm Projects using their ARN. For example:
 //
@@ -60,7 +60,7 @@ import (
 type Project struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this project
+	// ARN of this project
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 	DefaultJobTimeoutMinutes pulumi.IntPtrOutput `pulumi:"defaultJobTimeoutMinutes"`
@@ -104,7 +104,7 @@ func GetProject(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Project resources.
 type projectState struct {
-	// The Amazon Resource Name of this project
+	// ARN of this project
 	Arn *string `pulumi:"arn"`
 	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 	DefaultJobTimeoutMinutes *int `pulumi:"defaultJobTimeoutMinutes"`
@@ -119,7 +119,7 @@ type projectState struct {
 }
 
 type ProjectState struct {
-	// The Amazon Resource Name of this project
+	// ARN of this project
 	Arn pulumi.StringPtrInput
 	// Sets the execution timeout value (in minutes) for a project. All test runs in this project use the specified execution timeout value unless overridden when scheduling a run.
 	DefaultJobTimeoutMinutes pulumi.IntPtrInput
@@ -247,7 +247,7 @@ func (o ProjectOutput) ToProjectOutputWithContext(ctx context.Context) ProjectOu
 	return o
 }
 
-// The Amazon Resource Name of this project
+// ARN of this project
 func (o ProjectOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

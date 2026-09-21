@@ -20,14 +20,14 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
     public static final CachesIscsiVolumeArgs Empty = new CachesIscsiVolumeArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      * 
      */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the gateway.
+     * @return ARN of the gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -50,14 +50,14 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+     * @return ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -203,7 +203,7 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -214,7 +214,7 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param gatewayArn The Amazon Resource Name (ARN) of the gateway.
+         * @param gatewayArn ARN of the gateway.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
          * 
          * @return builder
          * 
@@ -256,7 +256,7 @@ public final class CachesIscsiVolumeArgs extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param kmsKey The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
+         * @param kmsKey ARN of the AWS KMS key used for Amazon S3 server side encryption. Is required when `kmsEncrypted` is set.
          * 
          * @return builder
          * 

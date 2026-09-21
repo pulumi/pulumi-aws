@@ -16,7 +16,7 @@ namespace Pulumi.Aws.LB
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the load balancer listener rule.
+    /// - `Arn` (String) ARN of the load balancer listener rule.
     /// 
     /// Using `pulumi import`, import rules using their ARN. For example:
     /// 

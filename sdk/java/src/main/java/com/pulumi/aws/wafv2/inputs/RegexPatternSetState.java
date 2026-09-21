@@ -19,14 +19,14 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
     public static final RegexPatternSetState Empty = new RegexPatternSetState();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the cluster.
+     * @return ARN that identifies the cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -194,7 +194,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the cluster.
+         * @param arn ARN that identifies the cluster.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class RegexPatternSetState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the cluster.
+         * @param arn ARN that identifies the cluster.
          * 
          * @return builder
          * 

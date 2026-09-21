@@ -42,13 +42,19 @@ namespace Pulumi.Aws.Route53
     /// 
     ///     var example = new Aws.Route53.Zone("example", new()
     ///     {
-    ///         Name = "example.com",
     ///         Vpcs = new[]
     ///         {
     ///             new Aws.Route53.Inputs.ZoneVpcArgs
     ///             {
     ///                 VpcId = primary.Id,
     ///             },
+    ///         },
+    ///         Name = "example.com",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "vpcs",
     ///         },
     ///     });
     /// 

@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Qldb.Inputs
         public Input<bool>? AggregationEnabled { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        /// ARN of the Kinesis Data Streams resource.
         /// </summary>
         [Input("streamArn", required: true)]
         public Input<string> StreamArn { get; set; } = null!;

@@ -141,7 +141,7 @@ class _AppImageConfigState:
         Input properties used for looking up and filtering AppImageConfig resources.
 
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this App Image Config.
         :param pulumi.Input['AppImageConfigCodeEditorAppImageConfigArgs'] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         :param pulumi.Input['AppImageConfigJupyterLabImageConfigArgs'] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input['AppImageConfigKernelGatewayImageConfigArgs'] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
@@ -184,7 +184,7 @@ class _AppImageConfigState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        ARN assigned by AWS to this App Image Config.
         """
         return pulumi.get(self, "arn")
 
@@ -292,12 +292,12 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            })
+            },
+            app_image_config_name="example")
         ```
 
         ### Using Code Editor with empty configuration
@@ -307,8 +307,8 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            code_editor_app_image_config={})
+            code_editor_app_image_config={},
+            app_image_config_name="example")
         ```
 
         ### Default File System Config
@@ -318,13 +318,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
             kernel_gateway_image_config={
+                "file_system_config": {},
                 "kernel_specs": [{
                     "name": "example",
                 }],
-                "file_system_config": {},
-            })
+            },
+            app_image_config_name="example")
         ```
 
         ## Import
@@ -365,12 +365,12 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
             kernel_gateway_image_config={
                 "kernel_specs": [{
                     "name": "example",
                 }],
-            })
+            },
+            app_image_config_name="example")
         ```
 
         ### Using Code Editor with empty configuration
@@ -380,8 +380,8 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
-            code_editor_app_image_config={})
+            code_editor_app_image_config={},
+            app_image_config_name="example")
         ```
 
         ### Default File System Config
@@ -391,13 +391,13 @@ class AppImageConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.AppImageConfig("test",
-            app_image_config_name="example",
             kernel_gateway_image_config={
+                "file_system_config": {},
                 "kernel_specs": [{
                     "name": "example",
                 }],
-                "file_system_config": {},
-            })
+            },
+            app_image_config_name="example")
         ```
 
         ## Import
@@ -475,7 +475,7 @@ class AppImageConfig(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] app_image_config_name: The name of the App Image Config.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this App Image Config.
         :param pulumi.Input[Union['AppImageConfigCodeEditorAppImageConfigArgs', 'AppImageConfigCodeEditorAppImageConfigArgsDict']] code_editor_app_image_config: The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
         :param pulumi.Input[Union['AppImageConfigJupyterLabImageConfigArgs', 'AppImageConfigJupyterLabImageConfigArgsDict']] jupyter_lab_image_config: The JupyterLabAppImageConfig. See Jupyter Lab Image Config details below.
         :param pulumi.Input[Union['AppImageConfigKernelGatewayImageConfigArgs', 'AppImageConfigKernelGatewayImageConfigArgsDict']] kernel_gateway_image_config: The configuration for the file system and kernels in a SageMaker AI image running as a KernelGateway app. See Kernel Gateway Image Config details below.
@@ -511,7 +511,7 @@ class AppImageConfig(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+        ARN assigned by AWS to this App Image Config.
         """
         return pulumi.get(self, "arn")
 

@@ -50,9 +50,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryScheduleConfigurationArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs;
- * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs;
+ * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -67,20 +67,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ScheduledQuery("example", ScheduledQueryArgs.builder()
- *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name(exampleAwsTimestreamwriteTable.tableName())
- *             .queryString("""
- * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
- * FROM exampledatabase.exampletable
- * WHERE measure_name = 'metrics' AND time > ago(2h)
- * GROUP BY region, hostname, az, BIN(time, 15s)
- * ORDER BY binned_timestamp ASC
- * LIMIT 5
- *             """)
  *             .errorReportConfiguration(ScheduledQueryErrorReportConfigurationArgs.builder()
  *                 .s3Configuration(ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.bucket())
@@ -96,24 +82,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .targetConfiguration(ScheduledQueryTargetConfigurationArgs.builder()
  *                 .timestreamConfiguration(ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.builder()
- *                     .databaseName(results.databaseName())
- *                     .tableName(resultsAwsTimestreamwriteTable.tableName())
- *                     .timeColumn("binned_timestamp")
- *                     .dimensionMappings(                    
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("az")
- *                             .build(),
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("region")
- *                             .build(),
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("hostname")
- *                             .build())
  *                     .multiMeasureMappings(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.builder()
- *                         .targetMultiMeasureName("multi-metrics")
  *                         .multiMeasureAttributeMappings(                        
  *                             ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs.builder()
  *                                 .measureValueType("DOUBLE")
@@ -131,9 +100,40 @@ import javax.annotation.Nullable;
  *                                 .measureValueType("DOUBLE")
  *                                 .sourceColumn("p99_cpu_utilization")
  *                                 .build())
+ *                         .targetMultiMeasureName("multi-metrics")
  *                         .build())
+ *                     .dimensionMappings(                    
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("az")
+ *                             .build(),
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("region")
+ *                             .build(),
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("hostname")
+ *                             .build())
+ *                     .databaseName(results.databaseName())
+ *                     .tableName(resultsAwsTimestreamwriteTable.tableName())
+ *                     .timeColumn("binned_timestamp")
  *                     .build())
  *                 .build())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name(exampleAwsTimestreamwriteTable.tableName())
+ *             .queryString("""
+ * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+ * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * FROM exampledatabase.exampletable
+ * WHERE measure_name = 'metrics' AND time > ago(2h)
+ * GROUP BY region, hostname, az, BIN(time, 15s)
+ * ORDER BY binned_timestamp ASC
+ * LIMIT 5
+ *             """)
  *             .build());
  * 
  *     }
@@ -280,8 +280,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testTable = new Table("testTable", TableArgs.builder()
- *             .databaseName(testDatabase.databaseName())
- *             .tableName("exampletable")
  *             .magneticStoreWriteProperties(TableMagneticStoreWritePropertiesArgs.builder()
  *                 .enableMagneticStoreWrites(true)
  *                 .build())
@@ -289,6 +287,8 @@ import javax.annotation.Nullable;
  *                 .magneticStoreRetentionPeriodInDays(1)
  *                 .memoryStoreRetentionPeriodInHours(1)
  *                 .build())
+ *             .databaseName(testDatabase.databaseName())
+ *             .tableName("exampletable")
  *             .build());
  * 
  *         var results = new Database("results", DatabaseArgs.builder()
@@ -296,8 +296,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var resultsTable = new Table("resultsTable", TableArgs.builder()
- *             .databaseName(results.databaseName())
- *             .tableName("exampletable-results")
  *             .magneticStoreWriteProperties(TableMagneticStoreWritePropertiesArgs.builder()
  *                 .enableMagneticStoreWrites(true)
  *                 .build())
@@ -305,6 +303,8 @@ import javax.annotation.Nullable;
  *                 .magneticStoreRetentionPeriodInDays(1)
  *                 .memoryStoreRetentionPeriodInHours(1)
  *                 .build())
+ *             .databaseName(results.databaseName())
+ *             .tableName("exampletable-results")
  *             .build());
  * 
  *     }
@@ -334,9 +334,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryScheduleConfigurationArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationArgs;
- * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs;
  * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs;
+ * import com.pulumi.aws.timestreamquery.inputs.ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -351,20 +351,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ScheduledQuery("example", ScheduledQueryArgs.builder()
- *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name(exampleAwsTimestreamwriteTable.tableName())
- *             .queryString("""
- * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
- * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
- * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
- * FROM exampledatabase.exampletable
- * WHERE measure_name = 'metrics' AND time > ago(2h)
- * GROUP BY region, hostname, az, BIN(time, 15s)
- * ORDER BY binned_timestamp ASC
- * LIMIT 5
- *             """)
  *             .errorReportConfiguration(ScheduledQueryErrorReportConfigurationArgs.builder()
  *                 .s3Configuration(ScheduledQueryErrorReportConfigurationS3ConfigurationArgs.builder()
  *                     .bucketName(exampleAwsS3Bucket.bucket())
@@ -380,24 +366,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .targetConfiguration(ScheduledQueryTargetConfigurationArgs.builder()
  *                 .timestreamConfiguration(ScheduledQueryTargetConfigurationTimestreamConfigurationArgs.builder()
- *                     .databaseName(results.databaseName())
- *                     .tableName(resultsAwsTimestreamwriteTable.tableName())
- *                     .timeColumn("binned_timestamp")
- *                     .dimensionMappings(                    
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("az")
- *                             .build(),
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("region")
- *                             .build(),
- *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
- *                             .dimensionValueType("VARCHAR")
- *                             .name("hostname")
- *                             .build())
  *                     .multiMeasureMappings(ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsArgs.builder()
- *                         .targetMultiMeasureName("multi-metrics")
  *                         .multiMeasureAttributeMappings(                        
  *                             ScheduledQueryTargetConfigurationTimestreamConfigurationMultiMeasureMappingsMultiMeasureAttributeMappingArgs.builder()
  *                                 .measureValueType("DOUBLE")
@@ -415,9 +384,40 @@ import javax.annotation.Nullable;
  *                                 .measureValueType("DOUBLE")
  *                                 .sourceColumn("p99_cpu_utilization")
  *                                 .build())
+ *                         .targetMultiMeasureName("multi-metrics")
  *                         .build())
+ *                     .dimensionMappings(                    
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("az")
+ *                             .build(),
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("region")
+ *                             .build(),
+ *                         ScheduledQueryTargetConfigurationTimestreamConfigurationDimensionMappingArgs.builder()
+ *                             .dimensionValueType("VARCHAR")
+ *                             .name("hostname")
+ *                             .build())
+ *                     .databaseName(results.databaseName())
+ *                     .tableName(resultsAwsTimestreamwriteTable.tableName())
+ *                     .timeColumn("binned_timestamp")
  *                     .build())
  *                 .build())
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name(exampleAwsTimestreamwriteTable.tableName())
+ *             .queryString("""
+ * SELECT region, az, hostname, BIN(time, 15s) AS binned_timestamp,
+ * \tROUND(AVG(cpu_utilization), 2) AS avg_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.9), 2) AS p90_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.95), 2) AS p95_cpu_utilization,
+ * \tROUND(APPROX_PERCENTILE(cpu_utilization, 0.99), 2) AS p99_cpu_utilization
+ * FROM exampledatabase.exampletable
+ * WHERE measure_name = 'metrics' AND time > ago(2h)
+ * GROUP BY region, hostname, az, BIN(time, 15s)
+ * ORDER BY binned_timestamp ASC
+ * LIMIT 5
+ *             """)
  *             .build());
  * 
  *     }

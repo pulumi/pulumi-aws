@@ -45,18 +45,27 @@ import * as utilities from "../utilities";
  *     Name: "test",
  * }});
  * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
+ *     attachmentPolicies: [{
+ *         action: {
+ *             associationMethod: "constant",
+ *             segment: "shared",
+ *         },
+ *         conditions: [{
+ *             type: "tag-value",
+ *             operator: "equals",
+ *             key: "segment",
+ *             value: "shared",
+ *         }],
+ *         ruleNumber: 1,
+ *         conditionLogic: "or",
+ *     }],
  *     coreNetworkConfigurations: [{
- *         vpnEcmpSupport: false,
- *         asnRanges: ["64512-64555"],
  *         edgeLocations: [{
  *             location: current.region,
  *             asn: "64512",
  *         }],
- *     }],
- *     segments: [{
- *         name: "shared",
- *         description: "SegmentForSharedServices",
- *         requireAttachmentAcceptance: true,
+ *         vpnEcmpSupport: false,
+ *         asnRanges: ["64512-64555"],
  *     }],
  *     segmentActions: [{
  *         action: "share",
@@ -64,19 +73,10 @@ import * as utilities from "../utilities";
  *         segment: "shared",
  *         shareWiths: ["*"],
  *     }],
- *     attachmentPolicies: [{
- *         ruleNumber: 1,
- *         conditionLogic: "or",
- *         conditions: [{
- *             type: "tag-value",
- *             operator: "equals",
- *             key: "segment",
- *             value: "shared",
- *         }],
- *         action: {
- *             associationMethod: "constant",
- *             segment: "shared",
- *         },
+ *     segments: [{
+ *         name: "shared",
+ *         description: "SegmentForSharedServices",
+ *         requireAttachmentAcceptance: true,
  *     }],
  * });
  * const testNetworkmanagerCoreNetwork = new awscc.index.NetworkmanagerCoreNetwork("test", {

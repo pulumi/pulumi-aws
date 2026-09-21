@@ -24,25 +24,25 @@ namespace Pulumi.Aws.DirectoryService
     /// {
     ///     var example = new Aws.DirectoryService.Directory("example", new()
     ///     {
-    ///         Name = "tf-example",
-    ///         Password = "SuperSecretPassw0rd",
-    ///         Type = "MicrosoftAD",
-    ///         Edition = "Standard",
     ///         VpcSettings = new Aws.DirectoryService.Inputs.DirectoryVpcSettingsArgs
     ///         {
     ///             VpcId = exampleAwsVpc.Id,
     ///             SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         },
+    ///         Name = "tf-example",
+    ///         Password = "SuperSecretPassw0rd",
+    ///         Type = "MicrosoftAD",
+    ///         Edition = "Standard",
     ///     });
     /// 
     ///     var exampleSharedDirectory = new Aws.DirectoryService.SharedDirectory("example", new()
     ///     {
-    ///         DirectoryId = example.Id,
-    ///         Notes = "You wanna have a catch?",
     ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
     ///         {
     ///             Id = receiver.AccountId,
     ///         },
+    ///         DirectoryId = example.Id,
+    ///         Notes = "You wanna have a catch?",
     ///     });
     /// 
     /// });

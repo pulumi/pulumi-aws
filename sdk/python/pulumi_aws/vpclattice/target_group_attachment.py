@@ -28,7 +28,7 @@ class TargetGroupAttachmentArgs:
         The set of arguments for constructing a TargetGroupAttachment resource.
 
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: Target to register with the target group. See `target` Block for details.
-        :param pulumi.Input[_builtins.str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[_builtins.str] target_group_identifier: ID or ARN of the target group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "target", target)
@@ -52,7 +52,7 @@ class TargetGroupAttachmentArgs:
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the target group.
+        ID or ARN of the target group.
         """
         return pulumi.get(self, "target_group_identifier")
 
@@ -84,7 +84,7 @@ class _TargetGroupAttachmentState:
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['TargetGroupAttachmentTargetArgs'] target: Target to register with the target group. See `target` Block for details.
-        :param pulumi.Input[_builtins.str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[_builtins.str] target_group_identifier: ID or ARN of the target group.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -121,7 +121,7 @@ class _TargetGroupAttachmentState:
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID or Amazon Resource Name (ARN) of the target group.
+        ID or ARN of the target group.
         """
         return pulumi.get(self, "target_group_identifier")
 
@@ -152,11 +152,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
             target={
                 "id": example_aws_lb["arn"],
                 "port": 80,
-            })
+            },
+            target_group_identifier=example_aws_vpclattice_target_group["id"])
         ```
 
 
@@ -164,7 +164,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: Target to register with the target group. See `target` Block for details.
-        :param pulumi.Input[_builtins.str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[_builtins.str] target_group_identifier: ID or ARN of the target group.
         """
         ...
     @overload
@@ -184,11 +184,11 @@ class TargetGroupAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.vpclattice.TargetGroupAttachment("example",
-            target_group_identifier=example_aws_vpclattice_target_group["id"],
             target={
                 "id": example_aws_lb["arn"],
                 "port": 80,
-            })
+            },
+            target_group_identifier=example_aws_vpclattice_target_group["id"])
         ```
 
 
@@ -248,7 +248,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['TargetGroupAttachmentTargetArgs', 'TargetGroupAttachmentTargetArgsDict']] target: Target to register with the target group. See `target` Block for details.
-        :param pulumi.Input[_builtins.str] target_group_identifier: ID or Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[_builtins.str] target_group_identifier: ID or ARN of the target group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,7 +279,7 @@ class TargetGroupAttachment(pulumi.CustomResource):
     @pulumi.getter(name="targetGroupIdentifier")
     def target_group_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the target group.
+        ID or ARN of the target group.
         """
         return pulumi.get(self, "target_group_identifier")
 

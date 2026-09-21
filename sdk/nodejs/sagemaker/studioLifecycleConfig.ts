@@ -62,7 +62,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+     * The ARN assigned by AWS to this Studio Lifecycle Config.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class StudioLifecycleConfig extends pulumi.CustomResource {
  */
 export interface StudioLifecycleConfigState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+     * The ARN assigned by AWS to this Studio Lifecycle Config.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

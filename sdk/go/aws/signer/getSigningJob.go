@@ -95,12 +95,8 @@ type LookupSigningJobResult struct {
 }
 
 func LookupSigningJobOutput(ctx *pulumi.Context, args LookupSigningJobOutputArgs, opts ...pulumi.InvokeOption) LookupSigningJobResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSigningJobResultOutput, error) {
-			args := v.(LookupSigningJobArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:signer/getSigningJob:getSigningJob", args, LookupSigningJobResultOutput{}, options).(LookupSigningJobResultOutput), nil
-		}).(LookupSigningJobResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:signer/getSigningJob:getSigningJob", args, LookupSigningJobResultOutput{}, options).(LookupSigningJobResultOutput)
 }
 
 // A collection of arguments for invoking getSigningJob.

@@ -102,7 +102,7 @@ class _AliasState:
         """
         Input properties used for looking up and filtering Alias resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying your state machine alias.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your state machine alias.
         :param pulumi.Input[_builtins.str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name for the alias you are creating.
@@ -126,7 +126,7 @@ class _AliasState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) identifying your state machine alias.
+        ARN identifying your state machine alias.
         """
         return pulumi.get(self, "arn")
 
@@ -218,13 +218,12 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[{
                 "state_machine_version_arn": sfn_test["stateMachineVersionArn"],
                 "weight": 100,
-            }])
+            }],
+            name="my_sfn_alias")
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[
                 {
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
@@ -234,7 +233,8 @@ class Alias(pulumi.CustomResource):
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
                     "weight": 50,
                 },
-            ])
+            ],
+            name="my_sfn_alias")
         ```
 
         ## Import
@@ -277,13 +277,12 @@ class Alias(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_alias = aws.sfn.Alias("sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[{
                 "state_machine_version_arn": sfn_test["stateMachineVersionArn"],
                 "weight": 100,
-            }])
+            }],
+            name="my_sfn_alias")
         my_sfn_alias = aws.sfn.Alias("my_sfn_alias",
-            name="my_sfn_alias",
             routing_configurations=[
                 {
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:3",
@@ -293,7 +292,8 @@ class Alias(pulumi.CustomResource):
                     "state_machine_version_arn": "arn:aws:states:us-east-1:12345:stateMachine:demo:2",
                     "weight": 50,
                 },
-            ])
+            ],
+            name="my_sfn_alias")
         ```
 
         ## Import
@@ -370,7 +370,7 @@ class Alias(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying your state machine alias.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying your state machine alias.
         :param pulumi.Input[_builtins.str] creation_date: The date the state machine alias was created.
         :param pulumi.Input[_builtins.str] description: Description of the alias.
         :param pulumi.Input[_builtins.str] name: Name for the alias you are creating.
@@ -393,7 +393,7 @@ class Alias(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) identifying your state machine alias.
+        ARN identifying your state machine alias.
         """
         return pulumi.get(self, "arn")
 

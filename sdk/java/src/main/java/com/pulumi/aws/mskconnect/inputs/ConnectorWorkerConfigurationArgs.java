@@ -16,14 +16,14 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
     public static final ConnectorWorkerConfigurationArgs Empty = new ConnectorWorkerConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the worker configuration.
+     * ARN of the worker configuration.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the worker configuration.
+     * @return ARN of the worker configuration.
      * 
      */
     public Output<String> arn() {
@@ -71,7 +71,7 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the worker configuration.
+         * @param arn ARN of the worker configuration.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ConnectorWorkerConfigurationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the worker configuration.
+         * @param arn ARN of the worker configuration.
          * 
          * @return builder
          * 

@@ -567,6 +567,32 @@ class Plan(pulumi.CustomResource):
                 }],
             }))
         example_plan = aws.arcregionswitch.Plan("example",
+            workflows=[
+                {
+                    "steps": [{
+                        "execution_approval_configs": [{
+                            "approval_role": example.arn,
+                            "timeout_minutes": 60,
+                        }],
+                        "name": "manual-approval",
+                        "execution_block_type": "ManualApproval",
+                    }],
+                    "workflow_target_action": "activate",
+                    "workflow_target_region": "us-west-2",
+                },
+                {
+                    "steps": [{
+                        "execution_approval_configs": [{
+                            "approval_role": example.arn,
+                            "timeout_minutes": 60,
+                        }],
+                        "name": "manual-approval",
+                        "execution_block_type": "ManualApproval",
+                    }],
+                    "workflow_target_action": "deactivate",
+                    "workflow_target_region": "us-east-1",
+                },
+            ],
             name="example-plan",
             execution_role=example.arn,
             recovery_approach="activePassive",
@@ -574,33 +600,7 @@ class Plan(pulumi.CustomResource):
                 "us-east-1",
                 "us-west-2",
             ],
-            primary_region="us-east-1",
-            workflows=[
-                {
-                    "workflow_target_action": "activate",
-                    "workflow_target_region": "us-west-2",
-                    "steps": [{
-                        "name": "manual-approval",
-                        "execution_block_type": "ManualApproval",
-                        "execution_approval_configs": [{
-                            "approval_role": example.arn,
-                            "timeout_minutes": 60,
-                        }],
-                    }],
-                },
-                {
-                    "workflow_target_action": "deactivate",
-                    "workflow_target_region": "us-east-1",
-                    "steps": [{
-                        "name": "manual-approval",
-                        "execution_block_type": "ManualApproval",
-                        "execution_approval_configs": [{
-                            "approval_role": example.arn,
-                            "timeout_minutes": 60,
-                        }],
-                    }],
-                },
-            ])
+            primary_region="us-east-1")
         ```
 
         ### Complex Usage with Multiple Step Types
@@ -610,6 +610,81 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         complex = aws.arcregionswitch.Plan("complex",
+            associated_alarms=[{
+                "name": "application-health-alarm",
+                "alarm_type": "applicationHealth",
+                "resource_identifier": "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
+            }],
+            triggers=[{
+                "conditions": [{
+                    "associated_alarm_name": "application-health-alarm",
+                    "condition": "red",
+                }],
+                "action": "activate",
+                "target_region": "us-west-2",
+                "min_delay_minutes_between_executions": 30,
+            }],
+            workflows=[
+                {
+                    "steps": [
+                        {
+                            "custom_action_lambda_configs": [{
+                                "lambdas": [{
+                                    "arn": example["arn"],
+                                }],
+                                "region_to_run": "activatingRegion",
+                                "retry_interval_minutes": float(5),
+                                "timeout_minutes": 30,
+                            }],
+                            "name": "lambda-step",
+                            "execution_block_type": "CustomActionLambda",
+                        },
+                        {
+                            "parallel_configs": [{
+                                "steps": [
+                                    {
+                                        "ec2_asg_capacity_increase_configs": [{
+                                            "asgs": [{
+                                                "arn": example_aws_autoscaling_group["arn"],
+                                            }],
+                                            "target_percent": 150,
+                                        }],
+                                        "name": "asg-scaling",
+                                        "execution_block_type": "EC2AutoScaling",
+                                    },
+                                    {
+                                        "ecs_capacity_increase_configs": [{
+                                            "services": [{
+                                                "cluster_arn": example_aws_ecs_cluster["arn"],
+                                                "service_arn": example_aws_ecs_service["arn"],
+                                            }],
+                                            "target_percent": 200,
+                                        }],
+                                        "name": "ecs-scaling",
+                                        "execution_block_type": "ECSServiceScaling",
+                                    },
+                                ],
+                            }],
+                            "name": "parallel-step",
+                            "execution_block_type": "Parallel",
+                        },
+                    ],
+                    "workflow_target_action": "activate",
+                    "workflow_target_region": "us-west-2",
+                },
+                {
+                    "steps": [{
+                        "route53_health_check_configs": [{
+                            "hosted_zone_id": example_aws_route53_zone["zoneId"],
+                            "record_name": "api.example.com",
+                        }],
+                        "name": "route53-health-check",
+                        "execution_block_type": "Route53HealthCheck",
+                    }],
+                    "workflow_target_action": "deactivate",
+                    "workflow_target_region": "us-east-1",
+                },
+            ],
             name="complex-plan",
             execution_role=example_aws_iam_role["arn"],
             recovery_approach="activeActive",
@@ -619,81 +694,6 @@ class Plan(pulumi.CustomResource):
             ],
             description="Complex plan with multiple execution block types",
             recovery_time_objective_minutes=60,
-            associated_alarms=[{
-                "name": "application-health-alarm",
-                "alarm_type": "applicationHealth",
-                "resource_identifier": "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
-            }],
-            workflows=[
-                {
-                    "workflow_target_action": "activate",
-                    "workflow_target_region": "us-west-2",
-                    "steps": [
-                        {
-                            "name": "lambda-step",
-                            "execution_block_type": "CustomActionLambda",
-                            "custom_action_lambda_configs": [{
-                                "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": float(5),
-                                "timeout_minutes": 30,
-                                "lambdas": [{
-                                    "arn": example["arn"],
-                                }],
-                            }],
-                        },
-                        {
-                            "name": "parallel-step",
-                            "execution_block_type": "Parallel",
-                            "parallel_configs": [{
-                                "steps": [
-                                    {
-                                        "name": "asg-scaling",
-                                        "execution_block_type": "EC2AutoScaling",
-                                        "ec2_asg_capacity_increase_configs": [{
-                                            "asgs": [{
-                                                "arn": example_aws_autoscaling_group["arn"],
-                                            }],
-                                            "target_percent": 150,
-                                        }],
-                                    },
-                                    {
-                                        "name": "ecs-scaling",
-                                        "execution_block_type": "ECSServiceScaling",
-                                        "ecs_capacity_increase_configs": [{
-                                            "services": [{
-                                                "cluster_arn": example_aws_ecs_cluster["arn"],
-                                                "service_arn": example_aws_ecs_service["arn"],
-                                            }],
-                                            "target_percent": 200,
-                                        }],
-                                    },
-                                ],
-                            }],
-                        },
-                    ],
-                },
-                {
-                    "workflow_target_action": "deactivate",
-                    "workflow_target_region": "us-east-1",
-                    "steps": [{
-                        "name": "route53-health-check",
-                        "execution_block_type": "Route53HealthCheck",
-                        "route53_health_check_configs": [{
-                            "hosted_zone_id": example_aws_route53_zone["zoneId"],
-                            "record_name": "api.example.com",
-                        }],
-                    }],
-                },
-            ],
-            triggers=[{
-                "action": "activate",
-                "target_region": "us-west-2",
-                "min_delay_minutes_between_executions": 30,
-                "conditions": [{
-                    "associated_alarm_name": "application-health-alarm",
-                    "condition": "red",
-                }],
-            }],
             tags={
                 "Environment": "production",
             })
@@ -705,7 +705,7 @@ class Plan(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+        - `arn` (String) ARN of the ARC Region Switch Plan.
 
         Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
 
@@ -763,6 +763,32 @@ class Plan(pulumi.CustomResource):
                 }],
             }))
         example_plan = aws.arcregionswitch.Plan("example",
+            workflows=[
+                {
+                    "steps": [{
+                        "execution_approval_configs": [{
+                            "approval_role": example.arn,
+                            "timeout_minutes": 60,
+                        }],
+                        "name": "manual-approval",
+                        "execution_block_type": "ManualApproval",
+                    }],
+                    "workflow_target_action": "activate",
+                    "workflow_target_region": "us-west-2",
+                },
+                {
+                    "steps": [{
+                        "execution_approval_configs": [{
+                            "approval_role": example.arn,
+                            "timeout_minutes": 60,
+                        }],
+                        "name": "manual-approval",
+                        "execution_block_type": "ManualApproval",
+                    }],
+                    "workflow_target_action": "deactivate",
+                    "workflow_target_region": "us-east-1",
+                },
+            ],
             name="example-plan",
             execution_role=example.arn,
             recovery_approach="activePassive",
@@ -770,33 +796,7 @@ class Plan(pulumi.CustomResource):
                 "us-east-1",
                 "us-west-2",
             ],
-            primary_region="us-east-1",
-            workflows=[
-                {
-                    "workflow_target_action": "activate",
-                    "workflow_target_region": "us-west-2",
-                    "steps": [{
-                        "name": "manual-approval",
-                        "execution_block_type": "ManualApproval",
-                        "execution_approval_configs": [{
-                            "approval_role": example.arn,
-                            "timeout_minutes": 60,
-                        }],
-                    }],
-                },
-                {
-                    "workflow_target_action": "deactivate",
-                    "workflow_target_region": "us-east-1",
-                    "steps": [{
-                        "name": "manual-approval",
-                        "execution_block_type": "ManualApproval",
-                        "execution_approval_configs": [{
-                            "approval_role": example.arn,
-                            "timeout_minutes": 60,
-                        }],
-                    }],
-                },
-            ])
+            primary_region="us-east-1")
         ```
 
         ### Complex Usage with Multiple Step Types
@@ -806,6 +806,81 @@ class Plan(pulumi.CustomResource):
         import pulumi_aws as aws
 
         complex = aws.arcregionswitch.Plan("complex",
+            associated_alarms=[{
+                "name": "application-health-alarm",
+                "alarm_type": "applicationHealth",
+                "resource_identifier": "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
+            }],
+            triggers=[{
+                "conditions": [{
+                    "associated_alarm_name": "application-health-alarm",
+                    "condition": "red",
+                }],
+                "action": "activate",
+                "target_region": "us-west-2",
+                "min_delay_minutes_between_executions": 30,
+            }],
+            workflows=[
+                {
+                    "steps": [
+                        {
+                            "custom_action_lambda_configs": [{
+                                "lambdas": [{
+                                    "arn": example["arn"],
+                                }],
+                                "region_to_run": "activatingRegion",
+                                "retry_interval_minutes": float(5),
+                                "timeout_minutes": 30,
+                            }],
+                            "name": "lambda-step",
+                            "execution_block_type": "CustomActionLambda",
+                        },
+                        {
+                            "parallel_configs": [{
+                                "steps": [
+                                    {
+                                        "ec2_asg_capacity_increase_configs": [{
+                                            "asgs": [{
+                                                "arn": example_aws_autoscaling_group["arn"],
+                                            }],
+                                            "target_percent": 150,
+                                        }],
+                                        "name": "asg-scaling",
+                                        "execution_block_type": "EC2AutoScaling",
+                                    },
+                                    {
+                                        "ecs_capacity_increase_configs": [{
+                                            "services": [{
+                                                "cluster_arn": example_aws_ecs_cluster["arn"],
+                                                "service_arn": example_aws_ecs_service["arn"],
+                                            }],
+                                            "target_percent": 200,
+                                        }],
+                                        "name": "ecs-scaling",
+                                        "execution_block_type": "ECSServiceScaling",
+                                    },
+                                ],
+                            }],
+                            "name": "parallel-step",
+                            "execution_block_type": "Parallel",
+                        },
+                    ],
+                    "workflow_target_action": "activate",
+                    "workflow_target_region": "us-west-2",
+                },
+                {
+                    "steps": [{
+                        "route53_health_check_configs": [{
+                            "hosted_zone_id": example_aws_route53_zone["zoneId"],
+                            "record_name": "api.example.com",
+                        }],
+                        "name": "route53-health-check",
+                        "execution_block_type": "Route53HealthCheck",
+                    }],
+                    "workflow_target_action": "deactivate",
+                    "workflow_target_region": "us-east-1",
+                },
+            ],
             name="complex-plan",
             execution_role=example_aws_iam_role["arn"],
             recovery_approach="activeActive",
@@ -815,81 +890,6 @@ class Plan(pulumi.CustomResource):
             ],
             description="Complex plan with multiple execution block types",
             recovery_time_objective_minutes=60,
-            associated_alarms=[{
-                "name": "application-health-alarm",
-                "alarm_type": "applicationHealth",
-                "resource_identifier": "arn:aws:cloudwatch:us-east-1:123456789012:alarm:MyAlarm",
-            }],
-            workflows=[
-                {
-                    "workflow_target_action": "activate",
-                    "workflow_target_region": "us-west-2",
-                    "steps": [
-                        {
-                            "name": "lambda-step",
-                            "execution_block_type": "CustomActionLambda",
-                            "custom_action_lambda_configs": [{
-                                "region_to_run": "activatingRegion",
-                                "retry_interval_minutes": float(5),
-                                "timeout_minutes": 30,
-                                "lambdas": [{
-                                    "arn": example["arn"],
-                                }],
-                            }],
-                        },
-                        {
-                            "name": "parallel-step",
-                            "execution_block_type": "Parallel",
-                            "parallel_configs": [{
-                                "steps": [
-                                    {
-                                        "name": "asg-scaling",
-                                        "execution_block_type": "EC2AutoScaling",
-                                        "ec2_asg_capacity_increase_configs": [{
-                                            "asgs": [{
-                                                "arn": example_aws_autoscaling_group["arn"],
-                                            }],
-                                            "target_percent": 150,
-                                        }],
-                                    },
-                                    {
-                                        "name": "ecs-scaling",
-                                        "execution_block_type": "ECSServiceScaling",
-                                        "ecs_capacity_increase_configs": [{
-                                            "services": [{
-                                                "cluster_arn": example_aws_ecs_cluster["arn"],
-                                                "service_arn": example_aws_ecs_service["arn"],
-                                            }],
-                                            "target_percent": 200,
-                                        }],
-                                    },
-                                ],
-                            }],
-                        },
-                    ],
-                },
-                {
-                    "workflow_target_action": "deactivate",
-                    "workflow_target_region": "us-east-1",
-                    "steps": [{
-                        "name": "route53-health-check",
-                        "execution_block_type": "Route53HealthCheck",
-                        "route53_health_check_configs": [{
-                            "hosted_zone_id": example_aws_route53_zone["zoneId"],
-                            "record_name": "api.example.com",
-                        }],
-                    }],
-                },
-            ],
-            triggers=[{
-                "action": "activate",
-                "target_region": "us-west-2",
-                "min_delay_minutes_between_executions": 30,
-                "conditions": [{
-                    "associated_alarm_name": "application-health-alarm",
-                    "condition": "red",
-                }],
-            }],
             tags={
                 "Environment": "production",
             })
@@ -901,7 +901,7 @@ class Plan(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ARC Region Switch Plan.
+        - `arn` (String) ARN of the ARC Region Switch Plan.
 
         Using `pulumi import`, import Application Recovery Controller Region Switch Plan using the `arn`. For example:
 

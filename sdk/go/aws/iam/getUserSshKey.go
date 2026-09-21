@@ -76,12 +76,8 @@ type GetUserSshKeyResult struct {
 }
 
 func GetUserSshKeyOutput(ctx *pulumi.Context, args GetUserSshKeyOutputArgs, opts ...pulumi.InvokeOption) GetUserSshKeyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetUserSshKeyResultOutput, error) {
-			args := v.(GetUserSshKeyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getUserSshKey:getUserSshKey", args, GetUserSshKeyResultOutput{}, options).(GetUserSshKeyResultOutput), nil
-		}).(GetUserSshKeyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getUserSshKey:getUserSshKey", args, GetUserSshKeyResultOutput{}, options).(GetUserSshKeyResultOutput)
 }
 
 // A collection of arguments for invoking getUserSshKey.

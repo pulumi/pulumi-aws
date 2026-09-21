@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SnapshotImport("example", SnapshotImportArgs.builder()
  *             .diskContainer(SnapshotImportDiskContainerArgs.builder()
- *                 .format("VHD")
  *                 .userBucket(SnapshotImportDiskContainerUserBucketArgs.builder()
  *                     .s3Bucket("disk-images")
  *                     .s3Key("source.vhd")
  *                     .build())
+ *                 .format("VHD")
  *                 .build())
  *             .roleName("disk-image-import")
  *             .tags(Map.of("Name", "HelloWorld"))
@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/snapshotImport:SnapshotImport")
 public class SnapshotImport extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public Output<String> arn() {

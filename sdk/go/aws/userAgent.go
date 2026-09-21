@@ -50,19 +50,15 @@ func UserAgentOutput(ctx *pulumi.Context, productName pulumi.StringInput, produc
 		ProductVersion: productVersion,
 		Comment:        comment,
 	}
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (pulumi.StringOutput, error) {
-			args := v.(userAgentArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			rv := ctx.InvokeOutput("aws:index/userAgent:userAgent", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
-			return rv.ApplyT(func(rv map[string]string) string {
-				var result string
-				for _, v := range rv {
-					result = v
-				}
-				return result
-			}).(pulumi.StringOutput), nil
-		}).(pulumi.StringOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	rv := ctx.InvokeOutput("aws:index/userAgent:userAgent", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
+	return rv.ApplyT(func(rv map[string]string) string {
+		var result string
+		for _, v := range rv {
+			result = v
+		}
+		return result
+	}).(pulumi.StringOutput)
 }
 
 type userAgentOutputArgs struct {

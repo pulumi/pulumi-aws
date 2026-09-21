@@ -53,14 +53,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -462,14 +462,14 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -598,7 +598,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -609,7 +609,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -1199,7 +1199,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 
@@ -1210,7 +1210,7 @@ public final class WindowsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 

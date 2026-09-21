@@ -36,7 +36,7 @@ export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise
  */
 export interface GetPlanArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * ARN of the contact or escalation plan.
      */
     contactId: string;
     /**
@@ -89,7 +89,7 @@ export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOutpu
  */
 export interface GetPlanOutputArgs {
     /**
-     * The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * ARN of the contact or escalation plan.
      */
     contactId: pulumi.Input<string>;
     /**

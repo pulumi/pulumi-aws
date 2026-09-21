@@ -63,7 +63,7 @@ export class TemplateAlias extends pulumi.CustomResource {
      */
     declare public readonly aliasName: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the template alias.
+     * ARN of the template alias.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export interface TemplateAliasState {
      */
     aliasName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the template alias.
+     * ARN of the template alias.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

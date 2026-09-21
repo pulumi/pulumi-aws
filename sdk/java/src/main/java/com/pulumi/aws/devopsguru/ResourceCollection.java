@@ -49,10 +49,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_SERVICE")
  *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
  *                 .stackNames("*")
  *                 .build())
+ *             .type("AWS_SERVICE")
  *             .build());
  * 
  *     }
@@ -86,10 +86,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_CLOUD_FORMATION")
  *             .cloudformation(ResourceCollectionCloudformationArgs.builder()
  *                 .stackNames("ExampleStack")
  *                 .build())
+ *             .type("AWS_CLOUD_FORMATION")
  *             .build());
  * 
  *     }
@@ -123,11 +123,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_TAGS")
  *             .tags(ResourceCollectionTagsArgs.builder()
  *                 .appBoundaryKey("DevOps-Guru-Example")
  *                 .tagValues("Example-Value")
  *                 .build())
+ *             .type("AWS_TAGS")
  *             .build());
  * 
  *     }
@@ -163,11 +163,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceCollection("example", ResourceCollectionArgs.builder()
- *             .type("AWS_TAGS")
  *             .tags(ResourceCollectionTagsArgs.builder()
  *                 .appBoundaryKey("DevOps-Guru-Example")
  *                 .tagValues("*")
  *                 .build())
+ *             .type("AWS_TAGS")
  *             .build());
  * 
  *     }

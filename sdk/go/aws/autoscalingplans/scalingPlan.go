@@ -72,7 +72,6 @@ import (
 //				return err
 //			}
 //			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
-//				Name: pulumi.String("example-dynamic-cost-optimization"),
 //				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
 //					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
 //						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
@@ -85,11 +84,6 @@ import (
 //				},
 //				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
 //					&autoscalingplans.ScalingPlanScalingInstructionArgs{
-//						MaxCapacity:       pulumi.Int(3),
-//						MinCapacity:       pulumi.Int(0),
-//						ResourceId:        pulumi.String(invokeFormat.Result),
-//						ScalableDimension: pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
-//						ServiceNamespace:  pulumi.String("autoscaling"),
 //						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
 //							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
 //								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
@@ -98,8 +92,14 @@ import (
 //								TargetValue: pulumi.Float64(70),
 //							},
 //						},
+//						MaxCapacity:       pulumi.Int(3),
+//						MinCapacity:       pulumi.Int(0),
+//						ResourceId:        pulumi.String(invokeFormat.Result),
+//						ScalableDimension: pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
+//						ServiceNamespace:  pulumi.String("autoscaling"),
 //					},
 //				},
+//				Name: pulumi.String("example-dynamic-cost-optimization"),
 //			})
 //			if err != nil {
 //				return err
@@ -161,7 +161,6 @@ import (
 //				return err
 //			}
 //			_, err = autoscalingplans.NewScalingPlan(ctx, "example", &autoscalingplans.ScalingPlanArgs{
-//				Name: pulumi.String("example-predictive-cost-optimization"),
 //				ApplicationSource: &autoscalingplans.ScalingPlanApplicationSourceArgs{
 //					TagFilters: autoscalingplans.ScalingPlanApplicationSourceTagFilterArray{
 //						&autoscalingplans.ScalingPlanApplicationSourceTagFilterArgs{
@@ -174,12 +173,9 @@ import (
 //				},
 //				ScalingInstructions: autoscalingplans.ScalingPlanScalingInstructionArray{
 //					&autoscalingplans.ScalingPlanScalingInstructionArgs{
-//						DisableDynamicScaling: pulumi.Bool(true),
-//						MaxCapacity:           pulumi.Int(3),
-//						MinCapacity:           pulumi.Int(0),
-//						ResourceId:            pulumi.String(invokeFormat.Result),
-//						ScalableDimension:     pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
-//						ServiceNamespace:      pulumi.String("autoscaling"),
+//						PredefinedLoadMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{
+//							PredefinedLoadMetricType: pulumi.String("ASGTotalCPUUtilization"),
+//						},
 //						TargetTrackingConfigurations: autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArray{
 //							&autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationArgs{
 //								PredefinedScalingMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionTargetTrackingConfigurationPredefinedScalingMetricSpecificationArgs{
@@ -188,13 +184,17 @@ import (
 //								TargetValue: pulumi.Float64(70),
 //							},
 //						},
+//						DisableDynamicScaling:                pulumi.Bool(true),
+//						MaxCapacity:                          pulumi.Int(3),
+//						MinCapacity:                          pulumi.Int(0),
+//						ResourceId:                           pulumi.String(invokeFormat.Result),
+//						ScalableDimension:                    pulumi.String("autoscaling:autoScalingGroup:DesiredCapacity"),
+//						ServiceNamespace:                     pulumi.String("autoscaling"),
 //						PredictiveScalingMaxCapacityBehavior: pulumi.String("SetForecastCapacityToMaxCapacity"),
 //						PredictiveScalingMode:                pulumi.String("ForecastAndScale"),
-//						PredefinedLoadMetricSpecification: &autoscalingplans.ScalingPlanScalingInstructionPredefinedLoadMetricSpecificationArgs{
-//							PredefinedLoadMetricType: pulumi.String("ASGTotalCPUUtilization"),
-//						},
 //					},
 //				},
+//				Name: pulumi.String("example-predictive-cost-optimization"),
 //			})
 //			if err != nil {
 //				return err

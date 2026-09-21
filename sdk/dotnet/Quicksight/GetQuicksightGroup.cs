@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Quicksight
     public sealed class GetQuicksightGroupResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the group.
+        /// ARN for the group.
         /// </summary>
         public readonly string Arn;
         public readonly string AwsAccountId;

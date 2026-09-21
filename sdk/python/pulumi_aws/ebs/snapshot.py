@@ -32,7 +32,7 @@ class SnapshotArgs:
 
         :param pulumi.Input[_builtins.str] volume_id: The Volume ID of which to make a snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create a local snapshot.
         :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -83,7 +83,7 @@ class SnapshotArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        ARN of the Outpost on which to create a local snapshot.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -174,12 +174,12 @@ class _SnapshotState:
         """
         Input properties used for looking up and filtering Snapshot resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
         :param pulumi.Input[_builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create a local snapshot.
         :param pulumi.Input[_builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
@@ -228,7 +228,7 @@ class _SnapshotState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -288,7 +288,7 @@ class _SnapshotState:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        ARN of the Outpost on which to create a local snapshot.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -466,7 +466,7 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create a local snapshot.
         :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] storage_tier: The name of the storage tier. Valid values are `archive` and `standard`. Default value is `standard`.
@@ -594,12 +594,12 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: A description of what the snapshot is.
         :param pulumi.Input[_builtins.bool] encrypted: Whether the snapshot is encrypted.
         :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key.
-        :param pulumi.Input[_builtins.str] outpost_arn: The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost on which to create a local snapshot.
         :param pulumi.Input[_builtins.str] owner_alias: Value from an Amazon-maintained list (`amazon`, `aws-marketplace`, `microsoft`) of snapshot owners.
         :param pulumi.Input[_builtins.str] owner_id: The AWS account ID of the EBS snapshot owner.
         :param pulumi.Input[_builtins.bool] permanent_restore: Indicates whether to permanently restore an archived snapshot.
@@ -637,7 +637,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -677,7 +677,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+        ARN of the Outpost on which to create a local snapshot.
         """
         return pulumi.get(self, "outpost_arn")
 

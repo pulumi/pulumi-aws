@@ -28,9 +28,6 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("example", {
- *     name: "example-flink-application",
- *     runtimeEnvironment: "FLINK-1_8",
- *     serviceExecutionRole: exampleAwsIamRole.arn,
  *     applicationConfiguration: {
  *         applicationCodeConfiguration: {
  *             codeContent: {
@@ -75,6 +72,9 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     name: "example-flink-application",
+ *     runtimeEnvironment: "FLINK-1_8",
+ *     serviceExecutionRole: exampleAwsIamRole.arn,
  *     tags: {
  *         Environment: "test",
  *     },
@@ -93,9 +93,6 @@ import * as utilities from "../utilities";
  *     logGroupName: example.name,
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("example", {
- *     name: "example-sql-application",
- *     runtimeEnvironment: "SQL-1_0",
- *     serviceExecutionRole: exampleAwsIamRole.arn,
  *     applicationConfiguration: {
  *         applicationCodeConfiguration: {
  *             codeContent: {
@@ -105,11 +102,19 @@ import * as utilities from "../utilities";
  *         },
  *         sqlApplicationConfiguration: {
  *             input: {
- *                 namePrefix: "PREFIX_1",
  *                 inputParallelism: {
  *                     count: 3,
  *                 },
  *                 inputSchema: {
+ *                     recordFormat: {
+ *                         mappingParameters: {
+ *                             csvMappingParameters: {
+ *                                 recordColumnDelimiter: ",",
+ *                                 recordRowDelimiter: "\n",
+ *                             },
+ *                         },
+ *                         recordFormatType: "CSV",
+ *                     },
  *                     recordColumns: [
  *                         {
  *                             name: "COLUMN_1",
@@ -122,66 +127,61 @@ import * as utilities from "../utilities";
  *                         },
  *                     ],
  *                     recordEncoding: "UTF-8",
- *                     recordFormat: {
- *                         recordFormatType: "CSV",
- *                         mappingParameters: {
- *                             csvMappingParameters: {
- *                                 recordColumnDelimiter: ",",
- *                                 recordRowDelimiter: "\n",
- *                             },
- *                         },
- *                     },
  *                 },
  *                 kinesisStreamsInput: {
  *                     resourceArn: exampleAwsKinesisStream.arn,
  *                 },
+ *                 namePrefix: "PREFIX_1",
+ *             },
+ *             referenceDataSource: {
+ *                 referenceSchema: {
+ *                     recordFormat: {
+ *                         mappingParameters: {
+ *                             jsonMappingParameters: {
+ *                                 recordRowPath: "$",
+ *                             },
+ *                         },
+ *                         recordFormatType: "JSON",
+ *                     },
+ *                     recordColumns: [{
+ *                         name: "COLUMN_1",
+ *                         sqlType: "INTEGER",
+ *                     }],
+ *                 },
+ *                 s3ReferenceDataSource: {
+ *                     bucketArn: exampleAwsS3Bucket.arn,
+ *                     fileKey: "KEY-1",
+ *                 },
+ *                 tableName: "TABLE-1",
  *             },
  *             outputs: [
  *                 {
- *                     name: "OUTPUT_1",
  *                     destinationSchema: {
  *                         recordFormatType: "JSON",
  *                     },
  *                     lambdaOutput: {
  *                         resourceArn: exampleAwsLambdaFunction.arn,
  *                     },
+ *                     name: "OUTPUT_1",
  *                 },
  *                 {
- *                     name: "OUTPUT_2",
  *                     destinationSchema: {
  *                         recordFormatType: "CSV",
  *                     },
  *                     kinesisFirehoseOutput: {
  *                         resourceArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *                     },
+ *                     name: "OUTPUT_2",
  *                 },
  *             ],
- *             referenceDataSource: {
- *                 tableName: "TABLE-1",
- *                 referenceSchema: {
- *                     recordColumns: [{
- *                         name: "COLUMN_1",
- *                         sqlType: "INTEGER",
- *                     }],
- *                     recordFormat: {
- *                         recordFormatType: "JSON",
- *                         mappingParameters: {
- *                             jsonMappingParameters: {
- *                                 recordRowPath: "$",
- *                             },
- *                         },
- *                     },
- *                 },
- *                 s3ReferenceDataSource: {
- *                     bucketArn: exampleAwsS3Bucket.arn,
- *                     fileKey: "KEY-1",
- *                 },
- *             },
  *         },
  *     },
  *     cloudwatchLoggingOptions: {
  *         logStreamArn: exampleLogStream.arn,
  *     },
+ *     name: "example-sql-application",
+ *     runtimeEnvironment: "SQL-1_0",
+ *     serviceExecutionRole: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -198,9 +198,6 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("flink-app.jar"),
  * });
  * const exampleApplication = new aws.kinesisanalyticsv2.Application("example", {
- *     name: "example-flink-application",
- *     runtimeEnvironment: "FLINK-1_8",
- *     serviceExecutionRole: exampleAwsIamRole.arn,
  *     applicationConfiguration: {
  *         applicationCodeConfiguration: {
  *             codeContent: {
@@ -219,6 +216,9 @@ import * as utilities from "../utilities";
  *             subnetIds: [exampleAwsSubnet.id],
  *         },
  *     },
+ *     name: "example-flink-application",
+ *     runtimeEnvironment: "FLINK-1_8",
+ *     serviceExecutionRole: exampleAwsIamRole.arn,
  * });
  * ```
  *

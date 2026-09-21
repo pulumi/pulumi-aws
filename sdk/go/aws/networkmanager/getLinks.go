@@ -79,12 +79,8 @@ type GetLinksResult struct {
 }
 
 func GetLinksOutput(ctx *pulumi.Context, args GetLinksOutputArgs, opts ...pulumi.InvokeOption) GetLinksResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLinksResultOutput, error) {
-			args := v.(GetLinksArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkmanager/getLinks:getLinks", args, GetLinksResultOutput{}, options).(GetLinksResultOutput), nil
-		}).(GetLinksResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkmanager/getLinks:getLinks", args, GetLinksResultOutput{}, options).(GetLinksResultOutput)
 }
 
 // A collection of arguments for invoking getLinks.

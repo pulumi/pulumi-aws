@@ -94,25 +94,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www_dev = new Record("www-dev", RecordArgs.builder()
+ *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
+ *                 .weight(10)
+ *                 .build())
  *             .zoneId(primary.zoneId())
  *             .name("www")
  *             .type("CNAME")
  *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(10)
- *                 .build())
  *             .setIdentifier("dev")
  *             .records("dev.example.com")
  *             .build());
  * 
  *         var www_live = new Record("www-live", RecordArgs.builder()
+ *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
+ *                 .weight(90)
+ *                 .build())
  *             .zoneId(primary.zoneId())
  *             .name("www")
  *             .type("CNAME")
  *             .ttl(5)
- *             .weightedRoutingPolicies(RecordWeightedRoutingPolicyArgs.builder()
- *                 .weight(90)
- *                 .build())
  *             .setIdentifier("live")
  *             .records("live.example.com")
  *             .build());
@@ -149,16 +149,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var www = new Record("www", RecordArgs.builder()
- *             .zoneId(primary.zoneId())
- *             .name("www.example.com")
- *             .type("CNAME")
- *             .ttl(300)
  *             .geoproximityRoutingPolicy(RecordGeoproximityRoutingPolicyArgs.builder()
  *                 .coordinates(RecordGeoproximityRoutingPolicyCoordinateArgs.builder()
  *                     .latitude("49.22")
  *                     .longitude("-74.01")
  *                     .build())
  *                 .build())
+ *             .zoneId(primary.zoneId())
+ *             .name("www.example.com")
+ *             .type("CNAME")
+ *             .ttl(300)
  *             .setIdentifier("dev")
  *             .records("dev.example.com")
  *             .build());
@@ -203,25 +203,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var main = new LoadBalancer("main", LoadBalancerArgs.builder()
- *             .name("foobar-elb")
- *             .availabilityZones("us-east-1c")
  *             .listeners(LoadBalancerListenerArgs.builder()
  *                 .instancePort(80)
  *                 .instanceProtocol("http")
  *                 .lbPort(80)
  *                 .lbProtocol("http")
  *                 .build())
+ *             .name("foobar-elb")
+ *             .availabilityZones("us-east-1c")
  *             .build());
  * 
  *         var www = new Record("www", RecordArgs.builder()
- *             .zoneId(primary.zoneId())
- *             .name("example.com")
- *             .type("A")
  *             .aliases(RecordAliasArgs.builder()
  *                 .name(main.dnsName())
  *                 .zoneId(main.zoneId())
  *                 .evaluateTargetHealth(true)
  *                 .build())
+ *             .zoneId(primary.zoneId())
+ *             .name("example.com")
+ *             .type("A")
  *             .build());
  * 
  *     }
@@ -263,14 +263,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var www = new Record("www", RecordArgs.builder()
- *             .zoneId(primary.zoneId())
- *             .name("example.com")
- *             .type("A")
  *             .aliases(RecordAliasArgs.builder()
  *                 .name(main.dnsName())
  *                 .zoneId(main.hostedZoneId())
  *                 .evaluateTargetHealth(false)
  *                 .build())
+ *             .zoneId(primary.zoneId())
+ *             .name("example.com")
+ *             .type("A")
  *             .build());
  * 
  *     }

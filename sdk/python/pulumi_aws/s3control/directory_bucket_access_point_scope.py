@@ -192,16 +192,14 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example--zoneId--xa-s3")
         example_directory_bucket_access_point_scope = aws.s3control.DirectoryBucketAccessPointScope("example",
-            name="example--zoneId--xa-s3",
-            account_id="123456789012",
             scope={
                 "permissions": [
                     "GetObject",
@@ -211,7 +209,9 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                     "myobject1.csv",
                     "myobject2*",
                 ],
-            })
+            },
+            name="example--zoneId--xa-s3",
+            account_id="123456789012")
         ```
 
         ## Import
@@ -255,16 +255,14 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=example.id,
             name="example--zoneId--xa-s3")
         example_directory_bucket_access_point_scope = aws.s3control.DirectoryBucketAccessPointScope("example",
-            name="example--zoneId--xa-s3",
-            account_id="123456789012",
             scope={
                 "permissions": [
                     "GetObject",
@@ -274,7 +272,9 @@ class DirectoryBucketAccessPointScope(pulumi.CustomResource):
                     "myobject1.csv",
                     "myobject2*",
                 ],
-            })
+            },
+            name="example--zoneId--xa-s3",
+            account_id="123456789012")
         ```
 
         ## Import

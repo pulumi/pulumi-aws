@@ -52,9 +52,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var bar = new Pipeline("bar", PipelineArgs.builder()
- *             .inputBucket(inputBucket.id())
- *             .name("aws_elastictranscoder_pipeline_my_test_")
- *             .role(testRole.arn())
  *             .contentConfig(PipelineContentConfigArgs.builder()
  *                 .bucket(contentBucket.id())
  *                 .storageClass("Standard")
@@ -63,6 +60,9 @@ import javax.annotation.Nullable;
  *                 .bucket(thumbBucket.id())
  *                 .storageClass("Standard")
  *                 .build())
+ *             .inputBucket(inputBucket.id())
+ *             .name("aws_elastictranscoder_pipeline_my_test_")
+ *             .role(testRole.arn())
  *             .build());
  * 
  *     }
@@ -96,14 +96,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * KMS key that you want to use with this pipeline.
      * 
      */
     @Export(name="awsKmsKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> awsKmsKeyArn;
 
     /**
-     * @return The AWS Key Management Service (AWS KMS) key that you want to use with this pipeline.
+     * @return KMS key that you want to use with this pipeline.
      * 
      */
     public Output<Optional<String>> awsKmsKeyArn() {
@@ -208,14 +208,14 @@ public class Pipeline extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return The IAM Amazon Resource Name (ARN) for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
+     * @return IAM ARN for the role that you want Elastic Transcoder to use to transcode jobs for this pipeline.
      * 
      */
     public Output<String> role() {

@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.IndexingRule("example", {
- *     name: "Default",
  *     rule: {
  *         probabilistic: {
  *             desiredSamplingPercentage: 0.66,
  *         },
  *     },
+ *     name: "Default",
  * });
  * ```
  *

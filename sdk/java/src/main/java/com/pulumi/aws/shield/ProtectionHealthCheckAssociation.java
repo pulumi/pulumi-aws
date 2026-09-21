@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:shield/protectionHealthCheckAssociation:ProtectionHealthCheckAssociation")
 public class ProtectionHealthCheckAssociation extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * ARN of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
     @Export(name="healthCheckArn", refs={String.class}, tree="[0]")
     private Output<String> healthCheckArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the Route53 Health Check resource which will be associated to the protected resource.
+     * @return ARN of the Route53 Health Check resource which will be associated to the protected resource.
      * 
      */
     public Output<String> healthCheckArn() {

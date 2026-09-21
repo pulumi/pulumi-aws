@@ -56,10 +56,14 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     ///     var exampleLifecyclePolicy = new Aws.ImageBuilder.LifecyclePolicy("example", new()
     ///     {
-    ///         Name = "name",
-    ///         Description = "Example description",
-    ///         ExecutionRole = example.Arn,
-    ///         ResourceType = "AMI_IMAGE",
+    ///         ResourceSelection = new Aws.ImageBuilder.Inputs.LifecyclePolicyResourceSelectionArgs
+    ///         {
+    ///             TagMap = 
+    ///             {
+    ///                 { "key1", "value1" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         },
     ///         PolicyDetails = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.LifecyclePolicyPolicyDetailArgs
@@ -77,14 +81,10 @@ namespace Pulumi.Aws.ImageBuilder
     ///                 },
     ///             },
     ///         },
-    ///         ResourceSelection = new Aws.ImageBuilder.Inputs.LifecyclePolicyResourceSelectionArgs
-    ///         {
-    ///             TagMap = 
-    ///             {
-    ///                 { "key1", "value1" },
-    ///                 { "key2", "value2" },
-    ///             },
-    ///         },
+    ///         Name = "name",
+    ///         Description = "Example description",
+    ///         ExecutionRole = example.Arn,
+    ///         ResourceType = "AMI_IMAGE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -102,9 +102,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+    /// - `Arn` (String) ARN of the Image Builder lifecycle policy.
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.LifecyclePolicy` using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.ImageBuilder
     public partial class LifecyclePolicy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the lifecycle policy.
+        /// ARN of the lifecycle policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        /// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
         [Output("executionRole")]
         public Output<string> ExecutionRole { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        /// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
         [Input("executionRole", required: true)]
         public Input<string> ExecutionRole { get; set; } = null!;
@@ -304,7 +304,7 @@ namespace Pulumi.Aws.ImageBuilder
     public sealed class LifecyclePolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the lifecycle policy.
+        /// ARN of the lifecycle policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -316,7 +316,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        /// ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`Here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         /// </summary>
         [Input("executionRole")]
         public Input<string>? ExecutionRole { get; set; }

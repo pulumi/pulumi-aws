@@ -83,12 +83,12 @@ import * as utilities from "../utilities";
  *     dependsOn: [exampleKeySigningKey],
  * });
  * const exampleDelegationSignerRecord = new aws.route53domains.DelegationSignerRecord("example", {
- *     domainName: "example.com",
  *     signingAttributes: {
  *         algorithm: exampleKeySigningKey.signingAlgorithmType,
  *         flags: exampleKeySigningKey.flag,
  *         publicKey: exampleKeySigningKey.publicKey,
  *     },
+ *     domainName: "example.com",
  * });
  * ```
  *

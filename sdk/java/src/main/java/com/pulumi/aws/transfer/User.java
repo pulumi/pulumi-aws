@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("transfer.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var fooUser = new User("fooUser", UserArgs.builder()
- *             .serverId(fooServer.id())
- *             .userName("tftestuser")
- *             .role(fooRole.arn())
- *             .homeDirectoryType("LOGICAL")
  *             .homeDirectoryMappings(UserHomeDirectoryMappingArgs.builder()
  *                 .entry("/test.pdf")
  *                 .target("/bucket3/test-path/tftestuser.pdf")
  *                 .build())
+ *             .serverId(fooServer.id())
+ *             .userName("tftestuser")
+ *             .role(fooRole.arn())
+ *             .homeDirectoryType("LOGICAL")
  *             .build());
  * 
  *     }
@@ -136,11 +136,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new User("example", UserArgs.builder()
- *             .homeDirectoryType("LOGICAL")
  *             .homeDirectoryMappings(UserHomeDirectoryMappingArgs.builder()
  *                 .entry("/")
  *                 .target(String.format("/%s/${{Transfer:UserName}}", foo.id()))
  *                 .build())
+ *             .homeDirectoryType("LOGICAL")
  *             .build());
  * 
  *     }
@@ -160,14 +160,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Transfer User
+     * ARN of Transfer User
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Transfer User
+     * @return ARN of Transfer User
      * 
      */
     public Output<String> arn() {
@@ -258,14 +258,14 @@ public class User extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     public Output<String> role() {

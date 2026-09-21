@@ -155,14 +155,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/instance:Instance")
 public class Instance extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the instance.
+     * ARN of the instance.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the instance.
+     * @return ARN of the instance.
      * 
      */
     public Output<String> arn() {

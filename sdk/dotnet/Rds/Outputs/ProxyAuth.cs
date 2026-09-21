@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? IamAuth;
         /// <summary>
-        /// Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+        /// ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
         /// </summary>
         public readonly string? SecretArn;
         /// <summary>

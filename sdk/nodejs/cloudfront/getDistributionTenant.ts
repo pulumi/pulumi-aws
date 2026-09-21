@@ -37,7 +37,7 @@ export function getDistributionTenant(args?: GetDistributionTenantArgs, opts?: p
  */
 export interface GetDistributionTenantArgs {
     /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
+     * ARN for the distribution tenant.
      */
     arn?: string;
     /**
@@ -56,7 +56,7 @@ export interface GetDistributionTenantArgs {
  */
 export interface GetDistributionTenantResult {
     /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
+     * ARN for the distribution tenant.
      */
     readonly arn: string;
     /**
@@ -124,7 +124,7 @@ export function getDistributionTenantOutput(args?: GetDistributionTenantOutputAr
  */
 export interface GetDistributionTenantOutputArgs {
     /**
-     * ARN (Amazon Resource Name) for the distribution tenant.
+     * ARN for the distribution tenant.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -34,14 +34,14 @@ public final class ModelCardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the model card.
+     * ARN of the model card.
      * 
      */
     @Import(name="modelCardArn")
     private @Nullable Output<String> modelCardArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model card.
+     * @return ARN of the model card.
      * 
      */
     public Optional<Output<String>> modelCardArn() {
@@ -199,7 +199,7 @@ public final class ModelCardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modelCardArn The Amazon Resource Name (ARN) of the model card.
+         * @param modelCardArn ARN of the model card.
          * 
          * @return builder
          * 
@@ -210,7 +210,7 @@ public final class ModelCardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param modelCardArn The Amazon Resource Name (ARN) of the model card.
+         * @param modelCardArn ARN of the model card.
          * 
          * @return builder
          * 

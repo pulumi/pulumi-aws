@@ -31,7 +31,14 @@ class AgentcoreRegistryArgs:
         """
         The set of arguments for constructing a AgentcoreRegistry resource.
 
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreRegistryApprovalConfigurationArgs']]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        :param pulumi.Input[_builtins.str] description: Description of the registry.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if approval_configurations is not None:
             pulumi.set(__self__, "approval_configurations", approval_configurations)
@@ -51,6 +58,9 @@ class AgentcoreRegistryArgs:
     @_builtins.property
     @pulumi.getter(name="approvalConfigurations")
     def approval_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryApprovalConfigurationArgs']]]]:
+        """
+        Approval configuration for registry records. See below.
+        """
         return pulumi.get(self, "approval_configurations")
 
     @approval_configurations.setter
@@ -60,6 +70,9 @@ class AgentcoreRegistryArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationArgs']]:
+        """
+        Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
@@ -69,6 +82,9 @@ class AgentcoreRegistryArgs:
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
@@ -78,6 +94,9 @@ class AgentcoreRegistryArgs:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the registry.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -87,6 +106,11 @@ class AgentcoreRegistryArgs:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -97,7 +121,7 @@ class AgentcoreRegistryArgs:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -130,7 +154,14 @@ class _AgentcoreRegistryState:
         """
         Input properties used for looking up and filtering AgentcoreRegistry resources.
 
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreRegistryApprovalConfigurationArgs']]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input['AgentcoreRegistryAuthorizerConfigurationArgs'] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        :param pulumi.Input[_builtins.str] description: Description of the registry.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_arn: ARN of the registry.
         :param pulumi.Input[_builtins.str] registry_id: Unique identifier of the registry.
         """
@@ -156,6 +187,9 @@ class _AgentcoreRegistryState:
     @_builtins.property
     @pulumi.getter(name="approvalConfigurations")
     def approval_configurations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreRegistryApprovalConfigurationArgs']]]]:
+        """
+        Approval configuration for registry records. See below.
+        """
         return pulumi.get(self, "approval_configurations")
 
     @approval_configurations.setter
@@ -165,6 +199,9 @@ class _AgentcoreRegistryState:
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Input[Optional['AgentcoreRegistryAuthorizerConfigurationArgs']]:
+        """
+        Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        """
         return pulumi.get(self, "authorizer_configuration")
 
     @authorizer_configuration.setter
@@ -174,6 +211,9 @@ class _AgentcoreRegistryState:
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        """
         return pulumi.get(self, "authorizer_type")
 
     @authorizer_type.setter
@@ -183,6 +223,9 @@ class _AgentcoreRegistryState:
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of the registry.
+        """
         return pulumi.get(self, "description")
 
     @description.setter
@@ -192,6 +235,11 @@ class _AgentcoreRegistryState:
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "name")
 
     @name.setter
@@ -202,7 +250,7 @@ class _AgentcoreRegistryState:
     @pulumi.getter
     def region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 
@@ -261,15 +309,48 @@ class AgentcoreRegistry(pulumi.CustomResource):
         """
         Manages an AWS Bedrock AgentCore Registry. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
 
-        > **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. On August 6, 2026) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until September 17, 2026 Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        > **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. [On August 6, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html#registry-faq-what-is-changing) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until [September 17, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html). Use the `agentregistry.Registry` resource for all new registries.
 
-        The following arguments are optional:
+        ## Example Usage
 
-        * `approval_configuration` - (Optional)  Approval configuration for registry records. See below.
-        * `authorizer_configuration` - (Optional) Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
-        * `authorizer_type` - (Optional, Forces new resource) Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
-        * `description` - (Optional) Description of the registry.
-        * `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example", name="example_registry")
+        ```
+
+        ### With Description and Auto Approval
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example",
+            name="example_registry",
+            description="MCP servers and tools for the platform team",
+            auto_approval=True)
+        ```
+
+        ### With Custom JWT Authorizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example",
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://example.okta.com/.well-known/openid-configuration",
+                    "allowed_audiences": ["audience-id"],
+                    "allowed_clients": ["client-id"],
+                },
+            },
+            name="example_registry",
+            authorizer_type="CUSTOM_JWT")
+        ```
 
         ## Import
 
@@ -293,7 +374,14 @@ class AgentcoreRegistry(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        :param pulumi.Input[_builtins.str] description: Description of the registry.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
     @overload
@@ -304,15 +392,48 @@ class AgentcoreRegistry(pulumi.CustomResource):
         """
         Manages an AWS Bedrock AgentCore Registry. A registry serves as a centralized catalog for organizing and managing registry records, including MCP servers, A2A agents, agent skills, and custom resource types.
 
-        > **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. On August 6, 2026) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until September 17, 2026 Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+        > **Warning:** This resource is deprecated. AWS Agent Registry is currently available in public preview. [On August 6, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html#registry-faq-what-is-changing) functionality will move from the `bedrock-agentcore` namespace to the `agent-registry` namespace. This resource will continue to work until [September 17, 2026](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/registry-faq.html). Use the `agentregistry.Registry` resource for all new registries.
 
-        The following arguments are optional:
+        ## Example Usage
 
-        * `approval_configuration` - (Optional)  Approval configuration for registry records. See below.
-        * `authorizer_configuration` - (Optional) Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
-        * `authorizer_type` - (Optional, Forces new resource) Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
-        * `description` - (Optional) Description of the registry.
-        * `region` - (Optional) Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        ### Basic Usage
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example", name="example_registry")
+        ```
+
+        ### With Description and Auto Approval
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example",
+            name="example_registry",
+            description="MCP servers and tools for the platform team",
+            auto_approval=True)
+        ```
+
+        ### With Custom JWT Authorizer
+
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.bedrock.AgentcoreRegistry("example",
+            authorizer_configuration={
+                "custom_jwt_authorizer": {
+                    "discovery_url": "https://example.okta.com/.well-known/openid-configuration",
+                    "allowed_audiences": ["audience-id"],
+                    "allowed_clients": ["client-id"],
+                },
+            },
+            name="example_registry",
+            authorizer_type="CUSTOM_JWT")
+        ```
 
         ## Import
 
@@ -400,7 +521,14 @@ class AgentcoreRegistry(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreRegistryApprovalConfigurationArgs', 'AgentcoreRegistryApprovalConfigurationArgsDict']]]] approval_configurations: Approval configuration for registry records. See below.
+        :param pulumi.Input[Union['AgentcoreRegistryAuthorizerConfigurationArgs', 'AgentcoreRegistryAuthorizerConfigurationArgsDict']] authorizer_configuration: Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        :param pulumi.Input[_builtins.str] authorizer_type: Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        :param pulumi.Input[_builtins.str] description: Description of the registry.
+        :param pulumi.Input[_builtins.str] name: Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+               
+               The following arguments are optional:
+        :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] registry_arn: ARN of the registry.
         :param pulumi.Input[_builtins.str] registry_id: Unique identifier of the registry.
         """
@@ -422,33 +550,50 @@ class AgentcoreRegistry(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="approvalConfigurations")
     def approval_configurations(self) -> pulumi.Output[Sequence['outputs.AgentcoreRegistryApprovalConfiguration']]:
+        """
+        Approval configuration for registry records. See below.
+        """
         return pulumi.get(self, "approval_configurations")
 
     @_builtins.property
     @pulumi.getter(name="authorizerConfiguration")
     def authorizer_configuration(self) -> pulumi.Output[Optional['outputs.AgentcoreRegistryAuthorizerConfiguration']]:
+        """
+        Authorizer configuration for the registry. Required when `authorizer_type` is `CUSTOM_JWT`. See below.
+        """
         return pulumi.get(self, "authorizer_configuration")
 
     @_builtins.property
     @pulumi.getter(name="authorizerType")
     def authorizer_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of authorizer to use for the registry. Valid values are `AWS_IAM` (default) and `CUSTOM_JWT`. This controls the authorization method for the Search and Invoke APIs used by consumers.
+        """
         return pulumi.get(self, "authorizer_type")
 
     @_builtins.property
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Description of the registry.
+        """
         return pulumi.get(self, "description")
 
     @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
+        """
+        Name of the registry. Must be unique within your account and contain only letters, numbers, hyphens, and underscores. Maximum length of 64 characters.
+
+        The following arguments are optional:
+        """
         return pulumi.get(self, "name")
 
     @_builtins.property
     @pulumi.getter
     def region(self) -> pulumi.Output[_builtins.str]:
         """
-        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         return pulumi.get(self, "region")
 

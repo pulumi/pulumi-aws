@@ -83,12 +83,8 @@ type LookupOriginAccessIdentityResult struct {
 }
 
 func LookupOriginAccessIdentityOutput(ctx *pulumi.Context, args LookupOriginAccessIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupOriginAccessIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOriginAccessIdentityResultOutput, error) {
-			args := v.(LookupOriginAccessIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args, LookupOriginAccessIdentityResultOutput{}, options).(LookupOriginAccessIdentityResultOutput), nil
-		}).(LookupOriginAccessIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getOriginAccessIdentity:getOriginAccessIdentity", args, LookupOriginAccessIdentityResultOutput{}, options).(LookupOriginAccessIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getOriginAccessIdentity.

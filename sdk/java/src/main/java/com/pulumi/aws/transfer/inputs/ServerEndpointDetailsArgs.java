@@ -77,14 +77,14 @@ public final class ServerEndpointDetailsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+     * VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+     * @return VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -234,7 +234,7 @@ public final class ServerEndpointDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+         * @param vpcId VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ServerEndpointDetailsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param vpcId VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+         * @param vpcId VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
          * 
          * @return builder
          * 

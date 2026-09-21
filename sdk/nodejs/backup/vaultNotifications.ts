@@ -15,17 +15,17 @@ import * as utilities from "../utilities";
  *
  * const testTopic = new aws.sns.Topic("test", {name: "backup-vault-events"});
  * const test = aws.iam.getPolicyDocumentOutput({
- *     policyId: "__default_policy_ID",
  *     statements: [{
- *         actions: ["SNS:Publish"],
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["backup.amazonaws.com"],
  *         }],
+ *         actions: ["SNS:Publish"],
+ *         effect: "Allow",
  *         resources: [testTopic.arn],
  *         sid: "__default_statement_ID",
  *     }],
+ *     policyId: "__default_policy_ID",
  * });
  * const testTopicPolicy = new aws.sns.TopicPolicy("test", {
  *     arn: testTopic.arn,
@@ -94,7 +94,7 @@ export class VaultNotifications extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * ARN that specifies the topic for a backup vault’s events
      */
     declare public readonly snsTopicArn: pulumi.Output<string>;
 
@@ -159,7 +159,7 @@ export interface VaultNotificationsState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * ARN that specifies the topic for a backup vault’s events
      */
     snsTopicArn?: pulumi.Input<string | undefined>;
 }
@@ -181,7 +181,7 @@ export interface VaultNotificationsArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+     * ARN that specifies the topic for a backup vault’s events
      */
     snsTopicArn: pulumi.Input<string>;
 }

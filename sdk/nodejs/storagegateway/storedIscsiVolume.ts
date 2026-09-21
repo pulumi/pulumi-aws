@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -79,7 +79,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
     }
 
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -91,7 +91,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     declare public readonly diskId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     declare public readonly gatewayArn: pulumi.Output<string>;
     /**
@@ -99,7 +99,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     declare public readonly kmsEncrypted: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      */
     declare public readonly kmsKey: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     declare public /*out*/ readonly targetArn: pulumi.Output<string>;
     /**
@@ -246,7 +246,7 @@ export class StoredIscsiVolume extends pulumi.CustomResource {
  */
 export interface StoredIscsiVolumeState {
     /**
-     * Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+     * Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -258,7 +258,7 @@ export interface StoredIscsiVolumeState {
      */
     diskId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn?: pulumi.Input<string | undefined>;
     /**
@@ -266,7 +266,7 @@ export interface StoredIscsiVolumeState {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**
@@ -302,7 +302,7 @@ export interface StoredIscsiVolumeState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+     * Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
      */
     targetArn?: pulumi.Input<string | undefined>;
     /**
@@ -340,7 +340,7 @@ export interface StoredIscsiVolumeArgs {
      */
     diskId: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the gateway.
+     * ARN of the gateway.
      */
     gatewayArn: pulumi.Input<string>;
     /**
@@ -348,7 +348,7 @@ export interface StoredIscsiVolumeArgs {
      */
     kmsEncrypted?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+     * ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
      */
     kmsKey?: pulumi.Input<string | undefined>;
     /**

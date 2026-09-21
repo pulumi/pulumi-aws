@@ -49,7 +49,7 @@ namespace Pulumi.Aws.Msk
     /// 
     /// #### Required
     /// 
-    /// * `ClusterArn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+    /// * `ClusterArn` (String) ARN that uniquely identifies MSK Cluster.
     /// * `Name` (String) Name of Topic.
     /// 
     /// #### Optional
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Msk
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        /// ARN that uniquely identifies MSK Cluster.
         /// </summary>
         [Output("clusterArn")]
         public Output<string> ClusterArn { get; private set; } = null!;
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Msk
     public sealed class TopicArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        /// ARN that uniquely identifies MSK Cluster.
         /// </summary>
         [Input("clusterArn", required: true)]
         public Input<string> ClusterArn { get; set; } = null!;
@@ -221,7 +221,7 @@ namespace Pulumi.Aws.Msk
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+        /// ARN that uniquely identifies MSK Cluster.
         /// </summary>
         [Input("clusterArn")]
         public Input<string>? ClusterArn { get; set; }

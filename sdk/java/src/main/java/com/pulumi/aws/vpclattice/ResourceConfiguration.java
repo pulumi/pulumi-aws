@@ -51,16 +51,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceConfiguration("example", ResourceConfigurationArgs.builder()
- *             .name("Example")
- *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
- *             .portRanges("80")
- *             .protocol("TCP")
  *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
  *                 .dnsResource(ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs.builder()
  *                     .domainName("example.com")
  *                     .ipAddressType("IPV4")
  *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
+ *             .portRanges("80")
+ *             .protocol("TCP")
  *             .tags(Map.of("Environment", "Example"))
  *             .build());
  * 
@@ -96,15 +96,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceConfiguration("example", ResourceConfigurationArgs.builder()
- *             .name("Example")
- *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
- *             .portRanges("80")
- *             .protocol("TCP")
  *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
  *                 .ipResource(ResourceConfigurationResourceConfigurationDefinitionIpResourceArgs.builder()
  *                     .ipAddress("10.0.0.1")
  *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
+ *             .portRanges("80")
+ *             .protocol("TCP")
  *             .tags(Map.of("Environment", "Example"))
  *             .build());
  * 
@@ -146,18 +146,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceConfiguration = new ResourceConfiguration("exampleResourceConfiguration", ResourceConfigurationArgs.builder()
- *             .name("Example")
- *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
- *             .customDomainName("custom.example.com")
- *             .domainVerificationId(example.id())
- *             .portRanges("443")
- *             .protocol("TCP")
  *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
  *                 .dnsResource(ResourceConfigurationResourceConfigurationDefinitionDnsResourceArgs.builder()
  *                     .domainName("test.example.com")
  *                     .ipAddressType("IPV4")
  *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .resourceGatewayIdentifier(exampleAwsVpclatticeResourceGateway.id())
+ *             .customDomainName("custom.example.com")
+ *             .domainVerificationId(example.id())
+ *             .portRanges("443")
+ *             .protocol("TCP")
  *             .tags(Map.of("Environment", "Example"))
  *             .build());
  * 
@@ -193,14 +193,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ResourceConfiguration("test", ResourceConfigurationArgs.builder()
- *             .name("Example")
- *             .resourceGatewayIdentifier(testAwsVpclatticeResourceGateway.id())
- *             .type("ARN")
  *             .resourceConfigurationDefinition(ResourceConfigurationResourceConfigurationDefinitionArgs.builder()
  *                 .arnResource(ResourceConfigurationResourceConfigurationDefinitionArnResourceArgs.builder()
  *                     .arn(example.arn())
  *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .resourceGatewayIdentifier(testAwsVpclatticeResourceGateway.id())
+ *             .type("ARN")
  *             .build());
  * 
  *     }

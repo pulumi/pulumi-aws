@@ -186,7 +186,7 @@ class _PipelineState:
         """
         Input properties used for looking up and filtering Pipeline resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Pipeline.
         :param pulumi.Input['PipelineParallelismConfigurationArgs'] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         :param pulumi.Input['PipelinePipelineDefinitionS3LocationArgs'] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
@@ -225,7 +225,7 @@ class _PipelineState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        ARN assigned by AWS to this Pipeline.
         """
         return pulumi.get(self, "arn")
 
@@ -538,7 +538,7 @@ class Pipeline(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Pipeline.
         :param pulumi.Input[Union['PipelineParallelismConfigurationArgs', 'PipelineParallelismConfigurationArgsDict']] parallelism_configuration: This is the configuration that controls the parallelism of the pipeline. If specified, it applies to all runs of this pipeline by default. see Parallelism Configuration details below.
         :param pulumi.Input[_builtins.str] pipeline_definition: The [JSON pipeline definition](https://aws-sagemaker-mlops.github.io/sagemaker-model-building-pipeline-definition-JSON-schema/) of the pipeline.
         :param pulumi.Input[Union['PipelinePipelineDefinitionS3LocationArgs', 'PipelinePipelineDefinitionS3LocationArgsDict']] pipeline_definition_s3_location: The location of the pipeline definition stored in Amazon S3. If specified, SageMaker AI will retrieve the pipeline definition from this location. see Pipeline Definition S3 Location details below.
@@ -571,7 +571,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        ARN assigned by AWS to this Pipeline.
         """
         return pulumi.get(self, "arn")
 

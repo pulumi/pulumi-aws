@@ -25,13 +25,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.ProvisionedProduct("example", {
- *     name: "example",
- *     productName: "Example product",
- *     provisioningArtifactName: "Example version",
  *     provisioningParameters: [{
  *         key: "foo",
  *         value: "bar",
  *     }],
+ *     name: "example",
+ *     productName: "Example product",
+ *     provisioningArtifactName: "Example version",
  *     tags: {
  *         foo: "bar",
  *     },

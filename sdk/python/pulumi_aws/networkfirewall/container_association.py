@@ -339,16 +339,16 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
-            container_association_name="example-eks-association",
-            type="EKS",
-            description="Association for production EKS cluster",
             container_monitoring_configurations=[{
-                "cluster_arn": example_aws_eks_cluster["arn"],
                 "attribute_filters": [{
                     "key": "app",
                     "value": "backend",
                 }],
+                "cluster_arn": example_aws_eks_cluster["arn"],
             }],
+            container_association_name="example-eks-association",
+            type="EKS",
+            description="Association for production EKS cluster",
             tags={
                 "Name": "example",
                 "Environment": "production",
@@ -362,11 +362,11 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
-            container_association_name="example-ecs-association",
-            type="ECS",
             container_monitoring_configurations=[{
                 "cluster_arn": example_aws_ecs_cluster["arn"],
-            }])
+            }],
+            container_association_name="example-ecs-association",
+            type="ECS")
         ```
 
         ## Import
@@ -411,16 +411,16 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
-            container_association_name="example-eks-association",
-            type="EKS",
-            description="Association for production EKS cluster",
             container_monitoring_configurations=[{
-                "cluster_arn": example_aws_eks_cluster["arn"],
                 "attribute_filters": [{
                     "key": "app",
                     "value": "backend",
                 }],
+                "cluster_arn": example_aws_eks_cluster["arn"],
             }],
+            container_association_name="example-eks-association",
+            type="EKS",
+            description="Association for production EKS cluster",
             tags={
                 "Name": "example",
                 "Environment": "production",
@@ -434,11 +434,11 @@ class ContainerAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.ContainerAssociation("example",
-            container_association_name="example-ecs-association",
-            type="ECS",
             container_monitoring_configurations=[{
                 "cluster_arn": example_aws_ecs_cluster["arn"],
-            }])
+            }],
+            container_association_name="example-ecs-association",
+            type="ECS")
         ```
 
         ## Import

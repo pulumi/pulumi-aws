@@ -215,7 +215,7 @@ class _DocumentState:
         """
         Input properties used for looking up and filtering Document resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the document.
+        :param pulumi.Input[_builtins.str] arn: ARN of the document.
         :param pulumi.Input[Sequence[pulumi.Input['DocumentAttachmentsSourceArgs']]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         :param pulumi.Input[_builtins.str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         :param pulumi.Input[_builtins.str] created_date: The date the document was created.
@@ -293,7 +293,7 @@ class _DocumentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the document.
+        ARN of the document.
         """
         return pulumi.get(self, "arn")
 
@@ -680,12 +680,13 @@ class Document(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ssm.Document("test",
-            name="test_document",
-            document_type="Package",
             attachments_sources=[{
                 "key": "SourceUrl",
                 "values": [f"s3://{object_bucket['bucket']}/test.zip"],
-            }])
+            }],
+            name="test_document",
+            document_type="Package",
+            opts = pulumi.ResourceOptions(ignore_changes=["attachmentsSources"]))
         ```
 
 
@@ -793,12 +794,13 @@ class Document(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ssm.Document("test",
-            name="test_document",
-            document_type="Package",
             attachments_sources=[{
                 "key": "SourceUrl",
                 "values": [f"s3://{object_bucket['bucket']}/test.zip"],
-            }])
+            }],
+            name="test_document",
+            document_type="Package",
+            opts = pulumi.ResourceOptions(ignore_changes=["attachmentsSources"]))
         ```
 
 
@@ -905,7 +907,7 @@ class Document(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the document.
+        :param pulumi.Input[_builtins.str] arn: ARN of the document.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DocumentAttachmentsSourceArgs', 'DocumentAttachmentsSourceArgsDict']]]] attachments_sources: One or more configuration blocks describing attachments sources to a version of a document. See `attachments_source` block below for details.
         :param pulumi.Input[_builtins.str] content: The content for the SSM document in JSON or YAML format. The content of the document must not exceed 64KB. This quota also includes the content specified for input parameters at runtime. We recommend storing the contents for your new document in an external JSON or YAML file and referencing the file in a command.
         :param pulumi.Input[_builtins.str] created_date: The date the document was created.
@@ -964,7 +966,7 @@ class Document(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the document.
+        ARN of the document.
         """
         return pulumi.get(self, "arn")
 

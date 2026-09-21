@@ -52,7 +52,7 @@ import (
 type Registry struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -96,7 +96,7 @@ func GetRegistry(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Registry resources.
 type registryState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn *string `pulumi:"arn"`
 	// The description of the discoverer. Maximum of 256 characters.
 	Description *string `pulumi:"description"`
@@ -111,7 +111,7 @@ type registryState struct {
 }
 
 type RegistryState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringPtrInput
 	// The description of the discoverer. Maximum of 256 characters.
 	Description pulumi.StringPtrInput
@@ -239,7 +239,7 @@ func (o RegistryOutput) ToRegistryOutputWithContext(ctx context.Context) Registr
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the discoverer.
+// ARN of the discoverer.
 func (o RegistryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Registry) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -29,9 +29,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image pipeline.
+ * - `arn` (String) ARN of the Image Builder image pipeline.
  * 
- * Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ImagePipeline` resources using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:imagebuilder/imagePipeline:ImagePipeline example arn:aws:imagebuilder:us-east-1:123456789012:image-pipeline/example
@@ -41,28 +41,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/imagePipeline:ImagePipeline")
 public class ImagePipeline extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the image pipeline.
+     * ARN of the image pipeline.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image pipeline.
+     * @return ARN of the image pipeline.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      * 
      */
     @Export(name="containerRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> containerRecipeArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the container recipe.
+     * @return ARN of the container recipe.
      * 
      */
     public Output<Optional<String>> containerRecipeArn() {
@@ -139,14 +139,14 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      * 
      */
     @Export(name="distributionConfigurationArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> distributionConfigurationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * @return ARN of the Image Builder Distribution Configuration.
      * 
      */
     public Output<Optional<String>> distributionConfigurationArn() {
@@ -167,28 +167,28 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.enhancedImageMetadataEnabled);
     }
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
     @Export(name="executionRole", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> executionRole;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * @return ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      * 
      */
     public Output<Optional<String>> executionRole() {
         return Codegen.optional(this.executionRole);
     }
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      * 
      */
     @Export(name="imageRecipeArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> imageRecipeArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the image recipe.
+     * @return ARN of the image recipe.
      * 
      */
     public Output<Optional<String>> imageRecipeArn() {
@@ -223,14 +223,14 @@ public class ImagePipeline extends com.pulumi.resources.CustomResource {
         return this.imageTestsConfiguration;
     }
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     @Export(name="infrastructureConfigurationArn", refs={String.class}, tree="[0]")
     private Output<String> infrastructureConfigurationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * @return ARN of the Image Builder Infrastructure Configuration.
      * 
      */
     public Output<String> infrastructureConfigurationArn() {

@@ -18,7 +18,7 @@ public final class DomainAssociationCertificateSettings {
      */
     private @Nullable String certificateVerificationDnsRecord;
     /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
+     * @return ARN for the custom certificate.
      * Required when `type` is `CUSTOM`.
      * 
      */
@@ -39,7 +39,7 @@ public final class DomainAssociationCertificateSettings {
         return Optional.ofNullable(this.certificateVerificationDnsRecord);
     }
     /**
-     * @return The Amazon resource name (ARN) for the custom certificate.
+     * @return ARN for the custom certificate.
      * Required when `type` is `CUSTOM`.
      * 
      */

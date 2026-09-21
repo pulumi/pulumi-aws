@@ -25,14 +25,14 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
     public static final JobState Empty = new JobState();
 
     /**
-     * Amazon Resource Name (ARN) of Glue Job
+     * ARN of Glue Job
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Job
+     * @return ARN of Glue Job
      * 
      */
     public Optional<Output<String>> arn() {
@@ -448,7 +448,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Job
+         * @param arn ARN of Glue Job
          * 
          * @return builder
          * 
@@ -459,7 +459,7 @@ public final class JobState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Job
+         * @param arn ARN of Glue Job
          * 
          * @return builder
          * 

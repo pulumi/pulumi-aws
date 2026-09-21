@@ -25,7 +25,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         public Input<string> InstanceName { get; set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+        /// ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
         /// </summary>
         [Input("secretArn", required: true)]
         public Input<string> SecretArn { get; set; } = null!;

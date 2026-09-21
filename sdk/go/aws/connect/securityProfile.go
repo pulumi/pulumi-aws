@@ -60,7 +60,7 @@ import (
 type SecurityProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Security Profile.
+	// ARN of the Security Profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the description of the Security Profile.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -116,7 +116,7 @@ func GetSecurityProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SecurityProfile resources.
 type securityProfileState struct {
-	// The Amazon Resource Name (ARN) of the Security Profile.
+	// ARN of the Security Profile.
 	Arn *string `pulumi:"arn"`
 	// Specifies the description of the Security Profile.
 	Description *string `pulumi:"description"`
@@ -140,7 +140,7 @@ type securityProfileState struct {
 }
 
 type SecurityProfileState struct {
-	// The Amazon Resource Name (ARN) of the Security Profile.
+	// ARN of the Security Profile.
 	Arn pulumi.StringPtrInput
 	// Specifies the description of the Security Profile.
 	Description pulumi.StringPtrInput
@@ -287,7 +287,7 @@ func (o SecurityProfileOutput) ToSecurityProfileOutputWithContext(ctx context.Co
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Security Profile.
+// ARN of the Security Profile.
 func (o SecurityProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecurityProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

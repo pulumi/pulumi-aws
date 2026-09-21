@@ -12,26 +12,26 @@ import java.util.Objects;
 @CustomType
 public final class CapacityProviderCapacityProviderScalingConfigScalingPolicy {
     /**
-     * @return The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+     * @return Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     private String predefinedMetricType;
     /**
-     * @return The target value for the scaling policy.
+     * @return Target value for the scaling policy.
      * 
      */
     private Double targetValue;
 
     private CapacityProviderCapacityProviderScalingConfigScalingPolicy() {}
     /**
-     * @return The predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
+     * @return Predefined metric type for the scaling policy. Valid values are `&#34;LambdaCapacityProviderAverageCPUUtilization&#34;`.
      * 
      */
     public String predefinedMetricType() {
         return this.predefinedMetricType;
     }
     /**
-     * @return The target value for the scaling policy.
+     * @return Target value for the scaling policy.
      * 
      */
     public Double targetValue() {

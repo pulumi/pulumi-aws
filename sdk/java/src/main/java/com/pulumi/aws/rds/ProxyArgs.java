@@ -142,14 +142,14 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     @Import(name="requireTls")
     private @Nullable Output<Boolean> requireTls;
 
     /**
-     * @return Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+     * @return Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
      * 
      */
     public Optional<Output<Boolean>> requireTls() {
@@ -157,14 +157,14 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+     * @return ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
      * 
      */
     public Output<String> roleArn() {
@@ -447,7 +447,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+         * @param requireTls Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -458,7 +458,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param requireTls Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+         * @param requireTls Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
          * 
          * @return builder
          * 
@@ -468,7 +468,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 
@@ -479,7 +479,7 @@ public final class ProxyArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+         * @param roleArn ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
          * 
          * @return builder
          * 

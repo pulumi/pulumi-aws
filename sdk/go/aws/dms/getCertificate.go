@@ -61,7 +61,7 @@ type LookupCertificateArgs struct {
 
 // A collection of values returned by getCertificate.
 type LookupCertificateResult struct {
-	// The Amazon Resource Name (ARN) for the certificate.
+	// ARN for the certificate.
 	CertificateArn string `pulumi:"certificateArn"`
 	// The date that the certificate was created.
 	CertificateCreationDate string `pulumi:"certificateCreationDate"`
@@ -87,12 +87,8 @@ type LookupCertificateResult struct {
 }
 
 func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputArgs, opts ...pulumi.InvokeOption) LookupCertificateResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCertificateResultOutput, error) {
-			args := v.(LookupCertificateArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:dms/getCertificate:getCertificate", args, LookupCertificateResultOutput{}, options).(LookupCertificateResultOutput), nil
-		}).(LookupCertificateResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:dms/getCertificate:getCertificate", args, LookupCertificateResultOutput{}, options).(LookupCertificateResultOutput)
 }
 
 // A collection of arguments for invoking getCertificate.
@@ -123,7 +119,7 @@ func (o LookupCertificateResultOutput) ToLookupCertificateResultOutputWithContex
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the certificate.
+// ARN for the certificate.
 func (o LookupCertificateResultOutput) CertificateArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCertificateResult) string { return v.CertificateArn }).(pulumi.StringOutput)
 }

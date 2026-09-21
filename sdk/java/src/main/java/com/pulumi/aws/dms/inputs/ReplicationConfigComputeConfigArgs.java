@@ -50,14 +50,14 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+     * KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+     * @return KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -150,14 +150,14 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
     }
 
     /**
-     * Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+     * VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
      * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+     * @return VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -239,7 +239,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsKeyId An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+         * @param kmsKeyId KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param kmsKeyId An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+         * @param kmsKeyId KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
          * 
          * @return builder
          * 
@@ -375,7 +375,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param vpcSecurityGroupIds Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+         * @param vpcSecurityGroupIds VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
          * 
          * @return builder
          * 
@@ -386,7 +386,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param vpcSecurityGroupIds Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+         * @param vpcSecurityGroupIds VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
          * 
          * @return builder
          * 
@@ -396,7 +396,7 @@ public final class ReplicationConfigComputeConfigArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param vpcSecurityGroupIds Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+         * @param vpcSecurityGroupIds VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
          * 
          * @return builder
          * 

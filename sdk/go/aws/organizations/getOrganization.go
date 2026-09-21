@@ -68,11 +68,6 @@ import (
 //			snsTopicPolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Subscribe"),
-//							pulumi.String("SNS:Publish"),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -89,6 +84,11 @@ import (
 //									pulumi.String("*"),
 //								},
 //							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Subscribe"),
+//							pulumi.String("SNS:Publish"),
 //						},
 //						Resources: pulumi.StringArray{
 //							snsTopic.Arn,
@@ -154,12 +154,8 @@ type LookupOrganizationResult struct {
 }
 
 func LookupOrganizationOutput(ctx *pulumi.Context, args LookupOrganizationOutputArgs, opts ...pulumi.InvokeOption) LookupOrganizationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupOrganizationResultOutput, error) {
-			args := v.(LookupOrganizationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:organizations/getOrganization:getOrganization", args, LookupOrganizationResultOutput{}, options).(LookupOrganizationResultOutput), nil
-		}).(LookupOrganizationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:organizations/getOrganization:getOrganization", args, LookupOrganizationResultOutput{}, options).(LookupOrganizationResultOutput)
 }
 
 // A collection of arguments for invoking getOrganization.

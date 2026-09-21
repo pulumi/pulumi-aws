@@ -66,9 +66,6 @@ import (
 //			// Example DNS record using Route53.
 //			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				Name:   example.DomainName,
-//				Type:   pulumi.String(route53.RecordTypeA),
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(true),
@@ -76,6 +73,9 @@ import (
 //						ZoneId:               example.CloudfrontZoneId,
 //					},
 //				},
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -102,11 +102,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
-//				DomainName:             pulumi.String("api.example.com"),
-//				RegionalCertificateArn: pulumi.Any(exampleAwsAcmCertificateValidation.CertificateArn),
 //				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
 //					Types: pulumi.String("REGIONAL"),
 //				},
+//				DomainName:             pulumi.String("api.example.com"),
+//				RegionalCertificateArn: pulumi.Any(exampleAwsAcmCertificateValidation.CertificateArn),
 //			})
 //			if err != nil {
 //				return err
@@ -114,9 +114,6 @@ import (
 //			// Example DNS record using Route53.
 //			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				Name:   example.DomainName,
-//				Type:   pulumi.String(route53.RecordTypeA),
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						EvaluateTargetHealth: pulumi.Bool(true),
@@ -124,6 +121,9 @@ import (
 //						ZoneId:               example.RegionalZoneId,
 //					},
 //				},
+//				Name:   example.DomainName,
+//				Type:   pulumi.String(route53.RecordTypeA),
+//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -149,13 +149,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
+//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
+//					Types: pulumi.String("REGIONAL"),
+//				},
 //				DomainName:             pulumi.String("api.example.com"),
 //				RegionalCertificateArn: pulumi.Any(exampleAwsAcmCertificateValidation.CertificateArn),
 //				SecurityPolicy:         pulumi.String("SecurityPolicy_TLS13_1_3_2025_09"),
 //				EndpointAccessMode:     pulumi.String("STRICT"),
-//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
-//					Types: pulumi.String("REGIONAL"),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -228,7 +228,7 @@ type DomainName struct {
 	RegionalZoneId pulumi.StringOutput `pulumi:"regionalZoneId"`
 	// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
 	RoutingMode pulumi.StringOutput `pulumi:"routingMode"`
-	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+	// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringOutput `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -320,7 +320,7 @@ type domainNameState struct {
 	RegionalZoneId *string `pulumi:"regionalZoneId"`
 	// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
 	RoutingMode *string `pulumi:"routingMode"`
-	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+	// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -373,7 +373,7 @@ type DomainNameState struct {
 	RegionalZoneId pulumi.StringPtrInput
 	// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
 	RoutingMode pulumi.StringPtrInput
-	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+	// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -416,7 +416,7 @@ type domainNameArgs struct {
 	RegionalCertificateName *string `pulumi:"regionalCertificateName"`
 	// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
 	RoutingMode *string `pulumi:"routingMode"`
-	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+	// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy *string `pulumi:"securityPolicy"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -454,7 +454,7 @@ type DomainNameArgs struct {
 	RegionalCertificateName pulumi.StringPtrInput
 	// Mode to route traffic for the domain name. Valid values: `BASE_PATH_MAPPING_ONLY`, `ROUTING_RULE_ONLY`, `ROUTING_RULE_THEN_BASE_PATH_MAPPING`.
 	RoutingMode pulumi.StringPtrInput
-	// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+	// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 	SecurityPolicy pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -657,7 +657,7 @@ func (o DomainNameOutput) RoutingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.RoutingMode }).(pulumi.StringOutput)
 }
 
-// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
 func (o DomainNameOutput) SecurityPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DomainName) pulumi.StringOutput { return v.SecurityPolicy }).(pulumi.StringOutput)
 }

@@ -35,16 +35,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
-//				Name:      pulumi.String("my-schedule"),
-//				GroupName: pulumi.String("default"),
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.Any(exampleAwsSqsQueue.Arn),
 //					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				},
+//				Name:               pulumi.String("my-schedule"),
+//				GroupName:          pulumi.String("default"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //			})
 //			if err != nil {
 //				return err
@@ -77,11 +77,9 @@ import (
 //				return err
 //			}
 //			_, err = scheduler.NewSchedule(ctx, "example", &scheduler.ScheduleArgs{
-//				Name: pulumi.String("my-schedule"),
 //				FlexibleTimeWindow: &scheduler.ScheduleFlexibleTimeWindowArgs{
 //					Mode: pulumi.String("OFF"),
 //				},
-//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //				Target: &scheduler.ScheduleTargetArgs{
 //					Arn:     pulumi.String("arn:aws:scheduler:::aws-sdk:sqs:sendMessage"),
 //					RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
@@ -98,6 +96,8 @@ import (
 //						return pulumi.String(json0), nil
 //					}).(pulumi.StringOutput),
 //				},
+//				Name:               pulumi.String("my-schedule"),
+//				ScheduleExpression: pulumi.String("rate(1 hours)"),
 //			})
 //			if err != nil {
 //				return err

@@ -1015,10 +1015,10 @@ class BucketObject(pulumi.CustomResource):
             bucket=examplebucket.id,
             acl="private")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=examplebucket.id)
         example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,
@@ -1187,10 +1187,10 @@ class BucketObject(pulumi.CustomResource):
             bucket=examplebucket.id,
             acl="private")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=examplebucket.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=examplebucket.id)
         example_bucket_object = aws.s3.BucketObject("example",
             key="someobject",
             bucket=examplebucket.id,

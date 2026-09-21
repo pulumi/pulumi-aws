@@ -55,18 +55,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example_start = new Trigger("example-start", TriggerArgs.builder()
- *             .name("trigger-start")
- *             .type("ON_DEMAND")
- *             .workflowName(example.name())
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName("example-job")
  *                 .build())
+ *             .name("trigger-start")
+ *             .type("ON_DEMAND")
+ *             .workflowName(example.name())
  *             .build());
  * 
  *         var example_inner = new Trigger("example-inner", TriggerArgs.builder()
- *             .name("trigger-inner")
- *             .type("CONDITIONAL")
- *             .workflowName(example.name())
  *             .predicate(TriggerPredicateArgs.builder()
  *                 .conditions(TriggerPredicateConditionArgs.builder()
  *                     .jobName("example-job")
@@ -76,6 +73,9 @@ import javax.annotation.Nullable;
  *             .actions(TriggerActionArgs.builder()
  *                 .jobName("another-example-job")
  *                 .build())
+ *             .name("trigger-inner")
+ *             .type("CONDITIONAL")
+ *             .workflowName(example.name())
  *             .build());
  * 
  *     }
@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:glue/workflow:Workflow")
 public class Workflow extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of Glue Workflow
+     * ARN of Glue Workflow
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Workflow
+     * @return ARN of Glue Workflow
      * 
      */
     public Output<String> arn() {

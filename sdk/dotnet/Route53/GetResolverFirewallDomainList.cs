@@ -142,7 +142,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverFirewallDomainListResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the firewall domain list.
+        /// ARN of the firewall domain list.
         /// </summary>
         public readonly string Arn;
         /// <summary>

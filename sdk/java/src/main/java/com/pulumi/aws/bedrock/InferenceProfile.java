@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new InferenceProfile("example", InferenceProfileArgs.builder()
- *             .name("Claude Sonnet for Project 123")
- *             .description("Profile with tag for cost allocation tracking")
  *             .modelSource(InferenceProfileModelSourceArgs.builder()
  *                 .copyFrom("arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0")
  *                 .build())
+ *             .name("Claude Sonnet for Project 123")
+ *             .description("Profile with tag for cost allocation tracking")
  *             .tags(Map.of("ProjectID", "123"))
  *             .build());
  * 
@@ -80,14 +80,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/inferenceProfile:InferenceProfile")
 public class InferenceProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the inference profile.
+     * @return The ARN of the inference profile.
      * 
      */
     public Output<String> arn() {

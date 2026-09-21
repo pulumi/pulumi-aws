@@ -267,10 +267,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBucketVersioning = new BucketVersioning("exampleBucketVersioning", BucketVersioningArgs.builder()
- *             .bucket(examplebucket.id())
  *             .versioningConfiguration(BucketVersioningVersioningConfigurationArgs.builder()
  *                 .status("Enabled")
  *                 .build())
+ *             .bucket(examplebucket.id())
  *             .build());
  * 
  *         var examplebucketObject = new BucketObjectv2("examplebucketObject", BucketObjectv2Args.builder()
@@ -329,16 +329,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplebucketObject = new BucketObjectv2("examplebucketObject", BucketObjectv2Args.builder()
- *             .key("someobject")
- *             .bucket(examplebucket.id())
- *             .source(new FileAsset("important.txt"))
- *             .tags(Map.of("Env", "test"))
  *             .overrideProvider(BucketObjectv2OverrideProviderArgs.builder()
  *                 .defaultTags(BucketObjectv2OverrideProviderDefaultTagsArgs.builder()
  *                     .tags(Map.ofEntries(
  *                     ))
  *                     .build())
  *                 .build())
+ *             .key("someobject")
+ *             .bucket(examplebucket.id())
+ *             .source(new FileAsset("important.txt"))
+ *             .tags(Map.of("Env", "test"))
  *             .build());
  * 
  *     }

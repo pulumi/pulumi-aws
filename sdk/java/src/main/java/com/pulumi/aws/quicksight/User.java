@@ -137,14 +137,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:quicksight/user:User")
 public class User extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for the user.
+     * ARN for the user.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the user.
+     * @return ARN for the user.
      * 
      */
     public Output<String> arn() {

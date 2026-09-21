@@ -31,11 +31,11 @@ import * as utilities from "../utilities";
  * const current = aws.getPartition({});
  * const assumeRole = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: [`budgets.${current.dnsSuffix}`],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * }));
@@ -52,11 +52,6 @@ import * as utilities from "../utilities";
  *     timeUnit: "MONTHLY",
  * });
  * const exampleBudgetAction = new aws.budgets.BudgetAction("example", {
- *     budgetName: exampleBudget.name,
- *     actionType: "APPLY_IAM_POLICY",
- *     approvalModel: "AUTOMATIC",
- *     notificationType: "ACTUAL",
- *     executionRoleArn: exampleRole.arn,
  *     actionThreshold: {
  *         actionThresholdType: "ABSOLUTE_VALUE",
  *         actionThresholdValue: 100,
@@ -71,6 +66,11 @@ import * as utilities from "../utilities";
  *         address: "example@example.example",
  *         subscriptionType: "EMAIL",
  *     }],
+ *     budgetName: exampleBudget.name,
+ *     actionType: "APPLY_IAM_POLICY",
+ *     approvalModel: "AUTOMATIC",
+ *     notificationType: "ACTUAL",
+ *     executionRoleArn: exampleRole.arn,
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",

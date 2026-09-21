@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["mediapipelines.chime.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -58,32 +58,32 @@ import * as utilities from "../utilities";
  *     shardCount: 2,
  * });
  * const example = new aws.chimesdkmediapipelines.MediaInsightsPipelineConfiguration("example", {
- *     name: "ExampleConfig",
- *     resourceAccessRoleArn: exampleRole.arn,
  *     elements: [
  *         {
- *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *             amazonTranscribeCallAnalyticsProcessorConfiguration: {
  *                 languageCode: "en-US",
  *             },
+ *             type: "AmazonTranscribeCallAnalyticsProcessor",
  *         },
  *         {
- *             type: "KinesisDataStreamSink",
  *             kinesisDataStreamSinkConfiguration: {
  *                 insightsTarget: exampleStream.arn,
  *             },
+ *             type: "KinesisDataStreamSink",
  *         },
  *     ],
+ *     name: "ExampleConfig",
+ *     resourceAccessRoleArn: exampleRole.arn,
  * });
  * const defaultVoiceConnectorStreaming = new aws.chime.VoiceConnectorStreaming("default", {
- *     disabled: false,
- *     voiceConnectorId: _default.id,
- *     dataRetention: 7,
- *     streamingNotificationTargets: ["SQS"],
  *     mediaInsightsConfiguration: {
  *         disabled: false,
  *         configurationArn: example.arn,
  *     },
+ *     disabled: false,
+ *     voiceConnectorId: _default.id,
+ *     dataRetention: 7,
+ *     streamingNotificationTargets: ["SQS"],
  * });
  * ```
  *

@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.VerifiedAccess
 {
     /// <summary>
-    /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+    /// Resource for managing an AWS EC2 Verified Access Endpoint.
     /// 
     /// ## Example Usage
     /// 
@@ -26,12 +26,6 @@ namespace Pulumi.Aws.VerifiedAccess
     /// {
     ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
     ///     {
-    ///         ApplicationDomain = "example.com",
-    ///         AttachmentType = "vpc",
-    ///         Description = "example",
-    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
-    ///         EndpointDomainPrefix = "example",
-    ///         EndpointType = "load-balancer",
     ///         LoadBalancerOptions = new Aws.VerifiedAccess.Inputs.EndpointLoadBalancerOptionsArgs
     ///         {
     ///             LoadBalancerArn = exampleAwsLb.Arn,
@@ -42,6 +36,12 @@ namespace Pulumi.Aws.VerifiedAccess
     ///                 return subnet.Id;
     ///             }).ToList(),
     ///         },
+    ///         ApplicationDomain = "example.com",
+    ///         AttachmentType = "vpc",
+    ///         Description = "example",
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
+    ///         EndpointDomainPrefix = "example",
+    ///         EndpointType = "load-balancer",
     ///         SecurityGroupIds = new[]
     ///         {
     ///             exampleAwsSecurityGroup.Id,
@@ -64,18 +64,18 @@ namespace Pulumi.Aws.VerifiedAccess
     /// {
     ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
     ///     {
-    ///         ApplicationDomain = "example.com",
-    ///         AttachmentType = "vpc",
-    ///         Description = "example",
-    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
-    ///         EndpointDomainPrefix = "example",
-    ///         EndpointType = "network-interface",
     ///         NetworkInterfaceOptions = new Aws.VerifiedAccess.Inputs.EndpointNetworkInterfaceOptionsArgs
     ///         {
     ///             NetworkInterfaceId = exampleAwsNetworkInterface.Id,
     ///             Port = 443,
     ///             Protocol = "https",
     ///         },
+    ///         ApplicationDomain = "example.com",
+    ///         AttachmentType = "vpc",
+    ///         Description = "example",
+    ///         DomainCertificateArn = exampleAwsAcmCertificate.Arn,
+    ///         EndpointDomainPrefix = "example",
+    ///         EndpointType = "network-interface",
     ///         SecurityGroupIds = new[]
     ///         {
     ///             exampleAwsSecurityGroup.Id,
@@ -98,12 +98,8 @@ namespace Pulumi.Aws.VerifiedAccess
     /// {
     ///     var example = new Aws.VerifiedAccess.Endpoint("example", new()
     ///     {
-    ///         AttachmentType = "vpc",
-    ///         Description = "example",
-    ///         EndpointType = "cidr",
     ///         CidrOptions = new Aws.VerifiedAccess.Inputs.EndpointCidrOptionsArgs
     ///         {
-    ///             Cidr = test[0].CidrBlock,
     ///             PortRanges = new[]
     ///             {
     ///                 new Aws.VerifiedAccess.Inputs.EndpointCidrOptionsPortRangeArgs
@@ -112,12 +108,16 @@ namespace Pulumi.Aws.VerifiedAccess
     ///                     ToPort = 443,
     ///                 },
     ///             },
+    ///             Cidr = test[0].CidrBlock,
     ///             Protocol = "tcp",
     ///             SubnetIds = .Select(subnet =&gt; 
     ///             {
     ///                 return subnet.Id;
     ///             }).ToList(),
     ///         },
+    ///         AttachmentType = "vpc",
+    ///         Description = "example",
+    ///         EndpointType = "cidr",
     ///         SecurityGroupIds = new[]
     ///         {
     ///             testAwsSecurityGroup.Id,

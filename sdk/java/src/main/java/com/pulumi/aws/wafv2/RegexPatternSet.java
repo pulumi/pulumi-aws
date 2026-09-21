@@ -46,9 +46,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RegexPatternSet("example", RegexPatternSetArgs.builder()
- *             .name("example")
- *             .description("Example regex pattern set")
- *             .scope("REGIONAL")
  *             .regularExpressions(            
  *                 RegexPatternSetRegularExpressionArgs.builder()
  *                     .regexString("one")
@@ -56,6 +53,9 @@ import javax.annotation.Nullable;
  *                 RegexPatternSetRegularExpressionArgs.builder()
  *                     .regexString("two")
  *                     .build())
+ *             .name("example")
+ *             .description("Example regex pattern set")
+ *             .scope("REGIONAL")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:wafv2/regexPatternSet:RegexPatternSet")
 public class RegexPatternSet extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) that identifies the cluster.
+     * ARN that identifies the cluster.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the cluster.
+     * @return ARN that identifies the cluster.
      * 
      */
     public Output<String> arn() {

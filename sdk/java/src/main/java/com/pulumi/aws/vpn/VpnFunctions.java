@@ -16,7 +16,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class VpnFunctions {
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -101,7 +101,7 @@ public final class VpnFunctions {
         return getConnection(GetConnectionArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -186,7 +186,7 @@ public final class VpnFunctions {
         return getConnectionPlain(GetConnectionPlainArgs.Empty, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -271,7 +271,7 @@ public final class VpnFunctions {
         return getConnection(args, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -356,7 +356,7 @@ public final class VpnFunctions {
         return getConnectionPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -441,7 +441,7 @@ public final class VpnFunctions {
         return Deployment.getInstance().invoke("aws:vpn/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 
@@ -526,7 +526,7 @@ public final class VpnFunctions {
         return Deployment.getInstance().invoke("aws:vpn/getConnection:getConnection", TypeShape.of(GetConnectionResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+     * Fetches details of a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
      * 
      * ## Example Usage
      * 

@@ -78,14 +78,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,14 +153,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      * 
      */
     @Import(name="clusterNamespaceArn")
     private @Nullable Output<String> clusterNamespaceArn;
 
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     public Optional<Output<String>> clusterNamespaceArn() {
@@ -228,14 +228,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     @Import(name="clusterSubnetGroupName")
     private @Nullable Output<String> clusterSubnetGroupName;
 
     /**
-     * @return The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * @return Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     public Optional<Output<String>> clusterSubnetGroupName() {
@@ -292,14 +292,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -444,18 +444,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     @Import(name="manageMasterPassword")
     private @Nullable Output<Boolean> manageMasterPassword;
 
     /**
-     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     public Optional<Output<Boolean>> manageMasterPassword() {
@@ -478,22 +474,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Import(name="masterPassword")
     private @Nullable Output<String> masterPassword;
 
     /**
-     * @return Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * @return Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -532,11 +520,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Import(name="masterPasswordWo")
@@ -544,11 +528,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> masterPasswordWo() {
@@ -556,14 +536,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Import(name="masterPasswordWoVersion")
     private @Nullable Output<Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> masterPasswordWoVersion() {
@@ -810,14 +790,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      * 
      */
     @Import(name="vpcSecurityGroupIds")
     private @Nullable Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * @return List of VPC security groups to be associated with the cluster.
      * 
      */
     public Optional<Output<List<String>>> vpcSecurityGroupIds() {
@@ -973,7 +953,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -984,7 +964,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -1078,7 +1058,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * @param clusterNamespaceArn Namespace ARN of the cluster
          * 
          * @return builder
          * 
@@ -1089,7 +1069,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterNamespaceArn The namespace Amazon Resource Name (ARN) of the cluster
+         * @param clusterNamespaceArn Namespace ARN of the cluster
          * 
          * @return builder
          * 
@@ -1193,7 +1173,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterSubnetGroupName The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+         * @param clusterSubnetGroupName Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
          * 
          * @return builder
          * 
@@ -1204,7 +1184,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param clusterSubnetGroupName The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+         * @param clusterSubnetGroupName Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
          * 
          * @return builder
          * 
@@ -1281,7 +1261,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 
@@ -1292,7 +1272,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+         * @param defaultIamRoleArn ARN for the IAM role that was set as default for the cluster when the cluster was created.
          * 
          * @return builder
          * 
@@ -1503,9 +1483,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
-         * Conflicts with `masterPassword` and `masterPasswordWo`.
-         * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
          * 
          * @return builder
          * 
@@ -1516,9 +1494,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials.
-         * Conflicts with `masterPassword` and `masterPasswordWo`.
-         * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+         * @param manageMasterPassword Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
          * 
          * @return builder
          * 
@@ -1549,11 +1525,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-         * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs, and it will be stored in the state file.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * @param masterPassword Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
@@ -1564,11 +1536,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-         * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs, and it will be stored in the state file.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * @param masterPassword Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
          * 
          * @return builder
          * 
@@ -1621,11 +1589,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPassword`.
-         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1637,11 +1601,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user.
-         * Conflicts with `manageMasterPassword` and `masterPassword`.
-         * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-         * Note that this may show up in logs.
-         * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+         * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1651,7 +1611,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 
@@ -1662,7 +1622,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 
@@ -2001,7 +1961,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -2012,7 +1972,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 
@@ -2022,7 +1982,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcSecurityGroupIds A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+         * @param vpcSecurityGroupIds List of VPC security groups to be associated with the cluster.
          * 
          * @return builder
          * 

@@ -151,9 +151,9 @@ func (o AliasRoutingConfigPtrOutput) AdditionalVersionWeights() pulumi.Float64Ma
 }
 
 type CapacityProviderCapacityProviderScalingConfig struct {
-	// The maximum number of VCPUs for the Capacity Provider.
+	// Maximum number of VCPUs for the Capacity Provider.
 	MaxVcpuCount int `pulumi:"maxVcpuCount"`
-	// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+	// Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 	ScalingMode string `pulumi:"scalingMode"`
 	// List of scaling policies. Only required if `scalingMode` is set to `"Manual"`. See Scaling Policies below.
 	ScalingPolicies []CapacityProviderCapacityProviderScalingConfigScalingPolicy `pulumi:"scalingPolicies"`
@@ -171,9 +171,9 @@ type CapacityProviderCapacityProviderScalingConfigInput interface {
 }
 
 type CapacityProviderCapacityProviderScalingConfigArgs struct {
-	// The maximum number of VCPUs for the Capacity Provider.
+	// Maximum number of VCPUs for the Capacity Provider.
 	MaxVcpuCount pulumi.IntInput `pulumi:"maxVcpuCount"`
-	// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+	// Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 	ScalingMode pulumi.StringInput `pulumi:"scalingMode"`
 	// List of scaling policies. Only required if `scalingMode` is set to `"Manual"`. See Scaling Policies below.
 	ScalingPolicies CapacityProviderCapacityProviderScalingConfigScalingPolicyArrayInput `pulumi:"scalingPolicies"`
@@ -230,12 +230,12 @@ func (o CapacityProviderCapacityProviderScalingConfigOutput) ToCapacityProviderC
 	return o
 }
 
-// The maximum number of VCPUs for the Capacity Provider.
+// Maximum number of VCPUs for the Capacity Provider.
 func (o CapacityProviderCapacityProviderScalingConfigOutput) MaxVcpuCount() pulumi.IntOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) int { return v.MaxVcpuCount }).(pulumi.IntOutput)
 }
 
-// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+// Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
 func (o CapacityProviderCapacityProviderScalingConfigOutput) ScalingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfig) string { return v.ScalingMode }).(pulumi.StringOutput)
 }
@@ -268,9 +268,9 @@ func (o CapacityProviderCapacityProviderScalingConfigArrayOutput) Index(i pulumi
 }
 
 type CapacityProviderCapacityProviderScalingConfigScalingPolicy struct {
-	// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+	// Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 	PredefinedMetricType string `pulumi:"predefinedMetricType"`
-	// The target value for the scaling policy.
+	// Target value for the scaling policy.
 	TargetValue float64 `pulumi:"targetValue"`
 }
 
@@ -286,9 +286,9 @@ type CapacityProviderCapacityProviderScalingConfigScalingPolicyInput interface {
 }
 
 type CapacityProviderCapacityProviderScalingConfigScalingPolicyArgs struct {
-	// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+	// Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 	PredefinedMetricType pulumi.StringInput `pulumi:"predefinedMetricType"`
-	// The target value for the scaling policy.
+	// Target value for the scaling policy.
 	TargetValue pulumi.Float64Input `pulumi:"targetValue"`
 }
 
@@ -343,14 +343,14 @@ func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) ToCapa
 	return o
 }
 
-// The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+// Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
 func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) PredefinedMetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfigScalingPolicy) string {
 		return v.PredefinedMetricType
 	}).(pulumi.StringOutput)
 }
 
-// The target value for the scaling policy.
+// Target value for the scaling policy.
 func (o CapacityProviderCapacityProviderScalingConfigScalingPolicyOutput) TargetValue() pulumi.Float64Output {
 	return o.ApplyT(func(v CapacityProviderCapacityProviderScalingConfigScalingPolicy) float64 { return v.TargetValue }).(pulumi.Float64Output)
 }
@@ -491,7 +491,7 @@ func (o CapacityProviderInstanceRequirementArrayOutput) Index(i pulumi.IntInput)
 }
 
 type CapacityProviderPermissionsConfig struct {
-	// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+	// ARN of the IAM role that allows Lambda to manage the Capacity Provider.
 	CapacityProviderOperatorRoleArn string `pulumi:"capacityProviderOperatorRoleArn"`
 }
 
@@ -507,7 +507,7 @@ type CapacityProviderPermissionsConfigInput interface {
 }
 
 type CapacityProviderPermissionsConfigArgs struct {
-	// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+	// ARN of the IAM role that allows Lambda to manage the Capacity Provider.
 	CapacityProviderOperatorRoleArn pulumi.StringInput `pulumi:"capacityProviderOperatorRoleArn"`
 }
 
@@ -588,7 +588,7 @@ func (o CapacityProviderPermissionsConfigOutput) ToCapacityProviderPermissionsCo
 	}).(CapacityProviderPermissionsConfigPtrOutput)
 }
 
-// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+// ARN of the IAM role that allows Lambda to manage the Capacity Provider.
 func (o CapacityProviderPermissionsConfigOutput) CapacityProviderOperatorRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CapacityProviderPermissionsConfig) string { return v.CapacityProviderOperatorRoleArn }).(pulumi.StringOutput)
 }
@@ -617,7 +617,7 @@ func (o CapacityProviderPermissionsConfigPtrOutput) Elem() CapacityProviderPermi
 	}).(CapacityProviderPermissionsConfigOutput)
 }
 
-// The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+// ARN of the IAM role that allows Lambda to manage the Capacity Provider.
 func (o CapacityProviderPermissionsConfigPtrOutput) CapacityProviderOperatorRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CapacityProviderPermissionsConfig) *string {
 		if v == nil {
@@ -1901,13 +1901,13 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigPtrOutput) SchemaRe
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig struct {
-	// Configuration block for authentication Lambda uses to access the schema registry.
+	// Configuration block for authentication Lambda uses to access the schema registry. See below.
 	AccessConfigs []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig `pulumi:"accessConfigs"`
 	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
 	EventRecordFormat *string `pulumi:"eventRecordFormat"`
 	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
 	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
-	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 	SchemaValidationConfigs []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
 }
 
@@ -1923,13 +1923,13 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigIn
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigArgs struct {
-	// Configuration block for authentication Lambda uses to access the schema registry.
+	// Configuration block for authentication Lambda uses to access the schema registry. See below.
 	AccessConfigs EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput `pulumi:"accessConfigs"`
 	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
 	EventRecordFormat pulumi.StringPtrInput `pulumi:"eventRecordFormat"`
 	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
 	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
-	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 	SchemaValidationConfigs EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
 }
 
@@ -2010,7 +2010,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
 }
 
-// Configuration block for authentication Lambda uses to access the schema registry.
+// Configuration block for authentication Lambda uses to access the schema registry. See below.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
 		return v.AccessConfigs
@@ -2031,7 +2031,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
 		return v.SchemaValidationConfigs
@@ -2062,7 +2062,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 	}).(EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
 }
 
-// Configuration block for authentication Lambda uses to access the schema registry.
+// Configuration block for authentication Lambda uses to access the schema registry. See below.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
 		if v == nil {
@@ -2092,7 +2092,7 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
 		if v == nil {
@@ -2103,10 +2103,8 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig struct {
-	// Authentication type Lambda uses to access the schema registry.
 	Type *string `pulumi:"type"`
-	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-	Uri *string `pulumi:"uri"`
+	Uri  *string `pulumi:"uri"`
 }
 
 // EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput is an input type that accepts EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs and EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput values.
@@ -2121,10 +2119,8 @@ type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAc
 }
 
 type EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs struct {
-	// Authentication type Lambda uses to access the schema registry.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri  pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ElementType() reflect.Type {
@@ -2178,14 +2174,12 @@ func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfi
 	return o
 }
 
-// Authentication type Lambda uses to access the schema registry.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
 		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
 func (o EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
 		return v.Uri
@@ -2592,7 +2586,7 @@ type EventSourceMappingDocumentDbEventSourceConfig struct {
 	CollectionName *string `pulumi:"collectionName"`
 	// Name of the database to consume within the DocumentDB cluster.
 	DatabaseName string `pulumi:"databaseName"`
-	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+	// DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 	FullDocument *string `pulumi:"fullDocument"`
 }
 
@@ -2612,7 +2606,7 @@ type EventSourceMappingDocumentDbEventSourceConfigArgs struct {
 	CollectionName pulumi.StringPtrInput `pulumi:"collectionName"`
 	// Name of the database to consume within the DocumentDB cluster.
 	DatabaseName pulumi.StringInput `pulumi:"databaseName"`
-	// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+	// DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 	FullDocument pulumi.StringPtrInput `pulumi:"fullDocument"`
 }
 
@@ -2703,7 +2697,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigOutput) DatabaseName() pulu
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
-// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+// DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 func (o EventSourceMappingDocumentDbEventSourceConfigOutput) FullDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingDocumentDbEventSourceConfig) *string { return v.FullDocument }).(pulumi.StringPtrOutput)
 }
@@ -2752,7 +2746,7 @@ func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) DatabaseName() p
 	}).(pulumi.StringPtrOutput)
 }
 
-// Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+// DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
 func (o EventSourceMappingDocumentDbEventSourceConfigPtrOutput) FullDocument() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingDocumentDbEventSourceConfig) *string {
 		if v == nil {
@@ -3138,7 +3132,7 @@ type EventSourceMappingProvisionedPollerConfig struct {
 	MaximumPollers *int `pulumi:"maximumPollers"`
 	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers *int `pulumi:"minimumPollers"`
-	// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	// Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
 	PollerGroupName *string `pulumi:"pollerGroupName"`
 }
 
@@ -3158,7 +3152,7 @@ type EventSourceMappingProvisionedPollerConfigArgs struct {
 	MaximumPollers pulumi.IntPtrInput `pulumi:"maximumPollers"`
 	// Minimum number of event pollers this event source can scale down to. The range is between 1 and 200.
 	MinimumPollers pulumi.IntPtrInput `pulumi:"minimumPollers"`
-	// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+	// Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
 	PollerGroupName pulumi.StringPtrInput `pulumi:"pollerGroupName"`
 }
 
@@ -3249,7 +3243,7 @@ func (o EventSourceMappingProvisionedPollerConfigOutput) MinimumPollers() pulumi
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *int { return v.MinimumPollers }).(pulumi.IntPtrOutput)
 }
 
-// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+// Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
 func (o EventSourceMappingProvisionedPollerConfigOutput) PollerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingProvisionedPollerConfig) *string { return v.PollerGroupName }).(pulumi.StringPtrOutput)
 }
@@ -3298,7 +3292,7 @@ func (o EventSourceMappingProvisionedPollerConfigPtrOutput) MinimumPollers() pul
 	}).(pulumi.IntPtrOutput)
 }
 
-// The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+// Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
 func (o EventSourceMappingProvisionedPollerConfigPtrOutput) PollerGroupName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EventSourceMappingProvisionedPollerConfig) *string {
 		if v == nil {
@@ -3741,13 +3735,13 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigPtrOutput) SchemaRegi
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig struct {
-	// Configuration block for authentication Lambda uses to access the schema registry.
+	// Configuration block for authentication Lambda uses to access the schema registry. See below.
 	AccessConfigs []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig `pulumi:"accessConfigs"`
 	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
 	EventRecordFormat *string `pulumi:"eventRecordFormat"`
 	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
 	SchemaRegistryUri *string `pulumi:"schemaRegistryUri"`
-	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 	SchemaValidationConfigs []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig `pulumi:"schemaValidationConfigs"`
 }
 
@@ -3763,13 +3757,13 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigInpu
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigArgs struct {
-	// Configuration block for authentication Lambda uses to access the schema registry.
+	// Configuration block for authentication Lambda uses to access the schema registry. See below.
 	AccessConfigs EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayInput `pulumi:"accessConfigs"`
 	// Record format that Lambda delivers to the function after schema validation. Valid values: `JSON`, `SOURCE`.
 	EventRecordFormat pulumi.StringPtrInput `pulumi:"eventRecordFormat"`
 	// URI of the schema registry. For AWS Glue schema registries, use the ARN of the registry. For Confluent schema registries, use the registry URL.
 	SchemaRegistryUri pulumi.StringPtrInput `pulumi:"schemaRegistryUri"`
-	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+	// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 	SchemaValidationConfigs EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayInput `pulumi:"schemaValidationConfigs"`
 }
 
@@ -3850,7 +3844,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigO
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput)
 }
 
-// Configuration block for authentication Lambda uses to access the schema registry.
+// Configuration block for authentication Lambda uses to access the schema registry. See below.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) AccessConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
 		return v.AccessConfigs
@@ -3871,7 +3865,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigO
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput) SchemaValidationConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
 		return v.SchemaValidationConfigs
@@ -3902,7 +3896,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigP
 	}).(EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigOutput)
 }
 
-// Configuration block for authentication Lambda uses to access the schema registry.
+// Configuration block for authentication Lambda uses to access the schema registry. See below.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) AccessConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
 		if v == nil {
@@ -3932,7 +3926,7 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigP
 	}).(pulumi.StringPtrOutput)
 }
 
-// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+// Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigPtrOutput) SchemaValidationConfigs() EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfigArrayOutput {
 	return o.ApplyT(func(v *EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig) []EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig {
 		if v == nil {
@@ -3943,10 +3937,8 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigP
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig struct {
-	// Authentication type Lambda uses to access the schema registry.
 	Type *string `pulumi:"type"`
-	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-	Uri *string `pulumi:"uri"`
+	Uri  *string `pulumi:"uri"`
 }
 
 // EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigInput is an input type that accepts EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs and EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput values.
@@ -3961,10 +3953,8 @@ type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAcce
 }
 
 type EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs struct {
-	// Authentication type Lambda uses to access the schema registry.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-	Uri pulumi.StringPtrInput `pulumi:"uri"`
+	Uri  pulumi.StringPtrInput `pulumi:"uri"`
 }
 
 func (EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigArgs) ElementType() reflect.Type {
@@ -4018,14 +4008,12 @@ func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigA
 	return o
 }
 
-// Authentication type Lambda uses to access the schema registry.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
 		return v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
-// URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
 func (o EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfigOutput) Uri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig) *string {
 		return v.Uri
@@ -7894,7 +7882,7 @@ func (o GetCodeSigningConfigPolicyArrayOutput) Index(i pulumi.IntInput) GetCodeS
 }
 
 type GetFunctionCapacityProviderConfig struct {
-	// Configuration block for Lambda Managed Instances Capacity Provider.
+	// Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
 	LambdaManagedInstancesCapacityProviderConfigs []GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig `pulumi:"lambdaManagedInstancesCapacityProviderConfigs"`
 }
 
@@ -7910,7 +7898,7 @@ type GetFunctionCapacityProviderConfigInput interface {
 }
 
 type GetFunctionCapacityProviderConfigArgs struct {
-	// Configuration block for Lambda Managed Instances Capacity Provider.
+	// Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
 	LambdaManagedInstancesCapacityProviderConfigs GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayInput `pulumi:"lambdaManagedInstancesCapacityProviderConfigs"`
 }
 
@@ -7965,7 +7953,7 @@ func (o GetFunctionCapacityProviderConfigOutput) ToGetFunctionCapacityProviderCo
 	return o
 }
 
-// Configuration block for Lambda Managed Instances Capacity Provider.
+// Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
 func (o GetFunctionCapacityProviderConfigOutput) LambdaManagedInstancesCapacityProviderConfigs() GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfigArrayOutput {
 	return o.ApplyT(func(v GetFunctionCapacityProviderConfig) []GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig {
 		return v.LambdaManagedInstancesCapacityProviderConfigs
@@ -8651,7 +8639,7 @@ func (o GetFunctionLoggingConfigArrayOutput) Index(i pulumi.IntInput) GetFunctio
 }
 
 type GetFunctionTenancyConfig struct {
-	// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	// Tenant Isolation Mode. Valid values: `PER_TENANT`.
 	TenantIsolationMode string `pulumi:"tenantIsolationMode"`
 }
 
@@ -8667,7 +8655,7 @@ type GetFunctionTenancyConfigInput interface {
 }
 
 type GetFunctionTenancyConfigArgs struct {
-	// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+	// Tenant Isolation Mode. Valid values: `PER_TENANT`.
 	TenantIsolationMode pulumi.StringInput `pulumi:"tenantIsolationMode"`
 }
 
@@ -8722,7 +8710,7 @@ func (o GetFunctionTenancyConfigOutput) ToGetFunctionTenancyConfigOutputWithCont
 	return o
 }
 
-// (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+// Tenant Isolation Mode. Valid values: `PER_TENANT`.
 func (o GetFunctionTenancyConfigOutput) TenantIsolationMode() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFunctionTenancyConfig) string { return v.TenantIsolationMode }).(pulumi.StringOutput)
 }
@@ -8942,6 +8930,7 @@ func (o GetFunctionUrlCorArrayOutput) Index(i pulumi.IntInput) GetFunctionUrlCor
 }
 
 type GetFunctionVpcConfig struct {
+	// Whether IPv6 is allowed for dual-stack VPC.
 	Ipv6AllowedForDualStack bool `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
@@ -8963,6 +8952,7 @@ type GetFunctionVpcConfigInput interface {
 }
 
 type GetFunctionVpcConfigArgs struct {
+	// Whether IPv6 is allowed for dual-stack VPC.
 	Ipv6AllowedForDualStack pulumi.BoolInput `pulumi:"ipv6AllowedForDualStack"`
 	// List of security group IDs associated with the Lambda function.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
@@ -8998,6 +8988,7 @@ func (o GetFunctionVpcConfigOutput) ToGetFunctionVpcConfigOutputWithContext(ctx 
 	return o
 }
 
+// Whether IPv6 is allowed for dual-stack VPC.
 func (o GetFunctionVpcConfigOutput) Ipv6AllowedForDualStack() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetFunctionVpcConfig) bool { return v.Ipv6AllowedForDualStack }).(pulumi.BoolOutput)
 }

@@ -320,10 +320,6 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionUrl("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier="my_alias",
-            authorization_type="AWS_IAM",
-            invoke_mode="RESPONSE_STREAM",
             cors={
                 "allow_credentials": True,
                 "allow_origins": ["https://example.com"],
@@ -340,7 +336,11 @@ class FunctionUrl(pulumi.CustomResource):
                     "date",
                 ],
                 "max_age": 86400,
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier="my_alias",
+            authorization_type="AWS_IAM",
+            invoke_mode="RESPONSE_STREAM")
         ```
 
         ## Import
@@ -394,10 +394,6 @@ class FunctionUrl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.FunctionUrl("example",
-            function_name=example_aws_lambda_function["functionName"],
-            qualifier="my_alias",
-            authorization_type="AWS_IAM",
-            invoke_mode="RESPONSE_STREAM",
             cors={
                 "allow_credentials": True,
                 "allow_origins": ["https://example.com"],
@@ -414,7 +410,11 @@ class FunctionUrl(pulumi.CustomResource):
                     "date",
                 ],
                 "max_age": 86400,
-            })
+            },
+            function_name=example_aws_lambda_function["functionName"],
+            qualifier="my_alias",
+            authorization_type="AWS_IAM",
+            invoke_mode="RESPONSE_STREAM")
         ```
 
         ## Import

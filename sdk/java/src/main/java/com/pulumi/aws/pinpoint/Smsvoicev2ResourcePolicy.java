@@ -57,13 +57,13 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sms-voice:SendTextMessage")
- *                 .resources(exampleSmsvoicev2PhoneNumber.arn())
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("123456789012")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sms-voice:SendTextMessage")
+ *                 .resources(exampleSmsvoicev2PhoneNumber.arn())
  *                 .build())
  *             .build());
  * 

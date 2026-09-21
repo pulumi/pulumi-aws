@@ -53,7 +53,7 @@ import (
 type PolicyTable struct {
 	pulumi.CustomResourceState
 
-	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Policy Table ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -100,7 +100,7 @@ func GetPolicyTable(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering PolicyTable resources.
 type policyTableState struct {
-	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Policy Table ARN.
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -115,7 +115,7 @@ type policyTableState struct {
 }
 
 type PolicyTableState struct {
-	// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+	// EC2 Transit Gateway Policy Table ARN.
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -239,7 +239,7 @@ func (o PolicyTableOutput) ToPolicyTableOutputWithContext(ctx context.Context) P
 	return o
 }
 
-// EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+// EC2 Transit Gateway Policy Table ARN.
 func (o PolicyTableOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PolicyTable) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -2118,7 +2118,7 @@ class ListenerRuleActionForwardStickinessArgs:
 class ListenerRuleActionForwardTargetGroupArgsDict(TypedDict):
     arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the target group.
+    ARN of the target group.
     """
     weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
     """
@@ -2131,7 +2131,7 @@ class ListenerRuleActionForwardTargetGroupArgs:
                  arn: pulumi.Input[_builtins.str],
                  weight: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the target group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the target group.
         :param pulumi.Input[_builtins.int] weight: The weight. The range is 0 to 999.
         """
         pulumi.set(__self__, "arn", arn)
@@ -2142,7 +2142,7 @@ class ListenerRuleActionForwardTargetGroupArgs:
     @pulumi.getter
     def arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the target group.
+        ARN of the target group.
         """
         return pulumi.get(self, "arn")
 

@@ -31,14 +31,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     @Import(name="lifecycleConfigArn")
     private @Nullable Output<String> lifecycleConfigArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     public Optional<Output<String>> lifecycleConfigArn() {
@@ -46,14 +46,14 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+     * ARN of the SageMaker AI image created on the instance.
      * 
      */
     @Import(name="sagemakerImageArn")
     private @Nullable Output<String> sagemakerImageArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+     * @return ARN of the SageMaker AI image created on the instance.
      * 
      */
     public Optional<Output<String>> sagemakerImageArn() {
@@ -140,7 +140,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         }
 
         /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * @param lifecycleConfigArn ARN of the Lifecycle Configuration attached to the Resource.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         }
 
         /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * @param lifecycleConfigArn ARN of the Lifecycle Configuration attached to the Resource.
          * 
          * @return builder
          * 
@@ -161,7 +161,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * @param sagemakerImageArn ARN of the SageMaker AI image created on the instance.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec
         }
 
         /**
-         * @param sagemakerImageArn The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * @param sagemakerImageArn ARN of the SageMaker AI image created on the instance.
          * 
          * @return builder
          * 

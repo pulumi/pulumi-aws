@@ -16,7 +16,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         private InputList<string>? _securityGroupArns;
 
         /// <summary>
-        /// List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+        /// List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
         /// </summary>
         public InputList<string> SecurityGroupArns
         {
@@ -25,7 +25,7 @@ namespace Pulumi.Aws.DataSync.Inputs
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+        /// ARN of the EC2 Subnet that is associated with the EFS Mount Target.
         /// </summary>
         [Input("subnetArn", required: true)]
         public Input<string> SubnetArn { get; set; } = null!;

@@ -191,7 +191,7 @@ export class ExportTask extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly snapshotTime: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
+     * ARN of the snapshot to export.
      *
      * The following arguments are optional:
      */
@@ -333,7 +333,7 @@ export interface ExportTaskState {
      */
     snapshotTime?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
+     * ARN of the snapshot to export.
      *
      * The following arguments are optional:
      */
@@ -394,7 +394,7 @@ export interface ExportTaskArgs {
      */
     s3Prefix?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the snapshot to export.
+     * ARN of the snapshot to export.
      *
      * The following arguments are optional:
      */

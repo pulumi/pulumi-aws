@@ -64,7 +64,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -204,7 +204,7 @@ export class SnapshotCopy extends pulumi.CustomResource {
  */
 export interface SnapshotCopyState {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

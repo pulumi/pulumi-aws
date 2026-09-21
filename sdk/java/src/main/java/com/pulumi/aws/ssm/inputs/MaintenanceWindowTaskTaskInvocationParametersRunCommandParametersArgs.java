@@ -156,14 +156,14 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+     * ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
      * 
      */
     @Import(name="serviceRoleArn")
     private @Nullable Output<String> serviceRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+     * @return ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
      * 
      */
     public Optional<Output<String>> serviceRoleArn() {
@@ -419,7 +419,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
 
         /**
-         * @param serviceRoleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+         * @param serviceRoleArn ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class MaintenanceWindowTaskTaskInvocationParametersRunCommandParame
         }
 
         /**
-         * @param serviceRoleArn The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+         * @param serviceRoleArn ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
          * 
          * @return builder
          * 

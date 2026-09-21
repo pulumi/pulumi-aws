@@ -369,7 +369,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+        - `arn` (String) ARN of the IAM policy.
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 
@@ -426,7 +426,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM policy.
+        - `arn` (String) ARN of the IAM policy.
 
         Using `pulumi import`, import IAM Policies using the `arn`. For example:
 

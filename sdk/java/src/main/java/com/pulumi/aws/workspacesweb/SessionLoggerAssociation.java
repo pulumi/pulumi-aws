@@ -69,11 +69,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("workspaces-web.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("s3:PutObject")
  *                 .resources(exampleBucket.arn().applyValue(_arn -> String.format("%s/*", _arn)))
  *                 .build())
@@ -85,7 +85,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSessionLogger = new SessionLogger("exampleSessionLogger", SessionLoggerArgs.builder()
- *             .displayName("example")
  *             .eventFilter(SessionLoggerEventFilterArgs.builder()
  *                 .all(com.pulumi.aws.workspacesweb.inputs.SessionLoggerEventFilterAllArgs.builder()
  *                     .build()[0])
@@ -97,6 +96,7 @@ import javax.annotation.Nullable;
  *                     .logFileFormat("Json")
  *                     .build())
  *                 .build())
+ *             .displayName("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleBucketPolicy)
  *                 .build());

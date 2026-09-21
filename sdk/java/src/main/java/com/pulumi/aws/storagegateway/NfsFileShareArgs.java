@@ -22,14 +22,14 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
     public static final NfsFileShareArgs Empty = new NfsFileShareArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * ARN of the storage used for audit logs.
      * 
      */
     @Import(name="auditDestinationArn")
     private @Nullable Output<String> auditDestinationArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the storage used for audit logs.
+     * @return ARN of the storage used for audit logs.
      * 
      */
     public Optional<Output<String>> auditDestinationArn() {
@@ -112,14 +112,14 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the file gateway.
+     * ARN of the file gateway.
      * 
      */
     @Import(name="gatewayArn", required=true)
     private Output<String> gatewayArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the file gateway.
+     * @return ARN of the file gateway.
      * 
      */
     public Output<String> gatewayArn() {
@@ -157,14 +157,14 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+     * @return ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -381,7 +381,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for audit logs.
+         * @param auditDestinationArn ARN of the storage used for audit logs.
          * 
          * @return builder
          * 
@@ -392,7 +392,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param auditDestinationArn The Amazon Resource Name (ARN) of the storage used for audit logs.
+         * @param auditDestinationArn ARN of the storage used for audit logs.
          * 
          * @return builder
          * 
@@ -517,7 +517,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn Amazon Resource Name (ARN) of the file gateway.
+         * @param gatewayArn ARN of the file gateway.
          * 
          * @return builder
          * 
@@ -528,7 +528,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param gatewayArn Amazon Resource Name (ARN) of the file gateway.
+         * @param gatewayArn ARN of the file gateway.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+         * @param kmsKeyArn ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
          * 
          * @return builder
          * 
@@ -591,7 +591,7 @@ public final class NfsFileShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+         * @param kmsKeyArn ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
          * 
          * @return builder
          * 

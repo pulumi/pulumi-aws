@@ -38,7 +38,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
      */
     private @Nullable List<DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -48,7 +48,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
      */
     private @Nullable DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings emrSettings;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     private @Nullable List<String> lifecycleConfigArns;
@@ -83,7 +83,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     public Optional<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec> defaultResourceSpec() {
@@ -97,7 +97,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettings {
         return Optional.ofNullable(this.emrSettings);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public List<String> lifecycleConfigArns() {

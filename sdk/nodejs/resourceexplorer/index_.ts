@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Resource Explorer index.
+ * - `arn` (String) ARN of the Resource Explorer index.
  *
  * Using `pulumi import`, import Resource Explorer indexes using the `arn`. For example:
  *
@@ -62,7 +62,7 @@ export class Index extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer index.
+     * ARN of the Resource Explorer index.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -124,7 +124,7 @@ export class Index extends pulumi.CustomResource {
  */
 export interface IndexState {
     /**
-     * Amazon Resource Name (ARN) of the Resource Explorer index.
+     * ARN of the Resource Explorer index.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

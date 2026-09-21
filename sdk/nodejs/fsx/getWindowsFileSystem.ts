@@ -63,7 +63,7 @@ export interface GetWindowsFileSystemResult {
      */
     readonly aliases: string[];
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     readonly arn: string;
     /**
@@ -156,7 +156,7 @@ export interface GetWindowsFileSystemResult {
      */
     readonly throughputCapacity: number;
     /**
-     * ID of the primary virtual private cloud (VPC) for the file system.
+     * ID of the primary VPC for the file system.
      */
     readonly vpcId: string;
     /**

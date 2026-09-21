@@ -19,8 +19,7 @@ namespace Pulumi.Aws.Rds.Inputs
         public Input<string>? RestoreToTime { get; set; }
 
         /// <summary>
-        /// Type of restore to be performed.
-        /// Valid options are `full-copy` (default) and `copy-on-write`.
+        /// Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
         /// </summary>
         [Input("restoreType")]
         public Input<string>? RestoreType { get; set; }

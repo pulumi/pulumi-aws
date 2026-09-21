@@ -245,7 +245,7 @@ class _IndexState:
         """
         Input properties used for looking up and filtering Index resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Index.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Index.
         :param pulumi.Input['IndexCapacityUnitsArgs'] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
@@ -309,7 +309,7 @@ class _IndexState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Index.
+        ARN of the Index.
         """
         return pulumi.get(self, "arn")
 
@@ -582,13 +582,13 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            edition="DEVELOPER_EDITION",
-            role_arn=this["arn"],
             capacity_units={
                 "query_capacity_units": 2,
                 "storage_capacity_units": 2,
-            })
+            },
+            name="example",
+            edition="DEVELOPER_EDITION",
+            role_arn=this["arn"])
         ```
 
         ### With server side encryption configuration
@@ -598,11 +598,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
                 "kms_key_id": this["arn"],
-            })
+            },
+            name="example",
+            role_arn=this_aws_iam_role["arn"])
         ```
 
         ### With user group resolution configuration
@@ -612,11 +612,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             user_group_resolution_configuration={
                 "user_group_resolution_mode": "AWS_SSO",
-            })
+            },
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### With Document Metadata Configuration Updates
@@ -630,12 +630,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
-                    "name": "_authors",
-                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -645,10 +641,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
                 },
                 {
-                    "name": "_category",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -659,10 +655,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_category",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_created_at",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -675,10 +671,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
                 },
                 {
-                    "name": "_data_source_id",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -689,10 +685,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_document_title",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -703,10 +699,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "values_importance_map": {},
                     },
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -717,10 +713,24 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                 },
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -731,10 +741,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -745,24 +755,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_last_updated_at",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -775,10 +771,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
                 },
                 {
-                    "name": "_source_uri",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -789,10 +785,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
                 },
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -803,24 +813,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_version",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -831,8 +827,12 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                 },
-            ])
+            ],
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### Appending additional elements
@@ -844,25 +844,35 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
                     "name": "_authors",
                     "type": "STRING_LIST_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
                         "importance": 1,
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_category",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -870,13 +880,15 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_created_at",
                     "type": "DATE_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -884,57 +896,55 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_data_source_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": False,
+                        "displayable": True,
                         "facetable": False,
-                        "searchable": False,
+                        "searchable": True,
                         "sortable": True,
                     },
                     "relevance": {
-                        "importance": 1,
+                        "importance": 2,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_document_title",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
-                        "searchable": True,
-                        "sortable": True,
+                        "searchable": False,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 2,
-                        "values_importance_map": {},
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_excerpt_page_number",
                     "type": "LONG_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
-                        "importance": 2,
-                        "rank_order": "ASCENDING",
+                        "importance": 1,
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -945,10 +955,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -959,10 +969,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -970,43 +980,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_last_updated_at",
                     "type": "DATE_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "freshness": False,
-                        "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
-                    },
                 },
                 {
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_source_uri",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1017,24 +1027,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_version",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1045,10 +1041,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                 },
                 {
-                    "name": "example-string-value",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1059,10 +1055,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "example-long-value",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1073,10 +1069,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
                 },
                 {
-                    "name": "example-string-list-value",
-                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1086,10 +1082,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
                 },
                 {
-                    "name": "example-date-value",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1102,8 +1098,12 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
                 },
-            ])
+            ],
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### With JSON token type configuration
@@ -1113,14 +1113,14 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             user_token_configurations={
                 "json_token_type_configuration": {
                     "group_attribute_field": "groups",
                     "user_name_attribute_field": "username",
                 },
-            })
+            },
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ## Import
@@ -1182,13 +1182,13 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            edition="DEVELOPER_EDITION",
-            role_arn=this["arn"],
             capacity_units={
                 "query_capacity_units": 2,
                 "storage_capacity_units": 2,
-            })
+            },
+            name="example",
+            edition="DEVELOPER_EDITION",
+            role_arn=this["arn"])
         ```
 
         ### With server side encryption configuration
@@ -1198,11 +1198,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this_aws_iam_role["arn"],
             server_side_encryption_configuration={
                 "kms_key_id": this["arn"],
-            })
+            },
+            name="example",
+            role_arn=this_aws_iam_role["arn"])
         ```
 
         ### With user group resolution configuration
@@ -1212,11 +1212,11 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             user_group_resolution_configuration={
                 "user_group_resolution_mode": "AWS_SSO",
-            })
+            },
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### With Document Metadata Configuration Updates
@@ -1230,12 +1230,8 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
-                    "name": "_authors",
-                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1245,10 +1241,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
+                    "name": "_authors",
+                    "type": "STRING_LIST_VALUE",
                 },
                 {
-                    "name": "_category",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1259,10 +1255,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_category",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_created_at",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1275,10 +1271,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_created_at",
+                    "type": "DATE_VALUE",
                 },
                 {
-                    "name": "_data_source_id",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1289,10 +1285,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_data_source_id",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_document_title",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -1303,10 +1299,10 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "values_importance_map": {},
                     },
+                    "name": "_document_title",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "_excerpt_page_number",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1317,10 +1313,24 @@ class Index(pulumi.CustomResource):
                         "importance": 2,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_excerpt_page_number",
+                    "type": "LONG_VALUE",
                 },
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1331,10 +1341,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1345,24 +1355,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_last_updated_at",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1375,10 +1371,10 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_last_updated_at",
+                    "type": "DATE_VALUE",
                 },
                 {
-                    "name": "_source_uri",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": False,
@@ -1389,10 +1385,24 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "_source_uri",
+                    "type": "STRING_VALUE",
                 },
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": True,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1403,24 +1413,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_version",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1431,8 +1427,12 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                 },
-            ])
+            ],
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### Appending additional elements
@@ -1444,25 +1444,35 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             document_metadata_configuration_updates=[
                 {
+                    "search": {
+                        "displayable": False,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                    },
                     "name": "_authors",
                     "type": "STRING_LIST_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
                         "importance": 1,
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_category",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1470,13 +1480,15 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_created_at",
                     "type": "DATE_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1484,57 +1496,55 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
-                        "freshness": False,
                         "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_data_source_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": False,
+                        "displayable": True,
                         "facetable": False,
-                        "searchable": False,
+                        "searchable": True,
                         "sortable": True,
                     },
                     "relevance": {
-                        "importance": 1,
+                        "importance": 2,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_document_title",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
-                        "searchable": True,
-                        "sortable": True,
+                        "searchable": False,
+                        "sortable": False,
                     },
                     "relevance": {
                         "importance": 2,
-                        "values_importance_map": {},
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_excerpt_page_number",
                     "type": "LONG_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
-                        "importance": 2,
-                        "rank_order": "ASCENDING",
+                        "importance": 1,
+                        "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_faq_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1545,10 +1555,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_file_type",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1559,10 +1569,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_language_code",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1570,43 +1580,43 @@ class Index(pulumi.CustomResource):
                         "sortable": True,
                     },
                     "relevance": {
+                        "freshness": False,
                         "importance": 1,
-                        "values_importance_map": {},
+                        "duration": "25920000s",
+                        "rank_order": "ASCENDING",
                     },
-                },
-                {
                     "name": "_last_updated_at",
                     "type": "DATE_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "freshness": False,
-                        "importance": 1,
-                        "duration": "25920000s",
-                        "rank_order": "ASCENDING",
-                    },
                 },
                 {
+                    "search": {
+                        "displayable": True,
+                        "facetable": False,
+                        "searchable": False,
+                        "sortable": False,
+                    },
+                    "relevance": {
+                        "importance": 1,
+                        "values_importance_map": {},
+                    },
                     "name": "_source_uri",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
-                        "displayable": True,
+                        "displayable": False,
                         "facetable": False,
                         "searchable": False,
-                        "sortable": False,
+                        "sortable": True,
                     },
                     "relevance": {
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_tenant_id",
                     "type": "STRING_VALUE",
+                },
+                {
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1617,24 +1627,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
-                },
-                {
                     "name": "_version",
                     "type": "STRING_VALUE",
-                    "search": {
-                        "displayable": False,
-                        "facetable": False,
-                        "searchable": False,
-                        "sortable": True,
-                    },
-                    "relevance": {
-                        "importance": 1,
-                        "values_importance_map": {},
-                    },
                 },
                 {
-                    "name": "_view_count",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": False,
                         "facetable": False,
@@ -1645,10 +1641,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "_view_count",
+                    "type": "LONG_VALUE",
                 },
                 {
-                    "name": "example-string-value",
-                    "type": "STRING_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1659,10 +1655,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "values_importance_map": {},
                     },
+                    "name": "example-string-value",
+                    "type": "STRING_VALUE",
                 },
                 {
-                    "name": "example-long-value",
-                    "type": "LONG_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1673,10 +1669,10 @@ class Index(pulumi.CustomResource):
                         "importance": 1,
                         "rank_order": "ASCENDING",
                     },
+                    "name": "example-long-value",
+                    "type": "LONG_VALUE",
                 },
                 {
-                    "name": "example-string-list-value",
-                    "type": "STRING_LIST_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1686,10 +1682,10 @@ class Index(pulumi.CustomResource):
                     "relevance": {
                         "importance": 1,
                     },
+                    "name": "example-string-list-value",
+                    "type": "STRING_LIST_VALUE",
                 },
                 {
-                    "name": "example-date-value",
-                    "type": "DATE_VALUE",
                     "search": {
                         "displayable": True,
                         "facetable": True,
@@ -1702,8 +1698,12 @@ class Index(pulumi.CustomResource):
                         "duration": "25920000s",
                         "rank_order": "ASCENDING",
                     },
+                    "name": "example-date-value",
+                    "type": "DATE_VALUE",
                 },
-            ])
+            ],
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ### With JSON token type configuration
@@ -1713,14 +1713,14 @@ class Index(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Index("example",
-            name="example",
-            role_arn=this["arn"],
             user_token_configurations={
                 "json_token_type_configuration": {
                     "group_attribute_field": "groups",
                     "user_name_attribute_field": "username",
                 },
-            })
+            },
+            name="example",
+            role_arn=this["arn"])
         ```
 
         ## Import
@@ -1825,7 +1825,7 @@ class Index(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Index.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Index.
         :param pulumi.Input[Union['IndexCapacityUnitsArgs', 'IndexCapacityUnitsArgsDict']] capacity_units: A block that sets the number of additional document storage and query capacity units that should be used by the index. Detailed below.
         :param pulumi.Input[_builtins.str] created_at: The Unix datetime that the index was created.
         :param pulumi.Input[_builtins.str] description: The description of the Index.
@@ -1875,7 +1875,7 @@ class Index(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Index.
+        ARN of the Index.
         """
         return pulumi.get(self, "arn")
 

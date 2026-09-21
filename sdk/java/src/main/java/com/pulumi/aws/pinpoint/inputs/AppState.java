@@ -35,7 +35,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -51,7 +51,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the PinPoint Application.
+     * @return ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -266,7 +266,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the PinPoint Application.
+         * @param arn ARN of the PinPoint Application.
          * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
          * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
          * * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -286,7 +286,7 @@ public final class AppState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the PinPoint Application.
+         * @param arn ARN of the PinPoint Application.
          * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
          * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
          * * `campaign_hook[0].web_url` - Web URL to call for hook.

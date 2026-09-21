@@ -485,18 +485,18 @@ class Daemon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Daemon("example",
-            name="example-daemon",
-            cluster_arn=example_aws_ecs_cluster["arn"],
-            daemon_task_definition_arn=example_aws_ecs_daemon_task_definition["arn"],
-            capacity_provider_arns=[example_aws_ecs_capacity_provider["arn"]],
             deployment_configuration={
-                "drain_percent": float(50),
-                "bake_time_in_minutes": 10,
                 "alarms": {
                     "alarm_names": ["example-alarm"],
                     "enable": True,
                 },
-            })
+                "drain_percent": float(50),
+                "bake_time_in_minutes": 10,
+            },
+            name="example-daemon",
+            cluster_arn=example_aws_ecs_cluster["arn"],
+            daemon_task_definition_arn=example_aws_ecs_daemon_task_definition["arn"],
+            capacity_provider_arns=[example_aws_ecs_capacity_provider["arn"]])
         ```
 
         ### With Tags
@@ -575,18 +575,18 @@ class Daemon(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.Daemon("example",
-            name="example-daemon",
-            cluster_arn=example_aws_ecs_cluster["arn"],
-            daemon_task_definition_arn=example_aws_ecs_daemon_task_definition["arn"],
-            capacity_provider_arns=[example_aws_ecs_capacity_provider["arn"]],
             deployment_configuration={
-                "drain_percent": float(50),
-                "bake_time_in_minutes": 10,
                 "alarms": {
                     "alarm_names": ["example-alarm"],
                     "enable": True,
                 },
-            })
+                "drain_percent": float(50),
+                "bake_time_in_minutes": 10,
+            },
+            name="example-daemon",
+            cluster_arn=example_aws_ecs_cluster["arn"],
+            daemon_task_definition_arn=example_aws_ecs_daemon_task_definition["arn"],
+            capacity_provider_arns=[example_aws_ecs_capacity_provider["arn"]])
         ```
 
         ### With Tags

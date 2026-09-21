@@ -120,7 +120,7 @@ export class FindingAggregator extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * ARN of the Security Hub finding aggregator.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export class FindingAggregator extends pulumi.CustomResource {
  */
 export interface FindingAggregatorState {
     /**
-     * Amazon Resource Name (ARN) of the Security Hub finding aggregator.
+     * ARN of the Security Hub finding aggregator.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

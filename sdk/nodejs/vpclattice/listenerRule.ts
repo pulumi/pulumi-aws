@@ -17,25 +17,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ListenerRule("example", {
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 20,
  *     match: {
  *         httpMatch: {
- *             headerMatches: [{
- *                 name: "example-header",
- *                 caseSensitive: false,
- *                 match: {
- *                     exact: "example-contains",
- *                 },
- *             }],
  *             pathMatch: {
- *                 caseSensitive: true,
  *                 match: {
  *                     prefix: "/example-path",
  *                 },
+ *                 caseSensitive: true,
  *             },
+ *             headerMatches: [{
+ *                 match: {
+ *                     exact: "example-contains",
+ *                 },
+ *                 name: "example-header",
+ *                 caseSensitive: false,
+ *             }],
  *         },
  *     },
  *     action: {
@@ -52,6 +48,10 @@ import * as utilities from "../utilities";
  *             ],
  *         },
  *     },
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
+ *     priority: 20,
  * });
  * ```
  *
@@ -62,17 +62,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.ListenerRule("example", {
- *     name: "example",
- *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
- *     serviceIdentifier: exampleAwsVpclatticeService.id,
- *     priority: 10,
  *     match: {
  *         httpMatch: {
  *             pathMatch: {
- *                 caseSensitive: false,
  *                 match: {
  *                     exact: "/example-path",
  *                 },
+ *                 caseSensitive: false,
  *             },
  *         },
  *     },
@@ -81,6 +77,10 @@ import * as utilities from "../utilities";
  *             statusCode: 404,
  *         },
  *     },
+ *     name: "example",
+ *     listenerIdentifier: exampleAwsVpclatticeListener.listenerId,
+ *     serviceIdentifier: exampleAwsVpclatticeService.id,
+ *     priority: 10,
  * });
  * ```
  *
@@ -129,7 +129,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     declare public readonly listenerIdentifier: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class ListenerRule extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ruleId: pulumi.Output<string>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */
@@ -238,7 +238,7 @@ export interface ListenerRuleState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     listenerIdentifier?: pulumi.Input<string | undefined>;
     /**
@@ -262,7 +262,7 @@ export interface ListenerRuleState {
      */
     ruleId?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */
@@ -286,7 +286,7 @@ export interface ListenerRuleArgs {
      */
     action: pulumi.Input<inputs.vpclattice.ListenerRuleAction>;
     /**
-     * ID or Amazon Resource Name (ARN) of the listener.
+     * ID or ARN of the listener.
      */
     listenerIdentifier: pulumi.Input<string>;
     /**
@@ -306,7 +306,7 @@ export interface ListenerRuleArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * ID or Amazon Resource Name (ARN) of the service.
+     * ID or ARN of the service.
      *
      * The following arguments are optional:
      */

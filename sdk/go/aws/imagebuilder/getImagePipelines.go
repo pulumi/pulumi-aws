@@ -76,12 +76,8 @@ type GetImagePipelinesResult struct {
 }
 
 func GetImagePipelinesOutput(ctx *pulumi.Context, args GetImagePipelinesOutputArgs, opts ...pulumi.InvokeOption) GetImagePipelinesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetImagePipelinesResultOutput, error) {
-			args := v.(GetImagePipelinesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getImagePipelines:getImagePipelines", args, GetImagePipelinesResultOutput{}, options).(GetImagePipelinesResultOutput), nil
-		}).(GetImagePipelinesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getImagePipelines:getImagePipelines", args, GetImagePipelinesResultOutput{}, options).(GetImagePipelinesResultOutput)
 }
 
 // A collection of arguments for invoking getImagePipelines.

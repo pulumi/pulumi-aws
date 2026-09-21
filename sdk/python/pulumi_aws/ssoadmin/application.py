@@ -444,16 +444,16 @@ class Application(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
             portal_options={
-                "visibility": "ENABLED",
                 "sign_in_options": {
                     "application_url": "http://example.com",
                     "origin": "APPLICATION",
                 },
-            })
+                "visibility": "ENABLED",
+            },
+            name="example",
+            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
+            instance_arn=example.arns[0])
         ```
 
         ## Import
@@ -462,7 +462,7 @@ class Application(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+        - `arn` (String) ARN of the SSO application.
 
         #### Optional
 
@@ -525,16 +525,16 @@ class Application(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=example.arns[0],
             portal_options={
-                "visibility": "ENABLED",
                 "sign_in_options": {
                     "application_url": "http://example.com",
                     "origin": "APPLICATION",
                 },
-            })
+                "visibility": "ENABLED",
+            },
+            name="example",
+            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
+            instance_arn=example.arns[0])
         ```
 
         ## Import
@@ -543,7 +543,7 @@ class Application(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the SSO application.
+        - `arn` (String) ARN of the SSO application.
 
         #### Optional
 

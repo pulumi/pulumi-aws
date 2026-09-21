@@ -35,14 +35,14 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the service quota.
+     * ARN of the service quota.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service quota.
+     * @return ARN of the service quota.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -240,7 +240,7 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the service quota.
+         * @param arn ARN of the service quota.
          * 
          * @return builder
          * 
@@ -251,7 +251,7 @@ public final class ServiceQuotaState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the service quota.
+         * @param arn ARN of the service quota.
          * 
          * @return builder
          * 

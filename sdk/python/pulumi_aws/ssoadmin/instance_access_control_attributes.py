@@ -28,7 +28,7 @@ class InstanceAccessControlAttributesArgs:
         The set of arguments for constructing a InstanceAccessControlAttributes resource.
 
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "attributes", attributes)
@@ -52,7 +52,7 @@ class InstanceAccessControlAttributesArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance.
+        ARN of the SSO Instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -85,7 +85,7 @@ class _InstanceAccessControlAttributesState:
         Input properties used for looking up and filtering InstanceAccessControlAttributes resources.
 
         :param pulumi.Input[Sequence[pulumi.Input['InstanceAccessControlAttributesAttributeArgs']]] attributes: See AccessControlAttribute for more details.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         if attributes is not None:
@@ -115,7 +115,7 @@ class _InstanceAccessControlAttributesState:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance.
+        ARN of the SSO Instance.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -175,21 +175,21 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=example.arns[0],
             attributes=[
                 {
-                    "key": "name",
                     "values": [{
                         "sources": ["${path:name.givenName}"],
                     }],
+                    "key": "name",
                 },
                 {
-                    "key": "last",
                     "values": [{
                         "sources": ["${path:name.familyName}"],
                     }],
+                    "key": "last",
                 },
-            ])
+            ],
+            instance_arn=example.arns[0])
         ```
 
         ## Import
@@ -204,7 +204,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         ...
@@ -224,21 +224,21 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=example.arns[0],
             attributes=[
                 {
-                    "key": "name",
                     "values": [{
                         "sources": ["${path:name.givenName}"],
                     }],
+                    "key": "name",
                 },
                 {
-                    "key": "last",
                     "values": [{
                         "sources": ["${path:name.familyName}"],
                     }],
+                    "key": "last",
                 },
-            ])
+            ],
+            instance_arn=example.arns[0])
         ```
 
         ## Import
@@ -309,7 +309,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[Union['InstanceAccessControlAttributesAttributeArgs', 'InstanceAccessControlAttributesAttributeArgsDict']]]] attributes: See AccessControlAttribute for more details.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -335,7 +335,7 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance.
+        ARN of the SSO Instance.
         """
         return pulumi.get(self, "instance_arn")
 

@@ -120,12 +120,8 @@ type LookupQueueResult struct {
 }
 
 func LookupQueueOutput(ctx *pulumi.Context, args LookupQueueOutputArgs, opts ...pulumi.InvokeOption) LookupQueueResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupQueueResultOutput, error) {
-			args := v.(LookupQueueArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getQueue:getQueue", args, LookupQueueResultOutput{}, options).(LookupQueueResultOutput), nil
-		}).(LookupQueueResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getQueue:getQueue", args, LookupQueueResultOutput{}, options).(LookupQueueResultOutput)
 }
 
 // A collection of arguments for invoking getQueue.

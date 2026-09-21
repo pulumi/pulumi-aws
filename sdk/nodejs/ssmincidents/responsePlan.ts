@@ -21,11 +21,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmincidents.ResponsePlan("example", {
- *     name: "name",
  *     incidentTemplate: {
  *         title: "title",
  *         impact: 3,
  *     },
+ *     name: "name",
  *     tags: {
  *         key: "value",
  *     },
@@ -41,14 +41,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssmincidents.ResponsePlan("example", {
- *     name: "name",
  *     incidentTemplate: {
- *         title: "title",
- *         impact: 3,
- *         dedupeString: "dedupe",
- *         incidentTags: {
- *             key: "value",
- *         },
  *         notificationTargets: [
  *             {
  *                 snsTopicArn: example1.arn,
@@ -57,17 +50,16 @@ import * as utilities from "../utilities";
  *                 snsTopicArn: example2.arn,
  *             },
  *         ],
+ *         title: "title",
+ *         impact: 3,
+ *         dedupeString: "dedupe",
+ *         incidentTags: {
+ *             key: "value",
+ *         },
  *         summary: "summary",
  *     },
- *     displayName: "display name",
- *     chatChannels: [topic.arn],
- *     engagements: ["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
  *     action: {
  *         ssmAutomations: [{
- *             documentName: document1.name,
- *             roleArn: role1.arn,
- *             documentVersion: "version1",
- *             targetAccount: "RESPONSE_PLAN_OWNER_ACCOUNT",
  *             parameters: [
  *                 {
  *                     name: "key",
@@ -81,6 +73,10 @@ import * as utilities from "../utilities";
  *                     values: ["bar"],
  *                 },
  *             ],
+ *             documentName: document1.name,
+ *             roleArn: role1.arn,
+ *             documentVersion: "version1",
+ *             targetAccount: "RESPONSE_PLAN_OWNER_ACCOUNT",
  *             dynamicParameters: {
  *                 someKey: "INVOLVED_RESOURCES",
  *                 anotherKey: "INCIDENT_RECORD_ARN",
@@ -94,6 +90,10 @@ import * as utilities from "../utilities";
  *             secretId: "example",
  *         }],
  *     },
+ *     name: "name",
+ *     displayName: "display name",
+ *     chatChannels: [topic.arn],
+ *     engagements: ["arn:aws:ssm-contacts:us-east-2:111122223333:contact/test1"],
  *     tags: {
  *         key: "value",
  *     },
@@ -155,7 +155,7 @@ export class ResponsePlan extends pulumi.CustomResource {
      */
     declare public readonly displayName: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     declare public readonly engagements: pulumi.Output<string[] | undefined>;
     /**
@@ -250,7 +250,7 @@ export interface ResponsePlanState {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -296,7 +296,7 @@ export interface ResponsePlanArgs {
      */
     displayName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+     * ARN for the contacts and escalation plans that the response plan engages during an incident.
      */
     engagements?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

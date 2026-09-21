@@ -18,44 +18,92 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs();
 
+    /**
+     * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+     * 
+     */
     @Import(name="endpointIpAddressType", required=true)
     private Output<String> endpointIpAddressType;
 
+    /**
+     * @return IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+     * 
+     */
     public Output<String> endpointIpAddressType() {
         return this.endpointIpAddressType;
     }
 
+    /**
+     * Routing domain for the endpoint.
+     * 
+     */
     @Import(name="routingDomain")
     private @Nullable Output<String> routingDomain;
 
+    /**
+     * @return Routing domain for the endpoint.
+     * 
+     */
     public Optional<Output<String>> routingDomain() {
         return Optional.ofNullable(this.routingDomain);
     }
 
+    /**
+     * IDs of the security groups for the endpoint.
+     * 
+     */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
+    /**
+     * @return IDs of the security groups for the endpoint.
+     * 
+     */
     public Optional<Output<List<String>>> securityGroupIds() {
         return Optional.ofNullable(this.securityGroupIds);
     }
 
+    /**
+     * IDs of the subnets for the endpoint.
+     * 
+     */
     @Import(name="subnetIds", required=true)
     private Output<List<String>> subnetIds;
 
+    /**
+     * @return IDs of the subnets for the endpoint.
+     * 
+     */
     public Output<List<String>> subnetIds() {
         return this.subnetIds;
     }
 
+    /**
+     * Tags to assign to the managed VPC resource.
+     * 
+     */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
+    /**
+     * @return Tags to assign to the managed VPC resource.
+     * 
+     */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
+    /**
+     * Identifier of the VPC for the endpoint.
+     * 
+     */
     @Import(name="vpcIdentifier", required=true)
     private Output<String> vpcIdentifier;
 
+    /**
+     * @return Identifier of the VPC for the endpoint.
+     * 
+     */
     public Output<String> vpcIdentifier() {
         return this.vpcIdentifier;
     }
@@ -89,64 +137,148 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param endpointIpAddressType IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointIpAddressType(Output<String> endpointIpAddressType) {
             $.endpointIpAddressType = endpointIpAddressType;
             return this;
         }
 
+        /**
+         * @param endpointIpAddressType IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder endpointIpAddressType(String endpointIpAddressType) {
             return endpointIpAddressType(Output.of(endpointIpAddressType));
         }
 
+        /**
+         * @param routingDomain Routing domain for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routingDomain(@Nullable Output<String> routingDomain) {
             $.routingDomain = routingDomain;
             return this;
         }
 
+        /**
+         * @param routingDomain Routing domain for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder routingDomain(String routingDomain) {
             return routingDomain(Output.of(routingDomain));
         }
 
+        /**
+         * @param securityGroupIds IDs of the security groups for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(@Nullable Output<List<String>> securityGroupIds) {
             $.securityGroupIds = securityGroupIds;
             return this;
         }
 
+        /**
+         * @param securityGroupIds IDs of the security groups for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(List<String> securityGroupIds) {
             return securityGroupIds(Output.of(securityGroupIds));
         }
 
+        /**
+         * @param securityGroupIds IDs of the security groups for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder securityGroupIds(String... securityGroupIds) {
             return securityGroupIds(List.of(securityGroupIds));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(Output<List<String>> subnetIds) {
             $.subnetIds = subnetIds;
             return this;
         }
 
+        /**
+         * @param subnetIds IDs of the subnets for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(List<String> subnetIds) {
             return subnetIds(Output.of(subnetIds));
         }
 
+        /**
+         * @param subnetIds IDs of the subnets for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder subnetIds(String... subnetIds) {
             return subnetIds(List.of(subnetIds));
         }
 
+        /**
+         * @param tags Tags to assign to the managed VPC resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(@Nullable Output<Map<String,String>> tags) {
             $.tags = tags;
             return this;
         }
 
+        /**
+         * @param tags Tags to assign to the managed VPC resource.
+         * 
+         * @return builder
+         * 
+         */
         public Builder tags(Map<String,String> tags) {
             return tags(Output.of(tags));
         }
 
+        /**
+         * @param vpcIdentifier Identifier of the VPC for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcIdentifier(Output<String> vpcIdentifier) {
             $.vpcIdentifier = vpcIdentifier;
             return this;
         }
 
+        /**
+         * @param vpcIdentifier Identifier of the VPC for the endpoint.
+         * 
+         * @return builder
+         * 
+         */
         public Builder vpcIdentifier(String vpcIdentifier) {
             return vpcIdentifier(Output.of(vpcIdentifier));
         }

@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Rds.Inputs
 
     public sealed class ReservedInstanceRecurringChargeGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Amount of the recurring charge.
+        /// </summary>
         [Input("recurringChargeAmount")]
         public Input<int>? RecurringChargeAmount { get; set; }
 
+        /// <summary>
+        /// Frequency of the recurring charge.
+        /// </summary>
         [Input("recurringChargeFrequency")]
         public Input<string>? RecurringChargeFrequency { get; set; }
 

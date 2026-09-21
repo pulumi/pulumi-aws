@@ -33,28 +33,6 @@ namespace Pulumi.Aws.Efs
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Sid = "ExampleStatement01",
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "AWS",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "elasticfilesystem:ClientMount",
-    ///                     "elasticfilesystem:ClientWrite",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     fs.Arn,
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -66,6 +44,28 @@ namespace Pulumi.Aws.Efs
     ///                             "true",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "AWS",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Sid = "ExampleStatement01",
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "elasticfilesystem:ClientMount",
+    ///                     "elasticfilesystem:ClientWrite",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     fs.Arn,
     ///                 },
     ///             },
     ///         },

@@ -158,9 +158,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -168,6 +165,9 @@ import (
 //									pulumi.String("timestream-influxdb.amazonaws.com"),
 //								},
 //							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
@@ -185,6 +185,12 @@ import (
 //				return err
 //			}
 //			_, err = timestreaminfluxdb.NewDbCluster(ctx, "example", &timestreaminfluxdb.DbClusterArgs{
+//				LogDeliveryConfiguration: &timestreaminfluxdb.DbClusterLogDeliveryConfigurationArgs{
+//					S3Configuration: &timestreaminfluxdb.DbClusterLogDeliveryConfigurationS3ConfigurationArgs{
+//						BucketName: exampleBucket.Bucket,
+//						Enabled:    pulumi.Bool(true),
+//					},
+//				},
 //				AllocatedStorage: pulumi.Int(20),
 //				Bucket:           pulumi.String("example-bucket-name"),
 //				DbInstanceType:   pulumi.String("db.influx.medium"),
@@ -199,12 +205,6 @@ import (
 //					exampleAwsSecurityGroup.Id,
 //				},
 //				Name: pulumi.String("example-db-cluster"),
-//				LogDeliveryConfiguration: &timestreaminfluxdb.DbClusterLogDeliveryConfigurationArgs{
-//					S3Configuration: &timestreaminfluxdb.DbClusterLogDeliveryConfigurationS3ConfigurationArgs{
-//						BucketName: exampleBucket.Bucket,
-//						Enabled:    pulumi.Bool(true),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -232,6 +232,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := timestreaminfluxdb.NewDbCluster(ctx, "example", &timestreaminfluxdb.DbClusterArgs{
+//				MaintenanceSchedule: &timestreaminfluxdb.DbClusterMaintenanceScheduleArgs{
+//					PreferredMaintenanceWindow: pulumi.String("Sun:02:00-Sun:06:00"),
+//					Timezone:                   pulumi.String("America/New_York"),
+//				},
 //				Name:                       pulumi.String("example-v3-cluster"),
 //				DbInstanceType:             pulumi.String("db.influx.large"),
 //				DbParameterGroupIdentifier: pulumi.String("InfluxDBV3Core"),
@@ -241,10 +245,6 @@ import (
 //				},
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
-//				},
-//				MaintenanceSchedule: &timestreaminfluxdb.DbClusterMaintenanceScheduleArgs{
-//					PreferredMaintenanceWindow: pulumi.String("Sun:02:00-Sun:06:00"),
-//					Timezone:                   pulumi.String("America/New_York"),
 //				},
 //			})
 //			if err != nil {

@@ -18,14 +18,14 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
     public static final VoiceConnectorState Empty = new VoiceConnectorState();
 
     /**
-     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * ARN of the Amazon Chime Voice Connector.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * @return ARN of the Amazon Chime Voice Connector.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -173,7 +173,7 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+         * @param arn ARN of the Amazon Chime Voice Connector.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class VoiceConnectorState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+         * @param arn ARN of the Amazon Chime Voice Connector.
          * 
          * @return builder
          * 

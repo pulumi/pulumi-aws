@@ -644,7 +644,7 @@ class GetBrokerEncryptionOptionResult(dict):
                  kms_key_id: _builtins.str,
                  use_aws_owned_key: _builtins.bool):
         """
-        :param _builtins.str kms_key_id: Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+        :param _builtins.str kms_key_id: ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
         :param _builtins.bool use_aws_owned_key: Whether to enable an AWS-owned KMS CMK that is not in your account.
         """
         pulumi.set(__self__, "kms_key_id", kms_key_id)
@@ -654,7 +654,7 @@ class GetBrokerEncryptionOptionResult(dict):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+        ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
         """
         return pulumi.get(self, "kms_key_id")
 

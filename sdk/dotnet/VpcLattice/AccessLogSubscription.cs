@@ -45,13 +45,13 @@ namespace Pulumi.Aws.VpcLattice
     public partial class AccessLogSubscription : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the access log subscription.
+        /// ARN of the access log subscription.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
+        /// ARN of the log destination.
         /// </summary>
         [Output("destinationArn")]
         public Output<string> DestinationArn { get; private set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service network or service.
+        /// ARN of the service network or service.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -138,7 +138,7 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class AccessLogSubscriptionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
+        /// ARN of the log destination.
         /// </summary>
         [Input("destinationArn", required: true)]
         public Input<string> DestinationArn { get; set; } = null!;
@@ -184,13 +184,13 @@ namespace Pulumi.Aws.VpcLattice
     public sealed class AccessLogSubscriptionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the access log subscription.
+        /// ARN of the access log subscription.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the log destination.
+        /// ARN of the log destination.
         /// </summary>
         [Input("destinationArn")]
         public Input<string>? DestinationArn { get; set; }
@@ -202,7 +202,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service network or service.
+        /// ARN of the service network or service.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

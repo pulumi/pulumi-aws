@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Lambda.Inputs
     public sealed class CapacityProviderCapacityProviderScalingConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The maximum number of VCPUs for the Capacity Provider.
+        /// Maximum number of VCPUs for the Capacity Provider.
         /// </summary>
         [Input("maxVcpuCount", required: true)]
         public Input<int> MaxVcpuCount { get; set; } = null!;
 
         /// <summary>
-        /// The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+        /// Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
         /// </summary>
         [Input("scalingMode", required: true)]
         public Input<string> ScalingMode { get; set; } = null!;

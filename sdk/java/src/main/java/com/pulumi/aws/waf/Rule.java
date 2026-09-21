@@ -50,21 +50,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var ipset = new IpSet("ipset", IpSetArgs.builder()
- *             .name("tfIPSet")
  *             .ipSetDescriptors(IpSetIpSetDescriptorArgs.builder()
  *                 .type("IPV4")
  *                 .value("192.0.7.0/24")
  *                 .build())
+ *             .name("tfIPSet")
  *             .build());
  * 
  *         var wafrule = new Rule("wafrule", RuleArgs.builder()
- *             .name("tfWAFRule")
- *             .metricName("tfWAFRule")
  *             .predicates(RulePredicateArgs.builder()
  *                 .dataId(ipset.id())
  *                 .negated(false)
  *                 .type("IPMatch")
  *                 .build())
+ *             .name("tfWAFRule")
+ *             .metricName("tfWAFRule")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(ipset)
  *                 .build());

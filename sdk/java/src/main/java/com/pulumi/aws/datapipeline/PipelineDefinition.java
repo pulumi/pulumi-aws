@@ -54,19 +54,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new PipelineDefinition("example", PipelineDefinitionArgs.builder()
- *             .pipelineId(default_.id())
  *             .pipelineObjects(            
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("Default")
- *                     .name("Default")
  *                     .fields(PipelineDefinitionPipelineObjectFieldArgs.builder()
  *                         .key("workerGroup")
  *                         .stringValue("workerGroup")
  *                         .build())
+ *                     .id("Default")
+ *                     .name("Default")
  *                     .build(),
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("Schedule")
- *                     .name("Schedule")
  *                     .fields(                    
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
  *                             .key("startDateTime")
@@ -84,10 +81,10 @@ import javax.annotation.Nullable;
  *                             .key("endDateTime")
  *                             .stringValue("2012-12-21T18:00:00")
  *                             .build())
+ *                     .id("Schedule")
+ *                     .name("Schedule")
  *                     .build(),
  *                 PipelineDefinitionPipelineObjectArgs.builder()
- *                     .id("SayHello")
- *                     .name("SayHello")
  *                     .fields(                    
  *                         PipelineDefinitionPipelineObjectFieldArgs.builder()
  *                             .key("type")
@@ -105,7 +102,10 @@ import javax.annotation.Nullable;
  *                             .key("schedule")
  *                             .stringValue("Schedule")
  *                             .build())
+ *                     .id("SayHello")
+ *                     .name("SayHello")
  *                     .build())
+ *             .pipelineId(default_.id())
  *             .build());
  * 
  *     }

@@ -104,7 +104,7 @@ class _VpcIpamScopeState:
         """
         Input properties used for looking up and filtering VpcIpamScope resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the scope.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scope.
         :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
         :param pulumi.Input[_builtins.str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
@@ -138,7 +138,7 @@ class _VpcIpamScopeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the scope.
+        ARN of the scope.
         """
         return pulumi.get(self, "arn")
 
@@ -398,7 +398,7 @@ class VpcIpamScope(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the scope.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scope.
         :param pulumi.Input[_builtins.str] description: A description for the scope you're creating.
         :param pulumi.Input[_builtins.str] ipam_arn: The ARN of the IPAM for which you're creating this scope.
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM for which you're creating this scope.
@@ -427,7 +427,7 @@ class VpcIpamScope(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the scope.
+        ARN of the scope.
         """
         return pulumi.get(self, "arn")
 

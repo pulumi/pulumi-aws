@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Access("test", AccessArgs.builder()
- *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
- *             .serverId(testAwsTransferServer.id())
- *             .role(testAwsIamRole.arn())
- *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
  *             .posixProfile(AccessPosixProfileArgs.builder()
  *                 .gid(1000)
  *                 .uid(1000)
  *                 .build())
+ *             .externalId("S-1-1-12-1234567890-123456789-1234567890-1234")
+ *             .serverId(testAwsTransferServer.id())
+ *             .role(testAwsIamRole.arn())
+ *             .homeDirectory(String.format("/%s/", testAwsEfsFileSystem.id()))
  *             .build());
  * 
  *     }
@@ -211,14 +211,14 @@ public class Access extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
     @Export(name="role", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
      * 
      */
     public Output<Optional<String>> role() {

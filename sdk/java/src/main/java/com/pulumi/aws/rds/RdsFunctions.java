@@ -18,6 +18,8 @@ import com.pulumi.aws.rds.inputs.GetEngineVersionArgs;
 import com.pulumi.aws.rds.inputs.GetEngineVersionPlainArgs;
 import com.pulumi.aws.rds.inputs.GetEventCategoriesArgs;
 import com.pulumi.aws.rds.inputs.GetEventCategoriesPlainArgs;
+import com.pulumi.aws.rds.inputs.GetEventsArgs;
+import com.pulumi.aws.rds.inputs.GetEventsPlainArgs;
 import com.pulumi.aws.rds.inputs.GetGlobalClusterArgs;
 import com.pulumi.aws.rds.inputs.GetGlobalClusterPlainArgs;
 import com.pulumi.aws.rds.inputs.GetInstanceArgs;
@@ -45,6 +47,7 @@ import com.pulumi.aws.rds.outputs.GetClusterSnapshotResult;
 import com.pulumi.aws.rds.outputs.GetClustersResult;
 import com.pulumi.aws.rds.outputs.GetEngineVersionResult;
 import com.pulumi.aws.rds.outputs.GetEventCategoriesResult;
+import com.pulumi.aws.rds.outputs.GetEventsResult;
 import com.pulumi.aws.rds.outputs.GetGlobalClusterResult;
 import com.pulumi.aws.rds.outputs.GetInstanceResult;
 import com.pulumi.aws.rds.outputs.GetInstancesResult;
@@ -764,6 +767,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -788,7 +792,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -826,6 +832,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -850,7 +857,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -888,6 +897,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -912,7 +922,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -950,6 +962,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -974,7 +987,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1012,6 +1027,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1036,7 +1052,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1074,6 +1092,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1098,7 +1117,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1136,6 +1157,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.ClusterArgs;
      * import com.pulumi.aws.rds.ClusterInstance;
      * import com.pulumi.aws.rds.ClusterInstanceArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -1160,7 +1182,9 @@ public final class RdsFunctions {
      *             .clusterIdentifier("development_cluster")
      *             .snapshotIdentifier(developmentFinalSnapshot.id())
      *             .dbSubnetGroupName("my_db_subnet_group")
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *         var auroraClusterInstance = new ClusterInstance("auroraClusterInstance", ClusterInstanceArgs.builder()
      *             .clusterIdentifier(aurora.id())
@@ -1566,13 +1590,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1651,13 +1675,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1736,13 +1760,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1821,13 +1845,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -1906,13 +1930,13 @@ public final class RdsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = RdsFunctions.getEngineVersion(GetEngineVersionArgs.builder()
-     *             .engine("aurora-postgresql")
-     *             .version("10.14")
-     *             .includeAll(true)
      *             .filters(GetEngineVersionFilterArgs.builder()
      *                 .name("engine-mode")
      *                 .values("serverless")
      *                 .build())
+     *             .engine("aurora-postgresql")
+     *             .version("10.14")
+     *             .includeAll(true)
      *             .build());
      * 
      *     }
@@ -2441,6 +2465,405 @@ public final class RdsFunctions {
      */
     public static CompletableFuture<GetEventCategoriesResult> getEventCategoriesPlain(GetEventCategoriesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:rds/getEventCategories:getEventCategories", TypeShape.of(GetEventCategoriesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEventsResult> getEvents() {
+        return getEvents(GetEventsArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEventsResult> getEventsPlain() {
+        return getEventsPlain(GetEventsPlainArgs.Empty, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEventsResult> getEvents(GetEventsArgs args) {
+        return getEvents(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEventsResult> getEventsPlain(GetEventsPlainArgs args) {
+        return getEventsPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEventsResult> getEvents(GetEventsArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getEvents:getEvents", TypeShape.of(GetEventsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static Output<GetEventsResult> getEvents(GetEventsArgs args, InvokeOutputOptions options) {
+        return Deployment.getInstance().invoke("aws:rds/getEvents:getEvents", TypeShape.of(GetEventsResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Provides details about RDS events, as recorded in the RDS event stream. RDS
+     * records events such as maintenance and failure notifications that are not
+     * always surfaced by the AWS API as errors. This data source is a thin wrapper
+     * over the `DescribeEvents` API and does not evaluate or interpret the events it
+     * returns.
+     * 
+     * The `events` attribute reflects a wall-clock time window at read time. The
+     * events themselves are stable, but because the window moves with each read,
+     * successive `pulumi preview`/`refresh` runs can return different results. If
+     * you use this data source to inspect events generated by another resource&#39;s
+     * most recent apply, add a `dependsOn` on that resource so the read happens
+     * after the operation you&#39;re investigating.
+     * 
+     * Reading events requires the `rds:DescribeEvents` IAM permission.
+     * 
+     * ## Example Usage
+     * 
+     * <pre>
+     * {@code
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.rds.RdsFunctions;
+     * import com.pulumi.aws.rds.inputs.GetEventsArgs;
+     * import java.util.ArrayList;
+     * import java.util.Arrays;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RdsFunctions.getEvents(GetEventsArgs.builder()
+     *             .sourceIdentifier(exampleAwsDbInstance.identifier())
+     *             .sourceType("db-instance")
+     *             .eventCategories(            
+     *                 "failure",
+     *                 "maintenance")
+     *             .build());
+     * 
+     *     }
+     * }
+     * }
+     * </pre>
+     * 
+     */
+    public static CompletableFuture<GetEventsResult> getEventsPlain(GetEventsPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:rds/getEvents:getEvents", TypeShape.of(GetEventsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Data source for managing an AWS RDS (Relational Database) Global Cluster.
@@ -4569,6 +4992,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4604,7 +5028,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4634,6 +5060,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4669,7 +5096,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4699,6 +5128,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4734,7 +5164,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4764,6 +5196,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4799,7 +5232,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4829,6 +5264,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4864,7 +5300,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4894,6 +5332,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4929,7 +5368,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }
@@ -4959,6 +5400,7 @@ public final class RdsFunctions {
      * import com.pulumi.aws.rds.InstanceArgs;
      * import com.pulumi.aws.rds.RdsFunctions;
      * import com.pulumi.aws.rds.inputs.GetSnapshotArgs;
+     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.ArrayList;
      * import java.util.Arrays;
      * import java.util.Map;
@@ -4994,7 +5436,9 @@ public final class RdsFunctions {
      *             .instanceClass("db.t2.micro")
      *             .dbName("mydbdev")
      *             .snapshotIdentifier(latestProdSnapshot.applyValue(_latestProdSnapshot -> _latestProdSnapshot.id()))
-     *             .build());
+     *             .build(), CustomResourceOptions.builder()
+     *                 .ignoreChanges("snapshotIdentifier")
+     *                 .build());
      * 
      *     }
      * }

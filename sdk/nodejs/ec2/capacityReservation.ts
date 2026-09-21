@@ -101,7 +101,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     declare public readonly instanceType: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * ARN of the Outpost on which to create the Capacity Reservation.
      */
     declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
@@ -109,7 +109,7 @@ export class CapacityReservation extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * ARN of the cluster placement group in which to create the Capacity Reservation.
      */
     declare public readonly placementGroupArn: pulumi.Output<string | undefined>;
     /**
@@ -241,7 +241,7 @@ export interface CapacityReservationState {
      */
     instanceType?: pulumi.Input<string | enums.ec2.InstanceType | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * ARN of the Outpost on which to create the Capacity Reservation.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
@@ -249,7 +249,7 @@ export interface CapacityReservationState {
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * ARN of the cluster placement group in which to create the Capacity Reservation.
      */
     placementGroupArn?: pulumi.Input<string | undefined>;
     /**
@@ -311,11 +311,11 @@ export interface CapacityReservationArgs {
      */
     instanceType: pulumi.Input<string | enums.ec2.InstanceType>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * ARN of the Outpost on which to create the Capacity Reservation.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * ARN of the cluster placement group in which to create the Capacity Reservation.
      */
     placementGroupArn?: pulumi.Input<string | undefined>;
     /**

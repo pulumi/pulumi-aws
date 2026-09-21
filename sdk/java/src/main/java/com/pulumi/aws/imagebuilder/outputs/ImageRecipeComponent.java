@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ImageRecipeComponent {
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
+     * @return ARN of the Image Builder Component to associate.
      * 
      */
     private String componentArn;
@@ -26,7 +26,7 @@ public final class ImageRecipeComponent {
 
     private ImageRecipeComponent() {}
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Component to associate.
+     * @return ARN of the Image Builder Component to associate.
      * 
      */
     public String componentArn() {

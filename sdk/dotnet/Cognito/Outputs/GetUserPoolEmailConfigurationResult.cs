@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string ReplyToEmailAddress;
         /// <summary>
-        /// - Source Amazon Resource Name (ARN) for emails.
+        /// - Source ARN for emails.
         /// </summary>
         public readonly string SourceArn;
 

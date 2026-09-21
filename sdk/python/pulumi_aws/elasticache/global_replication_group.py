@@ -58,9 +58,7 @@ class GlobalReplicationGroupArgs:
         :param pulumi.Input[_builtins.str] global_replication_group_description: A user-created description for the global replication group.
         :param pulumi.Input[_builtins.int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[_builtins.str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
-               Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-               Specifying without a major version upgrade will fail.
-               Note that ElastiCache creates a copy of this parameter group for each member replication group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "global_replication_group_id_suffix", global_replication_group_id_suffix)
@@ -198,9 +196,7 @@ class GlobalReplicationGroupArgs:
     def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ElastiCache Parameter Group to use for the Global Replication Group.
-        Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        Specifying without a major version upgrade will fail.
-        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -276,9 +272,7 @@ class _GlobalReplicationGroupState:
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[_builtins.int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[_builtins.str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
-               Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-               Specifying without a major version upgrade will fail.
-               Note that ElastiCache creates a copy of this parameter group for each member replication group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
@@ -509,9 +503,7 @@ class _GlobalReplicationGroupState:
     def parameter_group_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         An ElastiCache Parameter Group to use for the Global Replication Group.
-        Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        Specifying without a major version upgrade will fail.
-        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         """
         return pulumi.get(self, "parameter_group_name")
 
@@ -672,9 +664,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[_builtins.int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[_builtins.str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
-               Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-               Specifying without a major version upgrade will fail.
-               Note that ElastiCache creates a copy of this parameter group for each member replication group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -880,9 +870,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] global_replication_group_id_suffix: The suffix name of a Global Datastore. If `global_replication_group_id_suffix` is changed, creates a new resource.
         :param pulumi.Input[_builtins.int] num_node_groups: The number of node groups (shards) on the global replication group.
         :param pulumi.Input[_builtins.str] parameter_group_name: An ElastiCache Parameter Group to use for the Global Replication Group.
-               Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-               Specifying without a major version upgrade will fail.
-               Note that ElastiCache creates a copy of this parameter group for each member replication group.
+               Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         :param pulumi.Input[_builtins.str] primary_replication_group_id: The ID of the primary cluster that accepts writes and will replicate updates to the secondary cluster. If `primary_replication_group_id` is changed, creates a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] transit_encryption_enabled: A flag that indicates whether the encryption in transit is enabled.
@@ -1044,9 +1032,7 @@ class GlobalReplicationGroup(pulumi.CustomResource):
     def parameter_group_name(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
         An ElastiCache Parameter Group to use for the Global Replication Group.
-        Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-        Specifying without a major version upgrade will fail.
-        Note that ElastiCache creates a copy of this parameter group for each member replication group.
+        Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary's parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
         """
         return pulumi.get(self, "parameter_group_name")
 

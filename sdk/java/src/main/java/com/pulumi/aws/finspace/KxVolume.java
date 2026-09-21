@@ -49,15 +49,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new KxVolume("example", KxVolumeArgs.builder()
+ *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
+ *                 .size(1200)
+ *                 .type("SSD_250")
+ *                 .build())
  *             .name("my-tf-kx-volume")
  *             .environmentId(exampleAwsFinspaceKxEnvironment.id())
  *             .availabilityZones("use1-az2")
  *             .azMode("SINGLE")
  *             .type("NAS_1")
- *             .nas1Configurations(KxVolumeNas1ConfigurationArgs.builder()
- *                 .size(1200)
- *                 .type("SSD_250")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -77,14 +77,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxVolume:KxVolume")
 public class KxVolume extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX volume.
+     * ARN identifier of the KX volume.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX volume.
+     * @return ARN identifier of the KX volume.
      * 
      */
     public Output<String> arn() {

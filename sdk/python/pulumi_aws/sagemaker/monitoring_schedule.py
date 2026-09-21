@@ -102,7 +102,7 @@ class _MonitoringScheduleState:
         """
         Input properties used for looking up and filtering MonitoringSchedule resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this monitoring schedule.
         :param pulumi.Input['MonitoringScheduleMonitoringScheduleConfigArgs'] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -126,7 +126,7 @@ class _MonitoringScheduleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        ARN assigned by AWS to this monitoring schedule.
         """
         return pulumi.get(self, "arn")
 
@@ -218,11 +218,11 @@ class MonitoringSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.MonitoringSchedule("test",
-            name="my-monitoring-schedule",
             monitoring_schedule_config={
                 "monitoring_job_definition_name": test_aws_sagemaker_data_quality_job_definition["name"],
                 "monitoring_type": "DataQuality",
-            })
+            },
+            name="my-monitoring-schedule")
         ```
 
         ## Import
@@ -259,11 +259,11 @@ class MonitoringSchedule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.MonitoringSchedule("test",
-            name="my-monitoring-schedule",
             monitoring_schedule_config={
                 "monitoring_job_definition_name": test_aws_sagemaker_data_quality_job_definition["name"],
                 "monitoring_type": "DataQuality",
-            })
+            },
+            name="my-monitoring-schedule")
         ```
 
         ## Import
@@ -334,7 +334,7 @@ class MonitoringSchedule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this monitoring schedule.
         :param pulumi.Input[Union['MonitoringScheduleMonitoringScheduleConfigArgs', 'MonitoringScheduleMonitoringScheduleConfigArgsDict']] monitoring_schedule_config: The configuration object that specifies the monitoring schedule and defines the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] name: The name of the monitoring schedule. The name must be unique within an AWS Region within an AWS account. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -357,7 +357,7 @@ class MonitoringSchedule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this monitoring schedule.
+        ARN assigned by AWS to this monitoring schedule.
         """
         return pulumi.get(self, "arn")
 

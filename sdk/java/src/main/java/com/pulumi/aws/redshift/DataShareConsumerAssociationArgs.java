@@ -48,14 +48,14 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     @Import(name="consumerArn")
     private @Nullable Output<String> consumerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+     * @return ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
      * 
      */
     public Optional<Output<String>> consumerArn() {
@@ -78,7 +78,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
     }
 
     /**
-     * Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -87,7 +87,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
     private Output<String> dataShareArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+     * @return ARN of the datashare that the consumer is to use with the account or the namespace.
      * 
      * The following arguments are optional:
      * 
@@ -183,7 +183,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+         * @param consumerArn ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param consumerArn Amazon Resource Name (ARN) of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
+         * @param consumerArn ARN of the consumer that is associated with the datashare. Conflicts with `associateEntireAccount` and `consumerRegion`.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+         * @param dataShareArn ARN of the datashare that the consumer is to use with the account or the namespace.
          * 
          * The following arguments are optional:
          * 
@@ -238,7 +238,7 @@ public final class DataShareConsumerAssociationArgs extends com.pulumi.resources
         }
 
         /**
-         * @param dataShareArn Amazon Resource Name (ARN) of the datashare that the consumer is to use with the account or the namespace.
+         * @param dataShareArn ARN of the datashare that the consumer is to use with the account or the namespace.
          * 
          * The following arguments are optional:
          * 

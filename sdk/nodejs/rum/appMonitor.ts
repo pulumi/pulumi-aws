@@ -67,7 +67,7 @@ export class AppMonitor extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly appMonitorId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) specifying the app monitor.
+     * ARN specifying the app monitor.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface AppMonitorState {
      */
     appMonitorId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) specifying the app monitor.
+     * ARN specifying the app monitor.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -21,16 +21,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [exampleAwsSsmcontactsContact.arn],
- *     name: "rotation",
  *     recurrence: {
- *         numberOfOnCalls: 1,
- *         recurrenceMultiplier: 1,
  *         dailySettings: [{
  *             hourOfDay: 9,
  *             minuteOfHour: 0,
  *         }],
+ *         numberOfOnCalls: 1,
+ *         recurrenceMultiplier: 1,
  *     },
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     timeZoneId: "Australia/Sydney",
  * }, {
  *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
@@ -44,29 +44,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [exampleAwsSsmcontactsContact.arn],
- *     name: "rotation",
  *     recurrence: {
- *         numberOfOnCalls: 1,
- *         recurrenceMultiplier: 1,
- *         weeklySettings: [
- *             {
- *                 dayOfWeek: "WED",
- *                 handOffTime: {
- *                     hourOfDay: 4,
- *                     minuteOfHour: 25,
- *                 },
- *             },
- *             {
- *                 dayOfWeek: "FRI",
- *                 handOffTime: {
- *                     hourOfDay: 15,
- *                     minuteOfHour: 57,
- *                 },
- *             },
- *         ],
  *         shiftCoverages: [{
- *             mapBlockKey: "MON",
  *             coverageTimes: [{
  *                 start: {
  *                     hourOfDay: 1,
@@ -77,8 +56,29 @@ import * as utilities from "../utilities";
  *                     minuteOfHour: 0,
  *                 },
  *             }],
+ *             mapBlockKey: "MON",
  *         }],
+ *         weeklySettings: [
+ *             {
+ *                 handOffTime: {
+ *                     hourOfDay: 4,
+ *                     minuteOfHour: 25,
+ *                 },
+ *                 dayOfWeek: "WED",
+ *             },
+ *             {
+ *                 handOffTime: {
+ *                     hourOfDay: 15,
+ *                     minuteOfHour: 57,
+ *                 },
+ *                 dayOfWeek: "FRI",
+ *             },
+ *         ],
+ *         numberOfOnCalls: 1,
+ *         recurrenceMultiplier: 1,
  *     },
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     startTime: "2023-07-20T02:21:49+00:00",
  *     timeZoneId: "Australia/Sydney",
  *     tags: {
@@ -97,28 +97,28 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ssm.ContactsRotation("example", {
- *     contactIds: [exampleAwsSsmcontactsContact.arn],
- *     name: "rotation",
  *     recurrence: {
- *         numberOfOnCalls: 1,
- *         recurrenceMultiplier: 1,
  *         monthlySettings: [
  *             {
- *                 dayOfMonth: 20,
  *                 handOffTime: {
  *                     hourOfDay: 8,
  *                     minuteOfHour: 0,
  *                 },
+ *                 dayOfMonth: 20,
  *             },
  *             {
- *                 dayOfMonth: 13,
  *                 handOffTime: {
  *                     hourOfDay: 12,
  *                     minuteOfHour: 34,
  *                 },
+ *                 dayOfMonth: 13,
  *             },
  *         ],
+ *         numberOfOnCalls: 1,
+ *         recurrenceMultiplier: 1,
  *     },
+ *     contactIds: [exampleAwsSsmcontactsContact.arn],
+ *     name: "rotation",
  *     timeZoneId: "Australia/Sydney",
  * }, {
  *     dependsOn: [exampleAwsSsmincidentsReplicationSet],
@@ -131,7 +131,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the SSM Contacts rotation.
+ * - `arn` (String) ARN of the SSM Contacts rotation.
  *
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  *
@@ -168,11 +168,11 @@ export class ContactsRotation extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     declare public readonly contactIds: pulumi.Output<string[]>;
     /**
@@ -259,11 +259,11 @@ export class ContactsRotation extends pulumi.CustomResource {
  */
 export interface ContactsRotationState {
     /**
-     * The Amazon Resource Name (ARN) of the rotation.
+     * ARN of the rotation.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     contactIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -303,7 +303,7 @@ export interface ContactsRotationState {
  */
 export interface ContactsRotationArgs {
     /**
-     * Amazon Resource Names (ARNs) of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
+     * ARNs of the contacts to add to the rotation. The order in which you list the contacts is their shift order in the rotation schedule.
      */
     contactIds: pulumi.Input<pulumi.Input<string>[]>;
     /**

@@ -84,7 +84,7 @@ def arn_parse(arn: Optional[_builtins.str] = None,
     """
     Parses an ARN into its constituent parts.
 
-    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 
     ## Signature
 
@@ -107,7 +107,7 @@ def arn_parse_output(arn: pulumi.Input[Optional[_builtins.str]] = None,
     """
     Parses an ARN into its constituent parts.
 
-    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+    See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 
     ## Signature
 

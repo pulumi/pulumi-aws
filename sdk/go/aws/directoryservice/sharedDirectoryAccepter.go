@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := directoryservice.NewSharedDirectory(ctx, "example", &directoryservice.SharedDirectoryArgs{
-//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
-//				Notes:       pulumi.String("example"),
 //				Target: &directoryservice.SharedDirectoryTargetArgs{
 //					Id: pulumi.Any(receiver.AccountId),
 //				},
+//				DirectoryId: pulumi.Any(exampleAwsDirectoryServiceDirectory.Id),
+//				Notes:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

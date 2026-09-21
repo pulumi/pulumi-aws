@@ -65,7 +65,7 @@ class EventSourceMappingArgs:
         :param pulumi.Input[_builtins.str] event_source_arn: Event source ARN - required for Kinesis stream, DynamoDB stream, SQS queue, MQ broker, MSK cluster or DocumentDB change stream. Incompatible with Self Managed Kafka source.
         :param pulumi.Input['EventSourceMappingFilterCriteriaArgs'] filter_criteria: Criteria to use for [event filtering](https://docs.aws.amazon.com/lambda/latest/dg/invocation-eventfiltering.html) Kinesis stream, DynamoDB stream, SQS queue event sources. See below.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] function_response_types: List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[_builtins.int] maximum_record_age_in_seconds: Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
@@ -269,7 +269,7 @@ class EventSourceMappingArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -551,7 +551,7 @@ class _EventSourceMappingState:
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] function_response_types: List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[_builtins.str] last_processing_result: Result of the last AWS Lambda invocation of your Lambda function.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -802,7 +802,7 @@ class _EventSourceMappingState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -1164,17 +1164,17 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
+            destination_config={
+                "on_failure": {
+                    "destination_arn": dlq["arn"],
+                },
+            },
             event_source_arn=example_aws_kinesis_stream["arn"],
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST",
             batch_size=100,
             maximum_batching_window_in_seconds=5,
-            parallelization_factor=2,
-            destination_config={
-                "on_failure": {
-                    "destination_arn": dlq["arn"],
-                },
-            })
+            parallelization_factor=2)
         ```
 
         ### SQS Queue
@@ -1184,12 +1184,12 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_sqs_queue["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            batch_size=10,
             scaling_config={
                 "maximum_concurrency": 100,
-            })
+            },
+            event_source_arn=example_aws_sqs_queue["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            batch_size=10)
         ```
 
         ### SQS with Event Filtering
@@ -1200,8 +1200,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_sqs_queue["arn"],
-            function_name=example_aws_lambda_function["arn"],
             filter_criteria={
                 "filters": [{
                     "pattern": json.dumps({
@@ -1218,7 +1216,9 @@ class EventSourceMapping(pulumi.CustomResource):
                         },
                     }),
                 }],
-            })
+            },
+            event_source_arn=example_aws_sqs_queue["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
 
         ### Amazon MSK
@@ -1228,6 +1228,9 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
+            amazon_managed_kafka_event_source_config={
+                "consumer_group_id": "lambda-consumer-group",
+            },
             event_source_arn=example_aws_msk_cluster["arn"],
             function_name=example_aws_lambda_function["arn"],
             topics=[
@@ -1235,10 +1238,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 "inventory",
             ],
             starting_position="TRIM_HORIZON",
-            batch_size=100,
-            amazon_managed_kafka_event_source_config={
-                "consumer_group_id": "lambda-consumer-group",
-            })
+            batch_size=100)
         ```
 
         ### Self-Managed Apache Kafka
@@ -1248,9 +1248,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=example_aws_lambda_function["arn"],
-            topics=["orders"],
-            starting_position="TRIM_HORIZON",
             self_managed_event_source={
                 "endpoints": {
                     "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
@@ -1258,6 +1255,11 @@ class EventSourceMapping(pulumi.CustomResource):
             },
             self_managed_kafka_event_source_config={
                 "consumer_group_id": "lambda-consumer-group",
+            },
+            provisioned_poller_config={
+                "maximum_pollers": 100,
+                "minimum_pollers": 10,
+                "poller_group_name": "group-123",
             },
             source_access_configurations=[
                 {
@@ -1273,11 +1275,9 @@ class EventSourceMapping(pulumi.CustomResource):
                     "uri": f"security_group:{example_aws_security_group['id']}",
                 },
             ],
-            provisioned_poller_config={
-                "maximum_pollers": 100,
-                "minimum_pollers": 10,
-                "poller_group_name": "group-123",
-            })
+            function_name=example_aws_lambda_function["arn"],
+            topics=["orders"],
+            starting_position="TRIM_HORIZON")
         ```
 
         ### Amazon MQ (ActiveMQ)
@@ -1287,14 +1287,14 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_mq_broker["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            queues="orders",
-            batch_size=10,
             source_access_configurations=[{
                 "type": "BASIC_AUTH",
                 "uri": example_aws_secretsmanager_secret_version["arn"],
-            }])
+            }],
+            event_source_arn=example_aws_mq_broker["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            queues="orders",
+            batch_size=10)
         ```
 
         ### Amazon MQ (RabbitMQ)
@@ -1304,10 +1304,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_mq_broker["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            queues="orders",
-            batch_size=1,
             source_access_configurations=[
                 {
                     "type": "VIRTUAL_HOST",
@@ -1317,7 +1313,11 @@ class EventSourceMapping(pulumi.CustomResource):
                     "type": "BASIC_AUTH",
                     "uri": example_aws_secretsmanager_secret_version["arn"],
                 },
-            ])
+            ],
+            event_source_arn=example_aws_mq_broker["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            queues="orders",
+            batch_size=1)
         ```
 
         ### DocumentDB Change Stream
@@ -1327,9 +1327,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_docdb_cluster["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            starting_position="LATEST",
             document_db_event_source_config={
                 "database_name": "orders",
                 "collection_name": "transactions",
@@ -1338,7 +1335,10 @@ class EventSourceMapping(pulumi.CustomResource):
             source_access_configurations=[{
                 "type": "BASIC_AUTH",
                 "uri": example_aws_secretsmanager_secret_version["arn"],
-            }])
+            }],
+            event_source_arn=example_aws_docdb_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            starting_position="LATEST")
         ```
 
         ## Import
@@ -1375,7 +1375,7 @@ class EventSourceMapping(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] function_response_types: List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
         :param pulumi.Input[_builtins.int] maximum_record_age_in_seconds: Maximum age of a record that Lambda sends to a function for processing. Only available for stream sources (DynamoDB and Kinesis). Must be either -1 (forever, and the default value) or between 60 and 604800 (inclusive).
         :param pulumi.Input[_builtins.int] maximum_retry_attempts: Maximum number of times to retry when the function returns an error. Only available for stream sources (DynamoDB and Kinesis). Minimum and default of -1 (forever), maximum of 10000.
@@ -1430,17 +1430,17 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
+            destination_config={
+                "on_failure": {
+                    "destination_arn": dlq["arn"],
+                },
+            },
             event_source_arn=example_aws_kinesis_stream["arn"],
             function_name=example_aws_lambda_function["arn"],
             starting_position="LATEST",
             batch_size=100,
             maximum_batching_window_in_seconds=5,
-            parallelization_factor=2,
-            destination_config={
-                "on_failure": {
-                    "destination_arn": dlq["arn"],
-                },
-            })
+            parallelization_factor=2)
         ```
 
         ### SQS Queue
@@ -1450,12 +1450,12 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_sqs_queue["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            batch_size=10,
             scaling_config={
                 "maximum_concurrency": 100,
-            })
+            },
+            event_source_arn=example_aws_sqs_queue["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            batch_size=10)
         ```
 
         ### SQS with Event Filtering
@@ -1466,8 +1466,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_sqs_queue["arn"],
-            function_name=example_aws_lambda_function["arn"],
             filter_criteria={
                 "filters": [{
                     "pattern": json.dumps({
@@ -1484,7 +1482,9 @@ class EventSourceMapping(pulumi.CustomResource):
                         },
                     }),
                 }],
-            })
+            },
+            event_source_arn=example_aws_sqs_queue["arn"],
+            function_name=example_aws_lambda_function["arn"])
         ```
 
         ### Amazon MSK
@@ -1494,6 +1494,9 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
+            amazon_managed_kafka_event_source_config={
+                "consumer_group_id": "lambda-consumer-group",
+            },
             event_source_arn=example_aws_msk_cluster["arn"],
             function_name=example_aws_lambda_function["arn"],
             topics=[
@@ -1501,10 +1504,7 @@ class EventSourceMapping(pulumi.CustomResource):
                 "inventory",
             ],
             starting_position="TRIM_HORIZON",
-            batch_size=100,
-            amazon_managed_kafka_event_source_config={
-                "consumer_group_id": "lambda-consumer-group",
-            })
+            batch_size=100)
         ```
 
         ### Self-Managed Apache Kafka
@@ -1514,9 +1514,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            function_name=example_aws_lambda_function["arn"],
-            topics=["orders"],
-            starting_position="TRIM_HORIZON",
             self_managed_event_source={
                 "endpoints": {
                     "KAFKA_BOOTSTRAP_SERVERS": "kafka1.example.com:9092,kafka2.example.com:9092",
@@ -1524,6 +1521,11 @@ class EventSourceMapping(pulumi.CustomResource):
             },
             self_managed_kafka_event_source_config={
                 "consumer_group_id": "lambda-consumer-group",
+            },
+            provisioned_poller_config={
+                "maximum_pollers": 100,
+                "minimum_pollers": 10,
+                "poller_group_name": "group-123",
             },
             source_access_configurations=[
                 {
@@ -1539,11 +1541,9 @@ class EventSourceMapping(pulumi.CustomResource):
                     "uri": f"security_group:{example_aws_security_group['id']}",
                 },
             ],
-            provisioned_poller_config={
-                "maximum_pollers": 100,
-                "minimum_pollers": 10,
-                "poller_group_name": "group-123",
-            })
+            function_name=example_aws_lambda_function["arn"],
+            topics=["orders"],
+            starting_position="TRIM_HORIZON")
         ```
 
         ### Amazon MQ (ActiveMQ)
@@ -1553,14 +1553,14 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_mq_broker["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            queues="orders",
-            batch_size=10,
             source_access_configurations=[{
                 "type": "BASIC_AUTH",
                 "uri": example_aws_secretsmanager_secret_version["arn"],
-            }])
+            }],
+            event_source_arn=example_aws_mq_broker["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            queues="orders",
+            batch_size=10)
         ```
 
         ### Amazon MQ (RabbitMQ)
@@ -1570,10 +1570,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_mq_broker["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            queues="orders",
-            batch_size=1,
             source_access_configurations=[
                 {
                     "type": "VIRTUAL_HOST",
@@ -1583,7 +1579,11 @@ class EventSourceMapping(pulumi.CustomResource):
                     "type": "BASIC_AUTH",
                     "uri": example_aws_secretsmanager_secret_version["arn"],
                 },
-            ])
+            ],
+            event_source_arn=example_aws_mq_broker["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            queues="orders",
+            batch_size=1)
         ```
 
         ### DocumentDB Change Stream
@@ -1593,9 +1593,6 @@ class EventSourceMapping(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.EventSourceMapping("example",
-            event_source_arn=example_aws_docdb_cluster["arn"],
-            function_name=example_aws_lambda_function["arn"],
-            starting_position="LATEST",
             document_db_event_source_config={
                 "database_name": "orders",
                 "collection_name": "transactions",
@@ -1604,7 +1601,10 @@ class EventSourceMapping(pulumi.CustomResource):
             source_access_configurations=[{
                 "type": "BASIC_AUTH",
                 "uri": example_aws_secretsmanager_secret_version["arn"],
-            }])
+            }],
+            event_source_arn=example_aws_docdb_cluster["arn"],
+            function_name=example_aws_lambda_function["arn"],
+            starting_position="LATEST")
         ```
 
         ## Import
@@ -1787,7 +1787,7 @@ class EventSourceMapping(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] function_response_types: List of current response type enums applied to the event source mapping for [AWS Lambda checkpointing](https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-ddb-batchfailurereporting). Only available for SQS and stream sources (DynamoDB and Kinesis). Valid values: `ReportBatchItemFailures`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         :param pulumi.Input[_builtins.str] last_modified: Date this resource was last modified.
         :param pulumi.Input[_builtins.str] last_processing_result: Result of the last AWS Lambda invocation of your Lambda function.
         :param pulumi.Input[_builtins.int] maximum_batching_window_in_seconds: Maximum amount of time to gather records before invoking the function, in seconds (between 0 and 300). Records will continue to buffer until either `maximum_batching_window_in_seconds` expires or `batch_size` has been met. For streaming event sources, defaults to as soon as records are available in the stream. Only available for stream sources (DynamoDB and Kinesis) and SQS standard queues.
@@ -1958,7 +1958,7 @@ class EventSourceMapping(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        ARN of the Key Management Service (KMS) customer managed key that Lambda uses to encrypt your function's filter criteria.
+        ARN of the KMS customer managed key that Lambda uses to encrypt your function's filter criteria.
         """
         return pulumi.get(self, "kms_key_arn")
 

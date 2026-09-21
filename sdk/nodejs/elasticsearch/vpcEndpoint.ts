@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.elasticsearch.VpcEndpoint("foo", {
- *     domainArn: domain1.arn,
  *     vpcOptions: {
  *         securityGroupIds: [
  *             test.id,
@@ -30,6 +29,7 @@ import * as utilities from "../utilities";
  *             test2AwsSubnet.id,
  *         ],
  *     },
+ *     domainArn: domain1.arn,
  * });
  * ```
  *
@@ -70,7 +70,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      */
     declare public readonly domainArn: pulumi.Output<string>;
     /**
@@ -126,7 +126,7 @@ export class VpcEndpoint extends pulumi.CustomResource {
  */
 export interface VpcEndpointState {
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      */
     domainArn?: pulumi.Input<string | undefined>;
     /**
@@ -148,7 +148,7 @@ export interface VpcEndpointState {
  */
 export interface VpcEndpointArgs {
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      */
     domainArn: pulumi.Input<string>;
     /**

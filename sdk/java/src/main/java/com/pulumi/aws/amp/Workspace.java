@@ -162,14 +162,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.alias);
     }
     /**
-     * Amazon Resource Name (ARN) of the workspace.
+     * ARN of the workspace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workspace.
+     * @return ARN of the workspace.
      * 
      */
     public Output<String> arn() {

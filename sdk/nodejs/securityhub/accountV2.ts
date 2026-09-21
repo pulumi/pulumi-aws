@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 resource.
+ * - `arn` (String) ARN of the Security Hub V2 resource.
  *
  * Using `pulumi import`, import Security Hub V2 accounts using `arn`. For example:
  *

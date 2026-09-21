@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -30,6 +29,7 @@ import * as utilities from "../utilities";
  *             logType: "FLOW",
  *         }],
  *     },
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *
@@ -40,7 +40,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -50,6 +49,7 @@ import * as utilities from "../utilities";
  *             logType: "ALERT",
  *         }],
  *     },
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *
@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.LoggingConfiguration("example", {
- *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  *     loggingConfiguration: {
  *         logDestinationConfigs: [{
  *             logDestination: {
@@ -70,6 +69,7 @@ import * as utilities from "../utilities";
  *             logType: "TLS",
  *         }],
  *     },
+ *     firewallArn: exampleAwsNetworkfirewallFirewall.arn,
  * });
  * ```
  *
@@ -114,7 +114,7 @@ export class LoggingConfiguration extends pulumi.CustomResource {
      */
     declare public readonly enableMonitoringDashboard: pulumi.Output<boolean>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      */
     declare public readonly firewallArn: pulumi.Output<string>;
     /**
@@ -170,7 +170,7 @@ export interface LoggingConfigurationState {
      */
     enableMonitoringDashboard?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      */
     firewallArn?: pulumi.Input<string | undefined>;
     /**
@@ -192,7 +192,7 @@ export interface LoggingConfigurationArgs {
      */
     enableMonitoringDashboard?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      */
     firewallArn: pulumi.Input<string>;
     /**

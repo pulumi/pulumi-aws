@@ -20,14 +20,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     public static final ComputeEnvironmentState Empty = new ComputeEnvironmentState();
 
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -50,14 +50,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     @Import(name="ecsClusterArn")
     private @Nullable Output<String> ecsClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     public Optional<Output<String>> ecsClusterArn() {
@@ -125,14 +125,14 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
     }
 
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -283,7 +283,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the compute environment.
+         * @param arn ARN of the compute environment.
          * 
          * @return builder
          * 
@@ -294,7 +294,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the compute environment.
+         * @param arn ARN of the compute environment.
          * 
          * @return builder
          * 
@@ -325,7 +325,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ecsClusterArn The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+         * @param ecsClusterArn ARN of the underlying Amazon ECS cluster used by the compute environment.
          * 
          * @return builder
          * 
@@ -336,7 +336,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param ecsClusterArn The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+         * @param ecsClusterArn ARN of the underlying Amazon ECS cluster used by the compute environment.
          * 
          * @return builder
          * 
@@ -430,7 +430,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param serviceRole The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+         * @param serviceRole Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
          * 
          * @return builder
          * 
@@ -441,7 +441,7 @@ public final class ComputeEnvironmentState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param serviceRole The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+         * @param serviceRole Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
          * 
          * @return builder
          * 

@@ -28,15 +28,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := waf.NewSqlInjectionMatchSet(ctx, "sql_injection_match_set", &waf.SqlInjectionMatchSetArgs{
-//				Name: pulumi.String("tf-sql_injection_match_set"),
 //				SqlInjectionMatchTuples: waf.SqlInjectionMatchSetSqlInjectionMatchTupleArray{
 //					&waf.SqlInjectionMatchSetSqlInjectionMatchTupleArgs{
-//						TextTransformation: pulumi.String("URL_DECODE"),
 //						FieldToMatch: &waf.SqlInjectionMatchSetSqlInjectionMatchTupleFieldToMatchArgs{
 //							Type: pulumi.String("QUERY_STRING"),
 //						},
+//						TextTransformation: pulumi.String("URL_DECODE"),
 //					},
 //				},
+//				Name: pulumi.String("tf-sql_injection_match_set"),
 //			})
 //			if err != nil {
 //				return err
@@ -57,7 +57,7 @@ import (
 type SqlInjectionMatchSet struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the SQL injection match set.
+	// ARN of the SQL injection match set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name or description of the SQL Injection Match Set.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -95,7 +95,7 @@ func GetSqlInjectionMatchSet(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering SqlInjectionMatchSet resources.
 type sqlInjectionMatchSetState struct {
-	// Amazon Resource Name (ARN) of the SQL injection match set.
+	// ARN of the SQL injection match set.
 	Arn *string `pulumi:"arn"`
 	// The name or description of the SQL Injection Match Set.
 	Name *string `pulumi:"name"`
@@ -104,7 +104,7 @@ type sqlInjectionMatchSetState struct {
 }
 
 type SqlInjectionMatchSetState struct {
-	// Amazon Resource Name (ARN) of the SQL injection match set.
+	// ARN of the SQL injection match set.
 	Arn pulumi.StringPtrInput
 	// The name or description of the SQL Injection Match Set.
 	Name pulumi.StringPtrInput
@@ -218,7 +218,7 @@ func (o SqlInjectionMatchSetOutput) ToSqlInjectionMatchSetOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the SQL injection match set.
+// ARN of the SQL injection match set.
 func (o SqlInjectionMatchSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SqlInjectionMatchSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

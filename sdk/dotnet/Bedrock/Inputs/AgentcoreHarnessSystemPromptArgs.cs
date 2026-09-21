@@ -12,7 +12,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreHarnessSystemPromptArgs : global::Pulumi.ResourceArgs
     {
-        [Input("text", required: true)]
+        [Input("text")]
         private Input<string>? _text;
 
         /// <summary>

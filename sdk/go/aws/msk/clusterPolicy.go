@@ -88,7 +88,7 @@ import (
 type ClusterPolicy struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// ARN that uniquely identifies the cluster.
 	ClusterArn     pulumi.StringOutput `pulumi:"clusterArn"`
 	CurrentVersion pulumi.StringOutput `pulumi:"currentVersion"`
 	// Resource policy for cluster.
@@ -133,7 +133,7 @@ func GetClusterPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterPolicy resources.
 type clusterPolicyState struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// ARN that uniquely identifies the cluster.
 	ClusterArn     *string `pulumi:"clusterArn"`
 	CurrentVersion *string `pulumi:"currentVersion"`
 	// Resource policy for cluster.
@@ -143,7 +143,7 @@ type clusterPolicyState struct {
 }
 
 type ClusterPolicyState struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// ARN that uniquely identifies the cluster.
 	ClusterArn     pulumi.StringPtrInput
 	CurrentVersion pulumi.StringPtrInput
 	// Resource policy for cluster.
@@ -157,7 +157,7 @@ func (ClusterPolicyState) ElementType() reflect.Type {
 }
 
 type clusterPolicyArgs struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// ARN that uniquely identifies the cluster.
 	ClusterArn string `pulumi:"clusterArn"`
 	// Resource policy for cluster.
 	Policy string `pulumi:"policy"`
@@ -167,7 +167,7 @@ type clusterPolicyArgs struct {
 
 // The set of arguments for constructing a ClusterPolicy resource.
 type ClusterPolicyArgs struct {
-	// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+	// ARN that uniquely identifies the cluster.
 	ClusterArn pulumi.StringInput
 	// Resource policy for cluster.
 	Policy pulumi.StringInput
@@ -262,7 +262,7 @@ func (o ClusterPolicyOutput) ToClusterPolicyOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+// ARN that uniquely identifies the cluster.
 func (o ClusterPolicyOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterPolicy) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }

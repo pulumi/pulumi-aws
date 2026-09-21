@@ -110,27 +110,27 @@ export class Vpc extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of VPC
+     * ARN of VPC.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
      */
     declare public readonly assignGeneratedIpv6CidrBlock: pulumi.Output<boolean | undefined>;
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
+     * IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
     declare public readonly cidrBlock: pulumi.Output<string>;
     /**
-     * The ID of the network ACL created by default on VPC creation
+     * ID of the network ACL created by default on VPC creation.
      */
     declare public /*out*/ readonly defaultNetworkAclId: pulumi.Output<string>;
     /**
-     * The ID of the route table created by default on VPC creation
+     * ID of the route table created by default on VPC creation.
      */
     declare public /*out*/ readonly defaultRouteTableId: pulumi.Output<string>;
     /**
-     * The ID of the security group created by default on VPC creation
+     * ID of the security group created by default on VPC creation.
      */
     declare public /*out*/ readonly defaultSecurityGroupId: pulumi.Output<string>;
     /**
@@ -138,31 +138,31 @@ export class Vpc extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dhcpOptionsId: pulumi.Output<string>;
     /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     * Whether to enable DNS hostnames in the VPC. Defaults to `false`.
      */
     declare public readonly enableDnsHostnames: pulumi.Output<boolean>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+     * Whether to enable DNS support in the VPC. Defaults to `true`.
      */
     declare public readonly enableDnsSupport: pulumi.Output<boolean | undefined>;
     /**
-     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     * Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
      */
     declare public readonly enableNetworkAddressUsageMetrics: pulumi.Output<boolean>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+     * Tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
     declare public readonly instanceTenancy: pulumi.Output<string | undefined>;
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     * ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      */
     declare public readonly ipv4IpamPoolId: pulumi.Output<string | undefined>;
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     * Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
     declare public readonly ipv4NetmaskLength: pulumi.Output<number | undefined>;
     /**
-     * The association ID for the IPv6 CIDR block.
+     * Association ID for the IPv6 CIDR block.
      */
     declare public /*out*/ readonly ipv6AssociationId: pulumi.Output<string>;
     /**
@@ -182,13 +182,11 @@ export class Vpc extends pulumi.CustomResource {
      */
     declare public readonly ipv6NetmaskLength: pulumi.Output<number | undefined>;
     /**
-     * The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC's main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`.
+     * ID of the main route table associated with this VPC. Note that you can change a VPC's main route table by using an `aws.ec2.MainRouteTableAssociation`.
      */
     declare public /*out*/ readonly mainRouteTableId: pulumi.Output<string>;
     /**
-     * The ID of the AWS account that owns the VPC.
+     * ID of the AWS account that owns the VPC.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
@@ -196,11 +194,11 @@ export class Vpc extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -276,27 +274,27 @@ export class Vpc extends pulumi.CustomResource {
  */
 export interface VpcState {
     /**
-     * Amazon Resource Name (ARN) of VPC
+     * ARN of VPC.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean | undefined>;
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
+     * IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
     cidrBlock?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the network ACL created by default on VPC creation
+     * ID of the network ACL created by default on VPC creation.
      */
     defaultNetworkAclId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the route table created by default on VPC creation
+     * ID of the route table created by default on VPC creation.
      */
     defaultRouteTableId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the security group created by default on VPC creation
+     * ID of the security group created by default on VPC creation.
      */
     defaultSecurityGroupId?: pulumi.Input<string | undefined>;
     /**
@@ -304,31 +302,31 @@ export interface VpcState {
      */
     dhcpOptionsId?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     * Whether to enable DNS hostnames in the VPC. Defaults to `false`.
      */
     enableDnsHostnames?: pulumi.Input<boolean | undefined>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+     * Whether to enable DNS support in the VPC. Defaults to `true`.
      */
     enableDnsSupport?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     * Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
      */
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean | undefined>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+     * Tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
     instanceTenancy?: pulumi.Input<string | undefined>;
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     * ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      */
     ipv4IpamPoolId?: pulumi.Input<string | undefined>;
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     * Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
     ipv4NetmaskLength?: pulumi.Input<number | undefined>;
     /**
-     * The association ID for the IPv6 CIDR block.
+     * Association ID for the IPv6 CIDR block.
      */
     ipv6AssociationId?: pulumi.Input<string | undefined>;
     /**
@@ -348,13 +346,11 @@ export interface VpcState {
      */
     ipv6NetmaskLength?: pulumi.Input<number | undefined>;
     /**
-     * The ID of the main route table associated with
-     * this VPC. Note that you can change a VPC's main route table by using an
-     * `aws.ec2.MainRouteTableAssociation`.
+     * ID of the main route table associated with this VPC. Note that you can change a VPC's main route table by using an `aws.ec2.MainRouteTableAssociation`.
      */
     mainRouteTableId?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the AWS account that owns the VPC.
+     * ID of the AWS account that owns the VPC.
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
@@ -362,11 +358,11 @@ export interface VpcState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -376,35 +372,35 @@ export interface VpcState {
  */
 export interface VpcArgs {
     /**
-     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`
+     * Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length for the VPC. You cannot specify the range of IP addresses, or the size of the CIDR block. Default is `false`. Conflicts with `ipv6IpamPoolId`.
      */
     assignGeneratedIpv6CidrBlock?: pulumi.Input<boolean | undefined>;
     /**
-     * The IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
+     * IPv4 CIDR block for the VPC. CIDR can be explicitly set or it can be derived from IPAM using `ipv4NetmaskLength`.
      */
     cidrBlock?: pulumi.Input<string | undefined>;
     /**
-     * A boolean flag to enable/disable DNS hostnames in the VPC. Defaults false.
+     * Whether to enable DNS hostnames in the VPC. Defaults to `false`.
      */
     enableDnsHostnames?: pulumi.Input<boolean | undefined>;
     /**
-     * A boolean flag to enable/disable DNS support in the VPC. Defaults to true.
+     * Whether to enable DNS support in the VPC. Defaults to `true`.
      */
     enableDnsSupport?: pulumi.Input<boolean | undefined>;
     /**
-     * Indicates whether Network Address Usage metrics are enabled for your VPC. Defaults to false.
+     * Whether to enable Network Address Usage metrics for your VPC. Defaults to `false`.
      */
     enableNetworkAddressUsageMetrics?: pulumi.Input<boolean | undefined>;
     /**
-     * A tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
+     * Tenancy option for instances launched into the VPC. Default is `default`, which ensures that EC2 instances launched in this VPC use the EC2 instance tenancy attribute specified when the EC2 instance is launched. The only other option is `dedicated`, which ensures that EC2 instances launched in this VPC are run on dedicated tenancy instances regardless of the tenancy attribute specified at launch. This has a dedicated per region fee of $2 per hour, plus an hourly per instance usage fee.
      */
     instanceTenancy?: pulumi.Input<string | undefined>;
     /**
-     * The ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
+     * ID of an IPv4 IPAM pool you want to use for allocating this VPC's CIDR. IPAM is a VPC feature that you can use to automate your IP address management workflows including assigning, tracking, troubleshooting, and auditing IP addresses across AWS Regions and accounts. Using IPAM you can monitor IP address usage throughout your AWS Organization.
      */
     ipv4IpamPoolId?: pulumi.Input<string | undefined>;
     /**
-     * The netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
+     * Netmask length of the IPv4 CIDR you want to allocate to this VPC. Requires specifying a `ipv4IpamPoolId`.
      */
     ipv4NetmaskLength?: pulumi.Input<number | undefined>;
     /**
@@ -428,7 +424,7 @@ export interface VpcArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

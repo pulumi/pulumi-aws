@@ -88,7 +88,7 @@ export class EndpointAuthorization extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
     declare public readonly vpcIds: pulumi.Output<string[] | undefined>;
 
@@ -174,7 +174,7 @@ export interface EndpointAuthorizationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
     vpcIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -200,7 +200,7 @@ export interface EndpointAuthorizationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      */
     vpcIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

@@ -17,14 +17,14 @@ public final class ServiceLinkedRoleState extends com.pulumi.resources.ResourceA
     public static final ServiceLinkedRoleState Empty = new ServiceLinkedRoleState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the role.
+     * @return ARN specifying the role.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -200,7 +200,7 @@ public final class ServiceLinkedRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the role.
+         * @param arn ARN specifying the role.
          * 
          * @return builder
          * 
@@ -211,7 +211,7 @@ public final class ServiceLinkedRoleState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the role.
+         * @param arn ARN specifying the role.
          * 
          * @return builder
          * 

@@ -16,14 +16,14 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
     public static final EfsLocationEc2ConfigArgs Empty = new EfsLocationEc2ConfigArgs();
 
     /**
-     * List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+     * List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
      * 
      */
     @Import(name="securityGroupArns", required=true)
     private Output<List<String>> securityGroupArns;
 
     /**
-     * @return List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+     * @return List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
      * 
      */
     public Output<List<String>> securityGroupArns() {
@@ -31,14 +31,14 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+     * ARN of the EC2 Subnet that is associated with the EFS Mount Target.
      * 
      */
     @Import(name="subnetArn", required=true)
     private Output<String> subnetArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+     * @return ARN of the EC2 Subnet that is associated with the EFS Mount Target.
      * 
      */
     public Output<String> subnetArn() {
@@ -71,7 +71,7 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+         * @param securityGroupArns List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+         * @param securityGroupArns List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
          * 
          * @return builder
          * 
@@ -92,7 +92,7 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupArns List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+         * @param securityGroupArns List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
          * 
          * @return builder
          * 
@@ -102,7 +102,7 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetArn Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+         * @param subnetArn ARN of the EC2 Subnet that is associated with the EFS Mount Target.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class EfsLocationEc2ConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param subnetArn Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+         * @param subnetArn ARN of the EC2 Subnet that is associated with the EFS Mount Target.
          * 
          * @return builder
          * 

@@ -63,7 +63,7 @@ export class VideoStream extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`)
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -79,7 +79,7 @@ export class VideoStream extends pulumi.CustomResource {
      */
     declare public readonly deviceName: pulumi.Output<string | undefined>;
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
     declare public readonly kmsKeyId: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class VideoStream extends pulumi.CustomResource {
  */
 export interface VideoStreamState {
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream (same as `id`)
+     * ARN specifying the Stream (same as `id`)
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -172,7 +172,7 @@ export interface VideoStreamState {
      */
     deviceName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
@@ -215,7 +215,7 @@ export interface VideoStreamArgs {
      */
     deviceName?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the AWS Key Management Service (AWS KMS) key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
+     * ID of the KMS key that you want Kinesis Video Streams to use to encrypt stream data. If no key ID is specified, the default, Kinesis Video-managed key (`aws/kinesisvideo`) is used.
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**

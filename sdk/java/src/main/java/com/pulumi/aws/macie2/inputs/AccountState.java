@@ -61,14 +61,14 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
     @Import(name="serviceRole")
     private @Nullable Output<String> serviceRole;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * @return ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
     public Optional<Output<String>> serviceRole() {
@@ -198,7 +198,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+         * @param serviceRole ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
          * 
          * @return builder
          * 
@@ -209,7 +209,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param serviceRole The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+         * @param serviceRole ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
          * 
          * @return builder
          * 

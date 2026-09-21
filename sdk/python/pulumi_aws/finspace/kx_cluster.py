@@ -395,7 +395,7 @@ class _KxClusterState:
         """
         Input properties used for looking up and filtering KxCluster resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX cluster.
         :param pulumi.Input['KxClusterAutoScalingConfigurationArgs'] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `auto_scaling_configuration` Block.
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -484,7 +484,7 @@ class _KxClusterState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
+        ARN identifier of the KX cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -847,12 +847,6 @@ class KxCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
             capacity_configuration={
                 "node_type": "kx.s.2xlarge",
                 "node_count": 2,
@@ -863,21 +857,28 @@ class KxCluster(pulumi.CustomResource):
                 "subnet_ids": [example_aws_subnet["id"]],
                 "ip_address_type": "IP_V4",
             },
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            },
             cache_storage_configurations=[{
                 "type": "CACHE_1000",
                 "size": 1200,
             }],
             databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
                 "cache_configuration": [{
                     "cacheType": "CACHE_1000",
                     "dbPaths": "/",
                 }],
+                "database_name": example_aws_finspace_kx_database["name"],
             }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="18h", update="18h")))
         ```
 
         ## Import
@@ -933,12 +934,6 @@ class KxCluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxCluster("example",
-            name="my-tf-kx-cluster",
-            environment_id=example_aws_finspace_kx_environment["id"],
-            type="HDB",
-            release_label="1.0",
-            az_mode="SINGLE",
-            availability_zone_id="use1-az2",
             capacity_configuration={
                 "node_type": "kx.s.2xlarge",
                 "node_count": 2,
@@ -949,21 +944,28 @@ class KxCluster(pulumi.CustomResource):
                 "subnet_ids": [example_aws_subnet["id"]],
                 "ip_address_type": "IP_V4",
             },
+            code={
+                "s3_bucket": test_aws_s3_bucket["id"],
+                "s3_key": object["key"],
+            },
             cache_storage_configurations=[{
                 "type": "CACHE_1000",
                 "size": 1200,
             }],
             databases=[{
-                "database_name": example_aws_finspace_kx_database["name"],
                 "cache_configuration": [{
                     "cacheType": "CACHE_1000",
                     "dbPaths": "/",
                 }],
+                "database_name": example_aws_finspace_kx_database["name"],
             }],
-            code={
-                "s3_bucket": test_aws_s3_bucket["id"],
-                "s3_key": object["key"],
-            })
+            name="my-tf-kx-cluster",
+            environment_id=example_aws_finspace_kx_environment["id"],
+            type="HDB",
+            release_label="1.0",
+            az_mode="SINGLE",
+            availability_zone_id="use1-az2",
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="18h", update="18h")))
         ```
 
         ## Import
@@ -1101,7 +1103,7 @@ class KxCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX cluster.
         :param pulumi.Input[Union['KxClusterAutoScalingConfigurationArgs', 'KxClusterAutoScalingConfigurationArgsDict']] auto_scaling_configuration: Configuration based on which FinSpace will scale in or scale out nodes in your cluster. See `auto_scaling_configuration` Block.
         :param pulumi.Input[_builtins.str] availability_zone_id: Availability zone identifiers for the requested regions. Required when `az_mode` is set to SINGLE.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -1168,7 +1170,7 @@ class KxCluster(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX cluster.
+        ARN identifier of the KX cluster.
         """
         return pulumi.get(self, "arn")
 

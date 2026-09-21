@@ -307,7 +307,6 @@ class CodeSigningConfig(pulumi.CustomResource):
             })
         # Code signing configuration with enforcement
         example = aws.lambda_.CodeSigningConfig("example",
-            description="Code signing configuration for Lambda functions",
             allowed_publishers={
                 "signing_profile_version_arns": [
                     prod.version_arn,
@@ -317,6 +316,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Enforce",
             },
+            description="Code signing configuration for Lambda functions",
             tags={
                 "Environment": "production",
                 "Purpose": "code-signing",
@@ -330,13 +330,13 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CodeSigningConfig("example",
-            description="Development code signing configuration",
             allowed_publishers={
                 "signing_profile_version_arns": [dev["versionArn"]],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
+            description="Development code signing configuration",
             tags={
                 "Environment": "development",
                 "Purpose": "code-signing",
@@ -351,20 +351,19 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         # Production signing configuration
         prod = aws.lambda_.CodeSigningConfig("prod",
-            description="Production code signing configuration with strict enforcement",
             allowed_publishers={
                 "signing_profile_version_arns": [prod_aws_signer_signing_profile["versionArn"]],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Enforce",
             },
+            description="Production code signing configuration with strict enforcement",
             tags={
                 "Environment": "production",
                 "Security": "strict",
             })
         # Development signing configuration
         dev = aws.lambda_.CodeSigningConfig("dev",
-            description="Development code signing configuration with warnings",
             allowed_publishers={
                 "signing_profile_version_arns": [
                     dev_aws_signer_signing_profile["versionArn"],
@@ -374,6 +373,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
+            description="Development code signing configuration with warnings",
             tags={
                 "Environment": "development",
                 "Security": "flexible",
@@ -433,7 +433,6 @@ class CodeSigningConfig(pulumi.CustomResource):
             })
         # Code signing configuration with enforcement
         example = aws.lambda_.CodeSigningConfig("example",
-            description="Code signing configuration for Lambda functions",
             allowed_publishers={
                 "signing_profile_version_arns": [
                     prod.version_arn,
@@ -443,6 +442,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Enforce",
             },
+            description="Code signing configuration for Lambda functions",
             tags={
                 "Environment": "production",
                 "Purpose": "code-signing",
@@ -456,13 +456,13 @@ class CodeSigningConfig(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lambda_.CodeSigningConfig("example",
-            description="Development code signing configuration",
             allowed_publishers={
                 "signing_profile_version_arns": [dev["versionArn"]],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
+            description="Development code signing configuration",
             tags={
                 "Environment": "development",
                 "Purpose": "code-signing",
@@ -477,20 +477,19 @@ class CodeSigningConfig(pulumi.CustomResource):
 
         # Production signing configuration
         prod = aws.lambda_.CodeSigningConfig("prod",
-            description="Production code signing configuration with strict enforcement",
             allowed_publishers={
                 "signing_profile_version_arns": [prod_aws_signer_signing_profile["versionArn"]],
             },
             policies={
                 "untrusted_artifact_on_deployment": "Enforce",
             },
+            description="Production code signing configuration with strict enforcement",
             tags={
                 "Environment": "production",
                 "Security": "strict",
             })
         # Development signing configuration
         dev = aws.lambda_.CodeSigningConfig("dev",
-            description="Development code signing configuration with warnings",
             allowed_publishers={
                 "signing_profile_version_arns": [
                     dev_aws_signer_signing_profile["versionArn"],
@@ -500,6 +499,7 @@ class CodeSigningConfig(pulumi.CustomResource):
             policies={
                 "untrusted_artifact_on_deployment": "Warn",
             },
+            description="Development code signing configuration with warnings",
             tags={
                 "Environment": "development",
                 "Security": "flexible",

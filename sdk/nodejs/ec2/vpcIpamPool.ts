@@ -86,16 +86,16 @@ import * as utilities from "../utilities";
  *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * const vpc = new aws.ec2.VpcIpamPool("vpc", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: testAwsVpcIpam.privateDefaultScopeId,
- *     locale: current.then(current => current.region),
- *     sourceIpamPoolId: test.id,
  *     sourceResource: {
  *         resourceId: testVpc.id,
  *         resourceOwner: currentAwsCallerIdentity.accountId,
  *         resourceRegion: current.then(current => current.region),
  *         resourceType: "vpc",
  *     },
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: testAwsVpcIpam.privateDefaultScopeId,
+ *     locale: current.then(current => current.region),
+ *     sourceIpamPoolId: test.id,
  * });
  * ```
  *
@@ -156,7 +156,7 @@ export class VpcIpamPool extends pulumi.CustomResource {
      */
     declare public readonly allocationResourceTags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -315,7 +315,7 @@ export interface VpcIpamPoolState {
      */
     allocationResourceTags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      */
     arn?: pulumi.Input<string | undefined>;
     /**

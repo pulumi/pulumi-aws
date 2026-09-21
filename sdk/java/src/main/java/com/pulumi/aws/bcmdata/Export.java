@@ -62,7 +62,6 @@ import javax.annotation.Nullable;
  * 
  *         var test = new Export("test", ExportArgs.builder()
  *             .export(ExportExportArgs.builder()
- *                 .name("testexample")
  *                 .dataQueries(ExportExportDataQueryArgs.builder()
  *                     .queryStatement("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT")
  *                     .tableConfigurations(Map.of("COST_AND_USAGE_REPORT", Map.ofEntries(
@@ -75,20 +74,21 @@ import javax.annotation.Nullable;
  *                     .build())
  *                 .destinationConfigurations(ExportExportDestinationConfigurationArgs.builder()
  *                     .s3Destinations(ExportExportDestinationConfigurationS3DestinationArgs.builder()
- *                         .s3Bucket(testAwsS3Bucket.bucket())
- *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
- *                         .s3Region(testAwsS3Bucket.region())
  *                         .s3OutputConfigurations(ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs.builder()
  *                             .overwrite("OVERWRITE_REPORT")
  *                             .format("TEXT_OR_CSV")
  *                             .compression("GZIP")
  *                             .outputType("CUSTOM")
  *                             .build())
+ *                         .s3Bucket(testAwsS3Bucket.bucket())
+ *                         .s3Prefix(testAwsS3Bucket.bucketPrefix())
+ *                         .s3Region(testAwsS3Bucket.region())
  *                         .build())
  *                     .build())
  *                 .refreshCadences(ExportExportRefreshCadenceArgs.builder()
  *                     .frequency("SYNCHRONOUS")
  *                     .build())
+ *                 .name("testexample")
  *                 .build())
  *             .build());
  * 
@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+ * - `arn` (String) ARN of the BCM Data Exports export.
  * 
  * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
  * 
@@ -115,16 +115,16 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bcmdata/export:Export")
 public class Export extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     @com.pulumi.core.annotations.Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * @return ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     public Output<String> arn() {

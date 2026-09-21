@@ -101,7 +101,7 @@ class _BucketState:
         """
         Input properties used for looking up and filtering Bucket resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] arn: ARN of the bucket.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this bucket.
@@ -131,7 +131,7 @@ class _BucketState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "arn")
 
@@ -259,7 +259,7 @@ class Bucket(pulumi.CustomResource):
 
         - `arn` (String) ARN of the bucket.
 
-        Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Buckets using ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -303,7 +303,7 @@ class Bucket(pulumi.CustomResource):
 
         - `arn` (String) ARN of the bucket.
 
-        Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import S3 Control Buckets using ARN. For example:
 
         ```sh
         $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -375,7 +375,7 @@ class Bucket(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the bucket.
+        :param pulumi.Input[_builtins.str] arn: ARN of the bucket.
         :param pulumi.Input[_builtins.str] bucket: Name of the bucket.
         :param pulumi.Input[_builtins.str] creation_date: UTC creation date in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] outpost_id: Identifier of the Outpost to contain this bucket.
@@ -402,7 +402,7 @@ class Bucket(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the bucket.
+        ARN of the bucket.
         """
         return pulumi.get(self, "arn")
 

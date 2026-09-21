@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
- *     engine: "memcached",
- *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
  *             maximum: 10,
@@ -30,6 +28,8 @@ import * as utilities from "../utilities";
  *             maximum: 5000,
  *         }],
  *     },
+ *     engine: "memcached",
+ *     name: "example",
  *     description: "Test Server",
  *     kmsKeyId: test.arn,
  *     majorEngineVersion: "1.6",
@@ -45,8 +45,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
- *     engine: "redis",
- *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
  *             maximum: 10,
@@ -56,6 +54,8 @@ import * as utilities from "../utilities";
  *             maximum: 5000,
  *         }],
  *     },
+ *     engine: "redis",
+ *     name: "example",
  *     dailySnapshotTime: "09:00",
  *     description: "Test Server",
  *     kmsKeyId: test.arn,
@@ -73,8 +73,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticache.ServerlessCache("example", {
- *     engine: "valkey",
- *     name: "example",
  *     cacheUsageLimits: {
  *         dataStorage: {
  *             maximum: 10,
@@ -84,6 +82,8 @@ import * as utilities from "../utilities";
  *             maximum: 5000,
  *         }],
  *     },
+ *     engine: "valkey",
+ *     name: "example",
  *     dailySnapshotTime: "09:00",
  *     description: "Test Server",
  *     kmsKeyId: test.arn,
@@ -131,7 +131,7 @@ export class ServerlessCache extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -295,7 +295,7 @@ export class ServerlessCache extends pulumi.CustomResource {
  */
 export interface ServerlessCacheState {
     /**
-     * The Amazon Resource Name (ARN) of the serverless cache.
+     * ARN of the serverless cache.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -150,6 +150,199 @@ export namespace account {
 
 }
 
+export namespace accountaccess {
+    export interface ApplicationIdentitySource {
+        /**
+         * IAM Identity Center instance to use as the identity source. See `identityCenter` Block below.
+         */
+        identityCenter?: outputs.accountaccess.ApplicationIdentitySourceIdentityCenter;
+    }
+
+    export interface ApplicationIdentitySourceIdentityCenter {
+        /**
+         * ARN of the IAM Identity Center application created for this account access manager application.
+         */
+        applicationArn: string;
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        instanceArn: string;
+    }
+
+    export interface ApplicationTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface EntitlementEntitlement {
+        /**
+         * Principal role entitlement configuration. See `entitlement.principal_role` Block below.
+         */
+        principalRole?: outputs.accountaccess.EntitlementEntitlementPrincipalRole;
+    }
+
+    export interface EntitlementEntitlementPrincipalRole {
+        /**
+         * Target AWS account ID.
+         */
+        accountId: string;
+        /**
+         * Target AWS account name.
+         */
+        accountName: string;
+        /**
+         * Principal configuration. See `entitlement.principal_role.principal` Block below.
+         */
+        principal: outputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipal;
+        /**
+         * ARN of the IAM role in the target AWS account that the principal is granted access to.
+         */
+        roleArn: string;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal configuration. See `entitlement.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: outputs.accountaccess.EntitlementEntitlementPrincipalRolePrincipalIdentityCenter;
+    }
+
+    export interface EntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: string;
+    }
+
+    export interface GetApplicationIdentitySource {
+        /**
+         * IAM Identity Center instance used as the identity source. See `identityCenter` Block below.
+         */
+        identityCenters: outputs.accountaccess.GetApplicationIdentitySourceIdentityCenter[];
+    }
+
+    export interface GetApplicationIdentitySourceIdentityCenter {
+        /**
+         * ARN of the IAM Identity Center application for this account access manager application.
+         */
+        applicationArn: string;
+        /**
+         * ARN of the IAM Identity Center instance.
+         */
+        instanceArn: string;
+    }
+
+    export interface GetEntitlementsEntitlement {
+        /**
+         * Date and time when the Entitlement was created in RFC 3339 format.
+         */
+        createdAt: string;
+        /**
+         * Service-assigned unique identifier for the Entitlement.
+         */
+        entitlementId: string;
+        /**
+         * Principal-role entitlement configuration. See `entitlements.entitlement` Block below.
+         */
+        entitlements: outputs.accountaccess.GetEntitlementsEntitlementEntitlement[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlement {
+        /**
+         * Principal-role entitlement configuration. See `entitlements.entitlement.principal_role` Block below.
+         */
+        principalRoles: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRole[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRole {
+        /**
+         * 12-digit AWS account ID for the target role.
+         */
+        accountId: string;
+        /**
+         * Human-readable name of the target account.
+         */
+        accountName: string;
+        /**
+         * IAM Identity Center principal granted access. See `entitlements.entitlement.principal_role.principal` Block below.
+         */
+        principals: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal[];
+        /**
+         * Target IAM role ARN.
+         */
+        roleArn: string;
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal. See `entitlements.entitlement.principal_role.principal.identity_center` Block below.
+         */
+        identityCenters: outputs.accountaccess.GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter[];
+    }
+
+    export interface GetEntitlementsEntitlementEntitlementPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId: string;
+    }
+
+    export interface GetEntitlementsFilter {
+        /**
+         * principal-to-role filter criteria for narrowing entitlement results. See `filter.principal_role` Block below.
+         */
+        principalRole?: outputs.accountaccess.GetEntitlementsFilterPrincipalRole;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRole {
+        /**
+         * AWS account ID to filter entitlements by.
+         */
+        accountId?: string;
+        /**
+         * principal to filter entitlements by. See `filter.principal_role.principal` Block below.
+         */
+        principal?: outputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipal;
+        /**
+         * IAM role ARN to filter entitlements by.
+         */
+        roleArn?: string;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipal {
+        /**
+         * IAM Identity Center principal filter criteria. See `filter.principal_role.principal.identity_center` Block below.
+         */
+        identityCenter?: outputs.accountaccess.GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter;
+    }
+
+    export interface GetEntitlementsFilterPrincipalRolePrincipalIdentityCenter {
+        /**
+         * IAM Identity Center group ID.
+         */
+        groupId?: string;
+        /**
+         * IAM Identity Center user ID.
+         */
+        userId?: string;
+    }
+
+}
+
 export namespace acm {
     export interface CertificateDomainValidationOption {
         /**
@@ -385,6 +578,437 @@ export namespace acmpca {
          * A CNAME specifying a customized OCSP domain.
          */
         ocspCustomCname: string;
+    }
+
+}
+
+export namespace agentregistry {
+    export interface GetRegistryApprovalConfiguration {
+        /**
+         * Set of rules that determine which registry records are automatically approved on submission. When empty, submitted records require manual review.
+         */
+        autoApprovalRules: string[];
+    }
+
+    export interface GetRegistryDiscoveryConfiguration {
+        /**
+         * Authorizer configuration for the registry. Present when `authorizerType` is `CUSTOM_JWT`. See below.
+         */
+        authorizerConfigurations: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfiguration[];
+        /**
+         * Type of authorizer that controls how consumers access the registry's search and MCP invoke operations. Valid values: `AWS_IAM`, `CUSTOM_JWT`.
+         */
+        authorizerType: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfiguration {
+        /**
+         * Configuration for a custom JWT authorizer. See below.
+         */
+        customJwtAuthorizers: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Audience values accepted during JWT validation.
+         */
+        allowedAudiences: string[];
+        /**
+         * Client identifiers accepted during JWT validation.
+         */
+        allowedClients: string[];
+        /**
+         * Scopes accepted during JWT validation.
+         */
+        allowedScopes: string[];
+        /**
+         * Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+         */
+        customClaims: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: string;
+        /**
+         * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         */
+        privateEndpointOverrides: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoints: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Claim match criteria. See below.
+         */
+        authorizingClaimMatchValues: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue[];
+        /**
+         * Name of the claim validated in the inbound JWT token.
+         */
+        inboundTokenClaimName: string;
+        /**
+         * Type of the claim value. Valid values: `STRING`, `STRING_ARRAY`.
+         */
+        inboundTokenClaimValueType: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Operator used to match claim values. Valid values: `EQUALS`, `CONTAINS`, `CONTAINS_ANY`.
+         */
+        claimMatchOperator: string;
+        /**
+         * Value matched against. See below.
+         */
+        claimMatchValues: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * Single string value to match.
+         */
+        matchValueString: string;
+        /**
+         * Set of string values to match.
+         */
+        matchValueStringLists: string[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource[];
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain name to which this private endpoint override applies.
+         */
+        domain: string;
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoints: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource[];
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResources: outputs.agentregistry.GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource[];
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier: string;
+    }
+
+    export interface GetRegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier: string;
+    }
+
+    export interface GetRegistryEncryptionConfiguration {
+        /**
+         * ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+         */
+        kmsKeyArn: string;
+    }
+
+    export interface RegistryApprovalConfiguration {
+        /**
+         * Set of rules that determine which registry records are automatically approved on submission. Valid values: `APPROVE_ALL`. When omitted or empty, submitted records require manual review.
+         */
+        autoApprovalRules?: string[];
+    }
+
+    export interface RegistryAutoDetectionConfiguration {
+        /**
+         * Whether auto-detection is requested for the registry.
+         */
+        enabled: boolean;
+        /**
+         * Source from which resources are detected. Valid values: `ORGANIZATION`.
+         */
+        scope: string;
+    }
+
+    export interface RegistryDiscoveryConfiguration {
+        /**
+         * Authorizer configuration for the registry. Required when `authorizerType` is `CUSTOM_JWT`. See below.
+         */
+        authorizerConfiguration?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfiguration;
+        /**
+         * Type of authorizer that controls how consumers access the registry's search and MCP invoke operations. Valid values: `AWS_IAM`, `CUSTOM_JWT`.
+         */
+        authorizerType: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfiguration {
+        /**
+         * Configuration for a custom JWT authorizer.
+         */
+        customJwtAuthorizer?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Audience values accepted during JWT validation. A token is rejected if none of its audience claims match.
+         */
+        allowedAudiences?: string[];
+        /**
+         * Client identifiers accepted during JWT validation. A token is rejected if it was not issued to one of these clients.
+         */
+        allowedClients?: string[];
+        /**
+         * Scopes accepted during JWT validation. A token is rejected if it does not carry one of these scopes.
+         */
+        allowedScopes?: string[];
+        /**
+         * Custom claims for additional JWT validation beyond standard OIDC claims. See below.
+         */
+        customClaims?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * OpenID Connect discovery URL used to retrieve the identity provider's metadata and signing keys.
+         */
+        discoveryUrl: string;
+        /**
+         * Private endpoint used to reach the identity provider's discovery URL over a private network path. See below.
+         */
+        privateEndpoint?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+        /**
+         * Per-domain private endpoint overrides that route specific identity provider domains through distinct private endpoints. See below.
+         */
+        privateEndpointOverrides?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Claim match criteria. See below.
+         */
+        authorizingClaimMatchValue: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue;
+        /**
+         * Name of the claim to validate in the inbound JWT token. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        inboundTokenClaimName: string;
+        /**
+         * Type of the claim value. Valid values: `STRING`, `STRING_ARRAY`.
+         */
+        inboundTokenClaimValueType: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Operator used to match claim values. Valid values: `EQUALS`, `CONTAINS`, `CONTAINS_ANY`.
+         */
+        claimMatchOperator: string;
+        /**
+         * Value to match against. See below.
+         */
+        claimMatchValue: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * Single string value to match. Must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueString?: string;
+        /**
+         * Set of string values to match. Each value must contain only letters, numbers, and the characters `_`, `.`, `-`, `:`.
+         */
+        matchValueStringLists?: string[];
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain name to which this private endpoint override applies.
+         */
+        domain: string;
+        /**
+         * Private endpoint used to reach the specified domain. See above.
+         */
+        privateEndpoint: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Private endpoint backed by a service-managed VPC resource. See below.
+         */
+        managedVpcResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Private endpoint backed by a self-managed VPC Lattice resource configuration. See below.
+         */
+        selfManagedLatticeResource?: outputs.agentregistry.RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type used by the private endpoint, either `IPV4` or `IPV6`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain used to resolve traffic through the private endpoint.
+         */
+        routingDomain?: string;
+        /**
+         * IDs of the security groups associated with the private endpoint network interfaces.
+         */
+        securityGroupIds?: string[];
+        /**
+         * IDs of the subnets in which the private endpoint network interfaces are placed.
+         */
+        subnetIds: string[];
+        /**
+         * Tags applied to the service-managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * ID of the VPC in which the private endpoint is provisioned.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface RegistryDiscoveryConfigurationAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration, specified as a resource configuration ID or ARN.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface RegistryEncryptionConfiguration {
+        /**
+         * ARN of the customer-managed AWS KMS key used to encrypt the registry's content.
+         */
+        kmsKeyArn: string;
+    }
+
+    export interface RegistryTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -963,7 +1587,7 @@ export namespace alb {
 
     export interface ListenerRuleActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
@@ -1791,7 +2415,7 @@ export namespace amplify {
          */
         certificateVerificationDnsRecord: string;
         /**
-         * The Amazon resource name (ARN) for the custom certificate.
+         * ARN for the custom certificate.
          * Required when `type` is `CUSTOM`.
          */
         customCertificateArn?: string;
@@ -2176,7 +2800,7 @@ export namespace apigatewayv2 {
          */
         ownershipVerificationCertificateArn: string;
         /**
-         * Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+         * TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
          */
         securityPolicy: string;
         /**
@@ -2261,15 +2885,15 @@ export namespace apigatewayv2 {
 
     export interface RoutingRuleActionInvokeApi {
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * API identifier of the target API.
          */
         apiId: string;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Name of the target stage.
          */
         stage: string;
         /**
-         * Action to invoke a stage of a target API. Only REST APIs are supported.
+         * Whether to strip the base path when forwarding the request to the target API.
          */
         stripBasePath?: boolean;
     }
@@ -2760,11 +3384,11 @@ export namespace appconfig {
          */
         name: string;
         /**
-         * Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+         * ARN for an Identity and Access Management assume role.
          */
         roleArn?: string;
         /**
-         * Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+         * Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
          */
         uri: string;
     }
@@ -5669,7 +6293,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicy {
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTl[];
     }
@@ -5688,7 +6312,7 @@ export namespace appmesh {
          */
         ports: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validations: outputs.appmesh.GetVirtualNodeSpecBackendDefaultClientPolicyTlValidation[];
     }
@@ -5717,7 +6341,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlCertificateSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -5778,7 +6402,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendDefaultClientPolicyTlValidationTrustSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -5796,7 +6420,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicy {
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTl[];
     }
@@ -5815,7 +6439,7 @@ export namespace appmesh {
          */
         ports: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validations: outputs.appmesh.GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidation[];
     }
@@ -5844,7 +6468,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlCertificateSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -5905,7 +6529,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecBackendVirtualServiceClientPolicyTlValidationTrustSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -5932,7 +6556,7 @@ export namespace appmesh {
          */
         timeouts: outputs.appmesh.GetVirtualNodeSpecListenerTimeout[];
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls: outputs.appmesh.GetVirtualNodeSpecListenerTl[];
     }
@@ -6217,7 +6841,7 @@ export namespace appmesh {
          */
         mode: string;
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validations: outputs.appmesh.GetVirtualNodeSpecListenerTlValidation[];
     }
@@ -6257,7 +6881,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecListenerTlCertificateSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -6307,7 +6931,7 @@ export namespace appmesh {
 
     export interface GetVirtualNodeSpecListenerTlValidationTrustSd {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7170,7 +7794,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicy {
         /**
-         * Transport Layer Security (TLS) client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
+         * TLS client policy. See `spec.backend_defaults.client_policy.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTls;
     }
@@ -7189,7 +7813,7 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context.
+         * Listener's TLS validation context.
          */
         validation: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation;
     }
@@ -7215,14 +7839,14 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsCertificateSds {
         /**
-         * Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidation {
         /**
-         * SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+         * SANs for a virtual gateway's listener's TLS validation context.
          */
         subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationSubjectAlternativeNames;
         /**
@@ -7273,7 +7897,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecBackendDefaultsClientPolicyTlsValidationTrustSds {
         /**
-         * Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7292,7 +7916,7 @@ export namespace appmesh {
          */
         portMapping: outputs.appmesh.VirtualGatewaySpecListenerPortMapping;
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualGatewaySpecListenerTls;
     }
@@ -7389,7 +8013,7 @@ export namespace appmesh {
          */
         mode: string;
         /**
-         * Listener's Transport Layer Security (TLS) validation context.
+         * Listener's TLS validation context.
          */
         validation?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidation;
     }
@@ -7426,14 +8050,14 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListenerTlsCertificateSds {
         /**
-         * Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
 
     export interface VirtualGatewaySpecListenerTlsValidation {
         /**
-         * SANs for a virtual gateway's listener's Transport Layer Security (TLS) validation context.
+         * SANs for a virtual gateway's listener's TLS validation context.
          */
         subjectAlternativeNames?: outputs.appmesh.VirtualGatewaySpecListenerTlsValidationSubjectAlternativeNames;
         /**
@@ -7473,7 +8097,7 @@ export namespace appmesh {
 
     export interface VirtualGatewaySpecListenerTlsValidationTrustSds {
         /**
-         * Name of the secret for a virtual gateway's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual gateway's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7561,7 +8185,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicy {
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTls;
     }
@@ -7580,7 +8204,7 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendDefaultsClientPolicyTlsValidation;
     }
@@ -7609,7 +8233,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsCertificateSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7670,7 +8294,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationTrustSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7688,7 +8312,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicy {
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTls;
     }
@@ -7707,7 +8331,7 @@ export namespace appmesh {
          */
         ports?: number[];
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation: outputs.appmesh.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidation;
     }
@@ -7736,7 +8360,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsCertificateSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7797,7 +8421,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationTrustSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -7824,7 +8448,7 @@ export namespace appmesh {
          */
         timeout?: outputs.appmesh.VirtualNodeSpecListenerTimeout;
         /**
-         * Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+         * TLS properties for the listener. See `spec.listener.tls` Block for details.
          */
         tls?: outputs.appmesh.VirtualNodeSpecListenerTls;
     }
@@ -8109,7 +8733,7 @@ export namespace appmesh {
          */
         mode: string;
         /**
-         * Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
          */
         validation?: outputs.appmesh.VirtualNodeSpecListenerTlsValidation;
     }
@@ -8149,7 +8773,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsCertificateSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -8199,7 +8823,7 @@ export namespace appmesh {
 
     export interface VirtualNodeSpecListenerTlsValidationTrustSds {
         /**
-         * Name of the secret for a virtual node's Transport Layer Security (TLS) Secret Discovery Service validation context trust.
+         * Name of the secret for a virtual node's TLS Secret Discovery Service validation context trust.
          */
         secretName: string;
     }
@@ -8444,7 +9068,7 @@ export namespace apprunner {
          */
         ingressConfiguration: outputs.apprunner.ServiceNetworkConfigurationIngressConfiguration;
         /**
-         * App Runner provides you with the option to choose between Internet Protocol version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
+         * App Runner provides you with the option to choose between IP version 4 (IPv4) and dual stack (IPv4 and IPv6) for your incoming public network configuration. Valid values: `IPV4`, `DUAL_STACK`. Default: `IPV4`.
          */
         ipAddressType?: string;
     }
@@ -8455,7 +9079,7 @@ export namespace apprunner {
          */
         egressType: string;
         /**
-         * Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+         * ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
          */
         vpcConnectorArn?: string;
     }
@@ -9358,7 +9982,7 @@ export namespace appsync {
 
     export interface GraphQLApiLogConfig {
         /**
-         * Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+         * ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
          */
         cloudwatchLogsRoleArn: string;
         /**
@@ -11050,7 +11674,7 @@ export namespace athena {
          */
         queryResultsS3AccessGrantsConfiguration?: outputs.athena.WorkgroupConfigurationQueryResultsS3AccessGrantsConfiguration;
         /**
-         * If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the Amazon Simple Storage Service Developer Guide.
+         * If set to true , allows members assigned to a workgroup to reference Amazon S3 Requester Pays buckets in queries. If set to false , workgroup members cannot query data from Requester Pays buckets, and queries that retrieve data from Requester Pays buckets cause an error. The default is false . For more information about Requester Pays buckets, see [Requester Pays Buckets](https://docs.aws.amazon.com/AmazonS3/latest/dev/RequesterPaysBuckets.html) in the S3 Developer Guide.
          */
         requesterPaysEnabled?: boolean;
         /**
@@ -11233,7 +11857,7 @@ export namespace auditmanager {
 
     export interface AssessmentRole {
         /**
-         * Amazon Resource Name (ARN) of the IAM role.
+         * ARN of the IAM role.
          */
         roleArn: string;
         /**
@@ -11244,7 +11868,7 @@ export namespace auditmanager {
 
     export interface AssessmentRolesAll {
         /**
-         * Amazon Resource Name (ARN) of the IAM role.
+         * ARN of the IAM role.
          */
         roleArn: string;
         /**
@@ -11736,7 +12360,7 @@ export namespace autoscaling {
 
     export interface GetGroupTrafficSource {
         /**
-         * Identifier of the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+         * Identifier of the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          */
         identifier: string;
         /**
@@ -12074,7 +12698,7 @@ export namespace autoscaling {
         /**
          * List of CPU manufacturer names. Default is any manufacturer.
          *
-         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          *
          * ```
          * Valid names:
@@ -12239,7 +12863,7 @@ export namespace autoscaling {
 
     export interface GroupTrafficSource {
         /**
-         * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+         * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          */
         identifier: string;
         /**
@@ -12761,7 +13385,7 @@ export namespace autoscaling {
 
     export interface TrafficSourceAttachmentTrafficSource {
         /**
-         * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the Amazon Resource Name (ARN) for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
+         * Identifies the traffic source. For Application Load Balancers, Gateway Load Balancers, Network Load Balancers, and VPC Lattice, this will be the ARN for a target group in this account and Region. For Classic Load Balancers, this will be the name of the Classic Load Balancer in this account and Region.
          */
         identifier: string;
         /**
@@ -13207,7 +13831,7 @@ export namespace backup {
 
     export interface PlanRuleCopyAction {
         /**
-         * An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+         * ARN that uniquely identifies the destination backup vault for the copied backup.
          */
         destinationVaultArn: string;
         /**
@@ -13293,7 +13917,7 @@ export namespace backup {
          */
         accounts?: string[];
         /**
-         * Amazon Resource Names (ARNs) of the frameworks a report covers.
+         * ARNs of the frameworks a report covers.
          */
         frameworkArns?: string[];
         /**
@@ -13465,7 +14089,7 @@ export namespace batch {
          */
         desiredVcpus: number;
         /**
-         * Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+         * Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
          */
         ec2Configurations: outputs.batch.ComputeEnvironmentComputeResourcesEc2Configuration[];
         /**
@@ -13473,7 +14097,7 @@ export namespace batch {
          */
         ec2KeyPair?: string;
         /**
-         * The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+         * AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
          */
         imageId?: string;
         /**
@@ -13505,7 +14129,7 @@ export namespace batch {
          */
         securityGroupIds?: string[];
         /**
-         * The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+         * ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
          */
         spotIamFleetRole?: string;
         /**
@@ -13554,7 +14178,7 @@ export namespace batch {
 
     export interface ComputeEnvironmentEksConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+         * ARN of the Amazon EKS cluster.
          */
         eksClusterArn: string;
         /**
@@ -13933,7 +14557,7 @@ export namespace batch {
          */
         ephemeralStorages: outputs.batch.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage[];
         /**
-         * Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+         * ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
          */
         executionRoleArn: string;
         /**
@@ -13949,7 +14573,7 @@ export namespace batch {
          */
         instanceType: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+         * ARN of the IAM role that the container can assume for AWS permissions.
          */
         jobRoleArn: string;
         /**
@@ -14664,7 +15288,7 @@ export namespace batch {
 
     export interface JobQueueComputeEnvironmentOrder {
         /**
-         * The Amazon Resource Name (ARN) of the compute environment.
+         * ARN of the compute environment.
          */
         computeEnvironment: string;
         /**
@@ -15185,7 +15809,7 @@ export namespace bedrock {
          */
         authType: string;
         /**
-         * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
          */
         credentialsSecretArn: string;
         /**
@@ -15221,7 +15845,7 @@ export namespace bedrock {
         /**
          * Maximum percentage of documents that a sync job can delete from your index.
          */
-        deletionProtectionThreshold?: number;
+        deletionProtectionThreshold: number;
     }
 
     export interface AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfiguration {
@@ -15322,7 +15946,7 @@ export namespace bedrock {
          */
         authType: string;
         /**
-         * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
          */
         credentialsSecretArn: string;
         /**
@@ -15378,7 +16002,7 @@ export namespace bedrock {
          */
         authType: string;
         /**
-         * The Amazon Resource Name of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
+         * ARN of an AWS Secrets Manager secret that stores your authentication credentials for your SharePoint site. For more information on the key-value pairs that must be included in your secret, depending on your authentication type, see SharePoint connection configuration. Pattern: ^arn:aws(|-cn|-us-gov):secretsmanager:[a-z0-9-]{1,20}:([0-9]{12}|):secret:[a-zA-Z0-9!/_+=.@-]{1,512}$.
          */
         credentialsSecretArn: string;
         /**
@@ -15796,7 +16420,7 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationAgent {
         /**
-         * The Amazon Resource Name (ARN) of the alias of the agent to invoke.
+         * ARN of the alias of the agent to invoke.
          */
         agentAliasArn: string;
     }
@@ -15895,14 +16519,14 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationLambdaFunction {
         /**
-         * The Amazon Resource Name (ARN) of the Lambda function to invoke.
+         * ARN of the Lambda function to invoke.
          */
         lambdaArn: string;
     }
 
     export interface AgentFlowDefinitionNodeConfigurationLex {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+         * ARN of the Amazon Lex bot alias to invoke.
          */
         botAliasArn: string;
         /**
@@ -16187,7 +16811,7 @@ export namespace bedrock {
 
     export interface AgentFlowDefinitionNodeConfigurationPromptSourceConfigurationResource {
         /**
-         * The Amazon Resource Name (ARN) of the prompt from Prompt management.
+         * ARN of the prompt from Prompt management.
          */
         promptArn: string;
     }
@@ -17492,14 +18116,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreAgentRuntimeEndpointTimeouts {
@@ -18147,14 +18771,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayInterceptorConfiguration {
@@ -18437,15 +19061,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfiguration {
         /**
-         * API key-based authentication configuration. See `apiKey` below.
+         * API key-based authentication configuration. See `apiKey` Block below.
          */
         apiKey?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey;
         /**
-         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` below.
+         * Caller IAM credentials-based authentication configuration. See `callerIamCredentials` Block below.
          */
         callerIamCredentials?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials;
         /**
-         * Use the gateway's IAM role for authentication. See `gatewayIamRole` below.
+         * Use the gateway's IAM role for authentication. See `gatewayIamRole` Block below.
          */
         gatewayIamRole?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole;
         /**
@@ -18453,7 +19077,7 @@ export namespace bedrock {
          */
         jwtPassthrough?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough;
         /**
-         * OAuth-based authentication configuration. See `oauth` below.
+         * OAuth-based authentication configuration. See `oauth` Block below.
          */
         oauth?: outputs.bedrock.AgentcoreGatewayTargetCredentialProviderConfigurationOauth;
     }
@@ -18479,11 +19103,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials {
         /**
-         * The AWS region for the credentials.
+         * AWS region for the credentials.
          */
         region?: string;
         /**
-         * The service name for the credentials.
+         * Service name for the credentials.
          */
         service: string;
     }
@@ -18494,7 +19118,7 @@ export namespace bedrock {
          */
         region?: string;
         /**
-         * The target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
+         * Target AWS service name used for SigV4 signing of upstream requests. Required when calling SigV4-protected endpoints such as another Bedrock AgentCore Runtime (use `bedrock-agentcore`). Omit for non-SigV4 IAM-role-based authentication, in which case the block can be empty (`gatewayIamRole {}`).
          */
         service?: string;
     }
@@ -18508,11 +19132,11 @@ export namespace bedrock {
          */
         customParameters?: {[key: string]: string};
         /**
-         * The URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+         * URL where the end user's browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
          */
         defaultReturnUrl?: string;
         /**
-         * The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+         * OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
          */
         grantType?: string;
         /**
@@ -18527,15 +19151,15 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetMetadataConfiguration {
         /**
-         * A set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
+         * Set of URL query parameters that are allowed to be propagated from incoming gateway URL to the target. Maximum of 10 parameters.
          */
         allowedQueryParameters?: string[];
         /**
-         * A set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from incoming client requests to the target. Maximum of 10 headers.
          */
         allowedRequestHeaders?: string[];
         /**
-         * A set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
+         * Set of HTTP headers that are allowed to be propagated from the target response back to the client. Maximum of 10 headers.
          *
          * > **Note:** Header names must contain only alphanumeric characters, hyphens, and underscores. A large number of standard HTTP headers are restricted and cannot be configured for propagation, including authentication, content negotiation, caching, security, CORS, and connection management headers. Headers starting with `X-Amzn-` are prohibited except for `X-Amzn-Bedrock-AgentCore-Runtime-Custom-*` headers. These restrictions are enforced by schema validation. For the full list of restricted headers, see the [AWS documentation](https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/gateway-headers.html).
          */
@@ -18544,11 +19168,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetPrivateEndpoint {
         /**
-         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+         * AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
          */
         managedVpcResource?: outputs.bedrock.AgentcoreGatewayTargetPrivateEndpointManagedVpcResource;
         /**
-         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+         * Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
          */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource;
     }
@@ -18584,27 +19208,35 @@ export namespace bedrock {
         /**
          * ARN or ID of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreGatewayTargetTargetConfiguration {
         /**
-         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+         * HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
          */
         http?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttp;
         /**
-         * Model Context Protocol (MCP) configuration. See `mcp` below.
+         * Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+         */
+        inference?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInference;
+        /**
+         * Model Context Protocol (MCP) configuration. See `mcp` Block below.
          */
         mcp?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcp;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttp {
         /**
-         * AgentCore Runtime target configuration. See `agentcoreRuntime` below.
+         * AgentCore Runtime target configuration. See `agentcoreRuntime` Block below.
+         */
+        agentcoreRuntime?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime;
+        /**
+         * Passthrough target configuration that forwards requests to an external HTTPS endpoint. See `passthrough` Block below.
          *
          * > **Note:** HTTP targets can only be attached to gateways that do not have a `protocolType` set. They are not supported on MCP-protocol gateways.
          */
-        agentcoreRuntime?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime;
+        passthrough?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthrough;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime {
@@ -18616,34 +19248,221 @@ export namespace bedrock {
          * Runtime qualifier identifying a specific endpoint version. Defaults to `DEFAULT` when not set.
          */
         qualifier?: string;
+        /**
+         * API schema configuration that defines the structure of the runtime target's API. See `schema` Block below.
+         */
+        schema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSource {
+        inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload;
+        s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: string;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthrough {
+        /**
+         * HTTPS endpoint that the gateway forwards requests to for this passthrough target. Must start with `https://`.
+         */
+        endpoint: string;
+        /**
+         * Application protocol the passthrough target implements. Valid values: `MCP`, `A2A`, `INFERENCE`, `CUSTOM`.
+         */
+        protocolType: string;
+        /**
+         * API schema configuration that defines the structure of the passthrough target's API. Supports the same `inlinePayload` and `s3` blocks as `apiSchemaConfiguration`.
+         */
+        schema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema;
+        /**
+         * Controls precedence when a client request supplies a query parameter whose name matches a configured static query parameter. Valid values: `CLIENT_OVERRIDE`, `STATIC_OVERRIDE`.
+         */
+        staticQueryParameterConflictResolution?: string;
+        /**
+         * Map of static query parameters that the gateway always appends to the outbound URL when forwarding requests to the target.
+         */
+        staticQueryParameters?: {[key: string]: string};
+        /**
+         * Session stickiness configuration routing requests within the same session to the same target. See `stickinessConfiguration` below.
+         */
+        stickinessConfiguration?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchema {
+        /**
+         * Configuration for API schema. See `apiSchemaConfiguration` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSource {
+        inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload;
+        s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceInlinePayload {
+        /**
+         * Inline schema payload content.
+         */
+        payload: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughSchemaSourceS3 {
+        /**
+         * Account ID of the S3 bucket owner.
+         */
+        bucketOwnerAccountId?: string;
+        /**
+         * S3 URI where the schema is stored.
+         */
+        uri?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationHttpPassthroughStickinessConfiguration {
+        /**
+         * Additional headers to include in session affinity routing.
+         */
+        compositeIdentifiers?: string[];
+        /**
+         * Expression identifying where to extract the session identifier from the request (for example, `$context.header.x-session-id`).
+         */
+        identifier: string;
+        /**
+         * Session stickiness timeout, in seconds. Valid values range from 1 to 86400.
+         */
+        timeout?: number;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInference {
+        /**
+         * Connector-based inference configuration that routes requests to an LLM provider through a built-in connector with predefined provider rules. See `connector` Block below.
+         */
+        connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnector;
+        /**
+         * Provider-based inference configuration that explicitly defines the endpoint, model mapping, and operations used to route requests to an LLM provider. See `provider` Block below.
+         */
+        provider?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProvider;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnector {
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProvider {
+        /**
+         * HTTPS endpoint of the inference provider that the gateway forwards requests to.
+         */
+        endpoint: string;
+        /**
+         * Configuration that translates client-facing model IDs to the model IDs expected by the provider. See `modelMapping` Block below.
+         */
+        modelMapping?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping;
+        /**
+         * List of per-operation configurations that map request paths to the models supported for each operation. See `operation` below.
+         */
+        operations?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation[];
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMapping {
+        /**
+         * Provider prefix configuration used for model ID translation. See `providerPrefix` Block below.
+         */
+        providerPrefix?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderModelMappingProviderPrefix {
+        /**
+         * Single character that separates the provider prefix from the model name (for example, `.`). Defaults to `.`.
+         */
+        separator?: string;
+        /**
+         * Whether clients can omit the provider prefix from model IDs. If `true`, the gateway accepts model IDs without the prefix and restores the full prefixed form before forwarding to the provider. Defaults to `false`.
+         */
+        strip: boolean;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperation {
+        /**
+         * List of models supported for this operation. See `model` Block below.
+         */
+        models?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel[];
+        /**
+         * Request path for this operation (for example, `/v1/messages` or `/v1/responses`).
+         */
+        path: string;
+        /**
+         * Provider path to forward requests to, if it differs from the request path. For example, `/anthropic/v1/messages` when the provider expects a different path than the client-facing `/v1/messages`.
+         */
+        providerPath?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationInferenceProviderOperationModel {
+        model: string;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcp {
         /**
-         * API Gateway target configuration. See `apiGateway` below.
+         * API Gateway target configuration. See `apiGateway` Block below.
          */
         apiGateway?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGateway;
         /**
-         * Lambda function target configuration. See `lambda` below.
+         * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         */
+        connector?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnector;
+        /**
+         * Lambda function target configuration. See `lambda` Block below.
          */
         lambda?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambda;
         /**
-         * MCP server target configuration. See `mcpServer` below.
+         * MCP server target configuration. See `mcpServer` Block below.
          */
         mcpServer?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServer;
         /**
-         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+         * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         openApiSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchema;
         /**
-         * Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+         * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
          */
         smithyModel?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpSmithyModel;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGateway {
         /**
-         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` below.
+         * Configuration for API Gateway tools. See `apiGatewayToolConfiguration` Block below.
          */
         apiGatewayToolConfiguration?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration;
         /**
@@ -18658,11 +19477,11 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfiguration {
         /**
-         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          */
         toolFilters?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilter[];
         /**
-         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          */
         toolOverrides?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverride[];
     }
@@ -18697,24 +19516,81 @@ export namespace bedrock {
         path: string;
     }
 
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnector {
+        /**
+         * Per-tool configurations for the connector. See `configuration` Block below.
+         */
+        configurations: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration[];
+        /**
+         * List of tool names to enable from this connector. If omitted, all tools provided by the connector are enabled.
+         */
+        enableds?: string[];
+        /**
+         * Source configuration identifying which connector to use. See `source` Block below.
+         */
+        source: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfiguration {
+        /**
+         * Agent-facing description override for this tool.
+         */
+        description?: string;
+        /**
+         * Tool or operation name (for example, `retrieve` or `webSearch`).
+         */
+        name: string;
+        /**
+         * Parameter overrides to control parameter visibility and descriptions. See `parameterOverride` Block below.
+         */
+        parameterOverrides?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride[];
+        /**
+         * JSON-encoded parameters to set as fixed or default values when provisioning this tool. Free-form JSON whose schema is defined by the connector.
+         */
+        parameterValues?: string;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorConfigurationParameterOverride {
+        /**
+         * Description of the gateway target.
+         */
+        description?: string;
+        path: string;
+        /**
+         * Whether this parameter is visible to the agent. If not specified, uses the service default.
+         */
+        visible?: boolean;
+    }
+
+    export interface AgentcoreGatewayTargetTargetConfigurationMcpConnectorSource {
+        /**
+         * Identifier for the connector integration (for example, `bedrock-knowledge-bases`).
+         */
+        connectorId: string;
+        /**
+         * Version of the connector to use (for example, `1.2.0`).
+         */
+        version: string;
+    }
+
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambda {
         /**
          * ARN of the Lambda function to invoke.
          */
         lambdaArn: string;
         /**
-         * Schema definition for the tool. See `toolSchema` below.
+         * Schema definition for the tool. See `toolSchema` Block below.
          */
         toolSchema: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchema {
         /**
-         * Inline tool definition. See `inlinePayload` below.
+         * Inline tool definition. See `inlinePayload` Block below.
          */
         inlinePayloads?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayload[];
         /**
-         * S3-based tool definition. See `s3` below.
+         * S3-based tool definition. See `s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaS3;
     }
@@ -18725,7 +19601,7 @@ export namespace bedrock {
          */
         description: string;
         /**
-         * Schema for the tool's input. See `schemaDefinition` below.
+         * Schema for the tool's input. See `schemaDefinition` Block below.
          */
         inputSchema: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchema;
         /**
@@ -18733,7 +19609,7 @@ export namespace bedrock {
          */
         name: string;
         /**
-         * Schema for the tool's output. See `schemaDefinition` below.
+         * Schema for the tool's output. See `schemaDefinition` Block below.
          */
         outputSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchema;
     }
@@ -18758,7 +19634,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsProperty[];
         /**
@@ -18819,7 +19695,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItems;
         /**
@@ -18850,7 +19726,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaPropertyItemsProperty[];
         /**
@@ -18952,7 +19828,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsProperty[];
         /**
@@ -19013,7 +19889,7 @@ export namespace bedrock {
          */
         description?: string;
         /**
-         * Items definition for array properties. See `items` above.
+         * Items definition for array properties. See `items` Block above.
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItems;
         /**
@@ -19044,7 +19920,7 @@ export namespace bedrock {
          */
         items?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsItems;
         /**
-         * Set of property definitions for arrays of objects. See `property` below.
+         * Set of property definitions for arrays of objects. See `property` Block below.
          */
         properties?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsProperty[];
         /**
@@ -19147,7 +20023,7 @@ export namespace bedrock {
          */
         listingMode: string;
         /**
-         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+         * Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
          */
         mcpToolSchema?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema;
         /**
@@ -19162,14 +20038,14 @@ export namespace bedrock {
          */
         inlinePayload?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload;
         /**
-         * S3 location of the tool schema. See `s3` below.
+         * S3 location of the tool schema. See `s3` Block below.
          */
         s3?: outputs.bedrock.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3;
     }
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19192,7 +20068,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19215,7 +20091,7 @@ export namespace bedrock {
 
     export interface AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelInlinePayload {
         /**
-         * The inline schema payload content.
+         * Inline schema payload content.
          */
         payload: string;
     }
@@ -19456,14 +20332,14 @@ export namespace bedrock {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreHarnessAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
         /**
          * Identifier of the VPC Lattice resource configuration.
          */
-        resourceConfigurationIdentifier: string;
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreHarnessEnvironment {
@@ -19495,8 +20371,6 @@ export namespace bedrock {
         agentRuntimeName: string;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
@@ -19505,6 +20379,8 @@ export namespace bedrock {
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentActualAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
@@ -19605,8 +20481,6 @@ export namespace bedrock {
         agentRuntimeName: string;
         /**
          * Filesystem configurations. See `filesystemConfiguration` Block below.
-         *
-         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         filesystemConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentFilesystemConfiguration[];
         /**
@@ -19615,6 +20489,8 @@ export namespace bedrock {
         lifecycleConfigurations: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentLifecycleConfiguration[];
         /**
          * Network configuration. See `networkConfiguration` Block below.
+         *
+         * The following attributes are exported under `agentcoreRuntimeEnvironment`:
          */
         networkConfigurations?: outputs.bedrock.AgentcoreHarnessEnvironmentAgentcoreRuntimeEnvironmentNetworkConfiguration[];
     }
@@ -19878,12 +20754,24 @@ export namespace bedrock {
          */
         geminiModelConfig?: outputs.bedrock.AgentcoreHarnessModelGeminiModelConfig;
         /**
+         * LiteLLM model configuration. See `litellmModelConfig` Block below.
+         */
+        litellmModelConfig?: outputs.bedrock.AgentcoreHarnessModelLitellmModelConfig;
+        /**
          * OpenAI model configuration. See `openaiModelConfig` Block below.
          */
         openaiModelConfig?: outputs.bedrock.AgentcoreHarnessModelOpenaiModelConfig;
     }
 
     export interface AgentcoreHarnessModelBedrockModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * API format for the model. Valid values are `converseStream`, `responses`, and `chatCompletions`.
+         */
+        apiFormat: string;
         /**
          * Maximum number of tokens to generate.
          */
@@ -19903,6 +20791,10 @@ export namespace bedrock {
     }
 
     export interface AgentcoreHarnessModelGeminiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the Gemini model provider unchanged.
+         */
+        additionalParams?: string;
         /**
          * ARN of the secret containing the API key.
          */
@@ -19929,7 +20821,46 @@ export namespace bedrock {
         topP?: number;
     }
 
+    export interface AgentcoreHarnessModelLitellmModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the LiteLLM model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * Base URL of the LiteLLM-compatible API endpoint.
+         */
+        apiBase?: string;
+        /**
+         * ARN of the secret containing the API key.
+         */
+        apiKeyArn?: string;
+        /**
+         * Maximum number of tokens to generate.
+         */
+        maxTokens?: number;
+        /**
+         * LiteLLM model ID.
+         */
+        modelId: string;
+        /**
+         * Temperature for sampling. Must be between 0 and 2.
+         */
+        temperature?: number;
+        /**
+         * Top-p sampling parameter. Must be between 0 and 1.
+         */
+        topP?: number;
+    }
+
     export interface AgentcoreHarnessModelOpenaiModelConfig {
+        /**
+         * JSON string containing provider-specific parameters to pass through to the OpenAI model provider unchanged.
+         */
+        additionalParams?: string;
+        /**
+         * API format for the model. Valid values are `responses` and `chatCompletions`.
+         */
+        apiFormat: string;
         /**
          * ARN of the secret containing the API key.
          */
@@ -19954,16 +20885,68 @@ export namespace bedrock {
 
     export interface AgentcoreHarnessSkill {
         /**
+         * AWS Skills baked into the harness's underlying runtime. See `awsSkills` Block below.
+         */
+        awsSkills?: outputs.bedrock.AgentcoreHarnessSkillAwsSkills;
+        /**
+         * Git repository source for the skill. See `git` Block below.
+         */
+        git?: outputs.bedrock.AgentcoreHarnessSkillGit;
+        /**
          * Path to the skill.
          */
-        path: string;
+        path?: string;
+        /**
+         * S3 source for the skill. See `s3` Block below.
+         */
+        s3?: outputs.bedrock.AgentcoreHarnessSkillS3;
+    }
+
+    export interface AgentcoreHarnessSkillAwsSkills {
+        /**
+         * List of glob patterns to filter allowed skills (e.g., `["core-skills/*"]`).
+         */
+        paths?: string[];
+    }
+
+    export interface AgentcoreHarnessSkillGit {
+        /**
+         * Authentication configuration for private repositories. See `auth` Block below.
+         */
+        auth?: outputs.bedrock.AgentcoreHarnessSkillGitAuth;
+        /**
+         * Subdirectory within the repository containing the skill.
+         */
+        path?: string;
+        /**
+         * HTTPS URL of the git repository.
+         */
+        url: string;
+    }
+
+    export interface AgentcoreHarnessSkillGitAuth {
+        /**
+         * ARN of the credential in AgentCore Identity containing the password or personal access token.
+         */
+        credentialArn: string;
+        /**
+         * Username for authentication. Defaults to `oauth2` if not specified.
+         */
+        username?: string;
+    }
+
+    export interface AgentcoreHarnessSkillS3 {
+        /**
+         * S3 URI of the skill source. Must begin with `s3://`.
+         */
+        uri: string;
     }
 
     export interface AgentcoreHarnessSystemPrompt {
         /**
          * Text content of the system prompt.
          */
-        text: string;
+        text?: string;
     }
 
     export interface AgentcoreHarnessTimeouts {
@@ -20161,11 +21144,11 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStrategyConfiguration {
         /**
-         * Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+         * Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          */
         consolidation?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationConsolidation;
         /**
-         * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          */
         extraction?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationExtraction;
         /**
@@ -20173,7 +21156,11 @@ export namespace bedrock {
          */
         reflection?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationReflection;
         /**
-         * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+         * Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+         */
+        selfManagedConfiguration?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration;
+        /**
+         * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
          */
         type: string;
     }
@@ -20215,6 +21202,200 @@ export namespace bedrock {
         namespaceTemplates: string[];
     }
 
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration {
+        /**
+         * Number of historical messages to include in processing context. Valid range: `0` to `50`. Defaults to `4`.
+         */
+        historicalContextWindowSize: number;
+        /**
+         * Configuration used to invoke the self-managed memory processing pipeline. See `invocationConfiguration` Block below.
+         */
+        invocationConfiguration: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration;
+        /**
+         * Conditions that trigger memory processing. See `triggerConditions` Block below. When omitted, the service supplies the documented defaults for all three trigger types.
+         */
+        triggerConditions?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions;
+        /**
+         * Actual deployed trigger conditions.
+         */
+        triggerConditionsActuals: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual[];
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationInvocationConfiguration {
+        /**
+         * S3 bucket name for event payload delivery.
+         */
+        payloadDeliveryBucketName: string;
+        /**
+         * ARN of the SNS topic for job notifications.
+         */
+        topicArn: string;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditions {
+        /**
+         * Message-based condition. See `messageBasedTrigger` Block below.
+         */
+        messageBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger;
+        /**
+         * Idle-time condition. See `timeBasedTrigger` Block below.
+         */
+        timeBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger;
+        /**
+         * Token-based condition. See `tokenBasedTrigger` Block below.
+         */
+        tokenBasedTrigger?: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActual {
+        /**
+         * Message-based condition.
+         */
+        messageBasedTriggers: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger[];
+        /**
+         * Idle-time condition.
+         */
+        timeBasedTriggers: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger[];
+        /**
+         * Token-based condition.
+         */
+        tokenBasedTriggers: outputs.bedrock.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger[];
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualMessageBasedTrigger {
+        /**
+         * Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+         */
+        messageCount: number;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTimeBasedTrigger {
+        /**
+         * Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+         */
+        idleSessionTimeout: number;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsActualTokenBasedTrigger {
+        /**
+         * Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+         */
+        tokenCount: number;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsMessageBasedTrigger {
+        /**
+         * Number of messages that trigger memory processing. Accepts values from `1` to `50`.
+         */
+        messageCount: number;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTimeBasedTrigger {
+        /**
+         * Idle session timeout (seconds) that triggers memory processing. Accepts values from `10` to `3000`.
+         */
+        idleSessionTimeout: number;
+    }
+
+    export interface AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationTriggerConditionsTokenBasedTrigger {
+        /**
+         * Number of tokens that trigger memory processing. Accepts values from `100` to `500000`.
+         */
+        tokenCount: number;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchema {
+        /**
+         * List of metadata field definitions for records generated by this strategy. See `metadataSchema` Block below.
+         */
+        metadataSchemas?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema[];
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchema {
+        /**
+         * Configuration for extracting this metadata value from conversational content. Applicable only when `extractionType` is `LLM_INFERRED`. See `extractionConfig` Block below.
+         */
+        extractionConfig?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig;
+        /**
+         * Whether the metadata value is extracted by the LLM or passed through deterministically from the event. Valid values: `LLM_INFERRED`, `STRICTLY_CONSISTENT`.
+         */
+        extractionType: string;
+        /**
+         * Metadata field name. Must match an indexed key to be queryable via metadata filters.
+         */
+        key: string;
+        /**
+         * Metadata value type. Valid values: `STRING`, `STRINGLIST`, `NUMBER`.
+         */
+        type: string;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfig {
+        /**
+         * Model-based extraction configuration. See `llmExtractionConfig` Block below.
+         */
+        llmExtractionConfig?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfig {
+        /**
+         * Description of what this metadata field represents.
+         */
+        definition: string;
+        /**
+         * Instructions for extraction. Supports built-in operators like `LATEST_VALUE` or custom natural-language instructions.
+         */
+        llmExtractionInstruction: string;
+        /**
+         * Validation rules to constrain extracted values. See `validation` Block below.
+         */
+        validation?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidation {
+        /**
+         * Validation for `NUMBER` fields. See `numberValidation` Block below.
+         */
+        numberValidation?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation;
+        /**
+         * Validation for `STRINGLIST` fields. See `stringListValidation` Block below.
+         */
+        stringListValidation?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation;
+        /**
+         * Validation for `STRING` fields. See `stringValidation` Block below.
+         */
+        stringValidation?: outputs.bedrock.AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationNumberValidation {
+        /**
+         * Maximum allowed value.
+         */
+        maxValue?: number;
+        /**
+         * Minimum allowed value.
+         */
+        minValue?: number;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringListValidation {
+        /**
+         * Allowed values for items in this `STRINGLIST` field.
+         */
+        allowedValues?: string[];
+        /**
+         * Maximum number of items in the string list.
+         */
+        maxItems?: number;
+    }
+
+    export interface AgentcoreMemoryStrategyMemoryRecordSchemaMetadataSchemaExtractionConfigLlmExtractionConfigValidationStringValidation {
+        /**
+         * Allowed values for this `STRING` field.
+         */
+        allowedValues: string[];
+    }
+
     export interface AgentcoreMemoryStrategyReflectionConfiguration {
         /**
          * Namespace templates over which to create reflections. Can be less nested than episode namespaces.
@@ -20239,23 +21420,23 @@ export namespace bedrock {
 
     export interface AgentcoreMemoryStreamDeliveryResources {
         /**
-         * List of stream delivery resource configurations. See `resource` below.
+         * List of stream delivery resource configurations. See `resource` Block below.
          */
         resource?: outputs.bedrock.AgentcoreMemoryStreamDeliveryResourcesResource;
     }
 
     export interface AgentcoreMemoryStreamDeliveryResourcesResource {
         /**
-         * Kinesis Data Stream configuration. See `kinesis` below.
+         * Kinesis Data Stream configuration. See `kinesis` Block below.
          */
         kinesis?: outputs.bedrock.AgentcoreMemoryStreamDeliveryResourcesResourceKinesis;
     }
 
     export interface AgentcoreMemoryStreamDeliveryResourcesResourceKinesis {
         /**
-         * Content configurations for stream delivery. See `contentConfiguration` below.
+         * Content configurations for stream delivery. See `contentConfiguration` Block below.
          */
-        contentConfiguration?: outputs.bedrock.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration;
+        contentConfiguration: outputs.bedrock.AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfiguration;
         /**
          * ARN of the Kinesis Data Stream.
          */
@@ -20297,36 +21478,54 @@ export namespace bedrock {
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfig {
         /**
+         * Atlassian OAuth provider configuration. See `predefined providers` below.
+         */
+        atlassianOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig;
+        /**
          * Custom OAuth2 provider configuration. See `custom` below.
          */
         customOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig;
         /**
-         * GitHub OAuth provider configuration. See `github` below.
+         * GitHub OAuth provider configuration. See `predefined providers` below.
          */
         githubOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig;
         /**
-         * Google OAuth provider configuration. See `google` below.
+         * Google OAuth provider configuration. See `predefined providers` below.
          */
         googleOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig;
         /**
-         * Microsoft OAuth provider configuration. See `microsoft` below.
+         * Configuration for an included (vendor-supported) OAuth2 provider, used for the additional supported vendors. See `predefined providers` below.
+         *
+         * > **Note:** `includedOauth2ProviderConfig` currently supports only vendors that have fixed, AWS-known OAuth2 endpoints (for example `XOauth2`, `FacebookOauth2`, `SpotifyOauth2`), which require nothing beyond `clientId` and `clientSecret`. Isolated-tenant vendors such as `OktaOauth2`, `PingOneOauth2`, and `OneLoginOauth2` require provider-specific endpoints (`issuer`, `authorizationEndpoint`, `tokenEndpoint`) that are not yet exposed by this resource, and will fail at create time with a `Missing TokenEndpoint` error. Support for those fields is planned in a follow-up.
+         */
+        includedOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig;
+        /**
+         * LinkedIn OAuth provider configuration. See `predefined providers` below.
+         */
+        linkedinOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig;
+        /**
+         * Microsoft OAuth provider configuration. See `predefined providers` below.
          */
         microsoftOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig;
         /**
-         * Salesforce OAuth provider configuration. See `salesforce` below.
+         * Salesforce OAuth provider configuration. See `predefined providers` below.
          */
         salesforceOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig;
         /**
-         * Slack OAuth provider configuration. See `slack` below.
+         * Slack OAuth provider configuration. See `predefined providers` below.
          */
         slackOauth2ProviderConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig;
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfig {
         /**
-         * Used together with write-only credentials to trigger an update. Increment this value when an update to `clientIdWo` or `clientSecretWo` is required.
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
          *
-         * **OAuth Discovery Configuration:**
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
          */
         clientCredentialsWoVersion?: number;
         /**
@@ -20335,7 +21534,7 @@ export namespace bedrock {
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client ID. Cannot be used with `clientId`. Must be used together with `clientSecretWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
         /**
@@ -20345,14 +21544,144 @@ export namespace bedrock {
          */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Write-only OAuth2 client secret. Cannot be used with `clientSecret`. Must be used together with `clientIdWo` and `clientCredentialsWoVersion`.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
-        oauthDiscovery?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery;
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigAtlassianOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfig {
+        /**
+         * Client authentication method used with the token endpoint. Valid values: `CLIENT_SECRET_BASIC`, `CLIENT_SECRET_POST`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        clientAuthenticationMethod?: string;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **OAuth Discovery Configuration:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Conflicts with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Conflicts with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscovery: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery;
+        /**
+         * On-behalf-of token exchange configuration, enabling RFC 8693 token exchange or RFC 7523 JWT authorization grant flows. See `onBehalfOfTokenExchangeConfig` below.
+         */
+        onBehalfOfTokenExchangeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig;
+        /**
+         * Default private endpoint for the custom OAuth2 provider, enabling secure connectivity through a VPC Lattice resource configuration. See `privateEndpoint` below.
+         */
+        privateEndpoint?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint;
+        /**
+         * Private endpoint overrides for the custom OAuth2 provider configuration. See `privateEndpointOverride` below.
+         */
+        privateEndpointOverrides?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride[];
+        privateKeyJwtConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOauthDiscovery {
@@ -20383,24 +21712,208 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods?: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfig {
+        /**
+         * Grant type for the on-behalf-of token exchange. Valid values: `TOKEN_EXCHANGE`, `JWT_AUTHORIZATION_GRANT`.
+         */
+        grantType: string;
+        /**
+         * Configuration specific to the `TOKEN_EXCHANGE` grant type (RFC 8693). See `tokenExchangeGrantTypeConfig` below.
+         */
+        tokenExchangeGrantTypeConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigOnBehalfOfTokenExchangeConfigTokenExchangeGrantTypeConfig {
+        /**
+         * Content type for the actor token in the token exchange. Valid values: `NONE`, `M2M`, `AWS_IAM_ID_TOKEN_JWT`.
+         */
+        actorTokenContent: string;
+        /**
+         * Set of scopes for the actor token. Only valid when `actorTokenContent` is `M2M`.
+         */
+        actorTokenScopes?: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: string;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: string[];
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: string[];
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverride {
+        /**
+         * Domain the private endpoint override applies to.
+         */
+        domain: string;
+        /**
+         * Private endpoint configuration for the domain. See `privateEndpoint` above.
+         */
+        privateEndpoint: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Service-managed VPC resource configuration. See `managedVpcResource` below.
+         */
+        managedVpcResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
+        selfManagedLatticeResource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values: `IPV4`, `DUALSTACK`.
+         */
+        endpointIpAddressType: string;
+        /**
+         * Routing domain for the managed VPC resource.
+         */
+        routingDomain?: string;
+        /**
+         * Set of up to 5 security group IDs for the managed VPC resource.
+         */
+        securityGroupIds?: string[];
+        /**
+         * Set of subnet IDs for the managed VPC resource.
+         */
+        subnetIds: string[];
+        /**
+         * Key-value map of tags for the managed VPC resource.
+         */
+        tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC.
+         */
+        vpcIdentifier: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateEndpointSelfManagedLatticeResource {
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfig {
+        additionalHeaderClaims?: {[key: string]: string};
+        additionalPayloadClaims?: {[key: string]: string};
+        privateKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource;
+        signingAlgorithm?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySource {
+        kmsKeySource?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigCustomOauth2ProviderConfigPrivateKeyJwtConfigPrivateKeySourceKmsKeySource {
+        kmsKeyArn: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGithubOauth2ProviderConfigOauthDiscovery {
@@ -20431,24 +21944,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscovery {
@@ -20479,24 +22038,287 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
-    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfig {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint?: string;
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint?: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigIncludedOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
+         */
+        oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscovery {
+        /**
+         * Manual OAuth2 authorization server metadata configuration. Cannot be used together with `discoveryUrl`. See `authorizationServerMetadata` below.
+         */
+        authorizationServerMetadatas: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata[];
+        /**
+         * OpenID Connect discovery URL (e.g., `https://provider.com/.well-known/openid-configuration`). Cannot be used together with `authorizationServerMetadata`.
+         */
+        discoveryUrl: string;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigLinkedinOauth2ProviderConfigOauthDiscoveryAuthorizationServerMetadata {
+        /**
+         * OAuth2 authorization endpoint URL.
+         */
+        authorizationEndpoint: string;
+        /**
+         * OAuth2 authorization server issuer identifier.
+         */
+        issuer: string;
+        /**
+         * Set of OAuth2 response types supported by the authorization server.
+         */
+        responseTypes: string[];
+        /**
+         * OAuth2 token endpoint URL.
+         */
+        tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
+        clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
+        clientId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
+        clientSecret?: string;
+        /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
+         */
+        clientSecretWo?: string;
+        /**
+         * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery[];
+        /**
+         * Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantIdWo`.
+         *
+         * **Write-Only Tenant ID:**
+         */
+        tenantId?: string;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only Microsoft Entra (Azure AD) tenant ID. Cannot be used with `tenantId`. Must be used together with `tenantIdWoVersion`.
+         */
+        tenantIdWo?: string;
+        /**
+         * Used together with write-only tenant ID to trigger an update. Increment this value when an update to `tenantIdWo` is required.
+         *
+         * **Note:** These predefined providers automatically configure OAuth discovery settings based on their respective authorization servers.
+         */
+        tenantIdWoVersion?: number;
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigMicrosoftOauth2ProviderConfigOauthDiscovery {
@@ -20527,24 +22349,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSalesforceOauth2ProviderConfigOauthDiscovery {
@@ -20575,24 +22443,70 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfig {
+        /**
+         * Required when `clientIdWo` and `clientSecretWo` are set. Changing this value triggers an update to `clientIdWo` and `clientSecretWo`.
+         *
+         * **Microsoft-Specific Configuration:**
+         *
+         * The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+         *
+         * **Standard Tenant ID:**
+         */
         clientCredentialsWoVersion?: number;
+        /**
+         * OAuth2 client ID. Cannot be used with `clientIdWo`. Must be used together with `clientSecret`.
+         */
         clientId?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client ID. Conflicts with `clientId`. If set, requires `clientSecretWo` and `clientCredentialsWoVersion` to be set.
          */
         clientIdWo?: string;
+        /**
+         * OAuth2 client secret. Cannot be used with `clientSecretWo`. Must be used together with `clientId`.
+         *
+         * **Write-Only Credentials (choose one pair):**
+         */
         clientSecret?: string;
         /**
+         * Reference to an AWS Secrets Manager secret that stores the client secret. Required when `clientSecretSource` is `EXTERNAL`. See `clientSecretConfig` below.
+         *
+         * **Advanced Configuration:**
+         */
+        clientSecretConfig?: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig;
+        /**
+         * Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `clientSecretConfig`.
+         */
+        clientSecretSource?: string;
+        /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Write-only OAuth2 client secret. Conflicts with `clientSecret`. If set, requires `clientIdWo` and `clientCredentialsWoVersion` to be set.
          */
         clientSecretWo?: string;
         /**
          * OAuth discovery configuration. See `oauthDiscovery` below.
+         *
+         * **Externally-Managed Client Secret:**
          */
         oauthDiscoveries: outputs.bedrock.AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigClientSecretConfig {
+        /**
+         * JSON key used to extract the client secret value from the Secrets Manager secret.
+         */
+        jsonKey: string;
+        /**
+         * ID of the AWS Secrets Manager secret that stores the client secret value.
+         */
+        secretId: string;
     }
 
     export interface AgentcoreOauth2CredentialProviderOauth2ProviderConfigSlackOauth2ProviderConfigOauthDiscovery {
@@ -20623,6 +22537,25 @@ export namespace bedrock {
          * OAuth2 token endpoint URL.
          */
         tokenEndpoint: string;
+        /**
+         * List of authentication methods supported by the token endpoint. Must contain one or two values matching `clientSecretPost` or `clientSecretBasic`.
+         */
+        tokenEndpointAuthMethods: string[];
+    }
+
+    export interface AgentcoreOauth2CredentialProviderTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
     export interface AgentcoreOnlineEvaluationConfigDataSourceConfig {
@@ -20783,88 +22716,208 @@ export namespace bedrock {
     }
 
     export interface AgentcoreRegistryApprovalConfiguration {
+        /**
+         * Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+         */
         autoApproval: boolean;
     }
 
     export interface AgentcoreRegistryAuthorizerConfiguration {
+        /**
+         * JWT-based authorization configuration block. See `customJwtAuthorizer` below.
+         */
         customJwtAuthorizer?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizer {
+        /**
+         * Set of allowed audience values for JWT token validation.
+         */
         allowedAudiences?: string[];
+        /**
+         * Set of allowed client IDs for JWT token validation.
+         */
         allowedClients?: string[];
+        /**
+         * Set of scopes that are allowed to access the token.
+         */
         allowedScopes?: string[];
+        /**
+         * Configuration restricting which workloads may use this authorizer. See `allowedWorkloadConfiguration` below.
+         */
         allowedWorkloadConfiguration?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration;
+        /**
+         * Repeatable block to define a custom claim validation name, value, and operation. See `customClaim` below.
+         */
         customClaims?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim[];
+        /**
+         * URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+         */
         discoveryUrl: string;
+        /**
+         * Private endpoint used to reach the authorization server. See `privateEndpoint` below.
+         */
         privateEndpoint?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint;
+        /**
+         * Overrides for the private endpoints used to reach the authorization server. See `privateEndpointOverrides` below.
+         */
         privateEndpointOverrides?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfiguration {
+        /**
+         * Hosting environments allowed to use the authorizer. Between 1 and 10 entries. See `hostingEnvironment` below.
+         */
         hostingEnvironments?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment[];
+        /**
+         * List of workload identity names allowed to use the authorizer. Between 1 and 10 entries.
+         */
         workloadIdentities?: string[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationHostingEnvironment {
+        /**
+         * ARN of the hosting environment.
+         */
         arn: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+        /**
+         * Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+         */
         authorizingClaimMatchValue: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue;
+        /**
+         * Name of the custom claim field to check.
+         */
         inboundTokenClaimName: string;
+        /**
+         * Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+         */
         inboundTokenClaimValueType: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+        /**
+         * Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+         */
         claimMatchOperator: string;
+        /**
+         * Value or values to match for. See `claimMatchValue` below.
+         */
         claimMatchValue: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue {
+        /**
+         * String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueString?: string;
+        /**
+         * List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         */
         matchValueStringLists?: string[];
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: string;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: string;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: string[];
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: string[];
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+        /**
+         * Domain the override applies to.
+         */
         domain: string;
+        /**
+         * Private endpoint configuration. See `privateEndpoint` below.
+         */
         privateEndpoint: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint {
+        /**
+         * Managed VPC resource configuration. See `managedVpcResource` below.
+         */
         managedVpcResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource;
+        /**
+         * Self-managed VPC Lattice resource configuration. See `selfManagedLatticeResource` below.
+         */
         selfManagedLatticeResource?: outputs.bedrock.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResource {
+        /**
+         * IP address type for the endpoint. Valid values are `IPV4` and `IPV6`.
+         */
         endpointIpAddressType: string;
+        /**
+         * Routing domain for the endpoint.
+         */
         routingDomain?: string;
+        /**
+         * IDs of the security groups for the endpoint.
+         */
         securityGroupIds?: string[];
+        /**
+         * IDs of the subnets for the endpoint.
+         */
         subnetIds: string[];
+        /**
+         * Tags to assign to the managed VPC resource.
+         */
         tags?: {[key: string]: string};
+        /**
+         * Identifier of the VPC for the endpoint.
+         */
         vpcIdentifier: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: string;
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointSelfManagedLatticeResource {
-        resourceConfigurationIdentifier: string;
+        /**
+         * Identifier of the VPC Lattice resource configuration.
+         */
+        resourceConfigurationIdentifier?: string;
     }
 
     export interface AgentcoreRegistryTimeouts {
@@ -21442,7 +23495,7 @@ export namespace bedrock {
 
     export interface GetInferenceProfileModel {
         /**
-         * The Amazon Resource Name (ARN) of the model.
+         * The ARN of the model.
          */
         modelArn: string;
     }
@@ -21457,7 +23510,7 @@ export namespace bedrock {
          */
         description: string;
         /**
-         * Amazon Resource Name (ARN) of the inference profile.
+         * ARN of the inference profile.
          */
         inferenceProfileArn: string;
         /**
@@ -21488,7 +23541,7 @@ export namespace bedrock {
 
     export interface GetInferenceProfilesInferenceProfileSummaryModel {
         /**
-         * Amazon Resource Name (ARN) of the model.
+         * ARN of the model.
          */
         modelArn: string;
     }
@@ -21771,14 +23824,14 @@ export namespace bedrock {
 
     export interface InferenceProfileModel {
         /**
-         * The Amazon Resource Name (ARN) of the model.
+         * The ARN of the model.
          */
         modelArn: string;
     }
 
     export interface InferenceProfileModelSource {
         /**
-         * The Amazon Resource Name (ARN) of the model.
+         * The ARN of the model.
          */
         copyFrom: string;
     }
@@ -21942,6 +23995,72 @@ export namespace bedrockfoundation {
 }
 
 export namespace bedrockmodel {
+    export interface InvocationJobInputDataConfig {
+        /**
+         * Location of the S3 input data. See `s3InputDataConfig` Block below.
+         */
+        s3InputDataConfig: outputs.bedrockmodel.InvocationJobInputDataConfigS3InputDataConfig;
+    }
+
+    export interface InvocationJobInputDataConfigS3InputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the input data.
+         */
+        s3BucketOwner: string;
+        /**
+         * Format of the input data. Valid values: `JSONL`.
+         */
+        s3InputFormat: string;
+        /**
+         * S3 location of the input data.
+         */
+        s3Uri: string;
+    }
+
+    export interface InvocationJobOutputDataConfig {
+        /**
+         * Location of the S3 output data. See `s3OutputDataConfig` Block below.
+         */
+        s3OutputDataConfig: outputs.bedrockmodel.InvocationJobOutputDataConfigS3OutputDataConfig;
+    }
+
+    export interface InvocationJobOutputDataConfigS3OutputDataConfig {
+        /**
+         * ID of the AWS account that owns the S3 bucket containing the output data.
+         */
+        s3BucketOwner: string;
+        /**
+         * ARN of the KMS key that encrypts the S3 location of the output data.
+         */
+        s3EncryptionKeyId: string;
+        /**
+         * S3 location where the results of the batch inference job are stored.
+         */
+        s3Uri: string;
+    }
+
+    export interface InvocationJobTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+    }
+
+    export interface InvocationJobVpcConfig {
+        /**
+         * IDs of the security groups in the VPC to use.
+         */
+        securityGroupIds: string[];
+        /**
+         * IDs of the subnets in the VPC to use.
+         */
+        subnetIds: string[];
+    }
+
     export interface InvocationLoggingConfigurationLoggingConfig {
         /**
          * CloudWatch logging configuration. See `cloudwatchConfig` Block for details.
@@ -22124,7 +24243,7 @@ export namespace budgets {
          */
         groups?: string[];
         /**
-         * The Amazon Resource Name (ARN) of the policy to be attached.
+         * ARN of the policy to be attached.
          */
         policyArn: string;
         /**
@@ -23566,7 +25685,7 @@ export namespace chime {
 
     export interface SdkvoiceSipMediaApplicationEndpoints {
         /**
-         * Valid Amazon Resource Name (ARN) of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
+         * Valid ARN of the Lambda function, version, or alias. The function must be created in the same AWS Region as the SIP media application.
          */
         lambdaArn: string;
     }
@@ -24018,7 +26137,7 @@ export namespace cloudformation {
          */
         logGroupName: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+         * ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
          */
         logRoleArn: string;
     }
@@ -25269,7 +27388,7 @@ export namespace cloudfront {
 
     export interface GetDistributionTenantCustomizationCertificate {
         /**
-         * ARN (Amazon Resource Name) for the distribution tenant.
+         * ARN for the distribution tenant.
          */
         arn: string;
     }
@@ -25282,7 +27401,7 @@ export namespace cloudfront {
     export interface GetDistributionTenantCustomizationWebAcl {
         action: string;
         /**
-         * ARN (Amazon Resource Name) for the distribution tenant.
+         * ARN for the distribution tenant.
          */
         arn: string;
     }
@@ -26660,7 +28779,7 @@ export namespace cloudwatch {
 
     export interface CompositeAlarmActionsSuppressor {
         /**
-         * Can be an AlarmName or an Amazon Resource Name (ARN) from an existing alarm.
+         * Can be an AlarmName or an ARN from an existing alarm.
          */
         alarm: string;
         /**
@@ -28021,6 +30140,19 @@ export namespace cloudwatch {
         unit?: string;
     }
 
+    export interface MetricAlarmWarmUpConfiguration {
+        /**
+         * Whether to wait for the full warm-up period before evaluation begins, even if metric data arrives earlier. When `false`, the warm-up period ends early as soon as the alarm has enough data to fill its evaluation window. Defaults to `false`.
+         *
+         * > **Note:** The warm-up period applies once, when the alarm is created. Changing the warm-up configuration after the warm-up period ends does not start a new warm-up period. See [Alarm warm-up periods](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/alarm-warm-up.html) in the Amazon CloudWatch User Guide.
+         */
+        onlyStartEvaluatingAfterWarmUpPeriodEnds?: boolean;
+        /**
+         * Length of the warm-up period, in minutes. Valid values are `1` to `2880`.
+         */
+        warmUpPeriodDurationInMinutes: number;
+    }
+
     export interface MetricStreamExcludeFilter {
         /**
          * An array that defines the metrics you want to exclude for this metric namespace
@@ -29010,7 +31142,7 @@ export namespace codeconnections {
          */
         subnetIds: string[];
         /**
-         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         * Value of the TLS certificate associated with the infrastructure where your provider type is installed.
          */
         tlsCertificate?: string;
         /**
@@ -29290,7 +31422,7 @@ export namespace codedeploy {
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfoProdTrafficRoute {
         /**
-         * List of Amazon Resource Names (ARNs) of the load balancer listeners. Must contain exactly one listener ARN.
+         * List of ARNs of the load balancer listeners. Must contain exactly one listener ARN.
          */
         listenerArns: string[];
     }
@@ -29304,7 +31436,7 @@ export namespace codedeploy {
 
     export interface DeploymentGroupLoadBalancerInfoTargetGroupPairInfoTestTrafficRoute {
         /**
-         * List of Amazon Resource Names (ARNs) of the load balancer listeners.
+         * List of ARNs of the load balancer listeners.
          */
         listenerArns: string[];
     }
@@ -29369,7 +31501,7 @@ export namespace codeguruprofiler {
 export namespace codegurureviewer {
     export interface RepositoryAssociationKmsKeyDetails {
         /**
-         * The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+         * Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
          */
         encryptionOption?: string;
         /**
@@ -29387,7 +31519,7 @@ export namespace codegurureviewer {
 
     export interface RepositoryAssociationRepositoryBitbucket {
         /**
-         * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * ARN of an AWS CodeStar Connections connection.
          */
         connectionArn: string;
         /**
@@ -29409,7 +31541,7 @@ export namespace codegurureviewer {
 
     export interface RepositoryAssociationRepositoryGithubEnterpriseServer {
         /**
-         * The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+         * ARN of an AWS CodeStar Connections connection.
          */
         connectionArn: string;
         /**
@@ -29523,7 +31655,7 @@ export namespace codepipeline {
 
     export interface PipelineArtifactStore {
         /**
-         * The encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as an AWS Key Management Service (AWS KMS) key. If you don't specify a key, AWS CodePipeline uses the default key for Amazon Simple Storage Service (Amazon S3). An `encryptionKey` block is documented below.
+         * Encryption key block AWS CodePipeline uses to encrypt the data in the artifact store, such as a KMS key. If you don't specify a key, AWS CodePipeline uses the default key for S3. An `encryptionKey` block is documented below.
          */
         encryptionKey?: outputs.codepipeline.PipelineArtifactStoreEncryptionKey;
         /**
@@ -30155,7 +32287,7 @@ export namespace codestarconnections {
          */
         subnetIds: string[];
         /**
-         * The value of the Transport Layer Security (TLS) certificate associated with the infrastructure where your provider type is installed.
+         * Value of the TLS certificate associated with the infrastructure where your provider type is installed.
          */
         tlsCertificate?: string;
         /**
@@ -30331,7 +32463,7 @@ export namespace cognito {
          */
         replyToEmailAddress: string;
         /**
-         * - Source Amazon Resource Name (ARN) for emails.
+         * - Source ARN for emails.
          */
         sourceArn: string;
     }
@@ -30704,7 +32836,7 @@ export namespace cognito {
          */
         replyTo?: string;
         /**
-         * The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+         * ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
          */
         sourceArn: string;
     }
@@ -30947,7 +33079,7 @@ export namespace cognito {
          */
         defineAuthChallenge?: string;
         /**
-         * The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+         * ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
          */
         kmsKeyId?: string;
         /**
@@ -30986,7 +33118,7 @@ export namespace cognito {
 
     export interface UserPoolLambdaConfigCustomEmailSender {
         /**
-         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+         * Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
          */
         lambdaArn: string;
         /**
@@ -30997,7 +33129,7 @@ export namespace cognito {
 
     export interface UserPoolLambdaConfigCustomSmsSender {
         /**
-         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+         * Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
          */
         lambdaArn: string;
         /**
@@ -32917,14 +35049,14 @@ export namespace connect {
 
     export interface GetInstanceStorageConfigStorageConfigKinesisFirehoseConfig {
         /**
-         * The Amazon Resource Name (ARN) of the delivery stream.
+         * ARN of the delivery stream.
          */
         firehoseArn: string;
     }
 
     export interface GetInstanceStorageConfigStorageConfigKinesisStreamConfig {
         /**
-         * The Amazon Resource Name (ARN) of the data stream.
+         * ARN of the data stream.
          */
         streamArn: string;
     }
@@ -33399,14 +35531,14 @@ export namespace connect {
 
     export interface InstanceStorageConfigStorageConfigKinesisFirehoseConfig {
         /**
-         * The Amazon Resource Name (ARN) of the delivery stream.
+         * ARN of the delivery stream.
          */
         firehoseArn: string;
     }
 
     export interface InstanceStorageConfigStorageConfigKinesisStreamConfig {
         /**
-         * The Amazon Resource Name (ARN) of the data stream.
+         * ARN of the data stream.
          */
         streamArn: string;
     }
@@ -33611,7 +35743,7 @@ export namespace connect {
 
     export interface UserHierarchyGroupHierarchyPathLevelFife {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy group.
+         * The ARN of the hierarchy group.
          */
         arn: string;
         /**
@@ -33626,7 +35758,7 @@ export namespace connect {
 
     export interface UserHierarchyGroupHierarchyPathLevelFour {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy group.
+         * The ARN of the hierarchy group.
          */
         arn: string;
         /**
@@ -33641,7 +35773,7 @@ export namespace connect {
 
     export interface UserHierarchyGroupHierarchyPathLevelOne {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy group.
+         * The ARN of the hierarchy group.
          */
         arn: string;
         /**
@@ -33656,7 +35788,7 @@ export namespace connect {
 
     export interface UserHierarchyGroupHierarchyPathLevelThree {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy group.
+         * The ARN of the hierarchy group.
          */
         arn: string;
         /**
@@ -33671,7 +35803,7 @@ export namespace connect {
 
     export interface UserHierarchyGroupHierarchyPathLevelTwo {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy group.
+         * The ARN of the hierarchy group.
          */
         arn: string;
         /**
@@ -33711,7 +35843,7 @@ export namespace connect {
 
     export interface UserHierarchyStructureHierarchyStructureLevelFive {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy level.
+         * The ARN of the hierarchy level.
          */
         arn: string;
         /**
@@ -33726,7 +35858,7 @@ export namespace connect {
 
     export interface UserHierarchyStructureHierarchyStructureLevelFour {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy level.
+         * The ARN of the hierarchy level.
          */
         arn: string;
         /**
@@ -33741,7 +35873,7 @@ export namespace connect {
 
     export interface UserHierarchyStructureHierarchyStructureLevelOne {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy level.
+         * The ARN of the hierarchy level.
          */
         arn: string;
         /**
@@ -33756,7 +35888,7 @@ export namespace connect {
 
     export interface UserHierarchyStructureHierarchyStructureLevelThree {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy level.
+         * The ARN of the hierarchy level.
          */
         arn: string;
         /**
@@ -33771,7 +35903,7 @@ export namespace connect {
 
     export interface UserHierarchyStructureHierarchyStructureLevelTwo {
         /**
-         * The Amazon Resource Name (ARN) of the hierarchy level.
+         * The ARN of the hierarchy level.
          */
         arn: string;
         /**
@@ -36779,11 +38911,11 @@ export namespace datapipeline {
 export namespace datasync {
     export interface EfsLocationEc2Config {
         /**
-         * List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+         * List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
          */
         securityGroupArns: string[];
         /**
-         * Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+         * ARN of the EC2 Subnet that is associated with the EFS Mount Target.
          */
         subnetArn: string;
     }
@@ -36899,7 +39031,7 @@ export namespace datasync {
 
     export interface NfsLocationOnPremConfig {
         /**
-         * List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+         * List of ARNs of the DataSync Agents used to connect to the NFS server.
          */
         agentArns: string[];
     }
@@ -37053,7 +39185,7 @@ export namespace datasync {
 
     export interface TaskTaskReportConfigS3Destination {
         /**
-         * Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+         * ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
          */
         bucketAccessRoleArn: string;
         /**
@@ -37205,6 +39337,239 @@ export namespace datazone {
         create?: string;
     }
 
+    export interface PolicyGrantDetail {
+        /**
+         * Configuration for the `ADD_TO_PROJECT_MEMBER_POOL` policy type. See `addToProjectMemberPool` Block below.
+         */
+        addToProjectMemberPool?: outputs.datazone.PolicyGrantDetailAddToProjectMemberPool;
+        /**
+         * Configuration for the `CREATE_ASSET_TYPE` policy type. See `createAssetType` Block below.
+         */
+        createAssetType?: outputs.datazone.PolicyGrantDetailCreateAssetType;
+        /**
+         * Configuration for the `CREATE_DOMAIN_UNIT` policy type. See `createDomainUnit` Block below.
+         */
+        createDomainUnit?: outputs.datazone.PolicyGrantDetailCreateDomainUnit;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT` policy type. Empty block.
+         */
+        createEnvironment?: outputs.datazone.PolicyGrantDetailCreateEnvironment;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_FROM_BLUEPRINT` policy type. Empty block.
+         */
+        createEnvironmentFromBlueprint?: outputs.datazone.PolicyGrantDetailCreateEnvironmentFromBlueprint;
+        /**
+         * Configuration for the `CREATE_ENVIRONMENT_PROFILE` policy type. See `createEnvironmentProfile` Block below.
+         */
+        createEnvironmentProfile?: outputs.datazone.PolicyGrantDetailCreateEnvironmentProfile;
+        /**
+         * Configuration for the `CREATE_FORM_TYPE` policy type. See `createFormType` Block below.
+         */
+        createFormType?: outputs.datazone.PolicyGrantDetailCreateFormType;
+        /**
+         * Configuration for the `CREATE_GLOSSARY` policy type. See `createGlossary` Block below.
+         */
+        createGlossary?: outputs.datazone.PolicyGrantDetailCreateGlossary;
+        /**
+         * Configuration for the `CREATE_PROJECT` policy type. See `createProject` Block below.
+         */
+        createProject?: outputs.datazone.PolicyGrantDetailCreateProject;
+        /**
+         * Configuration for the `CREATE_PROJECT_FROM_PROJECT_PROFILE` policy type. See `createProjectFromProjectProfile` Block below.
+         */
+        createProjectFromProjectProfile?: outputs.datazone.PolicyGrantDetailCreateProjectFromProjectProfile;
+        /**
+         * Configuration for the `DELEGATE_CREATE_ENVIRONMENT_PROFILE` policy type. Empty block.
+         */
+        delegateCreateEnvironmentProfile?: outputs.datazone.PolicyGrantDetailDelegateCreateEnvironmentProfile;
+        /**
+         * Configuration for the `OVERRIDE_DOMAIN_UNIT_OWNERS` policy type. See `overrideDomainUnitOwners` Block below.
+         */
+        overrideDomainUnitOwners?: outputs.datazone.PolicyGrantDetailOverrideDomainUnitOwners;
+        /**
+         * Configuration for the `OVERRIDE_PROJECT_OWNERS` policy type. See `overrideProjectOwners` Block below.
+         */
+        overrideProjectOwners?: outputs.datazone.PolicyGrantDetailOverrideProjectOwners;
+        /**
+         * Configuration for the `USE_ASSET_TYPE` policy type. See `useAssetType` Block below.
+         */
+        useAssetType?: outputs.datazone.PolicyGrantDetailUseAssetType;
+    }
+
+    export interface PolicyGrantDetailAddToProjectMemberPool {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateAssetType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateDomainUnit {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateEnvironment {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentFromBlueprint {
+    }
+
+    export interface PolicyGrantDetailCreateEnvironmentProfile {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: string;
+    }
+
+    export interface PolicyGrantDetailCreateFormType {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateGlossary {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateProject {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailCreateProjectFromProjectProfile {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+        /**
+         * List of project profile identifiers.
+         */
+        projectProfiles?: string[];
+    }
+
+    export interface PolicyGrantDetailDelegateCreateEnvironmentProfile {
+    }
+
+    export interface PolicyGrantDetailOverrideDomainUnitOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailOverrideProjectOwners {
+        /**
+         * Whether to include child domain units.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantDetailUseAssetType {
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitId?: string;
+    }
+
+    export interface PolicyGrantPrincipal {
+        /**
+         * Domain unit principal. See `domainUnit` Block below.
+         */
+        domainUnit?: outputs.datazone.PolicyGrantPrincipalDomainUnit;
+        /**
+         * Group principal. See `group` Block below.
+         */
+        group?: outputs.datazone.PolicyGrantPrincipalGroup;
+        /**
+         * Project principal. See `project` Block below.
+         */
+        project?: outputs.datazone.PolicyGrantPrincipalProject;
+        /**
+         * User principal. See `user` Block below.
+         */
+        user?: outputs.datazone.PolicyGrantPrincipalUser;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnit {
+        /**
+         * Filter to grant access to all domain units. Empty block.
+         */
+        allDomainUnitsGrantFilter?: outputs.datazone.PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter;
+        /**
+         * Designation of the domain unit principal. Valid values: `OWNER`.
+         */
+        domainUnitDesignation: string;
+        /**
+         * Identifier of the domain unit.
+         */
+        domainUnitIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalDomainUnitAllDomainUnitsGrantFilter {
+    }
+
+    export interface PolicyGrantPrincipalGroup {
+        /**
+         * Identifier of the group principal.
+         */
+        groupIdentifier: string;
+    }
+
+    export interface PolicyGrantPrincipalProject {
+        /**
+         * Filter for domain unit scoping. See `domainUnitFilter` Block below.
+         */
+        domainUnitFilter?: outputs.datazone.PolicyGrantPrincipalProjectDomainUnitFilter;
+        /**
+         * Designation of the project principal. Valid values: `CONTRIBUTOR`, `OWNER`, `PROJECT_CATALOG_STEWARD`.
+         */
+        projectDesignation: string;
+        /**
+         * Identifier of the project.
+         */
+        projectIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalProjectDomainUnitFilter {
+        /**
+         * Identifier of the domain unit for filtering.
+         */
+        domainUnit: string;
+        /**
+         * Whether to include child domain units in the filter.
+         */
+        includeChildDomainUnits?: boolean;
+    }
+
+    export interface PolicyGrantPrincipalUser {
+        /**
+         * Filter to grant access to all users. Empty block.
+         */
+        allUsersGrantFilter?: outputs.datazone.PolicyGrantPrincipalUserAllUsersGrantFilter;
+        /**
+         * Identifier of the user principal.
+         */
+        userIdentifier?: string;
+    }
+
+    export interface PolicyGrantPrincipalUserAllUsersGrantFilter {
+    }
+
     export interface ProjectFailureReason {
         code: string;
         message: string;
@@ -37341,7 +39706,7 @@ export namespace devopsguru {
 
     export interface GetNotificationChannelSn {
         /**
-         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+         * ARN of an Amazon Simple Notification Service topic.
          */
         topicArn: string;
     }
@@ -37377,7 +39742,7 @@ export namespace devopsguru {
 
     export interface NotificationChannelSns {
         /**
-         * Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+         * ARN of an Amazon Simple Notification Service topic.
          */
         topicArn: string;
     }
@@ -37432,6 +39797,44 @@ export namespace devopsguru {
 }
 
 export namespace directconnect {
+    export interface ConnectionRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the connection.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
+    }
+
+    export interface GetConnectionRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the connection.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
+    }
+
     export interface GetRouterConfigurationRouter {
         /**
          * Router platform
@@ -37471,6 +39874,25 @@ export namespace directconnect {
          */
         xsltTemplateName: string;
         xsltTemplateNameForMacSec: string;
+    }
+
+    export interface LinkAggregationGroupRateLimiterStatus {
+        /**
+         * Number of rate limiters currently in use.
+         */
+        inUse: number;
+        /**
+         * Maximum number of rate limiters allowed on the LAG.
+         */
+        maxAllowed: number;
+        /**
+         * Number of rate limiters remaining (available).
+         */
+        remaining: number;
+        /**
+         * Total bandwidth allocated across all rate limiters.
+         */
+        totalBandwidth: string;
     }
 
 }
@@ -37854,7 +40276,7 @@ export namespace dlm {
         retainRule?: outputs.dlm.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule;
         target?: string;
         /**
-         * Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+         * Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
          */
         targetRegion?: string;
     }
@@ -37909,6 +40331,398 @@ export namespace dlm {
 }
 
 export namespace dms {
+    export interface DataProviderSettings {
+        /**
+         * Settings for the `docdb` engine. See `docDbSettings` Block below.
+         */
+        docDbSettings?: outputs.dms.DataProviderSettingsDocDbSettings;
+        /**
+         * Settings for the `db2` engine. See `ibmDb2LuwSettings` Block below.
+         */
+        ibmDb2LuwSettings?: outputs.dms.DataProviderSettingsIbmDb2LuwSettings;
+        /**
+         * Settings for the `db2-zos` engine. See `ibmDb2ZosSettings` Block below.
+         */
+        ibmDb2ZosSettings?: outputs.dms.DataProviderSettingsIbmDb2ZosSettings;
+        /**
+         * Settings for the `mariadb` engine. See `mariaDbSettings` Block below.
+         */
+        mariaDbSettings?: outputs.dms.DataProviderSettingsMariaDbSettings;
+        /**
+         * Settings for the `sqlserver` engine. See `microsoftSqlServerSettings` Block below.
+         */
+        microsoftSqlServerSettings?: outputs.dms.DataProviderSettingsMicrosoftSqlServerSettings;
+        /**
+         * Settings for the `mongodb` engine. See `mongoDbSettings` Block below.
+         */
+        mongoDbSettings?: outputs.dms.DataProviderSettingsMongoDbSettings;
+        /**
+         * Settings for the `mysql` and `aurora` engines. See `mysqlSettings` Block below.
+         */
+        mysqlSettings?: outputs.dms.DataProviderSettingsMysqlSettings;
+        /**
+         * Settings for the `oracle` engine. See `oracleSettings` Block below.
+         */
+        oracleSettings?: outputs.dms.DataProviderSettingsOracleSettings;
+        /**
+         * Settings for the `postgres` and `aurora-postgresql` engines. See `postgresqlSettings` Block below.
+         */
+        postgresqlSettings?: outputs.dms.DataProviderSettingsPostgresqlSettings;
+        /**
+         * Settings for the `redshift` engine. See `redshiftSettings` Block below.
+         */
+        redshiftSettings?: outputs.dms.DataProviderSettingsRedshiftSettings;
+        /**
+         * Settings for the `sybase` engine. See `sybaseAseSettings` Block below.
+         */
+        sybaseAseSettings?: outputs.dms.DataProviderSettingsSybaseAseSettings;
+    }
+
+    export interface DataProviderSettingsDocDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the DocumentDB data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the DocumentDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the DocumentDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsIbmDb2LuwSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the IBM DB2 LUW data provider.
+         */
+        databaseName?: string;
+        /**
+         * Integer identifying the encryption algorithm for the connection. When omitted, AWS uses its default behavior.
+         */
+        encryptionAlgorithm: number;
+        /**
+         * Port of the IBM DB2 LUW server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Integer identifying the authentication mechanism for the connection. When omitted, AWS uses its default behavior.
+         */
+        securityMechanism: number;
+        /**
+         * Hostname of the IBM DB2 LUW server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsIbmDb2ZosSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the IBM DB2 for z/OS data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the IBM DB2 for z/OS server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the IBM DB2 for z/OS server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none` and `verify-ca`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMariaDbSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Port of the MariaDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the MariaDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMicrosoftSqlServerSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the Microsoft SQL Server data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Microsoft SQL Server instance. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the Microsoft SQL Server instance.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMongoDbSettings {
+        /**
+         * Authentication mechanism for the connection. Valid values: `default`, `mongodbCr`, and `scramSha1`.
+         */
+        authMechanism: string;
+        /**
+         * Database used to verify credentials. Defaults to `admin`. Not used when `authType` is `no`.
+         */
+        authSource: string;
+        /**
+         * Authentication type for the connection. Valid values: `no` and `password`.
+         */
+        authType: string;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the MongoDB data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the MongoDB server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the MongoDB server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsMysqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Port of the MySQL server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the MySQL server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsOracleSettings {
+        /**
+         * Address of the Oracle Automatic Storage Management (ASM) server used with Binary Reader. See [Oracle change data capture configuration](https://docs.aws.amazon.com/dms/latest/userguide/CHAP_Source.Oracle.html#CHAP_Source.Oracle.CDC.Configuration).
+         */
+        asmServer?: string;
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the Oracle data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Oracle server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing Oracle ASM connection details.
+         */
+        secretsManagerOracleAsmAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret containing Oracle ASM connection details. Required when the data provider uses an Oracle ASM server.
+         */
+        secretsManagerOracleAsmSecretId?: string;
+        /**
+         * ARN of the IAM role that grants access to the Secrets Manager secret containing the transparent data encryption (TDE) password.
+         */
+        secretsManagerSecurityDbEncryptionAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret containing the TDE password used by Binary Reader to access encrypted Oracle redo logs.
+         */
+        secretsManagerSecurityDbEncryptionSecretId?: string;
+        /**
+         * Hostname of the Oracle server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsPostgresqlSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the PostgreSQL data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the PostgreSQL server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the PostgreSQL server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
+    export interface DataProviderSettingsRedshiftSettings {
+        /**
+         * Database name on the Amazon Redshift data provider.
+         */
+        databaseName?: string;
+        /**
+         * Port of the Amazon Redshift server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * ARN of the IAM role used to access the S3 bucket containing the user-defined schema.
+         */
+        s3AccessRoleArn?: string;
+        /**
+         * S3 path containing the user-defined schema.
+         */
+        s3Path?: string;
+        /**
+         * Hostname of the Amazon Redshift server.
+         */
+        serverName?: string;
+    }
+
+    export interface DataProviderSettingsSybaseAseSettings {
+        /**
+         * ARN of the DMS certificate used for the SSL connection.
+         */
+        certificateArn?: string;
+        /**
+         * Database name on the SAP ASE data provider.
+         */
+        databaseName?: string;
+        /**
+         * Whether to encrypt the connection password during transmission. Defaults to `true`.
+         */
+        encryptPassword: boolean;
+        /**
+         * Port of the SAP ASE server. Valid values are between `1` and `65535`.
+         */
+        port?: number;
+        /**
+         * Hostname of the SAP ASE server.
+         */
+        serverName?: string;
+        /**
+         * SSL mode for the connection. Valid values: `none`, `require`, `verify-ca`, and `verify-full`. Defaults to `none`.
+         */
+        sslMode: string;
+    }
+
     export interface EndpointElasticsearchSettings {
         /**
          * Endpoint for the OpenSearch cluster.
@@ -37986,7 +40800,7 @@ export namespace dms {
          */
         saslUsername?: string;
         /**
-         * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+         * Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
          */
         securityProtocol?: string;
         /**
@@ -38368,7 +41182,7 @@ export namespace dms {
          */
         authUserName?: string;
         /**
-         * Transmission Control Protocol (TCP) port for the endpoint.
+         * TCP port for the endpoint.
          */
         port: number;
         /**
@@ -38376,11 +41190,11 @@ export namespace dms {
          */
         serverName: string;
         /**
-         * The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+         * ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
          */
         sslCaCertificateArn?: string;
         /**
-         * The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+         * The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
          */
         sslSecurityProtocol?: string;
     }
@@ -38403,7 +41217,7 @@ export namespace dms {
          */
         serverSideEncryptionKmsKeyId?: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
+         * ARN of the IAM Role with permissions to read from or write to the S3 Bucket for intermediate storage.
          */
         serviceAccessRoleArn?: string;
     }
@@ -38554,6 +41368,66 @@ export namespace dms {
         useTaskStartTimeForFullLoadTimestamp: boolean;
     }
 
+    export interface MigrationProjectSchemaConversionApplicationAttributes {
+        /**
+         * S3 bucket path that the application uses for exporting assessment reports.
+         */
+        s3BucketPath?: string;
+        /**
+         * ARN of the IAM role the application uses to access its S3 bucket.
+         */
+        s3BucketRoleArn?: string;
+    }
+
+    export interface MigrationProjectSourceDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: string;
+        /**
+         * Name of the source data provider.
+         */
+        dataProviderName: string;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    export interface MigrationProjectTargetDataProviderDescriptor {
+        /**
+         * ARN of the data provider.
+         *
+         * The following arguments are optional:
+         */
+        dataProviderArn: string;
+        /**
+         * Name of the target data provider.
+         */
+        dataProviderName: string;
+        /**
+         * ARN of the IAM role used to access AWS Secrets Manager.
+         */
+        secretsManagerAccessRoleArn?: string;
+        /**
+         * Identifier of the Secrets Manager secret used to store access credentials for the data provider.
+         */
+        secretsManagerSecretId?: string;
+    }
+
+    export interface MigrationProjectTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface ReplicationConfigComputeConfig {
         /**
          * The Availability Zone where the DMS Serverless replication using this configuration will run. The default value is a random.
@@ -38564,7 +41438,7 @@ export namespace dms {
          */
         dnsNameServers?: string;
         /**
-         * An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+         * KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
          */
         kmsKeyId: string;
         /**
@@ -38593,7 +41467,7 @@ export namespace dms {
          */
         replicationSubnetGroupId: string;
         /**
-         * Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+         * VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
          */
         vpcSecurityGroupIds: string[];
     }
@@ -38687,7 +41561,7 @@ export namespace docdb {
 
     export interface GlobalClusterGlobalClusterMember {
         /**
-         * Amazon Resource Name (ARN) of member DB Cluster.
+         * ARN of member DB Cluster.
          */
         dbClusterArn: string;
         /**
@@ -39745,7 +42619,7 @@ export namespace ec2 {
          */
         cidrBlock?: string;
         /**
-         * The Amazon Resource Name (ARN) of a core network.
+         * ARN of a core network.
          */
         coreNetworkArn?: string;
         /**
@@ -40142,7 +43016,7 @@ export namespace ec2 {
         burstablePerformance?: string;
         /**
          * The CPU manufacturers to include. Default is any manufacturer.
-         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          */
         cpuManufacturers?: string[];
         /**
@@ -42734,12 +45608,11 @@ export namespace ec2 {
          */
         associationId: string;
         /**
-         * Cidr block of the desired VPC.
+         * CIDR block of the desired VPC.
          */
         cidrBlock: string;
         /**
-         * Current state of the desired VPC.
-         * Can be either `"pending"` or `"available"`.
+         * Current state of the desired VPC. Can be either `"pending"` or `"available"`.
          */
         state: string;
     }
@@ -42813,13 +45686,11 @@ export namespace ec2 {
 
     export interface GetVpcFilter {
         /**
-         * Name of the field to filter by, as defined by
-         * [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
+         * Name of the field to filter by, as defined by [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVpcs.html).
          */
         name: string;
         /**
-         * Set of values that are accepted for the given field.
-         * A VPC will be selected if any one of the given values matches.
+         * Set of values that are accepted for the given field. A VPC will be selected if any one of the given values matches.
          */
         values: string[];
     }
@@ -43049,11 +45920,11 @@ export namespace ec2 {
          */
         associationId: string;
         /**
-         * The source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
+         * Source that allocated the IP address space. Values: `amazon`, `byoip`, `none`.
          */
         ipSource: string;
         /**
-         * Indicates whether the address is `public` or `private`.
+         * Whether the address is `public` or `private`.
          */
         ipv6AddressAttribute: string;
         /**
@@ -43069,8 +45940,7 @@ export namespace ec2 {
          */
         networkBorderGroup: string;
         /**
-         * Current state of the desired VPC.
-         * Can be either `"pending"` or `"available"`.
+         * Current state of the desired VPC. Can be either `"pending"` or `"available"`.
          */
         state: string;
     }
@@ -43247,7 +46117,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
         kmsKeyId: string;
         /**
@@ -43448,7 +46318,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
         kmsKeyId: string;
         /**
@@ -43755,7 +46625,7 @@ export namespace ec2 {
 
     export interface LaunchTemplateIamInstanceProfile {
         /**
-         * The Amazon Resource Name (ARN) of the instance profile. Conflicts with `name`.
+         * ARN of the instance profile. Conflicts with `name`.
          */
         arn?: string;
         /**
@@ -43867,7 +46737,7 @@ export namespace ec2 {
         /**
          * List of CPU manufacturer names. Default is any manufacturer.
          *
-         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          *
          * ```
          * Valid names:
@@ -44777,7 +47647,7 @@ export namespace ec2 {
 
     export interface NetworkInsightsAnalysisAlternatePathHint {
         /**
-         * The Amazon Resource Name (ARN) of the component.
+         * ARN of the component.
          */
         componentArn: string;
         /**
@@ -45773,7 +48643,7 @@ export namespace ec2 {
          */
         cidrBlock?: string;
         /**
-         * The Amazon Resource Name (ARN) of a core network.
+         * ARN of a core network.
          */
         coreNetworkArn?: string;
         /**
@@ -45807,7 +48677,7 @@ export namespace ec2 {
          */
         networkInterfaceId?: string;
         /**
-         * The Amazon Resource Name (ARN) of an ODB network.
+         * ARN of an ODB network.
          */
         odbNetworkArn?: string;
         /**
@@ -46169,7 +49039,7 @@ export namespace ec2 {
         /**
          * List of CPU manufacturer names. Default is any manufacturer.
          *
-         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the Amazon Machine Image (AMI) that you specify in your launch template.
+         * > **NOTE:** Don't confuse the CPU hardware manufacturer with the CPU hardware architecture. Instances will be launched with a compatible CPU architecture based on the AMI that you specify in your launch template.
          *
          * ```
          * Valid names:
@@ -46434,7 +49304,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
         kmsKeyId: string;
         /**
@@ -46599,7 +49469,7 @@ export namespace ec2 {
          */
         iops: number;
         /**
-         * Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+         * ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
          */
         kmsKeyId: string;
         /**
@@ -47031,7 +49901,7 @@ export namespace ec2 {
          */
         bgpLogEnabled?: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * ARN of the CloudWatch log group to send BGP logs to.
          */
         bgpLogGroupArn?: string;
         /**
@@ -47043,7 +49913,7 @@ export namespace ec2 {
          */
         logEnabled?: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * ARN of the CloudWatch log group to send logs to.
          */
         logGroupArn?: string;
         /**
@@ -47065,7 +49935,7 @@ export namespace ec2 {
          */
         bgpLogEnabled?: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+         * ARN of the CloudWatch log group to send BGP logs to.
          */
         bgpLogGroupArn?: string;
         /**
@@ -47077,7 +49947,7 @@ export namespace ec2 {
          */
         logEnabled?: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+         * ARN of the CloudWatch log group to send logs to.
          */
         logGroupArn?: string;
         /**
@@ -47092,7 +49962,7 @@ export namespace ec2 {
          */
         acceptedRouteCount: number;
         /**
-         * The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+         * ARN of the VPN tunnel endpoint certificate.
          */
         certificateArn: string;
         /**
@@ -47145,7 +50015,7 @@ export namespace ec2clientvpn {
          */
         enabled: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the Lambda function used for connection authorization.
+         * ARN of the Lambda function used for connection authorization.
          */
         lambdaFunctionArn: string;
     }
@@ -47564,6 +50434,46 @@ export namespace ec2transitgateway {
         dynamicRouting?: string;
     }
 
+    export interface PolicyTableEntryPolicyRule {
+        /**
+         * Destination CIDR block to match. If not specified, all destination CIDR blocks are matched.
+         */
+        destinationCidrBlock?: string;
+        /**
+         * Destination port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        destinationPortRange: string;
+        /**
+         * Metadata key/value tag associated with the policy rule. See below.
+         */
+        metadata?: outputs.ec2transitgateway.PolicyTableEntryPolicyRuleMetadata;
+        /**
+         * Protocol number to match (e.g., `6` for TCP, `17` for UDP). If not specified, all protocols are matched.
+         */
+        protocol?: string;
+        /**
+         * Source CIDR block to match. If not specified, all source CIDR blocks are matched.
+         */
+        sourceCidrBlock?: string;
+        /**
+         * Source port or port range to match (e.g., `443` or `1024-65535`). Only valid when `protocol` is `6` (TCP) or `17` (UDP).
+         */
+        sourcePortRange: string;
+    }
+
+    export interface PolicyTableEntryPolicyRuleMetadata {
+        /**
+         * Metadata key name for the policy rule.
+         */
+        key?: string;
+        /**
+         * Metadata key value for the policy rule.
+         *
+         * > **Note:** The EC2 API does not return policy rule metadata when describing transit gateway policy table entries, so Terraform cannot detect drift in `metadata` or recover its value when importing this resource. Configure `metadata` explicitly if you need it managed.
+         */
+        value?: string;
+    }
+
 }
 
 export namespace ecr {
@@ -47913,6 +50823,10 @@ export namespace ecs {
 
     export interface CapacityProviderManagedInstancesProvider {
         /**
+         * Configuration block for the auto repair configuration. Detailed below.
+         */
+        autoRepairConfiguration: outputs.ecs.CapacityProviderManagedInstancesProviderAutoRepairConfiguration;
+        /**
          * Configuration block for how Amazon ECS Managed Instances optimizes the infrastructure in your capacity provider, including whether to turn optimization on or off and how long to delay optimizing idle EC2 instances. Detailed below.
          */
         infrastructureOptimization?: outputs.ecs.CapacityProviderManagedInstancesProviderInfrastructureOptimization;
@@ -47928,6 +50842,13 @@ export namespace ecs {
          * Whether to propagate tags from the capacity provider to the Amazon ECS Managed Instances. When enabled, tags applied to the capacity provider are automatically applied to all instances launched by this provider. Valid values are `CAPACITY_PROVIDER` and `NONE`.
          */
         propagateTags?: string;
+    }
+
+    export interface CapacityProviderManagedInstancesProviderAutoRepairConfiguration {
+        /**
+         * Whether to use Amazon ECS managed auto repair. Valid values are `ENABLED` and `DISABLED`.
+         */
+        actionsStatus: string;
     }
 
     export interface CapacityProviderManagedInstancesProviderInfrastructureOptimization {
@@ -48001,7 +50922,7 @@ export namespace ecs {
          */
         acceleratorTotalMemoryMib?: outputs.ecs.CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib;
         /**
-         * Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+         * Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
          */
         acceleratorTypes?: string[];
         /**
@@ -48234,7 +51155,7 @@ export namespace ecs {
 
     export interface ClusterConfigurationExecuteCommandConfiguration {
         /**
-         * AWS Key Management Service key ID to encrypt the data between the local client and the container.
+         * KMS key ID to encrypt the data between the local client and the container.
          */
         kmsKeyId?: string;
         /**
@@ -48272,11 +51193,11 @@ export namespace ecs {
 
     export interface ClusterConfigurationManagedStorageConfiguration {
         /**
-         * AWS Key Management Service key ARN for the Fargate ephemeral storage.
+         * KMS key ARN for the Fargate ephemeral storage.
          */
         fargateEphemeralStorageKmsKeyId?: string;
         /**
-         * AWS Key Management Service key ARN to encrypt the managed storage.
+         * KMS key ARN to encrypt the managed storage.
          */
         kmsKeyId?: string;
     }
@@ -49363,7 +52284,7 @@ export namespace ecs {
          */
         cpu?: string;
         /**
-         * Amazon Resource Name (ARN) of the task execution role override for the task.
+         * ARN of the task execution role override for the task.
          */
         executionRoleArn?: string;
         /**
@@ -49371,7 +52292,7 @@ export namespace ecs {
          */
         memory?: string;
         /**
-         * Amazon Resource Name (ARN) of the role that containers in this task can assume.
+         * ARN of the role that containers in this task can assume.
          */
         taskRoleArn?: string;
     }
@@ -49732,7 +52653,7 @@ export namespace ecs {
          */
         timeout?: outputs.ecs.ServiceServiceConnectConfigurationServiceTimeout;
         /**
-         * Configuration for enabling Transport Layer Security (TLS)
+         * Configuration for enabling TLS
          */
         tls?: outputs.ecs.ServiceServiceConnectConfigurationServiceTls;
     }
@@ -49854,7 +52775,7 @@ export namespace ecs {
          */
         iops?: number;
         /**
-         * Amazon Resource Name (ARN) identifier of the Amazon Web Services Key Management Service key to use for Amazon EBS encryption.
+         * ARN identifier of the Amazon Web Services KMS key to use for Amazon EBS encryption.
          */
         kmsKeyId?: string;
         /**
@@ -50066,7 +52987,7 @@ export namespace ecs {
 
     export interface TaskDefinitionVolumeFsxWindowsFileServerVolumeConfigurationAuthorizationConfig {
         /**
-         * Authorization credential option to use. The authorization credential options can be provided using either the Amazon Resource Name (ARN) of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
+         * Authorization credential option to use. The authorization credential options can be provided using either the ARN of an AWS Secrets Manager secret or AWS Systems Manager Parameter Store parameter. The ARNs refer to the stored credentials.
          */
         credentialsParameter: string;
         /**
@@ -50100,7 +53021,7 @@ export namespace ecs {
          */
         base?: number;
         /**
-         * Short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * Short name or full ARN of the capacity provider.
          */
         capacityProvider: string;
         /**
@@ -50357,7 +53278,7 @@ export namespace eks {
 
     export interface AddonPodIdentityAssociation {
         /**
-         * The Amazon Resource Name (ARN) of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
+         * ARN of the IAM role to associate with the service account. The EKS Pod Identity agent manages credentials to assume this role for applications in the containers in the pods that use this service account.
          */
         roleArn: string;
         /**
@@ -50505,7 +53426,7 @@ export namespace eks {
 
     export interface ClusterEncryptionConfigProvider {
         /**
-         * ARN of the Key Management Service (KMS) customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the AWS Key Management Service Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
+         * ARN of the KMS customer master key (CMK). The CMK must be symmetric, created in the same region as the cluster, and if the CMK was created in a different account, the user must have access to the CMK. For more information, see [Allowing Users in Other Accounts to Use a CMK in the KMS Developer Guide](https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html).
          */
         keyArn: string;
     }
@@ -50549,10 +53470,14 @@ export namespace eks {
     export interface ClusterKubeControllerManagerConfig {
         /**
          * Configuration block for the horizontal pod autoscaler controller. Detailed below.
+         */
+        horizontalPodAutoscalerControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+        /**
+         * Configuration block for the pod garbage collection controller. Detailed below.
          *
          * > **NOTE:** The `horizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `standard` tier.
          */
-        horizontalPodAutoscalerControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig;
+        podGcControllerConfig: outputs.eks.ClusterKubeControllerManagerConfigPodGcControllerConfig;
     }
 
     export interface ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -50560,6 +53485,13 @@ export namespace eks {
          * The interval between each sync of the horizontal pod autoscaler. Must be a single-unit duration (e.g., `10s`, `15s`). Valid range: `10s` to `15s`. Default is `15s`.
          */
         horizontalPodAutoscalerSyncPeriod: string;
+    }
+
+    export interface ClusterKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the pod garbage collector starts deleting them. Valid range: `0` to `12500`. Refer to the `aws.eks.getClusterVersions` data source for any version-specific constraints.
+         */
+        terminatedPodGcThreshold: number;
     }
 
     export interface ClusterKubeSchedulerConfig {
@@ -50885,6 +53817,10 @@ export namespace eks {
          * Configuration for the horizontal pod autoscaler controller.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Configuration for the pod garbage collection controller.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -50892,6 +53828,13 @@ export namespace eks {
          * The interval between each sync of the horizontal pod autoscaler.
          */
         horizontalPodAutoscalerSyncPeriod: string;
+    }
+
+    export interface GetClusterKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * The number of terminated pods that can exist before the pod garbage collector starts deleting them.
+         */
+        terminatedPodGcThreshold: number;
     }
 
     export interface GetClusterKubeSchedulerConfig {
@@ -51200,6 +54143,10 @@ export namespace eks {
          * HPA controller configuration defaults and constraints.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Pod garbage collection controller configuration defaults and constraints.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -51229,6 +54176,35 @@ export namespace eks {
          * The minimum allowed duration.
          */
         min: string;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * Terminated pod GC threshold configuration with default value and constraints.
+         */
+        terminatedPodGcThresholds: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold[];
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+        /**
+         * Scoring strategy constraints.
+         */
+        constraints: outputs.eks.GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint[];
+        /**
+         * Default scoring strategy (`type`, `resources`).
+         */
+        defaultValue: number;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+        /**
+         * The maximum allowed duration.
+         */
+        max: number;
+        /**
+         * The minimum allowed duration.
+         */
+        min: number;
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneComponentConfigKubeSchedulerConfig {
@@ -51435,6 +54411,10 @@ export namespace eks {
          * HPA controller configuration defaults and constraints.
          */
         horizontalPodAutoscalerControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig[];
+        /**
+         * Pod garbage collection controller configuration defaults and constraints.
+         */
+        podGcControllerConfigs: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig[];
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig {
@@ -51464,6 +54444,35 @@ export namespace eks {
          * The minimum allowed duration.
          */
         min: string;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfig {
+        /**
+         * Terminated pod GC threshold configuration with default value and constraints.
+         */
+        terminatedPodGcThresholds: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold[];
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThreshold {
+        /**
+         * Scoring strategy constraints.
+         */
+        constraints: outputs.eks.GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint[];
+        /**
+         * Default scoring strategy (`type`, `resources`).
+         */
+        defaultValue: number;
+    }
+
+    export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeControllerManagerConfigPodGcControllerConfigTerminatedPodGcThresholdConstraint {
+        /**
+         * The maximum allowed duration.
+         */
+        max: number;
+        /**
+         * The minimum allowed duration.
+         */
+        min: number;
     }
 
     export interface GetClusterVersionsClusterVersionControlPlaneScalingTierControlPlaneComponentConfigOverrideKubeSchedulerConfig {
@@ -54305,7 +57314,7 @@ export namespace emrserverless {
          */
         enabled: boolean;
         /**
-         * The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+         * KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
          */
         encryptionKeyArn?: string;
         /**
@@ -54961,7 +57970,7 @@ export namespace fis {
 
     export interface ExperimentTemplateLogConfigurationCloudwatchLogsConfiguration {
         /**
-         * Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+         * ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
          */
         logGroupArn: string;
     }
@@ -55037,6 +58046,28 @@ export namespace fis {
          * Tag value.
          */
         value: string;
+    }
+
+    export interface SafetyLeverStateState {
+        /**
+         * Reason for the current status of the safety lever.
+         */
+        reason: string;
+        /**
+         * Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+         */
+        status: string;
+    }
+
+    export interface SafetyLeverStateTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
     }
 
 }
@@ -55354,7 +58385,7 @@ export namespace fsx {
          */
         nfs?: outputs.fsx.FileCacheDataRepositoryAssociationNf[];
         /**
-         * Amazon Resource Name (ARN) of the data repository association.
+         * ARN of the data repository association.
          */
         resourceArn: string;
         /**
@@ -55403,7 +58434,7 @@ export namespace fsx {
 
     export interface FileCacheLustreConfigurationLogConfiguration {
         /**
-         * Amazon Resource Name (ARN) of the destination that receives the logs.
+         * ARN of the destination that receives the logs.
          */
         destination: string;
         /**
@@ -55588,7 +58619,7 @@ export namespace fsx {
 
     export interface LustreFileSystemLogConfiguration {
         /**
-         * Amazon Resource Name (ARN) that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
+         * ARN that specifies the destination of the logs. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. If you do not provide a destination, Amazon FSx will create and use a log stream in the CloudWatch Logs `/aws/fsx/lustre` log group.
          */
         destination: string;
         /**
@@ -55984,7 +59015,7 @@ export namespace fsx {
          */
         copyStrategy: string;
         /**
-         * The Amazon Resource Name (ARN) of the origin snapshot.
+         * The ARN of the origin snapshot.
          */
         snapshotArn: string;
     }
@@ -56072,7 +59103,7 @@ export namespace fsx {
 
     export interface WindowsFileSystemAuditLogConfiguration {
         /**
-         * Amazon Resource Name (ARN) for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
+         * ARN for the destination of the audit logs. The destination can be any Amazon CloudWatch Logs log group ARN or Amazon Kinesis Data Firehose delivery stream ARN. Can be specified when `fileAccessAuditLogLevel` and `fileShareAccessAuditLogLevel` are not set to `DISABLED`. The name of the Amazon CloudWatch Logs log group must begin with the `/aws/fsx` prefix. The name of the Amazon Kinesis Data Firehouse delivery stream must begin with the `aws-fsx` prefix. If you do not provide a destination in `auditLogDestionation`, Amazon FSx will create and use a log stream in the CloudWatch Logs /aws/fsx/windows log group.
          */
         auditLogDestination: string;
         /**
@@ -56102,7 +59133,7 @@ export namespace fsx {
          */
         dnsIps: string[];
         /**
-         * Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
+         * ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `username` and `password`.
          */
         domainJoinServiceAccountSecret?: string;
         /**
@@ -56123,11 +59154,11 @@ export namespace fsx {
         password?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. Required with `passwordWoVersion`.
+         * Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `domainJoinServiceAccountSecret` and `password`. If set, requires `passwordWoVersion` to be set.
          */
         passwordWo?: string;
         /**
-         * Version of the password. Required with `passwordWo`. Update this argument when the value of `passwordWo` has changed to trigger an update to the remote password.
+         * Required when `passwordWo` is set. Changing this value triggers an update to `passwordWo`.
          */
         passwordWoVersion?: number;
         /**
@@ -56418,7 +59449,7 @@ export namespace globalaccelerator {
 
     export interface CustomRoutingEndpointGroupEndpointConfiguration {
         /**
-         * An ID for the endpoint. For custom routing accelerators, this is the virtual private cloud (VPC) subnet ID.
+         * ID for the endpoint. For custom routing accelerators, this is the VPC subnet ID.
          */
         endpointId?: string;
     }
@@ -56445,7 +59476,7 @@ export namespace globalaccelerator {
          */
         clientIpPreservationEnabled: boolean;
         /**
-         * An ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the Amazon Resource Name (ARN) of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
+         * ID for the endpoint. If the endpoint is a Network Load Balancer or Application Load Balancer, this is the ARN of the resource. If the endpoint is an Elastic IP address, this is the Elastic IP address allocation ID.
          */
         endpointId?: string;
         /**
@@ -56938,11 +59969,11 @@ export namespace glue {
         /**
          * List of locations that point to the path where a Delta table is located.
          */
-        additionalLocations?: string[];
+        additionalLocations: string[];
         /**
          * List of reducer grouping columns, clustering columns, and bucketing columns in the table.
          */
-        bucketColumns?: string[];
+        bucketColumns: string[];
         /**
          * Configuration block for columns in the table. See `columns` below.
          */
@@ -56970,7 +60001,7 @@ export namespace glue {
         /**
          * User-supplied properties in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Object that references a schema stored in the AWS Glue Schema Registry. When creating a table, you can pass an empty list of columns for the schema, and instead use a schema reference. See Schema Reference below.
          */
@@ -56978,7 +60009,7 @@ export namespace glue {
         /**
          * Configuration block for serialization and deserialization ("SerDe") information. See `serDeInfo` below.
          */
-        serDeInfo?: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
+        serDeInfo: outputs.glue.CatalogTableStorageDescriptorSerDeInfo;
         /**
          * Configuration block with information about values that appear very frequently in a column (skewed values). See `skewedInfo` below.
          */
@@ -57005,7 +60036,7 @@ export namespace glue {
         /**
          * Key-value pairs defining properties associated with the column.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Datatype of data in the Column.
          */
@@ -57050,7 +60081,7 @@ export namespace glue {
         /**
          * Map of initialization parameters for the SerDe, in key-value form.
          */
-        parameters?: {[key: string]: string};
+        parameters: {[key: string]: string};
         /**
          * Usually the class that implements the SerDe. An example is `org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe`.
          */
@@ -57126,11 +60157,11 @@ export namespace glue {
         /**
          * List of the Apache Iceberg table versions referenced by the materialized view.
          */
-        subObjectVersionIds?: number[];
+        subObjectVersionIds: number[];
         /**
          * List of base table ARNs that make up the view.
          */
-        subObjects?: string[];
+        subObjects: string[];
         /**
          * ID value that identifies this view's version. For materialized views, the version ID is the Apache Iceberg table's snapshot ID.
          */
@@ -58411,7 +61442,7 @@ export namespace glue {
          */
         cloudwatchEncryptionMode?: string;
         /**
-         * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * ARN of the KMS key to be used to encrypt the data.
          */
         kmsKeyArn?: string;
     }
@@ -58422,14 +61453,14 @@ export namespace glue {
          */
         jobBookmarksEncryptionMode?: string;
         /**
-         * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * ARN of the KMS key to be used to encrypt the data.
          */
         kmsKeyArn?: string;
     }
 
     export interface SecurityConfigurationEncryptionConfigurationS3Encryption {
         /**
-         * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * ARN of the KMS key to be used to encrypt the data.
          */
         kmsKeyArn?: string;
         /**
@@ -59564,7 +62595,7 @@ export namespace identitystore {
 export namespace imagebuilder {
     export interface ContainerRecipeComponent {
         /**
-         * Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         * ARN of the Image Builder Component to associate.
          */
         componentArn: string;
         /**
@@ -59628,7 +62659,7 @@ export namespace imagebuilder {
          */
         iops?: number;
         /**
-         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * ARN of the KMS Key for encryption.
          */
         kmsKeyId?: string;
         /**
@@ -59662,7 +62693,7 @@ export namespace imagebuilder {
 
     export interface DistributionConfigurationDistribution {
         /**
-         * Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+         * Configuration block with AMI distribution settings. Detailed below.
          */
         amiDistributionConfiguration?: outputs.imagebuilder.DistributionConfigurationDistributionAmiDistributionConfiguration;
         /**
@@ -59678,7 +62709,7 @@ export namespace imagebuilder {
          */
         launchTemplateConfigurations?: outputs.imagebuilder.DistributionConfigurationDistributionLaunchTemplateConfiguration[];
         /**
-         * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         * Set of ARNs of License Manager License Configurations.
          */
         licenseConfigurationArns?: string[];
         /**
@@ -59705,7 +62736,7 @@ export namespace imagebuilder {
          */
         description?: string;
         /**
-         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+         * ARN of the KMS Key to encrypt the distributed AMI.
          */
         kmsKeyId?: string;
         /**
@@ -59999,7 +63030,7 @@ export namespace imagebuilder {
          */
         launchTemplateConfigurations: outputs.imagebuilder.GetDistributionConfigurationDistributionLaunchTemplateConfiguration[];
         /**
-         * Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+         * Set of ARNs of License Manager License Configurations.
          */
         licenseConfigurationArns: string[];
         /**
@@ -60026,7 +63057,7 @@ export namespace imagebuilder {
          */
         description: string;
         /**
-         * ARN of Key Management Service (KMS) Key to encrypt AMI.
+         * ARN of KMS Key to encrypt AMI.
          */
         kmsKeyId: string;
         /**
@@ -60228,7 +63259,7 @@ export namespace imagebuilder {
 
     export interface GetImageOutputResource {
         /**
-         * Set of objects with each Amazon Machine Image (AMI) created.
+         * Set of objects with each AMI created.
          */
         amis: outputs.imagebuilder.GetImageOutputResourceAmi[];
         /**
@@ -60359,7 +63390,7 @@ export namespace imagebuilder {
          */
         iops: number;
         /**
-         * ARN of the Key Management Service (KMS) Key for encryption.
+         * ARN of the KMS Key for encryption.
          */
         kmsKeyId: string;
         /**
@@ -60514,7 +63545,7 @@ export namespace imagebuilder {
 
     export interface ImageOutputResource {
         /**
-         * Set of objects with each Amazon Machine Image (AMI) created.
+         * Set of objects with each AMI created.
          */
         amis: outputs.imagebuilder.ImageOutputResourceAmi[];
         /**
@@ -60629,7 +63660,7 @@ export namespace imagebuilder {
          */
         parameters?: outputs.imagebuilder.ImagePipelineWorkflowParameter[];
         /**
-         * Amazon Resource Name (ARN) of the Image Builder Workflow.
+         * ARN of the Image Builder Workflow.
          *
          * The following arguments are optional:
          */
@@ -60680,7 +63711,7 @@ export namespace imagebuilder {
          */
         iops?: number;
         /**
-         * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+         * ARN of the KMS Key for encryption.
          */
         kmsKeyId?: string;
         /**
@@ -60703,7 +63734,7 @@ export namespace imagebuilder {
 
     export interface ImageRecipeComponent {
         /**
-         * Amazon Resource Name (ARN) of the Image Builder Component to associate.
+         * ARN of the Image Builder Component to associate.
          */
         componentArn: string;
         /**
@@ -60744,7 +63775,7 @@ export namespace imagebuilder {
          */
         parameters?: outputs.imagebuilder.ImageWorkflowParameter[];
         /**
-         * Amazon Resource Name (ARN) of the Image Builder Workflow.
+         * ARN of the Image Builder Workflow.
          *
          * The following arguments are optional:
          */
@@ -60996,7 +64027,7 @@ export namespace inspector2 {
          */
         componentTypes?: outputs.inspector2.FilterFilterCriteriaComponentType[];
         /**
-         * (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+         * (Optional) ID of the AMI. Documented below.
          */
         ec2InstanceImageIds?: outputs.inspector2.FilterFilterCriteriaEc2InstanceImageId[];
         /**
@@ -63073,7 +66104,7 @@ export namespace kendra {
          */
         urlInclusionPatterns?: string[];
         /**
-         * A block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, Hypertext Transfer Protocol Secure (HTTPS). If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
+         * Block that specifies the seed or starting point URLs of the websites or the sitemap URLs of the websites you want to crawl. You can include website subdomains. You can list up to `100` seed URLs and up to `3` sitemap URLs. You can only crawl websites that use the secure communication protocol, HTTPS. If you receive an error when crawling a website, it could be that the website is blocked from crawling. When selecting websites to index, you must adhere to the [Amazon Acceptable Use Policy](https://aws.amazon.com/aup/) and all other Amazon terms. Remember that you must only use Amazon Kendra Web Crawler to index your own webpages, or webpages that you have authorization to index. Detailed below.
          */
         urls: outputs.kendra.DataSourceConfigurationWebCrawlerConfigurationUrls;
     }
@@ -63161,7 +66192,7 @@ export namespace kendra {
          */
         preExtractionHookConfiguration?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfiguration;
         /**
-         * The Amazon Resource Name (ARN) of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+         * ARN of a role with permission to run `preExtractionHookConfiguration` and `postExtractionHookConfiguration` for altering document metadata and content during the document ingestion process. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
          */
         roleArn?: string;
     }
@@ -63249,7 +66280,7 @@ export namespace kendra {
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPostExtractionHookConfigurationInvocationCondition;
         /**
-         * The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+         * ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
          */
         lambdaArn: string;
         /**
@@ -63295,7 +66326,7 @@ export namespace kendra {
          */
         invocationCondition?: outputs.kendra.DataSourceCustomDocumentEnrichmentConfigurationPreExtractionHookConfigurationInvocationCondition;
         /**
-         * The Amazon Resource Name (ARN) of a Lambda Function that can manipulate your document metadata fields or attributes and content.
+         * ARN of a Lambda Function that can manipulate your document metadata fields or attributes and content.
          */
         lambdaArn: string;
         /**
@@ -63792,7 +66823,7 @@ export namespace kendra {
          */
         keyLocation: string;
         /**
-         * The Amazon Resource Name (ARN) of the secret.
+         * ARN of the secret.
          */
         secretsManagerArn?: string;
         /**
@@ -63876,7 +66907,7 @@ export namespace keyspaces {
 
     export interface TableEncryptionSpecification {
         /**
-         * The Amazon Resource Name (ARN) of the customer managed KMS key.
+         * ARN of the customer managed KMS key.
          */
         kmsKeyIdentifier?: string;
         /**
@@ -65475,7 +68506,7 @@ export namespace kinesis {
          */
         retryDuration?: number;
         /**
-         * The Amazon Resource Name (ARN) of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
+         * ARN of the IAM role to be assumed by Kinesis Data Firehose for calling the Serverless offering for Amazon OpenSearch Service Configuration API and for indexing documents.  The pattern needs to be `arn:.*`.
          */
         roleArn: string;
         /**
@@ -65841,7 +68872,7 @@ export namespace kinesis {
          */
         enabled?: boolean;
         /**
-         * Amazon Resource Name (ARN) of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
+         * ARN of the encryption key. Required when `keyType` is `CUSTOMER_MANAGED_CMK`.
          */
         keyArn?: string;
         /**
@@ -66522,7 +69553,7 @@ export namespace kinesisanalyticsv2 {
          */
         kinesisFirehoseInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisFirehoseInput;
         /**
-         * If the streaming source is a Kinesis data stream, identifies the stream's Amazon Resource Name (ARN).
+         * If the streaming source is a Kinesis data stream, identifies the stream's ARN.
          */
         kinesisStreamsInput?: outputs.kinesisanalyticsv2.ApplicationApplicationConfigurationSqlApplicationConfigurationInputKinesisStreamsInput;
         /**
@@ -67396,7 +70427,7 @@ export namespace lakeformation {
 
     export interface PermissionsDataLocation {
         /**
-         * Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+         * ARN that uniquely identifies the data location resource.
          *
          * The following argument is optional:
          */
@@ -67701,11 +70732,11 @@ export namespace lambda {
 
     export interface CapacityProviderCapacityProviderScalingConfig {
         /**
-         * The maximum number of VCPUs for the Capacity Provider.
+         * Maximum number of VCPUs for the Capacity Provider.
          */
         maxVcpuCount: number;
         /**
-         * The scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
+         * Scaling mode for the Capacity Provider. Valid values are `"Auto"` and `"Manual"`. Defaults to `"Auto"`.
          */
         scalingMode: string;
         /**
@@ -67716,11 +70747,11 @@ export namespace lambda {
 
     export interface CapacityProviderCapacityProviderScalingConfigScalingPolicy {
         /**
-         * The predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
+         * Predefined metric type for the scaling policy. Valid values are `"LambdaCapacityProviderAverageCPUUtilization"`.
          */
         predefinedMetricType: string;
         /**
-         * The target value for the scaling policy.
+         * Target value for the scaling policy.
          */
         targetValue: number;
     }
@@ -67742,7 +70773,7 @@ export namespace lambda {
 
     export interface CapacityProviderPermissionsConfig {
         /**
-         * The ARN of the IAM role that allows Lambda to manage the Capacity Provider.
+         * ARN of the IAM role that allows Lambda to manage the Capacity Provider.
          */
         capacityProviderOperatorRoleArn: string;
     }
@@ -67841,7 +70872,7 @@ export namespace lambda {
 
     export interface EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfig {
         /**
-         * Configuration block for authentication Lambda uses to access the schema registry.
+         * Configuration block for authentication Lambda uses to access the schema registry. See below.
          */
         accessConfigs?: outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig[];
         /**
@@ -67853,19 +70884,13 @@ export namespace lambda {
          */
         schemaRegistryUri?: string;
         /**
-         * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+         * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
          */
         schemaValidationConfigs?: outputs.lambda.EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig[];
     }
 
     export interface EventSourceMappingAmazonManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
-        /**
-         * Authentication type Lambda uses to access the schema registry.
-         */
         type?: string;
-        /**
-         * URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-         */
         uri?: string;
     }
 
@@ -67900,7 +70925,7 @@ export namespace lambda {
          */
         databaseName: string;
         /**
-         * Determines what DocumentDB sends to your event stream during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
+         * DocumentDB behavior during document update operations. If set to `UpdateLookup`, DocumentDB sends a delta describing the changes, along with a copy of the entire document. Otherwise, DocumentDB sends only a partial document that contains the changes. Valid values: `UpdateLookup`, `Default`.
          */
         fullDocument?: string;
     }
@@ -67936,7 +70961,7 @@ export namespace lambda {
          */
         minimumPollers: number;
         /**
-         * The name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
+         * Name of the provisioned poller group used to group multiple ESMs within the event source's VPC to share Event Poller Unit (EPU) capacity. You can use this option to optimize Provisioned mode costs for your ESMs. You can group up to 100 ESMs per poller group and aggregate maximum pollers across all ESMs in a group cannot exceed 2000.
          */
         pollerGroupName: string;
     }
@@ -67968,7 +70993,7 @@ export namespace lambda {
 
     export interface EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfig {
         /**
-         * Configuration block for authentication Lambda uses to access the schema registry.
+         * Configuration block for authentication Lambda uses to access the schema registry. See below.
          */
         accessConfigs?: outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig[];
         /**
@@ -67980,19 +71005,13 @@ export namespace lambda {
          */
         schemaRegistryUri?: string;
         /**
-         * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry.
+         * Repeatable block that defines schema validation settings. These specify the message attributes that Lambda should validate and filter using the schema registry. See below.
          */
         schemaValidationConfigs?: outputs.lambda.EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigSchemaValidationConfig[];
     }
 
     export interface EventSourceMappingSelfManagedKafkaEventSourceConfigSchemaRegistryConfigAccessConfig {
-        /**
-         * Authentication type Lambda uses to access the schema registry.
-         */
         type?: string;
-        /**
-         * URI of the secret (Secrets Manager secret ARN) used to authenticate with the schema registry.
-         */
         uri?: string;
     }
 
@@ -68251,7 +71270,7 @@ export namespace lambda {
 
     export interface GetFunctionCapacityProviderConfig {
         /**
-         * Configuration block for Lambda Managed Instances Capacity Provider.
+         * Configuration block for Lambda Managed Instances Capacity Provider. See `lambdaManagedInstancesCapacityProviderConfig` below.
          */
         lambdaManagedInstancesCapacityProviderConfigs: outputs.lambda.GetFunctionCapacityProviderConfigLambdaManagedInstancesCapacityProviderConfig[];
     }
@@ -68335,7 +71354,7 @@ export namespace lambda {
 
     export interface GetFunctionTenancyConfig {
         /**
-         * (Required) Tenant Isolation Mode. Valid values: `PER_TENANT`.
+         * Tenant Isolation Mode. Valid values: `PER_TENANT`.
          */
         tenantIsolationMode: string;
     }
@@ -68375,6 +71394,9 @@ export namespace lambda {
     }
 
     export interface GetFunctionVpcConfig {
+        /**
+         * Whether IPv6 is allowed for dual-stack VPC.
+         */
         ipv6AllowedForDualStack: boolean;
         /**
          * List of security group IDs associated with the Lambda function.
@@ -68417,6 +71439,89 @@ export namespace lambda {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+}
+
+export namespace lambdamicrovms {
+    export interface ImageCodeArtifact {
+        /**
+         * S3 URI of the zip archive containing the application code and Dockerfile (e.g., `s3://bucket/code.zip`).
+         */
+        uri: string;
+    }
+
+    export interface ImageCpuConfiguration {
+        /**
+         * CPU architecture for the MicroVM. Valid values are `x8664` and `arm64`.
+         */
+        architecture: string;
+    }
+
+    export interface ImageTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
+    export interface MicrovmIdlePolicy {
+        /**
+         * Whether to automatically resume the MicroVM when it receives a request while suspended.
+         */
+        autoResumeEnabled: boolean;
+        /**
+         * Number of seconds without traffic after which the MicroVM is suspended.
+         */
+        maxIdleDurationSeconds: number;
+        /**
+         * Number of seconds a MicroVM remains suspended before it is automatically terminated.
+         */
+        suspendedDurationSeconds: number;
+    }
+
+    export interface MicrovmLogging {
+        /**
+         * Send logs to Amazon CloudWatch Logs. See below.
+         */
+        cloudwatch?: outputs.lambdamicrovms.MicrovmLoggingCloudwatch;
+        /**
+         * Disable logging for the MicroVM. Specify an empty block: `disabled {}`.
+         */
+        disabled?: outputs.lambdamicrovms.MicrovmLoggingDisabled;
+    }
+
+    export interface MicrovmLoggingCloudwatch {
+        /**
+         * Name of the CloudWatch Logs log group to send logs to.
+         */
+        logGroup?: string;
+        /**
+         * Name of the CloudWatch Logs log stream within the log group.
+         */
+        logStream?: string;
+    }
+
+    export interface MicrovmLoggingDisabled {
+    }
+
+    export interface MicrovmTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
     }
 
 }
@@ -69380,7 +72485,7 @@ export namespace lb {
 
     export interface ListenerRuleActionForwardTargetGroup {
         /**
-         * The Amazon Resource Name (ARN) of the target group.
+         * ARN of the target group.
          */
         arn: string;
         /**
@@ -69823,7 +72928,7 @@ export namespace lex {
 
     export interface BotAliasConversationLogs {
         /**
-         * The Amazon Resource Name (ARN) of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
+         * ARN of the IAM role used to write your logs to CloudWatch Logs or an S3 bucket. Must be between 20 and 2048 characters in length.
          */
         iamRoleArn: string;
         /**
@@ -69838,7 +72943,7 @@ export namespace lex {
          */
         destination: string;
         /**
-         * The Amazon Resource Name (ARN) of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
+         * ARN of the key used to encrypt audio logs in an S3 bucket. This can only be specified when `destination` is set to `S3`. Must be between 20 and 2048 characters in length.
          */
         kmsKeyArn?: string;
         /**
@@ -69846,7 +72951,7 @@ export namespace lex {
          */
         logType: string;
         /**
-         * The Amazon Resource Name (ARN) of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
+         * ARN of the CloudWatch Logs log group or S3 bucket where the logs are delivered. Must be less than or equal to 2048 characters in length.
          */
         resourceArn: string;
         /**
@@ -69950,7 +73055,7 @@ export namespace lex {
          */
         messageVersion: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lambda function.
+         * ARN of the Lambda function.
          */
         uri: string;
     }
@@ -70045,7 +73150,7 @@ export namespace lex {
          */
         messageVersion: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lambda function.
+         * ARN of the Lambda function.
          */
         uri: string;
     }
@@ -82721,7 +85826,7 @@ export namespace licensemanager {
          */
         name: string;
         /**
-         * Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+         * Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
          */
         signKey: string;
     }
@@ -83267,7 +86372,7 @@ export namespace macie2 {
          */
         keyPrefix?: string;
         /**
-         * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * ARN of the KMS key to be used to encrypt the data.
          *
          * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
          */
@@ -83582,6 +86687,20 @@ export namespace macie2 {
 }
 
 export namespace mailmanager {
+    export interface ArchiveRetention {
+        /**
+         * Retention period for the archive. Valid values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: string;
+    }
+
+    export interface ArchiveRetentionActual {
+        /**
+         * Retention period for the archive. Possible values: `THREE_MONTHS`, `SIX_MONTHS`, `NINE_MONTHS`, `ONE_YEAR`, `EIGHTEEN_MONTHS`, `TWO_YEARS`, `THIRTY_MONTHS`, `THREE_YEARS`, `FOUR_YEARS`, `FIVE_YEARS`, `SIX_YEARS`, `SEVEN_YEARS`, `EIGHT_YEARS`, `NINE_YEARS`, `TEN_YEARS`, `PERMANENT`.
+         */
+        retentionPeriod: string;
+    }
+
     export interface IngressPointIngressPointConfiguration {
         /**
          * ARN of the secret in AWS Secrets Manager that holds the SMTP password, used for `AUTH` ingress points.
@@ -83589,11 +86708,11 @@ export namespace mailmanager {
         secretArn?: string;
         /**
          * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+         * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
          */
         smtpPasswordWo?: string;
         /**
-         * Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+         * Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
          */
         smtpPasswordWoVersion?: number;
         /**
@@ -87628,7 +90747,7 @@ export namespace mq {
 
     export interface GetBrokerEncryptionOption {
         /**
-         * Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+         * ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
          */
         kmsKeyId: string;
         /**
@@ -87938,14 +91057,14 @@ export namespace msk {
 
     export interface ClusterClientAuthenticationTls {
         /**
-         * List of ACM Certificate Authority Amazon Resource Names (ARNs).
+         * List of ACM Certificate Authority ARNs.
          */
         certificateAuthorityArns?: string[];
     }
 
     export interface ClusterConfigurationInfo {
         /**
-         * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+         * ARN of the MSK Configuration to use in the cluster.
          */
         arn: string;
         /**
@@ -88081,7 +91200,7 @@ export namespace msk {
          */
         clientSubnet: string;
         /**
-         * The client virtual private cloud (VPC) IP address
+         * Client VPC IP address
          */
         clientVpcIpAddress: string;
         /**
@@ -88143,13 +91262,25 @@ export namespace msk {
 
     export interface ReplicatorKafkaCluster {
         /**
-         * Details of an Amazon MSK cluster.
+         * Details of an Amazon MSK cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        amazonMskCluster: outputs.msk.ReplicatorKafkaClusterAmazonMskCluster;
+        amazonMskCluster?: outputs.msk.ReplicatorKafkaClusterAmazonMskCluster;
         /**
-         * Details of an Amazon VPC which has network connectivity to the Apache Kafka cluster.
+         * Details of a self-managed or on-premises Apache Kafka cluster. Exactly one of `amazonMskCluster` or `apacheKafkaCluster` must be specified. Detailed below.
          */
-        vpcConfig: outputs.msk.ReplicatorKafkaClusterVpcConfig;
+        apacheKafkaCluster?: outputs.msk.ReplicatorKafkaClusterApacheKafkaCluster;
+        /**
+         * Details of the client authentication used by the Kafka cluster. Only valid for an `apacheKafkaCluster`. Detailed below.
+         */
+        clientAuthentication?: outputs.msk.ReplicatorKafkaClusterClientAuthentication;
+        /**
+         * Details of encryption in transit to the Kafka cluster. Only valid for an `apacheKafkaCluster`. TLS encryption in transit is always applied to an `apacheKafkaCluster`; this block is only required to supply a custom root CA chain (for a cluster using a private or self-signed certificate). Detailed below.
+         */
+        encryptionInTransit?: outputs.msk.ReplicatorKafkaClusterEncryptionInTransit;
+        /**
+         * Details of an Amazon VPC which has network connectivity to the Kafka cluster. Provide this on the `amazonMskCluster` entry only; the replicator reaches the Apache Kafka cluster through that VPC.
+         */
+        vpcConfig?: outputs.msk.ReplicatorKafkaClusterVpcConfig;
     }
 
     export interface ReplicatorKafkaClusterAmazonMskCluster {
@@ -88159,13 +91290,62 @@ export namespace msk {
         mskClusterArn: string;
     }
 
+    export interface ReplicatorKafkaClusterApacheKafkaCluster {
+        /**
+         * The Kafka `cluster.id` of the self-managed or on-premises Apache Kafka cluster (as reported by the cluster itself, e.g. via the Kafka admin tooling), not an arbitrary name. MSK Replicator validates this value against the source cluster. See [Migrate third-party and self-managed Apache Kafka clusters to Amazon MSK](https://aws.amazon.com/blogs/big-data/migrate-third-party-and-self-managed-apache-kafka-clusters-to-amazon-msk-express-and-standard-brokers-with-amazon-msk-replicator/) for how to obtain the cluster ID and the other required inputs.
+         */
+        apacheKafkaClusterId: string;
+        /**
+         * The bootstrap broker connection string used to connect to the Apache Kafka cluster.
+         */
+        bootstrapBrokerString: string;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthentication {
+        /**
+         * Details of the mTLS client authentication used by the Kafka cluster. Detailed below.
+         */
+        mtls?: outputs.msk.ReplicatorKafkaClusterClientAuthenticationMtls;
+        /**
+         * Details of the SASL/SCRAM client authentication used by the Kafka cluster. Detailed below.
+         */
+        saslScram?: outputs.msk.ReplicatorKafkaClusterClientAuthenticationSaslScram;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationMtls {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the private key and certificate used for mTLS authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: string;
+    }
+
+    export interface ReplicatorKafkaClusterClientAuthenticationSaslScram {
+        /**
+         * The SASL/SCRAM mechanism used for authentication. Valid values are `SHA256` and `SHA512`.
+         */
+        mechanism: string;
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the credentials used for SASL/SCRAM authentication. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        secretArn: string;
+    }
+
+    export interface ReplicatorKafkaClusterEncryptionInTransit {
+        /**
+         * The ARN of the AWS Secrets Manager secret that stores the custom root CA certificate chain used to trust the certificate authority of the Apache Kafka cluster. See [Set up prerequisites for MSK Replicator with self-managed Apache Kafka clusters](https://docs.aws.amazon.com/msk/latest/developerguide/msk-replicator-external-prereqs.html) for the required secret contents and format.
+         */
+        rootCaCertificate: string;
+    }
+
     export interface ReplicatorKafkaClusterVpcConfig {
         /**
          * The AWS security groups to associate with the ENIs used by the replicator. If a security group is not specified, the default security group associated with the VPC is used.
+         *
+         * > **Note:** When an `apacheKafkaCluster` uses `clientAuthentication`, the replicator's network interfaces (created in these subnets, with private IPs only) must be able to reach AWS Secrets Manager and AWS KMS to retrieve and decrypt the credentials. Ensure the subnets have egress to those services via a NAT gateway or Secrets Manager and KMS interface VPC endpoints; otherwise the replicator times out connecting to the source cluster.
          */
         securityGroupsIds?: string[];
         /**
-         * The list of subnets to connect to in the virtual private cloud (VPC). AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
+         * List of subnets to connect to in the VPC. AWS creates elastic network interfaces inside these subnets to allow communication between your Kafka Cluster and the replicator.
          */
         subnetIds: string[];
     }
@@ -88236,18 +91416,26 @@ export namespace msk {
         consumerGroupReplications: outputs.msk.ReplicatorReplicationInfoListConsumerGroupReplication[];
         sourceKafkaClusterAlias: string;
         /**
-         * The ARN of the source Kafka cluster.
+         * The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
          */
-        sourceKafkaClusterArn: string;
+        sourceKafkaClusterArn?: string;
+        /**
+         * The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `apacheKafkaClusterId`). Exactly one of `sourceKafkaClusterArn` or `sourceKafkaClusterId` must be specified.
+         */
+        sourceKafkaClusterId?: string;
         /**
          * The type of compression to use writing records to target Kafka cluster.
          */
         targetCompressionType: string;
         targetKafkaClusterAlias: string;
         /**
-         * The ARN of the target Kafka cluster.
+         * The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
          */
-        targetKafkaClusterArn: string;
+        targetKafkaClusterArn?: string;
+        /**
+         * The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `apacheKafkaClusterId`). Exactly one of `targetKafkaClusterArn` or `targetKafkaClusterId` must be specified.
+         */
+        targetKafkaClusterId?: string;
         /**
          * Configuration relating to topic replication.
          */
@@ -88542,7 +91730,7 @@ export namespace mskconnect {
 
     export interface ConnectorPluginCustomPlugin {
         /**
-         * The Amazon Resource Name (ARN) of the custom plugin.
+         * ARN of the custom plugin.
          */
         arn: string;
         /**
@@ -88553,7 +91741,7 @@ export namespace mskconnect {
 
     export interface ConnectorWorkerConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the worker configuration.
+         * ARN of the worker configuration.
          */
         arn: string;
         /**
@@ -88571,7 +91759,7 @@ export namespace mskconnect {
 
     export interface CustomPluginLocationS3 {
         /**
-         * The Amazon Resource Name (ARN) of an S3 bucket.
+         * ARN of an S3 bucket.
          */
         bucketArn: string;
         /**
@@ -89003,7 +92191,7 @@ export namespace networkfirewall {
          */
         priority?: number;
         /**
-         * The Amazon Resource Name (ARN) of the stateful rule group.
+         * ARN of the stateful rule group.
          */
         resourceArn: string;
     }
@@ -89053,7 +92241,7 @@ export namespace networkfirewall {
          */
         priority: number;
         /**
-         * The Amazon Resource Name (ARN) of the stateless rule group.
+         * ARN of the stateless rule group.
          */
         resourceArn: string;
     }
@@ -89089,11 +92277,11 @@ export namespace networkfirewall {
 
     export interface GetFirewallEncryptionConfiguration {
         /**
-         * The ID of the AWS Key Management Service (AWS KMS) customer managed key.
+         * The ID of the KMS customer managed key.
          */
         keyId: string;
         /**
-         * The type of the AWS Key Management Service (AWS KMS) key use by the firewall.
+         * The type of the KMS key use by the firewall.
          */
         type: string;
     }
@@ -89555,7 +92743,7 @@ export namespace networkfirewall {
          */
         destinations?: outputs.networkfirewall.RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination[];
         /**
-         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+         * Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
          */
         protocols?: number[];
         /**
@@ -89668,7 +92856,7 @@ export namespace networkfirewall {
 
     export interface TlsInspectionConfigurationEncryptionConfiguration {
         /**
-         * ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+         * ARN of the Amazon Web Services KMS customer managed key.
          */
         keyId: string;
         /**
@@ -89733,7 +92921,7 @@ export namespace networkfirewall {
          */
         destinations: outputs.networkfirewall.TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestination[];
         /**
-         * Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+         * Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
          */
         protocols: number[];
         /**
@@ -90695,6 +93883,10 @@ export namespace observabilityadmin {
          * Configuration block for logs encryption settings. See `logsEncryptionConfiguration` below.
          */
         logsEncryptionConfiguration?: outputs.observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationLogsEncryptionConfiguration;
+        /**
+         * Configuration block for propagating source resource tags to centralized destination log groups. See `tagPropagationConfiguration` below.
+         */
+        tagPropagationConfiguration?: outputs.observabilityadmin.CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration;
     }
 
     export interface CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationBackupConfiguration {
@@ -90732,6 +93924,17 @@ export namespace observabilityadmin {
          * ARN of the KMS key to use for encryption when `encryptionStrategy` is `CUSTOMER_MANAGED`.
          */
         kmsKeyArn?: string;
+    }
+
+    export interface CentralizationRuleForOrganizationRuleDestinationDestinationLogsConfigurationTagPropagationConfiguration {
+        /**
+         * ARN of the IAM role that the service assumes to propagate source resource tags to centralized destination log groups.
+         */
+        destinationRoleArn: string;
+        /**
+         * Strategy for resolving tag conflicts when propagating tags to destination log groups. Valid values: `IN_SYNC`, `ADD_ONLY`, `UPDATE_SYNC`.
+         */
+        tagConflictResolutionStrategy?: string;
     }
 
     export interface CentralizationRuleForOrganizationRuleDestinationDestinationMetricsConfiguration {
@@ -91642,7 +94845,7 @@ export namespace odb {
 
     export interface GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
         /**
-         * Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * ARN for the Exadata infrastructure.
          */
         arn: string;
         /**
@@ -91701,7 +94904,7 @@ export namespace odb {
 
     export interface GetCloudExadataInfrastructuresCloudExadataInfrastructure {
         /**
-         * Amazon Resource Name (ARN) for the Exadata infrastructure.
+         * ARN for the Exadata infrastructure.
          */
         arn: string;
         /**
@@ -91747,7 +94950,7 @@ export namespace odb {
 
     export interface GetCloudVmClustersCloudVmCluster {
         /**
-         * Amazon Resource Name (ARN) for the cloud vm cluster.
+         * ARN for the cloud vm cluster.
          */
         arn: string;
         /**
@@ -91786,7 +94989,7 @@ export namespace odb {
          */
         additionalDetails: string;
         /**
-         * Amazon Resource Name (ARN) of the DB node.
+         * ARN of the DB node.
          */
         arn: string;
         /**
@@ -92189,7 +95392,7 @@ export namespace odb {
 
     export interface GetNetworkPeeringConnectionsOdbPeeringConnection {
         /**
-         * Amazon Resource Name (ARN) for the ODB network peering connection.
+         * ARN for the ODB network peering connection.
          */
         arn: string;
         /**
@@ -92212,7 +95415,7 @@ export namespace odb {
 
     export interface GetNetworksOdbNetwork {
         /**
-         * Amazon Resource Name (ARN) of the odb network resource.
+         * ARN of the odb network resource.
          */
         arn: string;
         /**
@@ -92459,7 +95662,7 @@ export namespace opensearch {
 
     export interface ApplicationDataSource {
         /**
-         * The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+         * ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
          */
         dataSourceArn?: string;
         /**
@@ -92475,7 +95678,7 @@ export namespace opensearch {
         enabled?: boolean;
         iamIdentityCenterApplicationArn: string;
         /**
-         * The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+         * ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
          */
         iamIdentityCenterInstanceArn?: string;
         /**
@@ -93331,7 +96534,7 @@ export namespace opensearch {
 
     export interface GetServerlessCollectionGroupsCollectionGroupSummary {
         /**
-         * Amazon Resource Name (ARN) of the collection group.
+         * ARN of the collection group.
          */
         arn: string;
         /**
@@ -93396,7 +96599,7 @@ export namespace opensearch {
          */
         groupAttribute: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+         * ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
          */
         instanceArn: string;
         /**
@@ -93548,7 +96751,7 @@ export namespace opensearch {
          */
         groupAttribute: string;
         /**
-         * Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+         * ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
          */
         instanceArn: string;
         /**
@@ -93843,7 +97046,7 @@ export namespace organizations {
 
     export interface GetOrganizationalUnitChildAccountsAccount {
         /**
-         * The Amazon Resource Name (ARN) of the account.
+         * The ARN of the account.
          */
         arn: string;
         /**
@@ -93880,7 +97083,7 @@ export namespace organizations {
 
     export interface GetOrganizationalUnitDescendantAccountsAccount {
         /**
-         * The Amazon Resource Name (ARN) of the account.
+         * The ARN of the account.
          */
         arn: string;
         /**
@@ -94389,7 +97592,7 @@ export namespace pipes {
 
     export interface PipeLogConfigurationFirehoseLogDestination {
         /**
-         * Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+         * ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
          */
         deliveryStreamArn: string;
     }
@@ -94783,7 +97986,7 @@ export namespace pipes {
          */
         dependsOns?: outputs.pipes.PipeTargetParametersBatchJobParametersDependsOn[];
         /**
-         * The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+         * Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
          */
         jobDefinition: string;
         /**
@@ -94985,7 +98188,7 @@ export namespace pipes {
          */
         ephemeralStorage?: outputs.pipes.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage;
         /**
-         * The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+         * ARN of the task execution IAM role override for the task.
          */
         executionRoleArn?: string;
         /**
@@ -94997,7 +98200,7 @@ export namespace pipes {
          */
         memory?: string;
         /**
-         * The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+         * ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
          */
         taskRoleArn?: string;
     }
@@ -95120,11 +98323,11 @@ export namespace pipes {
          */
         endpointId?: string;
         /**
-         * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         * List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
          */
         resources?: string[];
         /**
-         * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+         * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
          */
         source?: string;
         /**
@@ -95305,7 +98508,7 @@ export namespace qldb {
          */
         aggregationEnabled?: boolean;
         /**
-         * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+         * ARN of the Kinesis Data Streams resource.
          */
         streamArn: string;
     }
@@ -95403,7 +98606,7 @@ export namespace quicksight {
 
     export interface AnalysisSourceEntitySourceTemplate {
         /**
-         * The Amazon Resource Name (ARN) of the resource.
+         * ARN of the resource.
          */
         arn: string;
         /**
@@ -95414,7 +98617,7 @@ export namespace quicksight {
 
     export interface AnalysisSourceEntitySourceTemplateDataSetReference {
         /**
-         * Dataset Amazon Resource Name (ARN).
+         * Dataset ARN.
          */
         dataSetArn: string;
         /**
@@ -95702,7 +98905,7 @@ export namespace quicksight {
 
     export interface DashboardSourceEntitySourceTemplate {
         /**
-         * The Amazon Resource Name (ARN) of the resource.
+         * ARN of the resource.
          */
         arn: string;
         /**
@@ -95713,7 +98916,7 @@ export namespace quicksight {
 
     export interface DashboardSourceEntitySourceTemplateDataSetReference {
         /**
-         * Dataset Amazon Resource Name (ARN).
+         * Dataset ARN.
          */
         dataSetArn: string;
         /**
@@ -96240,7 +99443,7 @@ export namespace quicksight {
 
     export interface DataSourceCredentials {
         /**
-         * The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * The ARN of a data source that has the credential pair that you want to use.
          * When the value is not null, the `credentialPair` from the data source in the ARN is used.
          */
         copySourceArn?: string;
@@ -96249,7 +99452,7 @@ export namespace quicksight {
          */
         credentialPair?: outputs.quicksight.DataSourceCredentialsCredentialPair;
         /**
-         * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         * The ARN of the secret associated with the data source in Amazon Secrets Manager.
          */
         secretArn?: string;
     }
@@ -96636,7 +99839,7 @@ export namespace quicksight {
          */
         actions: string[];
         /**
-         * The Amazon Resource Name (ARN) of the principal.
+         * ARN of the principal.
          */
         principal: string;
     }
@@ -96650,7 +99853,7 @@ export namespace quicksight {
 
     export interface DataSourceVpcConnectionProperties {
         /**
-         * The Amazon Resource Name (ARN) for the VPC connection.
+         * ARN for the VPC connection.
          */
         vpcConnectionArn: string;
     }
@@ -97139,7 +100342,7 @@ export namespace quicksight {
 
     export interface TemplateSourceEntitySourceAnalysis {
         /**
-         * The Amazon Resource Name (ARN) of the resource.
+         * ARN of the resource.
          */
         arn: string;
         /**
@@ -97150,7 +100353,7 @@ export namespace quicksight {
 
     export interface TemplateSourceEntitySourceAnalysisDataSetReference {
         /**
-         * Dataset Amazon Resource Name (ARN).
+         * Dataset ARN.
          */
         dataSetArn: string;
         /**
@@ -97161,7 +100364,7 @@ export namespace quicksight {
 
     export interface TemplateSourceEntitySourceTemplate {
         /**
-         * The Amazon Resource Name (ARN) of the resource.
+         * ARN of the resource.
          */
         arn: string;
     }
@@ -97452,7 +100655,7 @@ export namespace rds {
          */
         kmsKeyId: string;
         /**
-         * Amazon Resource Name (ARN) of the secret.
+         * ARN of the secret.
          */
         secretArn: string;
         /**
@@ -97463,17 +100666,15 @@ export namespace rds {
 
     export interface ClusterParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod?: string;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: string;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: string;
     }
@@ -97484,8 +100685,7 @@ export namespace rds {
          */
         restoreToTime?: string;
         /**
-         * Type of restore to be performed.
-         * Valid options are `full-copy` (default) and `copy-on-write`.
+         * Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
          */
         restoreType?: string;
         /**
@@ -97521,8 +100721,6 @@ export namespace rds {
         sourceEngine: string;
         /**
          * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way. It's only used to initialize the database. This only works currently with the aurora engine. See AWS for currently supported engines and options. See [Aurora S3 Migration Docs](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/AuroraMySQL.Migrating.ExtMySQL.html#AuroraMySQL.Migrating.ExtMySQL.S3).
          */
         sourceEngineVersion: string;
     }
@@ -97588,8 +100786,17 @@ export namespace rds {
     }
 
     export interface GetClusterMasterUserSecret {
+        /**
+         * Amazon Web Services KMS key identifier that is used to encrypt the secret.
+         */
         kmsKeyId: string;
+        /**
+         * ARN of the secret.
+         */
         secretArn: string;
+        /**
+         * Status of the secret.
+         */
         secretStatus: string;
     }
 
@@ -97605,13 +100812,46 @@ export namespace rds {
     }
 
     export interface GetEngineVersionFilter {
+        /**
+         * Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+         */
         name: string;
+        /**
+         * Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+         */
         values: string[];
+    }
+
+    export interface GetEventsEvent {
+        /**
+         * Date and time of the event, in RFC3339 format.
+         */
+        date: string;
+        /**
+         * Set of event categories to filter on, e.g. `failure`, `maintenance`, `configuration change`. Defaults to all categories.
+         */
+        eventCategories: string[];
+        /**
+         * Text of the event.
+         */
+        message: string;
+        /**
+         * ARN of the event source.
+         */
+        sourceArn: string;
+        /**
+         * Identifier of the source, such as a DB instance or DB cluster identifier. Requires `sourceType` to also be set.
+         */
+        sourceIdentifier: string;
+        /**
+         * Type of source. Valid values include `db-instance`, `db-cluster`, `db-snapshot`, `db-parameter-group`, `db-security-group`, `db-cluster-snapshot`, `custom-engine-version`, `db-proxy`, `blue-green-deployment`, `db-shard-group`, and `zero-etl`.
+         */
+        sourceType: string;
     }
 
     export interface GetGlobalClusterMember {
         /**
-         * Amazon Resource Name (ARN) of member DB Cluster
+         * ARN of member DB Cluster
          */
         dbClusterArn: string;
         /**
@@ -97622,15 +100862,15 @@ export namespace rds {
 
     export interface GetInstanceMasterUserSecret {
         /**
-         * The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+         * Amazon Web Services KMS key identifier that is used to encrypt the secret.
          */
         kmsKeyId: string;
         /**
-         * The Amazon Resource Name (ARN) of the secret.
+         * ARN of the secret.
          */
         secretArn: string;
         /**
-         * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
         secretStatus: string;
     }
@@ -97647,11 +100887,29 @@ export namespace rds {
     }
 
     export interface GetProxyAuth {
+        /**
+         * Type of authentication that the proxy uses for connections from the proxy to the underlying database.
+         */
         authScheme: string;
+        /**
+         * Type of authentication the proxy uses for connections from clients.
+         */
         clientPasswordAuthType: string;
+        /**
+         * User-specified description about the authentication used by a proxy to log in as a specific database user.
+         */
         description: string;
+        /**
+         * Whether to require or disallow AWS Identity and Access Management (IAM) authentication for connections to the proxy.
+         */
         iamAuth: string;
+        /**
+         * ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster.
+         */
         secretArn: string;
+        /**
+         * Name of the database user to which the proxy connects.
+         */
         username: string;
     }
 
@@ -97770,7 +101028,7 @@ export namespace rds {
 
     export interface GlobalClusterGlobalClusterMember {
         /**
-         * Amazon Resource Name (ARN) of member DB Cluster.
+         * ARN of member DB Cluster.
          */
         dbClusterArn: string;
         /**
@@ -97781,15 +101039,7 @@ export namespace rds {
 
     export interface InstanceBlueGreenUpdate {
         /**
-         * Enables low-downtime updates when `true`.
-         * Default is `false`.
-         *
-         * [instance-replication]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Replication.html
-         * [instance-maintenance]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.Maintenance.html
-         * [blue-green]:
-         * https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/blue-green-deployments.html
+         * Enables low-downtime updates when `true`. Default is `false`.
          */
         enabled?: boolean;
     }
@@ -97807,65 +101057,64 @@ export namespace rds {
 
     export interface InstanceListenerEndpoint {
         /**
-         * Specifies the DNS address of the DB instance.
+         * DNS address of the DB instance.
          */
         address: string;
         /**
-         * Specifies the ID that Amazon Route 53 assigns when you create a hosted zone.
+         * ID that Amazon Route 53 assigns when you create a hosted zone.
          */
         hostedZoneId: string;
         /**
-         * The port on which the DB accepts connections.
+         * Port on which the DB accepts connections.
          */
         port: number;
     }
 
     export interface InstanceMasterUserSecret {
         /**
-         * The ARN for the KMS encryption key. If creating an
-         * encrypted replica, set this to the destination KMS ARN.
+         * ARN for the KMS encryption key. If creating an encrypted replica, set this to the destination KMS ARN.
          */
         kmsKeyId: string;
         /**
-         * The Amazon Resource Name (ARN) of the secret.
+         * ARN of the secret.
          */
         secretArn: string;
         /**
-         * The status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
+         * Status of the secret. Valid Values: `creating` | `active` | `rotating` | `impaired`.
          */
         secretStatus: string;
     }
 
     export interface InstanceRestoreToPointInTime {
         /**
-         * The date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
+         * Date and time to restore from. Value must be a time in Universal Coordinated Time (UTC) format and must be before the latest restorable time for the DB instance. Cannot be specified with `useLatestRestorableTime`.
          */
         restoreTime?: string;
         /**
-         * The ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
+         * ARN of the automated backup from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceAutomatedBackupsArn?: string;
         /**
-         * The identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
+         * Identifier of the source DB instance from which to restore. Must match the identifier of an existing DB instance. Required if `sourceDbInstanceAutomatedBackupsArn` or `sourceDbiResourceId` is not specified.
          */
         sourceDbInstanceIdentifier?: string;
         /**
-         * The resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
+         * Resource ID of the source DB instance from which to restore. Required if `sourceDbInstanceIdentifier` or `sourceDbInstanceAutomatedBackupsArn` is not specified.
          */
         sourceDbiResourceId?: string;
         /**
-         * A boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
+         * Boolean value that indicates whether the DB instance is restored from the latest backup time. Defaults to `false`. Cannot be specified with `restoreTime`.
          */
         useLatestRestorableTime?: boolean;
     }
 
     export interface InstanceS3Import {
         /**
-         * The bucket name where your backup is stored
+         * Bucket name where your backup is stored.
          */
         bucketName: string;
         /**
-         * Can be blank, but is the path to your backup
+         * Can be blank, but is the path to your backup.
          */
         bucketPrefix?: string;
         /**
@@ -97873,13 +101122,11 @@ export namespace rds {
          */
         ingestionRole: string;
         /**
-         * Source engine for the backup
+         * Source engine for the backup.
          */
         sourceEngine: string;
         /**
-         * Version of the source engine used to make the backup
-         *
-         * This will not recreate the resource if the S3 object changes in some way.  It's only used to initialize the database.
+         * Version of the source engine used to make the backup.
          */
         sourceEngineVersion: string;
     }
@@ -97909,7 +101156,7 @@ export namespace rds {
          */
         optionName: string;
         /**
-         * The option settings to apply. See `optionSettings` Block below for more details.
+         * Option settings to apply. See `optionSettings` Block below for more details.
          */
         optionSettings?: outputs.rds.OptionGroupOptionOptionSetting[];
         /**
@@ -97939,17 +101186,15 @@ export namespace rds {
 
     export interface ParameterGroupParameter {
         /**
-         * "immediate" (default), or "pending-reboot". Some
-         * engines can't apply some parameters without a reboot, and you will need to
-         * specify "pending-reboot" here.
+         * "immediate" (default), or "pending-reboot". Some engines can't apply some parameters without a reboot, and you will need to specify "pending-reboot" here.
          */
         applyMethod: string;
         /**
-         * The name of the DB parameter.
+         * Name of the DB parameter.
          */
         name: string;
         /**
-         * The value of the DB parameter.
+         * Value of the DB parameter.
          */
         value: string;
     }
@@ -97981,7 +101226,7 @@ export namespace rds {
          */
         iamAuth?: string;
         /**
-         * Amazon Resource Name (ARN) representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
+         * ARN representing the secret that the proxy uses to authenticate to the RDS DB instance or Aurora DB cluster. These secrets are stored within Amazon Secrets Manager.
          */
         secretArn?: string;
         /**
@@ -97992,7 +101237,7 @@ export namespace rds {
 
     export interface ProxyDefaultTargetGroupConnectionPoolConfig {
         /**
-         * The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+         * Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
          */
         connectionBorrowTimeout?: number;
         /**
@@ -98000,7 +101245,7 @@ export namespace rds {
          */
         initQuery?: string;
         /**
-         * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          */
         maxConnectionsPercent?: number;
         /**
@@ -98014,7 +101259,13 @@ export namespace rds {
     }
 
     export interface ReservedInstanceRecurringCharge {
+        /**
+         * Amount of the recurring charge.
+         */
         recurringChargeAmount: number;
+        /**
+         * Frequency of the recurring charge.
+         */
         recurringChargeFrequency: string;
     }
 
@@ -98102,7 +101353,7 @@ export namespace redshift {
 
     export interface GetDataSharesDataShare {
         /**
-         * ARN (Amazon Resource Name) of the data share.
+         * ARN of the data share.
          */
         dataShareArn: string;
         /**
@@ -98110,14 +101361,14 @@ export namespace redshift {
          */
         managedBy: string;
         /**
-         * ARN (Amazon Resource Name) of the producer.
+         * ARN of the producer.
          */
         producerArn: string;
     }
 
     export interface GetProducerDataSharesDataShare {
         /**
-         * ARN (Amazon Resource Name) of the data share.
+         * ARN of the data share.
          */
         dataShareArn: string;
         /**
@@ -98125,7 +101376,7 @@ export namespace redshift {
          */
         managedBy: string;
         /**
-         * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+         * ARN of the producer namespace that returns in the list of datashares.
          *
          * The following arguments are optional:
          */
@@ -98662,6 +101913,10 @@ export namespace resiliencehub {
          * ARN of the associated system.
          */
         systemArn: string;
+        /**
+         * List of user journey identifiers that associate the system with the service.
+         */
+        userJourneyIds: string[];
     }
 
     export interface GetV2ServicePermissionModel {
@@ -98785,8 +102040,6 @@ export namespace resiliencehub {
         resourceTags?: outputs.resiliencehub.V2InputSourceResourceConfigurationResourceTag[];
         /**
          * S3 URL.
-         *
-         * Exactly one attribute must be configured.
          */
         tfStateFileUrl?: string;
     }
@@ -98862,6 +102115,10 @@ export namespace resiliencehub {
          * ARN of the system to associate with the service.
          */
         systemArn: string;
+        /**
+         * List of user journey identifiers that associate the system with the service.
+         */
+        userJourneyIds?: string[];
     }
 
     export interface V2ServicePermissionModel {
@@ -98906,7 +102163,7 @@ export namespace resourceexplorer {
 
     export interface SearchResource {
         /**
-         * Amazon resource name of resource.
+         * ARN of resource.
          */
         arn: string;
         /**
@@ -101858,7 +105115,7 @@ export namespace s3 {
 
     export interface BucketReplicationConfigRuleDestinationEncryptionConfiguration {
         /**
-         * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+         * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
          */
         replicaKmsKeyId: string;
     }
@@ -102979,14 +106236,14 @@ export namespace s3 {
          */
         sourceSelectionCriterias: outputs.s3.GetBucketReplicationConfigurationRuleSourceSelectionCriteria[];
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
 
     export interface GetBucketReplicationConfigurationRuleDeleteMarkerReplication {
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
@@ -103031,7 +106288,7 @@ export namespace s3 {
 
     export interface GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration {
         /**
-         * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+         * ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
          */
         replicaKmsKeyId: string;
     }
@@ -103042,7 +106299,7 @@ export namespace s3 {
          */
         eventThresholds: outputs.s3.GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold[];
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
@@ -103056,7 +106313,7 @@ export namespace s3 {
 
     export interface GetBucketReplicationConfigurationRuleDestinationReplicationTime {
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
         /**
@@ -103074,7 +106331,7 @@ export namespace s3 {
 
     export interface GetBucketReplicationConfigurationRuleExistingObjectReplication {
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
@@ -103140,14 +106397,14 @@ export namespace s3 {
 
     export interface GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification {
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
 
     export interface GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject {
         /**
-         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+         * Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
          */
         status: string;
     }
@@ -103361,7 +106618,7 @@ export namespace s3 {
 
     export interface VectorsIndexEncryptionConfiguration {
         /**
-         * AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+         * KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
          */
         kmsKeyArn: string;
         /**
@@ -103733,7 +106990,7 @@ export namespace s3control {
 
     export interface ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda {
         /**
-         * Amazon Resource Name (ARN) of the AWS Lambda function.
+         * ARN of the AWS Lambda function.
          */
         functionArn: string;
         /**
@@ -103936,7 +107193,7 @@ export namespace s3control {
 
     export interface StorageLensConfigurationStorageLensConfigurationAwsOrg {
         /**
-         * Amazon Resource Name (ARN) of the Amazon Web Services organization.
+         * ARN of the Amazon Web Services organization.
          */
         arn: string;
     }
@@ -103969,7 +107226,7 @@ export namespace s3control {
          */
         accountId: string;
         /**
-         * Amazon Resource Name (ARN) of the bucket.
+         * ARN of the bucket.
          */
         arn: string;
         /**
@@ -104071,7 +107328,7 @@ export namespace s3control {
          */
         accountId: string;
         /**
-         * Amazon Resource Name (ARN) of the bucket.
+         * ARN of the bucket.
          */
         arn: string;
         /**
@@ -105187,7 +108444,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -105214,7 +108471,7 @@ export namespace sagemaker {
          */
         repositoryUrl: string;
         /**
-         * The Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
+         * ARN of the AWS Secrets Manager secret that contains the credentials used to access the git repository. The secret must have a staging label of AWSCURRENT and must be in the following format: `{"username": UserName, "password": Password}`
          */
         secretArn?: string;
     }
@@ -105343,7 +108600,7 @@ export namespace sagemaker {
 
     export interface DataQualityJobDefinitionDataQualityJobOutputConfig {
         /**
-         * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
+         * KMS key that Amazon SageMaker AI uses to encrypt the model artifacts at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
         /**
@@ -105391,7 +108648,7 @@ export namespace sagemaker {
          */
         instanceType: string;
         /**
-         * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
+         * KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume attached to the ML compute instance(s) that run the model monitoring job.
          */
         volumeKmsKeyId?: string;
         /**
@@ -105450,7 +108707,7 @@ export namespace sagemaker {
 
     export interface DeviceFleetOutputConfig {
         /**
-         * The AWS Key Management Service (AWS KMS) key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
+         * KMS key that Amazon SageMaker AI uses to encrypt data on the storage volume after compilation job. If you don't provide a KMS key ID, Amazon SageMaker AI uses the default KMS key for Amazon S3 for your role's account.
          */
         kmsKeyId?: string;
         /**
@@ -105485,7 +108742,7 @@ export namespace sagemaker {
          */
         kernelGatewayAppSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettings;
         /**
-         * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * Security groups for the VPC that the space uses for communication.
          */
         securityGroups?: string[];
         /**
@@ -105541,7 +108798,7 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
         /**
@@ -105549,7 +108806,7 @@ export namespace sagemaker {
          */
         emrSettings?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -105608,7 +108865,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -105627,11 +108884,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultSpaceSettingsJupyterLabAppSettingsEmrSettings {
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+         * Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
          */
         assumableRoleArns?: string[];
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         * Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
          */
         executionRoleArns?: string[];
     }
@@ -105642,11 +108899,11 @@ export namespace sagemaker {
          */
         codeRepositories?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -105664,7 +108921,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -105687,11 +108944,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -105717,7 +108974,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -105868,7 +109125,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
         /**
-         * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          */
         executionRoleArn?: string;
         /**
@@ -105905,7 +109162,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsCanvasAppSettingsModelRegisterSettings {
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+         * ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
          */
         crossAccountModelRegisterRoleArn?: string;
         /**
@@ -105931,7 +109188,7 @@ export namespace sagemaker {
          */
         s3ArtifactPath?: string;
         /**
-         * The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+         * KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
          */
         s3KmsKeyId?: string;
     }
@@ -105950,11 +109207,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -106006,7 +109263,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106070,7 +109327,7 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpec;
         /**
@@ -106078,7 +109335,7 @@ export namespace sagemaker {
          */
         emrSettings?: outputs.sagemaker.DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -106137,7 +109394,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106156,11 +109413,11 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsJupyterLabAppSettingsEmrSettings {
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+         * Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
          */
         assumableRoleArns?: string[];
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         * Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
          */
         executionRoleArns?: string[];
     }
@@ -106171,11 +109428,11 @@ export namespace sagemaker {
          */
         codeRepositories?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -106193,7 +109450,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106216,11 +109473,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -106246,7 +109503,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106269,7 +109526,7 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec;
     }
@@ -106295,7 +109552,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106329,7 +109586,7 @@ export namespace sagemaker {
          */
         notebookOutputOption?: string;
         /**
-         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         * When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
         s3KmsKeyId?: string;
         /**
@@ -106373,7 +109630,7 @@ export namespace sagemaker {
 
     export interface DomainDefaultUserSettingsTensorBoardAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDefaultUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
     }
@@ -106384,7 +109641,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106415,7 +109672,7 @@ export namespace sagemaker {
          */
         rStudioServerProDomainSettings?: outputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettings;
         /**
-         * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
          */
         securityGroupIds?: string[];
         /**
@@ -106437,7 +109694,7 @@ export namespace sagemaker {
 
     export interface DomainDomainSettingsRStudioServerProDomainSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          */
         defaultResourceSpec?: outputs.sagemaker.DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpec;
         /**
@@ -106460,7 +109717,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -106661,7 +109918,7 @@ export namespace sagemaker {
          */
         capacityReservationPreference?: string;
         /**
-         * The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+         * ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
          */
         mlReservationArn?: string;
     }
@@ -106787,7 +110044,7 @@ export namespace sagemaker {
          */
         capacityReservationPreference?: string;
         /**
-         * The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+         * ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
          */
         mlReservationArn?: string;
     }
@@ -107020,7 +110277,7 @@ export namespace sagemaker {
 
     export interface FeatureGroupOfflineStoreConfigS3StorageConfig {
         /**
-         * The AWS Key Management Service (KMS) key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
+         * KMS key ID of the key used to encrypt any objects written into the OfflineStore S3 location.
          */
         kmsKeyId?: string;
         /**
@@ -107054,7 +110311,7 @@ export namespace sagemaker {
 
     export interface FeatureGroupOnlineStoreConfigSecurityConfig {
         /**
-         * The ID of the AWS Key Management Service (AWS KMS) key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
+         * ID of the KMS key that SageMaker AI Feature Store uses to encrypt the Amazon S3 objects at rest using Amazon S3 server-side encryption.
          */
         kmsKeyId?: string;
     }
@@ -107092,7 +110349,7 @@ export namespace sagemaker {
 
     export interface FlowDefinitionHumanLoopConfig {
         /**
-         * The Amazon Resource Name (ARN) of the human task user interface.
+         * ARN of the human task user interface.
          */
         humanTaskUiArn: string;
         /**
@@ -107124,7 +110381,7 @@ export namespace sagemaker {
          */
         taskTitle: string;
         /**
-         * The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+         * ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
          */
         workteamArn: string;
     }
@@ -107160,7 +110417,7 @@ export namespace sagemaker {
 
     export interface FlowDefinitionOutputConfig {
         /**
-         * The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+         * KMS key ARN for server-side encryption.
          */
         kmsKeyId?: string;
         /**
@@ -108202,7 +111459,7 @@ export namespace sagemaker {
          */
         image?: string;
         /**
-         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          */
         imageConfig?: outputs.sagemaker.ModelContainerImageConfig;
         /**
@@ -108222,7 +111479,7 @@ export namespace sagemaker {
          */
         modelDataUrl?: string;
         /**
-         * Amazon Resource Name (ARN) of the model package to use to create the model.
+         * ARN of the model package to use to create the model.
          * A list of key value pairs.
          */
         modelPackageName?: string;
@@ -108271,7 +111528,7 @@ export namespace sagemaker {
 
     export interface ModelContainerImageConfig {
         /**
-         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
          */
         repositoryAccessMode: string;
         /**
@@ -108282,7 +111539,7 @@ export namespace sagemaker {
 
     export interface ModelContainerImageConfigRepositoryAuthConfig {
         /**
-         * Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+         * ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
          */
         repositoryCredentialsProviderArn: string;
     }
@@ -108352,7 +111609,7 @@ export namespace sagemaker {
          */
         image?: string;
         /**
-         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
+         * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. For more information see [Using a Private Docker Registry for Real-Time Inference Containers](https://docs.aws.amazon.com/sagemaker/latest/dg/your-algorithms-containers-inference-private.html). see Image Config.
          */
         imageConfig?: outputs.sagemaker.ModelPrimaryContainerImageConfig;
         /**
@@ -108369,7 +111626,7 @@ export namespace sagemaker {
          */
         modelDataUrl?: string;
         /**
-         * Amazon Resource Name (ARN) of the model package to use to create the model.
+         * ARN of the model package to use to create the model.
          * A list of key value pairs.
          */
         modelPackageName?: string;
@@ -108418,7 +111675,7 @@ export namespace sagemaker {
 
     export interface ModelPrimaryContainerImageConfig {
         /**
-         * Specifies whether the model container is in Amazon ECR or a private Docker registry accessible from your Amazon Virtual Private Cloud (VPC). Allowed values are: `Platform` and `Vpc`.
+         * Whether the model container is in Amazon ECR or a private Docker registry accessible from your VPC. Allowed values are: `Platform` and `Vpc`.
          */
         repositoryAccessMode: string;
         /**
@@ -108429,7 +111686,7 @@ export namespace sagemaker {
 
     export interface ModelPrimaryContainerImageConfigRepositoryAuthConfig {
         /**
-         * Amazon Resource Name (ARN) of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
+         * ARN of an AWS Lambda function that provides credentials to authenticate to the private Docker registry where your model image is hosted. For information about how to create an AWS Lambda function, see [Create a Lambda function with the console](https://docs.aws.amazon.com/lambda/latest/dg/getting-started-create-function.html) in the _AWS Lambda Developer Guide_.
          */
         repositoryCredentialsProviderArn: string;
     }
@@ -108922,7 +112179,7 @@ export namespace sagemaker {
          */
         appLifecycleManagement?: outputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsAppLifecycleManagement;
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: outputs.sagemaker.SpaceSpaceSettingsCodeEditorAppSettingsDefaultResourceSpec;
     }
@@ -108947,11 +112204,11 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * ARN of the SageMaker AI image created on the instance.
          */
         sagemakerImageArn?: string;
         /**
@@ -108988,7 +112245,7 @@ export namespace sagemaker {
          */
         codeRepositories?: outputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: outputs.sagemaker.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpec;
     }
@@ -109020,11 +112277,11 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * ARN of the SageMaker AI image created on the instance.
          */
         sagemakerImageArn?: string;
         /**
@@ -109043,11 +112300,11 @@ export namespace sagemaker {
          */
         codeRepositories?: outputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: outputs.sagemaker.SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -109065,11 +112322,11 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * ARN of the SageMaker AI image created on the instance.
          */
         sagemakerImageArn?: string;
         /**
@@ -109088,11 +112345,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          */
         defaultResourceSpec: outputs.sagemaker.SpaceSpaceSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -109118,11 +112375,11 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.
+         * ARN of the SageMaker AI image created on the instance.
          */
         sagemakerImageArn?: string;
         /**
@@ -109814,7 +113071,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsCanvasAppSettingsEmrServerlessSettings {
         /**
-         * The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+         * ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
          */
         executionRoleArn?: string;
         /**
@@ -109851,7 +113108,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsCanvasAppSettingsModelRegisterSettings {
         /**
-         * The Amazon Resource Name (ARN) of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
+         * ARN of the SageMaker AI model registry account. Required only to register model versions created by a different SageMaker AI Canvas AWS account than the AWS account in which SageMaker AI model registry is set up.
          */
         crossAccountModelRegisterRoleArn?: string;
         /**
@@ -109877,7 +113134,7 @@ export namespace sagemaker {
          */
         s3ArtifactPath?: string;
         /**
-         * The Amazon Web Services Key Management Service (KMS) encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
+         * KMS encryption key ID that is used to encrypt artifacts generated by Canvas in the Amazon S3 bucket.
          */
         s3KmsKeyId?: string;
     }
@@ -109896,11 +113153,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsCodeEditorAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -109952,7 +113209,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -110013,7 +113270,7 @@ export namespace sagemaker {
         codeRepositories?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCodeRepository[];
         customImages?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsDefaultResourceSpec;
         /**
@@ -110021,7 +113278,7 @@ export namespace sagemaker {
          */
         emrSettings?: outputs.sagemaker.UserProfileUserSettingsJupyterLabAppSettingsEmrSettings;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -110080,7 +113337,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -110099,11 +113356,11 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsJupyterLabAppSettingsEmrSettings {
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
+         * Array of ARNs of the IAM roles that the execution role of SageMaker AI can assume for performing operations or tasks related to Amazon EMR clusters or Amazon EMR Serverless applications. These roles define the permissions and access policies required when performing Amazon EMR-related operations, such as listing, connecting to, or terminating Amazon EMR clusters or Amazon EMR Serverless applications. They are typically used in cross-account access scenarios, where the Amazon EMR resources (clusters or serverless applications) are located in a different AWS account than the SageMaker AI domain.
          */
         assumableRoleArns?: string[];
         /**
-         * An array of Amazon Resource Names (ARNs) of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
+         * Array of ARNs of the IAM roles used by the Amazon EMR cluster instances or job execution environments to access other AWS services and resources needed during the runtime of your Amazon EMR or Amazon EMR Serverless workloads, such as Amazon S3 for data access, Amazon CloudWatch for logging, or other AWS services based on the particular workload requirements.
          */
         executionRoleArns?: string[];
     }
@@ -110114,11 +113371,11 @@ export namespace sagemaker {
          */
         codeRepositories?: outputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsCodeRepository[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsJupyterServerAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -110136,7 +113393,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -110159,11 +113416,11 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsKernelGatewayAppSettingsDefaultResourceSpec;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * ARN of the Lifecycle Configurations.
          */
         lifecycleConfigArns?: string[];
     }
@@ -110189,7 +113446,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -110212,7 +113469,7 @@ export namespace sagemaker {
          */
         customImages?: outputs.sagemaker.UserProfileUserSettingsRSessionAppSettingsCustomImage[];
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsRSessionAppSettingsDefaultResourceSpec;
     }
@@ -110238,7 +113495,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -110272,7 +113529,7 @@ export namespace sagemaker {
          */
         notebookOutputOption?: string;
         /**
-         * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         * When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          */
         s3KmsKeyId?: string;
         /**
@@ -110316,7 +113573,7 @@ export namespace sagemaker {
 
     export interface UserProfileUserSettingsTensorBoardAppSettings {
         /**
-         * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see Default Resource Spec below.
+         * Default instance type and the ARN of the SageMaker AI image created on the instance. see Default Resource Spec below.
          */
         defaultResourceSpec?: outputs.sagemaker.UserProfileUserSettingsTensorBoardAppSettingsDefaultResourceSpec;
     }
@@ -110327,7 +113584,7 @@ export namespace sagemaker {
          */
         instanceType?: string;
         /**
-         * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * ARN of the Lifecycle Configuration attached to the Resource.
          */
         lifecycleConfigArn?: string;
         /**
@@ -111076,7 +114333,7 @@ export namespace securityhub {
          */
         noteUpdatedBies?: outputs.securityhub.AutomationRuleCriteriaNoteUpdatedBy[];
         /**
-         * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+         * ARN for a third-party product that generated a finding in Security Hub. Documented below.
          */
         productArns?: outputs.securityhub.AutomationRuleCriteriaProductArn[];
         /**
@@ -111096,7 +114353,7 @@ export namespace securityhub {
          */
         relatedFindingsProductArns?: outputs.securityhub.AutomationRuleCriteriaRelatedFindingsProductArn[];
         /**
-         * The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+         * ARN of the application that is related to a finding. Documented below.
          */
         resourceApplicationArns?: outputs.securityhub.AutomationRuleCriteriaResourceApplicationArn[];
         /**
@@ -111108,7 +114365,7 @@ export namespace securityhub {
          */
         resourceDetailsOthers?: outputs.securityhub.AutomationRuleCriteriaResourceDetailsOther[];
         /**
-         * The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+         * Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
          */
         resourceIds?: outputs.securityhub.AutomationRuleCriteriaResourceId[];
         /**
@@ -111542,7 +114799,7 @@ export namespace securityhub {
          */
         enabledStandardArns?: string[];
         /**
-         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. It must be defined if `serviceEnabled` is set to true. See below.
          */
         securityControlsConfiguration?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration;
         /**
@@ -111696,7 +114953,7 @@ export namespace securityhub {
          */
         instanceName: string;
         /**
-         * Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+         * ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
          */
         secretArn: string;
     }
@@ -112046,7 +115303,7 @@ export namespace securityhub {
          */
         resourceAwsEc2InstanceIamInstanceProfileArns?: outputs.securityhub.InsightFiltersResourceAwsEc2InstanceIamInstanceProfileArn[];
         /**
-         * The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+         * AMI ID of the instance. See String Filter below for more details.
          */
         resourceAwsEc2InstanceImageIds?: outputs.securityhub.InsightFiltersResourceAwsEc2InstanceImageId[];
         /**
@@ -113061,7 +116318,7 @@ export namespace securitylake {
 
     export interface CustomLogSourceConfigurationCrawlerConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+         * The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
          */
         roleArn: string;
     }
@@ -113201,7 +116458,7 @@ export namespace securitylake {
          */
         httpMethod?: string;
         /**
-         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+         * ARN of the EventBridge API destinations IAM role that you created.
          * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
          */
         targetRoleArn: string;
@@ -113696,7 +116953,7 @@ export namespace servicequotas {
 export namespace ses {
     export interface ConfigurationSetDeliveryOptions {
         /**
-         * Whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
+         * Whether messages that use the configuration set are required to use TLS. If the value is `Require`, messages are only delivered if a TLS connection can be established. If the value is `Optional`, messages can be delivered in plain text if a TLS connection can't be established. Valid values: `Require` or `Optional`. Defaults to `Optional`.
          */
         tlsPolicy?: string;
     }
@@ -113710,166 +116967,166 @@ export namespace ses {
 
     export interface EventDestinationCloudwatchDestination {
         /**
-         * The default value for the event
+         * Default value for the event
          */
         defaultValue: string;
         /**
-         * The name for the dimension
+         * Name for the dimension
          */
         dimensionName: string;
         /**
-         * The source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
+         * Source for the value. May be any of `"messageTag"`, `"emailHeader"` or `"linkTag"`.
          */
         valueSource: string;
     }
 
     export interface EventDestinationKinesisDestination {
         /**
-         * The ARN of the role that has permissions to access the Kinesis Stream
+         * ARN of the role that has permissions to access the Kinesis Stream
          */
         roleArn: string;
         /**
-         * The ARN of the Kinesis Stream
+         * ARN of the Kinesis Stream
          */
         streamArn: string;
     }
 
     export interface EventDestinationSnsDestination {
         /**
-         * The ARN of the SNS topic
+         * ARN of the SNS topic
          */
         topicArn: string;
     }
 
     export interface ReceiptRuleAddHeaderAction {
         /**
-         * The name of the header to add
+         * Name of the header to add.
          */
         headerName: string;
         /**
-         * The value of the header to add
+         * Value of the header to add.
          */
         headerValue: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
     }
 
     export interface ReceiptRuleBounceAction {
         /**
-         * The message to send
+         * Message to send.
          */
         message: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The email address of the sender
+         * Email address of the sender.
          */
         sender: string;
         /**
-         * The RFC 5321 SMTP reply code
+         * RFC 5321 SMTP reply code.
          */
         smtpReplyCode: string;
         /**
-         * The RFC 3463 SMTP enhanced status code
+         * RFC 3463 SMTP enhanced status code.
          */
         statusCode?: string;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn?: string;
     }
 
     export interface ReceiptRuleLambdaAction {
         /**
-         * The ARN of the Lambda function to invoke
+         * ARN of the Lambda function to invoke.
          */
         functionArn: string;
         /**
-         * `Event` or `RequestResponse`
+         * `Event` or `RequestResponse`.
          */
         invocationType?: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn?: string;
     }
 
     export interface ReceiptRuleS3Action {
         /**
-         * The name of the S3 bucket
+         * Name of the S3 bucket.
          */
         bucketName: string;
         /**
-         * The ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic
+         * ARN of the IAM role to be used by Amazon Simple Email Service while writing to the Amazon S3 bucket, optionally encrypting your mail via the provided customer managed key, and publishing to the Amazon SNS topic.
          */
         iamRoleArn?: string;
         /**
-         * The ARN of the KMS key
+         * ARN of the KMS key.
          */
         kmsKeyArn?: string;
         /**
-         * The key prefix of the S3 bucket
+         * Key prefix of the S3 bucket.
          */
         objectKeyPrefix?: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn?: string;
     }
 
     export interface ReceiptRuleSnsAction {
         /**
-         * The encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
+         * Encoding to use for the email within the Amazon SNS notification. Default value is `UTF-8`.
          */
         encoding?: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn: string;
     }
 
     export interface ReceiptRuleStopAction {
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The scope to apply. The only acceptable value is `RuleSet`.
+         * Scope to apply. The only acceptable value is `RuleSet`.
          */
         scope: string;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn?: string;
     }
 
     export interface ReceiptRuleWorkmailAction {
         /**
-         * The ARN of the WorkMail organization
+         * ARN of the WorkMail organization.
          */
         organizationArn: string;
         /**
-         * The position of the action in the receipt rule
+         * Position of the action in the receipt rule.
          */
         position: number;
         /**
-         * The ARN of an SNS topic to notify
+         * ARN of an SNS topic to notify.
          */
         topicArn?: string;
     }
@@ -113879,36 +117136,36 @@ export namespace ses {
 export namespace sesv2 {
     export interface AccountVdmAttributesDashboardAttributes {
         /**
-         * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         * Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
          */
         engagementMetrics?: string;
     }
 
     export interface AccountVdmAttributesGuardianAttributes {
         /**
-         * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         * Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
          */
         optimizedSharedDelivery?: string;
     }
 
     export interface ConfigurationSetDeliveryOptions {
         /**
-         * The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+         * Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
          */
         maxDeliverySeconds?: number;
         /**
-         * The name of the dedicated IP pool to associate with the configuration set.
+         * Name of the dedicated IP pool to associate with the configuration set.
          */
         sendingPoolName?: string;
         /**
-         * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+         * Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
          */
         tlsPolicy?: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestination {
         /**
-         * An object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
+         * Object that defines an Amazon CloudWatch destination for email events. See `cloudWatchDestination` Block for details.
          */
         cloudWatchDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination;
         /**
@@ -113916,11 +117173,11 @@ export namespace sesv2 {
          */
         enabled?: boolean;
         /**
-         * An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
+         * Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `eventBridgeDestination` Block for details.
          */
         eventBridgeDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination;
         /**
-         * An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
+         * Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesisFirehoseDestination` Block for details.
          */
         kinesisFirehoseDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination;
         /**
@@ -113928,69 +117185,72 @@ export namespace sesv2 {
          */
         matchingEventTypes: string[];
         /**
-         * An object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
+         * Object that defines an AWS End User Messaging project destination for email events. See `pinpointDestination` Block for details.
          */
         pinpointDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationPinpointDestination;
         /**
-         * An object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
+         * Object that defines an Amazon SNS destination for email events. See `snsDestination` Block for details.
          */
         snsDestination?: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationSnsDestination;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationCloudWatchDestination {
         /**
-         * An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
+         * Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimensionConfiguration` Block for details.
          */
         dimensionConfigurations: outputs.sesv2.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration[];
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration {
         /**
-         * The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+         * Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
          */
         defaultDimensionValue: string;
         /**
-         * The name of an Amazon CloudWatch dimension associated with an email sending metric.
+         * Name of an Amazon CloudWatch dimension associated with an email sending metric.
          */
         dimensionName: string;
         /**
-         * The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+         * Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
          */
         dimensionValueSource: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationEventBridgeDestination {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+         * ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
          */
         eventBusArn: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+         * ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
          */
         deliveryStreamArn: string;
         /**
-         * The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+         * ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
          */
         iamRoleArn: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationPinpointDestination {
+        /**
+         * ARN of the AWS End User Messaging project to send email events to.
+         */
         applicationArn: string;
     }
 
     export interface ConfigurationSetEventDestinationEventDestinationSnsDestination {
         /**
-         * The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+         * ARN of the Amazon SNS topic to publish email events to.
          */
         topicArn: string;
     }
 
     export interface ConfigurationSetReputationOptions {
         /**
-         * The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+         * Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
          */
         lastFreshStart: string;
         /**
@@ -114008,43 +117268,43 @@ export namespace sesv2 {
 
     export interface ConfigurationSetSuppressionOptions {
         /**
-         * A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+         * List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
          */
         suppressedReasons?: string[];
     }
 
     export interface ConfigurationSetTrackingOptions {
         /**
-         * The domain to use for tracking open and click events.
+         * Domain to use for tracking open and click events.
          */
         customRedirectDomain: string;
         /**
-         * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
          */
         httpsPolicy?: string;
     }
 
     export interface ConfigurationSetVdmOptions {
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+         * Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
          */
         dashboardOptions?: outputs.sesv2.ConfigurationSetVdmOptionsDashboardOptions;
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+         * Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
          */
         guardianOptions?: outputs.sesv2.ConfigurationSetVdmOptionsGuardianOptions;
     }
 
     export interface ConfigurationSetVdmOptionsDashboardOptions {
         /**
-         * Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+         * Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
          */
         engagementMetrics?: string;
     }
 
     export interface ConfigurationSetVdmOptionsGuardianOptions {
         /**
-         * Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+         * Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
          */
         optimizedSharedDelivery?: string;
     }
@@ -114072,33 +117332,33 @@ export namespace sesv2 {
 
     export interface EmailIdentityDkimSigningAttributes {
         /**
-         * [Easy DKIM] The key length of the DKIM key pair in use.
+         * [Easy DKIM] Key length of the DKIM key pair in use.
          */
         currentSigningKeyLength: string;
         /**
-         * [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+         * [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
          *
          * > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
          */
         domainSigningPrivateKey?: string;
         /**
-         * [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+         * [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
          */
         domainSigningSelector?: string;
         /**
-         * [Easy DKIM] The last time a key pair was generated for this identity.
+         * [Easy DKIM] Last time a key pair was generated for this identity.
          */
         lastKeyGenerationTimestamp: string;
         /**
-         * [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+         * [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
          */
         nextSigningKeyLength: string;
         /**
-         * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+         * How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          */
         signingAttributesOrigin: string;
         /**
-         * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+         * Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          */
         status: string;
         /**
@@ -114109,76 +117369,76 @@ export namespace sesv2 {
 
     export interface GetConfigurationSetDeliveryOption {
         /**
-         * The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+         * Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
          */
         maxDeliverySeconds: number;
         /**
-         * The name of the dedicated IP pool to associate with the configuration set.
+         * Name of the dedicated IP pool to associate with the configuration set.
          */
         sendingPoolName: string;
         /**
-         * Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+         * Whether messages that use the configuration set are required to use TLS.
          */
         tlsPolicy: string;
     }
 
     export interface GetConfigurationSetReputationOption {
         /**
-         * The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+         * Date and time (in Unix time) when the reputation metrics were last given a fresh start.
          */
         lastFreshStart: string;
         /**
-         * Specifies whether tracking of reputation metrics is enabled.
+         * Whether tracking of reputation metrics is enabled.
          */
         reputationMetricsEnabled: boolean;
     }
 
     export interface GetConfigurationSetSendingOption {
         /**
-         * Specifies whether email sending is enabled.
+         * Whether email sending is enabled.
          */
         sendingEnabled: boolean;
     }
 
     export interface GetConfigurationSetSuppressionOption {
         /**
-         * A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+         * List that contains the reasons that email addresses are automatically added to the suppression list for your account.
          */
         suppressedReasons: string[];
     }
 
     export interface GetConfigurationSetTrackingOption {
         /**
-         * The domain to use for tracking open and click events.
+         * Domain used for tracking open and click events.
          */
         customRedirectDomain: string;
         /**
-         * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
          */
         httpsPolicy: string;
     }
 
     export interface GetConfigurationSetVdmOption {
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+         * Additional settings for your VDM configuration as applicable to the Dashboard.
          */
         dashboardOptions: outputs.sesv2.GetConfigurationSetVdmOptionDashboardOption[];
         /**
-         * Specifies additional settings for your VDM configuration as applicable to the Guardian.
+         * Additional settings for your VDM configuration as applicable to the Guardian.
          */
         guardianOptions: outputs.sesv2.GetConfigurationSetVdmOptionGuardianOption[];
     }
 
     export interface GetConfigurationSetVdmOptionDashboardOption {
         /**
-         * Specifies the status of your VDM engagement metrics collection.
+         * Status of your VDM engagement metrics collection.
          */
         engagementMetrics: string;
     }
 
     export interface GetConfigurationSetVdmOptionGuardianOption {
         /**
-         * Specifies the status of your VDM optimized shared delivery.
+         * Status of your VDM optimized shared delivery.
          */
         optimizedSharedDelivery: string;
     }
@@ -114189,11 +117449,11 @@ export namespace sesv2 {
          */
         ip: string;
         /**
-         * Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+         * How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
          */
         warmupPercentage: number;
         /**
-         * The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+         * Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
          */
         warmupStatus: string;
     }
@@ -114203,7 +117463,13 @@ export namespace sesv2 {
          * [Easy DKIM] The key length of the DKIM key pair in use.
          */
         currentSigningKeyLength: string;
+        /**
+         * [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+         */
         domainSigningPrivateKey: string;
+        /**
+         * [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+         */
         domainSigningSelector: string;
         /**
          * [Easy DKIM] The last time a key pair was generated for this identity.
@@ -114214,17 +117480,49 @@ export namespace sesv2 {
          */
         nextSigningKeyLength: string;
         /**
-         * A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+         * String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
          */
         signingAttributesOrigin: string;
         /**
-         * Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+         * Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
          */
         status: string;
         /**
          * If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
          */
         tokens: string[];
+    }
+
+    export interface MultiRegionEndpointDetails {
+        /**
+         * Secondary region route configuration. See `routesDetails` Block below.
+         */
+        routesDetails?: outputs.sesv2.MultiRegionEndpointDetailsRoutesDetails;
+    }
+
+    export interface MultiRegionEndpointDetailsRoutesDetails {
+        /**
+         * Name of the secondary AWS region.
+         */
+        region: string;
+    }
+
+    export interface MultiRegionEndpointRoute {
+        /**
+         * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+         */
+        region: string;
+    }
+
+    export interface MultiRegionEndpointTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
     }
 
 }
@@ -114247,7 +117545,7 @@ export namespace sfn {
 
     export interface AliasRoutingConfiguration {
         /**
-         * The Amazon Resource Name (ARN) of the state machine version.
+         * ARN of the state machine version.
          */
         stateMachineVersionArn: string;
         /**
@@ -114286,7 +117584,7 @@ export namespace sfn {
          */
         level?: string;
         /**
-         * Amazon Resource Name (ARN) of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
+         * ARN of a CloudWatch log group. Make sure the State Machine has the correct IAM policies for logging. The ARN must end with `:*`
          */
         logDestination?: string;
     }
@@ -114483,7 +117781,7 @@ export namespace signer {
 
     export interface SigningProfileSigningMaterial {
         /**
-         * The Amazon Resource Name (ARN) of the certificates that is used to sign your code.
+         * ARN of the certificates that is used to sign your code.
          */
         certificateArn: string;
     }
@@ -114956,7 +118254,7 @@ export namespace ssm {
          */
         parameters?: outputs.ssm.MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersParameter[];
         /**
-         * The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
+         * ARN of the AWS Identity and Access Management (IAM) service role to use to publish Amazon Simple Notification Service (Amazon SNS) notifications for maintenance window Run Command tasks.
          */
         serviceRoleArn?: string;
         /**
@@ -114978,7 +118276,7 @@ export namespace ssm {
 
     export interface MaintenanceWindowTaskTaskInvocationParametersRunCommandParametersNotificationConfig {
         /**
-         * An Amazon Resource Name (ARN) for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
+         * ARN for a Simple Notification Service (SNS) topic. Run Command pushes notifications about command status changes to this topic.
          */
         notificationArn?: string;
         /**
@@ -115179,7 +118477,7 @@ export namespace ssmcontacts {
 
     export interface GetPlanStageTargetContactTargetInfo {
         /**
-         * The Amazon Resource Name (ARN) of the contact or escalation plan.
+         * ARN of the contact or escalation plan.
          */
         contactId: string;
         isEssential: boolean;
@@ -115209,7 +118507,7 @@ export namespace ssmcontacts {
 
     export interface PlanStageTargetChannelTargetInfo {
         /**
-         * The Amazon Resource Name (ARN) of the contact channel.
+         * The ARN of the contact channel.
          */
         contactChannelId: string;
         /**
@@ -115220,7 +118518,7 @@ export namespace ssmcontacts {
 
     export interface PlanStageTargetContactTargetInfo {
         /**
-         * The Amazon Resource Name (ARN) of the contact.
+         * The ARN of the contact.
          */
         contactId?: string;
         /**
@@ -115234,7 +118532,7 @@ export namespace ssmcontacts {
 export namespace ssmincidents {
     export interface GetReplicationSetRegion {
         /**
-         * The ARN of the AWS Key Management Service (AWS KMS) encryption key.
+         * ARN of the KMS encryption key.
          */
         kmsKeyArn: string;
         /**
@@ -115277,7 +118575,7 @@ export namespace ssmincidents {
          */
         parameters: outputs.ssmincidents.GetResponsePlanActionSsmAutomationParameter[];
         /**
-         * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+         * The ARN of the role that the automation document assumes when it runs commands.
          */
         roleArn: string;
         /**
@@ -115355,7 +118653,7 @@ export namespace ssmincidents {
 
     export interface ReplicationSetRegion {
         /**
-         * The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+         * ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
          */
         kmsKeyArn?: string;
         /**
@@ -115398,7 +118696,7 @@ export namespace ssmincidents {
          */
         parameters?: outputs.ssmincidents.ResponsePlanActionSsmAutomationParameter[];
         /**
-         * The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+         * The ARN of the role that the automation document assumes when it runs commands.
          */
         roleArn: string;
         /**
@@ -115721,7 +119019,7 @@ export namespace storagegateway {
 
     export interface GatewayGatewayNetworkInterface {
         /**
-         * The Internet Protocol version 4 (IPv4) address of the interface.
+         * IP version 4 (IPv4) address of the interface.
          */
         ipv4Address: string;
     }
@@ -116723,7 +120021,7 @@ export namespace transfer {
          */
         trustedHostKeys?: string[];
         /**
-         * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user's private key, password, or both. The identifier can be either the ARN or the name of the secret.
          */
         userSecretId?: string;
     }
@@ -116814,7 +120112,7 @@ export namespace transfer {
          */
         vpcEndpointId: string;
         /**
-         * VPC ID of the virtual private cloud in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+         * VPC ID of the VPC in which the SFTP server's endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
          */
         vpcId?: string;
     }
@@ -117554,7 +120852,7 @@ export namespace verifiedpermissions {
          */
         groupConfiguration?: outputs.verifiedpermissions.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration;
         /**
-         * The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+         * ARN of the Amazon Cognito user pool that contains the identities to be authorized.
          */
         userPoolArn: string;
     }
@@ -118023,7 +121321,7 @@ export namespace vpclattice {
 
     export interface ListenerDefaultActionForwardTargetGroup {
         /**
-         * ID or Amazon Resource Name (ARN) of the target group.
+         * ID or ARN of the target group.
          */
         targetGroupIdentifier?: string;
         /**
@@ -118621,7 +121919,7 @@ export namespace waf {
 
     export interface WebAclLoggingConfiguration {
         /**
-         * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+         * ARN of Kinesis Firehose Delivery Stream
          */
         logDestination: string;
         /**
@@ -118940,7 +122238,7 @@ export namespace wafregional {
 
     export interface WebAclLoggingConfiguration {
         /**
-         * Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+         * ARN of Kinesis Firehose Delivery Stream
          */
         logDestination: string;
         /**
@@ -119743,14 +123041,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -119811,7 +123109,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementIpSetReferenceStatement {
         /**
-         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * ARN of the IP Set that this statement references.
          */
         arn: string;
         /**
@@ -120377,14 +123675,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementByteMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -120445,7 +123743,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementIpSetReferenceStatement {
         /**
-         * The Amazon Resource Name (ARN) of the IP Set that this statement references.
+         * ARN of the IP Set that this statement references.
          */
         arn: string;
         /**
@@ -120700,14 +123998,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -120746,7 +124044,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatement {
         /**
-         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         * ARN of the Regex Pattern Set that this statement references.
          */
         arn: string;
         /**
@@ -120950,14 +124248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -121204,14 +124502,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -121454,14 +124752,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -121700,14 +124998,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRateBasedStatementScopeDownStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -121950,14 +125248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -121996,7 +125294,7 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatement {
         /**
-         * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         * ARN of the Regex Pattern Set that this statement references.
          */
         arn: string;
         /**
@@ -122200,14 +125498,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementRegexPatternSetReferenceStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -122454,14 +125752,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSizeConstraintStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -122704,14 +126002,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -122950,14 +126248,14 @@ export namespace wafv2 {
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleHeader {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the header to inspect. Maximum length of 64. AWS returns header names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
 
     export interface RuleGroupRuleStatementXssMatchStatementFieldToMatchSingleQueryArgument {
         /**
-         * The name of the query header to inspect. This setting must be provided as lower case characters.
+         * The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
          */
         name: string;
     }
@@ -129876,7 +133174,7 @@ export namespace workspaces {
 
     export interface DirectoryCertificateBasedAuthProperties {
         /**
-         * The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+         * ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
          */
         certificateAuthorityArn?: string;
         /**
@@ -129925,6 +133223,10 @@ export namespace workspaces {
 
     export interface DirectoryWorkspaceAccessProperties {
         /**
+         * Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+         */
+        accessEndpointConfig?: outputs.workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfig;
+        /**
          * Indicates whether users can use Android devices to access their WorkSpaces.
          */
         deviceTypeAndroid?: string;
@@ -129956,6 +133258,28 @@ export namespace workspaces {
          * Indicates whether users can use zero client devices to access their WorkSpaces.
          */
         deviceTypeZeroclient?: string;
+    }
+
+    export interface DirectoryWorkspaceAccessPropertiesAccessEndpointConfig {
+        /**
+         * Set of access endpoints used to control the network paths that users use to access their WorkSpaces. Defined below.
+         */
+        accessEndpoints: outputs.workspaces.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint[];
+        /**
+         * List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable. Valid value is `PCOIP`.
+         */
+        internetFallbackProtocols?: string[];
+    }
+
+    export interface DirectoryWorkspaceAccessPropertiesAccessEndpointConfigAccessEndpoint {
+        /**
+         * Type of access endpoint. Valid value is `STREAMING_WSP`.
+         */
+        accessEndpointType: string;
+        /**
+         * Identifier of the VPC endpoint that the access endpoint uses.
+         */
+        vpcEndpointId: string;
     }
 
     export interface DirectoryWorkspaceCreationProperties {
@@ -130049,6 +133373,10 @@ export namespace workspaces {
 
     export interface GetDirectoryWorkspaceAccessProperty {
         /**
+         * Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet.
+         */
+        accessEndpointConfigs: outputs.workspaces.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig[];
+        /**
          * (Optional) Indicates whether users can use Android devices to access their WorkSpaces.
          */
         deviceTypeAndroid: string;
@@ -130080,6 +133408,28 @@ export namespace workspaces {
          * (Optional) Indicates whether users can use zero client devices to access their WorkSpaces.
          */
         deviceTypeZeroclient: string;
+    }
+
+    export interface GetDirectoryWorkspaceAccessPropertyAccessEndpointConfig {
+        /**
+         * Set of access endpoints used to control the network paths that users use to access their WorkSpaces.
+         */
+        accessEndpoints: outputs.workspaces.GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpoint[];
+        /**
+         * List of protocols that fall back to the public internet when streaming over a VPC endpoint is unavailable.
+         */
+        internetFallbackProtocols: string[];
+    }
+
+    export interface GetDirectoryWorkspaceAccessPropertyAccessEndpointConfigAccessEndpoint {
+        /**
+         * Type of access endpoint.
+         */
+        accessEndpointType: string;
+        /**
+         * Identifier of the VPC endpoint that the access endpoint uses.
+         */
+        vpcEndpointId: string;
     }
 
     export interface GetDirectoryWorkspaceCreationProperty {

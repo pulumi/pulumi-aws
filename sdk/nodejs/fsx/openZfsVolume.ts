@@ -60,7 +60,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -191,7 +191,7 @@ export class OpenZfsVolume extends pulumi.CustomResource {
  */
 export interface OpenZfsVolumeState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

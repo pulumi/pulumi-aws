@@ -50,14 +50,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * ARNs of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
     @Import(name="gatewayLoadBalancerArns")
     private @Nullable Output<List<String>> gatewayLoadBalancerArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+     * @return ARNs of one or more Gateway Load Balancers for the endpoint service.
      * 
      */
     public Optional<Output<List<String>>> gatewayLoadBalancerArns() {
@@ -65,14 +65,14 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * ARNs of one or more Network Load Balancers for the endpoint service.
      * 
      */
     @Import(name="networkLoadBalancerArns")
     private @Nullable Output<List<String>> networkLoadBalancerArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+     * @return ARNs of one or more Network Load Balancers for the endpoint service.
      * 
      */
     public Optional<Output<List<String>>> networkLoadBalancerArns() {
@@ -239,7 +239,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gatewayLoadBalancerArns Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+         * @param gatewayLoadBalancerArns ARNs of one or more Gateway Load Balancers for the endpoint service.
          * 
          * @return builder
          * 
@@ -250,7 +250,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gatewayLoadBalancerArns Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+         * @param gatewayLoadBalancerArns ARNs of one or more Gateway Load Balancers for the endpoint service.
          * 
          * @return builder
          * 
@@ -260,7 +260,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param gatewayLoadBalancerArns Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+         * @param gatewayLoadBalancerArns ARNs of one or more Gateway Load Balancers for the endpoint service.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param networkLoadBalancerArns Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+         * @param networkLoadBalancerArns ARNs of one or more Network Load Balancers for the endpoint service.
          * 
          * @return builder
          * 
@@ -281,7 +281,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param networkLoadBalancerArns Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+         * @param networkLoadBalancerArns ARNs of one or more Network Load Balancers for the endpoint service.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class VpcEndpointServiceArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param networkLoadBalancerArns Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+         * @param networkLoadBalancerArns ARNs of one or more Network Load Balancers for the endpoint service.
          * 
          * @return builder
          * 

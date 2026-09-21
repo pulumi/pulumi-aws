@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+ * - `arn` (String) ARN of the IAM service-linked role.
  *
  * Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
  *
@@ -59,7 +59,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -148,7 +148,7 @@ export class ServiceLinkedRole extends pulumi.CustomResource {
  */
 export interface ServiceLinkedRoleState {
     /**
-     * The Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

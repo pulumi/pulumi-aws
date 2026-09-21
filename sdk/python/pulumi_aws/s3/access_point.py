@@ -43,7 +43,7 @@ class AccessPointArgs:
         :param pulumi.Input['AccessPointPublicAccessBlockConfigurationArgs'] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         pulumi.set(__self__, "bucket", bucket)
         if account_id is not None:
@@ -165,7 +165,7 @@ class AccessPointArgs:
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input[Optional['AccessPointVpcConfigurationArgs']]:
         """
-        Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         return pulumi.get(self, "vpc_configuration")
 
@@ -213,7 +213,7 @@ class _AccessPointState:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        :param pulumi.Input['AccessPointVpcConfigurationArgs'] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
@@ -434,7 +434,7 @@ class _AccessPointState:
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Input[Optional['AccessPointVpcConfigurationArgs']]:
         """
-        Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         return pulumi.get(self, "vpc_configuration")
 
@@ -491,11 +491,11 @@ class AccessPoint(pulumi.CustomResource):
         example = aws.s3control.Bucket("example", bucket="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.arn,
-            name="example",
             vpc_configuration={
                 "vpc_id": example_vpc.id,
-            })
+            },
+            bucket=example.arn,
+            name="example")
         ```
 
         ### AWS Partition Directory Bucket
@@ -506,10 +506,10 @@ class AccessPoint(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=test["bucket"],
             name="example--zoneId--xa-s3")
@@ -546,7 +546,7 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[Union['AccessPointPublicAccessBlockConfigurationArgs', 'AccessPointPublicAccessBlockConfigurationArgsDict']] public_access_block_configuration: Configuration block to manage the `PublicAccessBlock` configuration that you want to apply to this Amazon S3 bucket. You can enable the configuration options in any combination. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         ...
     @overload
@@ -586,11 +586,11 @@ class AccessPoint(pulumi.CustomResource):
         example = aws.s3control.Bucket("example", bucket="example")
         example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
         example_access_point = aws.s3.AccessPoint("example",
-            bucket=example.arn,
-            name="example",
             vpc_configuration={
                 "vpc_id": example_vpc.id,
-            })
+            },
+            bucket=example.arn,
+            name="example")
         ```
 
         ### AWS Partition Directory Bucket
@@ -601,10 +601,10 @@ class AccessPoint(pulumi.CustomResource):
 
         available = aws.get_availability_zones(state="available")
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--zoneId--x-s3",
             location={
                 "name": available.zone_ids[0],
-            })
+            },
+            bucket="example--zoneId--x-s3")
         example_access_point = aws.s3.AccessPoint("example",
             bucket=test["bucket"],
             name="example--zoneId--xa-s3")
@@ -730,7 +730,7 @@ class AccessPoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the bucket. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        :param pulumi.Input[Union['AccessPointVpcConfigurationArgs', 'AccessPointVpcConfigurationArgsDict']] vpc_configuration: Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -880,7 +880,7 @@ class AccessPoint(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfiguration")
     def vpc_configuration(self) -> pulumi.Output[Optional['outputs.AccessPointVpcConfiguration']]:
         """
-        Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         """
         return pulumi.get(self, "vpc_configuration")
 

@@ -208,7 +208,7 @@ class _ServerlessCollectionState:
         """
         Input properties used for looking up and filtering ServerlessCollection resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
@@ -260,7 +260,7 @@ class _ServerlessCollectionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the collection.
+        ARN of the collection.
         """
         return pulumi.get(self, "arn")
 
@@ -496,12 +496,12 @@ class ServerlessCollection(pulumi.CustomResource):
             name="example-group",
             standby_replicas="ENABLED")
         example_serverless_collection = aws.opensearch.ServerlessCollection("example",
-            name="example",
-            type="SEARCH",
-            collection_group_name=example_serverless_collection_group.name,
             encryption_configs=[{
                 "kms_key_arn": example.arn,
-            }])
+            }],
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name)
         ```
 
         ## Import
@@ -587,12 +587,12 @@ class ServerlessCollection(pulumi.CustomResource):
             name="example-group",
             standby_replicas="ENABLED")
         example_serverless_collection = aws.opensearch.ServerlessCollection("example",
-            name="example",
-            type="SEARCH",
-            collection_group_name=example_serverless_collection_group.name,
             encryption_configs=[{
                 "kms_key_arn": example.arn,
-            }])
+            }],
+            name="example",
+            type="SEARCH",
+            collection_group_name=example_serverless_collection_group.name)
         ```
 
         ## Import
@@ -696,7 +696,7 @@ class ServerlessCollection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the collection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the collection.
         :param pulumi.Input[_builtins.str] collection_endpoint: Collection-specific endpoint used to submit index, search, and data upload requests to an OpenSearch Serverless collection.
         :param pulumi.Input[_builtins.str] collection_group_name: Name of the collection group to associate with this collection.
         :param pulumi.Input[_builtins.str] dashboard_endpoint: Collection-specific endpoint used to access OpenSearch Dashboards.
@@ -738,7 +738,7 @@ class ServerlessCollection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the collection.
+        ARN of the collection.
         """
         return pulumi.get(self, "arn")
 

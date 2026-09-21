@@ -32,11 +32,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("example"),
-//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r4.large.search"),
 //				},
+//				DomainName:    pulumi.String("example"),
+//				EngineVersion: pulumi.String("Elasticsearch_7.10"),
 //				Tags: pulumi.StringMap{
 //					"Domain": pulumi.String("TestDomain"),
 //				},
@@ -87,21 +87,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "*",
-//								Identifiers: []string{
-//									"*",
-//								},
-//							},
-//						},
-//						Actions: []string{
-//							"es:*",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test:     "IpAddress",
@@ -110,6 +95,21 @@ import (
 //									"66.193.100.22/32",
 //								},
 //							},
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "*",
+//								Identifiers: []string{
+//									"*",
+//								},
+//							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"es:*",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("arn:aws:es:%v:%v:domain/%v/*", current.Region, currentGetCallerIdentity.AccountId, domain),
 //						},
 //					},
 //				},
@@ -155,7 +155,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -164,6 +163,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"logs:PutLogEvents",
 //							"logs:PutLogEventsBatch",
@@ -262,9 +262,6 @@ import (
 //				return err
 //			}
 //			exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
-//				Name:        pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
-//				Description: pulumi.String("Managed by Pulumi"),
-//				VpcId:       pulumi.String(example.Id),
 //				Ingress: ec2.SecurityGroupIngressArray{
 //					&ec2.SecurityGroupIngressArgs{
 //						FromPort: pulumi.Int(443),
@@ -275,6 +272,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:        pulumi.Sprintf("%v-opensearch-%v", vpc, domain),
+//				Description: pulumi.String("Managed by Pulumi"),
+//				VpcId:       pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -288,7 +288,6 @@ import (
 //			exampleGetPolicyDocument, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "*",
@@ -297,6 +296,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"es:*",
 //						},
@@ -310,8 +310,6 @@ import (
 //				return err
 //			}
 //			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String(domain),
-//				EngineVersion: pulumi.String("OpenSearch_1.0"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType:         pulumi.String("m4.large.search"),
 //					ZoneAwarenessEnabled: pulumi.Bool(true),
@@ -325,6 +323,8 @@ import (
 //						exampleSecurityGroup.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				DomainName:    pulumi.String(domain),
+//				EngineVersion: pulumi.String("OpenSearch_1.0"),
 //				AdvancedOptions: pulumi.StringMap{
 //					"rest.action.multi.allow_explicit_index": pulumi.String("true"),
 //				},
@@ -363,19 +363,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("ggkitty"),
-//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r5.large.search"),
 //				},
 //				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
-//					Enabled:                     pulumi.Bool(false),
-//					AnonymousAuthEnabled:        pulumi.Bool(true),
-//					InternalUserDatabaseEnabled: pulumi.Bool(true),
 //					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
 //						MasterUserName:     pulumi.String("example"),
 //						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
 //					},
+//					Enabled:                     pulumi.Bool(false),
+//					AnonymousAuthEnabled:        pulumi.Bool(true),
+//					InternalUserDatabaseEnabled: pulumi.Bool(true),
 //				},
 //				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
 //					Enabled: pulumi.Bool(true),
@@ -391,6 +389,8 @@ import (
 //					EbsEnabled: pulumi.Bool(true),
 //					VolumeSize: pulumi.Int(10),
 //				},
+//				DomainName:    pulumi.String("ggkitty"),
+//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
 //			})
 //			if err != nil {
 //				return err
@@ -418,19 +418,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
-//				DomainName:    pulumi.String("ggkitty"),
-//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
 //				ClusterConfig: &opensearch.DomainClusterConfigArgs{
 //					InstanceType: pulumi.String("r5.large.search"),
 //				},
 //				AdvancedSecurityOptions: &opensearch.DomainAdvancedSecurityOptionsArgs{
-//					Enabled:                     pulumi.Bool(true),
-//					AnonymousAuthEnabled:        pulumi.Bool(true),
-//					InternalUserDatabaseEnabled: pulumi.Bool(true),
 //					MasterUserOptions: &opensearch.DomainAdvancedSecurityOptionsMasterUserOptionsArgs{
 //						MasterUserName:     pulumi.String("example"),
 //						MasterUserPassword: pulumi.String("Barbarbarbar1!"),
 //					},
+//					Enabled:                     pulumi.Bool(true),
+//					AnonymousAuthEnabled:        pulumi.Bool(true),
+//					InternalUserDatabaseEnabled: pulumi.Bool(true),
 //				},
 //				EncryptAtRest: &opensearch.DomainEncryptAtRestArgs{
 //					Enabled: pulumi.Bool(true),
@@ -446,6 +444,8 @@ import (
 //					EbsEnabled: pulumi.Bool(true),
 //					VolumeSize: pulumi.Int(10),
 //				},
+//				DomainName:    pulumi.String("ggkitty"),
+//				EngineVersion: pulumi.String("Elasticsearch_7.1"),
 //			})
 //			if err != nil {
 //				return err

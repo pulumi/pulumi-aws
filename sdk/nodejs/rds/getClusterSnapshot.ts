@@ -26,6 +26,8 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
+ * }, {
+ *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,
@@ -62,14 +64,11 @@ export interface GetClusterSnapshotArgs {
      */
     dbClusterSnapshotIdentifier?: string;
     /**
-     * Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      */
     includePublic?: boolean;
     /**
-     * Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      */
     includeShared?: boolean;
     /**
@@ -81,14 +80,11 @@ export interface GetClusterSnapshotArgs {
      */
     region?: string;
     /**
-     * Type of snapshots to be returned. If you don't specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: string;
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB cluster snapshot.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
      */
     tags?: {[key: string]: string};
 }
@@ -106,11 +102,11 @@ export interface GetClusterSnapshotResult {
      */
     readonly availabilityZones: string[];
     /**
-     * Specifies the DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
+     * DB cluster identifier of the DB cluster that this DB cluster snapshot was created from.
      */
     readonly dbClusterIdentifier?: string;
     /**
-     * The ARN for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      */
     readonly dbClusterSnapshotArn: string;
     readonly dbClusterSnapshotIdentifier?: string;
@@ -147,6 +143,9 @@ export interface GetClusterSnapshotResult {
      */
     readonly snapshotCreateTime: string;
     readonly snapshotType?: string;
+    /**
+     * DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     */
     readonly sourceDbClusterSnapshotArn: string;
     /**
      * Status of this DB Cluster Snapshot.
@@ -187,6 +186,8 @@ export interface GetClusterSnapshotResult {
  *     clusterIdentifier: "development_cluster",
  *     snapshotIdentifier: developmentFinalSnapshot.then(developmentFinalSnapshot => developmentFinalSnapshot.id),
  *     dbSubnetGroupName: "my_db_subnet_group",
+ * }, {
+ *     ignoreChanges: ["snapshotIdentifier"],
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,
@@ -223,14 +224,11 @@ export interface GetClusterSnapshotOutputArgs {
      */
     dbClusterSnapshotIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Set this value to true to include manual DB Cluster Snapshots that are public and can be
-     * copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+     * Set this value to true to include manual DB Cluster Snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
      */
     includePublic?: pulumi.Input<boolean | undefined>;
     /**
-     * Set this value to true to include shared manual DB Cluster Snapshots from other
-     * AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-     * The default is `false`.
+     * Set this value to true to include shared manual DB Cluster Snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
      */
     includeShared?: pulumi.Input<boolean | undefined>;
     /**
@@ -242,14 +240,11 @@ export interface GetClusterSnapshotOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Type of snapshots to be returned. If you don't specify a SnapshotType
-     * value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not
-     * included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+     * Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual DB cluster snapshots are returned. Shared and public DB Cluster Snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
      */
     snapshotType?: pulumi.Input<string | undefined>;
     /**
-     * Mapping of tags, each pair of which must exactly match
-     * a pair on the desired DB cluster snapshot.
+     * Mapping of tags, each pair of which must exactly match a pair on the desired DB cluster snapshot.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

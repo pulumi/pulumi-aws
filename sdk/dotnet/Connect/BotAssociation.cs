@@ -29,12 +29,12 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var example = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = "us-west-2",
     ///             Name = "Test",
     ///         },
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///     });
     /// 
     /// });
@@ -54,12 +54,12 @@ namespace Pulumi.Aws.Connect
     /// 
     ///     var example = new Aws.Lex.Intent("example", new()
     ///     {
-    ///         CreateVersion = true,
-    ///         Name = "connect_lex_intent",
     ///         FulfillmentActivity = new Aws.Lex.Inputs.IntentFulfillmentActivityArgs
     ///         {
     ///             Type = "ReturnIntent",
     ///         },
+    ///         CreateVersion = true,
+    ///         Name = "connect_lex_intent",
     ///         SampleUtterances = new[]
     ///         {
     ///             "I would like to pick up flowers.",
@@ -81,7 +81,6 @@ namespace Pulumi.Aws.Connect
     ///         },
     ///         ClarificationPrompt = new Aws.Lex.Inputs.BotClarificationPromptArgs
     ///         {
-    ///             MaxAttempts = 2,
     ///             Messages = new[]
     ///             {
     ///                 new Aws.Lex.Inputs.BotClarificationPromptMessageArgs
@@ -90,6 +89,7 @@ namespace Pulumi.Aws.Connect
     ///                     ContentType = "PlainText",
     ///                 },
     ///             },
+    ///             MaxAttempts = 2,
     ///         },
     ///         Intents = new[]
     ///         {
@@ -106,12 +106,12 @@ namespace Pulumi.Aws.Connect
     /// 
     ///     var exampleBotAssociation = new Aws.Connect.BotAssociation("example", new()
     ///     {
-    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///         LexBot = new Aws.Connect.Inputs.BotAssociationLexBotArgs
     ///         {
     ///             LexRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             Name = exampleBot.Name,
     ///         },
+    ///         InstanceId = exampleAwsConnectInstance.Id,
     ///     });
     /// 
     /// });

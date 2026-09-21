@@ -62,7 +62,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -73,7 +73,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -84,7 +84,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -95,7 +95,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -106,7 +106,7 @@ public final class AwsFunctions {
     /**
      * Builds an ARN from its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -117,7 +117,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -128,7 +128,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -139,7 +139,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -150,7 +150,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -161,7 +161,7 @@ public final class AwsFunctions {
     /**
      * Parses an ARN into its constituent parts.
      * 
-     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+     * See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
      * 
      * ## Signature
      * 
@@ -1126,13 +1126,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1266,13 +1266,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1406,13 +1406,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1546,13 +1546,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1686,13 +1686,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1826,13 +1826,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -1966,13 +1966,13 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
-     *             .allAvailabilityZones(true)
      *             .filters(GetAvailabilityZonesFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values(                
      *                     "not-opted-in",
      *                     "opted-in")
      *                 .build())
+     *             .allAvailabilityZones(true)
      *             .build());
      * 
      *     }
@@ -2073,22 +2073,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2160,22 +2160,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2247,22 +2247,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2334,22 +2334,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2421,22 +2421,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2508,22 +2508,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -2595,22 +2595,22 @@ public final class AwsFunctions {
      *         final var allowBillingLogging = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions(                    
      *                         "s3:GetBucketAcl",
      *                         "s3:GetBucketPolicy")
      *                     .resources(billingLogs.arn())
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .effect("Allow")
      *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("AWS")
      *                         .identifiers(main.arn())
      *                         .build())
+     *                     .effect("Allow")
      *                     .actions("s3:PutObject")
      *                     .resources(billingLogs.arn().applyValue(_arn -> String.format("%s/*", _arn)))
      *                     .build())
@@ -3284,7 +3284,6 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
-     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(443)
      *                 .toPort(443)
@@ -3292,6 +3291,7 @@ public final class AwsFunctions {
      *                 .cidrBlocks(europeanEc2.cidrBlocks())
      *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
+     *             .name("from_europe")
      *             .tags(Map.ofEntries(
      *                 Map.entry("CreateDate", europeanEc2.createDate()),
      *                 Map.entry("SyncToken", europeanEc2.syncToken())
@@ -3345,7 +3345,6 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
-     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(443)
      *                 .toPort(443)
@@ -3353,6 +3352,7 @@ public final class AwsFunctions {
      *                 .cidrBlocks(europeanEc2.cidrBlocks())
      *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
+     *             .name("from_europe")
      *             .tags(Map.ofEntries(
      *                 Map.entry("CreateDate", europeanEc2.createDate()),
      *                 Map.entry("SyncToken", europeanEc2.syncToken())
@@ -3406,7 +3406,6 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
-     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(443)
      *                 .toPort(443)
@@ -3414,6 +3413,7 @@ public final class AwsFunctions {
      *                 .cidrBlocks(europeanEc2.cidrBlocks())
      *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
+     *             .name("from_europe")
      *             .tags(Map.ofEntries(
      *                 Map.entry("CreateDate", europeanEc2.createDate()),
      *                 Map.entry("SyncToken", europeanEc2.syncToken())
@@ -3467,7 +3467,6 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
-     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(443)
      *                 .toPort(443)
@@ -3475,6 +3474,7 @@ public final class AwsFunctions {
      *                 .cidrBlocks(europeanEc2.cidrBlocks())
      *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
+     *             .name("from_europe")
      *             .tags(Map.ofEntries(
      *                 Map.entry("CreateDate", europeanEc2.createDate()),
      *                 Map.entry("SyncToken", europeanEc2.syncToken())
@@ -3528,7 +3528,6 @@ public final class AwsFunctions {
      *             .build());
      * 
      *         var fromEurope = new SecurityGroup("fromEurope", SecurityGroupArgs.builder()
-     *             .name("from_europe")
      *             .ingress(SecurityGroupIngressArgs.builder()
      *                 .fromPort(443)
      *                 .toPort(443)
@@ -3536,6 +3535,7 @@ public final class AwsFunctions {
      *                 .cidrBlocks(europeanEc2.cidrBlocks())
      *                 .ipv6CidrBlocks(europeanEc2.ipv6CidrBlocks())
      *                 .build())
+     *             .name("from_europe")
      *             .tags(Map.ofEntries(
      *                 Map.entry("CreateDate", europeanEc2.createDate()),
      *                 Map.entry("SyncToken", europeanEc2.syncToken())
@@ -4333,11 +4333,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -4445,11 +4445,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -4557,11 +4557,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -4669,11 +4669,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -4781,11 +4781,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -4893,11 +4893,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -5005,11 +5005,11 @@ public final class AwsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var current = AwsFunctions.getRegions(GetRegionsArgs.builder()
-     *             .allRegions(true)
      *             .filters(GetRegionsFilterArgs.builder()
      *                 .name("opt-in-status")
      *                 .values("not-opted-in")
      *                 .build())
+     *             .allRegions(true)
      *             .build());
      * 
      *     }
@@ -6038,7 +6038,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invokeAsync("aws:index/getServicePrincipal:getServicePrincipal", TypeShape.of(GetServicePrincipalResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6050,7 +6050,7 @@ public final class AwsFunctions {
         return trimIamRolePath(arn, InvokeOptions.Empty);
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6062,7 +6062,7 @@ public final class AwsFunctions {
         return trimIamRolePathPlain(arn, InvokeOptions.Empty);
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6074,7 +6074,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.
@@ -6086,7 +6086,7 @@ public final class AwsFunctions {
         return Deployment.getInstance().invoke("aws:index/trimIamRolePath:trimIamRolePath", TypeShape.of(Void.class), TrimIamRolePathArgs.builder().arn(arn).build(), Utilities.withVersion(options));
     }
     /**
-     * Trims the path prefix from an IAM role Amazon Resource Name (ARN).
+     * Trims the path prefix from an IAM role ARN.
      * This function can be used when services require role ARNs to be passed without a path.
      * 
      * See the [AWS IAM documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awsidentityandaccessmanagementiam.html#awsidentityandaccessmanagementiam-resources-for-iam-policies) for additional information on IAM role ARNs.

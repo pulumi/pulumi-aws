@@ -746,10 +746,13 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_fleet = aws.appstream.Fleet("test_fleet",
-            name="test-fleet",
             compute_capacity={
                 "desired_instances": 1,
             },
+            vpc_config={
+                "subnet_ids": ["subnet-06e9b13400c225127"],
+            },
+            name="test-fleet",
             description="test fleet",
             idle_disconnect_timeout_in_seconds=60,
             display_name="test-fleet",
@@ -758,9 +761,6 @@ class Fleet(pulumi.CustomResource):
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
-            vpc_config={
-                "subnet_ids": ["subnet-06e9b13400c225127"],
-            },
             tags={
                 "TagName": "tag-value",
             })
@@ -815,10 +815,13 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_fleet = aws.appstream.Fleet("test_fleet",
-            name="test-fleet",
             compute_capacity={
                 "desired_instances": 1,
             },
+            vpc_config={
+                "subnet_ids": ["subnet-06e9b13400c225127"],
+            },
+            name="test-fleet",
             description="test fleet",
             idle_disconnect_timeout_in_seconds=60,
             display_name="test-fleet",
@@ -827,9 +830,6 @@ class Fleet(pulumi.CustomResource):
             image_name="Amazon-AppStream2-Sample-Image-03-11-2023",
             instance_type="stream.standard.large",
             max_user_duration_in_seconds=600,
-            vpc_config={
-                "subnet_ids": ["subnet-06e9b13400c225127"],
-            },
             tags={
                 "TagName": "tag-value",
             })

@@ -35,21 +35,18 @@ import (
 //				return err
 //			}
 //			_, err = datapipeline.NewPipelineDefinition(ctx, "example", &datapipeline.PipelineDefinitionArgs{
-//				PipelineId: _default.ID().ToIDOutput().ToStringOutput(),
 //				PipelineObjects: datapipeline.PipelineDefinitionPipelineObjectArray{
 //					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Default"),
-//						Name: pulumi.String("Default"),
 //						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
 //							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
 //								Key:         pulumi.String("workerGroup"),
 //								StringValue: pulumi.String("workerGroup"),
 //							},
 //						},
+//						Id:   pulumi.String("Default"),
+//						Name: pulumi.String("Default"),
 //					},
 //					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("Schedule"),
-//						Name: pulumi.String("Schedule"),
 //						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
 //							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
 //								Key:         pulumi.String("startDateTime"),
@@ -68,10 +65,10 @@ import (
 //								StringValue: pulumi.String("2012-12-21T18:00:00"),
 //							},
 //						},
+//						Id:   pulumi.String("Schedule"),
+//						Name: pulumi.String("Schedule"),
 //					},
 //					&datapipeline.PipelineDefinitionPipelineObjectArgs{
-//						Id:   pulumi.String("SayHello"),
-//						Name: pulumi.String("SayHello"),
 //						Fields: datapipeline.PipelineDefinitionPipelineObjectFieldArray{
 //							&datapipeline.PipelineDefinitionPipelineObjectFieldArgs{
 //								Key:         pulumi.String("type"),
@@ -90,8 +87,11 @@ import (
 //								StringValue: pulumi.String("Schedule"),
 //							},
 //						},
+//						Id:   pulumi.String("SayHello"),
+//						Name: pulumi.String("SayHello"),
 //					},
 //				},
+//				PipelineId: _default.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

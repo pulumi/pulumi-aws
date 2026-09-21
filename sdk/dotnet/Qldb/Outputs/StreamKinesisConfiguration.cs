@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Qldb.Outputs
         /// </summary>
         public readonly bool? AggregationEnabled;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        /// ARN of the Kinesis Data Streams resource.
         /// </summary>
         public readonly string StreamArn;
 

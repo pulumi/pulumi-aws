@@ -23,14 +23,14 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
     public static final OpenZfsVolumeState Empty = new OpenZfsVolumeState();
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -318,7 +318,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -329,7 +329,7 @@ public final class OpenZfsVolumeState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 

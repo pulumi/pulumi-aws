@@ -79,7 +79,7 @@ export class Profile extends pulumi.CustomResource {
      */
     declare public readonly acceptRoleSessionName: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Profile
+     * ARN of the Profile
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface ProfileState {
      */
     acceptRoleSessionName?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Profile
+     * ARN of the Profile
      */
     arn?: pulumi.Input<string | undefined>;
     /**

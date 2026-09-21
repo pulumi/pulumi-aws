@@ -40,6 +40,8 @@ import * as utilities from "../utilities";
  * const example = new aws.athena.Database("example", {
  *     name: "database_name",
  *     bucket: exampleAwsS3Bucket.id,
+ * }, {
+ *     ignoreChanges: ["bucket"],
  * });
  * ```
  */
@@ -84,7 +86,7 @@ export class Database extends pulumi.CustomResource {
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
@@ -170,7 +172,7 @@ export interface DatabaseState {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**
@@ -216,7 +218,7 @@ export interface DatabaseArgs {
      */
     comment?: pulumi.Input<string | undefined>;
     /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      */
     encryptionConfiguration?: pulumi.Input<inputs.athena.DatabaseEncryptionConfiguration | undefined>;
     /**

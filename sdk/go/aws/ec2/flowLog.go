@@ -41,7 +41,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -50,6 +49,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -169,14 +169,14 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewFlowLog(ctx, "example", &ec2.FlowLogArgs{
-//				LogDestination:     exampleBucket.Arn,
-//				LogDestinationType: pulumi.String("s3"),
-//				TrafficType:        pulumi.String("ALL"),
-//				VpcId:              pulumi.Any(exampleAwsVpc.Id),
 //				DestinationOptions: &ec2.FlowLogDestinationOptionsArgs{
 //					FileFormat:       pulumi.String("parquet"),
 //					PerHourPartition: pulumi.Bool(true),
 //				},
+//				LogDestination:     exampleBucket.Arn,
+//				LogDestinationType: pulumi.String("s3"),
+//				TrafficType:        pulumi.String("ALL"),
+//				VpcId:              pulumi.Any(exampleAwsVpc.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -214,10 +214,6 @@ import (
 //			srcAssumeRolePolicy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -226,6 +222,10 @@ import (
 //								},
 //							},
 //						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//						},
+//						Effect: pulumi.StringRef("Allow"),
 //					},
 //				},
 //			}, nil)
@@ -243,10 +243,6 @@ import (
 //			dstAssumeRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("sts:AssumeRole"),
-//						},
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -255,6 +251,10 @@ import (
 //								},
 //							},
 //						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sts:AssumeRole"),
+//						},
+//						Effect: pulumi.String("Allow"),
 //					},
 //				},
 //			}, nil)
@@ -268,13 +268,6 @@ import (
 //			srcRolePolicy := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("iam:PassRole"),
-//						},
-//						Resources: pulumi.StringArray{
-//							srcRole.Arn,
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -290,6 +283,13 @@ import (
 //									src.Arn,
 //								},
 //							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("iam:PassRole"),
+//						},
+//						Resources: pulumi.StringArray{
+//							srcRole.Arn,
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{

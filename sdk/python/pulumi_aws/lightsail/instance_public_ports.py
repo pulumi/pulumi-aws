@@ -161,18 +161,17 @@ class InstancePublicPorts(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.lightsail.Instance("example",
             name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
         example_instance_public_ports = aws.lightsail.InstancePublicPorts("example",
-            instance_name=example.name,
             port_infos=[
                 {
                     "protocol": "tcp",
@@ -185,7 +184,8 @@ class InstancePublicPorts(pulumi.CustomResource):
                     "to_port": 443,
                     "cidrs": ["192.168.1.0/24"],
                 },
-            ])
+            ],
+            instance_name=example.name)
         ```
 
 
@@ -216,18 +216,17 @@ class InstancePublicPorts(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.lightsail.Instance("example",
             name="example-instance",
             availability_zone=available.names[0],
             blueprint_id="amazon_linux_2",
             bundle_id="nano_3_0")
         example_instance_public_ports = aws.lightsail.InstancePublicPorts("example",
-            instance_name=example.name,
             port_infos=[
                 {
                     "protocol": "tcp",
@@ -240,7 +239,8 @@ class InstancePublicPorts(pulumi.CustomResource):
                     "to_port": 443,
                     "cidrs": ["192.168.1.0/24"],
                 },
-            ])
+            ],
+            instance_name=example.name)
         ```
 
 

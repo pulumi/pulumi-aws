@@ -214,14 +214,14 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * ID of the VPC to associate with the Studio.
      * 
      */
     @Import(name="vpcId", required=true)
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+     * @return ID of the VPC to associate with the Studio.
      * 
      */
     public Output<String> vpcId() {
@@ -569,7 +569,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+         * @param vpcId ID of the VPC to associate with the Studio.
          * 
          * @return builder
          * 
@@ -580,7 +580,7 @@ public final class StudioArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param vpcId The ID of the Amazon Virtual Private Cloud (Amazon VPC) to associate with the Studio.
+         * @param vpcId ID of the VPC to associate with the Studio.
          * 
          * @return builder
          * 

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// ARN of the account to create or update a resource policy for.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// ARN of the account to create or update a resource policy for.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.RedshiftServerless
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the account to create or update a resource policy for.
+        /// ARN of the account to create or update a resource policy for.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

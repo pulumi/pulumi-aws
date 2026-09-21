@@ -22,7 +22,7 @@ namespace Pulumi.Aws.AppMesh.Outputs
         /// </summary>
         public readonly string Mode;
         /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context.
+        /// Listener's TLS validation context.
         /// </summary>
         public readonly Outputs.VirtualGatewaySpecListenerTlsValidation? Validation;
 

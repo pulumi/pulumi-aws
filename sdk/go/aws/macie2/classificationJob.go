@@ -33,8 +33,6 @@ import (
 //				return err
 //			}
 //			_, err = macie2.NewClassificationJob(ctx, "test", &macie2.ClassificationJobArgs{
-//				JobType: pulumi.String("ONE_TIME"),
-//				Name:    pulumi.String("NAME OF THE CLASSIFICATION JOB"),
 //				S3JobDefinition: &macie2.ClassificationJobS3JobDefinitionArgs{
 //					BucketDefinitions: macie2.ClassificationJobS3JobDefinitionBucketDefinitionArray{
 //						&macie2.ClassificationJobS3JobDefinitionBucketDefinitionArgs{
@@ -45,6 +43,8 @@ import (
 //						},
 //					},
 //				},
+//				JobType: pulumi.String("ONE_TIME"),
+//				Name:    pulumi.String("NAME OF THE CLASSIFICATION JOB"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				test,
 //			}))

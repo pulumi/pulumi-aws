@@ -60,10 +60,10 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "foo", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: fooVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
+//				VpcPeeringConnectionId: fooVpcPeeringConnection.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -134,19 +134,19 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "requester", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //				Requester: &ec2.PeeringConnectionOptionsRequesterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
+//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewPeeringConnectionOptions(ctx, "accepter", &ec2.PeeringConnectionOptionsArgs{
-//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //				Accepter: &ec2.PeeringConnectionOptionsAccepterArgs{
 //					AllowRemoteVpcDnsResolution: pulumi.Bool(true),
 //				},
+//				VpcPeeringConnectionId: peerVpcPeeringConnectionAccepter.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

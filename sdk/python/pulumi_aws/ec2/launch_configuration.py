@@ -359,7 +359,7 @@ class _LaunchConfigurationState:
         """
         Input properties used for looking up and filtering LaunchConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the launch configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the launch configuration.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input['LaunchConfigurationEbsBlockDeviceArgs']]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
@@ -427,7 +427,7 @@ class _LaunchConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of the launch configuration.
+        ARN of the launch configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -705,8 +705,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -716,6 +715,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name="web_config",
@@ -778,8 +778,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"],
@@ -789,6 +788,7 @@ class LaunchConfiguration(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         as_conf = aws.ec2.LaunchConfiguration("as_conf",
             name="web_config",
@@ -912,7 +912,7 @@ class LaunchConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the launch configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the launch configuration.
         :param pulumi.Input[_builtins.bool] associate_public_ip_address: Associate a public ip address with an instance in a VPC.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LaunchConfigurationEbsBlockDeviceArgs', 'LaunchConfigurationEbsBlockDeviceArgsDict']]]] ebs_block_devices: Additional EBS block devices to attach to the instance. See Block Devices below for details.
         :param pulumi.Input[_builtins.bool] ebs_optimized: If true, the launched EC2 instance will be EBS-optimized.
@@ -965,7 +965,7 @@ class LaunchConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of the launch configuration.
+        ARN of the launch configuration.
         """
         return pulumi.get(self, "arn")
 

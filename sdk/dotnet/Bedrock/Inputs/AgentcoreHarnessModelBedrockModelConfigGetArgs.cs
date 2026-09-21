@@ -13,6 +13,18 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentcoreHarnessModelBedrockModelConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// JSON string containing provider-specific parameters to pass through to the Bedrock model provider unchanged.
+        /// </summary>
+        [Input("additionalParams")]
+        public Input<string>? AdditionalParams { get; set; }
+
+        /// <summary>
+        /// API format for the model. Valid values are `ConverseStream`, `Responses`, and `ChatCompletions`.
+        /// </summary>
+        [Input("apiFormat")]
+        public Input<string>? ApiFormat { get; set; }
+
+        /// <summary>
         /// Maximum number of tokens to generate.
         /// </summary>
         [Input("maxTokens")]

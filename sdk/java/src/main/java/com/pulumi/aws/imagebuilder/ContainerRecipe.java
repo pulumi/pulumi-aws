@@ -51,16 +51,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerRecipe("example", ContainerRecipeArgs.builder()
- *             .name("example")
- *             .version("1.0.0")
- *             .containerType("DOCKER")
- *             .parentImage("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x")
  *             .targetRepository(ContainerRecipeTargetRepositoryArgs.builder()
  *                 .repositoryName(exampleAwsEcrRepository.name())
  *                 .service("ECR")
  *                 .build())
  *             .components(ContainerRecipeComponentArgs.builder()
- *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .parameters(                
  *                     ContainerRecipeComponentParameterArgs.builder()
  *                         .name("Parameter1")
@@ -70,7 +65,12 @@ import javax.annotation.Nullable;
  *                         .name("Parameter2")
  *                         .value("Value2")
  *                         .build())
+ *                 .componentArn(exampleAwsImagebuilderComponent.arn())
  *                 .build())
+ *             .name("example")
+ *             .version("1.0.0")
+ *             .containerType("DOCKER")
+ *             .parentImage("arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x")
  *             .dockerfileTemplateData("""
  * FROM {{{ imagebuilder:parentImage }}}
  * {{{ imagebuilder:environments }}}
@@ -89,9 +89,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
+ * - `arn` (String) ARN of the Image Builder container recipe.
  * 
- * Using `pulumi import`, import `aws.imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.ContainerRecipe` resources using the ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -101,14 +101,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:imagebuilder/containerRecipe:ContainerRecipe")
 public class ContainerRecipe extends com.pulumi.resources.CustomResource {
     /**
-     * (Required) Amazon Resource Name (ARN) of the container recipe.
+     * (Required) ARN of the container recipe.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the container recipe.
+     * @return (Required) ARN of the container recipe.
      * 
      */
     public Output<String> arn() {

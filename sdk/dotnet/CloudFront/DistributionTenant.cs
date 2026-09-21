@@ -30,9 +30,6 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.DistributionTenant("example", new()
     ///     {
-    ///         Name = "example-tenant",
-    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
-    ///         Enabled = true,
     ///         Domains = new[]
     ///         {
     ///             new Aws.CloudFront.Inputs.DistributionTenantDomainArgs
@@ -40,6 +37,9 @@ namespace Pulumi.Aws.CloudFront
     ///                 Domain = "tenant.example.com",
     ///             },
     ///         },
+    ///         Name = "example-tenant",
+    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
+    ///         Enabled = true,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },
@@ -61,16 +61,6 @@ namespace Pulumi.Aws.CloudFront
     /// {
     ///     var example = new Aws.CloudFront.DistributionTenant("example", new()
     ///     {
-    ///         Name = "example-tenant",
-    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
-    ///         Enabled = false,
-    ///         Domains = new[]
-    ///         {
-    ///             new Aws.CloudFront.Inputs.DistributionTenantDomainArgs
-    ///             {
-    ///                 Domain = "tenant.example.com",
-    ///             },
-    ///         },
     ///         Customizations = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsArgs
     ///         {
     ///             GeoRestriction = new Aws.CloudFront.Inputs.DistributionTenantCustomizationsGeoRestrictionArgs
@@ -92,6 +82,16 @@ namespace Pulumi.Aws.CloudFront
     ///                 Arn = tenantWaf.Arn,
     ///             },
     ///         },
+    ///         Domains = new[]
+    ///         {
+    ///             new Aws.CloudFront.Inputs.DistributionTenantDomainArgs
+    ///             {
+    ///                 Domain = "tenant.example.com",
+    ///             },
+    ///         },
+    ///         Name = "example-tenant",
+    ///         DistributionId = exampleAwsCloudfrontMultitenantDistribution.Id,
+    ///         Enabled = false,
     ///         Tags = 
     ///         {
     ///             { "Environment", "production" },

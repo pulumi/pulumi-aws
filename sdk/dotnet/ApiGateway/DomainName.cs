@@ -59,9 +59,6 @@ namespace Pulumi.Aws.ApiGateway
     ///     // Route53 is not specifically required; any DNS host can be used.
     ///     var exampleRecord = new Aws.Route53.Record("example", new()
     ///     {
-    ///         Name = example.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -71,6 +68,9 @@ namespace Pulumi.Aws.ApiGateway
     ///                 ZoneId = example.CloudfrontZoneId,
     ///             },
     ///         },
+    ///         Name = example.Domain,
+    ///         Type = Aws.Route53.RecordType.A,
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///     });
     /// 
     /// });
@@ -88,21 +88,18 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.ApiGateway.DomainName("example", new()
     ///     {
-    ///         Domain = "api.example.com",
-    ///         RegionalCertificateArn = exampleAwsAcmCertificateValidation.CertificateArn,
     ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
     ///         {
     ///             Types = "REGIONAL",
     ///         },
+    ///         Domain = "api.example.com",
+    ///         RegionalCertificateArn = exampleAwsAcmCertificateValidation.CertificateArn,
     ///     });
     /// 
     ///     // Example DNS record using Route53.
     ///     // Route53 is not specifically required; any DNS host can be used.
     ///     var exampleRecord = new Aws.Route53.Record("example", new()
     ///     {
-    ///         Name = example.Domain,
-    ///         Type = Aws.Route53.RecordType.A,
-    ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -112,6 +109,9 @@ namespace Pulumi.Aws.ApiGateway
     ///                 ZoneId = example.RegionalZoneId,
     ///             },
     ///         },
+    ///         Name = example.Domain,
+    ///         Type = Aws.Route53.RecordType.A,
+    ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///     });
     /// 
     /// });
@@ -129,14 +129,14 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var example = new Aws.ApiGateway.DomainName("example", new()
     ///     {
-    ///         Domain = "api.example.com",
-    ///         RegionalCertificateArn = exampleAwsAcmCertificateValidation.CertificateArn,
-    ///         SecurityPolicy = "SecurityPolicy_TLS13_1_3_2025_09",
-    ///         EndpointAccessMode = "STRICT",
     ///         EndpointConfiguration = new Aws.ApiGateway.Inputs.DomainNameEndpointConfigurationArgs
     ///         {
     ///             Types = "REGIONAL",
     ///         },
+    ///         Domain = "api.example.com",
+    ///         RegionalCertificateArn = exampleAwsAcmCertificateValidation.CertificateArn,
+    ///         SecurityPolicy = "SecurityPolicy_TLS13_1_3_2025_09",
+    ///         EndpointAccessMode = "STRICT",
     ///     });
     /// 
     /// });
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.ApiGateway
         public Output<string> RoutingMode { get; private set; } = null!;
 
         /// <summary>
-        /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+        /// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         /// </summary>
         [Output("securityPolicy")]
         public Output<string> SecurityPolicy { get; private set; } = null!;
@@ -462,7 +462,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RoutingMode { get; set; }
 
         /// <summary>
-        /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+        /// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }
@@ -630,7 +630,7 @@ namespace Pulumi.Aws.ApiGateway
         public Input<string>? RoutingMode { get; set; }
 
         /// <summary>
-        /// Transport Layer Security (TLS) version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
+        /// TLS version + cipher suite for this DomainName. Must be configured to perform drift detection. For a list of valid security policies, see [DomainName](https://docs.aws.amazon.com/apigateway/latest/api/API_DomainName.html) in the Amazon API Gateway API Reference.
         /// </summary>
         [Input("securityPolicy")]
         public Input<string>? SecurityPolicy { get; set; }

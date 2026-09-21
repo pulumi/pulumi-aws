@@ -72,10 +72,10 @@ import (
 //				return err
 //			}
 //			exampleV2Policy, err := resiliencehub.NewV2Policy(ctx, "example", &resiliencehub.V2PolicyArgs{
-//				Name: pulumi.String("example-policy"),
 //				AvailabilitySlo: &resiliencehub.V2PolicyAvailabilitySloArgs{
 //					Target: pulumi.Float64(99.9),
 //				},
+//				Name: pulumi.String("example-policy"),
 //			})
 //			if err != nil {
 //				return err

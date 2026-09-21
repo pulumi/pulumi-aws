@@ -17,16 +17,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const byteSet = new aws.wafregional.ByteMatchSet("byte_set", {
- *     name: "my_waf_byte_match_set",
  *     byteMatchTuples: [{
- *         textTransformation: "NONE",
- *         targetString: "badrefer1",
- *         positionalConstraint: "CONTAINS",
  *         fieldToMatch: {
  *             type: "HEADER",
  *             data: "referer",
  *         },
+ *         textTransformation: "NONE",
+ *         targetString: "badrefer1",
+ *         positionalConstraint: "CONTAINS",
  *     }],
+ *     name: "my_waf_byte_match_set",
  * });
  * ```
  *

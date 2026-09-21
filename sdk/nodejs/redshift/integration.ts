@@ -19,20 +19,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.dynamodb.Table("example", {
- *     name: "dynamodb-table-example",
- *     readCapacity: 1,
- *     writeCapacity: 1,
- *     hashKey: "example",
+ *     pointInTimeRecovery: {
+ *         enabled: true,
+ *     },
  *     attributes: [{
  *         name: "example",
  *         type: "S",
  *     }],
- *     pointInTimeRecovery: {
- *         enabled: true,
- *     },
+ *     name: "dynamodb-table-example",
+ *     readCapacity: 1,
+ *     writeCapacity: 1,
+ *     hashKey: "example",
  * });
  * const exampleNamespace = new aws.redshiftserverless.Namespace("example", {namespaceName: "redshift-example"});
  * const exampleWorkgroup = new aws.redshiftserverless.Workgroup("example", {
+ *     configParameters: [{
+ *         parameterKey: "enable_case_sensitive_identifier",
+ *         parameterValue: "true",
+ *     }],
  *     namespaceName: exampleNamespace.namespaceName,
  *     workgroupName: "example-workgroup",
  *     baseCapacity: 8,
@@ -42,10 +46,6 @@ import * as utilities from "../utilities";
  *         example2.id,
  *         example3.id,
  *     ],
- *     configParameters: [{
- *         parameterKey: "enable_case_sensitive_identifier",
- *         parameterValue: "true",
- *     }],
  * });
  * const exampleIntegration = new aws.redshift.Integration("example", {
  *     integrationName: "example",
@@ -117,7 +117,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Redshift integration.
+ * - `arn` (String) ARN of the Redshift integration.
  *
  * Using `pulumi import`, import Redshift Integration using the `arn`. For example:
  *

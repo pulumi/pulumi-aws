@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     private String arn;
@@ -53,7 +53,7 @@ public final class GetCloudAutonomousVmClustersCloudAutonomousVmCluster {
 
     private GetCloudAutonomousVmClustersCloudAutonomousVmCluster() {}
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     public String arn() {

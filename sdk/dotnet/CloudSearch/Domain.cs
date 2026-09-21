@@ -26,7 +26,6 @@ namespace Pulumi.Aws.CloudSearch
     /// {
     ///     var example = new Aws.CloudSearch.Domain("example", new()
     ///     {
-    ///         Name = "example-domain",
     ///         ScalingParameters = new Aws.CloudSearch.Inputs.DomainScalingParametersArgs
     ///         {
     ///             DesiredInstanceType = "search.medium",
@@ -54,6 +53,7 @@ namespace Pulumi.Aws.CloudSearch
     ///                 SourceFields = "headline",
     ///             },
     ///         },
+    ///         Name = "example-domain",
     ///     });
     /// 
     /// });

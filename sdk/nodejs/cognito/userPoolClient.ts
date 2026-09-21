@@ -53,11 +53,11 @@ import * as utilities from "../utilities";
  * const testApp = new aws.pinpoint.App("test", {name: "pinpoint"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["cognito-idp.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -66,14 +66,14 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const testUserPoolClient = new aws.cognito.UserPoolClient("test", {
- *     name: "pool_client",
- *     userPoolId: testUserPool.id,
  *     analyticsConfiguration: {
  *         applicationId: testApp.applicationId,
  *         externalId: "some_id",
  *         roleArn: testRole.arn,
  *         userDataShared: true,
  *     },
+ *     name: "pool_client",
+ *     userPoolId: testUserPool.id,
  * });
  * const current = aws.getCallerIdentity({});
  * const test = aws.iam.getPolicyDocumentOutput({
@@ -125,13 +125,13 @@ import * as utilities from "../utilities";
  *
  * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
  * const userpoolClient = new aws.cognito.UserPoolClient("userpool_client", {
- *     name: "client",
- *     userPoolId: pool.id,
- *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  *     refreshTokenRotation: {
  *         feature: "ENABLED",
  *         retryGracePeriodSeconds: 10,
  *     },
+ *     name: "client",
+ *     userPoolId: pool.id,
+ *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * ```
  *

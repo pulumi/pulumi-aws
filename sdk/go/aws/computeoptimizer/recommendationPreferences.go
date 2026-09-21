@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := computeoptimizer.NewRecommendationPreferences(ctx, "example", &computeoptimizer.RecommendationPreferencesArgs{
-//				ResourceType: pulumi.String("Ec2Instance"),
 //				Scope: &computeoptimizer.RecommendationPreferencesScopeArgs{
 //					Name:  pulumi.String("AccountId"),
 //					Value: pulumi.String("123456789012"),
 //				},
+//				ResourceType:   pulumi.String("Ec2Instance"),
 //				LookBackPeriod: pulumi.String("DAYS_32"),
 //			})
 //			if err != nil {
@@ -62,12 +62,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := computeoptimizer.NewRecommendationPreferences(ctx, "example", &computeoptimizer.RecommendationPreferencesArgs{
-//				ResourceType: pulumi.String("Ec2Instance"),
 //				Scope: &computeoptimizer.RecommendationPreferencesScopeArgs{
 //					Name:  pulumi.String("AccountId"),
 //					Value: pulumi.String("123456789012"),
 //				},
-//				EnhancedInfrastructureMetrics: pulumi.String("Active"),
 //				ExternalMetricsPreference: &computeoptimizer.RecommendationPreferencesExternalMetricsPreferenceArgs{
 //					Source: pulumi.String("Datadog"),
 //				},
@@ -80,6 +78,8 @@ import (
 //						Name: pulumi.String("Ec2InstanceTypes"),
 //					},
 //				},
+//				ResourceType:                  pulumi.String("Ec2Instance"),
+//				EnhancedInfrastructureMetrics: pulumi.String("Active"),
 //			})
 //			if err != nil {
 //				return err

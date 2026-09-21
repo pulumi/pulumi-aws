@@ -762,11 +762,11 @@ class Integration(pulumi.CustomResource):
             authorization="NONE")
         # IAM
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
@@ -889,17 +889,17 @@ class Integration(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             subnets=[__item["id"] for __item in example_aws_subnet])
         example_listener = aws.lb.Listener("example",
-            load_balancer_arn=example_load_balancer.arn,
-            port=80,
-            protocol="HTTP",
             default_actions=[{
-                "type": "fixed-response",
                 "fixed_response": {
                     "content_type": "text/plain",
                     "message_body": "OK",
                     "status_code": "200",
                 },
-            }])
+                "type": "fixed-response",
+            }],
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP")
         example_rest_api = aws.apigateway.RestApi("example", name="example")
         example_resource = aws.apigateway.Resource("example",
             rest_api=example_rest_api.id,
@@ -1036,11 +1036,11 @@ class Integration(pulumi.CustomResource):
             authorization="NONE")
         # IAM
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["lambda.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         role = aws.iam.Role("role",
@@ -1163,17 +1163,17 @@ class Integration(pulumi.CustomResource):
             security_groups=[example_aws_security_group["id"]],
             subnets=[__item["id"] for __item in example_aws_subnet])
         example_listener = aws.lb.Listener("example",
-            load_balancer_arn=example_load_balancer.arn,
-            port=80,
-            protocol="HTTP",
             default_actions=[{
-                "type": "fixed-response",
                 "fixed_response": {
                     "content_type": "text/plain",
                     "message_body": "OK",
                     "status_code": "200",
                 },
-            }])
+                "type": "fixed-response",
+            }],
+            load_balancer_arn=example_load_balancer.arn,
+            port=80,
+            protocol="HTTP")
         example_rest_api = aws.apigateway.RestApi("example", name="example")
         example_resource = aws.apigateway.Resource("example",
             rest_api=example_rest_api.id,

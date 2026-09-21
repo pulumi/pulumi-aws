@@ -62,7 +62,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * Owner account ID of the VPC for a configuration for DNSSEC validation.
      */
     declare public /*out*/ readonly ownerId: pulumi.Output<string>;
     /**
@@ -70,7 +70,7 @@ export class ResolverDnsSecConfig extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+     * ID of the VPC that you're updating the DNSSEC validation status for.
      */
     declare public readonly resourceId: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export interface ResolverDnsSecConfigState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * Owner account ID of the VPC for a configuration for DNSSEC validation.
      */
     ownerId?: pulumi.Input<string | undefined>;
     /**
@@ -129,7 +129,7 @@ export interface ResolverDnsSecConfigState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+     * ID of the VPC that you're updating the DNSSEC validation status for.
      */
     resourceId?: pulumi.Input<string | undefined>;
     /**
@@ -147,7 +147,7 @@ export interface ResolverDnsSecConfigArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The ID of the virtual private cloud (VPC) that you're updating the DNSSEC validation status for.
+     * ID of the VPC that you're updating the DNSSEC validation status for.
      */
     resourceId: pulumi.Input<string>;
 }

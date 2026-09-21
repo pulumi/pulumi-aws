@@ -32,8 +32,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("new policy"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -42,6 +40,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("new policy"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"ecr:GetDownloadUrlForLayer",
 //							"ecr:BatchGetImage",
@@ -65,17 +65,17 @@ import (
 //				return err
 //			}
 //			_, err = ecr.NewRepositoryCreationTemplate(ctx, "example", &ecr.RepositoryCreationTemplateArgs{
+//				EncryptionConfigurations: ecr.RepositoryCreationTemplateEncryptionConfigurationArray{
+//					&ecr.RepositoryCreationTemplateEncryptionConfigurationArgs{
+//						EncryptionType: pulumi.String("AES256"),
+//					},
+//				},
 //				Prefix:             pulumi.String("example"),
 //				Description:        pulumi.String("An example template"),
 //				ImageTagMutability: pulumi.String("IMMUTABLE"),
 //				CustomRoleArn:      pulumi.String("arn:aws:iam::123456789012:role/example"),
 //				AppliedFors: pulumi.StringArray{
 //					pulumi.String("PULL_THROUGH_CACHE"),
-//				},
-//				EncryptionConfigurations: ecr.RepositoryCreationTemplateEncryptionConfigurationArray{
-//					&ecr.RepositoryCreationTemplateEncryptionConfigurationArgs{
-//						EncryptionType: pulumi.String("AES256"),
-//					},
 //				},
 //				RepositoryPolicy: pulumi.String(example.Json),
 //				LifecyclePolicy: pulumi.String(`{

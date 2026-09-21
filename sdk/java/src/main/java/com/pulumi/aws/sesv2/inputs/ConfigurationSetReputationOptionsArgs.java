@@ -17,14 +17,14 @@ public final class ConfigurationSetReputationOptionsArgs extends com.pulumi.reso
     public static final ConfigurationSetReputationOptionsArgs Empty = new ConfigurationSetReputationOptionsArgs();
 
     /**
-     * The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+     * Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
      * 
      */
     @Import(name="lastFreshStart")
     private @Nullable Output<String> lastFreshStart;
 
     /**
-     * @return The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+     * @return Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
      * 
      */
     public Optional<Output<String>> lastFreshStart() {
@@ -72,7 +72,7 @@ public final class ConfigurationSetReputationOptionsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param lastFreshStart The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+         * @param lastFreshStart Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConfigurationSetReputationOptionsArgs extends com.pulumi.reso
         }
 
         /**
-         * @param lastFreshStart The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+         * @param lastFreshStart Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
          * 
          * @return builder
          * 

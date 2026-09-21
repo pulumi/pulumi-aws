@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetNetworksOdbNetwork {
     /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
+     * @return ARN of the odb network resource.
      * 
      */
     private String arn;
@@ -43,7 +43,7 @@ public final class GetNetworksOdbNetwork {
 
     private GetNetworksOdbNetwork() {}
     /**
-     * @return Amazon Resource Name (ARN) of the odb network resource.
+     * @return ARN of the odb network resource.
      * 
      */
     public String arn() {

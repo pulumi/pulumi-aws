@@ -18,14 +18,14 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
     public static final LocationFsxLustreState Empty = new LocationFsxLustreState();
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -48,14 +48,14 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * ARN for the FSx for Lustre file system.
      * 
      */
     @Import(name="fsxFilesystemArn")
     private @Nullable Output<String> fsxFilesystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * @return ARN for the FSx for Lustre file system.
      * 
      */
     public Optional<Output<String>> fsxFilesystemArn() {
@@ -78,14 +78,14 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
     @Import(name="securityGroupArns")
     private @Nullable Output<List<String>> securityGroupArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * @return ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      * 
      */
     public Optional<Output<List<String>>> securityGroupArns() {
@@ -185,7 +185,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+         * @param fsxFilesystemArn ARN for the FSx for Lustre file system.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+         * @param fsxFilesystemArn ARN for the FSx for Lustre file system.
          * 
          * @return builder
          * 
@@ -269,7 +269,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Lustre file system.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Lustre file system.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class LocationFsxLustreState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Lustre file system.
          * 
          * @return builder
          * 

@@ -19,14 +19,14 @@ public final class RealtimeLogConfigState extends com.pulumi.resources.ResourceA
     public static final RealtimeLogConfigState Empty = new RealtimeLogConfigState();
 
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * @return ARN of the CloudFront real-time log configuration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -122,7 +122,7 @@ public final class RealtimeLogConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+         * @param arn ARN of the CloudFront real-time log configuration.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class RealtimeLogConfigState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+         * @param arn ARN of the CloudFront real-time log configuration.
          * 
          * @return builder
          * 

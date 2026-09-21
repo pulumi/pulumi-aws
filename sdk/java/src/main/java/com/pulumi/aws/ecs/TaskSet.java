@@ -53,14 +53,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TaskSet("example", TaskSetArgs.builder()
- *             .service(exampleAwsEcsService.id())
- *             .cluster(exampleAwsEcsCluster.id())
- *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
  *             .loadBalancers(TaskSetLoadBalancerArgs.builder()
  *                 .targetGroupArn(exampleAwsLbTargetGroup.arn())
  *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
+ *             .service(exampleAwsEcsService.id())
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
  *             .build());
  * 
  *     }
@@ -82,6 +82,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.ecs.TaskSet;
  * import com.pulumi.aws.ecs.TaskSetArgs;
  * import com.pulumi.aws.ecs.inputs.TaskSetScaleArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -99,7 +100,9 @@ import javax.annotation.Nullable;
  *             .scale(TaskSetScaleArgs.builder()
  *                 .value(50.0)
  *                 .build())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("scale")
+ *                 .build());
  * 
  *     }
  * }
@@ -118,14 +121,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ecs/taskSet:TaskSet")
 public class TaskSet extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that identifies the task set.
+     * @return ARN that identifies the task set.
      * 
      */
     public Output<String> arn() {

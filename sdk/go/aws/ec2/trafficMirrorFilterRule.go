@@ -53,14 +53,6 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewTrafficMirrorFilterRule(ctx, "rulein", &ec2.TrafficMirrorFilterRuleArgs{
-//				Description:           pulumi.String("test rule"),
-//				TrafficMirrorFilterId: filter.ID().ToIDOutput().ToStringOutput(),
-//				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
-//				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
-//				RuleNumber:            pulumi.Int(1),
-//				RuleAction:            pulumi.String("accept"),
-//				TrafficDirection:      pulumi.String("ingress"),
-//				Protocol:              pulumi.Int(6),
 //				DestinationPortRange: &ec2.TrafficMirrorFilterRuleDestinationPortRangeArgs{
 //					FromPort: pulumi.Int(22),
 //					ToPort:   pulumi.Int(53),
@@ -69,6 +61,14 @@ import (
 //					FromPort: pulumi.Int(0),
 //					ToPort:   pulumi.Int(10),
 //				},
+//				Description:           pulumi.String("test rule"),
+//				TrafficMirrorFilterId: filter.ID().ToIDOutput().ToStringOutput(),
+//				DestinationCidrBlock:  pulumi.String("10.0.0.0/8"),
+//				SourceCidrBlock:       pulumi.String("10.0.0.0/8"),
+//				RuleNumber:            pulumi.Int(1),
+//				RuleAction:            pulumi.String("accept"),
+//				TrafficDirection:      pulumi.String("ingress"),
+//				Protocol:              pulumi.Int(6),
 //			})
 //			if err != nil {
 //				return err

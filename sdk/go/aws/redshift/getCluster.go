@@ -35,16 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = kinesis.NewFirehoseDeliveryStream(ctx, "example_stream", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("kinesis-firehose-example-stream"),
-//				Destination: pulumi.String("redshift"),
 //				RedshiftConfiguration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationArgs{
-//					RoleArn:          pulumi.Any(firehoseRole.Arn),
-//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
-//					Username:         pulumi.String("exampleuser"),
-//					Password:         pulumi.String("Exampl3Pass"),
-//					DataTableName:    pulumi.String("example-table"),
-//					CopyOptions:      pulumi.String("delimiter '|'"),
-//					DataTableColumns: pulumi.String("example-col"),
 //					S3Configuration: &kinesis.FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs{
 //						RoleArn:           pulumi.Any(firehoseRole.Arn),
 //						BucketArn:         pulumi.Any(bucket.Arn),
@@ -52,7 +43,16 @@ import (
 //						BufferInterval:    400,
 //						CompressionFormat: pulumi.String("GZIP"),
 //					},
+//					RoleArn:          pulumi.Any(firehoseRole.Arn),
+//					ClusterJdbcurl:   pulumi.Sprintf("jdbc:redshift://%v/%v", example.Endpoint, example.DatabaseName),
+//					Username:         pulumi.String("exampleuser"),
+//					Password:         pulumi.String("Exampl3Pass"),
+//					DataTableName:    pulumi.String("example-table"),
+//					CopyOptions:      pulumi.String("delimiter '|'"),
+//					DataTableColumns: pulumi.String("example-col"),
 //				},
+//				Name:        pulumi.String("kinesis-firehose-example-stream"),
+//				Destination: pulumi.String("redshift"),
 //			})
 //			if err != nil {
 //				return err
@@ -100,7 +100,7 @@ type LookupClusterResult struct {
 	BucketName string `pulumi:"bucketName"`
 	// Cluster identifier
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The namespace Amazon Resource Name (ARN) of the cluster
+	// Namespace ARN of the cluster
 	ClusterNamespaceArn string `pulumi:"clusterNamespaceArn"`
 	// Nodes in the cluster. Cluster node blocks are documented below
 	ClusterNodes []GetClusterClusterNode `pulumi:"clusterNodes"`
@@ -169,12 +169,8 @@ type LookupClusterResult struct {
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
-			args := v.(LookupClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getCluster:getCluster", args, LookupClusterResultOutput{}, options).(LookupClusterResultOutput), nil
-		}).(LookupClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getCluster:getCluster", args, LookupClusterResultOutput{}, options).(LookupClusterResultOutput)
 }
 
 // A collection of arguments for invoking getCluster.
@@ -246,7 +242,7 @@ func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The namespace Amazon Resource Name (ARN) of the cluster
+// Namespace ARN of the cluster
 func (o LookupClusterResultOutput) ClusterNamespaceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterNamespaceArn }).(pulumi.StringOutput)
 }

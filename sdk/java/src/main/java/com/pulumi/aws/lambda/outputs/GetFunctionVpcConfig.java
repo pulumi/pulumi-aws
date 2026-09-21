@@ -12,6 +12,10 @@ import java.util.Objects;
 
 @CustomType
 public final class GetFunctionVpcConfig {
+    /**
+     * @return Whether IPv6 is allowed for dual-stack VPC.
+     * 
+     */
     private Boolean ipv6AllowedForDualStack;
     /**
      * @return List of security group IDs associated with the Lambda function.
@@ -30,6 +34,10 @@ public final class GetFunctionVpcConfig {
     private String vpcId;
 
     private GetFunctionVpcConfig() {}
+    /**
+     * @return Whether IPv6 is allowed for dual-stack VPC.
+     * 
+     */
     public Boolean ipv6AllowedForDualStack() {
         return this.ipv6AllowedForDualStack;
     }

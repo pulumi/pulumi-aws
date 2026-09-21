@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.ecr.Repository("foo", {
- *     name: "bar",
- *     imageTagMutability: "MUTABLE",
  *     imageScanningConfiguration: {
  *         scanOnPush: true,
  *     },
+ *     name: "bar",
+ *     imageTagMutability: "MUTABLE",
  * });
  * ```
  *
@@ -32,8 +32,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecr.Repository("example", {
- *     name: "example-repo",
- *     imageTagMutability: "IMMUTABLE_WITH_EXCLUSION",
  *     imageTagMutabilityExclusionFilters: [
  *         {
  *             filter: "latest*",
@@ -44,6 +42,8 @@ import * as utilities from "../utilities";
  *             filterType: "WILDCARD",
  *         },
  *     ],
+ *     name: "example-repo",
+ *     imageTagMutability: "IMMUTABLE_WITH_EXCLUSION",
  * });
  * ```
  *

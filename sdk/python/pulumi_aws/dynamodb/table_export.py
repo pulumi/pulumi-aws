@@ -541,16 +541,16 @@ class TableExport(pulumi.CustomResource):
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id",
+            point_in_time_recovery={
+                "enabled": True,
+            },
             attributes=[{
                 "name": "user_id",
                 "type": "S",
             }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
+            name="example-table-1",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="user_id")
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)
@@ -575,13 +575,13 @@ class TableExport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.TableExport("example",
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"],
             incremental_export_specification={
                 "export_from_time": "2025-02-09T12:00:00+01:00",
                 "export_to_time": "2025-02-09T13:00:00+01:00",
-            })
+            },
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"])
         ```
 
         ## Import
@@ -590,7 +590,7 @@ class TableExport(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+        - `arn` (String) ARN of the DynamoDB table export.
 
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 
@@ -642,16 +642,16 @@ class TableExport(pulumi.CustomResource):
             bucket_prefix="example",
             force_destroy=True)
         example_table = aws.dynamodb.Table("example",
-            name="example-table-1",
-            billing_mode="PAY_PER_REQUEST",
-            hash_key="user_id",
+            point_in_time_recovery={
+                "enabled": True,
+            },
             attributes=[{
                 "name": "user_id",
                 "type": "S",
             }],
-            point_in_time_recovery={
-                "enabled": True,
-            })
+            name="example-table-1",
+            billing_mode="PAY_PER_REQUEST",
+            hash_key="user_id")
         example_table_export = aws.dynamodb.TableExport("example",
             table_arn=example_table.arn,
             s3_bucket=example.id)
@@ -676,13 +676,13 @@ class TableExport(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.dynamodb.TableExport("example",
-            export_type="INCREMENTAL_EXPORT",
-            s3_bucket=example_aws_s3_bucket["id"],
-            table_arn=example_aws_dynamodb_table["arn"],
             incremental_export_specification={
                 "export_from_time": "2025-02-09T12:00:00+01:00",
                 "export_to_time": "2025-02-09T13:00:00+01:00",
-            })
+            },
+            export_type="INCREMENTAL_EXPORT",
+            s3_bucket=example_aws_s3_bucket["id"],
+            table_arn=example_aws_dynamodb_table["arn"])
         ```
 
         ## Import
@@ -691,7 +691,7 @@ class TableExport(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DynamoDB table export.
+        - `arn` (String) ARN of the DynamoDB table export.
 
         Using `pulumi import`, import DynamoDB table exports using the `arn`. For example:
 

@@ -47,11 +47,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ProfilingGroup("example", ProfilingGroupArgs.builder()
- *             .name("example")
- *             .computePlatform("Default")
  *             .agentOrchestrationConfig(ProfilingGroupAgentOrchestrationConfigArgs.builder()
  *                 .profilingEnabled(true)
  *                 .build())
+ *             .name("example")
+ *             .computePlatform("Default")
  *             .build());
  * 
  *     }

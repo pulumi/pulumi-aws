@@ -66,7 +66,7 @@ export class DataShareAuthorization extends pulumi.CustomResource {
      */
     declare public readonly consumerIdentifier: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      *
      * The following arguments are optional:
      */
@@ -76,7 +76,7 @@ export class DataShareAuthorization extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly managedBy: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      */
     declare public /*out*/ readonly producerArn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export interface DataShareAuthorizationState {
      */
     consumerIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      *
      * The following arguments are optional:
      */
@@ -146,7 +146,7 @@ export interface DataShareAuthorizationState {
      */
     managedBy?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the producer.
+     * ARN of the producer.
      */
     producerArn?: pulumi.Input<string | undefined>;
     /**
@@ -168,7 +168,7 @@ export interface DataShareAuthorizationArgs {
      */
     consumerIdentifier: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+     * ARN of the datashare that producers are to authorize sharing for.
      *
      * The following arguments are optional:
      */

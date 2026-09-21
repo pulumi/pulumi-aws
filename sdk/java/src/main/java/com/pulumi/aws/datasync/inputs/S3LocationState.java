@@ -19,14 +19,14 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
     public static final S3LocationState Empty = new S3LocationState();
 
     /**
-     * (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      * 
      */
     @Import(name="agentArns")
     private @Nullable Output<List<String>> agentArns;
 
     /**
-     * @return (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+     * @return (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
      * 
      */
     public Optional<Output<List<String>>> agentArns() {
@@ -34,14 +34,14 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Location.
+     * @return ARN of the DataSync Location.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -64,14 +64,14 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     @Import(name="s3BucketArn")
     private @Nullable Output<String> s3BucketArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+     * @return ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
      * 
      */
     public Optional<Output<String>> s3BucketArn() {
@@ -194,7 +194,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+         * @param agentArns (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+         * @param agentArns (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -215,7 +215,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param agentArns (Amazon S3 on Outposts only) Amazon Resource Name (ARN) of the DataSync agent on the Outpost.
+         * @param agentArns (Amazon S3 on Outposts only) ARN of the DataSync agent on the Outpost.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -236,7 +236,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the DataSync Location.
+         * @param arn ARN of the DataSync Location.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+         * @param s3BucketArn ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
          * 
          * @return builder
          * 
@@ -278,7 +278,7 @@ public final class S3LocationState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param s3BucketArn Amazon Resource Name (ARN) of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
+         * @param s3BucketArn ARN of the S3 bucket, or the Amazon S3 access point if the S3 bucket is located on an AWS Outposts resource.
          * 
          * @return builder
          * 

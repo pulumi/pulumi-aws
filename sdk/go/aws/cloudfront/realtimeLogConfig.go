@@ -34,7 +34,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -43,6 +42,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -87,18 +87,18 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   exampleRole.Arn,
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
+//					StreamType: pulumi.String("Kinesis"),
+//				},
 //				Name:         pulumi.String("example"),
 //				SamplingRate: pulumi.Int(75),
 //				Fields: pulumi.StringArray{
 //					pulumi.String("timestamp"),
 //					pulumi.String("c-ip"),
-//				},
-//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-//					StreamType: pulumi.String("Kinesis"),
-//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-//						RoleArn:   exampleRole.Arn,
-//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleRolePolicy,
@@ -147,6 +147,13 @@ import (
 //				return err
 //			}
 //			_, err = cloudfront.NewRealtimeLogConfig(ctx, "example", &cloudfront.RealtimeLogConfigArgs{
+//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
+//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
+//						RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
+//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
+//					},
+//					StreamType: pulumi.String("Kinesis"),
+//				},
 //				Name:         pulumi.String("example"),
 //				SamplingRate: pulumi.Int(100),
 //				Fields: pulumi.StringArray{
@@ -155,13 +162,6 @@ import (
 //					pulumi.String("sc-status"),
 //					pulumi.String("viewer-request-log-data"),
 //					pulumi.String("viewer-response-log-data"),
-//				},
-//				Endpoint: &cloudfront.RealtimeLogConfigEndpointArgs{
-//					StreamType: pulumi.String("Kinesis"),
-//					KinesisStreamConfig: &cloudfront.RealtimeLogConfigEndpointKinesisStreamConfigArgs{
-//						RoleArn:   pulumi.Any(exampleAwsIamRole.Arn),
-//						StreamArn: pulumi.Any(exampleAwsKinesisStream.Arn),
-//					},
 //				},
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsIamRolePolicy,
@@ -183,7 +183,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+// - `arn` (String) ARN of the CloudFront real-time log configuration.
 //
 // Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
 //
@@ -193,7 +193,7 @@ import (
 type RealtimeLogConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointOutput `pulumi:"endpoint"`
@@ -244,7 +244,7 @@ func GetRealtimeLogConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RealtimeLogConfig resources.
 type realtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn *string `pulumi:"arn"`
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint *RealtimeLogConfigEndpoint `pulumi:"endpoint"`
@@ -257,7 +257,7 @@ type realtimeLogConfigState struct {
 }
 
 type RealtimeLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+	// ARN of the CloudFront real-time log configuration.
 	Arn pulumi.StringPtrInput
 	// The Amazon Kinesis data streams where real-time log data is sent.
 	Endpoint RealtimeLogConfigEndpointPtrInput
@@ -383,7 +383,7 @@ func (o RealtimeLogConfigOutput) ToRealtimeLogConfigOutputWithContext(ctx contex
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+// ARN of the CloudFront real-time log configuration.
 func (o RealtimeLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RealtimeLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

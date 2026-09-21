@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverFirewallRuleGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the rule group.
+        /// ARN of the rule group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -162,7 +162,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverFirewallRuleGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the rule group.
+        /// ARN of the rule group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

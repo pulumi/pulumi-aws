@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EventIntegration("example", EventIntegrationArgs.builder()
- *             .name("example-name")
- *             .description("Example Description")
- *             .eventbridgeBus("default")
  *             .eventFilter(EventIntegrationEventFilterArgs.builder()
  *                 .source("aws.partner/example.com")
  *                 .build())
+ *             .name("example-name")
+ *             .description("Example Description")
+ *             .eventbridgeBus("default")
  *             .tags(Map.of("Name", "Example Event Integration"))
  *             .build());
  * 

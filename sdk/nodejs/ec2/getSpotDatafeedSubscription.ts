@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 /**
  * > There is only a single spot data feed subscription per account.
  *
- * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+ * Data source for accessing an AWS EC2 spot data feed subscription.
  *
  * ## Example Usage
  *
@@ -53,7 +53,7 @@ export interface GetSpotDatafeedSubscriptionResult {
 /**
  * > There is only a single spot data feed subscription per account.
  *
- * Data source for accessing an AWS EC2 (Elastic Compute Cloud) spot data feed subscription.
+ * Data source for accessing an AWS EC2 spot data feed subscription.
  *
  * ## Example Usage
  *

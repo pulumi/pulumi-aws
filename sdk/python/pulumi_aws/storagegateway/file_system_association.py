@@ -32,11 +32,11 @@ class FileSystemAssociationArgs:
         """
         The set of arguments for constructing a FileSystemAssociation resource.
 
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[_builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
+        :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
         :param pulumi.Input[_builtins.str] username: The user name of the user credential that has permission to access the root share of the Amazon FSx file system. The user account must belong to the Amazon FSx delegated admin user group.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
         :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -58,7 +58,7 @@ class FileSystemAssociationArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -70,7 +70,7 @@ class FileSystemAssociationArgs:
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         """
         return pulumi.get(self, "location_arn")
 
@@ -106,7 +106,7 @@ class FileSystemAssociationArgs:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        ARN of the storage used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -167,11 +167,11 @@ class _FileSystemAssociationState:
         """
         Input properties used for looking up and filtering FileSystemAssociation resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the newly created file system association.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the newly created file system association.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
         :param pulumi.Input['FileSystemAssociationCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[_builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
+        :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -203,7 +203,7 @@ class _FileSystemAssociationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the newly created file system association.
+        ARN of the newly created file system association.
         """
         return pulumi.get(self, "arn")
 
@@ -215,7 +215,7 @@ class _FileSystemAssociationState:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        ARN of the storage used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -239,7 +239,7 @@ class _FileSystemAssociationState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -251,7 +251,7 @@ class _FileSystemAssociationState:
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         """
         return pulumi.get(self, "location_arn")
 
@@ -372,15 +372,15 @@ class FileSystemAssociation(pulumi.CustomResource):
                     test_aws_vpc_dhcp_options_association,
                 ]))
         test_gateway = aws.storagegateway.Gateway("test",
-            gateway_ip_address=test.public_ip,
-            gateway_name="test-sgw",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
-            })
+            },
+            gateway_ip_address=test.public_ip,
+            gateway_name="test-sgw",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB")
         test_windows_file_system = aws.fsx.WindowsFileSystem("test",
             active_directory_id=test_aws_directory_service_directory["id"],
             security_group_ids=[test_aws_security_group["id"]],
@@ -389,19 +389,19 @@ class FileSystemAssociation(pulumi.CustomResource):
             subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
+            cache_attributes={
+                "cache_stale_timeout_in_seconds": 400,
+            },
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=test_aws_directory_service_directory["password"],
-            cache_attributes={
-                "cache_stale_timeout_in_seconds": 400,
-            },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -410,10 +410,10 @@ class FileSystemAssociation(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
         :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[_builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
+        :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -462,15 +462,15 @@ class FileSystemAssociation(pulumi.CustomResource):
                     test_aws_vpc_dhcp_options_association,
                 ]))
         test_gateway = aws.storagegateway.Gateway("test",
-            gateway_ip_address=test.public_ip,
-            gateway_name="test-sgw",
-            gateway_timezone="GMT",
-            gateway_type="FILE_FSX_SMB",
             smb_active_directory_settings={
                 "domain_name": test_aws_directory_service_directory["name"],
                 "password": test_aws_directory_service_directory["password"],
                 "username": "Admin",
-            })
+            },
+            gateway_ip_address=test.public_ip,
+            gateway_name="test-sgw",
+            gateway_timezone="GMT",
+            gateway_type="FILE_FSX_SMB")
         test_windows_file_system = aws.fsx.WindowsFileSystem("test",
             active_directory_id=test_aws_directory_service_directory["id"],
             security_group_ids=[test_aws_security_group["id"]],
@@ -479,19 +479,19 @@ class FileSystemAssociation(pulumi.CustomResource):
             subnet_ids=[test_aws_subnet[0]["id"]],
             throughput_capacity=8)
         fsx = aws.storagegateway.FileSystemAssociation("fsx",
+            cache_attributes={
+                "cache_stale_timeout_in_seconds": 400,
+            },
             gateway_arn=test_gateway.arn,
             location_arn=test_windows_file_system.arn,
             username="Admin",
             password=test_aws_directory_service_directory["password"],
-            cache_attributes={
-                "cache_stale_timeout_in_seconds": 400,
-            },
             audit_destination_arn=test_aws_cloudwatch_log_group["arn"])
         ```
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.FileSystemAssociation` using the FSx file system association ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/fileSystemAssociation:FileSystemAssociation example arn:aws:storagegateway:us-east-1:123456789012:fs-association/fsa-0DA347732FDB40125
@@ -577,11 +577,11 @@ class FileSystemAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the newly created file system association.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the newly created file system association.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for the audit logs.
         :param pulumi.Input[Union['FileSystemAssociationCacheAttributesArgs', 'FileSystemAssociationCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
-        :param pulumi.Input[_builtins.str] gateway_arn: The Amazon Resource Name (ARN) of the gateway.
-        :param pulumi.Input[_builtins.str] location_arn: The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the gateway.
+        :param pulumi.Input[_builtins.str] location_arn: ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         :param pulumi.Input[_builtins.str] password: The password of the user credential.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -608,7 +608,7 @@ class FileSystemAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the newly created file system association.
+        ARN of the newly created file system association.
         """
         return pulumi.get(self, "arn")
 
@@ -616,7 +616,7 @@ class FileSystemAssociation(pulumi.CustomResource):
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for the audit logs.
+        ARN of the storage used for the audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -632,7 +632,7 @@ class FileSystemAssociation(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the gateway.
+        ARN of the gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -640,7 +640,7 @@ class FileSystemAssociation(pulumi.CustomResource):
     @pulumi.getter(name="locationArn")
     def location_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon FSx file system to associate with the FSx File Gateway.
+        ARN of the Amazon FSx file system to associate with the FSx File Gateway.
         """
         return pulumi.get(self, "location_arn")
 

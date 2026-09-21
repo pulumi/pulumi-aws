@@ -30,13 +30,13 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
     ///             LoggingLevel = "OFF",
     ///         },
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
+    ///         MethodPath = "path1/GET",
     ///     });
     /// 
     /// });
@@ -54,15 +54,15 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
     ///             LoggingLevel = "ERROR",
     ///             MetricsEnabled = true,
     ///             DataTraceEnabled = false,
     ///         },
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
+    ///         MethodPath = "path1/GET",
     ///     });
     /// 
     /// });
@@ -80,15 +80,15 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
     ///             LoggingLevel = "INFO",
     ///             MetricsEnabled = true,
     ///             DataTraceEnabled = false,
     ///         },
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
+    ///         MethodPath = "path1/GET",
     ///     });
     /// 
     /// });
@@ -106,15 +106,15 @@ namespace Pulumi.Aws.ApiGateway
     /// {
     ///     var pathSpecific = new Aws.ApiGateway.MethodSettings("path_specific", new()
     ///     {
-    ///         RestApi = example.Id,
-    ///         StageName = exampleAwsApiGatewayStage.StageName,
-    ///         MethodPath = "path1/GET",
     ///         Settings = new Aws.ApiGateway.Inputs.MethodSettingsSettingsArgs
     ///         {
     ///             LoggingLevel = "INFO",
     ///             MetricsEnabled = true,
     ///             DataTraceEnabled = true,
     ///         },
+    ///         RestApi = example.Id,
+    ///         StageName = exampleAwsApiGatewayStage.StageName,
+    ///         MethodPath = "path1/GET",
     ///     });
     /// 
     /// });

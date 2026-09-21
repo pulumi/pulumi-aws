@@ -21,14 +21,14 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
     public static final SigningProfileState Empty = new SigningProfileState();
 
     /**
-     * The Amazon Resource Name (ARN) for the signing profile.
+     * ARN for the signing profile.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the signing profile.
+     * @return ARN for the signing profile.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -284,7 +284,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the signing profile.
+         * @param arn ARN for the signing profile.
          * 
          * @return builder
          * 
@@ -295,7 +295,7 @@ public final class SigningProfileState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) for the signing profile.
+         * @param arn ARN for the signing profile.
          * 
          * @return builder
          * 

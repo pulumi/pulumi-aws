@@ -122,7 +122,7 @@ class _VpcIpamResourceDiscoveryState:
         """
         Input properties used for looking up and filtering VpcIpamResourceDiscovery resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM Resource Discovery
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery
         :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
         :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
@@ -158,7 +158,7 @@ class _VpcIpamResourceDiscoveryState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of IPAM Resource Discovery
+        ARN of IPAM Resource Discovery
         """
         return pulumi.get(self, "arn")
 
@@ -300,10 +300,10 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM Resource Discovery",
             tags={
                 "Test": "Main",
             })
@@ -345,10 +345,10 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         current = aws.get_region()
         main = aws.ec2.VpcIpamResourceDiscovery("main",
-            description="My IPAM Resource Discovery",
             operating_regions=[{
                 "region_name": current.region,
             }],
+            description="My IPAM Resource Discovery",
             tags={
                 "Test": "Main",
             })
@@ -431,7 +431,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM Resource Discovery
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery
         :param pulumi.Input[_builtins.str] description: A description for the IPAM Resource Discovery.
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_region: The home region of the Resource Discovery
         :param pulumi.Input[_builtins.bool] is_default: A boolean to identify if the Resource Discovery is the accounts default resource discovery
@@ -462,7 +462,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of IPAM Resource Discovery
+        ARN of IPAM Resource Discovery
         """
         return pulumi.get(self, "arn")
 

@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewDirectoryBucket(ctx, "example", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--usw2-az1--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String("usw2-az1"),
 //				},
+//				Bucket: pulumi.String("example--usw2-az1--x-s3"),
 //			})
 //			if err != nil {
 //				return err
@@ -60,11 +60,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewDirectoryBucket(ctx, "example_local_zone", &s3.DirectoryBucketArgs{
-//				Bucket: pulumi.String("example--usw2-xxx-lz1--x-s3"),
 //				Location: &s3.DirectoryBucketLocationArgs{
 //					Name: pulumi.String("usw2-xxx-lz1"),
 //					Type: pulumi.String("LocalZone"),
 //				},
+//				Bucket: pulumi.String("example--usw2-xxx-lz1--x-s3"),
 //			})
 //			if err != nil {
 //				return err

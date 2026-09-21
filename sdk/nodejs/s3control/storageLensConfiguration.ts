@@ -18,9 +18,7 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const example = new aws.s3control.StorageLensConfiguration("example", {
- *     configId: "example-1",
  *     storageLensConfiguration: {
- *         enabled: true,
  *         accountLevel: {
  *             activityMetrics: {
  *                 enabled: true,
@@ -36,13 +34,13 @@ import * as utilities from "../utilities";
  *                 enabled: true,
  *             },
  *             s3BucketDestination: {
+ *                 encryption: {
+ *                     sseS3s: [{}],
+ *                 },
  *                 accountId: current.then(current => current.accountId),
  *                 arn: target.arn,
  *                 format: "CSV",
  *                 outputSchemaVersion: "V_1",
- *                 encryption: {
- *                     sseS3s: [{}],
- *                 },
  *             },
  *         },
  *         exclude: {
@@ -52,7 +50,9 @@ import * as utilities from "../utilities";
  *             ],
  *             regions: ["us-east-2"],
  *         },
+ *         enabled: true,
  *     },
+ *     configId: "example-1",
  * });
  * ```
  *
@@ -97,7 +97,7 @@ export class StorageLensConfiguration extends pulumi.CustomResource {
      */
     declare public readonly accountId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -171,7 +171,7 @@ export interface StorageLensConfigurationState {
      */
     accountId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

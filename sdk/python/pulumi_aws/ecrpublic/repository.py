@@ -276,7 +276,6 @@ class Repository(pulumi.CustomResource):
         import pulumi_std as std
 
         foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
             catalog_data={
                 "about_text": "About Text",
                 "architectures": ["ARM"],
@@ -285,6 +284,7 @@ class Repository(pulumi.CustomResource):
                 "operating_systems": ["Linux"],
                 "usage_text": "Usage Text",
             },
+            repository_name="bar",
             tags={
                 "env": "production",
             })
@@ -325,7 +325,6 @@ class Repository(pulumi.CustomResource):
         import pulumi_std as std
 
         foo = aws.ecrpublic.Repository("foo",
-            repository_name="bar",
             catalog_data={
                 "about_text": "About Text",
                 "architectures": ["ARM"],
@@ -334,6 +333,7 @@ class Repository(pulumi.CustomResource):
                 "operating_systems": ["Linux"],
                 "usage_text": "Usage Text",
             },
+            repository_name="bar",
             tags={
                 "env": "production",
             })

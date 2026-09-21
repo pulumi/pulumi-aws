@@ -64,26 +64,26 @@ type LookupInstanceResult struct {
 	Address string `pulumi:"address"`
 	// Allocated storage size specified in gigabytes.
 	AllocatedStorage int `pulumi:"allocatedStorage"`
-	// Indicates that minor version patches are applied automatically.
+	// Whether minor version patches are applied automatically.
 	AutoMinorVersionUpgrade bool `pulumi:"autoMinorVersionUpgrade"`
 	// Name of the Availability Zone the DB instance is located in.
 	AvailabilityZone string `pulumi:"availabilityZone"`
-	// Specifies the number of days for which automatic DB snapshots are retained.
+	// Number of days for which automatic DB snapshots are retained.
 	BackupRetentionPeriod int `pulumi:"backupRetentionPeriod"`
 	// Identifier of the CA certificate for the DB instance.
 	CaCertIdentifier string `pulumi:"caCertIdentifier"`
-	// The mode of Database Insights that is enabled for the DB instance.
+	// Mode of Database Insights that is enabled for the DB instance.
 	DatabaseInsightsMode string `pulumi:"databaseInsightsMode"`
 	// If the DB instance is a member of a DB cluster, contains the name of the DB cluster that the DB instance is a member of.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
 	// ARN for the DB instance.
 	DbInstanceArn string `pulumi:"dbInstanceArn"`
-	// Contains the name of the compute and memory capacity class of the DB instance.
+	// Name of the compute and memory capacity class of the DB instance.
 	DbInstanceClass      string `pulumi:"dbInstanceClass"`
 	DbInstanceIdentifier string `pulumi:"dbInstanceIdentifier"`
 	// Port that the DB instance listens on.
 	DbInstancePort int `pulumi:"dbInstancePort"`
-	// Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+	// Name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
 	DbName string `pulumi:"dbName"`
 	// Provides the list of DB parameter groups applied to this DB instance.
 	DbParameterGroups []string `pulumi:"dbParameterGroups"`
@@ -103,15 +103,15 @@ type LookupInstanceResult struct {
 	Id string `pulumi:"id"`
 	// Provisioned IOPS (I/O operations per second) value.
 	Iops int `pulumi:"iops"`
-	// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// License model information for this DB instance.
 	LicenseModel string `pulumi:"licenseModel"`
 	// Provides the master user secret. Only available when `manageMasterUserPassword` is set to true. Documented below.
 	MasterUserSecrets []GetInstanceMasterUserSecret `pulumi:"masterUserSecrets"`
-	// Contains the master username for the DB instance.
+	// Master username for the DB instance.
 	MasterUsername string `pulumi:"masterUsername"`
-	// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+	// Upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
 	MaxAllocatedStorage int `pulumi:"maxAllocatedStorage"`
 	// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the DB instance.
 	MonitoringInterval int `pulumi:"monitoringInterval"`
@@ -125,9 +125,9 @@ type LookupInstanceResult struct {
 	OptionGroupMemberships []string `pulumi:"optionGroupMemberships"`
 	// Database endpoint port, primarily used by an Aurora DB cluster. For a conventional RDS DB instance, the `dbInstancePort` is typically the preferred choice.
 	Port int `pulumi:"port"`
-	// Specifies the daily time range during which automated backups are created.
+	// Daily time range during which automated backups are created.
 	PreferredBackupWindow string `pulumi:"preferredBackupWindow"`
-	// Specifies the weekly time range during which system maintenance can occur in UTC.
+	// Weekly time range during which system maintenance can occur in UTC.
 	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
 	// Accessibility options for the DB instance.
 	PubliclyAccessible bool   `pulumi:"publiclyAccessible"`
@@ -152,12 +152,8 @@ type LookupInstanceResult struct {
 }
 
 func LookupInstanceOutput(ctx *pulumi.Context, args LookupInstanceOutputArgs, opts ...pulumi.InvokeOption) LookupInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInstanceResultOutput, error) {
-			args := v.(LookupInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getInstance:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput), nil
-		}).(LookupInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getInstance:getInstance", args, LookupInstanceResultOutput{}, options).(LookupInstanceResultOutput)
 }
 
 // A collection of arguments for invoking getInstance.
@@ -199,7 +195,7 @@ func (o LookupInstanceResultOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
 
-// Indicates that minor version patches are applied automatically.
+// Whether minor version patches are applied automatically.
 func (o LookupInstanceResultOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupInstanceResult) bool { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -209,7 +205,7 @@ func (o LookupInstanceResultOutput) AvailabilityZone() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.AvailabilityZone }).(pulumi.StringOutput)
 }
 
-// Specifies the number of days for which automatic DB snapshots are retained.
+// Number of days for which automatic DB snapshots are retained.
 func (o LookupInstanceResultOutput) BackupRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
 }
@@ -219,7 +215,7 @@ func (o LookupInstanceResultOutput) CaCertIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.CaCertIdentifier }).(pulumi.StringOutput)
 }
 
-// The mode of Database Insights that is enabled for the DB instance.
+// Mode of Database Insights that is enabled for the DB instance.
 func (o LookupInstanceResultOutput) DatabaseInsightsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }
@@ -234,7 +230,7 @@ func (o LookupInstanceResultOutput) DbInstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbInstanceArn }).(pulumi.StringOutput)
 }
 
-// Contains the name of the compute and memory capacity class of the DB instance.
+// Name of the compute and memory capacity class of the DB instance.
 func (o LookupInstanceResultOutput) DbInstanceClass() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbInstanceClass }).(pulumi.StringOutput)
 }
@@ -248,7 +244,7 @@ func (o LookupInstanceResultOutput) DbInstancePort() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.DbInstancePort }).(pulumi.IntOutput)
 }
 
-// Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+// Name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
 func (o LookupInstanceResultOutput) DbName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.DbName }).(pulumi.StringOutput)
 }
@@ -298,7 +294,7 @@ func (o LookupInstanceResultOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.Iops }).(pulumi.IntOutput)
 }
 
-// The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 func (o LookupInstanceResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
@@ -313,12 +309,12 @@ func (o LookupInstanceResultOutput) MasterUserSecrets() GetInstanceMasterUserSec
 	return o.ApplyT(func(v LookupInstanceResult) []GetInstanceMasterUserSecret { return v.MasterUserSecrets }).(GetInstanceMasterUserSecretArrayOutput)
 }
 
-// Contains the master username for the DB instance.
+// Master username for the DB instance.
 func (o LookupInstanceResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
-// The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+// Upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
 func (o LookupInstanceResultOutput) MaxAllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.MaxAllocatedStorage }).(pulumi.IntOutput)
 }
@@ -353,12 +349,12 @@ func (o LookupInstanceResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupInstanceResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
-// Specifies the daily time range during which automated backups are created.
+// Daily time range during which automated backups are created.
 func (o LookupInstanceResultOutput) PreferredBackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PreferredBackupWindow }).(pulumi.StringOutput)
 }
 
-// Specifies the weekly time range during which system maintenance can occur in UTC.
+// Weekly time range during which system maintenance can occur in UTC.
 func (o LookupInstanceResultOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupInstanceResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }

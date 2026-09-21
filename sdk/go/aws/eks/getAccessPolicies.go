@@ -40,12 +40,8 @@ type GetAccessPoliciesResult struct {
 }
 
 func GetAccessPoliciesOutput(ctx *pulumi.Context, args GetAccessPoliciesOutputArgs, opts ...pulumi.InvokeOption) GetAccessPoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAccessPoliciesResultOutput, error) {
-			args := v.(GetAccessPoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getAccessPolicies:getAccessPolicies", args, GetAccessPoliciesResultOutput{}, options).(GetAccessPoliciesResultOutput), nil
-		}).(GetAccessPoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getAccessPolicies:getAccessPolicies", args, GetAccessPoliciesResultOutput{}, options).(GetAccessPoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getAccessPolicies.

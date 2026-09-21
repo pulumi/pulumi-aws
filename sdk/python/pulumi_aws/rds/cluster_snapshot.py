@@ -27,11 +27,11 @@ class ClusterSnapshotArgs:
         """
         The set of arguments for constructing a ClusterSnapshot resource.
 
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "db_cluster_identifier", db_cluster_identifier)
         pulumi.set(__self__, "db_cluster_snapshot_identifier", db_cluster_snapshot_identifier)
@@ -46,7 +46,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The DB Cluster Identifier from which to take the snapshot.
+        DB Cluster Identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -58,7 +58,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
@@ -94,7 +94,7 @@ class ClusterSnapshotArgs:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -130,9 +130,9 @@ class _ClusterSnapshotState:
 
         :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] engine: Name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DB cluster snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
@@ -140,11 +140,13 @@ class _ClusterSnapshotState:
         :param pulumi.Input[_builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[_builtins.str] status: The status of this DB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] source_db_cluster_snapshot_arn: DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        :param pulumi.Input[_builtins.str] status: Status of this DB Cluster Snapshot.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID associated with the DB cluster snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID associated with the DB cluster snapshot.
         """
         if allocated_storage is not None:
             pulumi.set(__self__, "allocated_storage", allocated_storage)
@@ -213,7 +215,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DB Cluster Identifier from which to take the snapshot.
+        DB Cluster Identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -225,7 +227,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        ARN for the DB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -237,7 +239,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
@@ -332,6 +334,9 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the DB cluster snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
@@ -341,6 +346,9 @@ class _ClusterSnapshotState:
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
     def source_db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        """
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @source_db_cluster_snapshot_arn.setter
@@ -351,7 +359,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The status of this DB Cluster Snapshot.
+        Status of this DB Cluster Snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -375,7 +383,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -387,7 +395,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -399,7 +407,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The VPC ID associated with the DB cluster snapshot.
+        VPC ID associated with the DB cluster snapshot.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -445,11 +453,11 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
     @overload
@@ -570,9 +578,9 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] availability_zones: List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
-        :param pulumi.Input[_builtins.str] db_cluster_identifier: The DB Cluster Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_identifier: DB Cluster Identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] engine: Name of the database engine.
         :param pulumi.Input[_builtins.str] engine_version: Version of the database engine for this DB cluster snapshot.
         :param pulumi.Input[_builtins.str] kms_key_id: If storage_encrypted is true, the AWS KMS key identifier for the encrypted DB cluster snapshot.
@@ -580,11 +588,13 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Port that the DB cluster was listening on at the time of the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[_builtins.str] status: The status of this DB Cluster Snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] source_db_cluster_snapshot_arn: DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        :param pulumi.Input[_builtins.str] status: Status of this DB Cluster Snapshot.
         :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] vpc_id: The VPC ID associated with the DB cluster snapshot.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[_builtins.str] vpc_id: VPC ID associated with the DB cluster snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -631,7 +641,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterIdentifier")
     def db_cluster_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The DB Cluster Identifier from which to take the snapshot.
+        DB Cluster Identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_cluster_identifier")
 
@@ -639,7 +649,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        ARN for the DB Cluster Snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -647,7 +657,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterSnapshotIdentifier")
     def db_cluster_snapshot_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_identifier")
 
@@ -710,18 +720,24 @@ class ClusterSnapshot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of the DB cluster snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @_builtins.property
     @pulumi.getter(name="sourceDbClusterSnapshotArn")
     def source_db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
+        """
+        DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        """
         return pulumi.get(self, "source_db_cluster_snapshot_arn")
 
     @_builtins.property
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        The status of this DB Cluster Snapshot.
+        Status of this DB Cluster Snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -737,7 +753,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, _builtins.str]]]:
         """
-        A map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        Map of tags to assign to the DB cluster. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         return pulumi.get(self, "tags")
 
@@ -745,7 +761,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -753,7 +769,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The VPC ID associated with the DB cluster snapshot.
+        VPC ID associated with the DB cluster snapshot.
         """
         return pulumi.get(self, "vpc_id")
 

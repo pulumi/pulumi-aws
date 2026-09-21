@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var testQueue = new Aws.Batch.JobQueue("test_queue", new()
     ///     {
-    ///         Name = "tf-test-batch-job-queue",
-    ///         State = "ENABLED",
-    ///         Priority = 1,
     ///         ComputeEnvironmentOrders = new[]
     ///         {
     ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
@@ -42,6 +39,9 @@ namespace Pulumi.Aws.Batch
     ///                 ComputeEnvironment = testEnvironment2.Arn,
     ///             },
     ///         },
+    ///         Name = "tf-test-batch-job-queue",
+    ///         State = "ENABLED",
+    ///         Priority = 1,
     ///     });
     /// 
     /// });
@@ -59,11 +59,8 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var example = new Aws.Batch.SchedulingPolicy("example", new()
     ///     {
-    ///         Name = "example",
     ///         FairSharePolicy = new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyArgs
     ///         {
-    ///             ComputeReservation = 1,
-    ///             ShareDecaySeconds = 3600,
     ///             ShareDistributions = new[]
     ///             {
     ///                 new Aws.Batch.Inputs.SchedulingPolicyFairSharePolicyShareDistributionArgs
@@ -72,15 +69,14 @@ namespace Pulumi.Aws.Batch
     ///                     WeightFactor = 0.1,
     ///                 },
     ///             },
+    ///             ComputeReservation = 1,
+    ///             ShareDecaySeconds = 3600,
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var exampleJobQueue = new Aws.Batch.JobQueue("example", new()
     ///     {
-    ///         Name = "tf-test-batch-job-queue",
-    ///         SchedulingPolicyArn = example.Arn,
-    ///         State = "ENABLED",
-    ///         Priority = 1,
     ///         ComputeEnvironmentOrders = new[]
     ///         {
     ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
@@ -94,6 +90,10 @@ namespace Pulumi.Aws.Batch
     ///                 ComputeEnvironment = testEnvironment2.Arn,
     ///             },
     ///         },
+    ///         Name = "tf-test-batch-job-queue",
+    ///         SchedulingPolicyArn = example.Arn,
+    ///         State = "ENABLED",
+    ///         Priority = 1,
     ///     });
     /// 
     /// });
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the job queue.
+    /// - `Arn` (String) ARN of the job queue.
     /// 
     /// Using `pulumi import`, import Batch Job Queue using the `Arn`. For example:
     /// 
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Batch
     public partial class JobQueue : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name of the job queue.
+        /// ARN of the job queue.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -305,7 +305,7 @@ namespace Pulumi.Aws.Batch
     public sealed class JobQueueState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name of the job queue.
+        /// ARN of the job queue.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

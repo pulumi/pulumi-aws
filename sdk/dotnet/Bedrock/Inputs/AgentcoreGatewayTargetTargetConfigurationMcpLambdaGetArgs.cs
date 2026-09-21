@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string> LambdaArn { get; set; } = null!;
 
         /// <summary>
-        /// Schema definition for the tool. See `ToolSchema` below.
+        /// Schema definition for the tool. See `ToolSchema` Block below.
         /// </summary>
         [Input("toolSchema", required: true)]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaGetArgs> ToolSchema { get; set; } = null!;

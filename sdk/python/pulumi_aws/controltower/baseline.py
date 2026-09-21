@@ -327,13 +327,13 @@ class Baseline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.controltower.Baseline("example",
-            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
-            baseline_version="4.0",
-            target_identifier=test["arn"],
             parameters={
                 "key": "IdentityCenterEnabledBaselineArn",
                 "value": "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
-            })
+            },
+            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
+            baseline_version="4.0",
+            target_identifier=test["arn"])
         ```
 
         ## Import
@@ -374,13 +374,13 @@ class Baseline(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.controltower.Baseline("example",
-            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
-            baseline_version="4.0",
-            target_identifier=test["arn"],
             parameters={
                 "key": "IdentityCenterEnabledBaselineArn",
                 "value": "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
-            })
+            },
+            baseline_identifier="arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
+            baseline_version="4.0",
+            target_identifier=test["arn"])
         ```
 
         ## Import

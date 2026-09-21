@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm network profile.
+ * - `arn` (String) ARN of the Device Farm network profile.
  * 
  * Using `pulumi import`, import DeviceFarm Network Profiles using their ARN. For example:
  * 
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/networkProfile:NetworkProfile")
 public class NetworkProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this network profile.
+     * ARN of this network profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this network profile.
+     * @return ARN of this network profile.
      * 
      */
     public Output<String> arn() {

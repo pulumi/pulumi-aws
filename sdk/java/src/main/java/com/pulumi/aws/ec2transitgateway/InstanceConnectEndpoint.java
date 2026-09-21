@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")
 public class InstanceConnectEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * ARN of the EC2 Instance Connect Endpoint.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+     * @return ARN of the EC2 Instance Connect Endpoint.
      * 
      */
     public Output<String> arn() {

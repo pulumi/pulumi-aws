@@ -31,19 +31,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sfn.NewAlias(ctx, "sfn_alias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.Any(sfnTest.StateMachineVersionArn),
 //						Weight:                 pulumi.Int(100),
 //					},
 //				},
+//				Name: pulumi.String("my_sfn_alias"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = sfn.NewAlias(ctx, "my_sfn_alias", &sfn.AliasArgs{
-//				Name: pulumi.String("my_sfn_alias"),
 //				RoutingConfigurations: sfn.AliasRoutingConfigurationArray{
 //					&sfn.AliasRoutingConfigurationArgs{
 //						StateMachineVersionArn: pulumi.String("arn:aws:states:us-east-1:12345:stateMachine:demo:3"),
@@ -54,6 +53,7 @@ import (
 //						Weight:                 pulumi.Int(50),
 //					},
 //				},
+//				Name: pulumi.String("my_sfn_alias"),
 //			})
 //			if err != nil {
 //				return err
@@ -80,7 +80,7 @@ import (
 type Alias struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
+	// ARN identifying your state machine alias.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The date the state machine alias was created.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
@@ -127,7 +127,7 @@ func GetAlias(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Alias resources.
 type aliasState struct {
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
+	// ARN identifying your state machine alias.
 	Arn *string `pulumi:"arn"`
 	// The date the state machine alias was created.
 	CreationDate *string `pulumi:"creationDate"`
@@ -142,7 +142,7 @@ type aliasState struct {
 }
 
 type AliasState struct {
-	// The Amazon Resource Name (ARN) identifying your state machine alias.
+	// ARN identifying your state machine alias.
 	Arn pulumi.StringPtrInput
 	// The date the state machine alias was created.
 	CreationDate pulumi.StringPtrInput
@@ -270,7 +270,7 @@ func (o AliasOutput) ToAliasOutputWithContext(ctx context.Context) AliasOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) identifying your state machine alias.
+// ARN identifying your state machine alias.
 func (o AliasOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Alias) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

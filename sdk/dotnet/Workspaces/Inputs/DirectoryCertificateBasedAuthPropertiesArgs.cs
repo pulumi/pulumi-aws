@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Workspaces.Inputs
     public sealed class DirectoryCertificateBasedAuthPropertiesArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
+        /// ARN of the certificate manager private certificate authority (ACM-PCA) that is used for certificate-based authentication.
         /// </summary>
         [Input("certificateAuthorityArn")]
         public Input<string>? CertificateAuthorityArn { get; set; }

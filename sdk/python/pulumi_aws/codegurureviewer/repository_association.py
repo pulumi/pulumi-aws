@@ -110,9 +110,9 @@ class _RepositoryAssociationState:
         """
         Input properties used for looking up and filtering RepositoryAssociation resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying the repository association.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying the repository association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
         :param pulumi.Input['RepositoryAssociationKmsKeyDetailsArgs'] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] owner: The owner of the repository.
@@ -157,7 +157,7 @@ class _RepositoryAssociationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) identifying the repository association.
+        ARN identifying the repository association.
         """
         return pulumi.get(self, "arn")
 
@@ -181,7 +181,7 @@ class _RepositoryAssociationState:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 
@@ -336,7 +336,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo",
+        opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"codeguru-reviewer\\"]"]))
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository={
                 "codecommit": {
@@ -374,7 +375,8 @@ class RepositoryAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kms.Key("example")
-        example_repository = aws.codecommit.Repository("example", repository_name="example-repo")
+        example_repository = aws.codecommit.Repository("example", repository_name="example-repo",
+        opts = pulumi.ResourceOptions(ignore_changes=["tags[\\"codeguru-reviewer\\"]"]))
         example_repository_association = aws.codegurureviewer.RepositoryAssociation("example",
             repository={
                 "codecommit": {
@@ -463,9 +465,9 @@ class RepositoryAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) identifying the repository association.
+        :param pulumi.Input[_builtins.str] arn: ARN identifying the repository association.
         :param pulumi.Input[_builtins.str] association_id: The ID of the repository association.
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
         :param pulumi.Input[Union['RepositoryAssociationKmsKeyDetailsArgs', 'RepositoryAssociationKmsKeyDetailsArgsDict']] kms_key_details: An object describing the KMS key to asssociate. Block is documented below.
         :param pulumi.Input[_builtins.str] name: The name of the repository.
         :param pulumi.Input[_builtins.str] owner: The owner of the repository.
@@ -501,7 +503,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) identifying the repository association.
+        ARN identifying the repository association.
         """
         return pulumi.get(self, "arn")
 
@@ -517,7 +519,7 @@ class RepositoryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 

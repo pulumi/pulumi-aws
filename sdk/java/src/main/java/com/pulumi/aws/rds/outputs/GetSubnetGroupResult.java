@@ -34,12 +34,12 @@ public final class GetSubnetGroupResult {
      */
     private String status;
     /**
-     * @return Contains a list of subnet identifiers.
+     * @return List of subnet identifiers.
      * 
      */
     private List<String> subnetIds;
     /**
-     * @return The network type of the DB subnet group.
+     * @return Network type of the DB subnet group.
      * 
      */
     private List<String> supportedNetworkTypes;
@@ -85,14 +85,14 @@ public final class GetSubnetGroupResult {
         return this.status;
     }
     /**
-     * @return Contains a list of subnet identifiers.
+     * @return List of subnet identifiers.
      * 
      */
     public List<String> subnetIds() {
         return this.subnetIds;
     }
     /**
-     * @return The network type of the DB subnet group.
+     * @return Network type of the DB subnet group.
      * 
      */
     public List<String> supportedNetworkTypes() {

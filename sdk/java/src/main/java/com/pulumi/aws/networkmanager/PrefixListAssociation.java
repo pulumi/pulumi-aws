@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var prefixList = new ManagedPrefixList("prefixList", ManagedPrefixListArgs.builder()
- *             .name("example")
- *             .addressFamily("IPv4")
- *             .maxEntries(5)
  *             .entries(ManagedPrefixListEntryArgs.builder()
  *                 .cidr("10.0.0.0/8")
  *                 .description("Example CIDR")
  *                 .build())
+ *             .name("example")
+ *             .addressFamily("IPv4")
+ *             .maxEntries(5)
  *             .build());
  * 
  *         var plAssociation = new PrefixListAssociation("plAssociation", PrefixListAssociationArgs.builder()

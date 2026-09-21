@@ -52,7 +52,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -61,6 +60,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -106,13 +106,6 @@ import (
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
-//						Actions: pulumi.StringArray{
-//							pulumi.String("ec2:CreateNetworkInterfacePermission"),
-//						},
-//						Resources: pulumi.StringArray{
-//							pulumi.String("arn:aws:ec2:us-east-1:123456789012:network-interface/*"),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("StringEquals"),
@@ -129,6 +122,13 @@ import (
 //									pulumi.String("codebuild.amazonaws.com"),
 //								},
 //							},
+//						},
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("ec2:CreateNetworkInterfacePermission"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:ec2:us-east-1:123456789012:network-interface/*"),
 //						},
 //					},
 //					&iam.GetPolicyDocumentStatementArgs{
@@ -163,10 +163,6 @@ import (
 //				return err
 //			}
 //			_, err = codebuild.NewProject(ctx, "example", &codebuild.ProjectArgs{
-//				Name:         pulumi.String("test-project"),
-//				Description:  pulumi.String("test_codebuild_project"),
-//				BuildTimeout: pulumi.Int(5),
-//				ServiceRole:  exampleRole.Arn,
 //				Artifacts: &codebuild.ProjectArtifactsArgs{
 //					Type: pulumi.String("NO_ARTIFACTS"),
 //				},
@@ -175,11 +171,6 @@ import (
 //					Location: exampleBucket.Bucket,
 //				},
 //				Environment: &codebuild.ProjectEnvironmentArgs{
-//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
-//					Image:                    pulumi.String("aws/codebuild/amazonlinux-x86_64-standard:6.0"),
-//					Type:                     pulumi.String("LINUX_CONTAINER"),
-//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
-//					HostKernel:               pulumi.String("LINUX_KERNEL_6"),
 //					EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
 //						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
 //							Name:  pulumi.String("SOME_KEY1"),
@@ -191,6 +182,11 @@ import (
 //							Type:  pulumi.String("PARAMETER_STORE"),
 //						},
 //					},
+//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:                    pulumi.String("aws/codebuild/amazonlinux-x86_64-standard:6.0"),
+//					Type:                     pulumi.String("LINUX_CONTAINER"),
+//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
+//					HostKernel:               pulumi.String("LINUX_KERNEL_6"),
 //				},
 //				LogsConfig: &codebuild.ProjectLogsConfigArgs{
 //					CloudwatchLogs: &codebuild.ProjectLogsConfigCloudwatchLogsArgs{
@@ -205,14 +201,13 @@ import (
 //					},
 //				},
 //				Source: &codebuild.ProjectSourceArgs{
-//					Type:          pulumi.String("GITHUB"),
-//					Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
-//					GitCloneDepth: pulumi.Int(1),
 //					GitSubmodulesConfig: &codebuild.ProjectSourceGitSubmodulesConfigArgs{
 //						FetchSubmodules: pulumi.Bool(true),
 //					},
+//					Type:          pulumi.String("GITHUB"),
+//					Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
+//					GitCloneDepth: pulumi.Int(1),
 //				},
-//				SourceVersion: pulumi.String("master"),
 //				VpcConfig: &codebuild.ProjectVpcConfigArgs{
 //					VpcId: pulumi.Any(exampleAwsVpc.Id),
 //					Subnets: pulumi.StringArray{
@@ -224,6 +219,11 @@ import (
 //						example2AwsSecurityGroup.Id,
 //					},
 //				},
+//				Name:          pulumi.String("test-project"),
+//				Description:   pulumi.String("test_codebuild_project"),
+//				BuildTimeout:  pulumi.Int(5),
+//				ServiceRole:   exampleRole.Arn,
+//				SourceVersion: pulumi.String("master"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Test"),
 //				},
@@ -232,11 +232,6 @@ import (
 //				return err
 //			}
 //			_, err = codebuild.NewProject(ctx, "project-with-cache", &codebuild.ProjectArgs{
-//				Name:          pulumi.String("test-project-cache"),
-//				Description:   pulumi.String("test_codebuild_project_cache"),
-//				BuildTimeout:  pulumi.Int(5),
-//				QueuedTimeout: pulumi.Int(5),
-//				ServiceRole:   exampleRole.Arn,
 //				Artifacts: &codebuild.ProjectArtifactsArgs{
 //					Type: pulumi.String("NO_ARTIFACTS"),
 //				},
@@ -248,22 +243,27 @@ import (
 //					},
 //				},
 //				Environment: &codebuild.ProjectEnvironmentArgs{
-//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
-//					Image:                    pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
-//					Type:                     pulumi.String("LINUX_CONTAINER"),
-//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 //					EnvironmentVariables: codebuild.ProjectEnvironmentEnvironmentVariableArray{
 //						&codebuild.ProjectEnvironmentEnvironmentVariableArgs{
 //							Name:  pulumi.String("SOME_KEY1"),
 //							Value: pulumi.String("SOME_VALUE1"),
 //						},
 //					},
+//					ComputeType:              pulumi.String("BUILD_GENERAL1_SMALL"),
+//					Image:                    pulumi.String("aws/codebuild/amazonlinux2-x86_64-standard:4.0"),
+//					Type:                     pulumi.String("LINUX_CONTAINER"),
+//					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 //				},
 //				Source: &codebuild.ProjectSourceArgs{
 //					Type:          pulumi.String("GITHUB"),
 //					Location:      pulumi.String("https://github.com/mitchellh/packer.git"),
 //					GitCloneDepth: pulumi.Int(1),
 //				},
+//				Name:          pulumi.String("test-project-cache"),
+//				Description:   pulumi.String("test_codebuild_project_cache"),
+//				BuildTimeout:  pulumi.Int(5),
+//				QueuedTimeout: pulumi.Int(5),
+//				ServiceRole:   exampleRole.Arn,
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("Test"),
 //				},
@@ -272,9 +272,6 @@ import (
 //				return err
 //			}
 //			_, err = codebuild.NewProject(ctx, "project-using-github-app", &codebuild.ProjectArgs{
-//				Name:        pulumi.String("project-using-github-app"),
-//				Description: pulumi.String("gets_source_from_github_via_the_github_app"),
-//				ServiceRole: exampleRole.Arn,
 //				Artifacts: &codebuild.ProjectArtifactsArgs{
 //					Type: pulumi.String("NO_ARTIFACTS"),
 //				},
@@ -285,13 +282,16 @@ import (
 //					ImagePullCredentialsType: pulumi.String("CODEBUILD"),
 //				},
 //				Source: &codebuild.ProjectSourceArgs{
-//					Type:     pulumi.String("GITHUB"),
-//					Location: pulumi.String("https://github.com/example/example.git"),
 //					Auth: &codebuild.ProjectSourceAuthArgs{
 //						Type:     pulumi.String("CODECONNECTIONS"),
 //						Resource: pulumi.String("arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string"),
 //					},
+//					Type:     pulumi.String("GITHUB"),
+//					Location: pulumi.String("https://github.com/example/example.git"),
 //				},
+//				Name:        pulumi.String("project-using-github-app"),
+//				Description: pulumi.String("gets_source_from_github_via_the_github_app"),
+//				ServiceRole: exampleRole.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -313,7 +313,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+// - `arn` (String) ARN of the CodeBuild project.
 //
 // Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 //
@@ -348,7 +348,7 @@ type Project struct {
 	ConcurrentBuildLimit pulumi.IntPtrOutput `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description pulumi.StringOutput `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringOutput `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -380,7 +380,7 @@ type Project struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayOutput `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayOutput `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringOutput `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -468,7 +468,7 @@ type projectState struct {
 	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -500,7 +500,7 @@ type projectState struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole *string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -547,7 +547,7 @@ type ProjectState struct {
 	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -579,7 +579,7 @@ type ProjectState struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -626,7 +626,7 @@ type projectArgs struct {
 	ConcurrentBuildLimit *int `pulumi:"concurrentBuildLimit"`
 	// Short description of the project.
 	Description *string `pulumi:"description"`
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey *string `pulumi:"encryptionKey"`
 	// Configuration block. Detailed below.
@@ -656,7 +656,7 @@ type projectArgs struct {
 	SecondarySourceVersions []ProjectSecondarySourceVersion `pulumi:"secondarySourceVersions"`
 	// Configuration block. Detailed below.
 	SecondarySources []ProjectSecondarySource `pulumi:"secondarySources"`
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole string `pulumi:"serviceRole"`
 	// Configuration block. Detailed below.
@@ -697,7 +697,7 @@ type ProjectArgs struct {
 	ConcurrentBuildLimit pulumi.IntPtrInput
 	// Short description of the project.
 	Description pulumi.StringPtrInput
-	// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+	// KMS customer master key (CMK) to be used for encrypting
 	// the build project's build output artifacts.
 	EncryptionKey pulumi.StringPtrInput
 	// Configuration block. Detailed below.
@@ -727,7 +727,7 @@ type ProjectArgs struct {
 	SecondarySourceVersions ProjectSecondarySourceVersionArrayInput
 	// Configuration block. Detailed below.
 	SecondarySources ProjectSecondarySourceArrayInput
-	// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+	// ARN of the AWS Identity and Access Management (IAM) role that
 	// enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 	ServiceRole pulumi.StringInput
 	// Configuration block. Detailed below.
@@ -887,7 +887,7 @@ func (o ProjectOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
 }
 
-// AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+// KMS customer master key (CMK) to be used for encrypting
 // the build project's build output artifacts.
 func (o ProjectOutput) EncryptionKey() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.EncryptionKey }).(pulumi.StringOutput)
@@ -958,7 +958,7 @@ func (o ProjectOutput) SecondarySources() ProjectSecondarySourceArrayOutput {
 	return o.ApplyT(func(v *Project) ProjectSecondarySourceArrayOutput { return v.SecondarySources }).(ProjectSecondarySourceArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+// ARN of the AWS Identity and Access Management (IAM) role that
 // enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
 func (o ProjectOutput) ServiceRole() pulumi.StringOutput {
 	return o.ApplyT(func(v *Project) pulumi.StringOutput { return v.ServiceRole }).(pulumi.StringOutput)

@@ -12,11 +12,24 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Required when `ClientIdWo` and `ClientSecretWo` are set. Changing this value triggers an update to `ClientIdWo` and `ClientSecretWo`.
+        /// 
+        /// **Microsoft-Specific Configuration:**
+        /// 
+        /// The Microsoft OAuth2 provider supports additional tenant-specific arguments:
+        /// 
+        /// **Standard Tenant ID:**
+        /// </summary>
         [Input("clientCredentialsWoVersion")]
         public Input<int>? ClientCredentialsWoVersion { get; set; }
 
         [Input("clientId")]
         private Input<string>? _clientId;
+
+        /// <summary>
+        /// OAuth2 client ID. Cannot be used with `ClientIdWo`. Must be used together with `ClientSecret`.
+        /// </summary>
         public Input<string>? ClientId
         {
             get => _clientId;
@@ -32,6 +45,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only OAuth2 client ID. Conflicts with `ClientId`. If set, requires `ClientSecretWo` and `ClientCredentialsWoVersion` to be set.
         /// </summary>
         public Input<string>? ClientIdWo
         {
@@ -45,6 +59,12 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("clientSecret")]
         private Input<string>? _clientSecret;
+
+        /// <summary>
+        /// OAuth2 client secret. Cannot be used with `ClientSecretWo`. Must be used together with `ClientId`.
+        /// 
+        /// **Write-Only Credentials (choose one pair):**
+        /// </summary>
         public Input<string>? ClientSecret
         {
             get => _clientSecret;
@@ -55,11 +75,26 @@ namespace Pulumi.Aws.Bedrock.Inputs
             }
         }
 
+        /// <summary>
+        /// Reference to an AWS Secrets Manager secret that stores the client secret. Required when `ClientSecretSource` is `EXTERNAL`. See `ClientSecretConfig` below.
+        /// 
+        /// **Advanced Configuration:**
+        /// </summary>
+        [Input("clientSecretConfig")]
+        public Input<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigClientSecretConfigArgs>? ClientSecretConfig { get; set; }
+
+        /// <summary>
+        /// Source type of the client secret. Valid values: `MANAGED` (the service manages the secret) or `EXTERNAL` (you manage the secret in AWS Secrets Manager). Use `EXTERNAL` together with `ClientSecretConfig`.
+        /// </summary>
+        [Input("clientSecretSource")]
+        public Input<string>? ClientSecretSource { get; set; }
+
         [Input("clientSecretWo")]
         private Input<string>? _clientSecretWo;
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+        /// Write-only OAuth2 client secret. Conflicts with `ClientSecret`. If set, requires `ClientIdWo` and `ClientCredentialsWoVersion` to be set.
         /// </summary>
         public Input<string>? ClientSecretWo
         {
@@ -76,6 +111,8 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         /// <summary>
         /// OAuth discovery configuration. See `OauthDiscovery` below.
+        /// 
+        /// **Externally-Managed Client Secret:**
         /// </summary>
         public InputList<Inputs.AgentcoreOauth2CredentialProviderOauth2ProviderConfigGoogleOauth2ProviderConfigOauthDiscoveryArgs> OauthDiscoveries
         {

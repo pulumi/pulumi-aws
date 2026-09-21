@@ -152,7 +152,7 @@ class _HubState:
         """
         Input properties used for looking up and filtering Hub resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Hub.
         :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
         :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
@@ -185,7 +185,7 @@ class _HubState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        ARN assigned by AWS to this Hub.
         """
         return pulumi.get(self, "arn")
 
@@ -440,7 +440,7 @@ class Hub(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Hub.
         :param pulumi.Input[_builtins.str] hub_description: A description of the hub.
         :param pulumi.Input[_builtins.str] hub_display_name: The display name of the hub.
         :param pulumi.Input[_builtins.str] hub_name: The name of the hub.
@@ -469,7 +469,7 @@ class Hub(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        ARN assigned by AWS to this Hub.
         """
         return pulumi.get(self, "arn")
 

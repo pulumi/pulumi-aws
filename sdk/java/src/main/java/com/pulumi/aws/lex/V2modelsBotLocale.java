@@ -84,14 +84,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new V2modelsBotLocale("example", V2modelsBotLocaleArgs.builder()
- *             .botId(exampleAwsLexv2modelsBot.id())
- *             .botVersion("DRAFT")
- *             .localeId("en_US")
- *             .nLuIntentConfidenceThreshold(0.7)
  *             .voiceSettings(V2modelsBotLocaleVoiceSettingsArgs.builder()
  *                 .voiceId("Kendra")
  *                 .engine("standard")
  *                 .build())
+ *             .botId(exampleAwsLexv2modelsBot.id())
+ *             .botVersion("DRAFT")
+ *             .localeId("en_US")
+ *             .nLuIntentConfidenceThreshold(0.7)
  *             .build());
  * 
  *     }

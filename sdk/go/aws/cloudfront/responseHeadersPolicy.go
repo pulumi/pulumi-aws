@@ -33,10 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name:    pulumi.String("example-policy"),
-//				Comment: pulumi.String("test comment"),
 //				CorsConfig: &cloudfront.ResponseHeadersPolicyCorsConfigArgs{
-//					AccessControlAllowCredentials: pulumi.Bool(true),
 //					AccessControlAllowHeaders: &cloudfront.ResponseHeadersPolicyCorsConfigAccessControlAllowHeadersArgs{
 //						Items: pulumi.StringArray{
 //							pulumi.String("test"),
@@ -52,8 +49,11 @@ import (
 //							pulumi.String("test.example.comtest"),
 //						},
 //					},
-//					OriginOverride: pulumi.Bool(true),
+//					AccessControlAllowCredentials: pulumi.Bool(true),
+//					OriginOverride:                pulumi.Bool(true),
 //				},
+//				Name:    pulumi.String("example-policy"),
+//				Comment: pulumi.String("test comment"),
 //			})
 //			if err != nil {
 //				return err
@@ -79,7 +79,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name: pulumi.String("example-headers-policy"),
 //				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
 //					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
 //						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
@@ -94,6 +93,7 @@ import (
 //						},
 //					},
 //				},
+//				Name: pulumi.String("example-headers-policy"),
 //			})
 //			if err != nil {
 //				return err
@@ -121,7 +121,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewResponseHeadersPolicy(ctx, "example", &cloudfront.ResponseHeadersPolicyArgs{
-//				Name: pulumi.String("example-headers-policy"),
 //				CustomHeadersConfig: &cloudfront.ResponseHeadersPolicyCustomHeadersConfigArgs{
 //					Items: cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArray{
 //						&cloudfront.ResponseHeadersPolicyCustomHeadersConfigItemArgs{
@@ -142,6 +141,7 @@ import (
 //					Enabled:      pulumi.Bool(true),
 //					SamplingRate: pulumi.Float64(50),
 //				},
+//				Name: pulumi.String("example-headers-policy"),
 //			})
 //			if err != nil {
 //				return err

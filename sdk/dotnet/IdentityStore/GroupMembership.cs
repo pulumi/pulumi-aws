@@ -26,14 +26,14 @@ namespace Pulumi.Aws.IdentityStore
     /// 
     ///     var exampleUser = new Aws.IdentityStore.User("example", new()
     ///     {
-    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
-    ///         DisplayName = "John Doe",
-    ///         UserName = "john.doe@example.com",
     ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
     ///         {
     ///             FamilyName = "Doe",
     ///             GivenName = "John",
     ///         },
+    ///         IdentityStoreId = example.Apply(getInstancesResult =&gt; getInstancesResult.IdentityStoreIds[0]),
+    ///         DisplayName = "John Doe",
+    ///         UserName = "john.doe@example.com",
     ///     });
     /// 
     ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()

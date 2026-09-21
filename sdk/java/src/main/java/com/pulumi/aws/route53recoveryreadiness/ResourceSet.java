@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceSet("example", ResourceSetArgs.builder()
- *             .resourceSetName(my_cw_alarm_set)
- *             .resourceSetType("AWS::CloudWatch::Alarm")
  *             .resources(ResourceSetResourceArgs.builder()
  *                 .resourceArn(exampleAwsCloudwatchMetricAlarm.arn())
  *                 .build())
+ *             .resourceSetName(my_cw_alarm_set)
+ *             .resourceSetType("AWS::CloudWatch::Alarm")
  *             .build());
  * 
  *     }

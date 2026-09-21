@@ -26,19 +26,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var @this = new Aws.CloudWatch.EventEndpoint("this", new()
     ///     {
-    ///         Name = "global-endpoint",
-    ///         RoleArn = replication.Arn,
-    ///         EventBuses = new[]
-    ///         {
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
-    ///             {
-    ///                 EventBusArn = primary.Arn,
-    ///             },
-    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
-    ///             {
-    ///                 EventBusArn = secondary.Arn,
-    ///             },
-    ///         },
     ///         ReplicationConfig = new Aws.CloudWatch.Inputs.EventEndpointReplicationConfigArgs
     ///         {
     ///             State = "DISABLED",
@@ -57,6 +44,19 @@ namespace Pulumi.Aws.CloudWatch
     ///                 },
     ///             },
     ///         },
+    ///         EventBuses = new[]
+    ///         {
+    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
+    ///             {
+    ///                 EventBusArn = primary.Arn,
+    ///             },
+    ///             new Aws.CloudWatch.Inputs.EventEndpointEventBusArgs
+    ///             {
+    ///                 EventBusArn = secondary.Arn,
+    ///             },
+    ///         },
+    ///         Name = "global-endpoint",
+    ///         RoleArn = replication.Arn,
     ///     });
     /// 
     /// });

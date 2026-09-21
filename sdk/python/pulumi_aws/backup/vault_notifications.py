@@ -28,7 +28,7 @@ class VaultNotificationsArgs:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN that specifies the topic for a backup vault’s events
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "backup_vault_events", backup_vault_events)
@@ -65,7 +65,7 @@ class VaultNotificationsArgs:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        ARN that specifies the topic for a backup vault’s events
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -101,7 +101,7 @@ class _VaultNotificationsState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN that specifies the topic for a backup vault’s events
         """
         if backup_vault_arn is not None:
             pulumi.set(__self__, "backup_vault_arn", backup_vault_arn)
@@ -166,7 +166,7 @@ class _VaultNotificationsState:
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        ARN that specifies the topic for a backup vault’s events
         """
         return pulumi.get(self, "sns_topic_arn")
 
@@ -196,17 +196,17 @@ class VaultNotifications(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("test", name="backup-vault-events")
-        test = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": ["SNS:Publish"],
-                "effect": "Allow",
+        test = aws.iam.get_policy_document_output(statements=[{
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["backup.amazonaws.com"],
                 }],
+                "actions": ["SNS:Publish"],
+                "effect": "Allow",
                 "resources": [test_topic.arn],
                 "sid": "__default_statement_ID",
-            }])
+            }],
+            policy_id="__default_policy_ID")
         test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
             policy=test.json)
@@ -233,7 +233,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN that specifies the topic for a backup vault’s events
         """
         ...
     @overload
@@ -251,17 +251,17 @@ class VaultNotifications(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_topic = aws.sns.Topic("test", name="backup-vault-events")
-        test = aws.iam.get_policy_document_output(policy_id="__default_policy_ID",
-            statements=[{
-                "actions": ["SNS:Publish"],
-                "effect": "Allow",
+        test = aws.iam.get_policy_document_output(statements=[{
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["backup.amazonaws.com"],
                 }],
+                "actions": ["SNS:Publish"],
+                "effect": "Allow",
                 "resources": [test_topic.arn],
                 "sid": "__default_statement_ID",
-            }])
+            }],
+            policy_id="__default_policy_ID")
         test_topic_policy = aws.sns.TopicPolicy("test",
             arn=test_topic.arn,
             policy=test.json)
@@ -348,7 +348,7 @@ class VaultNotifications(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] backup_vault_events: An array of events that indicate the status of jobs to back up resources to the backup vault.
         :param pulumi.Input[_builtins.str] backup_vault_name: Name of the backup vault to add notifications for.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] sns_topic_arn: The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        :param pulumi.Input[_builtins.str] sns_topic_arn: ARN that specifies the topic for a backup vault’s events
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -397,7 +397,7 @@ class VaultNotifications(pulumi.CustomResource):
     @pulumi.getter(name="snsTopicArn")
     def sns_topic_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+        ARN that specifies the topic for a backup vault’s events
         """
         return pulumi.get(self, "sns_topic_arn")
 

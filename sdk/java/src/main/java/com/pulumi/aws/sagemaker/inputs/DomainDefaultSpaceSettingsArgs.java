@@ -114,14 +114,14 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * Security groups for the VPC that the space uses for communication.
      * 
      */
     @Import(name="securityGroups")
     private @Nullable Output<List<String>> securityGroups;
 
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+     * @return Security groups for the VPC that the space uses for communication.
      * 
      */
     public Optional<Output<List<String>>> securityGroups() {
@@ -311,7 +311,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * @param securityGroups Security groups for the VPC that the space uses for communication.
          * 
          * @return builder
          * 
@@ -322,7 +322,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * @param securityGroups Security groups for the VPC that the space uses for communication.
          * 
          * @return builder
          * 
@@ -332,7 +332,7 @@ public final class DomainDefaultSpaceSettingsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param securityGroups The security groups for the Amazon Virtual Private Cloud that the space uses for communication.
+         * @param securityGroups Security groups for the VPC that the space uses for communication.
          * 
          * @return builder
          * 

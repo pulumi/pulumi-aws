@@ -15,14 +15,14 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
     public static final InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs Empty = new InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the delivery stream.
+     * ARN of the delivery stream.
      * 
      */
     @Import(name="firehoseArn", required=true)
     private Output<String> firehoseArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the delivery stream.
+     * @return ARN of the delivery stream.
      * 
      */
     public Output<String> firehoseArn() {
@@ -54,7 +54,7 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
         }
 
         /**
-         * @param firehoseArn The Amazon Resource Name (ARN) of the delivery stream.
+         * @param firehoseArn ARN of the delivery stream.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class InstanceStorageConfigStorageConfigKinesisFirehoseConfigArgs e
         }
 
         /**
-         * @param firehoseArn The Amazon Resource Name (ARN) of the delivery stream.
+         * @param firehoseArn ARN of the delivery stream.
          * 
          * @return builder
          * 

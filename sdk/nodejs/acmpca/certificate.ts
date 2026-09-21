@@ -26,29 +26,29 @@ import * as utilities from "../utilities";
  *
  * const exampleCertificateAuthority = new aws.acmpca.CertificateAuthority("example", {
  *     certificateAuthorityConfiguration: {
- *         keyAlgorithm: "RSA_4096",
- *         signingAlgorithm: "SHA512WITHRSA",
  *         subject: {
  *             commonName: "example.com",
  *         },
+ *         keyAlgorithm: "RSA_4096",
+ *         signingAlgorithm: "SHA512WITHRSA",
  *     },
  *     permanentDeletionTimeInDays: 7,
  * });
  * const key = new tls.PrivateKey("key", {algorithm: "RSA"});
  * const csr = new tls.CertRequest("csr", {
- *     privateKeyPem: key.privateKeyPem,
  *     subject: [{
  *         commonName: "example",
  *     }],
+ *     privateKeyPem: key.privateKeyPem,
  * });
  * const example = new aws.acmpca.Certificate("example", {
- *     certificateAuthorityArn: exampleCertificateAuthority.arn,
- *     certificateSigningRequest: csr.certRequestPem,
- *     signingAlgorithm: "SHA256WITHRSA",
  *     validity: {
  *         type: "YEARS",
  *         value: "1",
  *     },
+ *     certificateAuthorityArn: exampleCertificateAuthority.arn,
+ *     certificateSigningRequest: csr.certRequestPem,
+ *     signingAlgorithm: "SHA256WITHRSA",
  * });
  * ```
  *
@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate.
+ * - `arn` (String) ARN of the ACM PCA certificate.
  *
  * Using `pulumi import`, import ACM PCA Certificates using their ARN. For example:
  *

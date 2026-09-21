@@ -92,7 +92,7 @@ import (
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the resource policy.
+	// ARN of the resource policy.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content pulumi.StringOutput `pulumi:"content"`
@@ -135,7 +135,7 @@ func GetResourcePolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResourcePolicy resources.
 type resourcePolicyState struct {
-	// Amazon Resource Name (ARN) of the resource policy.
+	// ARN of the resource policy.
 	Arn *string `pulumi:"arn"`
 	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content *string `pulumi:"content"`
@@ -146,7 +146,7 @@ type resourcePolicyState struct {
 }
 
 type ResourcePolicyState struct {
-	// Amazon Resource Name (ARN) of the resource policy.
+	// ARN of the resource policy.
 	Arn pulumi.StringPtrInput
 	// Content for the resource policy. The text must be correctly formatted JSON that complies with the syntax for the resource policy's type. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_delegate_examples.html) for examples.
 	Content pulumi.StringPtrInput
@@ -262,7 +262,7 @@ func (o ResourcePolicyOutput) ToResourcePolicyOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) of the resource policy.
+// ARN of the resource policy.
 func (o ResourcePolicyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResourcePolicy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

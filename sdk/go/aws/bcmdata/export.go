@@ -40,7 +40,6 @@ import (
 //			}
 //			_, err = bcmdata.NewExport(ctx, "test", &bcmdata.ExportArgs{
 //				Export: &bcmdata.ExportExportArgs{
-//					Name: pulumi.String("testexample"),
 //					DataQueries: bcmdata.ExportExportDataQueryArray{
 //						&bcmdata.ExportExportDataQueryArgs{
 //							QueryStatement: pulumi.String("SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT"),
@@ -59,9 +58,6 @@ import (
 //						&bcmdata.ExportExportDestinationConfigurationArgs{
 //							S3Destinations: bcmdata.ExportExportDestinationConfigurationS3DestinationArray{
 //								&bcmdata.ExportExportDestinationConfigurationS3DestinationArgs{
-//									S3Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
-//									S3Prefix: pulumi.Any(testAwsS3Bucket.BucketPrefix),
-//									S3Region: pulumi.Any(testAwsS3Bucket.Region),
 //									S3OutputConfigurations: bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArray{
 //										&bcmdata.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs{
 //											Overwrite:   pulumi.String("OVERWRITE_REPORT"),
@@ -70,6 +66,9 @@ import (
 //											OutputType:  pulumi.String("CUSTOM"),
 //										},
 //									},
+//									S3Bucket: pulumi.Any(testAwsS3Bucket.Bucket),
+//									S3Prefix: pulumi.Any(testAwsS3Bucket.BucketPrefix),
+//									S3Region: pulumi.Any(testAwsS3Bucket.Region),
 //								},
 //							},
 //						},
@@ -79,6 +78,7 @@ import (
 //							Frequency: pulumi.String("SYNCHRONOUS"),
 //						},
 //					},
+//					Name: pulumi.String("testexample"),
 //				},
 //			})
 //			if err != nil {
@@ -96,7 +96,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+// - `arn` (String) ARN of the BCM Data Exports export.
 //
 // Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
 //
@@ -106,8 +106,8 @@ import (
 type Export struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	// ARN for this export.
+	// * `export[0].export_arn` - ARN for this export.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export ExportExportPtrOutput `pulumi:"export"`
@@ -147,8 +147,8 @@ func GetExport(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Export resources.
 type exportState struct {
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	// ARN for this export.
+	// * `export[0].export_arn` - ARN for this export.
 	Arn *string `pulumi:"arn"`
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export *ExportExport `pulumi:"export"`
@@ -159,8 +159,8 @@ type exportState struct {
 }
 
 type ExportState struct {
-	// Amazon Resource Name (ARN) for this export.
-	// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+	// ARN for this export.
+	// * `export[0].export_arn` - ARN for this export.
 	Arn pulumi.StringPtrInput
 	// The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
 	Export ExportExportPtrInput
@@ -278,8 +278,8 @@ func (o ExportOutput) ToExportOutputWithContext(ctx context.Context) ExportOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) for this export.
-// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+// ARN for this export.
+// * `export[0].export_arn` - ARN for this export.
 func (o ExportOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Export) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

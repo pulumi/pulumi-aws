@@ -166,7 +166,7 @@ class _EventSubscriptionState:
         """
         Input properties used for looking up and filtering EventSubscription resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DMS Event Subscription.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[_builtins.str] name: Name of event subscription.
@@ -202,7 +202,7 @@ class _EventSubscriptionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DMS Event Subscription.
+        ARN of the DMS Event Subscription.
         """
         return pulumi.get(self, "arn")
 
@@ -492,7 +492,7 @@ class EventSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DMS Event Subscription.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DMS Event Subscription.
         :param pulumi.Input[_builtins.bool] enabled: Whether the event subscription should be enabled.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] event_categories: List of event categories to listen for, see `DescribeEventCategories` for a canonical list.
         :param pulumi.Input[_builtins.str] name: Name of event subscription.
@@ -523,7 +523,7 @@ class EventSubscription(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DMS Event Subscription.
+        ARN of the DMS Event Subscription.
         """
         return pulumi.get(self, "arn")
 

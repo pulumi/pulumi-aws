@@ -31,7 +31,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         }
 
         /// <summary>
-        /// The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
+        /// Default instance type and the ARN of the SageMaker AI image created on the instance. See `DefaultResourceSpec` Block below.
         /// </summary>
         [Input("defaultResourceSpec", required: true)]
         public Input<Inputs.SpaceSpaceSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> DefaultResourceSpec { get; set; } = null!;

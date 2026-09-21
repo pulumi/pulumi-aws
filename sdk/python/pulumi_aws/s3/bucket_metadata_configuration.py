@@ -226,7 +226,6 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketMetadataConfiguration("example",
-            bucket=example_aws_s3_bucket["bucket"],
             metadata_configuration={
                 "inventory_table_configuration": {
                     "configuration_state": "ENABLED",
@@ -237,7 +236,8 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                         "expiration": "ENABLED",
                     },
                 },
-            })
+            },
+            bucket=example_aws_s3_bucket["bucket"])
         ```
 
         ## Import
@@ -287,7 +287,6 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.BucketMetadataConfiguration("example",
-            bucket=example_aws_s3_bucket["bucket"],
             metadata_configuration={
                 "inventory_table_configuration": {
                     "configuration_state": "ENABLED",
@@ -298,7 +297,8 @@ class BucketMetadataConfiguration(pulumi.CustomResource):
                         "expiration": "ENABLED",
                     },
                 },
-            })
+            },
+            bucket=example_aws_s3_bucket["bucket"])
         ```
 
         ## Import

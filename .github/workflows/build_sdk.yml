@@ -58,7 +58,7 @@ jobs:
           ESC_ACTION_OIDC_REQUESTED_TOKEN_TYPE: urn:pulumi:token-type:access_token:organization
         id: esc-secrets
         name: Fetch secrets from ESC
-        uses: pulumi/esc-action@9eb774255b1a4afb7855678ae8d4a77359da0d9b
+        uses: pulumi/esc-action@57e332b6dfb0d7edcf6cb813ee9a98b9665f12c2
       - uses: actions/create-github-app-token@bcd2ba49218906704ab6c1aa796996da409d3eb1 # v3.2.0
         id: app-auth
         with:
@@ -129,9 +129,13 @@ jobs:
           git config --global user.email "bot@pulumi.com"
           git config --global user.name "pulumi-bot"
 
-          # Stash local changes and check out the PR's branch directly.
+          # Stash local changes and check out the PR's branch directly. Fetch
+          # only that ref: a bare fetch pulls every branch in the repo, and
+          # on-demand submodule recursion then tries to resolve the submodule
+          # gitlink of every commit it pulls, including long-dead branches
+          # pointing at commits the submodule's remote no longer serves.
           git stash
-          git fetch
+          git fetch --no-recurse-submodules origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"
           git checkout "origin/$HEAD_REF"
 
           # Apply and add our changes, but don't commit any files we expect to
@@ -150,8 +154,27 @@ jobs:
 
           # Push with pulumi-bot credentials to trigger a re-run of the
           # workflow. https://github.com/orgs/community/discussions/25702
-          git push https://pulumi-bot:${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}@github.com/${{ github.repository }} \
-              "HEAD:$HEAD_REF"
+          #
+          # Another language's job may have pushed while this one was building,
+          # which makes our commit a non-fast-forward. Rebase onto the current
+          # tip and try again: the SDK commits touch disjoint paths
+          # (sdk/<language>/**), so the rebase applies cleanly.
+          for attempt in 1 2 3; do
+            if git push https://pulumi-bot:${{ steps.esc-secrets.outputs.PULUMI_BOT_TOKEN }}@github.com/${{ github.repository }} \
+                "HEAD:$HEAD_REF"; then
+              exit 0
+            fi
+            echo "Push rejected (attempt $attempt); rebasing onto the current tip."
+            git fetch --no-recurse-submodules origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"
+            # --autostash because the `git reset` above deliberately leaves the
+            # always-changing files modified, and rebase refuses a dirty tree.
+            if ! git rebase --autostash "refs/remotes/origin/$HEAD_REF"; then
+              echo "::error::Rebase onto $HEAD_REF failed; the ${{ matrix.language }} SDK commit must be applied by hand."
+              exit 1
+            fi
+          done
+          echo "::error::Could not push the SDK commit after 3 attempts."
+          exit 1
         env:
           # head_ref is untrusted so it's recommended to pass via env var to
           # avoid injections.

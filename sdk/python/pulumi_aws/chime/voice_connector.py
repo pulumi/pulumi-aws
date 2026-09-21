@@ -122,7 +122,7 @@ class _VoiceConnectorState:
         """
         Input properties used for looking up and filtering VoiceConnector resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon Chime Voice Connector.
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[_builtins.str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
@@ -154,7 +154,7 @@ class _VoiceConnectorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        ARN of the Amazon Chime Voice Connector.
         """
         return pulumi.get(self, "arn")
 
@@ -389,7 +389,7 @@ class VoiceConnector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Amazon Chime Voice Connector.
         :param pulumi.Input[_builtins.str] aws_region: The AWS Region in which the Amazon Chime Voice Connector is created. Default value: `us-east-1`
         :param pulumi.Input[_builtins.str] name: The name of the Amazon Chime Voice Connector.
         :param pulumi.Input[_builtins.str] outbound_host_name: The outbound host name for the Amazon Chime Voice Connector.
@@ -418,7 +418,7 @@ class VoiceConnector(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+        ARN of the Amazon Chime Voice Connector.
         """
         return pulumi.get(self, "arn")
 

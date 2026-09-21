@@ -52,11 +52,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new VpcEndpointAssociation("example", VpcEndpointAssociationArgs.builder()
- *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
- *             .vpcId(exampleAwsVpc.id())
  *             .subnetMapping(VpcEndpointAssociationSubnetMappingArgs.builder()
  *                 .subnetId(exampleAwsSubnet.id())
  *                 .build())
+ *             .firewallArn(exampleAwsNetworkfirewallFirewall.arn())
+ *             .vpcId(exampleAwsVpc.id())
  *             .tags(Map.of("Name", "example endpoint"))
  *             .build());
  * 
@@ -91,14 +91,14 @@ public class VpcEndpointAssociation extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.description);
     }
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * The ARN that identifies the firewall.
      * 
      */
     @Export(name="firewallArn", refs={String.class}, tree="[0]")
     private Output<String> firewallArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
+     * @return The ARN that identifies the firewall.
      * 
      */
     public Output<String> firewallArn() {

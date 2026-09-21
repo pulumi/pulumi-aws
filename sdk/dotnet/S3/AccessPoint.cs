@@ -66,12 +66,12 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
     ///     {
-    ///         Bucket = example.Arn,
-    ///         Name = "example",
     ///         VpcConfiguration = new Aws.S3.Inputs.AccessPointVpcConfigurationArgs
     ///         {
     ///             VpcId = exampleVpc.Id,
     ///         },
+    ///         Bucket = example.Arn,
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -94,11 +94,11 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var example = new Aws.S3.DirectoryBucket("example", new()
     ///     {
-    ///         Bucket = "example--zoneId--x-s3",
     ///         Location = new Aws.S3.Inputs.DirectoryBucketLocationArgs
     ///         {
     ///             Name = available.Apply(getAvailabilityZonesResult =&gt; getAvailabilityZonesResult.ZoneIds[0]),
     ///         },
+    ///         Bucket = "example--zoneId--x-s3",
     ///     });
     /// 
     ///     var exampleAccessPoint = new Aws.S3.AccessPoint("example", new()
@@ -224,7 +224,7 @@ namespace Pulumi.Aws.S3
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Output("vpcConfiguration")]
         public Output<Outputs.AccessPointVpcConfiguration?> VpcConfiguration { get; private set; } = null!;
@@ -332,7 +332,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.AccessPointVpcConfigurationArgs>? VpcConfiguration { get; set; }
@@ -456,7 +456,7 @@ namespace Pulumi.Aws.S3
         }
 
         /// <summary>
-        /// Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+        /// Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
         /// </summary>
         [Input("vpcConfiguration")]
         public Input<Inputs.AccessPointVpcConfigurationGetArgs>? VpcConfiguration { get; set; }

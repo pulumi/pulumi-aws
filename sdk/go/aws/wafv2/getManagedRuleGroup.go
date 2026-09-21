@@ -87,12 +87,8 @@ type GetManagedRuleGroupResult struct {
 }
 
 func GetManagedRuleGroupOutput(ctx *pulumi.Context, args GetManagedRuleGroupOutputArgs, opts ...pulumi.InvokeOption) GetManagedRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetManagedRuleGroupResultOutput, error) {
-			args := v.(GetManagedRuleGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:wafv2/getManagedRuleGroup:getManagedRuleGroup", args, GetManagedRuleGroupResultOutput{}, options).(GetManagedRuleGroupResultOutput), nil
-		}).(GetManagedRuleGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:wafv2/getManagedRuleGroup:getManagedRuleGroup", args, GetManagedRuleGroupResultOutput{}, options).(GetManagedRuleGroupResultOutput)
 }
 
 // A collection of arguments for invoking getManagedRuleGroup.

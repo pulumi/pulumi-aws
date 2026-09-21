@@ -17,7 +17,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
     public static final DataSourceCredentialsArgs Empty = new DataSourceCredentialsArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+     * The ARN of a data source that has the credential pair that you want to use.
      * When the value is not null, the `credentialPair` from the data source in the ARN is used.
      * 
      */
@@ -25,7 +25,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
     private @Nullable Output<String> copySourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+     * @return The ARN of a data source that has the credential pair that you want to use.
      * When the value is not null, the `credentialPair` from the data source in the ARN is used.
      * 
      */
@@ -49,14 +49,14 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * The ARN of the secret associated with the data source in Amazon Secrets Manager.
      * 
      */
     @Import(name="secretArn")
     private @Nullable Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+     * @return The ARN of the secret associated with the data source in Amazon Secrets Manager.
      * 
      */
     public Optional<Output<String>> secretArn() {
@@ -90,7 +90,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * @param copySourceArn The ARN of a data source that has the credential pair that you want to use.
          * When the value is not null, the `credentialPair` from the data source in the ARN is used.
          * 
          * @return builder
@@ -102,7 +102,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param copySourceArn The Amazon Resource Name (ARN) of a data source that has the credential pair that you want to use.
+         * @param copySourceArn The ARN of a data source that has the credential pair that you want to use.
          * When the value is not null, the `credentialPair` from the data source in the ARN is used.
          * 
          * @return builder
@@ -134,7 +134,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         * @param secretArn The ARN of the secret associated with the data source in Amazon Secrets Manager.
          * 
          * @return builder
          * 
@@ -145,7 +145,7 @@ public final class DataSourceCredentialsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param secretArn The Amazon Resource Name (ARN) of the secret associated with the data source in Amazon Secrets Manager.
+         * @param secretArn The ARN of the secret associated with the data source in Amazon Secrets Manager.
          * 
          * @return builder
          * 

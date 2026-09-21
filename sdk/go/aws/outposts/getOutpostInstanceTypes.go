@@ -67,12 +67,8 @@ type GetOutpostInstanceTypesResult struct {
 }
 
 func GetOutpostInstanceTypesOutput(ctx *pulumi.Context, args GetOutpostInstanceTypesOutputArgs, opts ...pulumi.InvokeOption) GetOutpostInstanceTypesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOutpostInstanceTypesResultOutput, error) {
-			args := v.(GetOutpostInstanceTypesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args, GetOutpostInstanceTypesResultOutput{}, options).(GetOutpostInstanceTypesResultOutput), nil
-		}).(GetOutpostInstanceTypesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:outposts/getOutpostInstanceTypes:getOutpostInstanceTypes", args, GetOutpostInstanceTypesResultOutput{}, options).(GetOutpostInstanceTypesResultOutput)
 }
 
 // A collection of arguments for invoking getOutpostInstanceTypes.

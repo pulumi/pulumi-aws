@@ -50,11 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .name("example")
- *             .blueprintIdentifier(test.environmentBlueprintId())
- *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.id())
- *             .projectIdentifier(testAwsDatazoneProject.id())
- *             .domainIdentifier(testAwsDatazoneDomain.id())
  *             .userParameters(            
  *                 EnvironmentUserParameterArgs.builder()
  *                     .name("consumerGlueDbName")
@@ -68,6 +63,11 @@ import javax.annotation.Nullable;
  *                     .name("workgroupName")
  *                     .value("workgroup")
  *                     .build())
+ *             .name("example")
+ *             .blueprintIdentifier(test.environmentBlueprintId())
+ *             .profileIdentifier(testAwsDatazoneEnvironmentProfile.id())
+ *             .projectIdentifier(testAwsDatazoneProject.id())
+ *             .domainIdentifier(testAwsDatazoneDomain.id())
  *             .build());
  * 
  *     }

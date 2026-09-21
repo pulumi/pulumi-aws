@@ -57,7 +57,7 @@ export class AccountSuppressionAttributes extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+     * Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
     declare public readonly suppressedReasons: pulumi.Output<string[]>;
 
@@ -98,7 +98,7 @@ export interface AccountSuppressionAttributesState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+     * Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
     suppressedReasons?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -112,7 +112,7 @@ export interface AccountSuppressionAttributesArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+     * Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
      */
     suppressedReasons: pulumi.Input<pulumi.Input<string>[]>;
 }

@@ -94,12 +94,12 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
     ///     {
-    ///         AutoEnable = false,
-    ///         AutoEnableStandards = "NONE",
     ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
+    ///         AutoEnable = false,
+    ///         AutoEnableStandards = "NONE",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

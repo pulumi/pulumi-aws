@@ -19,29 +19,21 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.mskconnect.Connector("example", {
- *     name: "example",
- *     kafkaconnectVersion: "2.7.1",
  *     capacity: {
  *         autoscaling: {
- *             mcuCount: 1,
- *             minWorkerCount: 1,
- *             maxWorkerCount: 2,
  *             scaleInPolicy: {
  *                 cpuUtilizationPercentage: 20,
  *             },
  *             scaleOutPolicy: {
  *                 cpuUtilizationPercentage: 80,
  *             },
+ *             mcuCount: 1,
+ *             minWorkerCount: 1,
+ *             maxWorkerCount: 2,
  *         },
- *     },
- *     connectorConfiguration: {
- *         "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
- *         "tasks.max": "1",
- *         topics: "example",
  *     },
  *     kafkaCluster: {
  *         apacheKafkaCluster: {
- *             bootstrapServers: exampleAwsMskCluster.bootstrapBrokersTls,
  *             vpc: {
  *                 securityGroups: [exampleAwsSecurityGroup.id],
  *                 subnets: [
@@ -50,6 +42,7 @@ import * as utilities from "../utilities";
  *                     example3.id,
  *                 ],
  *             },
+ *             bootstrapServers: exampleAwsMskCluster.bootstrapBrokersTls,
  *         },
  *     },
  *     kafkaClusterClientAuthentication: {
@@ -64,6 +57,13 @@ import * as utilities from "../utilities";
  *             revision: Number(exampleAwsMskconnectCustomPlugin.latestRevision),
  *         },
  *     }],
+ *     name: "example",
+ *     kafkaconnectVersion: "2.7.1",
+ *     connectorConfiguration: {
+ *         "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+ *         "tasks.max": "1",
+ *         topics: "example",
+ *     },
  *     serviceExecutionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
@@ -105,7 +105,7 @@ export class Connector extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -153,7 +153,7 @@ export class Connector extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
      */
@@ -259,7 +259,7 @@ export class Connector extends pulumi.CustomResource {
  */
 export interface ConnectorState {
     /**
-     * The Amazon Resource Name (ARN) of the connector.
+     * ARN of the connector.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface ConnectorState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
      */
@@ -379,7 +379,7 @@ export interface ConnectorArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+     * ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
      *
      * The following arguments are optional:
      */

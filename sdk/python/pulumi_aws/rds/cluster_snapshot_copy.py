@@ -39,7 +39,7 @@ class ClusterSnapshotCopyArgs:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
+        :param pulumi.Input[_builtins.str] destination_region: Destination region to place the snapshot copy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -107,7 +107,7 @@ class ClusterSnapshotCopyArgs:
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination region to place the snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -211,22 +211,23 @@ class _ClusterSnapshotCopyState:
         """
         Input properties used for looking up and filtering ClusterSnapshotCopy resources.
 
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB cluster snapshot.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] destination_region: Destination region to place the snapshot copy.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB cluster snapshot.
         :param pulumi.Input[_builtins.str] source_db_cluster_snapshot_identifier: Identifier of the source snapshot.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB cluster snapshot.
+        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB cluster snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_db_cluster_snapshot_identifier: Identifier for the snapshot.
                
                The following arguments are optional:
@@ -277,7 +278,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -301,7 +302,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        ARN for the DB cluster snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -313,7 +314,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination region to place the snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -325,7 +326,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -337,7 +338,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -408,6 +409,9 @@ class _ClusterSnapshotCopyState:
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the DB cluster snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
@@ -430,7 +434,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the DB cluster snapshot is encrypted.
+        Whether the DB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -442,7 +446,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage type associated with DB cluster snapshot.
+        Storage type associated with DB cluster snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -466,7 +470,7 @@ class _ClusterSnapshotCopyState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -563,7 +567,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
+        :param pulumi.Input[_builtins.str] destination_region: Destination region to place the snapshot copy.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -708,22 +712,23 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
         :param pulumi.Input[_builtins.bool] copy_tags: Whether to copy existing tags. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: The Amazon Resource Name (ARN) for the DB cluster snapshot.
-        :param pulumi.Input[_builtins.str] destination_region: The Destination region to place snapshot copy.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
+        :param pulumi.Input[_builtins.str] db_cluster_snapshot_arn: ARN for the DB cluster snapshot.
+        :param pulumi.Input[_builtins.str] destination_region: Destination region to place the snapshot copy.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
         :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[_builtins.str] presigned_url: URL that contains a Signature Version 4 signed request.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB cluster snapshot.
         :param pulumi.Input[_builtins.str] source_db_cluster_snapshot_identifier: Identifier of the source snapshot.
-        :param pulumi.Input[_builtins.bool] storage_encrypted: Specifies whether the DB cluster snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB cluster snapshot.
+        :param pulumi.Input[_builtins.bool] storage_encrypted: Whether the DB cluster snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB cluster snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] target_db_cluster_snapshot_identifier: Identifier for the snapshot.
                
                The following arguments are optional:
@@ -759,7 +764,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -775,7 +780,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="dbClusterSnapshotArn")
     def db_cluster_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DB cluster snapshot.
+        ARN for the DB cluster snapshot.
         """
         return pulumi.get(self, "db_cluster_snapshot_arn")
 
@@ -783,7 +788,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="destinationRegion")
     def destination_region(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Destination region to place snapshot copy.
+        Destination region to place the snapshot copy.
         """
         return pulumi.get(self, "destination_region")
 
@@ -791,7 +796,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -799,7 +804,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -846,6 +851,9 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of the DB cluster snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @_builtins.property
@@ -860,7 +868,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="storageEncrypted")
     def storage_encrypted(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the DB cluster snapshot is encrypted.
+        Whether the DB cluster snapshot is encrypted.
         """
         return pulumi.get(self, "storage_encrypted")
 
@@ -868,7 +876,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the storage type associated with DB cluster snapshot.
+        Storage type associated with DB cluster snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -884,7 +892,7 @@ class ClusterSnapshotCopy(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -24,10 +24,6 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.NodeGroup("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         NodeGroupName = "example",
-    ///         NodeRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         ScalingConfig = new Aws.Eks.Inputs.NodeGroupScalingConfigArgs
     ///         {
     ///             DesiredSize = 1,
@@ -38,6 +34,10 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             MaxUnavailable = 1,
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -69,6 +69,42 @@ namespace Pulumi.Aws.Eks
     ///         {
     ///             DesiredSize = 2,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "scalingConfig.desiredSize",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ### Tracking the latest EKS Node Group AMI releases
+    /// 
+    /// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `Standard` in the parameter name below with `Nvidia` to retrieve the accelerated AMI version. Replace `X8664` in the parameter name below with `Arm64` to retrieve the ARM version.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var eksAmiReleaseVersion = Aws.Ssm.GetParameter.Invoke(new()
+    ///     {
+    ///         Name = $"/aws/service/eks/optimized-ami/{exampleAwsEksCluster.Version}/amazon-linux-2023/x86_64/standard/recommended/release_version",
+    ///     });
+    /// 
+    ///     var example = new Aws.Eks.NodeGroup("example", new()
+    ///     {
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         NodeGroupName = "example",
+    ///         Version = exampleAwsEksCluster.Version,
+    ///         ReleaseVersion = Output.Unsecret(eksAmiReleaseVersion.Apply(getParameterResult =&gt; getParameterResult.Value)),
+    ///         NodeRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });
@@ -186,13 +222,13 @@ namespace Pulumi.Aws.Eks
     public partial class NodeGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("amiType")]
         public Output<string> AmiType { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Node Group.
+        /// ARN of the EKS Node Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -258,7 +294,7 @@ namespace Pulumi.Aws.Eks
         public Output<Outputs.NodeGroupNodeRepairConfig> NodeRepairConfig { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Output("nodeRoleArn")]
         public Output<string> NodeRoleArn { get; private set; } = null!;
@@ -390,7 +426,7 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
@@ -468,7 +504,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupNodeRepairConfigArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn", required: true)]
         public Input<string> NodeRoleArn { get; set; } = null!;
@@ -562,13 +598,13 @@ namespace Pulumi.Aws.Eks
     public sealed class NodeGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Type of Amazon Machine Image (AMI) associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. This provider will only perform drift detection if a configuration value is provided.
+        /// Type of AMI associated with the EKS Node Group. See the [AWS documentation](https://docs.aws.amazon.com/eks/latest/APIReference/API_Nodegroup.html#AmazonEKS-Type-Nodegroup-amiType) for valid values. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("amiType")]
         public Input<string>? AmiType { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Node Group.
+        /// ARN of the EKS Node Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -646,7 +682,7 @@ namespace Pulumi.Aws.Eks
         public Input<Inputs.NodeGroupNodeRepairConfigGetArgs>? NodeRepairConfig { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Node Group.
+        /// ARN of the IAM Role that provides permissions for the EKS Node Group.
         /// </summary>
         [Input("nodeRoleArn")]
         public Input<string>? NodeRoleArn { get; set; }

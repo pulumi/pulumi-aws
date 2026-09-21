@@ -54,11 +54,11 @@ export interface GetAccessPointArgs {
 export interface GetAccessPointResult {
     readonly accessPointId: string;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     readonly arn: string;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     readonly fileSystemArn: string;
     /**

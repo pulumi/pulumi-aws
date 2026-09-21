@@ -20,10 +20,10 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getRegion({});
  * const main = new aws.ec2.VpcIpamResourceDiscovery("main", {
- *     description: "My IPAM Resource Discovery",
  *     operatingRegions: [{
  *         regionName: current.then(current => current.region),
  *     }],
+ *     description: "My IPAM Resource Discovery",
  *     tags: {
  *         Test: "Main",
  *     },
@@ -67,7 +67,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class VpcIpamResourceDiscovery extends pulumi.CustomResource {
  */
 export interface VpcIpamResourceDiscoveryState {
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      */
     arn?: pulumi.Input<string | undefined>;
     /**

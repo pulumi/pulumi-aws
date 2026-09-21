@@ -51,9 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Theme("example", ThemeArgs.builder()
- *             .themeId("example")
- *             .name("example")
- *             .baseThemeId("MIDNIGHT")
  *             .configuration(ThemeConfigurationArgs.builder()
  *                 .dataColorPalette(ThemeConfigurationDataColorPaletteArgs.builder()
  *                     .colors(                    
@@ -73,6 +70,9 @@ import javax.annotation.Nullable;
  *                         "#111111")
  *                     .build())
  *                 .build())
+ *             .themeId("example")
+ *             .name("example")
+ *             .baseThemeId("MIDNIGHT")
  *             .build());
  * 
  *     }

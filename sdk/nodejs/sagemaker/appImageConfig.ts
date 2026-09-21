@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
  *         kernelSpecs: [{
  *             name: "example",
  *         }],
  *     },
+ *     appImageConfigName: "example",
  * });
  * ```
  *
@@ -35,8 +35,8 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
  *     codeEditorAppImageConfig: {},
+ *     appImageConfigName: "example",
  * });
  * ```
  *
@@ -47,13 +47,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.sagemaker.AppImageConfig("test", {
- *     appImageConfigName: "example",
  *     kernelGatewayImageConfig: {
+ *         fileSystemConfig: {},
  *         kernelSpecs: [{
  *             name: "example",
  *         }],
- *         fileSystemConfig: {},
  *     },
+ *     appImageConfigName: "example",
  * });
  * ```
  *
@@ -98,7 +98,7 @@ export class AppImageConfig extends pulumi.CustomResource {
      */
     declare public readonly appImageConfigName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * ARN assigned by AWS to this App Image Config.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -177,7 +177,7 @@ export interface AppImageConfigState {
      */
     appImageConfigName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * ARN assigned by AWS to this App Image Config.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -57,13 +57,13 @@ type DataShareAuthorization struct {
 	AllowWrites pulumi.BoolPtrOutput `pulumi:"allowWrites"`
 	// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
 	ConsumerIdentifier pulumi.StringOutput `pulumi:"consumerIdentifier"`
-	// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+	// ARN of the datashare that producers are to authorize sharing for.
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringOutput `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer.
+	// ARN of the producer.
 	ProducerArn pulumi.StringOutput `pulumi:"producerArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -109,13 +109,13 @@ type dataShareAuthorizationState struct {
 	AllowWrites *bool `pulumi:"allowWrites"`
 	// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
 	ConsumerIdentifier *string `pulumi:"consumerIdentifier"`
-	// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+	// ARN of the datashare that producers are to authorize sharing for.
 	//
 	// The following arguments are optional:
 	DataShareArn *string `pulumi:"dataShareArn"`
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy *string `pulumi:"managedBy"`
-	// Amazon Resource Name (ARN) of the producer.
+	// ARN of the producer.
 	ProducerArn *string `pulumi:"producerArn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -126,13 +126,13 @@ type DataShareAuthorizationState struct {
 	AllowWrites pulumi.BoolPtrInput
 	// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
 	ConsumerIdentifier pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+	// ARN of the datashare that producers are to authorize sharing for.
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringPtrInput
 	// Identifier of a datashare to show its managing entity.
 	ManagedBy pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the producer.
+	// ARN of the producer.
 	ProducerArn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -147,7 +147,7 @@ type dataShareAuthorizationArgs struct {
 	AllowWrites *bool `pulumi:"allowWrites"`
 	// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
 	ConsumerIdentifier string `pulumi:"consumerIdentifier"`
-	// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+	// ARN of the datashare that producers are to authorize sharing for.
 	//
 	// The following arguments are optional:
 	DataShareArn string `pulumi:"dataShareArn"`
@@ -161,7 +161,7 @@ type DataShareAuthorizationArgs struct {
 	AllowWrites pulumi.BoolPtrInput
 	// Identifier of the data consumer that is authorized to access the datashare. This identifier is an AWS account ID or a keyword, such as `ADX`.
 	ConsumerIdentifier pulumi.StringInput
-	// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+	// ARN of the datashare that producers are to authorize sharing for.
 	//
 	// The following arguments are optional:
 	DataShareArn pulumi.StringInput
@@ -266,7 +266,7 @@ func (o DataShareAuthorizationOutput) ConsumerIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.ConsumerIdentifier }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the datashare that producers are to authorize sharing for.
+// ARN of the datashare that producers are to authorize sharing for.
 //
 // The following arguments are optional:
 func (o DataShareAuthorizationOutput) DataShareArn() pulumi.StringOutput {
@@ -278,7 +278,7 @@ func (o DataShareAuthorizationOutput) ManagedBy() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the producer.
+// ARN of the producer.
 func (o DataShareAuthorizationOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataShareAuthorization) pulumi.StringOutput { return v.ProducerArn }).(pulumi.StringOutput)
 }

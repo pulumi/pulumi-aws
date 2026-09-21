@@ -60,12 +60,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Workspace("example", WorkspaceArgs.builder()
- *             .directoryId(exampleAwsWorkspacesDirectory.id())
- *             .bundleId(valueWindows10.id())
- *             .userName("john.doe")
- *             .rootVolumeEncryptionEnabled(true)
- *             .userVolumeEncryptionEnabled(true)
- *             .volumeEncryptionKey(workspaces.arn())
  *             .workspaceProperties(WorkspaceWorkspacePropertiesArgs.builder()
  *                 .computeTypeName("VALUE")
  *                 .userVolumeSizeGib(10)
@@ -73,6 +67,12 @@ import javax.annotation.Nullable;
  *                 .runningMode("AUTO_STOP")
  *                 .runningModeAutoStopTimeoutInMinutes(60)
  *                 .build())
+ *             .directoryId(exampleAwsWorkspacesDirectory.id())
+ *             .bundleId(valueWindows10.id())
+ *             .userName("john.doe")
+ *             .rootVolumeEncryptionEnabled(true)
+ *             .userVolumeEncryptionEnabled(true)
+ *             .volumeEncryptionKey(workspaces.arn())
  *             .tags(Map.of("Department", "IT"))
  *             .build());
  * 

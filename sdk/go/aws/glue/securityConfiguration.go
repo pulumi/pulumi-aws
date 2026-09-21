@@ -29,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewSecurityConfiguration(ctx, "example", &glue.SecurityConfigurationArgs{
-//				Name: pulumi.String("example"),
 //				EncryptionConfiguration: &glue.SecurityConfigurationEncryptionConfigurationArgs{
 //					CloudwatchEncryption: &glue.SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs{
 //						CloudwatchEncryptionMode: pulumi.String("DISABLED"),
@@ -42,6 +41,7 @@ import (
 //						S3EncryptionMode: pulumi.String("SSE-KMS"),
 //					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

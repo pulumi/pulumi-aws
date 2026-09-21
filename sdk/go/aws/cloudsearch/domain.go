@@ -30,7 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudsearch.NewDomain(ctx, "example", &cloudsearch.DomainArgs{
-//				Name: pulumi.String("example-domain"),
 //				ScalingParameters: &cloudsearch.DomainScalingParametersArgs{
 //					DesiredInstanceType: pulumi.String("search.medium"),
 //				},
@@ -54,6 +53,7 @@ import (
 //						SourceFields: pulumi.String("headline"),
 //					},
 //				},
+//				Name: pulumi.String("example-domain"),
 //			})
 //			if err != nil {
 //				return err

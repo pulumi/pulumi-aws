@@ -119,12 +119,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "foobar", &cloudwatch.MetricAlarmArgs{
-//				Name:                    pulumi.String("test-foobar"),
-//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				Threshold:               pulumi.Float64(10),
-//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
-//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -133,7 +127,6 @@ import (
 //						ReturnData: pulumi.Bool(true),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m1"),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("RequestCount"),
 //							Namespace:  pulumi.String("AWS/ApplicationELB"),
@@ -144,9 +137,9 @@ import (
 //								"LoadBalancer": pulumi.String("app/web"),
 //							},
 //						},
+//						Id: pulumi.String("m1"),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id: pulumi.String("m2"),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("HTTPCode_ELB_5XX_Count"),
 //							Namespace:  pulumi.String("AWS/ApplicationELB"),
@@ -157,8 +150,15 @@ import (
 //								"LoadBalancer": pulumi.String("app/web"),
 //							},
 //						},
+//						Id: pulumi.String("m2"),
 //					},
 //				},
+//				Name:                    pulumi.String("test-foobar"),
+//				ComparisonOperator:      pulumi.String("GreaterThanOrEqualToThreshold"),
+//				EvaluationPeriods:       pulumi.Int(2),
+//				Threshold:               pulumi.Float64(10),
+//				AlarmDescription:        pulumi.String("Request error rate has exceeded 10%"),
+//				InsufficientDataActions: pulumi.Array{},
 //			})
 //			if err != nil {
 //				return err
@@ -185,8 +185,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "promql_alarm", &cloudwatch.MetricAlarmArgs{
-//				Name:             pulumi.String("high-cpu-promql"),
-//				AlarmDescription: pulumi.String("Alarm when average CPU exceeds 80% using PromQL"),
 //				EvaluationCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaArgs{
 //					PromqlCriteria: &cloudwatch.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs{
 //						Query:          pulumi.String("avg(cpu_utilization_percent) > 80"),
@@ -194,6 +192,8 @@ import (
 //						RecoveryPeriod: pulumi.Int(120),
 //					},
 //				},
+//				Name:               pulumi.String("high-cpu-promql"),
+//				AlarmDescription:   pulumi.String("Alarm when average CPU exceeds 80% using PromQL"),
 //				EvaluationInterval: pulumi.Int(30),
 //				AlarmActions: pulumi.Array{
 //					alerts.Arn,
@@ -222,12 +222,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "xx_anomaly_detection", &cloudwatch.MetricAlarmArgs{
-//				Name:                    pulumi.String("test-foobar"),
-//				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
-//				EvaluationPeriods:       pulumi.Int(2),
-//				ThresholdMetricId:       pulumi.String("e1"),
-//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
-//				InsufficientDataActions: pulumi.Array{},
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id:         pulumi.String("e1"),
@@ -236,8 +230,6 @@ import (
 //						Label:      pulumi.String("CPUUtilization (Expected)"),
 //					},
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
-//						Id:         pulumi.String("m1"),
-//						ReturnData: pulumi.Bool(true),
 //						Metric: &cloudwatch.MetricAlarmMetricQueryMetricArgs{
 //							MetricName: pulumi.String("CPUUtilization"),
 //							Namespace:  pulumi.String("AWS/EC2"),
@@ -248,8 +240,16 @@ import (
 //								"InstanceId": pulumi.String("i-abc123"),
 //							},
 //						},
+//						Id:         pulumi.String("m1"),
+//						ReturnData: pulumi.Bool(true),
 //					},
 //				},
+//				Name:                    pulumi.String("test-foobar"),
+//				ComparisonOperator:      pulumi.String("GreaterThanUpperThreshold"),
+//				EvaluationPeriods:       pulumi.Int(2),
+//				ThresholdMetricId:       pulumi.String("e1"),
+//				AlarmDescription:        pulumi.String("This metric monitors ec2 cpu utilization"),
+//				InsufficientDataActions: pulumi.Array{},
 //			})
 //			if err != nil {
 //				return err
@@ -275,12 +275,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
-//				Name:               pulumi.String("example-alarm"),
-//				AlarmDescription:   pulumi.String("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold"),
-//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
-//				EvaluationPeriods:  pulumi.Int(1),
-//				Threshold:          pulumi.Float64(0.6),
-//				TreatMissingData:   pulumi.String("notBreaching"),
 //				MetricQueries: cloudwatch.MetricAlarmMetricQueryArray{
 //					&cloudwatch.MetricAlarmMetricQueryArgs{
 //						Id: pulumi.String("q1"),
@@ -299,6 +293,12 @@ import (
 //						Label:      pulumi.String("Max DB Load of the Least-Loaded RDS Instance"),
 //					},
 //				},
+//				Name:               pulumi.String("example-alarm"),
+//				AlarmDescription:   pulumi.String("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(1),
+//				Threshold:          pulumi.Float64(0.6),
+//				TreatMissingData:   pulumi.String("notBreaching"),
 //			})
 //			if err != nil {
 //				return err
@@ -355,6 +355,47 @@ import (
 //
 // ```
 //
+// ### With a Warm-Up Period
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/cloudwatch"
+//	"github.com/pulumi/pulumi-aws/sdk/v7/go/aws/sns"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := cloudwatch.NewMetricAlarm(ctx, "example", &cloudwatch.MetricAlarmArgs{
+//				WarmUpConfiguration: &cloudwatch.MetricAlarmWarmUpConfigurationArgs{
+//					WarmUpPeriodDurationInMinutes: pulumi.Int(30),
+//				},
+//				Name:               pulumi.String("example-service-errors"),
+//				ComparisonOperator: pulumi.String("GreaterThanThreshold"),
+//				EvaluationPeriods:  pulumi.Int(3),
+//				MetricName:         pulumi.String("Errors"),
+//				Namespace:          pulumi.String("ExampleApp"),
+//				Period:             pulumi.Int(60),
+//				Statistic:          pulumi.String("Sum"),
+//				Threshold:          pulumi.Float64(0),
+//				TreatMissingData:   pulumi.String("breaching"),
+//				AlarmActions: pulumi.Array{
+//					exampleAwsSnsTopic.Arn,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
 // You must choose one or the other.
 //
@@ -381,7 +422,7 @@ type MetricAlarm struct {
 
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrOutput `pulumi:"actionsEnabled"`
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 	AlarmActions pulumi.StringArrayOutput `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrOutput `pulumi:"alarmDescription"`
@@ -406,7 +447,7 @@ type MetricAlarm struct {
 	EvaluationPeriods pulumi.IntPtrOutput `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrOutput `pulumi:"extendedStatistic"`
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 	InsufficientDataActions pulumi.StringArrayOutput `pulumi:"insufficientDataActions"`
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -418,7 +459,7 @@ type MetricAlarm struct {
 	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrOutput `pulumi:"namespace"`
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 	OkActions pulumi.StringArrayOutput `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
@@ -445,6 +486,8 @@ type MetricAlarm struct {
 	TreatMissingData pulumi.StringPtrOutput `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrOutput `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrOutput `pulumi:"warmUpConfiguration"`
 }
 
 // NewMetricAlarm registers a new resource with the given unique name, arguments, and options.
@@ -479,7 +522,7 @@ func GetMetricAlarm(ctx *pulumi.Context,
 type metricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 	AlarmActions []interface{} `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
@@ -504,7 +547,7 @@ type metricAlarmState struct {
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -516,7 +559,7 @@ type metricAlarmState struct {
 	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
@@ -543,12 +586,14 @@ type metricAlarmState struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration *MetricAlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 type MetricAlarmState struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 	AlarmActions pulumi.ArrayInput
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
@@ -573,7 +618,7 @@ type MetricAlarmState struct {
 	EvaluationPeriods pulumi.IntPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 	InsufficientDataActions pulumi.ArrayInput
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -585,7 +630,7 @@ type MetricAlarmState struct {
 	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
@@ -612,6 +657,8 @@ type MetricAlarmState struct {
 	TreatMissingData pulumi.StringPtrInput
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrInput
 }
 
 func (MetricAlarmState) ElementType() reflect.Type {
@@ -621,7 +668,7 @@ func (MetricAlarmState) ElementType() reflect.Type {
 type metricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled *bool `pulumi:"actionsEnabled"`
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 	AlarmActions []interface{} `pulumi:"alarmActions"`
 	// The description for the alarm.
 	AlarmDescription *string `pulumi:"alarmDescription"`
@@ -644,7 +691,7 @@ type metricAlarmArgs struct {
 	EvaluationPeriods *int `pulumi:"evaluationPeriods"`
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic *string `pulumi:"extendedStatistic"`
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 	InsufficientDataActions []interface{} `pulumi:"insufficientDataActions"`
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -656,7 +703,7 @@ type metricAlarmArgs struct {
 	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace *string `pulumi:"namespace"`
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 	OkActions []interface{} `pulumi:"okActions"`
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
@@ -681,13 +728,15 @@ type metricAlarmArgs struct {
 	TreatMissingData *string `pulumi:"treatMissingData"`
 	// The unit for the alarm's associated metric.
 	Unit *string `pulumi:"unit"`
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration *MetricAlarmWarmUpConfiguration `pulumi:"warmUpConfiguration"`
 }
 
 // The set of arguments for constructing a MetricAlarm resource.
 type MetricAlarmArgs struct {
 	// Indicates whether or not actions should be executed during any changes to the alarm's state. Defaults to `true`.
 	ActionsEnabled pulumi.BoolPtrInput
-	// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 	AlarmActions pulumi.ArrayInput
 	// The description for the alarm.
 	AlarmDescription pulumi.StringPtrInput
@@ -710,7 +759,7 @@ type MetricAlarmArgs struct {
 	EvaluationPeriods pulumi.IntPtrInput
 	// The percentile statistic for the metric associated with the alarm. Specify a value between p0.0 and p100.
 	ExtendedStatistic pulumi.StringPtrInput
-	// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 	InsufficientDataActions pulumi.ArrayInput
 	// The name for the alarm's associated metric.
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
@@ -722,7 +771,7 @@ type MetricAlarmArgs struct {
 	// The namespace for the alarm's associated metric. See docs for the [list of namespaces](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/aws-namespaces.html).
 	// See docs for [supported metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html).
 	Namespace pulumi.StringPtrInput
-	// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+	// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 	OkActions pulumi.ArrayInput
 	// The period in seconds over which the specified `statistic` is applied.
 	// Valid values are `10`, `20`, `30`, or any multiple of `60`.
@@ -747,6 +796,8 @@ type MetricAlarmArgs struct {
 	TreatMissingData pulumi.StringPtrInput
 	// The unit for the alarm's associated metric.
 	Unit pulumi.StringPtrInput
+	// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+	WarmUpConfiguration MetricAlarmWarmUpConfigurationPtrInput
 }
 
 func (MetricAlarmArgs) ElementType() reflect.Type {
@@ -841,7 +892,7 @@ func (o MetricAlarmOutput) ActionsEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.BoolPtrOutput { return v.ActionsEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
 func (o MetricAlarmOutput) AlarmActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringArrayOutput { return v.AlarmActions }).(pulumi.StringArrayOutput)
 }
@@ -899,7 +950,7 @@ func (o MetricAlarmOutput) ExtendedStatistic() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.ExtendedStatistic }).(pulumi.StringPtrOutput)
 }
 
-// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
 func (o MetricAlarmOutput) InsufficientDataActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringArrayOutput { return v.InsufficientDataActions }).(pulumi.StringArrayOutput)
 }
@@ -926,7 +977,7 @@ func (o MetricAlarmOutput) Namespace() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Namespace }).(pulumi.StringPtrOutput)
 }
 
-// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
 func (o MetricAlarmOutput) OkActions() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringArrayOutput { return v.OkActions }).(pulumi.StringArrayOutput)
 }
@@ -981,6 +1032,11 @@ func (o MetricAlarmOutput) TreatMissingData() pulumi.StringPtrOutput {
 // The unit for the alarm's associated metric.
 func (o MetricAlarmOutput) Unit() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MetricAlarm) pulumi.StringPtrOutput { return v.Unit }).(pulumi.StringPtrOutput)
+}
+
+// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+func (o MetricAlarmOutput) WarmUpConfiguration() MetricAlarmWarmUpConfigurationPtrOutput {
+	return o.ApplyT(func(v *MetricAlarm) MetricAlarmWarmUpConfigurationPtrOutput { return v.WarmUpConfiguration }).(MetricAlarmWarmUpConfigurationPtrOutput)
 }
 
 type MetricAlarmArrayOutput struct{ *pulumi.OutputState }

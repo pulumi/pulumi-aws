@@ -94,12 +94,8 @@ type LookupDirectoryResult struct {
 }
 
 func LookupDirectoryOutput(ctx *pulumi.Context, args LookupDirectoryOutputArgs, opts ...pulumi.InvokeOption) LookupDirectoryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDirectoryResultOutput, error) {
-			args := v.(LookupDirectoryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:directoryservice/getDirectory:getDirectory", args, LookupDirectoryResultOutput{}, options).(LookupDirectoryResultOutput), nil
-		}).(LookupDirectoryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:directoryservice/getDirectory:getDirectory", args, LookupDirectoryResultOutput{}, options).(LookupDirectoryResultOutput)
 }
 
 // A collection of arguments for invoking getDirectory.

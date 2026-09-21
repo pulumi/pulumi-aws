@@ -32,7 +32,6 @@ namespace Pulumi.Aws.BcmData
     ///     {
     ///         ExportDetails = new Aws.BcmData.Inputs.ExportExportArgs
     ///         {
-    ///             Name = "testexample",
     ///             DataQueries = new[]
     ///             {
     ///                 new Aws.BcmData.Inputs.ExportExportDataQueryArgs
@@ -64,9 +63,6 @@ namespace Pulumi.Aws.BcmData
     ///                     {
     ///                         new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationArgs
     ///                         {
-    ///                             S3Bucket = testAwsS3Bucket.Bucket,
-    ///                             S3Prefix = testAwsS3Bucket.BucketPrefix,
-    ///                             S3Region = testAwsS3Bucket.Region,
     ///                             S3OutputConfigurations = new[]
     ///                             {
     ///                                 new Aws.BcmData.Inputs.ExportExportDestinationConfigurationS3DestinationS3OutputConfigurationArgs
@@ -77,6 +73,9 @@ namespace Pulumi.Aws.BcmData
     ///                                     OutputType = "CUSTOM",
     ///                                 },
     ///                             },
+    ///                             S3Bucket = testAwsS3Bucket.Bucket,
+    ///                             S3Prefix = testAwsS3Bucket.BucketPrefix,
+    ///                             S3Region = testAwsS3Bucket.Region,
     ///                         },
     ///                     },
     ///                 },
@@ -88,6 +87,7 @@ namespace Pulumi.Aws.BcmData
     ///                     Frequency = "SYNCHRONOUS",
     ///                 },
     ///             },
+    ///             Name = "testexample",
     ///         },
     ///     });
     /// 
@@ -100,7 +100,7 @@ namespace Pulumi.Aws.BcmData
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+    /// - `Arn` (String) ARN of the BCM Data Exports export.
     /// 
     /// Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
     /// 
@@ -112,8 +112,8 @@ namespace Pulumi.Aws.BcmData
     public partial class Export : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        /// ARN for this export.
+        /// * `export[0].export_arn` - ARN for this export.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -212,8 +212,8 @@ namespace Pulumi.Aws.BcmData
     public sealed class ExportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for this export.
-        /// * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        /// ARN for this export.
+        /// * `export[0].export_arn` - ARN for this export.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

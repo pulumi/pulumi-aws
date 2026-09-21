@@ -152,10 +152,10 @@ class BackupPolicy(pulumi.CustomResource):
 
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
-            file_system_id=fs.id,
             backup_policy={
                 "status": "ENABLED",
-            })
+            },
+            file_system_id=fs.id)
         ```
 
         ## Import
@@ -191,10 +191,10 @@ class BackupPolicy(pulumi.CustomResource):
 
         fs = aws.efs.FileSystem("fs", creation_token="my-product")
         policy = aws.efs.BackupPolicy("policy",
-            file_system_id=fs.id,
             backup_policy={
                 "status": "ENABLED",
-            })
+            },
+            file_system_id=fs.id)
         ```
 
         ## Import

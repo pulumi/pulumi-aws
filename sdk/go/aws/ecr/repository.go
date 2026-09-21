@@ -28,11 +28,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRepository(ctx, "foo", &ecr.RepositoryArgs{
-//				Name:               pulumi.String("bar"),
-//				ImageTagMutability: pulumi.String("MUTABLE"),
 //				ImageScanningConfiguration: &ecr.RepositoryImageScanningConfigurationArgs{
 //					ScanOnPush: pulumi.Bool(true),
 //				},
+//				Name:               pulumi.String("bar"),
+//				ImageTagMutability: pulumi.String("MUTABLE"),
 //			})
 //			if err != nil {
 //				return err
@@ -58,8 +58,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecr.NewRepository(ctx, "example", &ecr.RepositoryArgs{
-//				Name:               pulumi.String("example-repo"),
-//				ImageTagMutability: pulumi.String("IMMUTABLE_WITH_EXCLUSION"),
 //				ImageTagMutabilityExclusionFilters: ecr.RepositoryImageTagMutabilityExclusionFilterArray{
 //					&ecr.RepositoryImageTagMutabilityExclusionFilterArgs{
 //						Filter:     pulumi.String("latest*"),
@@ -70,6 +68,8 @@ import (
 //						FilterType: pulumi.String("WILDCARD"),
 //					},
 //				},
+//				Name:               pulumi.String("example-repo"),
+//				ImageTagMutability: pulumi.String("IMMUTABLE_WITH_EXCLUSION"),
 //			})
 //			if err != nil {
 //				return err

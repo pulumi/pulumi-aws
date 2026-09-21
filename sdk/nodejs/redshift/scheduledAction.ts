@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["scheduler.redshift.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -50,14 +50,14 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * const exampleScheduledAction = new aws.redshift.ScheduledAction("example", {
- *     name: "tf-redshift-scheduled-action",
- *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: exampleRole.arn,
  *     targetAction: {
  *         pauseCluster: {
  *             clusterIdentifier: "tf-redshift001",
  *         },
  *     },
+ *     name: "tf-redshift-scheduled-action",
+ *     schedule: "cron(00 23 * * ? *)",
+ *     iamRole: exampleRole.arn,
  * });
  * ```
  *
@@ -68,9 +68,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.redshift.ScheduledAction("example", {
- *     name: "tf-redshift-scheduled-action",
- *     schedule: "cron(00 23 * * ? *)",
- *     iamRole: exampleAwsIamRole.arn,
  *     targetAction: {
  *         resizeCluster: {
  *             clusterIdentifier: "tf-redshift001",
@@ -79,6 +76,9 @@ import * as utilities from "../utilities";
  *             numberOfNodes: 2,
  *         },
  *     },
+ *     name: "tf-redshift-scheduled-action",
+ *     schedule: "cron(00 23 * * ? *)",
+ *     iamRole: exampleAwsIamRole.arn,
  * });
  * ```
  *

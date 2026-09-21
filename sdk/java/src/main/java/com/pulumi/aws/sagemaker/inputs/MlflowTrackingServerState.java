@@ -18,14 +18,14 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
     public static final MlflowTrackingServerState Empty = new MlflowTrackingServerState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+     * ARN assigned by AWS to this MLFlow Tracking Server.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+     * @return ARN assigned by AWS to this MLFlow Tracking Server.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,14 +93,14 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+     * ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+     * @return ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -233,7 +233,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+         * @param arn ARN assigned by AWS to this MLFlow Tracking Server.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this MLFlow Tracking Server.
+         * @param arn ARN assigned by AWS to this MLFlow Tracking Server.
          * 
          * @return builder
          * 
@@ -338,7 +338,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+         * @param roleArn ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class MlflowTrackingServerState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
+         * @param roleArn ARN for an IAM role in your account that the MLflow Tracking Server uses to access the artifact store in Amazon S3. The role should have AmazonS3FullAccess permissions. For more information on IAM permissions for tracking server creation, see [Set up IAM permissions for MLflow](https://docs.aws.amazon.com/sagemaker/latest/dg/mlflow-create-tracking-server-iam.html).
          * 
          * @return builder
          * 

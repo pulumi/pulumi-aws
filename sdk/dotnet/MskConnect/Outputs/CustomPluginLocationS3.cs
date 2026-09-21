@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class CustomPluginLocationS3
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an S3 bucket.
+        /// ARN of an S3 bucket.
         /// </summary>
         public readonly string BucketArn;
         /// <summary>

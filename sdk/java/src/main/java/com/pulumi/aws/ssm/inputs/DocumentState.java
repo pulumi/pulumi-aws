@@ -20,14 +20,14 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
     public static final DocumentState Empty = new DocumentState();
 
     /**
-     * The Amazon Resource Name (ARN) of the document.
+     * ARN of the document.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the document.
+     * @return ARN of the document.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -427,7 +427,7 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the document.
+         * @param arn ARN of the document.
          * 
          * @return builder
          * 
@@ -438,7 +438,7 @@ public final class DocumentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the document.
+         * @param arn ARN of the document.
          * 
          * @return builder
          * 

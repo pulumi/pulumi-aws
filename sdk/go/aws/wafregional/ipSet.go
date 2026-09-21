@@ -28,7 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := wafregional.NewIpSet(ctx, "ipset", &wafregional.IpSetArgs{
-//				Name: pulumi.String("tfIPSet"),
 //				IpSetDescriptors: wafregional.IpSetIpSetDescriptorArray{
 //					&wafregional.IpSetIpSetDescriptorArgs{
 //						Type:  pulumi.String("IPV4"),
@@ -39,6 +38,7 @@ import (
 //						Value: pulumi.String("10.16.16.0/16"),
 //					},
 //				},
+//				Name: pulumi.String("tfIPSet"),
 //			})
 //			if err != nil {
 //				return err

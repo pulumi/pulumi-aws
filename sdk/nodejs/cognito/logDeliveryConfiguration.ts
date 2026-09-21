@@ -21,14 +21,14 @@ import * as utilities from "../utilities";
  * const example = new aws.cognito.UserPool("example", {name: "example"});
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const exampleLogDeliveryConfiguration = new aws.cognito.LogDeliveryConfiguration("example", {
- *     userPoolId: example.id,
  *     logConfigurations: [{
- *         eventSource: "userNotification",
- *         logLevel: "ERROR",
  *         cloudWatchLogsConfiguration: {
  *             logGroupArn: exampleLogGroup.arn,
  *         },
+ *         eventSource: "userNotification",
+ *         logLevel: "ERROR",
  *     }],
+ *     userPoolId: example.id,
  * });
  * ```
  *
@@ -83,31 +83,31 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleFirehoseDeliveryStream = new aws.kinesis.FirehoseDeliveryStream("example", {
- *     name: "example-stream",
- *     destination: "extended_s3",
  *     extendedS3Configuration: {
  *         roleArn: firehose.arn,
  *         bucketArn: exampleBucket.arn,
  *     },
+ *     name: "example-stream",
+ *     destination: "extended_s3",
  * });
  * const exampleLogDeliveryConfiguration = new aws.cognito.LogDeliveryConfiguration("example", {
- *     userPoolId: example.id,
  *     logConfigurations: [
  *         {
- *             eventSource: "userNotification",
- *             logLevel: "INFO",
  *             cloudWatchLogsConfiguration: {
  *                 logGroupArn: exampleLogGroup.arn,
  *             },
+ *             eventSource: "userNotification",
+ *             logLevel: "INFO",
  *         },
  *         {
- *             eventSource: "userAuthEvents",
- *             logLevel: "INFO",
  *             firehoseConfiguration: {
  *                 streamArn: exampleFirehoseDeliveryStream.arn,
  *             },
+ *             eventSource: "userAuthEvents",
+ *             logLevel: "INFO",
  *         },
  *     ],
+ *     userPoolId: example.id,
  * });
  * ```
  *
@@ -126,14 +126,14 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * const exampleLogDeliveryConfiguration = new aws.cognito.LogDeliveryConfiguration("example", {
- *     userPoolId: example.id,
  *     logConfigurations: [{
- *         eventSource: "userAuthEvents",
- *         logLevel: "INFO",
  *         s3Configuration: {
  *             bucketArn: exampleBucket.arn,
  *         },
+ *         eventSource: "userAuthEvents",
+ *         logLevel: "INFO",
  *     }],
+ *     userPoolId: example.id,
  * });
  * ```
  *

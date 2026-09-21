@@ -217,7 +217,6 @@ import (
 //			var exampleEip []*ec2.Eip
 //			for index := 0; index < 3; index++ {
 //				key0 := index
-//				_ := index
 //				__res, err := ec2.NewEip(ctx, fmt.Sprintf("example-%v", key0), &ec2.EipArgs{
 //					Domain: pulumi.String("vpc"),
 //				})
@@ -227,8 +226,6 @@ import (
 //				exampleEip = append(exampleEip, __res)
 //			}
 //			_, err = ec2.NewNatGateway(ctx, "example", &ec2.NatGatewayArgs{
-//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
-//				AvailabilityMode: pulumi.String("regional"),
 //				AvailabilityZoneAddresses: ec2.NatGatewayAvailabilityZoneAddressArray{
 //					&ec2.NatGatewayAvailabilityZoneAddressArgs{
 //						AllocationIds: pulumi.StringArray{
@@ -244,6 +241,8 @@ import (
 //						AvailabilityZone: pulumi.String(available.Names[1]),
 //					},
 //				},
+//				VpcId:            example.ID().ToIDOutput().ToStringOutput(),
+//				AvailabilityMode: pulumi.String("regional"),
 //			})
 //			if err != nil {
 //				return err

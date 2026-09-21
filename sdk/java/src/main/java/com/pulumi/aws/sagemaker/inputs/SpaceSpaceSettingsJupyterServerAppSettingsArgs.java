@@ -35,14 +35,14 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec", required=true)
     private Output<SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public Output<SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpecArgs> defaultResourceSpec() {
@@ -50,14 +50,14 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * ARN of the Lifecycle Configurations.
      * 
      */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
@@ -122,7 +122,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -154,7 +154,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class SpaceSpaceSettingsJupyterServerAppSettingsArgs extends com.pu
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 

@@ -47,14 +47,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     }
 
     /**
-     * List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
      * 
      */
     @Import(name="resources")
     private @Nullable Output<List<String>> resources;
 
     /**
-     * @return List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+     * @return List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
      * 
      */
     public Optional<Output<List<String>>> resources() {
@@ -62,14 +62,14 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
     }
 
     /**
-     * Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+     * @return Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
      * 
      */
     public Optional<Output<String>> source() {
@@ -162,7 +162,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         * @param resources List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         * @param resources List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
          * 
          * @return builder
          * 
@@ -183,7 +183,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param resources List of AWS resources, identified by Amazon Resource Name (ARN), which the event primarily concerns. Any number, including zero, may be present.
+         * @param resources List of AWS resources, identified by ARN, which the event primarily concerns. Any number, including zero, may be present.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param source Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+         * @param source Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PipeTargetParametersEventbridgeEventBusParametersArgs extends
         }
 
         /**
-         * @param source Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
+         * @param source Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use &#39;smk://&#39; followed by the bootstrap server&#39;s address.
          * 
          * @return builder
          * 

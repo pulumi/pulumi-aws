@@ -38,12 +38,12 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleCustomerManagedPolicyAttachment = new aws.ssoadmin.CustomerManagedPolicyAttachment("example", {
- *     instanceArn: examplePermissionSet.instanceArn,
- *     permissionSetArn: examplePermissionSet.arn,
  *     customerManagedPolicyReference: {
  *         name: examplePolicy.name,
  *         path: "/",
  *     },
+ *     instanceArn: examplePermissionSet.instanceArn,
+ *     permissionSetArn: examplePermissionSet.arn,
  * });
  * ```
  *
@@ -88,11 +88,11 @@ export class CustomerManagedPolicyAttachment extends pulumi.CustomResource {
      */
     declare public readonly customerManagedPolicyReference: pulumi.Output<outputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     declare public readonly instanceArn: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     declare public readonly permissionSetArn: pulumi.Output<string>;
     /**
@@ -147,11 +147,11 @@ export interface CustomerManagedPolicyAttachmentState {
      */
     customerManagedPolicyReference?: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn?: pulumi.Input<string | undefined>;
     /**
@@ -169,11 +169,11 @@ export interface CustomerManagedPolicyAttachmentArgs {
      */
     customerManagedPolicyReference: pulumi.Input<inputs.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReference>;
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      */
     instanceArn: pulumi.Input<string>;
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      */
     permissionSetArn: pulumi.Input<string>;
     /**

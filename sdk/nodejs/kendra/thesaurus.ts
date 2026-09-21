@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Thesaurus("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     roleArn: exampleAwsIamRole.arn,
  *     sourceS3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "Example Kendra Thesaurus",
  *     },

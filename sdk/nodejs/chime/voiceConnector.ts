@@ -57,7 +57,7 @@ export class VoiceConnector extends pulumi.CustomResource {
     }
 
     /**
-     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * ARN of the Amazon Chime Voice Connector.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class VoiceConnector extends pulumi.CustomResource {
  */
 export interface VoiceConnectorState {
     /**
-     * ARN (Amazon Resource Name) of the Amazon Chime Voice Connector.
+     * ARN of the Amazon Chime Voice Connector.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

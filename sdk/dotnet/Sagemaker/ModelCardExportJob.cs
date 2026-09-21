@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.ModelCardExportJob("example", new()
     ///     {
-    ///         ModelCardExportJobName = "my-model-card-export-job",
-    ///         ModelCardName = exampleAwsSagemakerModelCard.ModelCardName,
     ///         OutputConfig = new Aws.Sagemaker.Inputs.ModelCardExportJobOutputConfigArgs
     ///         {
     ///             S3OutputPath = $"s3://{test.Example}/",
     ///         },
+    ///         ModelCardExportJobName = "my-model-card-export-job",
+    ///         ModelCardName = exampleAwsSagemakerModelCard.ModelCardName,
     ///     });
     /// 
     /// });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<Outputs.ModelCardExportJobExportArtifact>> ExportArtifacts { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model card export job.
+        /// ARN of the model card export job.
         /// </summary>
         [Output("modelCardExportJobArn")]
         public Output<string> ModelCardExportJobArn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the model card export job.
+        /// ARN of the model card export job.
         /// </summary>
         [Input("modelCardExportJobArn")]
         public Input<string>? ModelCardExportJobArn { get; set; }

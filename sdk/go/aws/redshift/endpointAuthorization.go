@@ -67,7 +67,7 @@ type EndpointAuthorization struct {
 	Grantor pulumi.StringOutput `pulumi:"grantor"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+	// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayOutput `pulumi:"vpcIds"`
 }
 
@@ -123,7 +123,7 @@ type endpointAuthorizationState struct {
 	Grantor *string `pulumi:"grantor"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+	// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds []string `pulumi:"vpcIds"`
 }
 
@@ -144,7 +144,7 @@ type EndpointAuthorizationState struct {
 	Grantor pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+	// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayInput
 }
 
@@ -161,7 +161,7 @@ type endpointAuthorizationArgs struct {
 	ForceDelete *bool `pulumi:"forceDelete"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+	// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds []string `pulumi:"vpcIds"`
 }
 
@@ -175,7 +175,7 @@ type EndpointAuthorizationArgs struct {
 	ForceDelete pulumi.BoolPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+	// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 	VpcIds pulumi.StringArrayInput
 }
 
@@ -306,7 +306,7 @@ func (o EndpointAuthorizationOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
 func (o EndpointAuthorizationOutput) VpcIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *EndpointAuthorization) pulumi.StringArrayOutput { return v.VpcIds }).(pulumi.StringArrayOutput)
 }

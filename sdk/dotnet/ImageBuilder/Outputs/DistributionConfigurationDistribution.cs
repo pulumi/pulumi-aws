@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
     public sealed class DistributionConfigurationDistribution
     {
         /// <summary>
-        /// Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        /// Configuration block with AMI distribution settings. Detailed below.
         /// </summary>
         public readonly Outputs.DistributionConfigurationDistributionAmiDistributionConfiguration? AmiDistributionConfiguration;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.DistributionConfigurationDistributionLaunchTemplateConfiguration> LaunchTemplateConfigurations;
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        /// Set of ARNs of License Manager License Configurations.
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
         /// <summary>

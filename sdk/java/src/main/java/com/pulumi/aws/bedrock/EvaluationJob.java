@@ -61,15 +61,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new EvaluationJob("example", EvaluationJobArgs.builder()
- *             .jobName("example-job")
- *             .roleArn(exampleAwsIamRole.arn())
  *             .evaluationConfig(EvaluationJobEvaluationConfigArgs.builder()
  *                 .automated(EvaluationJobEvaluationConfigAutomatedArgs.builder()
  *                     .datasetMetricConfigs(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigArgs.builder()
- *                         .taskType("Generation")
  *                         .dataset(EvaluationJobEvaluationConfigAutomatedDatasetMetricConfigDatasetArgs.builder()
  *                             .name("Builtin.Bold")
  *                             .build())
+ *                         .taskType("Generation")
  *                         .metricNames("Builtin.Robustness")
  *                         .build())
  *                     .build())
@@ -84,6 +82,8 @@ import javax.annotation.Nullable;
  *             .outputDataConfig(EvaluationJobOutputDataConfigArgs.builder()
  *                 .s3Uri(String.format("s3://%s/output/", exampleAwsS3Bucket.id()))
  *                 .build())
+ *             .jobName("example-job")
+ *             .roleArn(exampleAwsIamRole.arn())
  *             .build());
  * 
  *     }

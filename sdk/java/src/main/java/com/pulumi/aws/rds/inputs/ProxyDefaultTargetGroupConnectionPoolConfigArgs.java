@@ -18,14 +18,14 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
     public static final ProxyDefaultTargetGroupConnectionPoolConfigArgs Empty = new ProxyDefaultTargetGroupConnectionPoolConfigArgs();
 
     /**
-     * The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+     * Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
      * 
      */
     @Import(name="connectionBorrowTimeout")
     private @Nullable Output<Integer> connectionBorrowTimeout;
 
     /**
-     * @return The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+     * @return Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
      * 
      */
     public Optional<Output<Integer>> connectionBorrowTimeout() {
@@ -48,14 +48,14 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
     }
 
     /**
-     * The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     @Import(name="maxConnectionsPercent")
     private @Nullable Output<Integer> maxConnectionsPercent;
 
     /**
-     * @return The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+     * @return Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
      * 
      */
     public Optional<Output<Integer>> maxConnectionsPercent() {
@@ -121,7 +121,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param connectionBorrowTimeout The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+         * @param connectionBorrowTimeout Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
          * 
          * @return builder
          * 
@@ -132,7 +132,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param connectionBorrowTimeout The number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
+         * @param connectionBorrowTimeout Number of seconds for a proxy to wait for a connection to become available in the connection pool. Only applies when the proxy has opened its maximum number of connections and all connections are busy with client sessions.
          * 
          * @return builder
          * 
@@ -163,7 +163,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxConnectionsPercent Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 
@@ -174,7 +174,7 @@ public final class ProxyDefaultTargetGroupConnectionPoolConfigArgs extends com.p
         }
 
         /**
-         * @param maxConnectionsPercent The maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
+         * @param maxConnectionsPercent Maximum size of the connection pool for each target in a target group. For Aurora MySQL, it is expressed as a percentage of the maxConnections setting for the RDS DB instance or Aurora DB cluster used by the target group.
          * 
          * @return builder
          * 

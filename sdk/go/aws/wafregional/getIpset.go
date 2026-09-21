@@ -65,12 +65,8 @@ type GetIpsetResult struct {
 }
 
 func GetIpsetOutput(ctx *pulumi.Context, args GetIpsetOutputArgs, opts ...pulumi.InvokeOption) GetIpsetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetIpsetResultOutput, error) {
-			args := v.(GetIpsetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:wafregional/getIpset:getIpset", args, GetIpsetResultOutput{}, options).(GetIpsetResultOutput), nil
-		}).(GetIpsetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:wafregional/getIpset:getIpset", args, GetIpsetResultOutput{}, options).(GetIpsetResultOutput)
 }
 
 // A collection of arguments for invoking getIpset.

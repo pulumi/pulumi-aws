@@ -62,11 +62,11 @@ import (
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The cluster identifier for which you want a snapshot.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+	// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 	KmsKeyId pulumi.StringOutput `pulumi:"kmsKeyId"`
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrOutput `pulumi:"manualSnapshotRetentionPeriod"`
@@ -118,11 +118,11 @@ func GetClusterSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshot resources.
 type clusterSnapshotState struct {
-	// Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn *string `pulumi:"arn"`
 	// The cluster identifier for which you want a snapshot.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+	// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod *int `pulumi:"manualSnapshotRetentionPeriod"`
@@ -139,11 +139,11 @@ type clusterSnapshotState struct {
 }
 
 type ClusterSnapshotState struct {
-	// Amazon Resource Name (ARN) of the snapshot.
+	// ARN of the snapshot.
 	Arn pulumi.StringPtrInput
 	// The cluster identifier for which you want a snapshot.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+	// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 	KmsKeyId pulumi.StringPtrInput
 	// The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
 	ManualSnapshotRetentionPeriod pulumi.IntPtrInput
@@ -277,7 +277,7 @@ func (o ClusterSnapshotOutput) ToClusterSnapshotOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the snapshot.
+// ARN of the snapshot.
 func (o ClusterSnapshotOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -287,7 +287,7 @@ func (o ClusterSnapshotOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+// KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
 func (o ClusterSnapshotOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.KmsKeyId }).(pulumi.StringOutput)
 }

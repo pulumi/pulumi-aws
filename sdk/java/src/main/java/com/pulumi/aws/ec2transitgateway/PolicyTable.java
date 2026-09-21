@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2transitgateway/policyTable:PolicyTable")
 public class PolicyTable extends com.pulumi.resources.CustomResource {
     /**
-     * EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * EC2 Transit Gateway Policy Table ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return EC2 Transit Gateway Policy Table Amazon Resource Name (ARN).
+     * @return EC2 Transit Gateway Policy Table ARN.
      * 
      */
     public Output<String> arn() {

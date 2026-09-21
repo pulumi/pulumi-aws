@@ -415,18 +415,18 @@ class CompositeAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.CompositeAlarm("example",
+            actions_suppressor={
+                "alarm": "suppressor-alarm",
+                "extension_period": 10,
+                "wait_period": 20,
+            },
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
             alarm_actions=example_aws_sns_topic["arn"],
             ok_actions=example_aws_sns_topic["arn"],
             alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
         ALARM({bravo["alarmName"]})
-        \"\"\",
-            actions_suppressor={
-                "alarm": "suppressor-alarm",
-                "extension_period": 10,
-                "wait_period": 20,
-            })
+        \"\"\")
         ```
 
         ## Import
@@ -480,18 +480,18 @@ class CompositeAlarm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudwatch.CompositeAlarm("example",
+            actions_suppressor={
+                "alarm": "suppressor-alarm",
+                "extension_period": 10,
+                "wait_period": 20,
+            },
             alarm_description="This is a composite alarm!",
             alarm_name="example-composite-alarm",
             alarm_actions=example_aws_sns_topic["arn"],
             ok_actions=example_aws_sns_topic["arn"],
             alarm_rule=f\"\"\"ALARM({alpha["alarmName"]}) OR
         ALARM({bravo["alarmName"]})
-        \"\"\",
-            actions_suppressor={
-                "alarm": "suppressor-alarm",
-                "extension_period": 10,
-                "wait_period": 20,
-            })
+        \"\"\")
         ```
 
         ## Import

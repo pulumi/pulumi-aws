@@ -68,7 +68,7 @@ namespace Pulumi.Aws.Lambda
     public partial class ProvisionedConcurrencyConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// Name or ARN of the Lambda Function.
         /// </summary>
         [Output("functionName")]
         public Output<string> FunctionName { get; private set; } = null!;
@@ -146,7 +146,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class ProvisionedConcurrencyConfigArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// Name or ARN of the Lambda Function.
         /// </summary>
         [Input("functionName", required: true)]
         public Input<string> FunctionName { get; set; } = null!;
@@ -186,7 +186,7 @@ namespace Pulumi.Aws.Lambda
     public sealed class ProvisionedConcurrencyConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Name or Amazon Resource Name (ARN) of the Lambda Function.
+        /// Name or ARN of the Lambda Function.
         /// </summary>
         [Input("functionName")]
         public Input<string>? FunctionName { get; set; }

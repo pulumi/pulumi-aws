@@ -36,18 +36,21 @@ namespace Pulumi.Aws.CloudFront
         /// 
         ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
         ///         {
         ///             ObjectOwnership = "BucketOwnerPreferred",
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     });
         /// 
         ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclAccessControlPolicyArgs
         ///         {
+        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
+        ///             {
+        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+        ///             },
         ///             Grants = new[]
         ///             {
         ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
@@ -60,11 +63,8 @@ namespace Pulumi.Aws.CloudFront
         ///                     Permission = "FULL_CONTROL",
         ///                 },
         ///             },
-        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
-        ///             {
-        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///             },
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     }, new CustomResourceOptions
         ///     {
         ///         DependsOn =
@@ -104,18 +104,21 @@ namespace Pulumi.Aws.CloudFront
         /// 
         ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
         ///         {
         ///             ObjectOwnership = "BucketOwnerPreferred",
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     });
         /// 
         ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclAccessControlPolicyArgs
         ///         {
+        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
+        ///             {
+        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+        ///             },
         ///             Grants = new[]
         ///             {
         ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
@@ -128,11 +131,8 @@ namespace Pulumi.Aws.CloudFront
         ///                     Permission = "FULL_CONTROL",
         ///                 },
         ///             },
-        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
-        ///             {
-        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///             },
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     }, new CustomResourceOptions
         ///     {
         ///         DependsOn =
@@ -172,18 +172,21 @@ namespace Pulumi.Aws.CloudFront
         /// 
         ///     var exampleBucketOwnershipControls = new Aws.S3.BucketOwnershipControls("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         Rule = new Aws.S3.Inputs.BucketOwnershipControlsRuleArgs
         ///         {
         ///             ObjectOwnership = "BucketOwnerPreferred",
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     });
         /// 
         ///     var exampleBucketAcl = new Aws.S3.BucketAcl("example", new()
         ///     {
-        ///         Bucket = exampleBucket.Id,
         ///         AccessControlPolicy = new Aws.S3.Inputs.BucketAclAccessControlPolicyArgs
         ///         {
+        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
+        ///             {
+        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
+        ///             },
         ///             Grants = new[]
         ///             {
         ///                 new Aws.S3.Inputs.BucketAclAccessControlPolicyGrantArgs
@@ -196,11 +199,8 @@ namespace Pulumi.Aws.CloudFront
         ///                     Permission = "FULL_CONTROL",
         ///                 },
         ///             },
-        ///             Owner = new Aws.S3.Inputs.BucketAclAccessControlPolicyOwnerArgs
-        ///             {
-        ///                 Id = current.Apply(getCanonicalUserIdResult =&gt; getCanonicalUserIdResult.Id),
-        ///             },
         ///         },
+        ///         Bucket = exampleBucket.Id,
         ///     }, new CustomResourceOptions
         ///     {
         ///         DependsOn =

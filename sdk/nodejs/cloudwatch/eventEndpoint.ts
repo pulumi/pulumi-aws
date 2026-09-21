@@ -19,16 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _this = new aws.cloudwatch.EventEndpoint("this", {
- *     name: "global-endpoint",
- *     roleArn: replication.arn,
- *     eventBuses: [
- *         {
- *             eventBusArn: primary.arn,
- *         },
- *         {
- *             eventBusArn: secondary.arn,
- *         },
- *     ],
  *     replicationConfig: {
  *         state: "DISABLED",
  *     },
@@ -42,6 +32,16 @@ import * as utilities from "../utilities";
  *             },
  *         },
  *     },
+ *     eventBuses: [
+ *         {
+ *             eventBusArn: primary.arn,
+ *         },
+ *         {
+ *             eventBusArn: secondary.arn,
+ *         },
+ *     ],
+ *     name: "global-endpoint",
+ *     roleArn: replication.arn,
  * });
  * ```
  *

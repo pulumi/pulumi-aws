@@ -244,7 +244,7 @@ class _ImageRecipeState:
         Input properties used for looking up and filtering ImageRecipe resources.
 
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeBlockDeviceMappingArgs']]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[_builtins.str] date_created: Date the image recipe was created.
@@ -314,7 +314,7 @@ class _ImageRecipeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "arn")
 
@@ -535,15 +535,14 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "device_name": "/dev/xvdb",
                 "ebs": {
                     "delete_on_termination": "true",
                     "volume_size": 100,
                     "volume_type": "gp2",
                 },
+                "device_name": "/dev/xvdb",
             }],
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -554,6 +553,7 @@ class ImageRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
@@ -566,9 +566,9 @@ class ImageRecipe(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+        - `arn` (String) ARN of the Image Builder image recipe.
 
-        Using `pulumi import`, import `imagebuilder.ImageRecipe` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ImageRecipe` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -609,15 +609,14 @@ class ImageRecipe(pulumi.CustomResource):
 
         example = aws.imagebuilder.ImageRecipe("example",
             block_device_mappings=[{
-                "device_name": "/dev/xvdb",
                 "ebs": {
                     "delete_on_termination": "true",
                     "volume_size": 100,
                     "volume_type": "gp2",
                 },
+                "device_name": "/dev/xvdb",
             }],
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -628,6 +627,7 @@ class ImageRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
             name="example",
             parent_image=f"arn:{current['partition']}:imagebuilder:{current_aws_region['region']}:aws:image/amazon-linux-2-x86/x.x.x",
@@ -640,9 +640,9 @@ class ImageRecipe(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+        - `arn` (String) ARN of the Image Builder image recipe.
 
-        Using `pulumi import`, import `imagebuilder.ImageRecipe` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ImageRecipe` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -743,7 +743,7 @@ class ImageRecipe(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Tags that are applied to the AMI that Image Builder creates during the Build phase prior to image distribution. Maximum of 50 tags.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the image recipe.
+        :param pulumi.Input[_builtins.str] arn: ARN of the image recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeBlockDeviceMappingArgs', 'ImageRecipeBlockDeviceMappingArgsDict']]]] block_device_mappings: Configuration block(s) with block device mappings for the image recipe. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ImageRecipeComponentArgs', 'ImageRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the image recipe. Detailed below.
         :param pulumi.Input[_builtins.str] date_created: Date the image recipe was created.
@@ -797,7 +797,7 @@ class ImageRecipe(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the image recipe.
+        ARN of the image recipe.
         """
         return pulumi.get(self, "arn")
 

@@ -153,12 +153,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
                 "level_one": {
                     "name": "levelone",
                 },
-            })
+            },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
 
         ### With Five Levels
@@ -168,7 +168,6 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
                 "level_one": {
                     "name": "levelone",
@@ -185,7 +184,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 "level_five": {
                     "name": "levelfive",
                 },
-            })
+            },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
 
         ## Import
@@ -222,12 +222,12 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
                 "level_one": {
                     "name": "levelone",
                 },
-            })
+            },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
 
         ### With Five Levels
@@ -237,7 +237,6 @@ class UserHierarchyStructure(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.connect.UserHierarchyStructure("example",
-            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
             hierarchy_structure={
                 "level_one": {
                     "name": "levelone",
@@ -254,7 +253,8 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 "level_five": {
                     "name": "levelfive",
                 },
-            })
+            },
+            instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111")
         ```
 
         ## Import

@@ -17,7 +17,7 @@ public final class ClusterMasterUserSecret {
      */
     private @Nullable String kmsKeyId;
     /**
-     * @return Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     private @Nullable String secretArn;
@@ -36,7 +36,7 @@ public final class ClusterMasterUserSecret {
         return Optional.ofNullable(this.kmsKeyId);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the secret.
+     * @return ARN of the secret.
      * 
      */
     public Optional<String> secretArn() {

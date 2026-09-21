@@ -292,7 +292,7 @@ class _StackSetState:
         Input properties used for looking up and filtering StackSet resources.
 
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the StackSet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the StackSet.
         :param pulumi.Input['StackSetAutoDeploymentArgs'] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
@@ -363,7 +363,7 @@ class _StackSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the StackSet.
+        ARN of the StackSet.
         """
         return pulumi.get(self, "arn")
 
@@ -603,12 +603,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
@@ -711,12 +711,12 @@ class StackSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_administration_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": ["cloudformation.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_administration_role = aws.iam.Role("AWSCloudFormationStackSetAdministrationRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_administration_role_assume_role_policy.json,
@@ -871,7 +871,7 @@ class StackSet(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] administration_role_arn: Amazon Resource Number (ARN) of the IAM Role in the administrator account. This must be defined when using the `SELF_MANAGED` permission model.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the StackSet.
+        :param pulumi.Input[_builtins.str] arn: ARN of the StackSet.
         :param pulumi.Input[Union['StackSetAutoDeploymentArgs', 'StackSetAutoDeploymentArgsDict']] auto_deployment: Configuration block containing the auto-deployment model for your StackSet. This can only be defined when using the `SERVICE_MANAGED` permission model.
         :param pulumi.Input[_builtins.str] call_as: Specifies whether you are acting as an account administrator in the organization's management account or as a delegated administrator in a member account. Valid values: `SELF` (default), `DELEGATED_ADMIN`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] capabilities: A list of capabilities. Valid values: `CAPABILITY_IAM`, `CAPABILITY_NAMED_IAM`, `CAPABILITY_AUTO_EXPAND`.
@@ -925,7 +925,7 @@ class StackSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the StackSet.
+        ARN of the StackSet.
         """
         return pulumi.get(self, "arn")
 

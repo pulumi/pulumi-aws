@@ -31,6 +31,19 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `id` (String) Unique identifier for the IP set.
+ * * `name` (String) Name of the IP set.
+ * * `scope` (String) Whether this is for a global (`CLOUDFRONT`) or regional (`REGIONAL`) application.
+ *
+ * #### Optional
+ *
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ *
  * Using `pulumi import`, import WAFv2 IP Sets using `ID/name/scope`. For example:
  *
  * ```sh
@@ -70,7 +83,7 @@ export class IpSet extends pulumi.CustomResource {
      */
     declare public readonly addresses: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IP set.
+     * ARN of the IP set.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -165,7 +178,7 @@ export interface IpSetState {
      */
     addresses?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the IP set.
+     * ARN of the IP set.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

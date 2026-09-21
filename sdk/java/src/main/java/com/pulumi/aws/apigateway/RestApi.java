@@ -53,12 +53,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RestApi("example", RestApiArgs.builder()
- *             .name("example")
- *             .securityPolicy("SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09")
- *             .endpointAccessMode("BASIC")
  *             .endpointConfiguration(RestApiEndpointConfigurationArgs.builder()
  *                 .types("REGIONAL")
  *                 .build())
+ *             .name("example")
+ *             .securityPolicy("SecurityPolicy_TLS13_1_2_PFS_PQ_2025_09")
+ *             .endpointAccessMode("BASIC")
  *             .build());
  * 
  *     }

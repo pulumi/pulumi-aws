@@ -55,19 +55,19 @@ namespace Pulumi.Aws.Rds
         public Output<ImmutableArray<string>> AvailabilityZones { get; private set; } = null!;
 
         /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
+        /// DB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Output("dbClusterIdentifier")]
         public Output<string> DbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        /// ARN for the DB Cluster Snapshot.
         /// </summary>
         [Output("dbClusterSnapshotArn")]
         public Output<string> DbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Output("dbClusterSnapshotIdentifier")]
         public Output<string> DbClusterSnapshotIdentifier { get; private set; } = null!;
@@ -114,14 +114,20 @@ namespace Pulumi.Aws.Rds
         [Output("sharedAccounts")]
         public Output<ImmutableArray<string>> SharedAccounts { get; private set; } = null!;
 
+        /// <summary>
+        /// Type of the DB cluster snapshot.
+        /// </summary>
         [Output("snapshotType")]
         public Output<string> SnapshotType { get; private set; } = null!;
 
+        /// <summary>
+        /// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        /// </summary>
         [Output("sourceDbClusterSnapshotArn")]
         public Output<string> SourceDbClusterSnapshotArn { get; private set; } = null!;
 
         /// <summary>
-        /// The status of this DB Cluster Snapshot.
+        /// Status of this DB Cluster Snapshot.
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
@@ -133,19 +139,19 @@ namespace Pulumi.Aws.Rds
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         [Output("tagsAll")]
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
+        /// VPC ID associated with the DB cluster snapshot.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -197,13 +203,13 @@ namespace Pulumi.Aws.Rds
     public sealed class ClusterSnapshotArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
+        /// DB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier", required: true)]
         public Input<string> DbClusterIdentifier { get; set; } = null!;
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Input("dbClusterSnapshotIdentifier", required: true)]
         public Input<string> DbClusterSnapshotIdentifier { get; set; } = null!;
@@ -230,7 +236,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -265,19 +271,19 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The DB Cluster Identifier from which to take the snapshot.
+        /// DB Cluster Identifier from which to take the snapshot.
         /// </summary>
         [Input("dbClusterIdentifier")]
         public Input<string>? DbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+        /// ARN for the DB Cluster Snapshot.
         /// </summary>
         [Input("dbClusterSnapshotArn")]
         public Input<string>? DbClusterSnapshotArn { get; set; }
 
         /// <summary>
-        /// The Identifier for the snapshot.
+        /// Identifier for the snapshot.
         /// </summary>
         [Input("dbClusterSnapshotIdentifier")]
         public Input<string>? DbClusterSnapshotIdentifier { get; set; }
@@ -330,14 +336,20 @@ namespace Pulumi.Aws.Rds
             set => _sharedAccounts = value;
         }
 
+        /// <summary>
+        /// Type of the DB cluster snapshot.
+        /// </summary>
         [Input("snapshotType")]
         public Input<string>? SnapshotType { get; set; }
 
+        /// <summary>
+        /// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        /// </summary>
         [Input("sourceDbClusterSnapshotArn")]
         public Input<string>? SourceDbClusterSnapshotArn { get; set; }
 
         /// <summary>
-        /// The status of this DB Cluster Snapshot.
+        /// Status of this DB Cluster Snapshot.
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -352,7 +364,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -364,7 +376,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tagsAll;
 
         /// <summary>
-        /// A map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
+        /// Map of tags assigned to the resource, including those inherited from the provider `DefaultTags` configuration block.
         /// </summary>
         public InputMap<string> TagsAll
         {
@@ -373,7 +385,7 @@ namespace Pulumi.Aws.Rds
         }
 
         /// <summary>
-        /// The VPC ID associated with the DB cluster snapshot.
+        /// VPC ID associated with the DB cluster snapshot.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := chime.NewSdkvoiceSipRule(ctx, "example", &chime.SdkvoiceSipRuleArgs{
-//				Name:         pulumi.String("example-sip-rule"),
-//				TriggerType:  pulumi.String("RequestUriHostname"),
-//				TriggerValue: pulumi.Any(example_voice_connector.OutboundHostName),
 //				TargetApplications: chime.SdkvoiceSipRuleTargetApplicationArray{
 //					&chime.SdkvoiceSipRuleTargetApplicationArgs{
 //						Priority:              pulumi.Int(1),
@@ -41,6 +38,9 @@ import (
 //						AwsRegion:             pulumi.String("us-east-1"),
 //					},
 //				},
+//				Name:         pulumi.String("example-sip-rule"),
+//				TriggerType:  pulumi.String("RequestUriHostname"),
+//				TriggerValue: pulumi.Any(example_voice_connector.OutboundHostName),
 //			})
 //			if err != nil {
 //				return err

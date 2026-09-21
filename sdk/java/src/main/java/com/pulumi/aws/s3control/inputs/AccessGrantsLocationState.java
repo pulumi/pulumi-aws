@@ -17,14 +17,14 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
     public static final AccessGrantsLocationState Empty = new AccessGrantsLocationState();
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grants location.
+     * ARN of the S3 Access Grants location.
      * 
      */
     @Import(name="accessGrantsLocationArn")
     private @Nullable Output<String> accessGrantsLocationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grants location.
+     * @return ARN of the S3 Access Grants location.
      * 
      */
     public Optional<Output<String>> accessGrantsLocationArn() {
@@ -168,7 +168,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accessGrantsLocationArn Amazon Resource Name (ARN) of the S3 Access Grants location.
+         * @param accessGrantsLocationArn ARN of the S3 Access Grants location.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class AccessGrantsLocationState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param accessGrantsLocationArn Amazon Resource Name (ARN) of the S3 Access Grants location.
+         * @param accessGrantsLocationArn ARN of the S3 Access Grants location.
          * 
          * @return builder
          * 

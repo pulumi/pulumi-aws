@@ -87,21 +87,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentPrompt("example", AgentPromptArgs.builder()
- *             .name("MakePlaylist")
- *             .description("My first prompt.")
- *             .defaultVariant("Variant1")
  *             .variants(AgentPromptVariantArgs.builder()
- *                 .name("Variant1")
- *                 .modelId("amazon.titan-text-express-v1")
  *                 .inferenceConfiguration(AgentPromptVariantInferenceConfigurationArgs.builder()
  *                     .text(AgentPromptVariantInferenceConfigurationTextArgs.builder()
  *                         .temperature(0.8)
  *                         .build())
  *                     .build())
- *                 .templateType("TEXT")
  *                 .templateConfiguration(AgentPromptVariantTemplateConfigurationArgs.builder()
  *                     .text(AgentPromptVariantTemplateConfigurationTextArgs.builder()
- *                         .text("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.")
  *                         .inputVariables(                        
  *                             AgentPromptVariantTemplateConfigurationTextInputVariableArgs.builder()
  *                                 .name("genre")
@@ -109,9 +102,16 @@ import javax.annotation.Nullable;
  *                             AgentPromptVariantTemplateConfigurationTextInputVariableArgs.builder()
  *                                 .name("number")
  *                                 .build())
+ *                         .text("Make me a {{genre}} playlist consisting of the following number of songs: {{number}}.")
  *                         .build())
  *                     .build())
+ *                 .name("Variant1")
+ *                 .modelId("amazon.titan-text-express-v1")
+ *                 .templateType("TEXT")
  *                 .build())
+ *             .name("MakePlaylist")
+ *             .description("My first prompt.")
+ *             .defaultVariant("Variant1")
  *             .build());
  * 
  *     }
@@ -131,14 +131,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentPrompt:AgentPrompt")
 public class AgentPrompt extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the prompt.
+     * ARN of the prompt.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the prompt.
+     * @return ARN of the prompt.
      * 
      */
     public Output<String> arn() {
@@ -159,14 +159,14 @@ public class AgentPrompt extends com.pulumi.resources.CustomResource {
         return this.createdAt;
     }
     /**
-     * Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * ARN of the KMS key that you encrypted the prompt with.
      * 
      */
     @Export(name="customerEncryptionKeyArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> customerEncryptionKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key that you encrypted the prompt with.
+     * @return ARN of the KMS key that you encrypted the prompt with.
      * 
      */
     public Output<Optional<String>> customerEncryptionKeyArn() {

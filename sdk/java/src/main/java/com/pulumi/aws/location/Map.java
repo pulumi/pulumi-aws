@@ -109,14 +109,14 @@ public class Map extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * ARN for the map resource. Used to specify a resource across all AWS.
      * 
      */
     @Export(name="mapArn", refs={String.class}, tree="[0]")
     private Output<String> mapArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+     * @return ARN for the map resource. Used to specify a resource across all AWS.
      * 
      */
     public Output<String> mapArn() {

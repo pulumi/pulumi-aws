@@ -16,7 +16,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ubuntu = aws.ec2.getAmi({
- *     mostRecent: true,
  *     filters: [
  *         {
  *             name: "name",
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *             values: ["hvm"],
  *         },
  *     ],
+ *     mostRecent: true,
  *     owners: ["099720109477"],
  * });
  * const test = new aws.ec2.Instance("test", {

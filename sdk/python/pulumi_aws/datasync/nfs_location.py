@@ -135,7 +135,7 @@ class _NfsLocationState:
         """
         Input properties used for looking up and filtering NfsLocation resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input['NfsLocationMountOptionsArgs'] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input['NfsLocationOnPremConfigArgs'] on_prem_config: Configuration block containing information for connecting to the NFS File System.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -167,7 +167,7 @@ class _NfsLocationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 
@@ -294,11 +294,11 @@ class NfsLocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.NfsLocation("example",
-            server_hostname="nfs.example.com",
-            subdirectory="/exported/path",
             on_prem_config={
                 "agent_arns": [example_aws_datasync_agent["arn"]],
-            })
+            },
+            server_hostname="nfs.example.com",
+            subdirectory="/exported/path")
         ```
 
         ## Import
@@ -307,9 +307,9 @@ class NfsLocation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+        - `arn` (String) ARN of the DataSync NFS location.
 
-        Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -343,11 +343,11 @@ class NfsLocation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.datasync.NfsLocation("example",
-            server_hostname="nfs.example.com",
-            subdirectory="/exported/path",
             on_prem_config={
                 "agent_arns": [example_aws_datasync_agent["arn"]],
-            })
+            },
+            server_hostname="nfs.example.com",
+            subdirectory="/exported/path")
         ```
 
         ## Import
@@ -356,9 +356,9 @@ class NfsLocation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the DataSync NFS location.
+        - `arn` (String) ARN of the DataSync NFS location.
 
-        Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `datasync.NfsLocation` using the DataSync Task ARN. For example:
 
         ```sh
         $ pulumi import aws:datasync/nfsLocation:NfsLocation example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -436,7 +436,7 @@ class NfsLocation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the DataSync Location.
+        :param pulumi.Input[_builtins.str] arn: ARN of the DataSync Location.
         :param pulumi.Input[Union['NfsLocationMountOptionsArgs', 'NfsLocationMountOptionsArgsDict']] mount_options: Configuration block containing mount options used by DataSync to access the NFS Server.
         :param pulumi.Input[Union['NfsLocationOnPremConfigArgs', 'NfsLocationOnPremConfigArgsDict']] on_prem_config: Configuration block containing information for connecting to the NFS File System.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -464,7 +464,7 @@ class NfsLocation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the DataSync Location.
+        ARN of the DataSync Location.
         """
         return pulumi.get(self, "arn")
 

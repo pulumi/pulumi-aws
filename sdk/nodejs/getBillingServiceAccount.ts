@@ -22,11 +22,11 @@ import * as utilities from "./utilities";
  * const allowBillingLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             effect: "Allow",
  *             actions: [
  *                 "s3:GetBucketAcl",
  *                 "s3:GetBucketPolicy",
@@ -34,11 +34,11 @@ import * as utilities from "./utilities";
  *             resources: [billingLogs.arn],
  *         },
  *         {
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             effect: "Allow",
  *             actions: ["s3:PutObject"],
  *             resources: [pulumi.interpolate`${billingLogs.arn}/*`],
  *         },
@@ -99,11 +99,11 @@ export interface GetBillingServiceAccountResult {
  * const allowBillingLogging = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             effect: "Allow",
  *             actions: [
  *                 "s3:GetBucketAcl",
  *                 "s3:GetBucketPolicy",
@@ -111,11 +111,11 @@ export interface GetBillingServiceAccountResult {
  *             resources: [billingLogs.arn],
  *         },
  *         {
- *             effect: "Allow",
  *             principals: [{
  *                 type: "AWS",
  *                 identifiers: [main.then(main => main.arn)],
  *             }],
+ *             effect: "Allow",
  *             actions: ["s3:PutObject"],
  *             resources: [pulumi.interpolate`${billingLogs.arn}/*`],
  *         },

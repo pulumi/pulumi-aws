@@ -292,7 +292,6 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -303,6 +302,7 @@ class RouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example",
             })
@@ -334,11 +334,11 @@ class RouteTable(pulumi.CustomResource):
 
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
             routes=[{
                 "cidr_block": "10.1.0.0/16",
                 "gateway_id": "local",
-            }])
+            }],
+            vpc_id=test.id)
         ```
 
         Next, update the target of the route:
@@ -353,11 +353,11 @@ class RouteTable(pulumi.CustomResource):
             vpc_id=test.id)
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
             routes=[{
                 "cidr_block": test.cidr_block,
                 "network_interface_id": test_network_interface.id,
-            }])
+            }],
+            vpc_id=test.id)
         ```
 
         The target could then be updated again back to `local`.
@@ -424,7 +424,6 @@ class RouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.RouteTable("example",
-            vpc_id=example_aws_vpc["id"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -435,6 +434,7 @@ class RouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
+            vpc_id=example_aws_vpc["id"],
             tags={
                 "Name": "example",
             })
@@ -466,11 +466,11 @@ class RouteTable(pulumi.CustomResource):
 
         test = aws.ec2.Vpc("test", cidr_block="10.1.0.0/16")
         test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
             routes=[{
                 "cidr_block": "10.1.0.0/16",
                 "gateway_id": "local",
-            }])
+            }],
+            vpc_id=test.id)
         ```
 
         Next, update the target of the route:
@@ -485,11 +485,11 @@ class RouteTable(pulumi.CustomResource):
             vpc_id=test.id)
         test_network_interface = aws.ec2.NetworkInterface("test", subnet_id=test_subnet.id)
         test_route_table = aws.ec2.RouteTable("test",
-            vpc_id=test.id,
             routes=[{
                 "cidr_block": test.cidr_block,
                 "network_interface_id": test_network_interface.id,
-            }])
+            }],
+            vpc_id=test.id)
         ```
 
         The target could then be updated again back to `local`.

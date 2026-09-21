@@ -43,7 +43,7 @@ class StreamKinesisConfiguration(dict):
                  stream_arn: _builtins.str,
                  aggregation_enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str stream_arn: The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        :param _builtins.str stream_arn: ARN of the Kinesis Data Streams resource.
         :param _builtins.bool aggregation_enabled: Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
         """
         pulumi.set(__self__, "stream_arn", stream_arn)
@@ -54,7 +54,7 @@ class StreamKinesisConfiguration(dict):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+        ARN of the Kinesis Data Streams resource.
         """
         return pulumi.get(self, "stream_arn")
 

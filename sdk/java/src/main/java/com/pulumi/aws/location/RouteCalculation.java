@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:location/routeCalculation:RouteCalculation")
 public class RouteCalculation extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     @Export(name="calculatorArn", refs={String.class}, tree="[0]")
     private Output<String> calculatorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+     * @return ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
      * 
      */
     public Output<String> calculatorArn() {

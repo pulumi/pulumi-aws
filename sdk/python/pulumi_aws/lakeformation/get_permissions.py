@@ -199,10 +199,10 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        data_location={
+    test = aws.lakeformation.get_permissions(data_location={
             "arn": test_aws_lakeformation_resource["arn"],
-        })
+        },
+        principal=workflow_role["arn"])
     ```
 
     ### Permissions For A Glue Catalog Database
@@ -211,11 +211,11 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        database={
+    test = aws.lakeformation.get_permissions(database={
             "name": test_aws_glue_catalog_database["name"],
             "catalog_id": "110376042874",
-        })
+        },
+        principal=workflow_role["arn"])
     ```
 
     ### Permissions For Tag-Based Access Control
@@ -224,9 +224,7 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        lf_tag_policy={
-            "resource_type": "DATABASE",
+    test = aws.lakeformation.get_permissions(lf_tag_policy={
             "expressions": [
                 {
                     "key": "Team",
@@ -240,7 +238,9 @@ def get_permissions(catalog_id: Optional[_builtins.str] = None,
                     ],
                 },
             ],
-        })
+            "resource_type": "DATABASE",
+        },
+        principal=workflow_role["arn"])
     ```
 
 
@@ -315,10 +315,10 @@ def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        data_location={
+    test = aws.lakeformation.get_permissions(data_location={
             "arn": test_aws_lakeformation_resource["arn"],
-        })
+        },
+        principal=workflow_role["arn"])
     ```
 
     ### Permissions For A Glue Catalog Database
@@ -327,11 +327,11 @@ def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        database={
+    test = aws.lakeformation.get_permissions(database={
             "name": test_aws_glue_catalog_database["name"],
             "catalog_id": "110376042874",
-        })
+        },
+        principal=workflow_role["arn"])
     ```
 
     ### Permissions For Tag-Based Access Control
@@ -340,9 +340,7 @@ def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.lakeformation.get_permissions(principal=workflow_role["arn"],
-        lf_tag_policy={
-            "resource_type": "DATABASE",
+    test = aws.lakeformation.get_permissions(lf_tag_policy={
             "expressions": [
                 {
                     "key": "Team",
@@ -356,7 +354,9 @@ def get_permissions_output(catalog_id: pulumi.Input[Optional[Optional[_builtins.
                     ],
                 },
             ],
-        })
+            "resource_type": "DATABASE",
+        },
+        principal=workflow_role["arn"])
     ```
 
 

@@ -50,20 +50,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstanceAccessControlAttributes = new InstanceAccessControlAttributes("exampleInstanceAccessControlAttributes", InstanceAccessControlAttributesArgs.builder()
- *             .instanceArn(example.arns()[0])
  *             .attributes(            
  *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("name")
  *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
  *                         .sources("${path:name.givenName}")
  *                         .build())
+ *                     .key("name")
  *                     .build(),
  *                 InstanceAccessControlAttributesAttributeArgs.builder()
- *                     .key("last")
  *                     .values(InstanceAccessControlAttributesAttributeValueArgs.builder()
  *                         .sources("${path:name.familyName}")
  *                         .build())
+ *                     .key("last")
  *                     .build())
+ *             .instanceArn(example.arns()[0])
  *             .build());
  * 
  *     }
@@ -97,14 +97,14 @@ public class InstanceAccessControlAttributes extends com.pulumi.resources.Custom
         return this.attributes;
     }
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance.
+     * ARN of the SSO Instance.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance.
+     * @return ARN of the SSO Instance.
      * 
      */
     public Output<String> instanceArn() {

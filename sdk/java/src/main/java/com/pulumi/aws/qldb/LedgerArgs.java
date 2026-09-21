@@ -34,14 +34,14 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
+     * Key in KMS to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
      * 
      */
     @Import(name="kmsKey")
     private @Nullable Output<String> kmsKey;
 
     /**
-     * @return The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
+     * @return Key in KMS to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
      * 
      */
     public Optional<Output<String>> kmsKey() {
@@ -159,7 +159,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKey The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
+         * @param kmsKey Key in KMS to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class LedgerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKey The key in AWS Key Management Service (AWS KMS) to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
+         * @param kmsKey Key in KMS to use for encryption of data at rest in the ledger. For more information, see the [AWS documentation](https://docs.aws.amazon.com/qldb/latest/developerguide/encryption-at-rest.html). Valid values are `&#34;AWS_OWNED_KMS_KEY&#34;` to use an AWS KMS key that is owned and managed by AWS on your behalf, or the ARN of a valid symmetric customer managed KMS key.
          * 
          * @return builder
          * 

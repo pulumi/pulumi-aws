@@ -57,7 +57,7 @@ type Service struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringOutput `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn pulumi.StringPtrOutput `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrOutput `pulumi:"customDomainName"`
@@ -113,7 +113,7 @@ type serviceState struct {
 	Arn *string `pulumi:"arn"`
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
@@ -140,7 +140,7 @@ type ServiceState struct {
 	Arn pulumi.StringPtrInput
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn pulumi.StringPtrInput
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
@@ -169,7 +169,7 @@ func (ServiceState) ElementType() reflect.Type {
 type serviceArgs struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType *string `pulumi:"authType"`
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn *string `pulumi:"certificateArn"`
 	// Custom domain name of the service.
 	CustomDomainName *string `pulumi:"customDomainName"`
@@ -189,7 +189,7 @@ type serviceArgs struct {
 type ServiceArgs struct {
 	// Type of IAM policy. Either `NONE` or `AWS_IAM`.
 	AuthType pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the certificate.
+	// ARN of the certificate.
 	CertificateArn pulumi.StringPtrInput
 	// Custom domain name of the service.
 	CustomDomainName pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (o ServiceOutput) AuthType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringOutput { return v.AuthType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the certificate.
+// ARN of the certificate.
 func (o ServiceOutput) CertificateArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Service) pulumi.StringPtrOutput { return v.CertificateArn }).(pulumi.StringPtrOutput)
 }

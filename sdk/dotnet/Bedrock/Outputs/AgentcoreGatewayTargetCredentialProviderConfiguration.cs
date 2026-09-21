@@ -14,15 +14,15 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetCredentialProviderConfiguration
     {
         /// <summary>
-        /// API key-based authentication configuration. See `ApiKey` below.
+        /// API key-based authentication configuration. See `ApiKey` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationApiKey? ApiKey;
         /// <summary>
-        /// Caller IAM credentials-based authentication configuration. See `CallerIamCredentials` below.
+        /// Caller IAM credentials-based authentication configuration. See `CallerIamCredentials` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials? CallerIamCredentials;
         /// <summary>
-        /// Use the gateway's IAM role for authentication. See `GatewayIamRole` below.
+        /// Use the gateway's IAM role for authentication. See `GatewayIamRole` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationGatewayIamRole? GatewayIamRole;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationJwtPassthrough? JwtPassthrough;
         /// <summary>
-        /// OAuth-based authentication configuration. See `Oauth` below.
+        /// OAuth-based authentication configuration. See `Oauth` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetCredentialProviderConfigurationOauth? Oauth;
 

@@ -28,7 +28,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         private InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyGetArgs>? _properties;
 
         /// <summary>
-        /// Set of property definitions for arrays of objects. See `Property` below.
+        /// Set of property definitions for arrays of objects. See `Property` Block below.
         /// </summary>
         public InputList<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadInputSchemaItemsPropertyGetArgs> Properties
         {

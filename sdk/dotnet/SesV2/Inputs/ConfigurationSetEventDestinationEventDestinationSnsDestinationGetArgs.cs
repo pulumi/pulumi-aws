@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SesV2.Inputs
     public sealed class ConfigurationSetEventDestinationEventDestinationSnsDestinationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        /// ARN of the Amazon SNS topic to publish email events to.
         /// </summary>
         [Input("topicArn", required: true)]
         public Input<string> TopicArn { get; set; } = null!;

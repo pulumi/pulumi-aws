@@ -26,8 +26,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
-    ///         Engine = "memcached",
-    ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
     ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
@@ -43,6 +41,8 @@ namespace Pulumi.Aws.ElastiCache
     ///                 },
     ///             },
     ///         },
+    ///         Engine = "memcached",
+    ///         Name = "example",
     ///         Description = "Test Server",
     ///         KmsKeyId = test.Arn,
     ///         MajorEngineVersion = "1.6",
@@ -68,8 +68,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
-    ///         Engine = "redis",
-    ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
     ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
@@ -85,6 +83,8 @@ namespace Pulumi.Aws.ElastiCache
     ///                 },
     ///             },
     ///         },
+    ///         Engine = "redis",
+    ///         Name = "example",
     ///         DailySnapshotTime = "09:00",
     ///         Description = "Test Server",
     ///         KmsKeyId = test.Arn,
@@ -112,8 +112,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var example = new Aws.ElastiCache.ServerlessCache("example", new()
     ///     {
-    ///         Engine = "valkey",
-    ///         Name = "example",
     ///         CacheUsageLimits = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsArgs
     ///         {
     ///             DataStorage = new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsDataStorageArgs
@@ -129,6 +127,8 @@ namespace Pulumi.Aws.ElastiCache
     ///                 },
     ///             },
     ///         },
+    ///         Engine = "valkey",
+    ///         Name = "example",
     ///         DailySnapshotTime = "09:00",
     ///         Description = "Test Server",
     ///         KmsKeyId = test.Arn,
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.ElastiCache
     public partial class ServerlessCache : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the serverless cache.
+        /// ARN of the serverless cache.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -465,7 +465,7 @@ namespace Pulumi.Aws.ElastiCache
     public sealed class ServerlessCacheState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the serverless cache.
+        /// ARN of the serverless cache.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -65,7 +65,7 @@ import (
 type UserProfile struct {
 	pulumi.CustomResourceState
 
-	// The user profile Amazon Resource Name (ARN).
+	// User profile ARN.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
@@ -123,7 +123,7 @@ func GetUserProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserProfile resources.
 type userProfileState struct {
-	// The user profile Amazon Resource Name (ARN).
+	// User profile ARN.
 	Arn *string `pulumi:"arn"`
 	// The ID of the associated Domain.
 	DomainId *string `pulumi:"domainId"`
@@ -146,7 +146,7 @@ type userProfileState struct {
 }
 
 type UserProfileState struct {
-	// The user profile Amazon Resource Name (ARN).
+	// User profile ARN.
 	Arn pulumi.StringPtrInput
 	// The ID of the associated Domain.
 	DomainId pulumi.StringPtrInput
@@ -294,7 +294,7 @@ func (o UserProfileOutput) ToUserProfileOutputWithContext(ctx context.Context) U
 	return o
 }
 
-// The user profile Amazon Resource Name (ARN).
+// User profile ARN.
 func (o UserProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

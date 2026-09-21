@@ -35,7 +35,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
      */
     private @Nullable String httpMethod;
     /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * @return ARN of the EventBridge API destinations IAM role that you created.
      * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
@@ -73,7 +73,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
         return Optional.ofNullable(this.httpMethod);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * @return ARN of the EventBridge API destinations IAM role that you created.
      * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */

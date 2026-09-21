@@ -72,7 +72,9 @@ import (
 //			_, err := athena.NewDatabase(ctx, "example", &athena.DatabaseArgs{
 //				Name:   pulumi.String("database_name"),
 //				Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"bucket",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -90,7 +92,7 @@ type Database struct {
 	Bucket pulumi.StringPtrOutput `pulumi:"bucket"`
 	// Description of the database.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
-	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
 	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 	ExpectedBucketOwner pulumi.StringPtrOutput `pulumi:"expectedBucketOwner"`
@@ -142,7 +144,7 @@ type databaseState struct {
 	Bucket *string `pulumi:"bucket"`
 	// Description of the database.
 	Comment *string `pulumi:"comment"`
-	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 	EncryptionConfiguration *DatabaseEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -165,7 +167,7 @@ type DatabaseState struct {
 	Bucket pulumi.StringPtrInput
 	// Description of the database.
 	Comment pulumi.StringPtrInput
-	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrInput
 	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -192,7 +194,7 @@ type databaseArgs struct {
 	Bucket *string `pulumi:"bucket"`
 	// Description of the database.
 	Comment *string `pulumi:"comment"`
-	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 	EncryptionConfiguration *DatabaseEncryptionConfiguration `pulumi:"encryptionConfiguration"`
 	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 	ExpectedBucketOwner *string `pulumi:"expectedBucketOwner"`
@@ -216,7 +218,7 @@ type DatabaseArgs struct {
 	Bucket pulumi.StringPtrInput
 	// Description of the database.
 	Comment pulumi.StringPtrInput
-	// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+	// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 	EncryptionConfiguration DatabaseEncryptionConfigurationPtrInput
 	// AWS account ID that you expect to be the owner of the Amazon S3 bucket.
 	ExpectedBucketOwner pulumi.StringPtrInput
@@ -334,7 +336,7 @@ func (o DatabaseOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
 
-// Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+// Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
 func (o DatabaseOutput) EncryptionConfiguration() DatabaseEncryptionConfigurationPtrOutput {
 	return o.ApplyT(func(v *Database) DatabaseEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(DatabaseEncryptionConfigurationPtrOutput)
 }

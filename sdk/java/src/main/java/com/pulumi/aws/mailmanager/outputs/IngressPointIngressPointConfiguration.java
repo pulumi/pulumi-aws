@@ -20,12 +20,12 @@ public final class IngressPointIngressPointConfiguration {
     private @Nullable String secretArn;
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
      * 
      */
     private @Nullable String smtpPasswordWo;
     /**
-     * @return Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+     * @return Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
      * 
      */
     private @Nullable Integer smtpPasswordWoVersion;
@@ -45,14 +45,14 @@ public final class IngressPointIngressPointConfiguration {
     }
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. Requires `smtpPasswordWoVersion` to be set. See Write-Only Arguments for more information.
+     * SMTP password used for `AUTH` ingress points. This argument is not stored in state. If set, requires `smtpPasswordWoVersion` to be set.
      * 
      */
     public Optional<String> smtpPasswordWo() {
         return Optional.ofNullable(this.smtpPasswordWo);
     }
     /**
-     * @return Version number for `smtpPasswordWo`. Increment this value to trigger a password update. Required when using `smtpPasswordWo`.
+     * @return Required when `smtpPasswordWo` is set. Changing this value triggers an update to `smtpPasswordWo`.
      * 
      */
     public Optional<Integer> smtpPasswordWoVersion() {

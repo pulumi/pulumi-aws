@@ -155,11 +155,11 @@ namespace Pulumi.Aws.Efs
     {
         public readonly string AccessPointId;
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         public readonly string Arn;
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         public readonly string FileSystemArn;
         /// <summary>

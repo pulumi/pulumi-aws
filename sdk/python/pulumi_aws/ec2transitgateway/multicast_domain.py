@@ -135,7 +135,7 @@ class _MulticastDomainState:
         """
         Input properties used for looking up and filtering MulticastDomain resources.
 
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Multicast Domain ARN.
         :param pulumi.Input[_builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
@@ -168,7 +168,7 @@ class _MulticastDomainState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        EC2 Transit Gateway Multicast Domain ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -296,9 +296,7 @@ class MulticastDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        amazon_linux = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["amzn-ami-hvm-*-x86_64-gp2"],
@@ -307,7 +305,9 @@ class MulticastDomain(pulumi.CustomResource):
                     "name": "owner-alias",
                     "values": ["amazon"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
         subnet1 = aws.ec2.Subnet("subnet1",
@@ -412,9 +412,7 @@ class MulticastDomain(pulumi.CustomResource):
         import pulumi_aws as aws
 
         available = aws.get_availability_zones(state="available")
-        amazon_linux = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        amazon_linux = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["amzn-ami-hvm-*-x86_64-gp2"],
@@ -423,7 +421,9 @@ class MulticastDomain(pulumi.CustomResource):
                     "name": "owner-alias",
                     "values": ["amazon"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         vpc1 = aws.ec2.Vpc("vpc1", cidr_block="10.0.0.0/16")
         vpc2 = aws.ec2.Vpc("vpc2", cidr_block="10.1.0.0/16")
         subnet1 = aws.ec2.Subnet("subnet1",
@@ -570,7 +570,7 @@ class MulticastDomain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Multicast Domain ARN.
         :param pulumi.Input[_builtins.str] auto_accept_shared_associations: Whether to automatically accept cross-account subnet associations that are associated with the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] igmpv2_support: Whether to enable Internet Group Management Protocol (IGMP) version 2 for the EC2 Transit Gateway Multicast Domain. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] owner_id: Identifier of the AWS account that owns the EC2 Transit Gateway Multicast Domain.
@@ -599,7 +599,7 @@ class MulticastDomain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        EC2 Transit Gateway Multicast Domain ARN.
         """
         return pulumi.get(self, "arn")
 

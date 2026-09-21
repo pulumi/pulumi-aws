@@ -26,10 +26,6 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Experience("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Description = "My Kendra Experience",
-    ///         Name = "example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Configuration = new Aws.Kendra.Inputs.ExperienceConfigurationArgs
     ///         {
     ///             ContentSourceConfiguration = new Aws.Kendra.Inputs.ExperienceConfigurationContentSourceConfigurationArgs
@@ -45,6 +41,10 @@ namespace Pulumi.Aws.Kendra
     ///                 IdentityAttributeName = "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
     ///             },
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Description = "My Kendra Experience",
+    ///         Name = "example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -204,7 +204,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -276,7 +276,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// 
         /// The following arguments are optional:
         /// </summary>

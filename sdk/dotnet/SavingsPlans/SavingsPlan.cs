@@ -12,9 +12,9 @@ namespace Pulumi.Aws.SavingsPlans
     /// <summary>
     /// Provides an AWS Savings Plan resource.
     /// 
-    /// &gt; **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `Queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+    /// &gt; Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `Queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
     /// 
-    /// &gt; **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+    /// &gt; Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
     /// 
     /// ## Example Usage
     /// 
@@ -129,10 +129,10 @@ namespace Pulumi.Aws.SavingsPlans
         public Output<ImmutableArray<string>> ProductTypes { get; private set; } = null!;
 
         /// <summary>
-        /// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
+        /// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
         /// </summary>
         [Output("purchaseTime")]
-        public Output<string?> PurchaseTime { get; private set; } = null!;
+        public Output<string> PurchaseTime { get; private set; } = null!;
 
         /// <summary>
         /// The recurring payment amount.
@@ -210,10 +210,10 @@ namespace Pulumi.Aws.SavingsPlans
         public Output<Outputs.SavingsPlanTimeouts?> Timeouts { get; private set; } = null!;
 
         /// <summary>
-        /// The up-front payment amount.
+        /// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         /// </summary>
         [Output("upfrontPaymentAmount")]
-        public Output<string?> UpfrontPaymentAmount { get; private set; } = null!;
+        public Output<string> UpfrontPaymentAmount { get; private set; } = null!;
 
 
         /// <summary>
@@ -270,7 +270,7 @@ namespace Pulumi.Aws.SavingsPlans
         public Input<string> Commitment { get; set; } = null!;
 
         /// <summary>
-        /// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
+        /// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
         /// </summary>
         [Input("purchaseTime")]
         public Input<string>? PurchaseTime { get; set; }
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.SavingsPlans
         public Input<Inputs.SavingsPlanTimeoutsArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The up-front payment amount.
+        /// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         /// </summary>
         [Input("upfrontPaymentAmount")]
         public Input<string>? UpfrontPaymentAmount { get; set; }
@@ -367,7 +367,7 @@ namespace Pulumi.Aws.SavingsPlans
         }
 
         /// <summary>
-        /// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
+        /// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `Queued` state and can be deleted before they become active.
         /// </summary>
         [Input("purchaseTime")]
         public Input<string>? PurchaseTime { get; set; }
@@ -460,7 +460,7 @@ namespace Pulumi.Aws.SavingsPlans
         public Input<Inputs.SavingsPlanTimeoutsGetArgs>? Timeouts { get; set; }
 
         /// <summary>
-        /// The up-front payment amount.
+        /// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
         /// </summary>
         [Input("upfrontPaymentAmount")]
         public Input<string>? UpfrontPaymentAmount { get; set; }

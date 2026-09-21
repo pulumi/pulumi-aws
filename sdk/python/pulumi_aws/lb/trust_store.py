@@ -334,15 +334,15 @@ class TrustStore(pulumi.CustomResource):
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
         example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            },
             default_actions=[{
                 "target_group_arn": example_aws_lb_target_group["id"],
                 "type": "forward",
             }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
+            load_balancer_arn=example_aws_lb["id"])
         ```
 
         ## Import
@@ -351,7 +351,7 @@ class TrustStore(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+        - `arn` (String) ARN of the trust store.
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
@@ -392,15 +392,15 @@ class TrustStore(pulumi.CustomResource):
             ca_certificates_bundle_s3_bucket="...",
             ca_certificates_bundle_s3_key="...")
         example = aws.lb.Listener("example",
-            load_balancer_arn=example_aws_lb["id"],
+            mutual_authentication={
+                "mode": "verify",
+                "trust_store_arn": test.arn,
+            },
             default_actions=[{
                 "target_group_arn": example_aws_lb_target_group["id"],
                 "type": "forward",
             }],
-            mutual_authentication={
-                "mode": "verify",
-                "trust_store_arn": test.arn,
-            })
+            load_balancer_arn=example_aws_lb["id"])
         ```
 
         ## Import
@@ -409,7 +409,7 @@ class TrustStore(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+        - `arn` (String) ARN of the trust store.
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 

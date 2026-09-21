@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Efs
     /// {
     ///     var fooWithLifecylePolicy = new Aws.Efs.FileSystem("foo_with_lifecyle_policy", new()
     ///     {
-    ///         CreationToken = "my-product",
     ///         LifecyclePolicies = new[]
     ///         {
     ///             new Aws.Efs.Inputs.FileSystemLifecyclePolicyArgs
@@ -56,6 +55,7 @@ namespace Pulumi.Aws.Efs
     ///                 TransitionToIa = "AFTER_30_DAYS",
     ///             },
     ///         },
+    ///         CreationToken = "my-product",
     ///     });
     /// 
     /// });
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Efs
     public partial class FileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -325,7 +325,7 @@ namespace Pulumi.Aws.Efs
     public sealed class FileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -49,10 +49,10 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			exampleGroup, err := resourcegroups.NewGroup(ctx, "example", &resourcegroups.GroupArgs{
-//				Name: pulumi.String("example"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(json0),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

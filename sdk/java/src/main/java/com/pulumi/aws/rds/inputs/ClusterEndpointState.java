@@ -18,14 +18,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     public static final ClusterEndpointState Empty = new ClusterEndpointState();
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Optional<Output<String>> arn() {
@@ -33,14 +33,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     @Import(name="clusterEndpointIdentifier")
     private @Nullable Output<String> clusterEndpointIdentifier;
 
     /**
-     * @return The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * @return Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     public Optional<Output<String>> clusterEndpointIdentifier() {
@@ -48,14 +48,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      * 
      */
     @Import(name="clusterIdentifier")
     private @Nullable Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return Cluster identifier.
      * 
      */
     public Optional<Output<String>> clusterIdentifier() {
@@ -63,14 +63,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      * 
      */
     @Import(name="customEndpointType")
     private @Nullable Output<String> customEndpointType;
 
     /**
-     * @return The type of the endpoint. One of: READER , ANY .
+     * @return Type of the endpoint. One of: READER , ANY .
      * 
      */
     public Optional<Output<String>> customEndpointType() {
@@ -78,14 +78,14 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A custom endpoint for the Aurora cluster
+     * Custom endpoint for the Aurora cluster
      * 
      */
     @Import(name="endpoint")
     private @Nullable Output<String> endpoint;
 
     /**
-     * @return A custom endpoint for the Aurora cluster
+     * @return Custom endpoint for the Aurora cluster
      * 
      */
     public Optional<Output<String>> endpoint() {
@@ -140,9 +140,6 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
@@ -150,23 +147,20 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
     /**
      * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-     * 
      */
     public Optional<Output<Map<String,String>>> tags() {
         return Optional.ofNullable(this.tags);
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -207,7 +201,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -218,7 +212,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of cluster
+         * @param arn ARN of cluster
          * 
          * @return builder
          * 
@@ -228,7 +222,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterEndpointIdentifier The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+         * @param clusterEndpointIdentifier Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
          * 
          * @return builder
          * 
@@ -239,7 +233,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterEndpointIdentifier The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+         * @param clusterEndpointIdentifier Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
          * 
          * @return builder
          * 
@@ -249,7 +243,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier Cluster identifier.
          * 
          * @return builder
          * 
@@ -260,7 +254,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier Cluster identifier.
          * 
          * @return builder
          * 
@@ -270,7 +264,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param customEndpointType The type of the endpoint. One of: READER , ANY .
+         * @param customEndpointType Type of the endpoint. One of: READER , ANY .
          * 
          * @return builder
          * 
@@ -281,7 +275,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param customEndpointType The type of the endpoint. One of: READER , ANY .
+         * @param customEndpointType Type of the endpoint. One of: READER , ANY .
          * 
          * @return builder
          * 
@@ -291,7 +285,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoint A custom endpoint for the Aurora cluster
+         * @param endpoint Custom endpoint for the Aurora cluster
          * 
          * @return builder
          * 
@@ -302,7 +296,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param endpoint A custom endpoint for the Aurora cluster
+         * @param endpoint Custom endpoint for the Aurora cluster
          * 
          * @return builder
          * 
@@ -397,9 +391,6 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-         * 
          * @return builder
          * 
          */
@@ -411,9 +402,6 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-         * 
          * @return builder
          * 
          */
@@ -422,7 +410,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -433,7 +421,7 @@ public final class ClusterEndpointState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

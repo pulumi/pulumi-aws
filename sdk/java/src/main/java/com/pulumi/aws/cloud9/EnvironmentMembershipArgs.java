@@ -62,14 +62,14 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the environment member you want to add.
+     * ARN of the environment member you want to add.
      * 
      */
     @Import(name="userArn", required=true)
     private Output<String> userArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the environment member you want to add.
+     * @return ARN of the environment member you want to add.
      * 
      */
     public Output<String> userArn() {
@@ -167,7 +167,7 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userArn The Amazon Resource Name (ARN) of the environment member you want to add.
+         * @param userArn ARN of the environment member you want to add.
          * 
          * @return builder
          * 
@@ -178,7 +178,7 @@ public final class EnvironmentMembershipArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param userArn The Amazon Resource Name (ARN) of the environment member you want to add.
+         * @param userArn ARN of the environment member you want to add.
          * 
          * @return builder
          * 

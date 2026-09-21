@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Budgets.Outputs
         /// </summary>
         public readonly ImmutableArray<string> Groups;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the policy to be attached.
+        /// ARN of the policy to be attached.
         /// </summary>
         public readonly string PolicyArn;
         /// <summary>

@@ -230,11 +230,11 @@ class LfTagExpression(pulumi.CustomResource):
             key="example",
             values=["value"])
         example_lf_tag_expression = aws.lakeformation.LfTagExpression("example",
-            name="example",
             expressions=[{
                 "tag_key": example.key,
                 "tag_values": example.values,
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -277,11 +277,11 @@ class LfTagExpression(pulumi.CustomResource):
             key="example",
             values=["value"])
         example_lf_tag_expression = aws.lakeformation.LfTagExpression("example",
-            name="example",
             expressions=[{
                 "tag_key": example.key,
                 "tag_values": example.values,
-            }])
+            }],
+            name="example")
         ```
 
         ## Import

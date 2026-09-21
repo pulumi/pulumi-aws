@@ -14,7 +14,7 @@ namespace Pulumi.Aws.AppSync.Outputs
     public sealed class GraphQLApiLogConfig
     {
         /// <summary>
-        /// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        /// ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
         /// </summary>
         public readonly string CloudwatchLogsRoleArn;
         /// <summary>

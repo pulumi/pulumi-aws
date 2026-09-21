@@ -52,7 +52,7 @@ export interface GetCloudAutonomousVmClusterArgs {
  */
 export interface GetCloudAutonomousVmClusterResult {
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      */
     readonly arn: string;
     /**

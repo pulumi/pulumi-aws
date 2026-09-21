@@ -21,14 +21,14 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
     public static final WebAclState Empty = new WebAclState();
 
     /**
-     * Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * ARN of the WAF Regional WebACL.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the WAF Regional WebACL.
+     * @return ARN of the WAF Regional WebACL.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -188,7 +188,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the WAF Regional WebACL.
+         * @param arn ARN of the WAF Regional WebACL.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class WebAclState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the WAF Regional WebACL.
+         * @param arn ARN of the WAF Regional WebACL.
          * 
          * @return builder
          * 

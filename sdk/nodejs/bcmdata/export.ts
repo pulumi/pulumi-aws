@@ -21,7 +21,6 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetPartition = aws.getPartition({});
  * const test = new aws.bcmdata.Export("test", {"export": {
- *     name: "testexample",
  *     dataQueries: [{
  *         queryStatement: "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
  *         tableConfigurations: {
@@ -36,20 +35,21 @@ import * as utilities from "../utilities";
  *     }],
  *     destinationConfigurations: [{
  *         s3Destinations: [{
- *             s3Bucket: testAwsS3Bucket.bucket,
- *             s3Prefix: testAwsS3Bucket.bucketPrefix,
- *             s3Region: testAwsS3Bucket.region,
  *             s3OutputConfigurations: [{
  *                 overwrite: "OVERWRITE_REPORT",
  *                 format: "TEXT_OR_CSV",
  *                 compression: "GZIP",
  *                 outputType: "CUSTOM",
  *             }],
+ *             s3Bucket: testAwsS3Bucket.bucket,
+ *             s3Prefix: testAwsS3Bucket.bucketPrefix,
+ *             s3Region: testAwsS3Bucket.region,
  *         }],
  *     }],
  *     refreshCadences: [{
  *         frequency: "SYNCHRONOUS",
  *     }],
+ *     name: "testexample",
  * }});
  * ```
  *
@@ -59,7 +59,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+ * - `arn` (String) ARN of the BCM Data Exports export.
  *
  * Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
  *
@@ -96,8 +96,8 @@ export class Export extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -147,8 +147,8 @@ export class Export extends pulumi.CustomResource {
  */
 export interface ExportState {
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

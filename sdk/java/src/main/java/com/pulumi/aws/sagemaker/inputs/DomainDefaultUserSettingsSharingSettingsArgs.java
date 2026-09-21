@@ -31,14 +31,14 @@ public final class DomainDefaultUserSettingsSharingSettingsArgs extends com.pulu
     }
 
     /**
-     * When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     @Import(name="s3KmsKeyId")
     private @Nullable Output<String> s3KmsKeyId;
 
     /**
-     * @return When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+     * @return When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
      * 
      */
     public Optional<Output<String>> s3KmsKeyId() {
@@ -108,7 +108,7 @@ public final class DomainDefaultUserSettingsSharingSettingsArgs extends com.pulu
         }
 
         /**
-         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class DomainDefaultUserSettingsSharingSettingsArgs extends com.pulu
         }
 
         /**
-         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the AWS Key Management Service (KMS) encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
+         * @param s3KmsKeyId When `notebookOutputOption` is Allowed, the KMS encryption key ID used to encrypt the notebook cell output in the Amazon S3 bucket.
          * 
          * @return builder
          * 

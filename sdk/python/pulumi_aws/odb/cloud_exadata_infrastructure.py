@@ -280,7 +280,7 @@ class _CloudExadataInfrastructureState:
 
         :param pulumi.Input[_builtins.int] activated_storage_count: Number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: Number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
@@ -431,7 +431,7 @@ class _CloudExadataInfrastructureState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Exadata infrastructure.
+        ARN of the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -1109,7 +1109,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.int] activated_storage_count: Number of storage servers requested for the Exadata infrastructure.
         :param pulumi.Input[_builtins.int] additional_storage_count: Number of storage servers requested for the Exadata infrastructure.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Exadata infrastructure.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Exadata infrastructure.
         :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone (AZ) where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.str] availability_zone_id: AZ ID of the AZ where the Exadata infrastructure is located. Changing this will force terraform to create new resource.
         :param pulumi.Input[_builtins.int] available_storage_size_in_gbs: Amount of available storage, in gigabytes (GB), for the Exadata infrastructure.
@@ -1216,7 +1216,7 @@ class CloudExadataInfrastructure(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Exadata infrastructure.
+        ARN of the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 

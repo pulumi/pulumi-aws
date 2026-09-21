@@ -102,7 +102,7 @@ export class ProtectionGroup extends pulumi.CustomResource {
      */
     declare public readonly aggregation: pulumi.Output<string>;
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
     declare public readonly members: pulumi.Output<string[] | undefined>;
     /**
@@ -110,7 +110,7 @@ export class ProtectionGroup extends pulumi.CustomResource {
      */
     declare public readonly pattern: pulumi.Output<string>;
     /**
-     * The ARN (Amazon Resource Name) of the protection group.
+     * ARN of the protection group.
      */
     declare public /*out*/ readonly protectionGroupArn: pulumi.Output<string>;
     /**
@@ -185,7 +185,7 @@ export interface ProtectionGroupState {
      */
     aggregation?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
     members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -193,7 +193,7 @@ export interface ProtectionGroupState {
      */
     pattern?: pulumi.Input<string | undefined>;
     /**
-     * The ARN (Amazon Resource Name) of the protection group.
+     * ARN of the protection group.
      */
     protectionGroupArn?: pulumi.Input<string | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface ProtectionGroupArgs {
      */
     aggregation: pulumi.Input<string>;
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      */
     members?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

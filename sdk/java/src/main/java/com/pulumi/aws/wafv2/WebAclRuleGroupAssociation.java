@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociation;
  * import com.pulumi.aws.wafv2.WebAclRuleGroupAssociationArgs;
  * import com.pulumi.aws.wafv2.inputs.WebAclRuleGroupAssociationRuleGroupReferenceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -66,8 +67,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         // Web ACL must use lifecycle.ignore_changes to prevent drift from this resource
  *         var example = new WebAcl("example", WebAclArgs.builder()
- *             .name("example-web-acl")
- *             .scope("REGIONAL")
  *             .defaultAction(WebAclDefaultActionArgs.builder()
  *                 .allow(WebAclDefaultActionAllowArgs.builder()
  *                     .build())
@@ -77,16 +76,20 @@ import javax.annotation.Nullable;
  *                 .metricName("example-web-acl")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
- *             .build());
+ *             .name("example-web-acl")
+ *             .scope("REGIONAL")
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("rules")
+ *                 .build());
  * 
  *         // Associate a custom rule group
  *         var exampleWebAclRuleGroupAssociation = new WebAclRuleGroupAssociation("exampleWebAclRuleGroupAssociation", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("example-rule-group-rule")
- *             .priority(100)
- *             .webAclArn(example.arn())
  *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
  *                 .arn(exampleAwsWafv2RuleGroup.arn())
  *                 .build())
+ *             .ruleName("example-rule-group-rule")
+ *             .priority(100)
+ *             .webAclArn(example.arn())
  *             .build());
  * 
  *     }
@@ -119,13 +122,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set")
- *             .priority(50)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
  *                 .name("AWSManagedRulesCommonRuleSet")
  *                 .vendorName("AWS")
  *                 .build())
+ *             .ruleName("aws-common-rule-set")
+ *             .priority(50)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -158,14 +161,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set-versioned")
- *             .priority(60)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
  *                 .name("AWSManagedRulesCommonRuleSet")
  *                 .vendorName("AWS")
  *                 .version("Version_1.0")
  *                 .build())
+ *             .ruleName("aws-common-rule-set-versioned")
+ *             .priority(60)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -204,15 +207,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("aws-common-rule-set-with-overrides")
- *             .priority(70)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
- *                 .name("AWSManagedRulesCommonRuleSet")
- *                 .vendorName("AWS")
  *                 .ruleActionOverrides(                
  *                     WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs.builder()
- *                         .name("GenericRFI_BODY")
  *                         .actionToUse(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs.builder()
  *                             .count(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountArgs.builder()
  *                                 .customRequestHandling(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCountCustomRequestHandlingArgs.builder()
@@ -223,15 +220,21 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build())
  *                             .build())
+ *                         .name("GenericRFI_BODY")
  *                         .build(),
  *                     WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideArgs.builder()
- *                         .name("SizeRestrictions_BODY")
  *                         .actionToUse(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseArgs.builder()
  *                             .captcha(WebAclRuleGroupAssociationManagedRuleGroupRuleActionOverrideActionToUseCaptchaArgs.builder()
  *                                 .build())
  *                             .build())
+ *                         .name("SizeRestrictions_BODY")
  *                         .build())
+ *                 .name("AWSManagedRulesCommonRuleSet")
+ *                 .vendorName("AWS")
  *                 .build())
+ *             .ruleName("aws-common-rule-set-with-overrides")
+ *             .priority(70)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -273,16 +276,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("acfp-ruleset-with-rule-config")
- *             .priority(70)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .managedRuleGroup(WebAclRuleGroupAssociationManagedRuleGroupArgs.builder()
- *                 .name("AWSManagedRulesACFPRuleSet")
- *                 .vendorName("AWS")
  *                 .managedRuleGroupConfigs(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsArgs.builder()
  *                     .awsManagedRulesAcfpRuleSet(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetArgs.builder()
- *                         .creationPath("/creation")
- *                         .registrationPagePath("/registration")
  *                         .requestInspection(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionArgs.builder()
  *                             .emailField(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionEmailFieldArgs.builder()
  *                                 .identifier("/email")
@@ -300,19 +296,26 @@ import javax.annotation.Nullable;
  *                                     "home",
  *                                     "work")
  *                                 .build())
- *                             .payloadType("JSON")
  *                             .usernameField(WebAclRuleGroupAssociationManagedRuleGroupManagedRuleGroupConfigsAwsManagedRulesAcfpRuleSetRequestInspectionUsernameFieldArgs.builder()
  *                                 .identifier("/username")
  *                                 .build())
+ *                             .payloadType("JSON")
  *                             .build())
+ *                         .creationPath("/creation")
+ *                         .registrationPagePath("/registration")
  *                         .build())
  *                     .build())
+ *                 .name("AWSManagedRulesACFPRuleSet")
+ *                 .vendorName("AWS")
  *                 .build())
  *             .visibilityConfig(WebAclRuleGroupAssociationVisibilityConfigArgs.builder()
  *                 .cloudwatchMetricsEnabled(true)
  *                 .metricName("friendly-metric-name")
  *                 .sampledRequestsEnabled(true)
  *                 .build())
+ *             .ruleName("acfp-ruleset-with-rule-config")
+ *             .priority(70)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -345,13 +348,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
+ *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
+ *                 .arn(exampleAwsWafv2RuleGroup.arn())
+ *                 .build())
  *             .ruleName("example-rule-group-rule")
  *             .priority(100)
  *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .overrideAction("count")
- *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
- *                 .arn(exampleAwsWafv2RuleGroup.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -392,14 +395,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("example-rule-group-rule")
- *             .priority(100)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
- *                 .arn(exampleAwsWafv2RuleGroup.arn())
  *                 .ruleActionOverrides(                
  *                     WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs.builder()
- *                         .name("geo-block-rule")
  *                         .actionToUse(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs.builder()
  *                             .count(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountArgs.builder()
  *                                 .customRequestHandling(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCountCustomRequestHandlingArgs.builder()
@@ -410,9 +408,9 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build())
  *                             .build())
+ *                         .name("geo-block-rule")
  *                         .build(),
  *                     WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideArgs.builder()
- *                         .name("rate-limit-rule")
  *                         .actionToUse(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseArgs.builder()
  *                             .captcha(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaArgs.builder()
  *                                 .customRequestHandling(WebAclRuleGroupAssociationRuleGroupReferenceRuleActionOverrideActionToUseCaptchaCustomRequestHandlingArgs.builder()
@@ -423,8 +421,13 @@ import javax.annotation.Nullable;
  *                                     .build())
  *                                 .build())
  *                             .build())
+ *                         .name("rate-limit-rule")
  *                         .build())
+ *                 .arn(exampleAwsWafv2RuleGroup.arn())
  *                 .build())
+ *             .ruleName("example-rule-group-rule")
+ *             .priority(100)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }
@@ -457,12 +460,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WebAclRuleGroupAssociation("example", WebAclRuleGroupAssociationArgs.builder()
- *             .ruleName("cloudfront-rule-group-rule")
- *             .priority(50)
- *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .ruleGroupReference(WebAclRuleGroupAssociationRuleGroupReferenceArgs.builder()
  *                 .arn(exampleAwsWafv2RuleGroup.arn())
  *                 .build())
+ *             .ruleName("cloudfront-rule-group-rule")
+ *             .priority(50)
+ *             .webAclArn(exampleAwsWafv2WebAcl.arn())
  *             .build());
  * 
  *     }

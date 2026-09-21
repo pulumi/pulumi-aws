@@ -734,13 +734,13 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            name="example",
             user_pool_config={
                 "aws_region": current["region"],
                 "default_action": "DENY",
                 "user_pool_id": example_aws_cognito_user_pool["id"],
-            })
+            },
+            authentication_type="AMAZON_COGNITO_USER_POOLS",
+            name="example")
         ```
 
         ### OpenID Connect Authentication
@@ -750,11 +750,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            name="example",
             openid_connect_config={
                 "issuer": "https://example.com",
-            })
+            },
+            authentication_type="OPENID_CONNECT",
+            name="example")
         ```
 
         ### AWS Lambda Authorizer Authentication
@@ -764,11 +764,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            name="example",
             lambda_authorizer_config={
                 "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            })
+            },
+            authentication_type="AWS_LAMBDA",
+            name="example")
         appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
             statement_id="appsync_lambda_authorizer",
             action="lambda:InvokeFunction",
@@ -784,11 +784,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example",
             additional_authentication_providers=[{
                 "authentication_type": "AWS_IAM",
-            }])
+            }],
+            authentication_type="API_KEY",
+            name="example")
         ```
 
         ### With Schema
@@ -816,11 +816,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appsync.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -845,15 +845,15 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="example")
         example_web_acl = aws.wafv2.WebAcl("example",
-            name="managed-rule-example",
-            description="Example of a managed rule.",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             rules=[{
-                "name": "rule-1",
-                "priority": 1,
                 "override_action": {
                     "block": [{}],
                 },
@@ -868,12 +868,12 @@ class GraphQLApi(pulumi.CustomResource):
                     "metric_name": "friendly-rule-metric-name",
                     "sampled_requests_enabled": False,
                 },
+                "name": "rule-1",
+                "priority": 1,
             }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL")
         example_web_acl_association = aws.wafv2.WebAclAssociation("example",
             resource_arn=example.arn,
             web_acl_arn=example_web_acl.arn)
@@ -967,13 +967,13 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="AMAZON_COGNITO_USER_POOLS",
-            name="example",
             user_pool_config={
                 "aws_region": current["region"],
                 "default_action": "DENY",
                 "user_pool_id": example_aws_cognito_user_pool["id"],
-            })
+            },
+            authentication_type="AMAZON_COGNITO_USER_POOLS",
+            name="example")
         ```
 
         ### OpenID Connect Authentication
@@ -983,11 +983,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="OPENID_CONNECT",
-            name="example",
             openid_connect_config={
                 "issuer": "https://example.com",
-            })
+            },
+            authentication_type="OPENID_CONNECT",
+            name="example")
         ```
 
         ### AWS Lambda Authorizer Authentication
@@ -997,11 +997,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="AWS_LAMBDA",
-            name="example",
             lambda_authorizer_config={
                 "authorizer_uri": "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
-            })
+            },
+            authentication_type="AWS_LAMBDA",
+            name="example")
         appsync_lambda_authorizer = aws.lambda_.Permission("appsync_lambda_authorizer",
             statement_id="appsync_lambda_authorizer",
             action="lambda:InvokeFunction",
@@ -1017,11 +1017,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appsync.GraphQLApi("example",
-            authentication_type="API_KEY",
-            name="example",
             additional_authentication_providers=[{
                 "authentication_type": "AWS_IAM",
-            }])
+            }],
+            authentication_type="API_KEY",
+            name="example")
         ```
 
         ### With Schema
@@ -1049,11 +1049,11 @@ class GraphQLApi(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appsync.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
@@ -1078,15 +1078,15 @@ class GraphQLApi(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="example")
         example_web_acl = aws.wafv2.WebAcl("example",
-            name="managed-rule-example",
-            description="Example of a managed rule.",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
+            visibility_config={
+                "cloudwatch_metrics_enabled": False,
+                "metric_name": "friendly-metric-name",
+                "sampled_requests_enabled": False,
+            },
             rules=[{
-                "name": "rule-1",
-                "priority": 1,
                 "override_action": {
                     "block": [{}],
                 },
@@ -1101,12 +1101,12 @@ class GraphQLApi(pulumi.CustomResource):
                     "metric_name": "friendly-rule-metric-name",
                     "sampled_requests_enabled": False,
                 },
+                "name": "rule-1",
+                "priority": 1,
             }],
-            visibility_config={
-                "cloudwatch_metrics_enabled": False,
-                "metric_name": "friendly-metric-name",
-                "sampled_requests_enabled": False,
-            })
+            name="managed-rule-example",
+            description="Example of a managed rule.",
+            scope="REGIONAL")
         example_web_acl_association = aws.wafv2.WebAclAssociation("example",
             resource_arn=example.arn,
             web_acl_arn=example_web_acl.arn)

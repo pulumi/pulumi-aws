@@ -17,14 +17,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.s3.ObjectCopy("test", {
- *     bucket: "destination_bucket",
- *     key: "destination_key",
- *     source: "source_bucket/source_key",
  *     grants: [{
  *         uri: "http://acs.amazonaws.com/groups/global/AllUsers",
  *         type: "Group",
  *         permissions: ["READ"],
  *     }],
+ *     bucket: "destination_bucket",
+ *     key: "destination_key",
+ *     source: "source_bucket/source_key",
  * });
  * ```
  *
@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.s3.ObjectCopy("test", {
- *     bucket: "destination_bucket",
- *     key: "destination_key",
- *     source: "source_bucket/source_key",
  *     overrideProvider: {
  *         defaultTags: {
  *             tags: {},
  *         },
  *     },
+ *     bucket: "destination_bucket",
+ *     key: "destination_key",
+ *     source: "source_bucket/source_key",
  * });
  * ```
  */

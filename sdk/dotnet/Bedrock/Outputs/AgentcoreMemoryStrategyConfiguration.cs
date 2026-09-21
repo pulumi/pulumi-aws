@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreMemoryStrategyConfiguration
     {
         /// <summary>
-        /// Consolidation configuration for the memory strategy. See `Consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+        /// Consolidation configuration for the memory strategy. See `Consolidation` Block below. Cannot be used with `Type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationConsolidation? Consolidation;
         /// <summary>
-        /// Extraction configuration for the memory strategy. See `Extraction` Block below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+        /// Extraction configuration for the memory strategy. See `Extraction` Block below. Cannot be used with `Type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationExtraction? Extraction;
         /// <summary>
@@ -26,7 +26,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreMemoryStrategyConfigurationReflection? Reflection;
         /// <summary>
-        /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+        /// Self-managed processing configuration. Required when `Type` is `SELF_MANAGED` and only valid for that type. See `SelfManagedConfiguration` Block below.
+        /// </summary>
+        public readonly Outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration? SelfManagedConfiguration;
+        /// <summary>
+        /// Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
         /// </summary>
         public readonly string Type;
 
@@ -38,11 +42,14 @@ namespace Pulumi.Aws.Bedrock.Outputs
 
             Outputs.AgentcoreMemoryStrategyConfigurationReflection? reflection,
 
+            Outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration? selfManagedConfiguration,
+
             string type)
         {
             Consolidation = consolidation;
             Extraction = extraction;
             Reflection = reflection;
+            SelfManagedConfiguration = selfManagedConfiguration;
             Type = type;
         }
     }

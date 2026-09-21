@@ -163,7 +163,7 @@ class _HsmConfigurationState:
         """
         Input properties used for looking up and filtering HsmConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
         :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
         :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
@@ -199,7 +199,7 @@ class _HsmConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        ARN of the Hsm Client Certificate.
         """
         return pulumi.get(self, "arn")
 
@@ -485,7 +485,7 @@ class HsmConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Hsm Client Certificate.
         :param pulumi.Input[_builtins.str] description: A text description of the HSM configuration to be created.
         :param pulumi.Input[_builtins.str] hsm_configuration_identifier: The identifier to be assigned to the new Amazon Redshift HSM configuration.
         :param pulumi.Input[_builtins.str] hsm_ip_address: The IP address that the Amazon Redshift cluster must use to access the HSM.
@@ -516,7 +516,7 @@ class HsmConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Hsm Client Certificate.
+        ARN of the Hsm Client Certificate.
         """
         return pulumi.get(self, "arn")
 

@@ -101,14 +101,14 @@ public class EventAction extends com.pulumi.resources.CustomResource {
         return this.action;
     }
     /**
-     * Amazon Resource Name (ARN) of the event action.
+     * ARN of the event action.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the event action.
+     * @return ARN of the event action.
      * 
      */
     public Output<String> arn() {

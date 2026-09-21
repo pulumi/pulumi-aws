@@ -42,14 +42,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := acm.NewCertificate(ctx, "cert", &acm.CertificateArgs{
-//				DomainName:       pulumi.String("testing.example.com"),
-//				ValidationMethod: pulumi.String("EMAIL"),
 //				ValidationOptions: acm.CertificateValidationOptionArray{
 //					&acm.CertificateValidationOptionArgs{
 //						DomainName:       pulumi.String("testing.example.com"),
 //						ValidationDomain: pulumi.String("example.com"),
 //					},
 //				},
+//				DomainName:       pulumi.String("testing.example.com"),
+//				ValidationMethod: pulumi.String("EMAIL"),
 //			})
 //			if err != nil {
 //				return err
@@ -82,14 +82,14 @@ import (
 //				return err
 //			}
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
 //					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},
 //				},
+//				KeyAlgorithm:        "RSA",
+//				PrivateKeyPem:       example.PrivateKeyPem,
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
 //					pulumi.String("key_encipherment"),
@@ -135,14 +135,14 @@ import (
 //				return err
 //			}
 //			exampleSelfSignedCert, err := tls.NewSelfSignedCert(ctx, "example", &tls.SelfSignedCertArgs{
-//				KeyAlgorithm:  "RSA",
-//				PrivateKeyPem: example.PrivateKeyPem,
 //				Subject: tls.SelfSignedCertSubjectArgs{
 //					map[string]string{
 //						"commonName":   "example.com",
 //						"organization": "ACME Examples, Inc",
 //					},
 //				},
+//				KeyAlgorithm:        "RSA",
+//				PrivateKeyPem:       example.PrivateKeyPem,
 //				ValidityPeriodHours: pulumi.Int(12),
 //				AllowedUses: pulumi.StringArray{
 //					pulumi.String("key_encipherment"),

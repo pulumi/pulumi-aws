@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CodeRepository("example", CodeRepositoryArgs.builder()
- *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .build())
+ *             .codeRepositoryName("example")
  *             .build());
  * 
  *     }
@@ -103,11 +103,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCodeRepository = new CodeRepository("exampleCodeRepository", CodeRepositoryArgs.builder()
- *             .codeRepositoryName("example")
  *             .gitConfig(CodeRepositoryGitConfigArgs.builder()
  *                 .repositoryUrl("https://github.com/github/docs.git")
  *                 .secretArn(example.arn())
  *                 .build())
+ *             .codeRepositoryName("example")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleSecretVersion)
  *                 .build());
@@ -129,14 +129,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/codeRepository:CodeRepository")
 public class CodeRepository extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * @return ARN assigned by AWS to this Code Repository.
      * 
      */
     public Output<String> arn() {

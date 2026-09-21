@@ -104,7 +104,9 @@ import (
 //				NumCacheClusters:   pulumi.Int(2),
 //				ParameterGroupName: pulumi.String("default.redis3.2"),
 //				Port:               pulumi.Int(6379),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"numCacheClusters",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -179,13 +181,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewReplicationGroup(ctx, "example", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupId:       pulumi.String("tf-redis-cluster"),
-//				Description:              pulumi.String("example description"),
-//				NodeType:                 pulumi.String("cache.t2.small"),
-//				Port:                     pulumi.Int(6379),
-//				ParameterGroupName:       pulumi.String("default.redis3.2.cluster.on"),
-//				AutomaticFailoverEnabled: pulumi.Bool(true),
-//				NumNodeGroups:            pulumi.Int(2),
 //				NodeGroupConfigurations: elasticache.ReplicationGroupNodeGroupConfigurationArray{
 //					&elasticache.ReplicationGroupNodeGroupConfigurationArgs{
 //						NodeGroupId:             pulumi.String("0001"),
@@ -206,6 +201,13 @@ import (
 //						Slots:        pulumi.String("8192-16383"),
 //					},
 //				},
+//				ReplicationGroupId:       pulumi.String("tf-redis-cluster"),
+//				Description:              pulumi.String("example description"),
+//				NodeType:                 pulumi.String("cache.t2.small"),
+//				Port:                     pulumi.Int(6379),
+//				ParameterGroupName:       pulumi.String("default.redis3.2.cluster.on"),
+//				AutomaticFailoverEnabled: pulumi.Bool(true),
+//				NumNodeGroups:            pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
@@ -231,14 +233,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := elasticache.NewReplicationGroup(ctx, "test", &elasticache.ReplicationGroupArgs{
-//				ReplicationGroupId:      pulumi.String("myreplicaciongroup"),
-//				Description:             pulumi.String("test description"),
-//				NodeType:                pulumi.String("cache.t3.small"),
-//				Port:                    pulumi.Int(6379),
-//				ApplyImmediately:        pulumi.Bool(true),
-//				AutoMinorVersionUpgrade: pulumi.Bool(false),
-//				MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
-//				SnapshotWindow:          pulumi.String("01:00-02:00"),
 //				LogDeliveryConfigurations: elasticache.ReplicationGroupLogDeliveryConfigurationArray{
 //					&elasticache.ReplicationGroupLogDeliveryConfigurationArgs{
 //						Destination:     pulumi.Any(example.Name),
@@ -253,6 +247,14 @@ import (
 //						LogType:         pulumi.String("engine-log"),
 //					},
 //				},
+//				ReplicationGroupId:      pulumi.String("myreplicaciongroup"),
+//				Description:             pulumi.String("test description"),
+//				NodeType:                pulumi.String("cache.t3.small"),
+//				Port:                    pulumi.Int(6379),
+//				ApplyImmediately:        pulumi.Bool(true),
+//				AutoMinorVersionUpgrade: pulumi.Bool(false),
+//				MaintenanceWindow:       pulumi.String("tue:06:30-tue:07:30"),
+//				SnapshotWindow:          pulumi.String("01:00-02:00"),
 //			})
 //			if err != nil {
 //				return err
@@ -379,11 +381,16 @@ type ReplicationGroup struct {
 	AtRestEncryptionEnabled pulumi.BoolOutput `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrOutput `pulumi:"authToken"`
-	// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrOutput `pulumi:"authTokenUpdateStrategy"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+	AuthTokenWo pulumi.StringPtrOutput `pulumi:"authTokenWo"`
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+	AuthTokenWoVersion pulumi.IntPtrOutput `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolOutput `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrOutput `pulumi:"automaticFailoverEnabled"`
@@ -473,9 +480,9 @@ type ReplicationGroup struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringOutput `pulumi:"replicationGroupId"`
-	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupIds pulumi.StringArrayOutput `pulumi:"securityGroupIds"`
-	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupNames pulumi.StringArrayOutput `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayOutput `pulumi:"snapshotArns"`
@@ -517,8 +524,12 @@ func NewReplicationGroup(ctx *pulumi.Context,
 	if args.AuthToken != nil {
 		args.AuthToken = pulumi.ToSecret(args.AuthToken).(pulumi.StringPtrInput)
 	}
+	if args.AuthTokenWo != nil {
+		args.AuthTokenWo = pulumi.ToSecret(args.AuthTokenWo).(pulumi.StringPtrInput)
+	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"authToken",
+		"authTokenWo",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -554,11 +565,16 @@ type replicationGroupState struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
-	// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+	AuthTokenWo *string `pulumi:"authTokenWo"`
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
@@ -648,9 +664,9 @@ type replicationGroupState struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
@@ -690,11 +706,16 @@ type ReplicationGroupState struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
-	// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+	AuthTokenWo pulumi.StringPtrInput
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
@@ -784,9 +805,9 @@ type ReplicationGroupState struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringPtrInput
-	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupNames pulumi.StringArrayInput
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
@@ -828,11 +849,16 @@ type replicationGroupArgs struct {
 	AtRestEncryptionEnabled *bool `pulumi:"atRestEncryptionEnabled"`
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken *string `pulumi:"authToken"`
-	// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy *string `pulumi:"authTokenUpdateStrategy"`
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+	AuthTokenWo *string `pulumi:"authTokenWo"`
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+	AuthTokenWoVersion *int `pulumi:"authTokenWoVersion"`
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade *bool `pulumi:"autoMinorVersionUpgrade"`
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled *bool `pulumi:"automaticFailoverEnabled"`
@@ -910,9 +936,9 @@ type replicationGroupArgs struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId *string `pulumi:"replicationGroupId"`
-	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupNames []string `pulumi:"securityGroupNames"`
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns []string `pulumi:"snapshotArns"`
@@ -949,11 +975,16 @@ type ReplicationGroupArgs struct {
 	AtRestEncryptionEnabled pulumi.BoolPtrInput
 	// Password used to access a password protected server. Can be specified only if `transitEncryptionEnabled = true`.
 	AuthToken pulumi.StringPtrInput
-	// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+	// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 	AuthTokenUpdateStrategy pulumi.StringPtrInput
+	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+	// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+	AuthTokenWo pulumi.StringPtrInput
+	// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+	AuthTokenWoVersion pulumi.IntPtrInput
 	// Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 	// Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-	// Defaults to `true`.
+	// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 	AutoMinorVersionUpgrade pulumi.BoolPtrInput
 	// Specifies whether a read-only replica will be automatically promoted to read/write primary if the existing primary fails. If enabled, `numCacheClusters` must be greater than 1. Must be enabled for Redis (cluster mode enabled) replication groups. Defaults to `false`.
 	AutomaticFailoverEnabled pulumi.BoolPtrInput
@@ -1031,9 +1062,9 @@ type ReplicationGroupArgs struct {
 	//
 	// The following arguments are optional:
 	ReplicationGroupId pulumi.StringPtrInput
-	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupIds pulumi.StringArrayInput
-	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+	// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 	SecurityGroupNames pulumi.StringArrayInput
 	// List of ARNs that identify Redis RDB snapshot files stored in Amazon S3. The names object names cannot contain any commas.
 	SnapshotArns pulumi.StringArrayInput
@@ -1169,14 +1200,25 @@ func (o ReplicationGroupOutput) AuthToken() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthToken }).(pulumi.StringPtrOutput)
 }
 
-// Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+// Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
 func (o ReplicationGroupOutput) AuthTokenUpdateStrategy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthTokenUpdateStrategy }).(pulumi.StringPtrOutput)
 }
 
+// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+// Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+func (o ReplicationGroupOutput) AuthTokenWo() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringPtrOutput { return v.AuthTokenWo }).(pulumi.StringPtrOutput)
+}
+
+// Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+func (o ReplicationGroupOutput) AuthTokenWoVersion() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ReplicationGroup) pulumi.IntPtrOutput { return v.AuthTokenWoVersion }).(pulumi.IntPtrOutput)
+}
+
 // Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
 // Only supported for engine types `"redis"` and `"valkey"` and if the engine version is 6 or higher.
-// Defaults to `true`.
+// If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
 func (o ReplicationGroupOutput) AutoMinorVersionUpgrade() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.BoolOutput { return v.AutoMinorVersionUpgrade }).(pulumi.BoolOutput)
 }
@@ -1369,12 +1411,12 @@ func (o ReplicationGroupOutput) ReplicationGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringOutput { return v.ReplicationGroupId }).(pulumi.StringOutput)
 }
 
-// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+// IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 func (o ReplicationGroupOutput) SecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+// Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
 func (o ReplicationGroupOutput) SecurityGroupNames() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReplicationGroup) pulumi.StringArrayOutput { return v.SecurityGroupNames }).(pulumi.StringArrayOutput)
 }

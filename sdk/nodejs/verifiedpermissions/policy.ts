@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.verifiedpermissions.Policy("test", {
- *     policyStoreId: testAwsVerifiedpermissionsPolicyStore.id,
  *     definition: {
  *         static: {
  *             statement: "permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");",
  *         },
  *     },
+ *     policyStoreId: testAwsVerifiedpermissionsPolicyStore.id,
  * });
  * ```
  *

@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewMonitoringSubscription(ctx, "example", &cloudfront.MonitoringSubscriptionArgs{
-//				DistributionId: pulumi.Any(exampleAwsCloudfrontDistribution.Id),
 //				MonitoringSubscription: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionArgs{
 //					RealtimeMetricsSubscriptionConfig: &cloudfront.MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs{
 //						RealtimeMetricsSubscriptionStatus: pulumi.String("Enabled"),
 //					},
 //				},
+//				DistributionId: pulumi.Any(exampleAwsCloudfrontDistribution.Id),
 //			})
 //			if err != nil {
 //				return err

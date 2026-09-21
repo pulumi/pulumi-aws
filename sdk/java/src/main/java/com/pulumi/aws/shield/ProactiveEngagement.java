@@ -77,7 +77,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ProactiveEngagement("example", ProactiveEngagementArgs.builder()
- *             .enabled(true)
  *             .emergencyContacts(            
  *                 ProactiveEngagementEmergencyContactArgs.builder()
  *                     .contactNotes("Notes")
@@ -89,6 +88,7 @@ import javax.annotation.Nullable;
  *                     .emailAddress("contact2}{@literal @}{@code example.com")
  *                     .phoneNumber("+12358132134")
  *                     .build())
+ *             .enabled(true)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleDrtAccessRoleArnAssociation)
  *                 .build());

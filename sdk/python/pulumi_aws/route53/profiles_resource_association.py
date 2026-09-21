@@ -305,10 +305,10 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         example = aws.route53.ProfilesProfile("example", name="example")
         example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
         example_zone = aws.route53.Zone("example",
-            name="example.com",
             vpcs=[{
                 "vpc_id": example_vpc.id,
-            }])
+            }],
+            name="example.com")
         example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
             name="example",
             profile_id=example.id,
@@ -352,10 +352,10 @@ class ProfilesResourceAssociation(pulumi.CustomResource):
         example = aws.route53.ProfilesProfile("example", name="example")
         example_vpc = aws.ec2.Vpc("example", cidr="10.0.0.0/16")
         example_zone = aws.route53.Zone("example",
-            name="example.com",
             vpcs=[{
                 "vpc_id": example_vpc.id,
-            }])
+            }],
+            name="example.com")
         example_profiles_resource_association = aws.route53.ProfilesResourceAssociation("example",
             name="example",
             profile_id=example.id,

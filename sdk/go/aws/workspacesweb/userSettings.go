@@ -61,11 +61,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
-//				CopyAllowed:     pulumi.String("Enabled"),
-//				DownloadAllowed: pulumi.String("Enabled"),
-//				PasteAllowed:    pulumi.String("Enabled"),
-//				PrintAllowed:    pulumi.String("Enabled"),
-//				UploadAllowed:   pulumi.String("Enabled"),
 //				ToolbarConfiguration: &workspacesweb.UserSettingsToolbarConfigurationArgs{
 //					ToolbarType: pulumi.String("Docked"),
 //					VisualMode:  pulumi.String("Dark"),
@@ -74,6 +69,11 @@ import (
 //						pulumi.String("Microphone"),
 //					},
 //				},
+//				CopyAllowed:     pulumi.String("Enabled"),
+//				DownloadAllowed: pulumi.String("Enabled"),
+//				PasteAllowed:    pulumi.String("Enabled"),
+//				PrintAllowed:    pulumi.String("Enabled"),
+//				UploadAllowed:   pulumi.String("Enabled"),
 //			})
 //			if err != nil {
 //				return err
@@ -107,18 +107,6 @@ import (
 //				return err
 //			}
 //			_, err = workspacesweb.NewUserSettings(ctx, "example", &workspacesweb.UserSettingsArgs{
-//				CopyAllowed:                    pulumi.String("Enabled"),
-//				DownloadAllowed:                pulumi.String("Enabled"),
-//				PasteAllowed:                   pulumi.String("Enabled"),
-//				PrintAllowed:                   pulumi.String("Enabled"),
-//				UploadAllowed:                  pulumi.String("Enabled"),
-//				DeepLinkAllowed:                pulumi.String("Enabled"),
-//				DisconnectTimeoutInMinutes:     pulumi.Int(30),
-//				IdleDisconnectTimeoutInMinutes: pulumi.Int(15),
-//				CustomerManagedKey:             example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
 //				ToolbarConfiguration: &workspacesweb.UserSettingsToolbarConfigurationArgs{
 //					ToolbarType: pulumi.String("Docked"),
 //					VisualMode:  pulumi.String("Dark"),
@@ -140,6 +128,18 @@ import (
 //							Domain: pulumi.String("blocked.com"),
 //						},
 //					},
+//				},
+//				CopyAllowed:                    pulumi.String("Enabled"),
+//				DownloadAllowed:                pulumi.String("Enabled"),
+//				PasteAllowed:                   pulumi.String("Enabled"),
+//				PrintAllowed:                   pulumi.String("Enabled"),
+//				UploadAllowed:                  pulumi.String("Enabled"),
+//				DeepLinkAllowed:                pulumi.String("Enabled"),
+//				DisconnectTimeoutInMinutes:     pulumi.Int(30),
+//				IdleDisconnectTimeoutInMinutes: pulumi.Int(15),
+//				CustomerManagedKey:             example.Arn,
+//				AdditionalEncryptionContext: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-user-settings"),

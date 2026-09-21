@@ -38,7 +38,7 @@ class KeyArgs:
 
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
                The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
@@ -95,7 +95,7 @@ class KeyArgs:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
@@ -290,10 +290,10 @@ class _KeyState:
         """
         Input properties used for looking up and filtering Key resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[_builtins.str] arn: ARN of the key.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
                The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
@@ -356,7 +356,7 @@ class _KeyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the key.
+        ARN of the key.
         """
         return pulumi.get(self, "arn")
 
@@ -370,7 +370,7 @@ class _KeyState:
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")
@@ -916,7 +916,7 @@ class Key(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
                The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
@@ -1358,10 +1358,10 @@ class Key(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the key.
+        :param pulumi.Input[_builtins.str] arn: ARN of the key.
         :param pulumi.Input[_builtins.bool] bypass_policy_lockout_safety_check: A flag to indicate whether to bypass the key policy lockout safety check.
                Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+               For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
                The default value is `false`.
         :param pulumi.Input[_builtins.str] custom_key_store_id: ID of the KMS [Custom Key Store](https://docs.aws.amazon.com/kms/latest/developerguide/create-cmk-keystore.html) where the key will be stored instead of KMS (eg CloudHSM).
         :param pulumi.Input[_builtins.str] customer_master_key_spec: Specifies whether the key contains a symmetric key or an asymmetric key pair and the encryption algorithms or signing algorithms that the key supports.
@@ -1412,7 +1412,7 @@ class Key(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the key.
+        ARN of the key.
         """
         return pulumi.get(self, "arn")
 
@@ -1422,7 +1422,7 @@ class Key(pulumi.CustomResource):
         """
         A flag to indicate whether to bypass the key policy lockout safety check.
         Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         The default value is `false`.
         """
         return pulumi.get(self, "bypass_policy_lockout_safety_check")

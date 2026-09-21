@@ -88,9 +88,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleServerlessCollection = new Aws.OpenSearch.ServerlessCollection("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "SEARCH",
-    ///         CollectionGroupName = exampleServerlessCollectionGroup.Name,
     ///         EncryptionConfigs = new[]
     ///         {
     ///             new Aws.OpenSearch.Inputs.ServerlessCollectionEncryptionConfigArgs
@@ -98,6 +95,9 @@ namespace Pulumi.Aws.OpenSearch
     ///                 KmsKeyArn = example.Arn,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Type = "SEARCH",
+    ///         CollectionGroupName = exampleServerlessCollectionGroup.Name,
     ///     });
     /// 
     /// });
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.OpenSearch
     public partial class ServerlessCollection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the collection.
+        /// ARN of the collection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -346,7 +346,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class ServerlessCollectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the collection.
+        /// ARN of the collection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -50,10 +50,10 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .region("us-west-2")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }
@@ -90,11 +90,11 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .availabilityZoneName("us-west-2b")
  *                 .kmsKeyId("1234abcd-12ab-34cd-56ef-1234567890ab")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }
@@ -131,11 +131,11 @@ import javax.annotation.Nullable;
  *         var example = new FileSystem("example");
  * 
  *         var exampleReplicationConfiguration = new ReplicationConfiguration("exampleReplicationConfiguration", ReplicationConfigurationArgs.builder()
- *             .sourceFileSystemId(example.id())
  *             .destination(ReplicationConfigurationDestinationArgs.builder()
  *                 .fileSystemId("fs-1234567890")
  *                 .region("us-west-2")
  *                 .build())
+ *             .sourceFileSystemId(example.id())
  *             .build());
  * 
  *     }
@@ -187,14 +187,14 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
         return this.destination;
     }
     /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * ARN of the original source Amazon EFS file system in the replication configuration.
      * 
      */
     @Export(name="originalSourceFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> originalSourceFileSystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * @return ARN of the original source Amazon EFS file system in the replication configuration.
      * 
      */
     public Output<String> originalSourceFileSystemArn() {
@@ -215,14 +215,14 @@ public class ReplicationConfiguration extends com.pulumi.resources.CustomResourc
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * ARN of the current source file system in the replication configuration.
      * 
      */
     @Export(name="sourceFileSystemArn", refs={String.class}, tree="[0]")
     private Output<String> sourceFileSystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * @return ARN of the current source file system in the replication configuration.
      * 
      */
     public Output<String> sourceFileSystemArn() {

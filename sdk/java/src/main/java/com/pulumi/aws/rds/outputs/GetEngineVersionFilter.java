@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class GetEngineVersionFilter {
+    /**
+     * @return Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * 
+     */
     private String name;
+    /**
+     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     * 
+     */
     private List<String> values;
 
     private GetEngineVersionFilter() {}
+    /**
+     * @return Name of the filter field. Valid values can be found in the [describe-db-engine-versions AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return Set of values that are accepted for the given filter field. Results will be selected if any given value matches.
+     * 
+     */
     public List<String> values() {
         return this.values;
     }

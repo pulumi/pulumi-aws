@@ -585,15 +585,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
                 "snapshot_time": "06:00",
                 "status": "Enabled",
             },
+            name="example",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_3_0",
             tags={
                 "foo": "bar",
             })
@@ -676,15 +676,15 @@ class Instance(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.lightsail.Instance("example",
-            name="example",
-            availability_zone="us-east-1b",
-            blueprint_id="amazon_linux_2",
-            bundle_id="nano_3_0",
             add_on={
                 "type": "AutoSnapshot",
                 "snapshot_time": "06:00",
                 "status": "Enabled",
             },
+            name="example",
+            availability_zone="us-east-1b",
+            blueprint_id="amazon_linux_2",
+            bundle_id="nano_3_0",
             tags={
                 "foo": "bar",
             })

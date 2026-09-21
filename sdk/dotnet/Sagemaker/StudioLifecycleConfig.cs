@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class StudioLifecycleConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        /// The ARN assigned by AWS to this Studio Lifecycle Config.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class StudioLifecycleConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Studio Lifecycle Config.
+        /// The ARN assigned by AWS to this Studio Lifecycle Config.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

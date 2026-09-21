@@ -114,14 +114,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/userHierarchyGroup:UserHierarchyGroup")
 public class UserHierarchyGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * The ARN of the hierarchy group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return The ARN of the hierarchy group.
      * 
      */
     public Output<String> arn() {

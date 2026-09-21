@@ -17,7 +17,7 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
      */
     private @Nullable String egressType;
     /**
-     * @return Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     private @Nullable String vpcConnectorArn;
@@ -31,7 +31,7 @@ public final class ServiceNetworkConfigurationEgressConfiguration {
         return Optional.ofNullable(this.egressType);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
+     * @return ARN of the App Runner VPC connector that you want to associate with your App Runner service. Only valid when `EgressType = VPC`.
      * 
      */
     public Optional<String> vpcConnectorArn() {

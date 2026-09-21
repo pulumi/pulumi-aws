@@ -1038,7 +1038,7 @@ class FirewallPolicyFirewallPolicyStatefulEngineOptionsFlowTimeoutsArgs:
 class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgsDict(TypedDict):
     resource_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the stateful rule group.
+    ARN of the stateful rule group.
     """
     deep_threat_inspection: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -1063,7 +1063,7 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
                  override: pulumi.Input[Optional['FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceOverrideArgs']] = None,
                  priority: pulumi.Input[Optional[_builtins.int]] = None):
         """
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the stateful rule group.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the stateful rule group.
         :param pulumi.Input[_builtins.str] deep_threat_inspection: Whether to enable deep threat inspection, which allows AWS to analyze service logs of network traffic processed by these rule groups to identify threat indicators across customers. AWS will use these threat indicators to improve the active threat defense managed rule groups and protect the security of AWS customers and services. This only applies to active threat defense maanaged rule groups.
                
                For details, refer to [AWS active threat defense for AWS Network Firewall](https://docs.aws.amazon.com/network-firewall/latest/developerguide/aws-managed-rule-groups-atd.html) in the AWS Network Firewall Developer Guide.
@@ -1082,7 +1082,7 @@ class FirewallPolicyFirewallPolicyStatefulRuleGroupReferenceArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the stateful rule group.
+        ARN of the stateful rule group.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -1296,7 +1296,7 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgsDict(TypedDict)
     """
     resource_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the stateless rule group.
+    ARN of the stateless rule group.
     """
 
 @pulumi.input_type
@@ -1306,7 +1306,7 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
                  resource_arn: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.int] priority: An integer setting that indicates the order in which to run the stateless rule groups in a single policy. AWS Network Firewall applies each stateless rule group to a packet starting with the group that has the lowest priority setting.
-        :param pulumi.Input[_builtins.str] resource_arn: The Amazon Resource Name (ARN) of the stateless rule group.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the stateless rule group.
         """
         pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -1327,7 +1327,7 @@ class FirewallPolicyFirewallPolicyStatelessRuleGroupReferenceArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the stateless rule group.
+        ARN of the stateless rule group.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -2638,7 +2638,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     """
     protocols: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]]
     """
-    Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+    Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
     """
     source_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgsDict']]]]]
     """
@@ -2665,7 +2665,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
         """
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationPortArgs']]] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Port below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestinationArgs']]] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourcePortArgs']]] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Port below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesSourceArgs']]] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
         :param pulumi.Input[Sequence[pulumi.Input['RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesTcpFlagArgs']]] tcp_flags: Set of configuration blocks containing the TCP flags and masks to inspect for. If not specified, this matches with any settings.
@@ -2711,7 +2711,7 @@ class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRu
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]:
         """
-        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+        Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). If not specified, this matches with any protocol.
         """
         return pulumi.get(self, "protocols")
 
@@ -3163,7 +3163,7 @@ class TlsInspectionConfigurationCertificateAuthorityArgs:
 class TlsInspectionConfigurationEncryptionConfigurationArgsDict(TypedDict):
     key_id: pulumi.Input[_builtins.str]
     """
-    ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+    ARN of the Amazon Web Services KMS customer managed key.
     """
     type: pulumi.Input[_builtins.str]
     """
@@ -3176,7 +3176,7 @@ class TlsInspectionConfigurationEncryptionConfigurationArgs:
                  key_id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] key_id: ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        :param pulumi.Input[_builtins.str] key_id: ARN of the Amazon Web Services KMS customer managed key.
         :param pulumi.Input[_builtins.str] type: Type of KMS key to use for encryption of your Network Firewall resources. Valid values: `AWS_OWNED_KMS_KEY`, `CUSTOMER_KMS`.
         """
         pulumi.set(__self__, "key_id", key_id)
@@ -3186,7 +3186,7 @@ class TlsInspectionConfigurationEncryptionConfigurationArgs:
     @pulumi.getter(name="keyId")
     def key_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ARN of the Amazon Web Services Key Management Service (KMS) customer managed key.
+        ARN of the Amazon Web Services KMS customer managed key.
         """
         return pulumi.get(self, "key_id")
 
@@ -3432,7 +3432,7 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     """
     protocols: pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]
     """
-    Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+    Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
     """
     destination_ports: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgsDict']]]]]
     """
@@ -3457,7 +3457,7 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
                  sources: pulumi.Input[Optional[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationArgs']]] destinations: Set of configuration blocks describing the destination IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any destination address. See Destination below for details.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] protocols: Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeDestinationPortArgs']]] destination_ports: Set of configuration blocks describing the destination ports to inspect for. If not specified, this matches with any destination port. See Destination Ports below for details.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourcePortArgs']]] source_ports: Set of configuration blocks describing the source ports to inspect for. If not specified, this matches with any source port. See Source Ports below for details.
         :param pulumi.Input[Sequence[pulumi.Input['TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfigurationScopeSourceArgs']]] sources: Set of configuration blocks describing the source IP address and address ranges to inspect for, in CIDR notation. If not specified, this matches with any source address. See Source below for details.
@@ -3487,7 +3487,7 @@ class TlsInspectionConfigurationTlsInspectionConfigurationServerCertificateConfi
     @pulumi.getter
     def protocols(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.int]]]:
         """
-        Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+        Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
         """
         return pulumi.get(self, "protocols")
 

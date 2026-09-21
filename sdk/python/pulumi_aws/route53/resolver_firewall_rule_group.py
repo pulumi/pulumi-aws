@@ -86,7 +86,7 @@ class _ResolverFirewallRuleGroupState:
         """
         Input properties used for looking up and filtering ResolverFirewallRuleGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule group.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group, to manage and use it.
         :param pulumi.Input[_builtins.str] owner_id: The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -113,7 +113,7 @@ class _ResolverFirewallRuleGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the rule group.
+        ARN of the rule group.
         """
         return pulumi.get(self, "arn")
 
@@ -316,7 +316,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN (Amazon Resource Name) of the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule group.
         :param pulumi.Input[_builtins.str] name: A name that lets you identify the rule group, to manage and use it.
         :param pulumi.Input[_builtins.str] owner_id: The AWS account ID for the account that created the rule group. When a rule group is shared with your account, this is the account that has shared the rule group with you.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -341,7 +341,7 @@ class ResolverFirewallRuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the rule group.
+        ARN of the rule group.
         """
         return pulumi.get(self, "arn")
 

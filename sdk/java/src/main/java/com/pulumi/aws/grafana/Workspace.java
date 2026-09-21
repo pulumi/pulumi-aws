@@ -154,14 +154,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return this.accountAccessType;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Grafana workspace.
+     * ARN of the Grafana workspace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Grafana workspace.
+     * @return ARN of the Grafana workspace.
      * 
      */
     public Output<String> arn() {

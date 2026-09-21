@@ -134,7 +134,7 @@ __all__ = [
 class ContainerRecipeComponentArgsDict(TypedDict):
     component_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the Image Builder Component to associate.
+    ARN of the Image Builder Component to associate.
     """
     parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgsDict']]]]]
     """
@@ -147,7 +147,7 @@ class ContainerRecipeComponentArgs:
                  component_arn: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param pulumi.Input[_builtins.str] component_arn: ARN of the Image Builder Component to associate.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentParameterArgs']]] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
@@ -158,7 +158,7 @@ class ContainerRecipeComponentArgs:
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        ARN of the Image Builder Component to associate.
         """
         return pulumi.get(self, "component_arn")
 
@@ -379,7 +379,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgsDict(TypedDic
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+    ARN of the KMS Key for encryption.
     """
     snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -413,7 +413,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs:
         :param pulumi.Input[_builtins.str] delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input[_builtins.str] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input[_builtins.int] iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key for encryption.
         :param pulumi.Input[_builtins.str] snapshot_id: Identifier of the EC2 Volume Snapshot.
         :param pulumi.Input[_builtins.int] throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
         :param pulumi.Input[_builtins.int] volume_size: Size of the volume, in GiB.
@@ -476,7 +476,7 @@ class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        ARN of the KMS Key for encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -587,7 +587,7 @@ class DistributionConfigurationDistributionArgsDict(TypedDict):
     """
     ami_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict']]]
     """
-    Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+    Configuration block with AMI distribution settings. Detailed below.
     """
     container_distribution_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionContainerDistributionConfigurationArgsDict']]]
     """
@@ -603,7 +603,7 @@ class DistributionConfigurationDistributionArgsDict(TypedDict):
     """
     license_configuration_arns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
-    Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+    Set of ARNs of License Manager License Configurations.
     """
     s3_export_configuration: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionS3ExportConfigurationArgsDict']]]
     """
@@ -627,11 +627,11 @@ class DistributionConfigurationDistributionArgs:
                  ssm_parameter_configurations: pulumi.Input[Optional[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configuration: Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationArgs'] ami_distribution_configuration: Configuration block with AMI distribution settings. Detailed below.
         :param pulumi.Input['DistributionConfigurationDistributionContainerDistributionConfigurationArgs'] container_distribution_configuration: Configuration block with container distribution settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionFastLaunchConfigurationArgs']]] fast_launch_configurations: Set of Windows faster-launching configurations to use for AMI distribution. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionLaunchTemplateConfigurationArgs']]] launch_template_configurations: Set of launch template configuration settings that apply to image distribution. Detailed below.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] license_configuration_arns: Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] license_configuration_arns: Set of ARNs of License Manager License Configurations.
         :param pulumi.Input['DistributionConfigurationDistributionS3ExportConfigurationArgs'] s3_export_configuration: Configuration block with S3 export settings. Detailed below.
         :param pulumi.Input[Sequence[pulumi.Input['DistributionConfigurationDistributionSsmParameterConfigurationArgs']]] ssm_parameter_configurations: Configuration block with SSM parameter configuration to use as AMI id output. Detailed below.
         """
@@ -667,7 +667,7 @@ class DistributionConfigurationDistributionArgs:
     @pulumi.getter(name="amiDistributionConfiguration")
     def ami_distribution_configuration(self) -> pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationArgs']]:
         """
-        Configuration block with Amazon Machine Image (AMI) distribution settings. Detailed below.
+        Configuration block with AMI distribution settings. Detailed below.
         """
         return pulumi.get(self, "ami_distribution_configuration")
 
@@ -715,7 +715,7 @@ class DistributionConfigurationDistributionArgs:
     @pulumi.getter(name="licenseConfigurationArns")
     def license_configuration_arns(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        Set of ARNs of License Manager License Configurations.
         """
         return pulumi.get(self, "license_configuration_arns")
 
@@ -759,7 +759,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgsDict(
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+    ARN of the KMS Key to encrypt the distributed AMI.
     """
     launch_permission: NotRequired[pulumi.Input[Optional['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgsDict']]]
     """
@@ -786,7 +786,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
         """
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] ami_tags: Key-value map of tags to apply to the distributed AMI.
         :param pulumi.Input[_builtins.str] description: Description to apply to the distributed AMI.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key to encrypt the distributed AMI.
         :param pulumi.Input['DistributionConfigurationDistributionAmiDistributionConfigurationLaunchPermissionArgs'] launch_permission: Configuration block of EC2 launch permissions to apply to the distributed AMI. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name to apply to the distributed AMI.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] target_account_ids: Set of AWS Account identifiers to distribute the AMI.
@@ -832,7 +832,7 @@ class DistributionConfigurationDistributionAmiDistributionConfigurationArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key to encrypt the distributed AMI.
+        ARN of the KMS Key to encrypt the distributed AMI.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -1686,7 +1686,7 @@ class ImageLoggingConfigurationArgs:
 class ImageOutputResourceArgsDict(TypedDict):
     amis: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceAmiArgsDict']]]]]
     """
-    Set of objects with each Amazon Machine Image (AMI) created.
+    Set of objects with each AMI created.
     """
     containers: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceContainerArgsDict']]]]]
     """
@@ -1699,7 +1699,7 @@ class ImageOutputResourceArgs:
                  amis: pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]] = None,
                  containers: pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]] amis: Set of objects with each Amazon Machine Image (AMI) created.
+        :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]] amis: Set of objects with each AMI created.
         :param pulumi.Input[Sequence[pulumi.Input['ImageOutputResourceContainerArgs']]] containers: Set of objects with each container image created and stored in the output repository.
         """
         if amis is not None:
@@ -1711,7 +1711,7 @@ class ImageOutputResourceArgs:
     @pulumi.getter
     def amis(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ImageOutputResourceAmiArgs']]]]:
         """
-        Set of objects with each Amazon Machine Image (AMI) created.
+        Set of objects with each AMI created.
         """
         return pulumi.get(self, "amis")
 
@@ -2156,7 +2156,7 @@ class ImagePipelineScheduleArgs:
 class ImagePipelineWorkflowArgsDict(TypedDict):
     workflow_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the Image Builder Workflow.
+    ARN of the Image Builder Workflow.
 
     The following arguments are optional:
     """
@@ -2181,7 +2181,7 @@ class ImagePipelineWorkflowArgs:
                  parallel_group: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ImagePipelineWorkflowParameterArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] workflow_arn: Amazon Resource Name (ARN) of the Image Builder Workflow.
+        :param pulumi.Input[_builtins.str] workflow_arn: ARN of the Image Builder Workflow.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] on_failure: The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
@@ -2200,7 +2200,7 @@ class ImagePipelineWorkflowArgs:
     @pulumi.getter(name="workflowArn")
     def workflow_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Workflow.
+        ARN of the Image Builder Workflow.
 
         The following arguments are optional:
         """
@@ -2398,7 +2398,7 @@ class ImageRecipeBlockDeviceMappingEbsArgsDict(TypedDict):
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+    ARN of the KMS Key for encryption.
     """
     snapshot_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -2432,7 +2432,7 @@ class ImageRecipeBlockDeviceMappingEbsArgs:
         :param pulumi.Input[_builtins.str] delete_on_termination: Whether to delete the volume on termination. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input[_builtins.str] encrypted: Whether to encrypt the volume. Defaults to unset, which is the value inherited from the parent image.
         :param pulumi.Input[_builtins.int] iops: Number of Input/Output (I/O) operations per second to provision for an `io1` or `io2` volume.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key for encryption.
         :param pulumi.Input[_builtins.str] snapshot_id: Identifier of the EC2 Volume Snapshot.
         :param pulumi.Input[_builtins.int] throughput: For GP3 volumes only. The throughput in MiB/s that the volume supports.
         :param pulumi.Input[_builtins.int] volume_size: Size of the volume, in GiB.
@@ -2495,7 +2495,7 @@ class ImageRecipeBlockDeviceMappingEbsArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+        ARN of the KMS Key for encryption.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -2555,7 +2555,7 @@ class ImageRecipeBlockDeviceMappingEbsArgs:
 class ImageRecipeComponentArgsDict(TypedDict):
     component_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the Image Builder Component to associate.
+    ARN of the Image Builder Component to associate.
     """
     parameters: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentParameterArgsDict']]]]]
     """
@@ -2568,7 +2568,7 @@ class ImageRecipeComponentArgs:
                  component_arn: pulumi.Input[_builtins.str],
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] component_arn: Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        :param pulumi.Input[_builtins.str] component_arn: ARN of the Image Builder Component to associate.
         :param pulumi.Input[Sequence[pulumi.Input['ImageRecipeComponentParameterArgs']]] parameters: Configuration block(s) for parameters to configure the component. Detailed below.
         """
         pulumi.set(__self__, "component_arn", component_arn)
@@ -2579,7 +2579,7 @@ class ImageRecipeComponentArgs:
     @pulumi.getter(name="componentArn")
     def component_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Component to associate.
+        ARN of the Image Builder Component to associate.
         """
         return pulumi.get(self, "component_arn")
 
@@ -2678,7 +2678,7 @@ class ImageRecipeSystemsManagerAgentArgs:
 class ImageWorkflowArgsDict(TypedDict):
     workflow_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the Image Builder Workflow.
+    ARN of the Image Builder Workflow.
 
     The following arguments are optional:
     """
@@ -2703,7 +2703,7 @@ class ImageWorkflowArgs:
                  parallel_group: pulumi.Input[Optional[_builtins.str]] = None,
                  parameters: pulumi.Input[Optional[Sequence[pulumi.Input['ImageWorkflowParameterArgs']]]] = None):
         """
-        :param pulumi.Input[_builtins.str] workflow_arn: Amazon Resource Name (ARN) of the Image Builder Workflow.
+        :param pulumi.Input[_builtins.str] workflow_arn: ARN of the Image Builder Workflow.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] on_failure: The action to take if the workflow fails. Must be one of `CONTINUE` or `ABORT`.
@@ -2722,7 +2722,7 @@ class ImageWorkflowArgs:
     @pulumi.getter(name="workflowArn")
     def workflow_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Image Builder Workflow.
+        ARN of the Image Builder Workflow.
 
         The following arguments are optional:
         """

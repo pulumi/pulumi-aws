@@ -105,7 +105,7 @@ namespace Pulumi.Aws.ElastiCache
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// VPC identifier (VPC ID) of the cache subnet group.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -265,7 +265,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        /// VPC identifier (VPC ID) of the cache subnet group.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

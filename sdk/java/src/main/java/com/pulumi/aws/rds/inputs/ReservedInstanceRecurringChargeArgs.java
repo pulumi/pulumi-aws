@@ -16,16 +16,32 @@ public final class ReservedInstanceRecurringChargeArgs extends com.pulumi.resour
 
     public static final ReservedInstanceRecurringChargeArgs Empty = new ReservedInstanceRecurringChargeArgs();
 
+    /**
+     * Amount of the recurring charge.
+     * 
+     */
     @Import(name="recurringChargeAmount")
     private @Nullable Output<Integer> recurringChargeAmount;
 
+    /**
+     * @return Amount of the recurring charge.
+     * 
+     */
     public Optional<Output<Integer>> recurringChargeAmount() {
         return Optional.ofNullable(this.recurringChargeAmount);
     }
 
+    /**
+     * Frequency of the recurring charge.
+     * 
+     */
     @Import(name="recurringChargeFrequency")
     private @Nullable Output<String> recurringChargeFrequency;
 
+    /**
+     * @return Frequency of the recurring charge.
+     * 
+     */
     public Optional<Output<String>> recurringChargeFrequency() {
         return Optional.ofNullable(this.recurringChargeFrequency);
     }
@@ -55,20 +71,44 @@ public final class ReservedInstanceRecurringChargeArgs extends com.pulumi.resour
             $ = new ReservedInstanceRecurringChargeArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param recurringChargeAmount Amount of the recurring charge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurringChargeAmount(@Nullable Output<Integer> recurringChargeAmount) {
             $.recurringChargeAmount = recurringChargeAmount;
             return this;
         }
 
+        /**
+         * @param recurringChargeAmount Amount of the recurring charge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurringChargeAmount(Integer recurringChargeAmount) {
             return recurringChargeAmount(Output.of(recurringChargeAmount));
         }
 
+        /**
+         * @param recurringChargeFrequency Frequency of the recurring charge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurringChargeFrequency(@Nullable Output<String> recurringChargeFrequency) {
             $.recurringChargeFrequency = recurringChargeFrequency;
             return this;
         }
 
+        /**
+         * @param recurringChargeFrequency Frequency of the recurring charge.
+         * 
+         * @return builder
+         * 
+         */
         public Builder recurringChargeFrequency(String recurringChargeFrequency) {
             return recurringChargeFrequency(Output.of(recurringChargeFrequency));
         }

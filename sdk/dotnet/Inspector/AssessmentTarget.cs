@@ -46,9 +46,9 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Inspector assessment target.
+    /// - `Arn` (String) ARN of the Inspector assessment target.
     /// 
-    /// Using `pulumi import`, import Inspector Classic Assessment Targets using their Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import Inspector Classic Assessment Targets using their ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:inspector/assessmentTarget:AssessmentTarget example arn:aws:inspector:us-east-1:123456789012:target/0-xxxxxxx
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.Inspector
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        /// Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
         [Output("resourceGroupArn")]
         public Output<string?> ResourceGroupArn { get; private set; } = null!;
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Inspector
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        /// Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
         [Input("resourceGroupArn")]
         public Input<string>? ResourceGroupArn { get; set; }
@@ -172,7 +172,7 @@ namespace Pulumi.Aws.Inspector
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Inspector Resource Group Amazon Resource Name (ARN) stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
+        /// Inspector Resource Group ARN stating tags for instance matching. If not specified, all EC2 instances in the current AWS account and region are included in the assessment target.
         /// </summary>
         [Input("resourceGroupArn")]
         public Input<string>? ResourceGroupArn { get; set; }

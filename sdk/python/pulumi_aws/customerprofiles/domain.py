@@ -173,7 +173,7 @@ class _DomainState:
         """
         Input properties used for looking up and filtering Domain resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Customer Profiles Domain.
         :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
         :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
         :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
@@ -211,7 +211,7 @@ class _DomainState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        ARN of the Customer Profiles Domain.
         """
         return pulumi.get(self, "arn")
 
@@ -591,7 +591,7 @@ class Domain(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Customer Profiles Domain.
         :param pulumi.Input[_builtins.str] dead_letter_queue_url: The URL of the SQS dead letter queue, which is used for reporting errors associated with ingesting data from third party applications.
         :param pulumi.Input[_builtins.str] default_encryption_key: The default encryption key, which is an AWS managed key, is used when no specific type of encryption key is specified. It is used to encrypt all data before it is placed in permanent or semi-permanent storage.
         :param pulumi.Input[_builtins.int] default_expiration_days: The default number of days until the data within the domain expires.
@@ -624,7 +624,7 @@ class Domain(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Customer Profiles Domain.
+        ARN of the Customer Profiles Domain.
         """
         return pulumi.get(self, "arn")
 

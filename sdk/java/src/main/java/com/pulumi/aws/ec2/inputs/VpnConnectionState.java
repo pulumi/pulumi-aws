@@ -24,14 +24,14 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
     public static final VpnConnectionState Empty = new VpnConnectionState();
 
     /**
-     * Amazon Resource Name (ARN) of the VPN Connection.
+     * ARN of the VPN Connection.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the VPN Connection.
+     * @return ARN of the VPN Connection.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -1279,7 +1279,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPN Connection.
+         * @param arn ARN of the VPN Connection.
          * 
          * @return builder
          * 
@@ -1290,7 +1290,7 @@ public final class VpnConnectionState extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the VPN Connection.
+         * @param arn ARN of the VPN Connection.
          * 
          * @return builder
          * 

@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  *
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["glue.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const exampleRole = new aws.iam.Role("example", {

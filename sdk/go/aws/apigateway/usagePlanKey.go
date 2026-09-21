@@ -36,13 +36,13 @@ import (
 //			}
 //			// ...
 //			myusageplan, err := apigateway.NewUsagePlan(ctx, "myusageplan", &apigateway.UsagePlanArgs{
-//				Name: pulumi.String("my_usage_plan"),
 //				ApiStages: apigateway.UsagePlanApiStageArray{
 //					&apigateway.UsagePlanApiStageArgs{
 //						ApiId: test.ID().ToIDOutput().ToStringOutput(),
 //						Stage: pulumi.Any(foo.StageName),
 //					},
 //				},
+//				Name: pulumi.String("my_usage_plan"),
 //			})
 //			if err != nil {
 //				return err

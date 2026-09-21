@@ -70,12 +70,8 @@ type GetAuthorizationTokenResult struct {
 }
 
 func GetAuthorizationTokenOutput(ctx *pulumi.Context, args GetAuthorizationTokenOutputArgs, opts ...pulumi.InvokeOption) GetAuthorizationTokenResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAuthorizationTokenResultOutput, error) {
-			args := v.(GetAuthorizationTokenArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", args, GetAuthorizationTokenResultOutput{}, options).(GetAuthorizationTokenResultOutput), nil
-		}).(GetAuthorizationTokenResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecrpublic/getAuthorizationToken:getAuthorizationToken", args, GetAuthorizationTokenResultOutput{}, options).(GetAuthorizationTokenResultOutput)
 }
 
 // A collection of arguments for invoking getAuthorizationToken.

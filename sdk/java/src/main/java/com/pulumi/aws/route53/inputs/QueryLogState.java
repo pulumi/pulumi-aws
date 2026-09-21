@@ -16,14 +16,14 @@ public final class QueryLogState extends com.pulumi.resources.ResourceArgs {
     public static final QueryLogState Empty = new QueryLogState();
 
     /**
-     * The Amazon Resource Name (ARN) of the Query Logging Config.
+     * ARN of the Query Logging Config.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Query Logging Config.
+     * @return ARN of the Query Logging Config.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -87,7 +87,7 @@ public final class QueryLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Query Logging Config.
+         * @param arn ARN of the Query Logging Config.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class QueryLogState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Query Logging Config.
+         * @param arn ARN of the Query Logging Config.
          * 
          * @return builder
          * 

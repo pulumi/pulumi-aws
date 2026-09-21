@@ -31,17 +31,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTable("example", {
- *     name: "MyCatalogTable",
- *     databaseName: "MyCatalogDatabase",
- *     tableType: "EXTERNAL_TABLE",
- *     parameters: {
- *         EXTERNAL: "TRUE",
- *         "parquet.compression": "SNAPPY",
- *     },
  *     storageDescriptor: {
- *         location: "s3://my-bucket/event-streams/my-stream",
- *         inputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
- *         outputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
  *         serDeInfo: {
  *             name: "my-stream",
  *             serializationLibrary: "org.apache.hadoop.hive.ql.io.parquet.serde.ParquetHiveSerDe",
@@ -74,6 +64,16 @@ import * as utilities from "../utilities";
  *                 comment: "",
  *             },
  *         ],
+ *         location: "s3://my-bucket/event-streams/my-stream",
+ *         inputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetInputFormat",
+ *         outputFormat: "org.apache.hadoop.hive.ql.io.parquet.MapredParquetOutputFormat",
+ *     },
+ *     name: "MyCatalogTable",
+ *     databaseName: "MyCatalogDatabase",
+ *     tableType: "EXTERNAL_TABLE",
+ *     parameters: {
+ *         EXTERNAL: "TRUE",
+ *         "parquet.compression": "SNAPPY",
  *     },
  * });
  * ```
@@ -85,17 +85,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTable("example", {
- *     name: "transactiontable1",
- *     databaseName: "bankdata_icebergdb",
  *     openTableFormatInput: {
  *         icebergInput: {
- *             metadataOperation: "CREATE",
- *             version: "2",
  *             icebergTableInput: {
- *                 location: "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
  *                 schema: {
- *                     schemaId: 0,
- *                     type: "struct",
  *                     fields: [
  *                         {
  *                             id: 1,
@@ -116,6 +109,8 @@ import * as utilities from "../utilities";
  *                             type: "            \\\"float\\\"\n",
  *                         },
  *                     ],
+ *                     schemaId: 0,
+ *                     type: "struct",
  *                 },
  *                 partitionSpec: {
  *                     fields: [{
@@ -134,9 +129,14 @@ import * as utilities from "../utilities";
  *                     }],
  *                     orderId: 1,
  *                 },
+ *                 location: "s3://sampledatabucket/bankdataiceberg/transactiontable1/",
  *             },
+ *             metadataOperation: "CREATE",
+ *             version: "2",
  *         },
  *     },
+ *     name: "transactiontable1",
+ *     databaseName: "bankdata_icebergdb",
  * });
  * ```
  *
@@ -147,22 +147,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.CatalogTable("example", {
- *     name: "multidialect_view",
- *     databaseName: "catalog_database",
- *     tableType: "VIRTUAL_VIEW",
  *     viewDefinition: {
- *         isProtected: true,
  *         representations: [{
  *             dialect: "ATHENA",
  *             dialectVersion: "3",
  *             viewOriginalText: "SELECT * FROM catalog_database.base_table",
  *             validationConnection: exampleAwsGlueConnection.name,
  *         }],
+ *         isProtected: true,
  *     },
+ *     name: "multidialect_view",
+ *     databaseName: "catalog_database",
+ *     tableType: "VIRTUAL_VIEW",
  * });
  * ```
  *
  * ## Import
+ *
+ * ### Identity Schema
+ *
+ * #### Required
+ *
+ * * `catalogId` - (String) ID of the Glue Catalog.
+ * * `databaseName` - (String) Name of the Glue Catalog Database.
+ * * `name` - (String) Name of the Glue Catalog Table.
+ *
+ * #### Optional
+ *
+ * * `accountId` - (String) AWS Account where this resource is managed.
+ * * `region` - (String) Region where this resource is managed.
  *
  * Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
  *
@@ -263,7 +276,7 @@ export class CatalogTable extends pulumi.CustomResource {
     /**
      * Structure that contains all the information that defines the view, including the dialect or dialects for the view, and the query. See `viewDefinition` below.
      */
-    declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition | undefined>;
+    declare public readonly viewDefinition: pulumi.Output<outputs.glue.CatalogTableViewDefinition>;
     /**
      * If the table is a view, the expanded text of the view; otherwise null.
      */

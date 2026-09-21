@@ -16,7 +16,7 @@ var _ = internal.GetEnvOrDefault
 type StreamKinesisConfiguration struct {
 	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 	AggregationEnabled *bool `pulumi:"aggregationEnabled"`
-	// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+	// ARN of the Kinesis Data Streams resource.
 	StreamArn string `pulumi:"streamArn"`
 }
 
@@ -34,7 +34,7 @@ type StreamKinesisConfigurationInput interface {
 type StreamKinesisConfigurationArgs struct {
 	// Enables QLDB to publish multiple data records in a single Kinesis Data Streams record, increasing the number of records sent per API call. Default: `true`.
 	AggregationEnabled pulumi.BoolPtrInput `pulumi:"aggregationEnabled"`
-	// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+	// ARN of the Kinesis Data Streams resource.
 	StreamArn pulumi.StringInput `pulumi:"streamArn"`
 }
 
@@ -120,7 +120,7 @@ func (o StreamKinesisConfigurationOutput) AggregationEnabled() pulumi.BoolPtrOut
 	return o.ApplyT(func(v StreamKinesisConfiguration) *bool { return v.AggregationEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+// ARN of the Kinesis Data Streams resource.
 func (o StreamKinesisConfigurationOutput) StreamArn() pulumi.StringOutput {
 	return o.ApplyT(func(v StreamKinesisConfiguration) string { return v.StreamArn }).(pulumi.StringOutput)
 }
@@ -159,7 +159,7 @@ func (o StreamKinesisConfigurationPtrOutput) AggregationEnabled() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+// ARN of the Kinesis Data Streams resource.
 func (o StreamKinesisConfigurationPtrOutput) StreamArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StreamKinesisConfiguration) *string {
 		if v == nil {

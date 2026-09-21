@@ -472,7 +472,6 @@ class EventDataStore(pulumi.CustomResource):
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[{
-            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             "field_selectors": [
                 {
                     "field": "eventCategory",
@@ -491,6 +490,7 @@ class EventDataStore(pulumi.CustomResource):
                     "equals": [table.arn],
                 },
             ],
+            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
         }])
         ```
 
@@ -500,7 +500,7 @@ class EventDataStore(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
+        - `arn` (String) ARN of the CloudTrail event data store.
 
         Using `pulumi import`, import event data stores using their `arn`. For example:
 
@@ -563,7 +563,6 @@ class EventDataStore(pulumi.CustomResource):
 
         table = aws.dynamodb.get_table(name="not-important-dynamodb-table")
         example = aws.cloudtrail.EventDataStore("example", advanced_event_selectors=[{
-            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
             "field_selectors": [
                 {
                     "field": "eventCategory",
@@ -582,6 +581,7 @@ class EventDataStore(pulumi.CustomResource):
                     "equals": [table.arn],
                 },
             ],
+            "name": "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
         }])
         ```
 
@@ -591,7 +591,7 @@ class EventDataStore(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
+        - `arn` (String) ARN of the CloudTrail event data store.
 
         Using `pulumi import`, import event data stores using their `arn`. For example:
 

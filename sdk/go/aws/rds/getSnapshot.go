@@ -53,7 +53,9 @@ import (
 //				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:             pulumi.String("mydbdev"),
 //				SnapshotIdentifier: latestProdSnapshot.Id(),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"snapshotIdentifier",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -74,28 +76,21 @@ func LookupSnapshot(ctx *pulumi.Context, args *LookupSnapshotArgs, opts ...pulum
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotArgs struct {
-	// Returns the list of snapshots created by the specific db_instance
+	// Returns the list of snapshots created by the specific db_instance.
 	DbInstanceIdentifier *string `pulumi:"dbInstanceIdentifier"`
 	// Returns information on a specific snapshot_id.
 	DbSnapshotIdentifier *string `pulumi:"dbSnapshotIdentifier"`
-	// Set this value to true to include manual DB snapshots that are public and can be
-	// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+	// Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
 	IncludePublic *bool `pulumi:"includePublic"`
-	// Set this value to true to include shared manual DB snapshots from other
-	// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-	// The default is `false`.
+	// Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
 	IncludeShared *bool `pulumi:"includeShared"`
-	// If more than one result is returned, use the most
-	// recent Snapshot.
+	// If more than one result is returned, use the most recent Snapshot.
 	MostRecent *bool `pulumi:"mostRecent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Type of snapshots to be returned. If you don't specify a SnapshotType
-	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+	// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType *string `pulumi:"snapshotType"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired DB snapshot.
+	// Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
 	//
 	// > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
 	Tags map[string]string `pulumi:"tags"`
@@ -132,8 +127,9 @@ type LookupSnapshotResult struct {
 	OptionGroupName string `pulumi:"optionGroupName"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Doesn't change when the snapshot is copied.
 	OriginalSnapshotCreateTime string `pulumi:"originalSnapshotCreateTime"`
-	Port                       int    `pulumi:"port"`
-	Region                     string `pulumi:"region"`
+	// Port that the database engine was listening on at the time of the snapshot.
+	Port   int    `pulumi:"port"`
+	Region string `pulumi:"region"`
 	// Provides the time when the snapshot was taken, in Universal Coordinated Time (UTC). Changes for the copy when the snapshot is copied.
 	SnapshotCreateTime string  `pulumi:"snapshotCreateTime"`
 	SnapshotType       *string `pulumi:"snapshotType"`
@@ -151,38 +147,27 @@ type LookupSnapshotResult struct {
 }
 
 func LookupSnapshotOutput(ctx *pulumi.Context, args LookupSnapshotOutputArgs, opts ...pulumi.InvokeOption) LookupSnapshotResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSnapshotResultOutput, error) {
-			args := v.(LookupSnapshotArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput), nil
-		}).(LookupSnapshotResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getSnapshot:getSnapshot", args, LookupSnapshotResultOutput{}, options).(LookupSnapshotResultOutput)
 }
 
 // A collection of arguments for invoking getSnapshot.
 type LookupSnapshotOutputArgs struct {
-	// Returns the list of snapshots created by the specific db_instance
+	// Returns the list of snapshots created by the specific db_instance.
 	DbInstanceIdentifier pulumi.StringPtrInput `pulumi:"dbInstanceIdentifier"`
 	// Returns information on a specific snapshot_id.
 	DbSnapshotIdentifier pulumi.StringPtrInput `pulumi:"dbSnapshotIdentifier"`
-	// Set this value to true to include manual DB snapshots that are public and can be
-	// copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
+	// Set this value to true to include manual DB snapshots that are public and can be copied or restored by any AWS account, otherwise set this value to false. The default is `false`.
 	IncludePublic pulumi.BoolPtrInput `pulumi:"includePublic"`
-	// Set this value to true to include shared manual DB snapshots from other
-	// AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false.
-	// The default is `false`.
+	// Set this value to true to include shared manual DB snapshots from other AWS accounts that this AWS account has been given permission to copy or restore, otherwise set this value to false. The default is `false`.
 	IncludeShared pulumi.BoolPtrInput `pulumi:"includeShared"`
-	// If more than one result is returned, use the most
-	// recent Snapshot.
+	// If more than one result is returned, use the most recent Snapshot.
 	MostRecent pulumi.BoolPtrInput `pulumi:"mostRecent"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// Type of snapshots to be returned. If you don't specify a SnapshotType
-	// value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not
-	// included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
+	// Type of snapshots to be returned. If you don't specify a SnapshotType value, then both automated and manual snapshots are returned. Shared and public DB snapshots are not included in the returned results by default. Possible values are, `automated`, `manual`, `shared`, `public` and `awsbackup`.
 	SnapshotType pulumi.StringPtrInput `pulumi:"snapshotType"`
-	// Mapping of tags, each pair of which must exactly match
-	// a pair on the desired DB snapshot.
+	// Mapping of tags, each pair of which must exactly match a pair on the desired DB snapshot.
 	//
 	// > **NOTE:** One of either `dbInstanceIdentifier` or `dbSnapshotIdentifier` is required.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
@@ -287,6 +272,7 @@ func (o LookupSnapshotResultOutput) OriginalSnapshotCreateTime() pulumi.StringOu
 	return o.ApplyT(func(v LookupSnapshotResult) string { return v.OriginalSnapshotCreateTime }).(pulumi.StringOutput)
 }
 
+// Port that the database engine was listening on at the time of the snapshot.
 func (o LookupSnapshotResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupSnapshotResult) int { return v.Port }).(pulumi.IntOutput)
 }

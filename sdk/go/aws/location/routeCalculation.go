@@ -51,7 +51,7 @@ import (
 type RouteCalculation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+	// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 	CalculatorArn pulumi.StringOutput `pulumi:"calculatorArn"`
 	// The name of the route calculator resource.
 	CalculatorName pulumi.StringOutput `pulumi:"calculatorName"`
@@ -109,7 +109,7 @@ func GetRouteCalculation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering RouteCalculation resources.
 type routeCalculationState struct {
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+	// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 	CalculatorArn *string `pulumi:"calculatorArn"`
 	// The name of the route calculator resource.
 	CalculatorName *string `pulumi:"calculatorName"`
@@ -132,7 +132,7 @@ type routeCalculationState struct {
 }
 
 type RouteCalculationState struct {
-	// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+	// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 	CalculatorArn pulumi.StringPtrInput
 	// The name of the route calculator resource.
 	CalculatorName pulumi.StringPtrInput
@@ -276,7 +276,7 @@ func (o RouteCalculationOutput) ToRouteCalculationOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the Route calculator resource. Use the ARN when you specify a resource across AWS.
+// ARN for the Route calculator resource. Use the ARN when you specify a resource across AWS.
 func (o RouteCalculationOutput) CalculatorArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *RouteCalculation) pulumi.StringOutput { return v.CalculatorArn }).(pulumi.StringOutput)
 }

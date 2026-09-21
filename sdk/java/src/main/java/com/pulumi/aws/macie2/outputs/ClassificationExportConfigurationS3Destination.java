@@ -23,7 +23,7 @@ public final class ClassificationExportConfigurationS3Destination {
      */
     private @Nullable String keyPrefix;
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
      * 
@@ -46,7 +46,7 @@ public final class ClassificationExportConfigurationS3Destination {
         return Optional.ofNullable(this.keyPrefix);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      * Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
      * 

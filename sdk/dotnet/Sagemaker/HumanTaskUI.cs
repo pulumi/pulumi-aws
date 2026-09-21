@@ -25,7 +25,6 @@ namespace Pulumi.Aws.Sagemaker
     /// {
     ///     var example = new Aws.Sagemaker.HumanTaskUI("example", new()
     ///     {
-    ///         HumanTaskUiName = "example",
     ///         UiTemplate = new Aws.Sagemaker.Inputs.HumanTaskUIUiTemplateArgs
     ///         {
     ///             Content = Std.File.Invoke(new()
@@ -33,6 +32,7 @@ namespace Pulumi.Aws.Sagemaker
     ///                 Input = "sagemaker-human-task-ui-template.html",
     ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
+    ///         HumanTaskUiName = "example",
     ///     });
     /// 
     /// });
@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class HumanTaskUI : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        /// ARN assigned by AWS to this Human Task UI.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class HumanTaskUIState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        /// ARN assigned by AWS to this Human Task UI.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

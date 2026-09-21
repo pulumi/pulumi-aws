@@ -80,7 +80,7 @@ export class KeyvaluestoreKey extends pulumi.CustomResource {
      */
     declare public readonly key: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      */
     declare public readonly keyValueStoreArn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export interface KeyvaluestoreKeyState {
      */
     key?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      */
     keyValueStoreArn?: pulumi.Input<string | undefined>;
     /**
@@ -161,7 +161,7 @@ export interface KeyvaluestoreKeyArgs {
      */
     key: pulumi.Input<string>;
     /**
-     * Amazon Resource Name (ARN) of the Key Value Store.
+     * ARN of the Key Value Store.
      */
     keyValueStoreArn: pulumi.Input<string>;
     /**

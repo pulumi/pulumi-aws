@@ -387,19 +387,9 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -414,9 +404,19 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
+                    }],
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Basic outbound/engress inspection
@@ -426,21 +426,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
                     "check_certificate_revocation_status": {
                         "revoked_status_action": "REJECT",
                         "unknown_status_action": "PASS",
                     },
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -455,9 +447,17 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
                     }],
+                    "certificate_authority_arn": example1["arn"],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Inbound with encryption configuration
@@ -470,19 +470,9 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -497,9 +487,19 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
+                    }],
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": example.arn,
+                "type": "CUSTOMER_KMS",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Outbound with encryption configuration
@@ -512,38 +512,38 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configurations": [{
-                    "certificateAuthorityArn": example1["arn"],
                     "checkCertificateRevocationStatus": [{
                         "revokedStatusAction": "REJECT",
                         "unknownStatusAction": "PASS",
                     }],
                     "scope": [{
-                        "protocols": [6],
+                        "destination": [{
+                            "addressDefinition": "0.0.0.0/0",
+                        }],
                         "destinationPorts": [{
                             "fromPort": 443,
                             "toPort": 443,
                         }],
-                        "destination": [{
+                        "source": [{
                             "addressDefinition": "0.0.0.0/0",
                         }],
                         "sourcePorts": [{
                             "fromPort": 0,
                             "toPort": 65535,
                         }],
-                        "source": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
+                        "protocols": [6],
                     }],
+                    "certificateAuthorityArn": example1["arn"],
                 }],
-            })
+            },
+            encryption_configurations=[{
+                "key_id": example.arn,
+                "type": "CUSTOMER_KMS",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Combined inbound and outbound
@@ -553,24 +553,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
                     "check_certificate_revocation_status": {
                         "revoked_status_action": "REJECT",
                         "unknown_status_action": "PASS",
                     },
-                    "server_certificates": [{
-                        "resource_arn": example2["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -585,9 +574,20 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
                     }],
+                    "server_certificates": [{
+                        "resource_arn": example2["arn"],
+                    }],
+                    "certificate_authority_arn": example1["arn"],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ## Import
@@ -596,7 +596,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+        - `arn` (String) ARN of the Network Firewall TLS inspection configuration.
 
         Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 
@@ -635,19 +635,9 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -662,9 +652,19 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
+                    }],
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Basic outbound/engress inspection
@@ -674,21 +674,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
                     "check_certificate_revocation_status": {
                         "revoked_status_action": "REJECT",
                         "unknown_status_action": "PASS",
                     },
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -703,9 +695,17 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
                     }],
+                    "certificate_authority_arn": example1["arn"],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Inbound with encryption configuration
@@ -718,19 +718,9 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "server_certificates": [{
-                        "resource_arn": example1["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -745,9 +735,19 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
+                    }],
+                    "server_certificates": [{
+                        "resource_arn": example1["arn"],
                     }],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": example.arn,
+                "type": "CUSTOMER_KMS",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Outbound with encryption configuration
@@ -760,38 +760,38 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
             description="example",
             deletion_window_in_days=7)
         example_tls_inspection_configuration = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": example.arn,
-                "type": "CUSTOMER_KMS",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configurations": [{
-                    "certificateAuthorityArn": example1["arn"],
                     "checkCertificateRevocationStatus": [{
                         "revokedStatusAction": "REJECT",
                         "unknownStatusAction": "PASS",
                     }],
                     "scope": [{
-                        "protocols": [6],
+                        "destination": [{
+                            "addressDefinition": "0.0.0.0/0",
+                        }],
                         "destinationPorts": [{
                             "fromPort": 443,
                             "toPort": 443,
                         }],
-                        "destination": [{
+                        "source": [{
                             "addressDefinition": "0.0.0.0/0",
                         }],
                         "sourcePorts": [{
                             "fromPort": 0,
                             "toPort": 65535,
                         }],
-                        "source": [{
-                            "addressDefinition": "0.0.0.0/0",
-                        }],
+                        "protocols": [6],
                     }],
+                    "certificateAuthorityArn": example1["arn"],
                 }],
-            })
+            },
+            encryption_configurations=[{
+                "key_id": example.arn,
+                "type": "CUSTOMER_KMS",
+            }],
+            name="example",
+            description="example")
         ```
 
         ### Combined inbound and outbound
@@ -801,24 +801,13 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.TlsInspectionConfiguration("example",
-            name="example",
-            description="example",
-            encryption_configurations=[{
-                "key_id": "AWS_OWNED_KMS_KEY",
-                "type": "AWS_OWNED_KMS_KEY",
-            }],
             tls_inspection_configuration={
                 "server_certificate_configuration": {
-                    "certificate_authority_arn": example1["arn"],
                     "check_certificate_revocation_status": {
                         "revoked_status_action": "REJECT",
                         "unknown_status_action": "PASS",
                     },
-                    "server_certificates": [{
-                        "resource_arn": example2["arn"],
-                    }],
                     "scopes": [{
-                        "protocols": [6],
                         "destination_ports": [{
                             "from_port": 443,
                             "to_port": 443,
@@ -833,9 +822,20 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
                         "sources": [{
                             "address_definition": "0.0.0.0/0",
                         }],
+                        "protocols": [6],
                     }],
+                    "server_certificates": [{
+                        "resource_arn": example2["arn"],
+                    }],
+                    "certificate_authority_arn": example1["arn"],
                 },
-            })
+            },
+            encryption_configurations=[{
+                "key_id": "AWS_OWNED_KMS_KEY",
+                "type": "AWS_OWNED_KMS_KEY",
+            }],
+            name="example",
+            description="example")
         ```
 
         ## Import
@@ -844,7 +844,7 @@ class TlsInspectionConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Network Firewall TLS inspection configuration.
+        - `arn` (String) ARN of the Network Firewall TLS inspection configuration.
 
         Using `pulumi import`, import Network Firewall TLS Inspection Configuration using the `arn`. For example:
 

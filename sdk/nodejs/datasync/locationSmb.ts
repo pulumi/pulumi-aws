@@ -33,9 +33,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync SMB location.
+ * - `arn` (String) ARN of the DataSync SMB location.
  *
- * Using `pulumi import`, import `aws.datasync.LocationSmb` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationSmb` using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -74,7 +74,7 @@ export class LocationSmb extends pulumi.CustomResource {
      */
     declare public readonly agentArns: pulumi.Output<string[]>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -186,7 +186,7 @@ export interface LocationSmbState {
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

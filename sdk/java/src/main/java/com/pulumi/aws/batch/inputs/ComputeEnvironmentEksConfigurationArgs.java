@@ -15,14 +15,14 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
     public static final ComputeEnvironmentEksConfigurationArgs Empty = new ComputeEnvironmentEksConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+     * ARN of the Amazon EKS cluster.
      * 
      */
     @Import(name="eksClusterArn", required=true)
     private Output<String> eksClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+     * @return ARN of the Amazon EKS cluster.
      * 
      */
     public Output<String> eksClusterArn() {
@@ -70,7 +70,7 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param eksClusterArn The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+         * @param eksClusterArn ARN of the Amazon EKS cluster.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class ComputeEnvironmentEksConfigurationArgs extends com.pulumi.res
         }
 
         /**
-         * @param eksClusterArn The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+         * @param eksClusterArn ARN of the Amazon EKS cluster.
          * 
          * @return builder
          * 

@@ -625,7 +625,7 @@ class Endpoint(pulumi.CustomResource):
                  verified_access_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+        Resource for managing an AWS EC2 Verified Access Endpoint.
 
         ## Example Usage
 
@@ -636,18 +636,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
             load_balancer_options={
                 "load_balancer_arn": example_aws_lb["arn"],
                 "port": 443,
                 "protocol": "https",
                 "subnet_ids": [subnet["id"] for subnet in public],
             },
+            application_domain="example.com",
+            attachment_type="vpc",
+            description="example",
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
+            endpoint_domain_prefix="example",
+            endpoint_type="load-balancer",
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -659,17 +659,17 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
+            network_interface_options={
+                "network_interface_id": example_aws_network_interface["id"],
+                "port": 443,
+                "protocol": "https",
+            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -681,18 +681,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
             cidr_options={
-                "cidr": test[0]["cidrBlock"],
                 "port_ranges": [{
                     "from_port": 443,
                     "to_port": 443,
                 }],
+                "cidr": test[0]["cidrBlock"],
                 "protocol": "tcp",
                 "subnet_ids": [subnet["id"] for subnet in test],
             },
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
             security_group_ids=[test_aws_security_group["id"]],
             verified_access_group_id=test_aws_verifiedaccess_group["id"])
         ```
@@ -733,7 +733,7 @@ class Endpoint(pulumi.CustomResource):
                  args: EndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
+        Resource for managing an AWS EC2 Verified Access Endpoint.
 
         ## Example Usage
 
@@ -744,18 +744,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            application_domain="example.com",
-            attachment_type="vpc",
-            description="example",
-            domain_certificate_arn=example_aws_acm_certificate["arn"],
-            endpoint_domain_prefix="example",
-            endpoint_type="load-balancer",
             load_balancer_options={
                 "load_balancer_arn": example_aws_lb["arn"],
                 "port": 443,
                 "protocol": "https",
                 "subnet_ids": [subnet["id"] for subnet in public],
             },
+            application_domain="example.com",
+            attachment_type="vpc",
+            description="example",
+            domain_certificate_arn=example_aws_acm_certificate["arn"],
+            endpoint_domain_prefix="example",
+            endpoint_type="load-balancer",
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -767,17 +767,17 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
+            network_interface_options={
+                "network_interface_id": example_aws_network_interface["id"],
+                "port": 443,
+                "protocol": "https",
+            },
             application_domain="example.com",
             attachment_type="vpc",
             description="example",
             domain_certificate_arn=example_aws_acm_certificate["arn"],
             endpoint_domain_prefix="example",
             endpoint_type="network-interface",
-            network_interface_options={
-                "network_interface_id": example_aws_network_interface["id"],
-                "port": 443,
-                "protocol": "https",
-            },
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
@@ -789,18 +789,18 @@ class Endpoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Endpoint("example",
-            attachment_type="vpc",
-            description="example",
-            endpoint_type="cidr",
             cidr_options={
-                "cidr": test[0]["cidrBlock"],
                 "port_ranges": [{
                     "from_port": 443,
                     "to_port": 443,
                 }],
+                "cidr": test[0]["cidrBlock"],
                 "protocol": "tcp",
                 "subnet_ids": [subnet["id"] for subnet in test],
             },
+            attachment_type="vpc",
+            description="example",
+            endpoint_type="cidr",
             security_group_ids=[test_aws_security_group["id"]],
             verified_access_group_id=test_aws_verifiedaccess_group["id"])
         ```

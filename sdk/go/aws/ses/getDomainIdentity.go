@@ -70,12 +70,8 @@ type LookupDomainIdentityResult struct {
 }
 
 func LookupDomainIdentityOutput(ctx *pulumi.Context, args LookupDomainIdentityOutputArgs, opts ...pulumi.InvokeOption) LookupDomainIdentityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainIdentityResultOutput, error) {
-			args := v.(LookupDomainIdentityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ses/getDomainIdentity:getDomainIdentity", args, LookupDomainIdentityResultOutput{}, options).(LookupDomainIdentityResultOutput), nil
-		}).(LookupDomainIdentityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ses/getDomainIdentity:getDomainIdentity", args, LookupDomainIdentityResultOutput{}, options).(LookupDomainIdentityResultOutput)
 }
 
 // A collection of arguments for invoking getDomainIdentity.

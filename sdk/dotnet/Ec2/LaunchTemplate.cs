@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     public partial class LaunchTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// ARN of the launch template.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -615,7 +615,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class LaunchTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the launch template.
+        /// ARN of the launch template.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

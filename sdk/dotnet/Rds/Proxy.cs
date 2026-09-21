@@ -28,6 +28,16 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.Proxy("example", new()
     ///     {
+    ///         Auths = new[]
+    ///         {
+    ///             new Aws.Rds.Inputs.ProxyAuthArgs
+    ///             {
+    ///                 AuthScheme = "SECRETS",
+    ///                 Description = "example",
+    ///                 IamAuth = "DISABLED",
+    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
+    ///             },
+    ///         },
     ///         Name = "example",
     ///         DebugLogging = false,
     ///         EngineFamily = "MYSQL",
@@ -41,16 +51,6 @@ namespace Pulumi.Aws.Rds
     ///         VpcSubnetIds = new[]
     ///         {
     ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         Auths = new[]
-    ///         {
-    ///             new Aws.Rds.Inputs.ProxyAuthArgs
-    ///             {
-    ///                 AuthScheme = "SECRETS",
-    ///                 Description = "example",
-    ///                 IamAuth = "DISABLED",
-    ///                 SecretArn = exampleAwsSecretsmanagerSecret.Arn,
-    ///             },
     ///         },
     ///         Tags = 
     ///         {
@@ -79,11 +79,6 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         ExcludeZoneIds = new[]
-    ///         {
-    ///             "use1-az3",
-    ///         },
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -95,6 +90,11 @@ namespace Pulumi.Aws.Rds
     ///                 },
     ///             },
     ///         },
+    ///         ExcludeZoneIds = new[]
+    ///         {
+    ///             "use1-az3",
+    ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.Vpc("example", new()
@@ -147,6 +147,12 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             exampleAwsSubnet.Id,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "vpcSubnetIds",
+    ///         },
     ///     });
     /// 
     /// });
@@ -164,7 +170,7 @@ namespace Pulumi.Aws.Rds
     public partial class Proxy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the proxy.
+        /// ARN for the proxy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -224,13 +230,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        /// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Output("requireTls")]
         public Output<bool?> RequireTls { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -366,13 +372,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        /// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Input("requireTls")]
         public Input<bool>? RequireTls { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -428,7 +434,7 @@ namespace Pulumi.Aws.Rds
     public sealed class ProxyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the proxy.
+        /// ARN for the proxy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -494,13 +500,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
+        /// Whether TLS encryption is required for connections to the proxy. Enabling this setting enforces encrypted TLS connections to the proxy.
         /// </summary>
         [Input("requireTls")]
         public Input<bool>? RequireTls { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
+        /// ARN of the IAM role that the proxy uses to access secrets in AWS Secrets Manager.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

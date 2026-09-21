@@ -52,7 +52,7 @@ func GetProducerDataShares(ctx *pulumi.Context, args *GetProducerDataSharesArgs,
 
 // A collection of arguments for invoking getProducerDataShares.
 type GetProducerDataSharesArgs struct {
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	// ARN of the producer namespace that returns in the list of datashares.
 	//
 	// The following arguments are optional:
 	ProducerArn string `pulumi:"producerArn"`
@@ -68,24 +68,20 @@ type GetProducerDataSharesResult struct {
 	DataShares []GetProducerDataSharesDataShare `pulumi:"dataShares"`
 	// Producer ARN.
 	Id string `pulumi:"id"`
-	// ARN (Amazon Resource Name) of the producer.
+	// ARN of the producer.
 	ProducerArn string  `pulumi:"producerArn"`
 	Region      string  `pulumi:"region"`
 	Status      *string `pulumi:"status"`
 }
 
 func GetProducerDataSharesOutput(ctx *pulumi.Context, args GetProducerDataSharesOutputArgs, opts ...pulumi.InvokeOption) GetProducerDataSharesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProducerDataSharesResultOutput, error) {
-			args := v.(GetProducerDataSharesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", args, GetProducerDataSharesResultOutput{}, options).(GetProducerDataSharesResultOutput), nil
-		}).(GetProducerDataSharesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshift/getProducerDataShares:getProducerDataShares", args, GetProducerDataSharesResultOutput{}, options).(GetProducerDataSharesResultOutput)
 }
 
 // A collection of arguments for invoking getProducerDataShares.
 type GetProducerDataSharesOutputArgs struct {
-	// Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+	// ARN of the producer namespace that returns in the list of datashares.
 	//
 	// The following arguments are optional:
 	ProducerArn pulumi.StringInput `pulumi:"producerArn"`
@@ -124,7 +120,7 @@ func (o GetProducerDataSharesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) of the producer.
+// ARN of the producer.
 func (o GetProducerDataSharesResultOutput) ProducerArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetProducerDataSharesResult) string { return v.ProducerArn }).(pulumi.StringOutput)
 }

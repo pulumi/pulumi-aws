@@ -316,10 +316,10 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--usw2-az1--x-s3",
             location={
                 "name": "usw2-az1",
-            })
+            },
+            bucket="example--usw2-az1--x-s3")
         ```
 
         ### Dedicated Local Zone
@@ -329,11 +329,11 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_local_zone = aws.s3.DirectoryBucket("example_local_zone",
-            bucket="example--usw2-xxx-lz1--x-s3",
             location={
                 "name": "usw2-xxx-lz1",
                 "type": "LocalZone",
-            })
+            },
+            bucket="example--usw2-xxx-lz1--x-s3")
         ```
 
         ## Import
@@ -384,10 +384,10 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.s3.DirectoryBucket("example",
-            bucket="example--usw2-az1--x-s3",
             location={
                 "name": "usw2-az1",
-            })
+            },
+            bucket="example--usw2-az1--x-s3")
         ```
 
         ### Dedicated Local Zone
@@ -397,11 +397,11 @@ class DirectoryBucket(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_local_zone = aws.s3.DirectoryBucket("example_local_zone",
-            bucket="example--usw2-xxx-lz1--x-s3",
             location={
                 "name": "usw2-xxx-lz1",
                 "type": "LocalZone",
-            })
+            },
+            bucket="example--usw2-xxx-lz1--x-s3")
         ```
 
         ## Import

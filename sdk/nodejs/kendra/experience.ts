@@ -19,10 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Experience("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     description: "My Kendra Experience",
- *     name: "example",
- *     roleArn: exampleAwsIamRole.arn,
  *     configuration: {
  *         contentSourceConfiguration: {
  *             directPutContent: true,
@@ -32,6 +28,10 @@ import * as utilities from "../utilities";
  *             identityAttributeName: "12345ec453-1546651e-79c4-4554-91fa-00b43ccfa245",
  *         },
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     description: "My Kendra Experience",
+ *     name: "example",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -106,7 +106,7 @@ export class Experience extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *
      * The following arguments are optional:
      */
@@ -202,7 +202,7 @@ export interface ExperienceState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *
      * The following arguments are optional:
      */
@@ -240,7 +240,7 @@ export interface ExperienceArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access `Query API`, `QuerySuggestions API`, `SubmitFeedback API`, and `AWS SSO` that stores your user and group information. For more information, see [IAM roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      *
      * The following arguments are optional:
      */

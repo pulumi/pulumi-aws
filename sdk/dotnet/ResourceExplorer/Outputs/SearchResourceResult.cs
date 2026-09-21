@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ResourceExplorer.Outputs
     public sealed class SearchResourceResult
     {
         /// <summary>
-        /// Amazon resource name of resource.
+        /// ARN of resource.
         /// </summary>
         public readonly string Arn;
         /// <summary>

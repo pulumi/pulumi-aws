@@ -46,13 +46,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FargateProfile("example", FargateProfileArgs.builder()
+ *             .selectors(FargateProfileSelectorArgs.builder()
+ *                 .namespace("example")
+ *                 .build())
  *             .clusterName(exampleAwsEksCluster.name())
  *             .fargateProfileName("example")
  *             .podExecutionRoleArn(exampleAwsIamRole.arn())
  *             .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
- *             .selectors(FargateProfileSelectorArgs.builder()
- *                 .namespace("example")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -136,14 +136,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:eks/fargateProfile:FargateProfile")
 public class FargateProfile extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
+     * ARN of the EKS Fargate Profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EKS Fargate Profile.
+     * @return ARN of the EKS Fargate Profile.
      * 
      */
     public Output<String> arn() {
@@ -178,14 +178,14 @@ public class FargateProfile extends com.pulumi.resources.CustomResource {
         return this.fargateProfileName;
     }
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
     @Export(name="podExecutionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> podExecutionRoleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * @return ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      * 
      */
     public Output<String> podExecutionRoleArn() {

@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:dms/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the DMS Event Subscription.
+     * ARN of the DMS Event Subscription.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DMS Event Subscription.
+     * @return ARN of the DMS Event Subscription.
      * 
      */
     public Output<String> arn() {

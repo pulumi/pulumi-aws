@@ -68,14 +68,14 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      * 
      */
     @Import(name="indexedKeys")
     private @Nullable Output<List<AgentcoreMemoryIndexedKeyArgs>> indexedKeys;
 
     /**
-     * @return Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+     * @return Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreMemoryIndexedKeyArgs>>> indexedKeys() {
@@ -132,14 +132,14 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      * 
      */
     @Import(name="streamDeliveryResources")
     private @Nullable Output<AgentcoreMemoryStreamDeliveryResourcesArgs> streamDeliveryResources;
 
     /**
-     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+     * @return Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStreamDeliveryResourcesArgs>> streamDeliveryResources() {
@@ -265,7 +265,7 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
          * 
          * @return builder
          * 
@@ -286,7 +286,7 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexedKey` below.
+         * @param indexedKeys Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexedKey` Block below.
          * 
          * @return builder
          * 
@@ -363,7 +363,7 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class AgentcoreMemoryArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` below.
+         * @param streamDeliveryResources Configuration for streaming memory record data to external resources. See `streamDeliveryResources` Block below.
          * 
          * @return builder
          * 

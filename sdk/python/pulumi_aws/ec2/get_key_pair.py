@@ -186,12 +186,12 @@ def get_key_pair(filters: Optional[Sequence[Union['GetKeyPairFilterArgs', 'GetKe
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[{
+    example = aws.ec2.get_key_pair(filters=[{
             "name": "tag:Component",
             "values": ["web"],
-        }])
+        }],
+        key_name="test",
+        include_public_key=True)
     pulumi.export("fingerprint", example.fingerprint)
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)
@@ -250,12 +250,12 @@ def get_key_pair_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_key_pair(key_name="test",
-        include_public_key=True,
-        filters=[{
+    example = aws.ec2.get_key_pair(filters=[{
             "name": "tag:Component",
             "values": ["web"],
-        }])
+        }],
+        key_name="test",
+        include_public_key=True)
     pulumi.export("fingerprint", example.fingerprint)
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)

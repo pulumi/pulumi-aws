@@ -111,7 +111,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the user.
+	// ARN for the user.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -176,7 +176,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// Amazon Resource Name (ARN) for the user.
+	// ARN for the user.
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -203,7 +203,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// Amazon Resource Name (ARN) for the user.
+	// ARN for the user.
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
@@ -367,7 +367,7 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// Amazon Resource Name (ARN) for the user.
+// ARN for the user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

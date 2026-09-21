@@ -69,17 +69,17 @@ import (
 type ClusterSnapshotCopy struct {
 	pulumi.CustomResourceState
 
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrOutput `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
-	// The Destination region to place snapshot copy.
+	// Destination region to place the snapshot copy.
 	DestinationRegion pulumi.StringPtrOutput `pulumi:"destinationRegion"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine pulumi.StringOutput `pulumi:"engine"`
-	// Specifies the version of the database engine.
+	// Version of the database engine.
 	EngineVersion pulumi.StringOutput `pulumi:"engineVersion"`
 	// KMS key ID.
 	KmsKeyId pulumi.StringPtrOutput `pulumi:"kmsKeyId"`
@@ -91,16 +91,17 @@ type ClusterSnapshotCopy struct {
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
-	SnapshotType   pulumi.StringOutput      `pulumi:"snapshotType"`
+	// Type of the DB cluster snapshot.
+	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
 	// Identifier of the source snapshot.
 	SourceDbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotIdentifier"`
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// Specifies the storage type associated with DB cluster snapshot.
+	// Storage type associated with DB cluster snapshot.
 	StorageType pulumi.StringOutput `pulumi:"storageType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 	// Identifier for the snapshot.
 	//
@@ -147,17 +148,17 @@ func GetClusterSnapshotCopy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterSnapshotCopy resources.
 type clusterSnapshotCopyState struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
-	// The Destination region to place snapshot copy.
+	// Destination region to place the snapshot copy.
 	DestinationRegion *string `pulumi:"destinationRegion"`
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine *string `pulumi:"engine"`
-	// Specifies the version of the database engine.
+	// Version of the database engine.
 	EngineVersion *string `pulumi:"engineVersion"`
 	// KMS key ID.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -169,16 +170,17 @@ type clusterSnapshotCopyState struct {
 	Region *string `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
-	SnapshotType   *string  `pulumi:"snapshotType"`
+	// Type of the DB cluster snapshot.
+	SnapshotType *string `pulumi:"snapshotType"`
 	// Identifier of the source snapshot.
 	SourceDbClusterSnapshotIdentifier *string `pulumi:"sourceDbClusterSnapshotIdentifier"`
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// Specifies the storage type associated with DB cluster snapshot.
+	// Storage type associated with DB cluster snapshot.
 	StorageType *string `pulumi:"storageType"`
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 	// Identifier for the snapshot.
 	//
@@ -190,17 +192,17 @@ type clusterSnapshotCopyState struct {
 }
 
 type ClusterSnapshotCopyState struct {
-	// Specifies the allocated storage size in gigabytes (GB).
+	// Allocated storage size in gigabytes (GB).
 	AllocatedStorage pulumi.IntPtrInput
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+	// ARN for the DB cluster snapshot.
 	DbClusterSnapshotArn pulumi.StringPtrInput
-	// The Destination region to place snapshot copy.
+	// Destination region to place the snapshot copy.
 	DestinationRegion pulumi.StringPtrInput
-	// Specifies the name of the database engine.
+	// Name of the database engine.
 	Engine pulumi.StringPtrInput
-	// Specifies the version of the database engine.
+	// Version of the database engine.
 	EngineVersion pulumi.StringPtrInput
 	// KMS key ID.
 	KmsKeyId pulumi.StringPtrInput
@@ -212,16 +214,17 @@ type ClusterSnapshotCopyState struct {
 	Region pulumi.StringPtrInput
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
-	SnapshotType   pulumi.StringPtrInput
+	// Type of the DB cluster snapshot.
+	SnapshotType pulumi.StringPtrInput
 	// Identifier of the source snapshot.
 	SourceDbClusterSnapshotIdentifier pulumi.StringPtrInput
-	// Specifies whether the DB cluster snapshot is encrypted.
+	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// Specifies the storage type associated with DB cluster snapshot.
+	// Storage type associated with DB cluster snapshot.
 	StorageType pulumi.StringPtrInput
 	// Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 	// Identifier for the snapshot.
 	//
@@ -239,7 +242,7 @@ func (ClusterSnapshotCopyState) ElementType() reflect.Type {
 type clusterSnapshotCopyArgs struct {
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags *bool `pulumi:"copyTags"`
-	// The Destination region to place snapshot copy.
+	// Destination region to place the snapshot copy.
 	DestinationRegion *string `pulumi:"destinationRegion"`
 	// KMS key ID.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
@@ -264,7 +267,7 @@ type clusterSnapshotCopyArgs struct {
 type ClusterSnapshotCopyArgs struct {
 	// Whether to copy existing tags. Defaults to `false`.
 	CopyTags pulumi.BoolPtrInput
-	// The Destination region to place snapshot copy.
+	// Destination region to place the snapshot copy.
 	DestinationRegion pulumi.StringPtrInput
 	// KMS key ID.
 	KmsKeyId pulumi.StringPtrInput
@@ -372,7 +375,7 @@ func (o ClusterSnapshotCopyOutput) ToClusterSnapshotCopyOutputWithContext(ctx co
 	return o
 }
 
-// Specifies the allocated storage size in gigabytes (GB).
+// Allocated storage size in gigabytes (GB).
 func (o ClusterSnapshotCopyOutput) AllocatedStorage() pulumi.IntOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.IntOutput { return v.AllocatedStorage }).(pulumi.IntOutput)
 }
@@ -382,22 +385,22 @@ func (o ClusterSnapshotCopyOutput) CopyTags() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.BoolPtrOutput { return v.CopyTags }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB cluster snapshot.
+// ARN for the DB cluster snapshot.
 func (o ClusterSnapshotCopyOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The Destination region to place snapshot copy.
+// Destination region to place the snapshot copy.
 func (o ClusterSnapshotCopyOutput) DestinationRegion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringPtrOutput { return v.DestinationRegion }).(pulumi.StringPtrOutput)
 }
 
-// Specifies the name of the database engine.
+// Name of the database engine.
 func (o ClusterSnapshotCopyOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.Engine }).(pulumi.StringOutput)
 }
 
-// Specifies the version of the database engine.
+// Version of the database engine.
 func (o ClusterSnapshotCopyOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.EngineVersion }).(pulumi.StringOutput)
 }
@@ -427,6 +430,7 @@ func (o ClusterSnapshotCopyOutput) SharedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }
 
+// Type of the DB cluster snapshot.
 func (o ClusterSnapshotCopyOutput) SnapshotType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.SnapshotType }).(pulumi.StringOutput)
 }
@@ -436,12 +440,12 @@ func (o ClusterSnapshotCopyOutput) SourceDbClusterSnapshotIdentifier() pulumi.St
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.SourceDbClusterSnapshotIdentifier }).(pulumi.StringOutput)
 }
 
-// Specifies whether the DB cluster snapshot is encrypted.
+// Whether the DB cluster snapshot is encrypted.
 func (o ClusterSnapshotCopyOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// Specifies the storage type associated with DB cluster snapshot.
+// Storage type associated with DB cluster snapshot.
 func (o ClusterSnapshotCopyOutput) StorageType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringOutput { return v.StorageType }).(pulumi.StringOutput)
 }
@@ -451,7 +455,7 @@ func (o ClusterSnapshotCopyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterSnapshotCopyOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshotCopy) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

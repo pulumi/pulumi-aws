@@ -86,14 +86,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      * 
      */
     @Import(name="authTokenUpdateStrategy")
     private @Nullable Output<String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * @return Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      * 
      */
     public Optional<Output<String>> authTokenUpdateStrategy() {
@@ -101,9 +101,41 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+     * 
+     */
+    @Import(name="authTokenWo")
+    private @Nullable Output<String> authTokenWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+     * 
+     */
+    public Optional<Output<String>> authTokenWo() {
+        return Optional.ofNullable(this.authTokenWo);
+    }
+
+    /**
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+     * 
+     */
+    @Import(name="authTokenWoVersion")
+    private @Nullable Output<Integer> authTokenWoVersion;
+
+    /**
+     * @return Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+     * 
+     */
+    public Optional<Output<Integer>> authTokenWoVersion() {
+        return Optional.ofNullable(this.authTokenWoVersion);
+    }
+
+    /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     @Import(name="autoMinorVersionUpgrade")
@@ -112,7 +144,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     public Optional<Output<Boolean>> autoMinorVersionUpgrade() {
@@ -648,14 +680,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -663,14 +695,14 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     @Import(name="securityGroupNames")
     private @Nullable Output<List<String>> securityGroupNames;
 
     /**
-     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     public Optional<Output<List<String>>> securityGroupNames() {
@@ -845,6 +877,8 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         this.atRestEncryptionEnabled = $.atRestEncryptionEnabled;
         this.authToken = $.authToken;
         this.authTokenUpdateStrategy = $.authTokenUpdateStrategy;
+        this.authTokenWo = $.authTokenWo;
+        this.authTokenWoVersion = $.authTokenWoVersion;
         this.autoMinorVersionUpgrade = $.autoMinorVersionUpgrade;
         this.automaticFailoverEnabled = $.automaticFailoverEnabled;
         this.clusterEnabled = $.clusterEnabled;
@@ -999,7 +1033,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+         * @param authTokenUpdateStrategy Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
          * 
          * @return builder
          * 
@@ -1010,7 +1044,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param authTokenUpdateStrategy Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+         * @param authTokenUpdateStrategy Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
          * 
          * @return builder
          * 
@@ -1020,9 +1054,53 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
+         * @param authTokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenWo(@Nullable Output<String> authTokenWo) {
+            $.authTokenWo = authTokenWo;
+            return this;
+        }
+
+        /**
+         * @param authTokenWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenWo(String authTokenWo) {
+            return authTokenWo(Output.of(authTokenWo));
+        }
+
+        /**
+         * @param authTokenWoVersion Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenWoVersion(@Nullable Output<Integer> authTokenWoVersion) {
+            $.authTokenWoVersion = authTokenWoVersion;
+            return this;
+        }
+
+        /**
+         * @param authTokenWoVersion Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authTokenWoVersion(Integer authTokenWoVersion) {
+            return authTokenWoVersion(Output.of(authTokenWoVersion));
+        }
+
+        /**
          * @param autoMinorVersionUpgrade Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
          * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-         * Defaults to `true`.
+         * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
          * 
          * @return builder
          * 
@@ -1035,7 +1113,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         /**
          * @param autoMinorVersionUpgrade Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
          * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-         * Defaults to `true`.
+         * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
          * 
          * @return builder
          * 
@@ -1805,7 +1883,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 
@@ -1816,7 +1894,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 
@@ -1826,7 +1904,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupIds IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 
@@ -1836,7 +1914,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 
@@ -1847,7 +1925,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 
@@ -1857,7 +1935,7 @@ public final class ReplicationGroupState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+         * @param securityGroupNames Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
          * 
          * @return builder
          * 

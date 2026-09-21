@@ -85,7 +85,7 @@ export class ApprovalRuleTemplate extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly lastModifiedDate: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * ARN of the user who made the most recent changes to the approval rule template.
      */
     declare public /*out*/ readonly lastModifiedUser: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface ApprovalRuleTemplateState {
      */
     lastModifiedDate?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+     * ARN of the user who made the most recent changes to the approval rule template.
      */
     lastModifiedUser?: pulumi.Input<string | undefined>;
     /**

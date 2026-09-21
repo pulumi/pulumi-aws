@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+ * Resource for managing an AWS EC2 Default Credit Specification.
  *
  * ## Example Usage
  *
@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instanceFamily`. For example:
+ * Using `pulumi import`, import EC2 Default Credit Specification using the `instanceFamily`. For example:
  */
 export class DefaultCreditSpecification extends pulumi.CustomResource {
     /**

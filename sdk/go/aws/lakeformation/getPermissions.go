@@ -32,10 +32,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				DataLocation: lakeformation.GetPermissionsDataLocation{
 //					Arn: testAwsLakeformationResource.Arn,
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -61,11 +61,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				Database: lakeformation.GetPermissionsDatabase{
 //					Name:      testAwsGlueCatalogDatabase.Name,
 //					CatalogId: "110376042874",
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -91,9 +91,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lakeformation.LookupPermissions(ctx, &lakeformation.LookupPermissionsArgs{
-//				Principal: workflowRole.Arn,
 //				LfTagPolicy: lakeformation.GetPermissionsLfTagPolicy{
-//					ResourceType: "DATABASE",
 //					Expressions: []lakeformation.GetPermissionsLfTagPolicyExpression{
 //						{
 //							Key: "Team",
@@ -109,7 +107,9 @@ import (
 //							},
 //						},
 //					},
+//					ResourceType: "DATABASE",
 //				},
+//				Principal: workflowRole.Arn,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -181,12 +181,8 @@ type LookupPermissionsResult struct {
 }
 
 func LookupPermissionsOutput(ctx *pulumi.Context, args LookupPermissionsOutputArgs, opts ...pulumi.InvokeOption) LookupPermissionsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPermissionsResultOutput, error) {
-			args := v.(LookupPermissionsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lakeformation/getPermissions:getPermissions", args, LookupPermissionsResultOutput{}, options).(LookupPermissionsResultOutput), nil
-		}).(LookupPermissionsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lakeformation/getPermissions:getPermissions", args, LookupPermissionsResultOutput{}, options).(LookupPermissionsResultOutput)
 }
 
 // A collection of arguments for invoking getPermissions.

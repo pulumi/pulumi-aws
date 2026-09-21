@@ -231,7 +231,7 @@ export interface GetObjectResult {
      */
     readonly serverSideEncryption: string;
     /**
-     * If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+     * If present, specifies the ID of the KMS master encryption key that was used for the object.
      */
     readonly sseKmsKeyId: string;
     /**

@@ -56,7 +56,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+// - `arn` (String) ARN of the Device Farm upload.
 //
 // Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 //
@@ -66,7 +66,7 @@ import (
 type Upload struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this upload.
+	// ARN of this upload.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The upload's category.
 	Category pulumi.StringOutput `pulumi:"category"`
@@ -122,7 +122,7 @@ func GetUpload(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Upload resources.
 type uploadState struct {
-	// The Amazon Resource Name of this upload.
+	// ARN of this upload.
 	Arn *string `pulumi:"arn"`
 	// The upload's category.
 	Category *string `pulumi:"category"`
@@ -143,7 +143,7 @@ type uploadState struct {
 }
 
 type UploadState struct {
-	// The Amazon Resource Name of this upload.
+	// ARN of this upload.
 	Arn pulumi.StringPtrInput
 	// The upload's category.
 	Category pulumi.StringPtrInput
@@ -281,7 +281,7 @@ func (o UploadOutput) ToUploadOutputWithContext(ctx context.Context) UploadOutpu
 	return o
 }
 
-// The Amazon Resource Name of this upload.
+// ARN of this upload.
 func (o UploadOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Upload) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

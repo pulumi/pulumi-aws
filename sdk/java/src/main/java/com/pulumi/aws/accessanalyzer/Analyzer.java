@@ -126,11 +126,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Analyzer("example", AnalyzerArgs.builder()
- *             .analyzerName("example")
- *             .type("ORGANIZATION_UNUSED_ACCESS")
  *             .configuration(AnalyzerConfigurationArgs.builder()
  *                 .unusedAccess(AnalyzerConfigurationUnusedAccessArgs.builder()
- *                     .unusedAccessAge(180)
  *                     .analysisRule(AnalyzerConfigurationUnusedAccessAnalysisRuleArgs.builder()
  *                         .exclusions(                        
  *                             AnalyzerConfigurationUnusedAccessAnalysisRuleExclusionArgs.builder()
@@ -144,8 +141,11 @@ import javax.annotation.Nullable;
  *                                     Map.of("key2", "value2"))
  *                                 .build())
  *                         .build())
+ *                     .unusedAccessAge(180)
  *                     .build())
  *                 .build())
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_UNUSED_ACCESS")
  *             .build());
  * 
  *     }
@@ -182,8 +182,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Analyzer("test", AnalyzerArgs.builder()
- *             .analyzerName("example")
- *             .type("ORGANIZATION_INTERNAL_ACCESS")
  *             .configuration(AnalyzerConfigurationArgs.builder()
  *                 .internalAccess(AnalyzerConfigurationInternalAccessArgs.builder()
  *                     .analysisRule(AnalyzerConfigurationInternalAccessAnalysisRuleArgs.builder()
@@ -196,6 +194,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_INTERNAL_ACCESS")
  *             .build());
  * 
  *     }
@@ -232,8 +232,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Analyzer("test", AnalyzerArgs.builder()
- *             .analyzerName("example")
- *             .type("ORGANIZATION_INTERNAL_ACCESS")
  *             .configuration(AnalyzerConfigurationArgs.builder()
  *                 .internalAccess(AnalyzerConfigurationInternalAccessArgs.builder()
  *                     .analysisRule(AnalyzerConfigurationInternalAccessAnalysisRuleArgs.builder()
@@ -244,6 +242,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .analyzerName("example")
+ *             .type("ORGANIZATION_INTERNAL_ACCESS")
  *             .build());
  * 
  *     }

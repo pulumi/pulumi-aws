@@ -293,7 +293,7 @@ class _ContainerRecipeState:
         """
         Input properties used for looking up and filtering ContainerRecipe resources.
 
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the container recipe.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerRecipeComponentArgs']]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
         :param pulumi.Input[_builtins.str] date_created: Date the container recipe was created.
@@ -364,7 +364,7 @@ class _ContainerRecipeState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Required) Amazon Resource Name (ARN) of the container recipe.
+        (Required) ARN of the container recipe.
         """
         return pulumi.get(self, "arn")
 
@@ -647,16 +647,11 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -667,7 +662,12 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
@@ -680,9 +680,9 @@ class ContainerRecipe(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
+        - `arn` (String) ARN of the Image Builder container recipe.
 
-        Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -725,16 +725,11 @@ class ContainerRecipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.ContainerRecipe("example",
-            name="example",
-            version="1.0.0",
-            container_type="DOCKER",
-            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             target_repository={
                 "repository_name": example_aws_ecr_repository["name"],
                 "service": "ECR",
             },
             components=[{
-                "component_arn": example_aws_imagebuilder_component["arn"],
                 "parameters": [
                     {
                         "name": "Parameter1",
@@ -745,7 +740,12 @@ class ContainerRecipe(pulumi.CustomResource):
                         "value": "Value2",
                     },
                 ],
+                "component_arn": example_aws_imagebuilder_component["arn"],
             }],
+            name="example",
+            version="1.0.0",
+            container_type="DOCKER",
+            parent_image="arn:aws:imagebuilder:eu-central-1:aws:image/amazon-linux-x86-latest/x.x.x",
             dockerfile_template_data=\"\"\"FROM {{{ imagebuilder:parentImage }}}
         {{{ imagebuilder:environments }}}
         {{{ imagebuilder:components }}}
@@ -758,9 +758,9 @@ class ContainerRecipe(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder container recipe.
+        - `arn` (String) ARN of the Image Builder container recipe.
 
-        Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.ContainerRecipe` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/containerRecipe:ContainerRecipe example arn:aws:imagebuilder:us-east-1:123456789012:container-recipe/example/1.0.0
@@ -875,7 +875,7 @@ class ContainerRecipe(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the container recipe.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the container recipe.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ContainerRecipeComponentArgs', 'ContainerRecipeComponentArgsDict']]]] components: Ordered configuration block(s) with components for the container recipe. Detailed below.
         :param pulumi.Input[_builtins.str] container_type: The type of the container to create. Valid values: `DOCKER`.
         :param pulumi.Input[_builtins.str] date_created: Date the container recipe was created.
@@ -930,7 +930,7 @@ class ContainerRecipe(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        (Required) Amazon Resource Name (ARN) of the container recipe.
+        (Required) ARN of the container recipe.
         """
         return pulumi.get(self, "arn")
 

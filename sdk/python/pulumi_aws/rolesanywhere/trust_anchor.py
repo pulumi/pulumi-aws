@@ -115,7 +115,7 @@ class _TrustAnchorState:
         """
         Input properties used for looking up and filtering TrustAnchor resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Trust Anchor
+        :param pulumi.Input[_builtins.str] arn: ARN of the Trust Anchor
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
         :param pulumi.Input['TrustAnchorSourceArgs'] source: The source of trust, documented below
@@ -141,7 +141,7 @@ class _TrustAnchorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Trust Anchor
+        ARN of the Trust Anchor
         """
         return pulumi.get(self, "arn")
 
@@ -241,37 +241,37 @@ class TrustAnchor(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            permanent_deletion_time_in_days=7,
+            type="ROOT")
         current = aws.get_partition()
         test = aws.acmpca.Certificate("test",
-            certificate_authority_arn=example.arn,
-            certificate_signing_request=example.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
             validity={
                 "type": "YEARS",
                 "value": "1",
-            })
+            },
+            certificate_authority_arn=example.arn,
+            certificate_signing_request=example.certificate_signing_request,
+            signing_algorithm="SHA512WITHRSA",
+            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1")
         example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example.arn,
             certificate=example_aws_acmpca_certificate["certificate"],
             certificate_chain=example_aws_acmpca_certificate["certificateChain"])
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
-            name="example",
             source={
                 "source_data": {
                     "acm_pca_arn": example.arn,
                 },
                 "source_type": "AWS_ACM_PCA",
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
 
@@ -307,37 +307,37 @@ class TrustAnchor(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            permanent_deletion_time_in_days=7,
-            type="ROOT",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            permanent_deletion_time_in_days=7,
+            type="ROOT")
         current = aws.get_partition()
         test = aws.acmpca.Certificate("test",
-            certificate_authority_arn=example.arn,
-            certificate_signing_request=example.certificate_signing_request,
-            signing_algorithm="SHA512WITHRSA",
-            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1",
             validity={
                 "type": "YEARS",
                 "value": "1",
-            })
+            },
+            certificate_authority_arn=example.arn,
+            certificate_signing_request=example.certificate_signing_request,
+            signing_algorithm="SHA512WITHRSA",
+            template_arn=f"arn:{current.partition}:acm-pca:::template/RootCACertificate/V1")
         example_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("example",
             certificate_authority_arn=example.arn,
             certificate=example_aws_acmpca_certificate["certificate"],
             certificate_chain=example_aws_acmpca_certificate["certificateChain"])
         test_trust_anchor = aws.rolesanywhere.TrustAnchor("test",
-            name="example",
             source={
                 "source_data": {
                     "acm_pca_arn": example.arn,
                 },
                 "source_type": "AWS_ACM_PCA",
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_certificate_authority_certificate]))
         ```
 
@@ -412,7 +412,7 @@ class TrustAnchor(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Trust Anchor
+        :param pulumi.Input[_builtins.str] arn: ARN of the Trust Anchor
         :param pulumi.Input[_builtins.bool] enabled: Whether or not the Trust Anchor should be enabled.
         :param pulumi.Input[_builtins.str] name: The name of the Trust Anchor.
         :param pulumi.Input[Union['TrustAnchorSourceArgs', 'TrustAnchorSourceArgsDict']] source: The source of trust, documented below
@@ -436,7 +436,7 @@ class TrustAnchor(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Trust Anchor
+        ARN of the Trust Anchor
         """
         return pulumi.get(self, "arn")
 

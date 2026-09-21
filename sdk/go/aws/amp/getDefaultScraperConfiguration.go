@@ -60,12 +60,8 @@ type GetDefaultScraperConfigurationResult struct {
 }
 
 func GetDefaultScraperConfigurationOutput(ctx *pulumi.Context, args GetDefaultScraperConfigurationOutputArgs, opts ...pulumi.InvokeOption) GetDefaultScraperConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDefaultScraperConfigurationResultOutput, error) {
-			args := v.(GetDefaultScraperConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args, GetDefaultScraperConfigurationResultOutput{}, options).(GetDefaultScraperConfigurationResultOutput), nil
-		}).(GetDefaultScraperConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:amp/getDefaultScraperConfiguration:getDefaultScraperConfiguration", args, GetDefaultScraperConfigurationResultOutput{}, options).(GetDefaultScraperConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getDefaultScraperConfiguration.

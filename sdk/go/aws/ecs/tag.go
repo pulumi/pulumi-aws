@@ -69,7 +69,7 @@ type Tag struct {
 	Key pulumi.StringOutput `pulumi:"key"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the ECS resource to tag.
+	// ARN of the ECS resource to tag.
 	ResourceArn pulumi.StringOutput `pulumi:"resourceArn"`
 	// Tag value.
 	Value pulumi.StringOutput `pulumi:"value"`
@@ -118,7 +118,7 @@ type tagState struct {
 	Key *string `pulumi:"key"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the ECS resource to tag.
+	// ARN of the ECS resource to tag.
 	ResourceArn *string `pulumi:"resourceArn"`
 	// Tag value.
 	Value *string `pulumi:"value"`
@@ -129,7 +129,7 @@ type TagState struct {
 	Key pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the ECS resource to tag.
+	// ARN of the ECS resource to tag.
 	ResourceArn pulumi.StringPtrInput
 	// Tag value.
 	Value pulumi.StringPtrInput
@@ -144,7 +144,7 @@ type tagArgs struct {
 	Key string `pulumi:"key"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) of the ECS resource to tag.
+	// ARN of the ECS resource to tag.
 	ResourceArn string `pulumi:"resourceArn"`
 	// Tag value.
 	Value string `pulumi:"value"`
@@ -156,7 +156,7 @@ type TagArgs struct {
 	Key pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the ECS resource to tag.
+	// ARN of the ECS resource to tag.
 	ResourceArn pulumi.StringInput
 	// Tag value.
 	Value pulumi.StringInput
@@ -259,7 +259,7 @@ func (o TagOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the ECS resource to tag.
+// ARN of the ECS resource to tag.
 func (o TagOutput) ResourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Tag) pulumi.StringOutput { return v.ResourceArn }).(pulumi.StringOutput)
 }

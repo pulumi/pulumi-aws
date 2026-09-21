@@ -81,7 +81,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * ARN of the EventBridge API destinations IAM role that you created.
      * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
@@ -89,7 +89,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
     private Output<String> targetRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+     * @return ARN of the EventBridge API destinations IAM role that you created.
      * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
      * 
      */
@@ -214,7 +214,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+         * @param targetRoleArn ARN of the EventBridge API destinations IAM role that you created.
          * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
          * 
          * @return builder
@@ -226,7 +226,7 @@ public final class SubscriberNotificationConfigurationHttpsNotificationConfigura
         }
 
         /**
-         * @param targetRoleArn The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+         * @param targetRoleArn ARN of the EventBridge API destinations IAM role that you created.
          * For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
          * 
          * @return builder

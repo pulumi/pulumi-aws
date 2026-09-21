@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> AmazonSideAsn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPN Gateway.
+        /// ARN of the VPN Gateway.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? AmazonSideAsn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPN Gateway.
+        /// ARN of the VPN Gateway.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

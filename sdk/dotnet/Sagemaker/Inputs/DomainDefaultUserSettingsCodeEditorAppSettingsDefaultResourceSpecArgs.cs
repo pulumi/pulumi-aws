@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         public Input<string>? InstanceType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+        /// ARN of the Lifecycle Configuration attached to the Resource.
         /// </summary>
         [Input("lifecycleConfigArn")]
         public Input<string>? LifecycleConfigArn { get; set; }

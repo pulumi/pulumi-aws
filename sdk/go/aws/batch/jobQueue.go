@@ -31,9 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.NewJobQueue(ctx, "test_queue", &batch.JobQueueArgs{
-//				Name:     pulumi.String("tf-test-batch-job-queue"),
-//				State:    pulumi.String("ENABLED"),
-//				Priority: pulumi.Int(1),
 //				ComputeEnvironmentOrders: batch.JobQueueComputeEnvironmentOrderArray{
 //					&batch.JobQueueComputeEnvironmentOrderArgs{
 //						Order:              pulumi.Int(1),
@@ -44,6 +41,9 @@ import (
 //						ComputeEnvironment: pulumi.Any(testEnvironment2.Arn),
 //					},
 //				},
+//				Name:     pulumi.String("tf-test-batch-job-queue"),
+//				State:    pulumi.String("ENABLED"),
+//				Priority: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -69,26 +69,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := batch.NewSchedulingPolicy(ctx, "example", &batch.SchedulingPolicyArgs{
-//				Name: pulumi.String("example"),
 //				FairSharePolicy: &batch.SchedulingPolicyFairSharePolicyArgs{
-//					ComputeReservation: pulumi.Int(1),
-//					ShareDecaySeconds:  pulumi.Int(3600),
 //					ShareDistributions: batch.SchedulingPolicyFairSharePolicyShareDistributionArray{
 //						&batch.SchedulingPolicyFairSharePolicyShareDistributionArgs{
 //							ShareIdentifier: pulumi.String("A1*"),
 //							WeightFactor:    pulumi.Float64(0.1),
 //						},
 //					},
+//					ComputeReservation: pulumi.Int(1),
+//					ShareDecaySeconds:  pulumi.Int(3600),
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = batch.NewJobQueue(ctx, "example", &batch.JobQueueArgs{
-//				Name:                pulumi.String("tf-test-batch-job-queue"),
-//				SchedulingPolicyArn: example.Arn,
-//				State:               pulumi.String("ENABLED"),
-//				Priority:            pulumi.Int(1),
 //				ComputeEnvironmentOrders: batch.JobQueueComputeEnvironmentOrderArray{
 //					&batch.JobQueueComputeEnvironmentOrderArgs{
 //						Order:              pulumi.Int(1),
@@ -99,6 +95,10 @@ import (
 //						ComputeEnvironment: pulumi.Any(testEnvironment2.Arn),
 //					},
 //				},
+//				Name:                pulumi.String("tf-test-batch-job-queue"),
+//				SchedulingPolicyArn: example.Arn,
+//				State:               pulumi.String("ENABLED"),
+//				Priority:            pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
@@ -115,7 +115,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the job queue.
+// - `arn` (String) ARN of the job queue.
 //
 // Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 //
@@ -125,7 +125,7 @@ import (
 type JobQueue struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of the job queue.
+	// ARN of the job queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrders"`
@@ -185,7 +185,7 @@ func GetJobQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering JobQueue resources.
 type jobQueueState struct {
-	// The Amazon Resource Name of the job queue.
+	// ARN of the job queue.
 	Arn *string `pulumi:"arn"`
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
@@ -210,7 +210,7 @@ type jobQueueState struct {
 }
 
 type JobQueueState struct {
-	// The Amazon Resource Name of the job queue.
+	// ARN of the job queue.
 	Arn pulumi.StringPtrInput
 	// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayInput
@@ -368,7 +368,7 @@ func (o JobQueueOutput) ToJobQueueOutputWithContext(ctx context.Context) JobQueu
 	return o
 }
 
-// The Amazon Resource Name of the job queue.
+// ARN of the job queue.
 func (o JobQueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

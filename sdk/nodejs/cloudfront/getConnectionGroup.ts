@@ -50,7 +50,7 @@ export interface GetConnectionGroupResult {
      */
     readonly anycastIpListId: string;
     /**
-     * ARN (Amazon Resource Name) for the connection group.
+     * ARN for the connection group.
      */
     readonly arn: string;
     /**

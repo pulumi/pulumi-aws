@@ -189,7 +189,7 @@ func (o IndexTimeoutsPtrOutput) Update() pulumi.StringPtrOutput {
 }
 
 type SearchResource struct {
-	// Amazon resource name of resource.
+	// ARN of resource.
 	Arn string `pulumi:"arn"`
 	// The date and time that the information about this resource property was last updated.
 	LastReportedAt string `pulumi:"lastReportedAt"`
@@ -217,7 +217,7 @@ type SearchResourceInput interface {
 }
 
 type SearchResourceArgs struct {
-	// Amazon resource name of resource.
+	// ARN of resource.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// The date and time that the information about this resource property was last updated.
 	LastReportedAt pulumi.StringInput `pulumi:"lastReportedAt"`
@@ -284,7 +284,7 @@ func (o SearchResourceOutput) ToSearchResourceOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon resource name of resource.
+// ARN of resource.
 func (o SearchResourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v SearchResource) string { return v.Arn }).(pulumi.StringOutput)
 }

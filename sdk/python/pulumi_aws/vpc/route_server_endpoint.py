@@ -303,7 +303,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['RouteServerEndpointTimeoutsArgs', 'RouteServerEndpointTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
+        Provides a resource for managing a VPC Route Server Endpoint.
 
         ## Example Usage
 
@@ -323,7 +323,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `route_server_endpoint_id`. For example:
+        Using `pulumi import`, import VPC Route Server Endpoint using the `route_server_endpoint_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678
@@ -346,7 +346,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
                  args: RouteServerEndpointArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Endpoint.
+        Provides a resource for managing a VPC Route Server Endpoint.
 
         ## Example Usage
 
@@ -366,7 +366,7 @@ class RouteServerEndpoint(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server Endpoint using the `route_server_endpoint_id`. For example:
+        Using `pulumi import`, import VPC Route Server Endpoint using the `route_server_endpoint_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/routeServerEndpoint:RouteServerEndpoint example rse-12345678

@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     assertedControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     name: "daisyguttridge",
- *     waitPeriodMs: 5000,
  *     ruleConfig: {
  *         inverted: false,
  *         threshold: 1,
  *         type: "ATLEAST",
  *     },
+ *     assertedControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
+ *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+ *     name: "daisyguttridge",
+ *     waitPeriodMs: 5000,
  * });
  * ```
  *
@@ -34,16 +34,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53recoverycontrol.SafetyRule("example", {
- *     name: "i_o",
- *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
- *     waitPeriodMs: 5000,
- *     gatingControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
- *     targetControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  *     ruleConfig: {
  *         inverted: false,
  *         threshold: 1,
  *         type: "ATLEAST",
  *     },
+ *     name: "i_o",
+ *     controlPanelArn: "arn:aws:route53-recovery-control::313517334327:controlpanel/abd5fbfc052d4844a082dbf400f61da8",
+ *     waitPeriodMs: 5000,
+ *     gatingControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
+ *     targetControls: [exampleAwsRoute53recoverycontrolconfigRoutingControl.arn],
  * });
  * ```
  *

@@ -26,14 +26,14 @@ namespace Pulumi.Aws.ControlTower
     /// {
     ///     var example = new Aws.ControlTower.Baseline("example", new()
     ///     {
-    ///         BaselineIdentifier = "arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
-    ///         BaselineVersion = "4.0",
-    ///         TargetIdentifier = test.Arn,
     ///         Parameters = new Aws.ControlTower.Inputs.BaselineParametersArgs
     ///         {
     ///             Key = "IdentityCenterEnabledBaselineArn",
     ///             Value = "arn:aws:controltower:us-east-1:664418989480:enabledbaseline/XALULM96QHI525UOC",
     ///         },
+    ///         BaselineIdentifier = "arn:aws:controltower:us-east-1::baseline/17BSJV3IGJ2QSGA2",
+    ///         BaselineVersion = "4.0",
+    ///         TargetIdentifier = test.Arn,
     ///     });
     /// 
     /// });

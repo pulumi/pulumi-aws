@@ -219,7 +219,7 @@ import (
 type HealthCheck struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Health Check.
+	// ARN of the Health Check.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold pulumi.IntPtrOutput `pulumi:"childHealthThreshold"`
@@ -261,7 +261,7 @@ type HealthCheck struct {
 	RequestInterval pulumi.IntPtrOutput `pulumi:"requestInterval"`
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath pulumi.StringPtrOutput `pulumi:"resourcePath"`
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+	// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 	RoutingControlArn pulumi.StringPtrOutput `pulumi:"routingControlArn"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrOutput `pulumi:"searchString"`
@@ -308,7 +308,7 @@ func GetHealthCheck(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HealthCheck resources.
 type healthCheckState struct {
-	// The Amazon Resource Name (ARN) of the Health Check.
+	// ARN of the Health Check.
 	Arn *string `pulumi:"arn"`
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold *int `pulumi:"childHealthThreshold"`
@@ -350,7 +350,7 @@ type healthCheckState struct {
 	RequestInterval *int `pulumi:"requestInterval"`
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath *string `pulumi:"resourcePath"`
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+	// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 	RoutingControlArn *string `pulumi:"routingControlArn"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString *string `pulumi:"searchString"`
@@ -365,7 +365,7 @@ type healthCheckState struct {
 }
 
 type HealthCheckState struct {
-	// The Amazon Resource Name (ARN) of the Health Check.
+	// ARN of the Health Check.
 	Arn pulumi.StringPtrInput
 	// The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
 	ChildHealthThreshold pulumi.IntPtrInput
@@ -407,7 +407,7 @@ type HealthCheckState struct {
 	RequestInterval pulumi.IntPtrInput
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+	// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 	RoutingControlArn pulumi.StringPtrInput
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrInput
@@ -466,7 +466,7 @@ type healthCheckArgs struct {
 	RequestInterval *int `pulumi:"requestInterval"`
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath *string `pulumi:"resourcePath"`
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+	// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 	RoutingControlArn *string `pulumi:"routingControlArn"`
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString *string `pulumi:"searchString"`
@@ -520,7 +520,7 @@ type HealthCheckArgs struct {
 	RequestInterval pulumi.IntPtrInput
 	// The path that you want Amazon Route 53 to request when performing health checks.
 	ResourcePath pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+	// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 	RoutingControlArn pulumi.StringPtrInput
 	// String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
 	SearchString pulumi.StringPtrInput
@@ -619,7 +619,7 @@ func (o HealthCheckOutput) ToHealthCheckOutputWithContext(ctx context.Context) H
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Health Check.
+// ARN of the Health Check.
 func (o HealthCheckOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -715,7 +715,7 @@ func (o HealthCheckOutput) ResourcePath() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.ResourcePath }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
 func (o HealthCheckOutput) RoutingControlArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *HealthCheck) pulumi.StringPtrOutput { return v.RoutingControlArn }).(pulumi.StringPtrOutput)
 }

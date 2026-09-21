@@ -119,10 +119,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var vpc = new Aws.Ec2.VpcIpamPool("vpc", new()
     ///     {
-    ///         AddressFamily = "ipv4",
-    ///         IpamScopeId = test.PrivateDefaultScopeId,
-    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
-    ///         SourceIpamPoolId = testVpcIpamPool.Id,
     ///         SourceResource = new Aws.Ec2.Inputs.VpcIpamPoolSourceResourceArgs
     ///         {
     ///             ResourceId = testVpc.Id,
@@ -130,6 +126,10 @@ namespace Pulumi.Aws.Ec2
     ///             ResourceRegion = current.Apply(getRegionResult =&gt; getRegionResult.Region),
     ///             ResourceType = "vpc",
     ///         },
+    ///         AddressFamily = "ipv4",
+    ///         IpamScopeId = test.PrivateDefaultScopeId,
+    ///         Locale = current.Apply(getRegionResult =&gt; getRegionResult.Region),
+    ///         SourceIpamPoolId = testVpcIpamPool.Id,
     ///     });
     /// 
     ///     var vpcVpcIpamPoolCidr = new Aws.Ec2.VpcIpamPoolCidr("vpc", new()
@@ -295,7 +295,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool?> MapPublicIpOnLaunch { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Output("outpostArn")]
         public Output<string?> OutpostArn { get; private set; } = null!;
@@ -488,7 +488,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }
@@ -649,7 +649,7 @@ namespace Pulumi.Aws.Ec2
         public Input<bool>? MapPublicIpOnLaunch { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Outpost.
+        /// ARN of the Outpost.
         /// </summary>
         [Input("outpostArn")]
         public Input<string>? OutpostArn { get; set; }

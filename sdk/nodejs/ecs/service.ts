@@ -21,24 +21,24 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const mongo = new aws.ecs.Service("mongo", {
- *     name: "mongodb",
- *     cluster: fooAwsEcsCluster.id,
- *     taskDefinition: mongoAwsEcsTaskDefinition.arn,
- *     desiredCount: 3,
- *     iamRole: fooAwsIamRole.arn,
- *     orderedPlacementStrategies: [{
- *         type: "binpack",
- *         field: "cpu",
- *     }],
  *     loadBalancers: [{
  *         targetGroupArn: fooAwsLbTargetGroup.arn,
  *         containerName: "mongo",
  *         containerPort: 8080,
  *     }],
+ *     orderedPlacementStrategies: [{
+ *         type: "binpack",
+ *         field: "cpu",
+ *     }],
  *     placementConstraints: [{
  *         type: "memberOf",
  *         expression: "attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
  *     }],
+ *     name: "mongodb",
+ *     cluster: fooAwsEcsCluster.id,
+ *     taskDefinition: mongoAwsEcsTaskDefinition.arn,
+ *     desiredCount: 3,
+ *     iamRole: fooAwsIamRole.arn,
  * }, {
  *     dependsOn: [foo],
  * });
@@ -52,7 +52,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.ecs.Service("example", {desiredCount: 2});
+ * const example = new aws.ecs.Service("example", {desiredCount: 2}, {
+ *     ignoreChanges: ["desiredCount"],
+ * });
  * ```
  *
  * ### Daemon Scheduling Strategy
@@ -76,13 +78,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
  *     alarms: {
  *         enable: true,
  *         rollback: true,
  *         alarmNames: [exampleAwsCloudwatchMetricAlarm.alarmName],
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  * });
  * ```
  *
@@ -93,11 +95,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
  *     deploymentController: {
  *         type: "EXTERNAL",
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  * });
  * ```
  *
@@ -108,11 +110,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
  *     deploymentConfiguration: {
  *         strategy: "BLUE_GREEN",
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  *     sigintRollback: true,
  *     waitForSteadyState: true,
  * });
@@ -125,16 +127,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
  *     deploymentConfiguration: {
- *         strategy: "LINEAR",
- *         bakeTimeInMinutes: "10",
  *         linearConfiguration: {
  *             stepPercent: 25,
  *             stepBakeTimeInMinutes: "5",
  *         },
+ *         strategy: "LINEAR",
+ *         bakeTimeInMinutes: "10",
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  * });
  * ```
  *
@@ -145,16 +147,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
  *     deploymentConfiguration: {
- *         strategy: "CANARY",
- *         bakeTimeInMinutes: "15",
  *         canaryConfiguration: {
  *             canaryPercent: 10,
  *             canaryBakeTimeInMinutes: "5",
  *         },
+ *         strategy: "CANARY",
+ *         bakeTimeInMinutes: "15",
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
  * });
  * ```
  *
@@ -183,13 +185,7 @@ import * as utilities from "../utilities";
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "/ecs/example/service-connect"});
  * const current = aws.getRegion({});
  * const example = new aws.ecs.Service("example", {
- *     name: "example",
- *     cluster: exampleAwsEcsCluster.id,
- *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
- *     desiredCount: 1,
  *     serviceConnectConfiguration: {
- *         enabled: true,
- *         namespace: exampleAwsServiceDiscoveryHttpNamespace.arn,
  *         logConfiguration: {
  *             logDriver: "awslogs",
  *             options: {
@@ -203,14 +199,20 @@ import * as utilities from "../utilities";
  *             includeQueryParameters: "ENABLED",
  *         },
  *         services: [{
- *             portName: "http",
- *             discoveryName: "example",
  *             clientAlias: {
  *                 dnsName: "example",
  *                 port: 8080,
  *             },
+ *             portName: "http",
+ *             discoveryName: "example",
  *         }],
+ *         enabled: true,
+ *         namespace: exampleAwsServiceDiscoveryHttpNamespace.arn,
  *     },
+ *     name: "example",
+ *     cluster: exampleAwsEcsCluster.id,
+ *     taskDefinition: exampleAwsEcsTaskDefinition.arn,
+ *     desiredCount: 1,
  * });
  * ```
  *

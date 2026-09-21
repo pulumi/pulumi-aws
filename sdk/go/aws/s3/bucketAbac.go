@@ -38,10 +38,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketAbac(ctx, "example", &s3.BucketAbacArgs{
-//				Bucket: example.Bucket,
 //				AbacStatus: &s3.BucketAbacAbacStatusArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: example.Bucket,
 //			})
 //			if err != nil {
 //				return err

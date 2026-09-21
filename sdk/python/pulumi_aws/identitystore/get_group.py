@@ -138,13 +138,13 @@ def get_group(alternate_identifier: Optional[Union['GetGroupAlternateIdentifierA
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
+    example_get_group = aws.identitystore.get_group(alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "DisplayName",
                 "attribute_value": "ExampleGroup",
             },
-        })
+        },
+        identity_store_id=example.identity_store_ids[0])
     pulumi.export("groupId", example_get_group.group_id)
     ```
 
@@ -190,13 +190,13 @@ def get_group_output(alternate_identifier: pulumi.Input[Optional[Optional[Union[
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=example.identity_store_ids[0],
-        alternate_identifier={
+    example_get_group = aws.identitystore.get_group(alternate_identifier={
             "unique_attribute": {
                 "attribute_path": "DisplayName",
                 "attribute_value": "ExampleGroup",
             },
-        })
+        },
+        identity_store_id=example.identity_store_ids[0])
     pulumi.export("groupId", example_get_group.group_id)
     ```
 

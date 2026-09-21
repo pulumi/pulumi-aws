@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Link("example", LinkArgs.builder()
- *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
- *             .siteId(exampleAwsNetworkmanagerSite.id())
  *             .bandwidth(LinkBandwidthArgs.builder()
  *                 .uploadSpeed(10)
  *                 .downloadSpeed(50)
  *                 .build())
+ *             .globalNetworkId(exampleAwsNetworkmanagerGlobalNetwork.id())
+ *             .siteId(exampleAwsNetworkmanagerSite.id())
  *             .providerName("MegaCorp")
  *             .build());
  * 

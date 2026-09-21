@@ -15,16 +15,32 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs();
 
+    /**
+     * Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+     * 
+     */
     @Import(name="claimMatchOperator", required=true)
     private Output<String> claimMatchOperator;
 
+    /**
+     * @return Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+     * 
+     */
     public Output<String> claimMatchOperator() {
         return this.claimMatchOperator;
     }
 
+    /**
+     * Value or values to match for. See `claimMatchValue` below.
+     * 
+     */
     @Import(name="claimMatchValue", required=true)
     private Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs> claimMatchValue;
 
+    /**
+     * @return Value or values to match for. See `claimMatchValue` below.
+     * 
+     */
     public Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs> claimMatchValue() {
         return this.claimMatchValue;
     }
@@ -54,20 +70,44 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param claimMatchOperator Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder claimMatchOperator(Output<String> claimMatchOperator) {
             $.claimMatchOperator = claimMatchOperator;
             return this;
         }
 
+        /**
+         * @param claimMatchOperator Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+         * 
+         * @return builder
+         * 
+         */
         public Builder claimMatchOperator(String claimMatchOperator) {
             return claimMatchOperator(Output.of(claimMatchOperator));
         }
 
+        /**
+         * @param claimMatchValue Value or values to match for. See `claimMatchValue` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder claimMatchValue(Output<AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs> claimMatchValue) {
             $.claimMatchValue = claimMatchValue;
             return this;
         }
 
+        /**
+         * @param claimMatchValue Value or values to match for. See `claimMatchValue` below.
+         * 
+         * @return builder
+         * 
+         */
         public Builder claimMatchValue(AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs claimMatchValue) {
             return claimMatchValue(Output.of(claimMatchValue));
         }

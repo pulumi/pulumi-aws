@@ -227,18 +227,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     @Import(name="finalSnapshotIdentifier")
     private @Nullable Output<String> finalSnapshotIdentifier;
 
     /**
-     * @return The name of your final DB snapshot
-     * when this DB cluster is deleted. If omitted, no final snapshot will be
-     * made.
+     * @return The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
      * 
      */
     public Optional<Output<String>> finalSnapshotIdentifier() {
@@ -291,16 +287,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     @Import(name="masterPassword")
     private @Nullable Output<String> masterPassword;
 
     /**
-     * @return Password for the master DB user. Note that this may
-     * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+     * @return Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
      * 
      */
     public Optional<Output<String>> masterPassword() {
@@ -309,8 +303,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Import(name="masterPasswordWo")
@@ -318,8 +311,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user. Note that this may
-     * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+     * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> masterPasswordWo() {
@@ -327,14 +319,14 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Import(name="masterPasswordWoVersion")
     private @Nullable Output<Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> masterPasswordWoVersion() {
@@ -935,9 +927,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final DB snapshot
-         * when this DB cluster is deleted. If omitted, no final snapshot will be
-         * made.
+         * @param finalSnapshotIdentifier The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -948,9 +938,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param finalSnapshotIdentifier The name of your final DB snapshot
-         * when this DB cluster is deleted. If omitted, no final snapshot will be
-         * made.
+         * @param finalSnapshotIdentifier The name of your final DB snapshot when this DB cluster is deleted. If omitted, no final snapshot will be made.
          * 
          * @return builder
          * 
@@ -1023,8 +1011,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
          * 
          * @return builder
          * 
@@ -1035,8 +1022,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPassword Password for the master DB user. Note that this may
-         * show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
+         * @param masterPassword Password for the master DB user. Note that this may show up in logs, and it will be stored in the state file. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPasswordWo` and `manageMasterUserPassword`.
          * 
          * @return builder
          * 
@@ -1047,8 +1033,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user. Note that this may
-         * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+         * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1060,8 +1045,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param masterPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * Password for the master DB user. Note that this may
-         * show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`.
+         * Password for the master DB user. Note that this will show up in logs. Please refer to the DocumentDB Naming Constraints. Conflicts with `masterPassword` and `manageMasterUserPassword`. If set, requires `masterPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -1071,7 +1055,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 
@@ -1082,7 +1066,7 @@ public final class ClusterArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param masterPasswordWoVersion Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+         * @param masterPasswordWoVersion Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
          * 
          * @return builder
          * 

@@ -80,7 +80,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.SmbFileShare` using the SMB File Share ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -92,9 +92,9 @@ type SmbFileShare struct {
 	AccessBasedEnumeration pulumi.BoolPtrOutput `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayOutput `pulumi:"adminUserLists"`
-	// Amazon Resource Name (ARN) of the SMB File Share.
+	// ARN of the SMB File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	// ARN of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrOutput `pulumi:"authentication"`
@@ -110,7 +110,7 @@ type SmbFileShare struct {
 	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
 	// ID of the SMB File Share.
 	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrOutput `pulumi:"guessMimeTypeEnabled"`
@@ -118,7 +118,7 @@ type SmbFileShare struct {
 	InvalidUserLists pulumi.StringArrayOutput `pulumi:"invalidUserLists"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrOutput `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
@@ -195,9 +195,9 @@ type smbFileShareState struct {
 	AccessBasedEnumeration *bool `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists []string `pulumi:"adminUserLists"`
-	// Amazon Resource Name (ARN) of the SMB File Share.
+	// ARN of the SMB File Share.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	// ARN of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
@@ -213,7 +213,7 @@ type smbFileShareState struct {
 	FileShareName *string `pulumi:"fileShareName"`
 	// ID of the SMB File Share.
 	FileshareId *string `pulumi:"fileshareId"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled *bool `pulumi:"guessMimeTypeEnabled"`
@@ -221,7 +221,7 @@ type smbFileShareState struct {
 	InvalidUserLists []string `pulumi:"invalidUserLists"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn *string `pulumi:"locationArn"`
@@ -260,9 +260,9 @@ type SmbFileShareState struct {
 	AccessBasedEnumeration pulumi.BoolPtrInput
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayInput
-	// Amazon Resource Name (ARN) of the SMB File Share.
+	// ARN of the SMB File Share.
 	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	// ARN of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
@@ -278,7 +278,7 @@ type SmbFileShareState struct {
 	FileShareName pulumi.StringPtrInput
 	// ID of the SMB File Share.
 	FileshareId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringPtrInput
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrInput
@@ -286,7 +286,7 @@ type SmbFileShareState struct {
 	InvalidUserLists pulumi.StringArrayInput
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringPtrInput
@@ -329,7 +329,7 @@ type smbFileShareArgs struct {
 	AccessBasedEnumeration *bool `pulumi:"accessBasedEnumeration"`
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists []string `pulumi:"adminUserLists"`
-	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	// ARN of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication *string `pulumi:"authentication"`
@@ -343,7 +343,7 @@ type smbFileShareArgs struct {
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled *bool `pulumi:"guessMimeTypeEnabled"`
@@ -351,7 +351,7 @@ type smbFileShareArgs struct {
 	InvalidUserLists []string `pulumi:"invalidUserLists"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn string `pulumi:"locationArn"`
@@ -387,7 +387,7 @@ type SmbFileShareArgs struct {
 	AccessBasedEnumeration pulumi.BoolPtrInput
 	// A list of users in the Active Directory that have admin access to the file share. Only valid if `authentication` is set to `ActiveDirectory`.
 	AdminUserLists pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+	// ARN of the CloudWatch Log Group used for the audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// The authentication method that users use to access the file share. Defaults to `ActiveDirectory`. Valid values: `ActiveDirectory`, `GuestAccess`.
 	Authentication pulumi.StringPtrInput
@@ -401,7 +401,7 @@ type SmbFileShareArgs struct {
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringInput
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrInput
@@ -409,7 +409,7 @@ type SmbFileShareArgs struct {
 	InvalidUserLists pulumi.StringArrayInput
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringInput
@@ -536,12 +536,12 @@ func (o SmbFileShareOutput) AdminUserLists() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringArrayOutput { return v.AdminUserLists }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the SMB File Share.
+// ARN of the SMB File Share.
 func (o SmbFileShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the CloudWatch Log Group used for the audit logs.
+// ARN of the CloudWatch Log Group used for the audit logs.
 func (o SmbFileShareOutput) AuditDestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.AuditDestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -581,7 +581,7 @@ func (o SmbFileShareOutput) FileshareId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.FileshareId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the file gateway.
+// ARN of the file gateway.
 func (o SmbFileShareOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
@@ -601,7 +601,7 @@ func (o SmbFileShareOutput) KmsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.BoolPtrOutput { return v.KmsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 func (o SmbFileShareOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SmbFileShare) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

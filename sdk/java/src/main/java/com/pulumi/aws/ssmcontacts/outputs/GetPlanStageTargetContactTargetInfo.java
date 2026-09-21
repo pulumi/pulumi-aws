@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPlanStageTargetContactTargetInfo {
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return ARN of the contact or escalation plan.
      * 
      */
     private String contactId;
@@ -20,7 +20,7 @@ public final class GetPlanStageTargetContactTargetInfo {
 
     private GetPlanStageTargetContactTargetInfo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the contact or escalation plan.
+     * @return ARN of the contact or escalation plan.
      * 
      */
     public String contactId() {

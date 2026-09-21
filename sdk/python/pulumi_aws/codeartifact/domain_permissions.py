@@ -235,11 +235,11 @@ class DomainPermissions(pulumi.CustomResource):
             domain="example",
             encryption_key=example.arn)
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:CreateRepository"],
             "resources": [example_domain.arn],
         }])
@@ -254,7 +254,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `resource_arn` (String) ARN of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 
@@ -291,11 +291,11 @@ class DomainPermissions(pulumi.CustomResource):
             domain="example",
             encryption_key=example.arn)
         test = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "*",
                 "identifiers": ["*"],
             }],
+            "effect": "Allow",
             "actions": ["codeartifact:CreateRepository"],
             "resources": [example_domain.arn],
         }])
@@ -310,7 +310,7 @@ class DomainPermissions(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+        - `resource_arn` (String) ARN of the CodeArtifact domain.
 
         Using `pulumi import`, import CodeArtifact Domain Permissions Policies using the CodeArtifact Domain ARN. For example:
 

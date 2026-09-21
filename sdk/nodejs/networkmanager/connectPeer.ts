@@ -26,19 +26,19 @@ import * as utilities from "../utilities";
  *     vpcArn: exampleAwsVpc.arn,
  * });
  * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transportAttachmentId: example.id,
- *     edgeLocation: example.edgeLocation,
  *     options: {
  *         protocol: "GRE",
  *     },
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
  * });
  * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
- *     connectAttachmentId: exampleConnectAttachment.id,
- *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
  *         peerAsn: "65000",
  *     },
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
  *     insideCidrBlocks: ["172.16.0.0/16"],
  * });
  * ```
@@ -59,12 +59,12 @@ import * as utilities from "../utilities";
  *     attachmentType: example.attachmentType,
  * });
  * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transportAttachmentId: example.id,
- *     edgeLocation: example.edgeLocation,
  *     options: {
  *         protocol: "GRE",
  *     },
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
  * }, {
  *     dependsOn: [exampleAttachmentAccepter],
  * });
@@ -73,11 +73,11 @@ import * as utilities from "../utilities";
  *     attachmentType: exampleConnectAttachment.attachmentType,
  * });
  * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
- *     connectAttachmentId: exampleConnectAttachment.id,
- *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
  *         peerAsn: "65500",
  *     },
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
  *     insideCidrBlocks: ["172.16.0.0/16"],
  * }, {
  *     dependsOn: [example2],
@@ -96,19 +96,19 @@ import * as utilities from "../utilities";
  *     vpcArn: exampleAwsVpc.arn,
  * });
  * const exampleConnectAttachment = new aws.networkmanager.ConnectAttachment("example", {
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     transportAttachmentId: example.id,
- *     edgeLocation: example.edgeLocation,
  *     options: {
  *         protocol: "NO_ENCAP",
  *     },
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     transportAttachmentId: example.id,
+ *     edgeLocation: example.edgeLocation,
  * });
  * const exampleConnectPeer = new aws.networkmanager.ConnectPeer("example", {
- *     connectAttachmentId: exampleConnectAttachment.id,
- *     peerAddress: "127.0.0.1",
  *     bgpOptions: {
  *         peerAsn: "65000",
  *     },
+ *     connectAttachmentId: exampleConnectAttachment.id,
+ *     peerAddress: "127.0.0.1",
  *     subnetArn: example2.arn,
  * });
  * ```

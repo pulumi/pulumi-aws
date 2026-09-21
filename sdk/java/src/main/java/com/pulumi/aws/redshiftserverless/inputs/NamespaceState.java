@@ -20,14 +20,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     public static final NamespaceState Empty = new NamespaceState();
 
     /**
-     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     @Import(name="adminPasswordSecretArn")
     private @Nullable Output<String> adminPasswordSecretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * @return ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     public Optional<Output<String>> adminPasswordSecretArn() {
@@ -50,16 +50,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     @Import(name="adminUserPassword")
     private @Nullable Output<String> adminUserPassword;
 
     /**
-     * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * @return The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     public Optional<Output<String>> adminUserPassword() {
@@ -68,8 +66,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     @Import(name="adminUserPasswordWo")
@@ -77,8 +74,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     public Optional<Output<String>> adminUserPasswordWo() {
@@ -86,14 +82,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     @Import(name="adminUserPasswordWoVersion")
     private @Nullable Output<Integer> adminUserPasswordWoVersion;
 
     /**
-     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * @return Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     public Optional<Output<Integer>> adminUserPasswordWoVersion() {
@@ -116,14 +112,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -146,14 +142,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     @Import(name="defaultIamRoleArn")
     private @Nullable Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public Optional<Output<String>> defaultIamRoleArn() {
@@ -176,14 +172,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -206,16 +202,14 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     @Import(name="manageAdminPassword")
     private @Nullable Output<Boolean> manageAdminPassword;
 
     /**
-     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     public Optional<Output<Boolean>> manageAdminPassword() {
@@ -339,7 +333,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPasswordSecretArn Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+         * @param adminPasswordSecretArn ARN of namespace&#39;s admin user credentials secret.
          * 
          * @return builder
          * 
@@ -350,7 +344,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminPasswordSecretArn Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+         * @param adminPasswordSecretArn ARN of namespace&#39;s admin user credentials secret.
          * 
          * @return builder
          * 
@@ -381,8 +375,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+         * @param adminUserPassword The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -393,8 +386,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminUserPassword The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+         * @param adminUserPassword The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -405,8 +397,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+         * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -418,8 +409,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param adminUserPasswordWo **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-         * The password of the administrator for the first database created in the namespace.
-         * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+         * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
          * 
          * @return builder
          * 
@@ -429,7 +419,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminUserPasswordWoVersion Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+         * @param adminUserPasswordWoVersion Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -440,7 +430,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param adminUserPasswordWoVersion Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+         * @param adminUserPasswordWoVersion Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -471,7 +461,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+         * @param arn ARN of the Redshift Serverless Namespace.
          * 
          * @return builder
          * 
@@ -482,7 +472,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+         * @param arn ARN of the Redshift Serverless Namespace.
          * 
          * @return builder
          * 
@@ -513,7 +503,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+         * @param defaultIamRoleArn ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -524,7 +514,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param defaultIamRoleArn The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+         * @param defaultIamRoleArn ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
          * 
          * @return builder
          * 
@@ -565,7 +555,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+         * @param kmsKeyId ARN of the Amazon Web Services KMS key used to encrypt your data.
          * 
          * @return builder
          * 
@@ -576,7 +566,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+         * @param kmsKeyId ARN of the Amazon Web Services KMS key used to encrypt your data.
          * 
          * @return builder
          * 
@@ -617,8 +607,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 
@@ -629,8 +618,7 @@ public final class NamespaceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-         * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+         * @param manageAdminPassword Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
          * 
          * @return builder
          * 

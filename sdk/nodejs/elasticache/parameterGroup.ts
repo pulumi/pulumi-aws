@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const _default = new aws.elasticache.ParameterGroup("default", {
- *     name: "cache-params",
- *     family: "redis2.8",
  *     parameters: [
  *         {
  *             name: "activerehashing",
@@ -31,6 +29,8 @@ import * as utilities from "../utilities";
  *             value: "2",
  *         },
  *     ],
+ *     name: "cache-params",
+ *     family: "redis2.8",
  * });
  * ```
  *

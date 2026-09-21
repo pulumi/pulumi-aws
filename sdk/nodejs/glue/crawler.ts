@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: exampleAwsGlueCatalogDatabase.name,
- *     name: "example",
- *     role: exampleAwsIamRole.arn,
  *     dynamodbTargets: [{
  *         path: "table-name",
  *     }],
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -35,13 +35,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: exampleAwsGlueCatalogDatabase.name,
- *     name: "example",
- *     role: exampleAwsIamRole.arn,
  *     jdbcTargets: [{
  *         connectionName: exampleAwsGlueConnection.name,
  *         path: "database-name/%",
  *     }],
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -52,12 +52,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: exampleAwsGlueCatalogDatabase.name,
- *     name: "example",
- *     role: exampleAwsIamRole.arn,
  *     s3Targets: [{
  *         path: `s3://${exampleAwsS3Bucket.bucket}`,
  *     }],
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -68,16 +68,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: exampleAwsGlueCatalogDatabase.name,
- *     name: "example",
- *     role: exampleAwsIamRole.arn,
+ *     schemaChangePolicy: {
+ *         deleteBehavior: "LOG",
+ *     },
  *     catalogTargets: [{
  *         databaseName: exampleAwsGlueCatalogDatabase.name,
  *         tables: [exampleAwsGlueCatalogTable.name],
  *     }],
- *     schemaChangePolicy: {
- *         deleteBehavior: "LOG",
- *     },
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  *     configuration: `{
  *   \\"Version\\":1.0,
  *   \\"Grouping\\": {
@@ -95,13 +95,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.glue.Crawler("example", {
- *     databaseName: exampleAwsGlueCatalogDatabase.name,
- *     name: "example",
- *     role: exampleAwsIamRole.arn,
  *     mongodbTargets: [{
  *         connectionName: exampleAwsGlueConnection.name,
  *         path: "database-name/%",
  *     }],
+ *     databaseName: exampleAwsGlueCatalogDatabase.name,
+ *     name: "example",
+ *     role: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -112,6 +112,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const eventsCrawler = new aws.glue.Crawler("events_crawler", {
+ *     s3Targets: [{
+ *         path: `s3://${dataLakeBucket.bucket}`,
+ *     }],
  *     databaseName: glueDatabase.name,
  *     schedule: "cron(0 1 * * ? *)",
  *     name: `events_crawler_${environmentName}`,
@@ -128,9 +131,6 @@ import * as utilities from "../utilities";
  *         },
  *         Version: 1,
  *     }),
- *     s3Targets: [{
- *         path: `s3://${dataLakeBucket.bucket}`,
- *     }],
  * });
  * ```
  *

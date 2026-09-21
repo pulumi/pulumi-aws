@@ -108,7 +108,7 @@ class _ApprovalRuleTemplateState:
         :param pulumi.Input[_builtins.str] creation_date: The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[_builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        :param pulumi.Input[_builtins.str] last_modified_user: ARN of the user who made the most recent changes to the approval rule template.
         :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
@@ -196,7 +196,7 @@ class _ApprovalRuleTemplateState:
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        ARN of the user who made the most recent changes to the approval rule template.
         """
         return pulumi.get(self, "last_modified_user")
 
@@ -401,7 +401,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] creation_date: The date the approval rule template was created, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] description: The description of the approval rule template. Maximum of 1000 characters.
         :param pulumi.Input[_builtins.str] last_modified_date: The date the approval rule template was most recently changed, in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
-        :param pulumi.Input[_builtins.str] last_modified_user: The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        :param pulumi.Input[_builtins.str] last_modified_user: ARN of the user who made the most recent changes to the approval rule template.
         :param pulumi.Input[_builtins.str] name: The name for the approval rule template. Maximum of 100 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] rule_content_sha256: The SHA-256 hash signature for the content of the approval rule template.
@@ -465,7 +465,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
     @pulumi.getter(name="lastModifiedUser")
     def last_modified_user(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the user who made the most recent changes to the approval rule template.
+        ARN of the user who made the most recent changes to the approval rule template.
         """
         return pulumi.get(self, "last_modified_user")
 

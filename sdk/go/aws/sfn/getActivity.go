@@ -70,12 +70,8 @@ type LookupActivityResult struct {
 }
 
 func LookupActivityOutput(ctx *pulumi.Context, args LookupActivityOutputArgs, opts ...pulumi.InvokeOption) LookupActivityResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupActivityResultOutput, error) {
-			args := v.(LookupActivityArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:sfn/getActivity:getActivity", args, LookupActivityResultOutput{}, options).(LookupActivityResultOutput), nil
-		}).(LookupActivityResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:sfn/getActivity:getActivity", args, LookupActivityResultOutput{}, options).(LookupActivityResultOutput)
 }
 
 // A collection of arguments for invoking getActivity.

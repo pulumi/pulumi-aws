@@ -288,8 +288,6 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.elasticache.ParameterGroup("default",
-            name="cache-params",
-            family="redis2.8",
             parameters=[
                 {
                     "name": "activerehashing",
@@ -299,7 +297,9 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "min-slaves-to-write",
                     "value": "2",
                 },
-            ])
+            ],
+            name="cache-params",
+            family="redis2.8")
         ```
 
         ## Import
@@ -338,8 +338,6 @@ class ParameterGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.elasticache.ParameterGroup("default",
-            name="cache-params",
-            family="redis2.8",
             parameters=[
                 {
                     "name": "activerehashing",
@@ -349,7 +347,9 @@ class ParameterGroup(pulumi.CustomResource):
                     "name": "min-slaves-to-write",
                     "value": "2",
                 },
-            ])
+            ],
+            name="cache-params",
+            family="redis2.8")
         ```
 
         ## Import

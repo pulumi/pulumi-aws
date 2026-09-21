@@ -18,14 +18,14 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
     public static final ImageOutputResourceArgs Empty = new ImageOutputResourceArgs();
 
     /**
-     * Set of objects with each Amazon Machine Image (AMI) created.
+     * Set of objects with each AMI created.
      * 
      */
     @Import(name="amis")
     private @Nullable Output<List<ImageOutputResourceAmiArgs>> amis;
 
     /**
-     * @return Set of objects with each Amazon Machine Image (AMI) created.
+     * @return Set of objects with each AMI created.
      * 
      */
     public Optional<Output<List<ImageOutputResourceAmiArgs>>> amis() {
@@ -73,7 +73,7 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
+         * @param amis Set of objects with each AMI created.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
+         * @param amis Set of objects with each AMI created.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ImageOutputResourceArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param amis Set of objects with each Amazon Machine Image (AMI) created.
+         * @param amis Set of objects with each AMI created.
          * 
          * @return builder
          * 

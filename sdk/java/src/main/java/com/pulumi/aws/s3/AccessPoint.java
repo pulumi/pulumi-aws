@@ -107,11 +107,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
- *             .bucket(example.arn())
- *             .name("example")
  *             .vpcConfiguration(AccessPointVpcConfigurationArgs.builder()
  *                 .vpcId(exampleVpc.id())
  *                 .build())
+ *             .bucket(example.arn())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -153,10 +153,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DirectoryBucket("example", DirectoryBucketArgs.builder()
- *             .bucket("example--zoneId--x-s3")
  *             .location(DirectoryBucketLocationArgs.builder()
  *                 .name(available.zoneIds()[0])
  *                 .build())
+ *             .bucket("example--zoneId--x-s3")
  *             .build());
  * 
  *         var exampleAccessPoint = new AccessPoint("exampleAccessPoint", AccessPointArgs.builder()
@@ -405,14 +405,14 @@ public class AccessPoint extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     @Export(name="vpcConfiguration", refs={AccessPointVpcConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ AccessPointVpcConfiguration> vpcConfiguration;
 
     /**
-     * @return Configuration block to restrict access to this access point to requests from the specified Virtual Private Cloud (VPC). Required for S3 on Outposts. Detailed below.
+     * @return Configuration block to restrict access to this access point to requests from the specified VPC. Required for S3 on Outposts. Detailed below.
      * 
      */
     public Output<Optional<AccessPointVpcConfiguration>> vpcConfiguration() {

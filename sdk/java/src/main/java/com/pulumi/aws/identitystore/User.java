@@ -57,9 +57,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new User("example", UserArgs.builder()
- *             .identityStoreId(exampleAwsSsoadminInstances.identityStoreIds()[0])
- *             .displayName("John Doe")
- *             .userName("johndoe")
  *             .name(UserNameArgs.builder()
  *                 .givenName("John")
  *                 .familyName("Doe")
@@ -67,6 +64,9 @@ import javax.annotation.Nullable;
  *             .emails(UserEmailsArgs.builder()
  *                 .value("john}{@literal @}{@code example.com")
  *                 .build())
+ *             .identityStoreId(exampleAwsSsoadminInstances.identityStoreIds()[0])
+ *             .displayName("John Doe")
+ *             .userName("johndoe")
  *             .build());
  * 
  *     }}{@code

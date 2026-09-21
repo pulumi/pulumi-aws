@@ -68,7 +68,7 @@ class _XssMatchSetState:
         """
         Input properties used for looking up and filtering XssMatchSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[Sequence[pulumi.Input['XssMatchSetXssMatchTupleArgs']]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
@@ -83,7 +83,7 @@ class _XssMatchSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -135,21 +135,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.waf.XssMatchSet("xss_match_set",
-            name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
+                    "text_transformation": "NONE",
                 },
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
+                    "text_transformation": "NONE",
                 },
-            ])
+            ],
+            name="xss_match_set")
         ```
 
         ## Import
@@ -182,21 +182,21 @@ class XssMatchSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         xss_match_set = aws.waf.XssMatchSet("xss_match_set",
-            name="xss_match_set",
             xss_match_tuples=[
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "URI",
                     },
+                    "text_transformation": "NONE",
                 },
                 {
-                    "text_transformation": "NONE",
                     "field_to_match": {
                         "type": "QUERY_STRING",
                     },
+                    "text_transformation": "NONE",
                 },
-            ])
+            ],
+            name="xss_match_set")
         ```
 
         ## Import
@@ -257,7 +257,7 @@ class XssMatchSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] name: The name or description of the SizeConstraintSet.
         :param pulumi.Input[Sequence[pulumi.Input[Union['XssMatchSetXssMatchTupleArgs', 'XssMatchSetXssMatchTupleArgsDict']]]] xss_match_tuples: The parts of web requests that you want to inspect for cross-site scripting attacks.
         """
@@ -274,7 +274,7 @@ class XssMatchSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 

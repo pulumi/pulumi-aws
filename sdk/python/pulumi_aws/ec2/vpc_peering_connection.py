@@ -427,15 +427,15 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=peer_owner_id,
-            peer_vpc_id=bar["id"],
-            vpc_id=foo_aws_vpc["id"],
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
             },
             requester={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"])
         ```
 
         Basic usage with tags:
@@ -543,15 +543,15 @@ class VpcPeeringConnection(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ec2.VpcPeeringConnection("foo",
-            peer_owner_id=peer_owner_id,
-            peer_vpc_id=bar["id"],
-            vpc_id=foo_aws_vpc["id"],
             accepter={
                 "allow_remote_vpc_dns_resolution": True,
             },
             requester={
                 "allow_remote_vpc_dns_resolution": True,
-            })
+            },
+            peer_owner_id=peer_owner_id,
+            peer_vpc_id=bar["id"],
+            vpc_id=foo_aws_vpc["id"])
         ```
 
         Basic usage with tags:

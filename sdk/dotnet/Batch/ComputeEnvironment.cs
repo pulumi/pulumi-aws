@@ -36,7 +36,6 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -48,6 +47,7 @@ namespace Pulumi.Aws.Batch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -80,7 +80,6 @@ namespace Pulumi.Aws.Batch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -92,6 +91,7 @@ namespace Pulumi.Aws.Batch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -114,7 +114,6 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var sample = new Aws.Ec2.SecurityGroup("sample", new()
     ///     {
-    ///         Name = "aws_batch_compute_environment_security_group",
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupEgressArgs
@@ -128,6 +127,7 @@ namespace Pulumi.Aws.Batch
     ///                 },
     ///             },
     ///         },
+    ///         Name = "aws_batch_compute_environment_security_group",
     ///     });
     /// 
     ///     var sampleVpc = new Aws.Ec2.Vpc("sample", new()
@@ -149,7 +149,6 @@ namespace Pulumi.Aws.Batch
     /// 
     ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
-    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             InstanceRole = ecsInstanceRoleInstanceProfile.Arn,
@@ -170,6 +169,7 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "EC2",
     ///         },
+    ///         Name = "sample",
     ///         ServiceRole = awsBatchServiceRole.Arn,
     ///         Type = "MANAGED",
     ///     }, new CustomResourceOptions
@@ -195,7 +195,6 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
-    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             MaxVcpus = 16,
@@ -209,6 +208,7 @@ namespace Pulumi.Aws.Batch
     ///             },
     ///             Type = "FARGATE",
     ///         },
+    ///         Name = "sample",
     ///         ServiceRole = awsBatchServiceRoleAwsIamRole.Arn,
     ///         Type = "MANAGED",
     ///     }, new CustomResourceOptions
@@ -234,7 +234,6 @@ namespace Pulumi.Aws.Batch
     /// {
     ///     var sample = new Aws.Batch.ComputeEnvironment("sample", new()
     ///     {
-    ///         Name = "sample",
     ///         ComputeResources = new Aws.Batch.Inputs.ComputeEnvironmentComputeResourcesArgs
     ///         {
     ///             AllocationStrategy = "BEST_FIT_PROGRESSIVE",
@@ -260,6 +259,7 @@ namespace Pulumi.Aws.Batch
     ///             JobExecutionTimeoutMinutes = 30,
     ///             TerminateJobsOnUpdate = false,
     ///         },
+    ///         Name = "sample",
     ///         Type = "MANAGED",
     ///     });
     /// 
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Batch
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the compute environment.
+    /// - `Arn` (String) ARN of the compute environment.
     /// 
     /// Using `pulumi import`, import AWS Batch compute using the `Name`. For example:
     /// 
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.Batch
     public partial class ComputeEnvironment : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -296,7 +296,7 @@ namespace Pulumi.Aws.Batch
         public Output<Outputs.ComputeEnvironmentComputeResources> ComputeResources { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Output("ecsClusterArn")]
         public Output<string> EcsClusterArn { get; private set; } = null!;
@@ -326,7 +326,7 @@ namespace Pulumi.Aws.Batch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Output("serviceRole")]
         public Output<string> ServiceRole { get; private set; } = null!;
@@ -450,7 +450,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }
@@ -494,7 +494,7 @@ namespace Pulumi.Aws.Batch
     public sealed class ComputeEnvironmentState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -506,7 +506,7 @@ namespace Pulumi.Aws.Batch
         public Input<Inputs.ComputeEnvironmentComputeResourcesGetArgs>? ComputeResources { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+        /// ARN of the underlying Amazon ECS cluster used by the compute environment.
         /// </summary>
         [Input("ecsClusterArn")]
         public Input<string>? EcsClusterArn { get; set; }
@@ -536,7 +536,7 @@ namespace Pulumi.Aws.Batch
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+        /// Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
         /// </summary>
         [Input("serviceRole")]
         public Input<string>? ServiceRole { get; set; }

@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim
     {
+        /// <summary>
+        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` below.
+        /// </summary>
         public readonly Outputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue AuthorizingClaimMatchValue;
+        /// <summary>
+        /// Name of the custom claim field to check.
+        /// </summary>
         public readonly string InboundTokenClaimName;
+        /// <summary>
+        /// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        /// </summary>
         public readonly string InboundTokenClaimValueType;
 
         [OutputConstructor]

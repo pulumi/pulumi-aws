@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Organizations
     public partial class Policy : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the policy.
+        /// ARN of the policy.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Organizations
     public sealed class PolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the policy.
+        /// ARN of the policy.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -28,17 +28,6 @@ namespace Pulumi.Aws.Drs
     /// {
     ///     var example = new Aws.Drs.ReplicationConfigurationTemplate("example", new()
     ///     {
-    ///         AssociateDefaultSecurityGroup = false,
-    ///         BandwidthThrottling = 12,
-    ///         CreatePublicIp = false,
-    ///         DataPlaneRouting = "PRIVATE_IP",
-    ///         DefaultLargeStagingDiskType = "GP2",
-    ///         EbsEncryption = "DEFAULT",
-    ///         EbsEncryptionKeyArn = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
-    ///         ReplicationServerInstanceType = "t3.small",
-    ///         ReplicationServersSecurityGroupsIds = exampleAwsSecurityGroup.Select(__item =&gt; __item.Id).ToList(),
-    ///         StagingAreaSubnetId = exampleAwsSubnet.Id,
-    ///         UseDedicatedReplicationServer = false,
     ///         PitPolicies = new[]
     ///         {
     ///             new Aws.Drs.Inputs.ReplicationConfigurationTemplatePitPolicyArgs
@@ -66,6 +55,17 @@ namespace Pulumi.Aws.Drs
     ///                 RuleId = 3,
     ///             },
     ///         },
+    ///         AssociateDefaultSecurityGroup = false,
+    ///         BandwidthThrottling = 12,
+    ///         CreatePublicIp = false,
+    ///         DataPlaneRouting = "PRIVATE_IP",
+    ///         DefaultLargeStagingDiskType = "GP2",
+    ///         EbsEncryption = "DEFAULT",
+    ///         EbsEncryptionKeyArn = "arn:aws:kms:us-east-1:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab",
+    ///         ReplicationServerInstanceType = "t3.small",
+    ///         ReplicationServersSecurityGroupsIds = exampleAwsSecurityGroup.Select(__item =&gt; __item.Id).ToList(),
+    ///         StagingAreaSubnetId = exampleAwsSubnet.Id,
+    ///         UseDedicatedReplicationServer = false,
     ///     });
     /// 
     /// });

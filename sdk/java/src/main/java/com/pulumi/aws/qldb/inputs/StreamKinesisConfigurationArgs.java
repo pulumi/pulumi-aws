@@ -33,14 +33,14 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+     * ARN of the Kinesis Data Streams resource.
      * 
      */
     @Import(name="streamArn", required=true)
     private Output<String> streamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+     * @return ARN of the Kinesis Data Streams resource.
      * 
      */
     public Output<String> streamArn() {
@@ -94,7 +94,7 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param streamArn The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+         * @param streamArn ARN of the Kinesis Data Streams resource.
          * 
          * @return builder
          * 
@@ -105,7 +105,7 @@ public final class StreamKinesisConfigurationArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param streamArn The Amazon Resource Name (ARN) of the Kinesis Data Streams resource.
+         * @param streamArn ARN of the Kinesis Data Streams resource.
          * 
          * @return builder
          * 

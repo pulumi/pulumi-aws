@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Kms
     public partial class ReplicaExternalKey : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+        /// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         /// The default value is `False`.
         /// </summary>
         [Output("bypassPolicyLockoutSafetyCheck")]
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         /// The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Kms
     public sealed class ReplicaExternalKeyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
+        /// ARN of the replica key. The key ARNs of related multi-Region keys differ only in the Region value.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Kms
         /// <summary>
         /// A flag to indicate whether to bypass the key policy lockout safety check.
         /// Setting this value to true increases the risk that the KMS key becomes unmanageable. Do not set this value to true indiscriminately.
-        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS Key Management Service Developer Guide_.
+        /// For more information, refer to the scenario in the [Default Key Policy](https://docs.aws.amazon.com/kms/latest/developerguide/key-policies.html#key-policy-default-allow-root-enable-iam) section in the _AWS KMS Developer Guide_.
         /// The default value is `False`.
         /// </summary>
         [Input("bypassPolicyLockoutSafetyCheck")]

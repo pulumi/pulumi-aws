@@ -106,62 +106,56 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterActivityStream:ClusterActivityStream")
 public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
     @Export(name="engineNativeAuditFieldsIncluded", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> engineNativeAuditFieldsIncluded;
 
     /**
-     * @return Specifies whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/start-activity-stream.html).
+     * @return Whether the database activity stream includes engine-native audit fields. This option only applies to an Oracle DB instance. By default, no engine-native audit fields are included. Defaults `false`.
      * 
      */
     public Output<Optional<Boolean>> engineNativeAuditFieldsIncluded() {
         return Codegen.optional(this.engineNativeAuditFieldsIncluded);
     }
     /**
-     * The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * Name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
     @Export(name="kinesisStreamName", refs={String.class}, tree="[0]")
     private Output<String> kinesisStreamName;
 
     /**
-     * @return The name of the Amazon Kinesis data stream to be used for the database activity stream.
+     * @return Name of the Amazon Kinesis data stream to be used for the database activity stream.
      * 
      */
     public Output<String> kinesisStreamName() {
         return this.kinesisStreamName;
     }
     /**
-     * The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
+     * @return AWS KMS key identifier for encrypting messages in the database activity stream. The AWS KMS key identifier is the key ARN, key ID, alias ARN, or alias name for the KMS key.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
     @Export(name="mode", refs={String.class}, tree="[0]")
     private Output<String> mode;
 
     /**
-     * @return Specifies the mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
+     * @return Mode of the database activity stream. Database events such as a change or access generate an activity stream event. The database session can handle these events either synchronously or asynchronously. One of: `sync`, `async`.
      * 
      */
     public Output<String> mode() {
@@ -182,14 +176,14 @@ public class ClusterActivityStream extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the DB cluster.
+     * ARN of the DB cluster.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the DB cluster.
+     * @return ARN of the DB cluster.
      * 
      */
     public Output<String> resourceArn() {

@@ -162,7 +162,6 @@ class VoiceConnectorGroup(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-west-2")
         group = aws.chime.VoiceConnectorGroup("group",
-            name="test-group",
             connectors=[
                 {
                     "voice_connector_id": vc1.id,
@@ -172,7 +171,8 @@ class VoiceConnectorGroup(pulumi.CustomResource):
                     "voice_connector_id": vc2.id,
                     "priority": 3,
                 },
-            ])
+            ],
+            name="test-group")
         ```
 
         ## Import
@@ -216,7 +216,6 @@ class VoiceConnectorGroup(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-west-2")
         group = aws.chime.VoiceConnectorGroup("group",
-            name="test-group",
             connectors=[
                 {
                     "voice_connector_id": vc1.id,
@@ -226,7 +225,8 @@ class VoiceConnectorGroup(pulumi.CustomResource):
                     "voice_connector_id": vc2.id,
                     "priority": 3,
                 },
-            ])
+            ],
+            name="test-group")
         ```
 
         ## Import

@@ -18,11 +18,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ebs.SnapshotImport("example", {
  *     diskContainer: {
- *         format: "VHD",
  *         userBucket: {
  *             s3Bucket: "disk-images",
  *             s3Key: "source.vhd",
  *         },
+ *         format: "VHD",
  *     },
  *     roleName: "disk-image-import",
  *     tags: {
@@ -60,7 +60,7 @@ export class SnapshotImport extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export class SnapshotImport extends pulumi.CustomResource {
  */
 export interface SnapshotImportState {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

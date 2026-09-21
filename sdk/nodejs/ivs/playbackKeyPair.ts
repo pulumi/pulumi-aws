@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS playback key pair.
+ * - `arn` (String) ARN of the IVS playback key pair.
  *
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  *

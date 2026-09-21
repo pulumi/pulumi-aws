@@ -28,12 +28,12 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         DomainName = "example",
-    ///         EngineVersion = "Elasticsearch_7.10",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r4.large.search",
     ///         },
+    ///         DomainName = "example",
+    ///         EngineVersion = "Elasticsearch_7.10",
     ///         Tags = 
     ///         {
     ///             { "Domain", "TestDomain" },
@@ -67,26 +67,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Type = "*",
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "*",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "es:*",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -98,6 +78,26 @@ namespace Pulumi.Aws.OpenSearch
     ///                             "66.193.100.22/32",
     ///                         },
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "es:*",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     $"arn:aws:es:{current.Apply(getRegionResult =&gt; getRegionResult.Region)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:domain/{domain}/*",
     ///                 },
     ///             },
     ///         },
@@ -133,7 +133,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -145,6 +144,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "logs:PutLogEvents",
@@ -226,9 +226,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleSecurityGroup = new Aws.Ec2.SecurityGroup("example", new()
     ///     {
-    ///         Name = $"{vpc}-opensearch-{domain}",
-    ///         Description = "Managed by Pulumi",
-    ///         VpcId = example.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///         Ingress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.SecurityGroupIngressArgs
@@ -242,6 +239,9 @@ namespace Pulumi.Aws.OpenSearch
     ///                 },
     ///             },
     ///         },
+    ///         Name = $"{vpc}-opensearch-{domain}",
+    ///         Description = "Managed by Pulumi",
+    ///         VpcId = example.Apply(getVpcResult =&gt; getVpcResult.Id),
     ///     });
     /// 
     ///     var exampleServiceLinkedRole = new Aws.Iam.ServiceLinkedRole("example", new()
@@ -255,7 +255,6 @@ namespace Pulumi.Aws.OpenSearch
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -267,6 +266,7 @@ namespace Pulumi.Aws.OpenSearch
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "es:*",
@@ -281,8 +281,6 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     ///     var exampleDomain = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         DomainName = domain,
-    ///         EngineVersion = "OpenSearch_1.0",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "m4.large.search",
@@ -300,6 +298,8 @@ namespace Pulumi.Aws.OpenSearch
     ///                 exampleSecurityGroup.Id,
     ///             },
     ///         },
+    ///         DomainName = domain,
+    ///         EngineVersion = "OpenSearch_1.0",
     ///         AdvancedOptions = 
     ///         {
     ///             { "rest.action.multi.allow_explicit_index", "true" },
@@ -336,22 +336,20 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         DomainName = "ggkitty",
-    ///         EngineVersion = "Elasticsearch_7.1",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r5.large.search",
     ///         },
     ///         AdvancedSecurityOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsArgs
     ///         {
-    ///             Enabled = false,
-    ///             AnonymousAuthEnabled = true,
-    ///             InternalUserDatabaseEnabled = true,
     ///             MasterUserOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs
     ///             {
     ///                 MasterUserName = "example",
     ///                 MasterUserPassword = "Barbarbarbar1!",
     ///             },
+    ///             Enabled = false,
+    ///             AnonymousAuthEnabled = true,
+    ///             InternalUserDatabaseEnabled = true,
     ///         },
     ///         EncryptAtRest = new Aws.OpenSearch.Inputs.DomainEncryptAtRestArgs
     ///         {
@@ -371,6 +369,8 @@ namespace Pulumi.Aws.OpenSearch
     ///             EbsEnabled = true,
     ///             VolumeSize = 10,
     ///         },
+    ///         DomainName = "ggkitty",
+    ///         EngineVersion = "Elasticsearch_7.1",
     ///     });
     /// 
     /// });
@@ -390,22 +390,20 @@ namespace Pulumi.Aws.OpenSearch
     /// {
     ///     var example = new Aws.OpenSearch.Domain("example", new()
     ///     {
-    ///         DomainName = "ggkitty",
-    ///         EngineVersion = "Elasticsearch_7.1",
     ///         ClusterConfig = new Aws.OpenSearch.Inputs.DomainClusterConfigArgs
     ///         {
     ///             InstanceType = "r5.large.search",
     ///         },
     ///         AdvancedSecurityOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsArgs
     ///         {
-    ///             Enabled = true,
-    ///             AnonymousAuthEnabled = true,
-    ///             InternalUserDatabaseEnabled = true,
     ///             MasterUserOptions = new Aws.OpenSearch.Inputs.DomainAdvancedSecurityOptionsMasterUserOptionsArgs
     ///             {
     ///                 MasterUserName = "example",
     ///                 MasterUserPassword = "Barbarbarbar1!",
     ///             },
+    ///             Enabled = true,
+    ///             AnonymousAuthEnabled = true,
+    ///             InternalUserDatabaseEnabled = true,
     ///         },
     ///         EncryptAtRest = new Aws.OpenSearch.Inputs.DomainEncryptAtRestArgs
     ///         {
@@ -425,6 +423,8 @@ namespace Pulumi.Aws.OpenSearch
     ///             EbsEnabled = true,
     ///             VolumeSize = 10,
     ///         },
+    ///         DomainName = "ggkitty",
+    ///         EngineVersion = "Elasticsearch_7.1",
     ///     });
     /// 
     /// });

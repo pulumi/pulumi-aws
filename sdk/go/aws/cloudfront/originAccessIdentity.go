@@ -109,12 +109,6 @@ import (
 //			s3Policy, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"s3:GetObject",
-//						},
-//						Resources: []string{
-//							fmt.Sprintf("%v/*", exampleAwsS3Bucket.Arn),
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "AWS",
@@ -122,6 +116,12 @@ import (
 //									exampleAwsCloudfrontOriginAccessIdentity.IamArn,
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"s3:GetObject",
+//						},
+//						Resources: []string{
+//							fmt.Sprintf("%v/*", exampleAwsS3Bucket.Arn),
 //						},
 //					},
 //				},

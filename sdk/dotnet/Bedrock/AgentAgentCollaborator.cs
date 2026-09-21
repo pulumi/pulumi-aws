@@ -36,21 +36,6 @@ namespace Pulumi.Aws.Bedrock
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "bedrock.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -71,6 +56,21 @@ namespace Pulumi.Aws.Bedrock
     ///                         },
     ///                         Variable = "AWS:SourceArn",
     ///                     },
+    ///                 },
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "bedrock.amazonaws.com",
+    ///                         },
+    ///                         Type = "Service",
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
     ///                 },
     ///             },
     ///         },
@@ -148,14 +148,14 @@ namespace Pulumi.Aws.Bedrock
     /// 
     ///     var exampleAgentAgentCollaborator = new Aws.Bedrock.AgentAgentCollaborator("example", new()
     ///     {
-    ///         AgentId = exampleSupervisor.AgentId,
-    ///         CollaborationInstruction = "tell the other agent what to do",
-    ///         CollaboratorName = "my-collab-example",
-    ///         RelayConversationHistory = "TO_COLLABORATOR",
     ///         AgentDescriptor = new Aws.Bedrock.Inputs.AgentAgentCollaboratorAgentDescriptorArgs
     ///         {
     ///             AliasArn = exampleAgentAgentAlias.AgentAliasArn,
     ///         },
+    ///         AgentId = exampleSupervisor.AgentId,
+    ///         CollaborationInstruction = "tell the other agent what to do",
+    ///         CollaboratorName = "my-collab-example",
+    ///         RelayConversationHistory = "TO_COLLABORATOR",
     ///     });
     /// 
     /// });

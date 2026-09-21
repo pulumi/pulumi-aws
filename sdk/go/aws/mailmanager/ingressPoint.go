@@ -60,14 +60,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewIngressPoint(ctx, "example", &mailmanager.IngressPointArgs{
-//				Name:            pulumi.String("example"),
-//				Type:            pulumi.String("AUTH"),
-//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
-//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //				IngressPointConfiguration: &mailmanager.IngressPointIngressPointConfigurationArgs{
 //					SmtpPasswordWo:        pulumi.Any(smtpPassword),
 //					SmtpPasswordWoVersion: pulumi.Int(1),
 //				},
+//				Name:            pulumi.String("example"),
+//				Type:            pulumi.String("AUTH"),
+//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
+//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -93,15 +93,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mailmanager.NewIngressPoint(ctx, "example", &mailmanager.IngressPointArgs{
-//				Name:            pulumi.String("example"),
-//				Type:            pulumi.String("OPEN"),
-//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
-//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //				NetworkConfiguration: &mailmanager.IngressPointNetworkConfigurationArgs{
 //					PrivateNetworkConfiguration: &mailmanager.IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs{
 //						VpcEndpointId: pulumi.Any(exampleAwsVpcEndpoint.Id),
 //					},
 //				},
+//				Name:            pulumi.String("example"),
+//				Type:            pulumi.String("OPEN"),
+//				RuleSetId:       pulumi.Any(exampleAwsMailmanagerRuleSet.Id),
+//				TrafficPolicyId: pulumi.Any(exampleAwsMailmanagerTrafficPolicy.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -153,6 +153,8 @@ type IngressPoint struct {
 	RuleSetId pulumi.StringOutput `pulumi:"ruleSetId"`
 	// Status of the ingress point.
 	Status pulumi.StringOutput `pulumi:"status"`
+	// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+	StatusToUpdate pulumi.StringPtrOutput `pulumi:"statusToUpdate"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -227,6 +229,8 @@ type ingressPointState struct {
 	RuleSetId *string `pulumi:"ruleSetId"`
 	// Status of the ingress point.
 	Status *string `pulumi:"status"`
+	// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+	StatusToUpdate *string `pulumi:"statusToUpdate"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -263,6 +267,8 @@ type IngressPointState struct {
 	RuleSetId pulumi.StringPtrInput
 	// Status of the ingress point.
 	Status pulumi.StringPtrInput
+	// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+	StatusToUpdate pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
@@ -293,6 +299,8 @@ type ingressPointArgs struct {
 	Region *string `pulumi:"region"`
 	// Identifier of the rule set applied to the ingress point.
 	RuleSetId string `pulumi:"ruleSetId"`
+	// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+	StatusToUpdate *string `pulumi:"statusToUpdate"`
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string     `pulumi:"tags"`
 	Timeouts *IngressPointTimeouts `pulumi:"timeouts"`
@@ -318,6 +326,8 @@ type IngressPointArgs struct {
 	Region pulumi.StringPtrInput
 	// Identifier of the rule set applied to the ingress point.
 	RuleSetId pulumi.StringInput
+	// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+	StatusToUpdate pulumi.StringPtrInput
 	// Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts IngressPointTimeoutsPtrInput
@@ -468,6 +478,11 @@ func (o IngressPointOutput) RuleSetId() pulumi.StringOutput {
 // Status of the ingress point.
 func (o IngressPointOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *IngressPoint) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+func (o IngressPointOutput) StatusToUpdate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IngressPoint) pulumi.StringPtrOutput { return v.StatusToUpdate }).(pulumi.StringPtrOutput)
 }
 
 // Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

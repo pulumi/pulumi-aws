@@ -19,14 +19,14 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
     public static final VpcIpamScopeState Empty = new VpcIpamScopeState();
 
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the scope.
+     * @return ARN of the scope.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -186,7 +186,7 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the scope.
+         * @param arn ARN of the scope.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class VpcIpamScopeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the scope.
+         * @param arn ARN of the scope.
          * 
          * @return builder
          * 

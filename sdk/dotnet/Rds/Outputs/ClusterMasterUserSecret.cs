@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Rds.Outputs
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the secret.
+        /// ARN of the secret.
         /// </summary>
         public readonly string? SecretArn;
         /// <summary>

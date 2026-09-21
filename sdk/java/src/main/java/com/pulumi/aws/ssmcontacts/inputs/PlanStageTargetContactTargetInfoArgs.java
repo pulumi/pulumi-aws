@@ -18,14 +18,14 @@ public final class PlanStageTargetContactTargetInfoArgs extends com.pulumi.resou
     public static final PlanStageTargetContactTargetInfoArgs Empty = new PlanStageTargetContactTargetInfoArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the contact.
+     * The ARN of the contact.
      * 
      */
     @Import(name="contactId")
     private @Nullable Output<String> contactId;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the contact.
+     * @return The ARN of the contact.
      * 
      */
     public Optional<Output<String>> contactId() {
@@ -73,7 +73,7 @@ public final class PlanStageTargetContactTargetInfoArgs extends com.pulumi.resou
         }
 
         /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact.
+         * @param contactId The ARN of the contact.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class PlanStageTargetContactTargetInfoArgs extends com.pulumi.resou
         }
 
         /**
-         * @param contactId The Amazon Resource Name (ARN) of the contact.
+         * @param contactId The ARN of the contact.
          * 
          * @return builder
          * 

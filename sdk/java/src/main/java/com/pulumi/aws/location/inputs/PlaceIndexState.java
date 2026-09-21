@@ -78,14 +78,14 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * ARN for the place index resource. Used to specify a resource across AWS.
      * 
      */
     @Import(name="indexArn")
     private @Nullable Output<String> indexArn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+     * @return ARN for the place index resource. Used to specify a resource across AWS.
      * 
      */
     public Optional<Output<String>> indexArn() {
@@ -289,7 +289,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexArn Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+         * @param indexArn ARN for the place index resource. Used to specify a resource across AWS.
          * 
          * @return builder
          * 
@@ -300,7 +300,7 @@ public final class PlaceIndexState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param indexArn Amazon Resource Name (ARN) for the place index resource. Used to specify a resource across AWS.
+         * @param indexArn ARN for the place index resource. Used to specify a resource across AWS.
          * 
          * @return builder
          * 

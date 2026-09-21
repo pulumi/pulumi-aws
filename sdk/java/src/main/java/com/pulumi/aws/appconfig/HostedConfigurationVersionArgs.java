@@ -106,6 +106,21 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.region);
     }
 
+    /**
+     * User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    @Import(name="versionLabel")
+    private @Nullable Output<String> versionLabel;
+
+    /**
+     * @return User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+     * 
+     */
+    public Optional<Output<String>> versionLabel() {
+        return Optional.ofNullable(this.versionLabel);
+    }
+
     private HostedConfigurationVersionArgs() {}
 
     private HostedConfigurationVersionArgs(HostedConfigurationVersionArgs $) {
@@ -115,6 +130,7 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
         this.contentType = $.contentType;
         this.description = $.description;
         this.region = $.region;
+        this.versionLabel = $.versionLabel;
     }
 
     public static Builder builder() {
@@ -259,6 +275,27 @@ public final class HostedConfigurationVersionArgs extends com.pulumi.resources.R
          */
         public Builder region(String region) {
             return region(Output.of(region));
+        }
+
+        /**
+         * @param versionLabel User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionLabel(@Nullable Output<String> versionLabel) {
+            $.versionLabel = versionLabel;
+            return this;
+        }
+
+        /**
+         * @param versionLabel User-defined label for the AppConfig hosted configuration version. This value must contain at least one non-numeric character.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder versionLabel(String versionLabel) {
+            return versionLabel(Output.of(versionLabel));
         }
 
         public HostedConfigurationVersionArgs build() {

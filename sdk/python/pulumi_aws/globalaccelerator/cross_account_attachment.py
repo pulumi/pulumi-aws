@@ -268,12 +268,12 @@ class CrossAccountAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CrossAccountAttachment("example",
-            name="example-cross-account-attachment",
-            principals=["123456789012"],
             resources=[{
                 "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
                 "region": "us-west-2",
-            }])
+            }],
+            name="example-cross-account-attachment",
+            principals=["123456789012"])
         ```
 
         ## Import
@@ -282,7 +282,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+        - `arn` (String) ARN of the Global Accelerator cross-account attachment.
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 
@@ -327,12 +327,12 @@ class CrossAccountAttachment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.CrossAccountAttachment("example",
-            name="example-cross-account-attachment",
-            principals=["123456789012"],
             resources=[{
                 "endpoint_id": "arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188",
                 "region": "us-west-2",
-            }])
+            }],
+            name="example-cross-account-attachment",
+            principals=["123456789012"])
         ```
 
         ## Import
@@ -341,7 +341,7 @@ class CrossAccountAttachment(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator cross-account attachment.
+        - `arn` (String) ARN of the Global Accelerator cross-account attachment.
 
         Using `pulumi import`, import Global Accelerator Cross Account Attachment using the `arn`. For example:
 

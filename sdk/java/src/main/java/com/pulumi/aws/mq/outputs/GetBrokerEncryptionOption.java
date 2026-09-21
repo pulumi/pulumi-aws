@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetBrokerEncryptionOption {
     /**
-     * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+     * @return ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
      * 
      */
     private String kmsKeyId;
@@ -24,7 +24,7 @@ public final class GetBrokerEncryptionOption {
 
     private GetBrokerEncryptionOption() {}
     /**
-     * @return Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+     * @return ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
      * 
      */
     public String kmsKeyId() {

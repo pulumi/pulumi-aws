@@ -65,14 +65,14 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      * 
      */
     @Import(name="listenerArn", required=true)
     private Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom routing listener.
+     * @return ARN of the custom routing listener.
      * 
      */
     public Output<String> listenerArn() {
@@ -190,7 +190,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
+         * @param listenerArn ARN of the custom routing listener.
          * 
          * @return builder
          * 
@@ -201,7 +201,7 @@ public final class CustomRoutingEndpointGroupArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
+         * @param listenerArn ARN of the custom routing listener.
          * 
          * @return builder
          * 

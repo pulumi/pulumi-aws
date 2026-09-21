@@ -53,7 +53,7 @@ import (
 type Image struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
+	// ARN assigned by AWS to this Image.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The description of the image.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -63,7 +63,7 @@ type Image struct {
 	ImageName pulumi.StringOutput `pulumi:"imageName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+	// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -107,7 +107,7 @@ func GetImage(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Image resources.
 type imageState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
+	// ARN assigned by AWS to this Image.
 	Arn *string `pulumi:"arn"`
 	// The description of the image.
 	Description *string `pulumi:"description"`
@@ -117,7 +117,7 @@ type imageState struct {
 	ImageName *string `pulumi:"imageName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+	// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -126,7 +126,7 @@ type imageState struct {
 }
 
 type ImageState struct {
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image.
+	// ARN assigned by AWS to this Image.
 	Arn pulumi.StringPtrInput
 	// The description of the image.
 	Description pulumi.StringPtrInput
@@ -136,7 +136,7 @@ type ImageState struct {
 	ImageName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+	// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -157,7 +157,7 @@ type imageArgs struct {
 	ImageName string `pulumi:"imageName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+	// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -173,7 +173,7 @@ type ImageArgs struct {
 	ImageName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+	// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -266,7 +266,7 @@ func (o ImageOutput) ToImageOutputWithContext(ctx context.Context) ImageOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Image.
+// ARN assigned by AWS to this Image.
 func (o ImageOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -291,7 +291,7 @@ func (o ImageOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
+// ARN of an IAM role that enables Amazon SageMaker AI to perform tasks on your behalf.
 func (o ImageOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Image) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

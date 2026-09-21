@@ -55,11 +55,11 @@ type ClusterSnapshot struct {
 	AllocatedStorage pulumi.IntOutput `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
-	// The DB Cluster Identifier from which to take the snapshot.
+	// DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringOutput `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+	// ARN for the DB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringOutput `pulumi:"dbClusterSnapshotArn"`
-	// The Identifier for the snapshot.
+	// Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringOutput `pulumi:"dbClusterSnapshotIdentifier"`
 	// Name of the database engine.
 	Engine pulumi.StringOutput `pulumi:"engine"`
@@ -74,18 +74,20 @@ type ClusterSnapshot struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-	SharedAccounts             pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
-	SnapshotType               pulumi.StringOutput      `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn pulumi.StringOutput      `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DB Cluster Snapshot.
+	SharedAccounts pulumi.StringArrayOutput `pulumi:"sharedAccounts"`
+	// Type of the DB cluster snapshot.
+	SnapshotType pulumi.StringOutput `pulumi:"snapshotType"`
+	// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+	SourceDbClusterSnapshotArn pulumi.StringOutput `pulumi:"sourceDbClusterSnapshotArn"`
+	// Status of this DB Cluster Snapshot.
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolOutput `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The VPC ID associated with the DB cluster snapshot.
+	// VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringOutput `pulumi:"vpcId"`
 }
 
@@ -129,11 +131,11 @@ type clusterSnapshotState struct {
 	AllocatedStorage *int `pulumi:"allocatedStorage"`
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones []string `pulumi:"availabilityZones"`
-	// The DB Cluster Identifier from which to take the snapshot.
+	// DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier *string `pulumi:"dbClusterIdentifier"`
-	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+	// ARN for the DB Cluster Snapshot.
 	DbClusterSnapshotArn *string `pulumi:"dbClusterSnapshotArn"`
-	// The Identifier for the snapshot.
+	// Identifier for the snapshot.
 	DbClusterSnapshotIdentifier *string `pulumi:"dbClusterSnapshotIdentifier"`
 	// Name of the database engine.
 	Engine *string `pulumi:"engine"`
@@ -148,18 +150,20 @@ type clusterSnapshotState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-	SharedAccounts             []string `pulumi:"sharedAccounts"`
-	SnapshotType               *string  `pulumi:"snapshotType"`
-	SourceDbClusterSnapshotArn *string  `pulumi:"sourceDbClusterSnapshotArn"`
-	// The status of this DB Cluster Snapshot.
+	SharedAccounts []string `pulumi:"sharedAccounts"`
+	// Type of the DB cluster snapshot.
+	SnapshotType *string `pulumi:"snapshotType"`
+	// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+	SourceDbClusterSnapshotArn *string `pulumi:"sourceDbClusterSnapshotArn"`
+	// Status of this DB Cluster Snapshot.
 	Status *string `pulumi:"status"`
 	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted *bool `pulumi:"storageEncrypted"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The VPC ID associated with the DB cluster snapshot.
+	// VPC ID associated with the DB cluster snapshot.
 	VpcId *string `pulumi:"vpcId"`
 }
 
@@ -168,11 +172,11 @@ type ClusterSnapshotState struct {
 	AllocatedStorage pulumi.IntPtrInput
 	// List of EC2 Availability Zones that instances in the DB cluster snapshot can be restored in.
 	AvailabilityZones pulumi.StringArrayInput
-	// The DB Cluster Identifier from which to take the snapshot.
+	// DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+	// ARN for the DB Cluster Snapshot.
 	DbClusterSnapshotArn pulumi.StringPtrInput
-	// The Identifier for the snapshot.
+	// Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringPtrInput
 	// Name of the database engine.
 	Engine pulumi.StringPtrInput
@@ -187,18 +191,20 @@ type ClusterSnapshotState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-	SharedAccounts             pulumi.StringArrayInput
-	SnapshotType               pulumi.StringPtrInput
+	SharedAccounts pulumi.StringArrayInput
+	// Type of the DB cluster snapshot.
+	SnapshotType pulumi.StringPtrInput
+	// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
 	SourceDbClusterSnapshotArn pulumi.StringPtrInput
-	// The status of this DB Cluster Snapshot.
+	// Status of this DB Cluster Snapshot.
 	Status pulumi.StringPtrInput
 	// Whether the DB cluster snapshot is encrypted.
 	StorageEncrypted pulumi.BoolPtrInput
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The VPC ID associated with the DB cluster snapshot.
+	// VPC ID associated with the DB cluster snapshot.
 	VpcId pulumi.StringPtrInput
 }
 
@@ -207,29 +213,29 @@ func (ClusterSnapshotState) ElementType() reflect.Type {
 }
 
 type clusterSnapshotArgs struct {
-	// The DB Cluster Identifier from which to take the snapshot.
+	// DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier string `pulumi:"dbClusterIdentifier"`
-	// The Identifier for the snapshot.
+	// Identifier for the snapshot.
 	DbClusterSnapshotIdentifier string `pulumi:"dbClusterSnapshotIdentifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts []string `pulumi:"sharedAccounts"`
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterSnapshot resource.
 type ClusterSnapshotArgs struct {
-	// The DB Cluster Identifier from which to take the snapshot.
+	// DB Cluster Identifier from which to take the snapshot.
 	DbClusterIdentifier pulumi.StringInput
-	// The Identifier for the snapshot.
+	// Identifier for the snapshot.
 	DbClusterSnapshotIdentifier pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
 	// List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
 	SharedAccounts pulumi.StringArrayInput
-	// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+	// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
 }
 
@@ -330,17 +336,17 @@ func (o ClusterSnapshotOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringArrayOutput { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
-// The DB Cluster Identifier from which to take the snapshot.
+// DB Cluster Identifier from which to take the snapshot.
 func (o ClusterSnapshotOutput) DbClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+// ARN for the DB Cluster Snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The Identifier for the snapshot.
+// Identifier for the snapshot.
 func (o ClusterSnapshotOutput) DbClusterSnapshotIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.DbClusterSnapshotIdentifier }).(pulumi.StringOutput)
 }
@@ -380,15 +386,17 @@ func (o ClusterSnapshotOutput) SharedAccounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringArrayOutput { return v.SharedAccounts }).(pulumi.StringArrayOutput)
 }
 
+// Type of the DB cluster snapshot.
 func (o ClusterSnapshotOutput) SnapshotType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SnapshotType }).(pulumi.StringOutput)
 }
 
+// DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
 func (o ClusterSnapshotOutput) SourceDbClusterSnapshotArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.SourceDbClusterSnapshotArn }).(pulumi.StringOutput)
 }
 
-// The status of this DB Cluster Snapshot.
+// Status of this DB Cluster Snapshot.
 func (o ClusterSnapshotOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
@@ -398,17 +406,17 @@ func (o ClusterSnapshotOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.BoolOutput { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+// Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 func (o ClusterSnapshotOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterSnapshotOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The VPC ID associated with the DB cluster snapshot.
+// VPC ID associated with the DB cluster snapshot.
 func (o ClusterSnapshotOutput) VpcId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterSnapshot) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
 }

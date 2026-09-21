@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleClusterCapacityProviders = new ClusterCapacityProviders("exampleClusterCapacityProviders", ClusterCapacityProvidersArgs.builder()
- *             .clusterName(example.name())
- *             .capacityProviders("FARGATE")
  *             .defaultCapacityProviderStrategies(ClusterCapacityProvidersDefaultCapacityProviderStrategyArgs.builder()
  *                 .base(1)
  *                 .weight(100)
  *                 .capacityProvider("FARGATE")
  *                 .build())
+ *             .clusterName(example.name())
+ *             .capacityProviders("FARGATE")
  *             .build());
  * 
  *     }

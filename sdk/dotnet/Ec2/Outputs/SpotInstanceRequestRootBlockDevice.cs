@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// </summary>
         public readonly int? Iops;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
+        /// ARN of the KMS Key to use when encrypting the volume. Must be configured to perform drift detection.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("codeartifact:ReadFromRepository")
  *                 .resources(exampleRepository.arn())
  *                 .build())
@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+ * - `resourceArn` (String) ARN of the CodeArtifact repository.
  * 
  * Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
  * 

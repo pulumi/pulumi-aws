@@ -15,122 +15,354 @@ import java.util.Objects;
 
 @CustomType
 public final class GetClusterResult {
+    /**
+     * @return ARN of the cluster.
+     * 
+     */
     private String arn;
+    /**
+     * @return Availability Zones of the RDS cluster.
+     * 
+     */
     private List<String> availabilityZones;
+    /**
+     * @return Target backtrack window, in seconds.
+     * 
+     */
     private Integer backtrackWindow;
+    /**
+     * @return Days to retain backups for.
+     * 
+     */
     private Integer backupRetentionPeriod;
     private String clusterIdentifier;
+    /**
+     * @return List of RDS Instances that are a part of this cluster.
+     * 
+     */
     private List<String> clusterMembers;
+    /**
+     * @return RDS Cluster Resource ID.
+     * 
+     */
     private String clusterResourceId;
+    /**
+     * @return Scalability mode of the cluster.
+     * 
+     */
     private String clusterScalabilityType;
+    /**
+     * @return Mode of Database Insights that is enabled for the cluster.
+     * 
+     */
     private String databaseInsightsMode;
+    /**
+     * @return Name for an automatically created database on cluster creation.
+     * 
+     */
     private String databaseName;
+    /**
+     * @return Cluster parameter group associated with the cluster.
+     * 
+     */
     private String dbClusterParameterGroupName;
+    /**
+     * @return DB subnet group associated with the cluster.
+     * 
+     */
     private String dbSubnetGroupName;
+    /**
+     * @return System ID of the cluster.
+     * 
+     */
     private String dbSystemId;
+    /**
+     * @return Whether the cluster has deletion protection enabled.
+     * 
+     */
     private Boolean deletionProtection;
+    /**
+     * @return List of log types exported to CloudWatch Logs.
+     * 
+     */
     private List<String> enabledCloudwatchLogsExports;
+    /**
+     * @return DNS address of the RDS instance.
+     * 
+     */
     private String endpoint;
+    /**
+     * @return Database engine.
+     * 
+     */
     private String engine;
+    /**
+     * @return Database engine mode.
+     * 
+     */
     private String engineMode;
+    /**
+     * @return Database engine version.
+     * 
+     */
     private String engineVersion;
+    /**
+     * @return Name of the final snapshot taken when the cluster is deleted.
+     * 
+     */
     private String finalSnapshotIdentifier;
+    /**
+     * @return Route53 Hosted Zone ID of the endpoint.
+     * 
+     */
     private String hostedZoneId;
+    /**
+     * @return Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * 
+     */
     private Boolean iamDatabaseAuthenticationEnabled;
+    /**
+     * @return IAM roles associated with the cluster.
+     * 
+     */
     private List<String> iamRoles;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
      */
     private String id;
+    /**
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * 
+     */
     private String kmsKeyId;
+    /**
+     * @return Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to `true`. Documented below.
+     * 
+     */
     private List<GetClusterMasterUserSecret> masterUserSecrets;
+    /**
+     * @return Master username for the database.
+     * 
+     */
     private String masterUsername;
+    /**
+     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+     * 
+     */
     private Integer monitoringInterval;
+    /**
+     * @return ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     * 
+     */
     private String monitoringRoleArn;
+    /**
+     * @return Network type of the cluster.
+     * 
+     */
     private String networkType;
+    /**
+     * @return Port on which the DB accepts connections.
+     * 
+     */
     private Integer port;
+    /**
+     * @return Daily time range during which automated backups are created.
+     * 
+     */
     private String preferredBackupWindow;
+    /**
+     * @return Weekly time range during which system maintenance can occur.
+     * 
+     */
     private String preferredMaintenanceWindow;
+    /**
+     * @return Read-only endpoint for the cluster, automatically load-balanced across replicas.
+     * 
+     */
     private String readerEndpoint;
     private String region;
+    /**
+     * @return ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+     * 
+     */
     private String replicationSourceIdentifier;
+    /**
+     * @return Whether the DB cluster is encrypted.
+     * 
+     */
     private Boolean storageEncrypted;
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     private Map<String,String> tags;
+    /**
+     * @return Order in which minor and major version upgrades are applied to the cluster.
+     * 
+     */
     private String upgradeRolloutOrder;
+    /**
+     * @return VPC security groups the cluster belongs to.
+     * 
+     */
     private List<String> vpcSecurityGroupIds;
 
     private GetClusterResult() {}
+    /**
+     * @return ARN of the cluster.
+     * 
+     */
     public String arn() {
         return this.arn;
     }
+    /**
+     * @return Availability Zones of the RDS cluster.
+     * 
+     */
     public List<String> availabilityZones() {
         return this.availabilityZones;
     }
+    /**
+     * @return Target backtrack window, in seconds.
+     * 
+     */
     public Integer backtrackWindow() {
         return this.backtrackWindow;
     }
+    /**
+     * @return Days to retain backups for.
+     * 
+     */
     public Integer backupRetentionPeriod() {
         return this.backupRetentionPeriod;
     }
     public String clusterIdentifier() {
         return this.clusterIdentifier;
     }
+    /**
+     * @return List of RDS Instances that are a part of this cluster.
+     * 
+     */
     public List<String> clusterMembers() {
         return this.clusterMembers;
     }
+    /**
+     * @return RDS Cluster Resource ID.
+     * 
+     */
     public String clusterResourceId() {
         return this.clusterResourceId;
     }
+    /**
+     * @return Scalability mode of the cluster.
+     * 
+     */
     public String clusterScalabilityType() {
         return this.clusterScalabilityType;
     }
+    /**
+     * @return Mode of Database Insights that is enabled for the cluster.
+     * 
+     */
     public String databaseInsightsMode() {
         return this.databaseInsightsMode;
     }
+    /**
+     * @return Name for an automatically created database on cluster creation.
+     * 
+     */
     public String databaseName() {
         return this.databaseName;
     }
+    /**
+     * @return Cluster parameter group associated with the cluster.
+     * 
+     */
     public String dbClusterParameterGroupName() {
         return this.dbClusterParameterGroupName;
     }
+    /**
+     * @return DB subnet group associated with the cluster.
+     * 
+     */
     public String dbSubnetGroupName() {
         return this.dbSubnetGroupName;
     }
+    /**
+     * @return System ID of the cluster.
+     * 
+     */
     public String dbSystemId() {
         return this.dbSystemId;
     }
+    /**
+     * @return Whether the cluster has deletion protection enabled.
+     * 
+     */
     public Boolean deletionProtection() {
         return this.deletionProtection;
     }
+    /**
+     * @return List of log types exported to CloudWatch Logs.
+     * 
+     */
     public List<String> enabledCloudwatchLogsExports() {
         return this.enabledCloudwatchLogsExports;
     }
+    /**
+     * @return DNS address of the RDS instance.
+     * 
+     */
     public String endpoint() {
         return this.endpoint;
     }
+    /**
+     * @return Database engine.
+     * 
+     */
     public String engine() {
         return this.engine;
     }
+    /**
+     * @return Database engine mode.
+     * 
+     */
     public String engineMode() {
         return this.engineMode;
     }
+    /**
+     * @return Database engine version.
+     * 
+     */
     public String engineVersion() {
         return this.engineVersion;
     }
+    /**
+     * @return Name of the final snapshot taken when the cluster is deleted.
+     * 
+     */
     public String finalSnapshotIdentifier() {
         return this.finalSnapshotIdentifier;
     }
+    /**
+     * @return Route53 Hosted Zone ID of the endpoint.
+     * 
+     */
     public String hostedZoneId() {
         return this.hostedZoneId;
     }
+    /**
+     * @return Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+     * 
+     */
     public Boolean iamDatabaseAuthenticationEnabled() {
         return this.iamDatabaseAuthenticationEnabled;
     }
+    /**
+     * @return IAM roles associated with the cluster.
+     * 
+     */
     public List<String> iamRoles() {
         return this.iamRoles;
     }
@@ -141,55 +373,111 @@ public final class GetClusterResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return Amazon Web Services KMS key identifier that is used to encrypt the secret.
+     * 
+     */
     public String kmsKeyId() {
         return this.kmsKeyId;
     }
+    /**
+     * @return Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to `true`. Documented below.
+     * 
+     */
     public List<GetClusterMasterUserSecret> masterUserSecrets() {
         return this.masterUserSecrets;
     }
+    /**
+     * @return Master username for the database.
+     * 
+     */
     public String masterUsername() {
         return this.masterUsername;
     }
+    /**
+     * @return Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+     * 
+     */
     public Integer monitoringInterval() {
         return this.monitoringInterval;
     }
+    /**
+     * @return ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+     * 
+     */
     public String monitoringRoleArn() {
         return this.monitoringRoleArn;
     }
+    /**
+     * @return Network type of the cluster.
+     * 
+     */
     public String networkType() {
         return this.networkType;
     }
+    /**
+     * @return Port on which the DB accepts connections.
+     * 
+     */
     public Integer port() {
         return this.port;
     }
+    /**
+     * @return Daily time range during which automated backups are created.
+     * 
+     */
     public String preferredBackupWindow() {
         return this.preferredBackupWindow;
     }
+    /**
+     * @return Weekly time range during which system maintenance can occur.
+     * 
+     */
     public String preferredMaintenanceWindow() {
         return this.preferredMaintenanceWindow;
     }
+    /**
+     * @return Read-only endpoint for the cluster, automatically load-balanced across replicas.
+     * 
+     */
     public String readerEndpoint() {
         return this.readerEndpoint;
     }
     public String region() {
         return this.region;
     }
+    /**
+     * @return ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+     * 
+     */
     public String replicationSourceIdentifier() {
         return this.replicationSourceIdentifier;
     }
+    /**
+     * @return Whether the DB cluster is encrypted.
+     * 
+     */
     public Boolean storageEncrypted() {
         return this.storageEncrypted;
     }
     /**
-     * @return A map of tags assigned to the resource.
+     * @return Map of tags assigned to the resource.
      * 
      */
     public Map<String,String> tags() {
         return this.tags;
     }
+    /**
+     * @return Order in which minor and major version upgrades are applied to the cluster.
+     * 
+     */
     public String upgradeRolloutOrder() {
         return this.upgradeRolloutOrder;
     }
+    /**
+     * @return VPC security groups the cluster belongs to.
+     * 
+     */
     public List<String> vpcSecurityGroupIds() {
         return this.vpcSecurityGroupIds;
     }

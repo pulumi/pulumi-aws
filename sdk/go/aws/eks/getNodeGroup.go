@@ -63,7 +63,7 @@ type LookupNodeGroupArgs struct {
 
 // A collection of values returned by getNodeGroup.
 type LookupNodeGroupResult struct {
-	// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+	// Type of AMI associated with the EKS Node Group.
 	AmiType string `pulumi:"amiType"`
 	// ARN of the EKS Node Group.
 	Arn string `pulumi:"arn"`
@@ -108,12 +108,8 @@ type LookupNodeGroupResult struct {
 }
 
 func LookupNodeGroupOutput(ctx *pulumi.Context, args LookupNodeGroupOutputArgs, opts ...pulumi.InvokeOption) LookupNodeGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNodeGroupResultOutput, error) {
-			args := v.(LookupNodeGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getNodeGroup:getNodeGroup", args, LookupNodeGroupResultOutput{}, options).(LookupNodeGroupResultOutput), nil
-		}).(LookupNodeGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getNodeGroup:getNodeGroup", args, LookupNodeGroupResultOutput{}, options).(LookupNodeGroupResultOutput)
 }
 
 // A collection of arguments for invoking getNodeGroup.
@@ -147,7 +143,7 @@ func (o LookupNodeGroupResultOutput) ToLookupNodeGroupResultOutputWithContext(ct
 	return o
 }
 
-// Type of Amazon Machine Image (AMI) associated with the EKS Node Group.
+// Type of AMI associated with the EKS Node Group.
 func (o LookupNodeGroupResultOutput) AmiType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNodeGroupResult) string { return v.AmiType }).(pulumi.StringOutput)
 }

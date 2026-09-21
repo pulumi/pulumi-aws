@@ -26,14 +26,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreEvaluator("example", new()
     ///     {
-    ///         EvaluatorName = "helpfulness_evaluator",
-    ///         Description = "Rates assistant helpfulness from 1 to 5",
-    ///         Level = "TRACE",
     ///         EvaluatorConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigArgs
     ///         {
     ///             LlmAsAJudge = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs
     ///             {
-    ///                 Instructions = "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
     ///                 RatingScale = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs
     ///                 {
     ///                     Numericals = new[]
@@ -56,17 +52,21 @@ namespace Pulumi.Aws.Bedrock
     ///                 {
     ///                     BedrockEvaluatorModelConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigArgs
     ///                     {
-    ///                         ModelId = "us.amazon.nova-2-lite-v1:0",
     ///                         InferenceConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeModelConfigBedrockEvaluatorModelConfigInferenceConfigArgs
     ///                         {
     ///                             MaxTokens = 1024,
     ///                             Temperature = 0,
     ///                             TopP = 1,
     ///                         },
+    ///                         ModelId = "us.amazon.nova-2-lite-v1:0",
     ///                     },
     ///                 },
+    ///                 Instructions = "Given the {context} and the {assistant_turn}, compare against {expected_response} and rate from 1 to 5.",
     ///             },
     ///         },
+    ///         EvaluatorName = "helpfulness_evaluator",
+    ///         Description = "Rates assistant helpfulness from 1 to 5",
+    ///         Level = "TRACE",
     ///     });
     /// 
     /// });
@@ -84,13 +84,10 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreEvaluator("example", new()
     ///     {
-    ///         EvaluatorName = "tone_evaluator",
-    ///         Level = "SESSION",
     ///         EvaluatorConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigArgs
     ///         {
     ///             LlmAsAJudge = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeArgs
     ///             {
-    ///                 Instructions = "Classify the tone of the {assistant_turn} given the {context}.",
     ///                 RatingScale = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigLlmAsAJudgeRatingScaleArgs
     ///                 {
     ///                     Categoricals = new[]
@@ -119,8 +116,11 @@ namespace Pulumi.Aws.Bedrock
     ///                         ModelId = "us.amazon.nova-2-lite-v1:0",
     ///                     },
     ///                 },
+    ///                 Instructions = "Classify the tone of the {assistant_turn} given the {context}.",
     ///             },
     ///         },
+    ///         EvaluatorName = "tone_evaluator",
+    ///         Level = "SESSION",
     ///     });
     /// 
     /// });
@@ -138,8 +138,6 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentcoreEvaluator("example", new()
     ///     {
-    ///         EvaluatorName = "lambda_evaluator",
-    ///         Level = "TOOL_CALL",
     ///         EvaluatorConfig = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigArgs
     ///         {
     ///             CodeBased = new Aws.Bedrock.Inputs.AgentcoreEvaluatorEvaluatorConfigCodeBasedArgs
@@ -151,6 +149,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 },
     ///             },
     ///         },
+    ///         EvaluatorName = "lambda_evaluator",
+    ///         Level = "TOOL_CALL",
     ///     });
     /// 
     /// });

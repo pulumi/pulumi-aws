@@ -151,14 +151,14 @@ class LogSubscription(pulumi.CustomResource):
             name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
             retention_in_days=14)
         ad_log_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
             "principals": [{
                 "identifiers": ["ds.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
             "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
             "effect": "Allow",
         }])
@@ -204,14 +204,14 @@ class LogSubscription(pulumi.CustomResource):
             name=f"/aws/directoryservice/{example_aws_directory_service_directory['id']}",
             retention_in_days=14)
         ad_log_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": [
-                "logs:CreateLogStream",
-                "logs:PutLogEvents",
-            ],
             "principals": [{
                 "identifiers": ["ds.amazonaws.com"],
                 "type": "Service",
             }],
+            "actions": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents",
+            ],
             "resources": [example.arn.apply(lambda arn: f"{arn}:*")],
             "effect": "Allow",
         }])

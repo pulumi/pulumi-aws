@@ -118,7 +118,7 @@ class _NotebookInstanceLifecycleConfigurationState:
         """
         Input properties used for looking up and filtering NotebookInstanceLifecycleConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this lifecycle configuration.
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[_builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
@@ -145,7 +145,7 @@ class _NotebookInstanceLifecycleConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        ARN assigned by AWS to this lifecycle configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -366,7 +366,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this lifecycle configuration.
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle configuration (must be unique). If omitted, this provider will assign a random, unique name.
         :param pulumi.Input[_builtins.str] on_create: A shell script (base64-encoded) that runs only once when the SageMaker AI Notebook Instance is created.
         :param pulumi.Input[_builtins.str] on_start: A shell script (base64-encoded) that runs every time the SageMaker AI Notebook Instance is started including the time it's created.
@@ -391,7 +391,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+        ARN assigned by AWS to this lifecycle configuration.
         """
         return pulumi.get(self, "arn")
 

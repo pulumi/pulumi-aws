@@ -17,14 +17,14 @@ public final class DomainIdentityArgs extends com.pulumi.resources.ResourceArgs 
     public static final DomainIdentityArgs Empty = new DomainIdentityArgs();
 
     /**
-     * The domain name to assign to SES
+     * Domain name to assign to SES.
      * 
      */
     @Import(name="domain", required=true)
     private Output<String> domain;
 
     /**
-     * @return The domain name to assign to SES
+     * @return Domain name to assign to SES.
      * 
      */
     public Output<String> domain() {
@@ -72,7 +72,7 @@ public final class DomainIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domain The domain name to assign to SES
+         * @param domain Domain name to assign to SES.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DomainIdentityArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param domain The domain name to assign to SES
+         * @param domain Domain name to assign to SES.
          * 
          * @return builder
          * 

@@ -69,12 +69,8 @@ type GetApplicationAssignmentsResult struct {
 }
 
 func GetApplicationAssignmentsOutput(ctx *pulumi.Context, args GetApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetApplicationAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetApplicationAssignmentsResultOutput, error) {
-			args := v.(GetApplicationAssignmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, GetApplicationAssignmentsResultOutput{}, options).(GetApplicationAssignmentsResultOutput), nil
-		}).(GetApplicationAssignmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssoadmin/getApplicationAssignments:getApplicationAssignments", args, GetApplicationAssignmentsResultOutput{}, options).(GetApplicationAssignmentsResultOutput)
 }
 
 // A collection of arguments for invoking getApplicationAssignments.

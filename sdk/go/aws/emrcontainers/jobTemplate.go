@@ -32,13 +32,13 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := emrcontainers.NewJobTemplate(ctx, "example", &emrcontainers.JobTemplateArgs{
 //				JobTemplateData: &emrcontainers.JobTemplateJobTemplateDataArgs{
-//					ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-//					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
 //					JobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverArgs{
 //						SparkSqlJobDriver: &emrcontainers.JobTemplateJobTemplateDataJobDriverSparkSqlJobDriverArgs{
 //							EntryPoint: pulumi.String("default"),
 //						},
 //					},
+//					ExecutionRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
+//					ReleaseLabel:     pulumi.String("emr-6.10.0-latest"),
 //				},
 //				Name: pulumi.String("example"),
 //			})

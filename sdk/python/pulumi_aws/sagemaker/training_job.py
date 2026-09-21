@@ -1133,8 +1133,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1149,7 +1147,9 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With VPC Configuration
@@ -1159,8 +1159,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1179,7 +1177,9 @@ class TrainingJob(pulumi.CustomResource):
             vpc_config={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnets": [example_aws_subnet["id"]],
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Input Data and Hyperparameters
@@ -1189,26 +1189,11 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
                 "enable_sagemaker_metrics_time_series": True,
             },
-            hyper_parameters={
-                "mini_batch_size": "200",
-                "epochs": "10",
-            },
-            input_data_configs=[{
-                "channel_name": "train",
-                "data_source": {
-                    "s3_data_source": {
-                        "s3_data_type": "S3Prefix",
-                        "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
-                    },
-                },
-            }],
             output_data_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/output/",
             },
@@ -1219,6 +1204,21 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
+            },
+            input_data_configs=[{
+                "data_source": {
+                    "s3_data_source": {
+                        "s3_data_type": "S3Prefix",
+                        "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
+                    },
+                },
+                "channel_name": "train",
+            }],
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"],
+            hyper_parameters={
+                "mini_batch_size": "200",
+                "epochs": "10",
             })
         ```
 
@@ -1229,8 +1229,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1256,7 +1254,9 @@ class TrainingJob(pulumi.CustomResource):
             tensor_board_output_config={
                 "local_path": "/opt/ml/output/tensorboard",
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/tensorboard/",
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Managed Spot Training and Custom Metrics
@@ -1266,12 +1266,17 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            enable_managed_spot_training=True,
-            enable_network_isolation=True,
-            enable_inter_container_traffic_encryption=True,
             algorithm_specification={
+                "metric_definitions": [
+                    {
+                        "name": "train:loss",
+                        "regex": "loss: ([0-9\\\\.]+)",
+                    },
+                    {
+                        "name": "validation:accuracy",
+                        "regex": "accuracy: ([0-9\\\\.]+)",
+                    },
+                ],
                 "training_input_mode": "File",
                 "training_image": training_image,
                 "container_entrypoints": [
@@ -1284,24 +1289,6 @@ class TrainingJob(pulumi.CustomResource):
                     "--batch-size",
                     "128",
                 ],
-                "metric_definitions": [
-                    {
-                        "name": "train:loss",
-                        "regex": "loss: ([0-9\\\\.]+)",
-                    },
-                    {
-                        "name": "validation:accuracy",
-                        "regex": "accuracy: ([0-9\\\\.]+)",
-                    },
-                ],
-            },
-            environment={
-                "MODEL_DIR": "/opt/ml/model",
-                "SM_LOG_LEVEL": "20",
-            },
-            hyper_parameters={
-                "epochs": "10",
-                "batch_size": "128",
             },
             output_data_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/output/",
@@ -1319,6 +1306,19 @@ class TrainingJob(pulumi.CustomResource):
                 "max_runtime_in_seconds": 3600,
                 "max_wait_time_in_seconds": 7200,
             },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"],
+            enable_managed_spot_training=True,
+            enable_network_isolation=True,
+            enable_inter_container_traffic_encryption=True,
+            environment={
+                "MODEL_DIR": "/opt/ml/model",
+                "SM_LOG_LEVEL": "20",
+            },
+            hyper_parameters={
+                "epochs": "10",
+                "batch_size": "128",
+            },
             tags={
                 "Environment": "test",
                 "Workload": "training",
@@ -1332,38 +1332,10 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
             },
-            input_data_configs=[
-                {
-                    "channel_name": "train",
-                    "content_type": "text/csv",
-                    "input_mode": "File",
-                    "data_source": {
-                        "s3_data_source": {
-                            "s3_data_distribution_type": "FullyReplicated",
-                            "s3_data_type": "S3Prefix",
-                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
-                        },
-                    },
-                },
-                {
-                    "channel_name": "validation",
-                    "content_type": "text/csv",
-                    "input_mode": "File",
-                    "data_source": {
-                        "s3_data_source": {
-                            "s3_data_distribution_type": "FullyReplicated",
-                            "s3_data_type": "S3Prefix",
-                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/validation/",
-                        },
-                    },
-                },
-            ],
             infra_check_config={
                 "enable_infra_check": True,
             },
@@ -1380,7 +1352,35 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
-            })
+            },
+            input_data_configs=[
+                {
+                    "data_source": {
+                        "s3_data_source": {
+                            "s3_data_distribution_type": "FullyReplicated",
+                            "s3_data_type": "S3Prefix",
+                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
+                        },
+                    },
+                    "channel_name": "train",
+                    "content_type": "text/csv",
+                    "input_mode": "File",
+                },
+                {
+                    "data_source": {
+                        "s3_data_source": {
+                            "s3_data_distribution_type": "FullyReplicated",
+                            "s3_data_type": "S3Prefix",
+                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/validation/",
+                        },
+                    },
+                    "channel_name": "validation",
+                    "content_type": "text/csv",
+                    "input_mode": "File",
+                },
+            ],
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -1456,8 +1456,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1472,7 +1470,9 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With VPC Configuration
@@ -1482,8 +1482,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1502,7 +1500,9 @@ class TrainingJob(pulumi.CustomResource):
             vpc_config={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnets": [example_aws_subnet["id"]],
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Input Data and Hyperparameters
@@ -1512,26 +1512,11 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
                 "enable_sagemaker_metrics_time_series": True,
             },
-            hyper_parameters={
-                "mini_batch_size": "200",
-                "epochs": "10",
-            },
-            input_data_configs=[{
-                "channel_name": "train",
-                "data_source": {
-                    "s3_data_source": {
-                        "s3_data_type": "S3Prefix",
-                        "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
-                    },
-                },
-            }],
             output_data_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/output/",
             },
@@ -1542,6 +1527,21 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
+            },
+            input_data_configs=[{
+                "data_source": {
+                    "s3_data_source": {
+                        "s3_data_type": "S3Prefix",
+                        "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
+                    },
+                },
+                "channel_name": "train",
+            }],
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"],
+            hyper_parameters={
+                "mini_batch_size": "200",
+                "epochs": "10",
             })
         ```
 
@@ -1552,8 +1552,6 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
@@ -1579,7 +1577,9 @@ class TrainingJob(pulumi.CustomResource):
             tensor_board_output_config={
                 "local_path": "/opt/ml/output/tensorboard",
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/tensorboard/",
-            })
+            },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Managed Spot Training and Custom Metrics
@@ -1589,12 +1589,17 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
-            enable_managed_spot_training=True,
-            enable_network_isolation=True,
-            enable_inter_container_traffic_encryption=True,
             algorithm_specification={
+                "metric_definitions": [
+                    {
+                        "name": "train:loss",
+                        "regex": "loss: ([0-9\\\\.]+)",
+                    },
+                    {
+                        "name": "validation:accuracy",
+                        "regex": "accuracy: ([0-9\\\\.]+)",
+                    },
+                ],
                 "training_input_mode": "File",
                 "training_image": training_image,
                 "container_entrypoints": [
@@ -1607,24 +1612,6 @@ class TrainingJob(pulumi.CustomResource):
                     "--batch-size",
                     "128",
                 ],
-                "metric_definitions": [
-                    {
-                        "name": "train:loss",
-                        "regex": "loss: ([0-9\\\\.]+)",
-                    },
-                    {
-                        "name": "validation:accuracy",
-                        "regex": "accuracy: ([0-9\\\\.]+)",
-                    },
-                ],
-            },
-            environment={
-                "MODEL_DIR": "/opt/ml/model",
-                "SM_LOG_LEVEL": "20",
-            },
-            hyper_parameters={
-                "epochs": "10",
-                "batch_size": "128",
             },
             output_data_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/output/",
@@ -1642,6 +1629,19 @@ class TrainingJob(pulumi.CustomResource):
                 "max_runtime_in_seconds": 3600,
                 "max_wait_time_in_seconds": 7200,
             },
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"],
+            enable_managed_spot_training=True,
+            enable_network_isolation=True,
+            enable_inter_container_traffic_encryption=True,
+            environment={
+                "MODEL_DIR": "/opt/ml/model",
+                "SM_LOG_LEVEL": "20",
+            },
+            hyper_parameters={
+                "epochs": "10",
+                "batch_size": "128",
+            },
             tags={
                 "Environment": "test",
                 "Workload": "training",
@@ -1655,38 +1655,10 @@ class TrainingJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.TrainingJob("example",
-            training_job_name="example",
-            role_arn=example_aws_iam_role["arn"],
             algorithm_specification={
                 "training_input_mode": "File",
                 "training_image": example_aws_sagemaker_prebuilt_ecr_image["registryPath"],
             },
-            input_data_configs=[
-                {
-                    "channel_name": "train",
-                    "content_type": "text/csv",
-                    "input_mode": "File",
-                    "data_source": {
-                        "s3_data_source": {
-                            "s3_data_distribution_type": "FullyReplicated",
-                            "s3_data_type": "S3Prefix",
-                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
-                        },
-                    },
-                },
-                {
-                    "channel_name": "validation",
-                    "content_type": "text/csv",
-                    "input_mode": "File",
-                    "data_source": {
-                        "s3_data_source": {
-                            "s3_data_distribution_type": "FullyReplicated",
-                            "s3_data_type": "S3Prefix",
-                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/validation/",
-                        },
-                    },
-                },
-            ],
             infra_check_config={
                 "enable_infra_check": True,
             },
@@ -1703,7 +1675,35 @@ class TrainingJob(pulumi.CustomResource):
             },
             stopping_condition={
                 "max_runtime_in_seconds": 3600,
-            })
+            },
+            input_data_configs=[
+                {
+                    "data_source": {
+                        "s3_data_source": {
+                            "s3_data_distribution_type": "FullyReplicated",
+                            "s3_data_type": "S3Prefix",
+                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/train/",
+                        },
+                    },
+                    "channel_name": "train",
+                    "content_type": "text/csv",
+                    "input_mode": "File",
+                },
+                {
+                    "data_source": {
+                        "s3_data_source": {
+                            "s3_data_distribution_type": "FullyReplicated",
+                            "s3_data_type": "S3Prefix",
+                            "s3_uri": f"s3://{example_aws_s3_bucket['bucket']}/validation/",
+                        },
+                    },
+                    "channel_name": "validation",
+                    "content_type": "text/csv",
+                    "input_mode": "File",
+                },
+            ],
+            training_job_name="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

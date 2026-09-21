@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetPolicyResult {
     /**
-     * @return The Amazon Resource Name of the policy.
+     * @return ARN of the policy.
      * 
      */
     private String arn;
@@ -50,7 +50,7 @@ public final class GetPolicyResult {
 
     private GetPolicyResult() {}
     /**
-     * @return The Amazon Resource Name of the policy.
+     * @return ARN of the policy.
      * 
      */
     public String arn() {

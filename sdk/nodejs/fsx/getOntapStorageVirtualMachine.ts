@@ -81,7 +81,7 @@ export interface GetOntapStorageVirtualMachineResult {
      */
     readonly activeDirectoryConfigurations: outputs.fsx.GetOntapStorageVirtualMachineActiveDirectoryConfiguration[];
     /**
-     * Amazon Resource Name of the SVM.
+     * ARN of the SVM.
      */
     readonly arn: string;
     /**

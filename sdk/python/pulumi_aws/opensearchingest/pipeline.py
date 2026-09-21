@@ -242,7 +242,7 @@ class _PipelineState:
         :param pulumi.Input['PipelineLogPublishingOptionsArgs'] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
+        :param pulumi.Input[_builtins.str] pipeline_arn: ARN of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\\n`.
         :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
@@ -359,7 +359,7 @@ class _PipelineState:
     @pulumi.getter(name="pipelineArn")
     def pipeline_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the pipeline.
+        ARN of the pipeline.
         """
         return pulumi.get(self, "pipeline_arn")
 
@@ -758,7 +758,7 @@ class Pipeline(pulumi.CustomResource):
         :param pulumi.Input[Union['PipelineLogPublishingOptionsArgs', 'PipelineLogPublishingOptionsArgsDict']] log_publishing_options: Key-value pairs to configure log publishing. See `log_publishing_options` below.
         :param pulumi.Input[_builtins.int] max_units: The maximum pipeline capacity, in Ingestion Compute Units (ICUs).
         :param pulumi.Input[_builtins.int] min_units: The minimum pipeline capacity, in Ingestion Compute Units (ICUs).
-        :param pulumi.Input[_builtins.str] pipeline_arn: Amazon Resource Name (ARN) of the pipeline.
+        :param pulumi.Input[_builtins.str] pipeline_arn: ARN of the pipeline.
         :param pulumi.Input[_builtins.str] pipeline_configuration_body: The pipeline configuration in YAML format. This argument accepts the pipeline configuration as a string or within a .yaml file. If you provide the configuration as a string, each new line must be escaped with `\\n`.
         :param pulumi.Input[_builtins.str] pipeline_name: Name of the pipeline. Pipeline names are unique across the pipelines owned by an account within an AWS Region.
                
@@ -841,7 +841,7 @@ class Pipeline(pulumi.CustomResource):
     @pulumi.getter(name="pipelineArn")
     def pipeline_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the pipeline.
+        ARN of the pipeline.
         """
         return pulumi.get(self, "pipeline_arn")
 

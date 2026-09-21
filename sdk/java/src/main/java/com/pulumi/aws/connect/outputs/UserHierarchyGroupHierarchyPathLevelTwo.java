@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class UserHierarchyGroupHierarchyPathLevelTwo {
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return The ARN of the hierarchy group.
      * 
      */
     private @Nullable String arn;
@@ -29,7 +29,7 @@ public final class UserHierarchyGroupHierarchyPathLevelTwo {
 
     private UserHierarchyGroupHierarchyPathLevelTwo() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return The ARN of the hierarchy group.
      * 
      */
     public Optional<String> arn() {

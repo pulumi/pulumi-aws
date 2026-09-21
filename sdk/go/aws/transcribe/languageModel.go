@@ -40,9 +40,6 @@ import (
 //			example, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -50,6 +47,9 @@ import (
 //									"transcribe.amazonaws.com",
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -107,15 +107,15 @@ import (
 //				return err
 //			}
 //			_, err = transcribe.NewLanguageModel(ctx, "example", &transcribe.LanguageModelArgs{
-//				ModelName:     pulumi.String("example"),
-//				BaseModelName: pulumi.String("NarrowBand"),
 //				InputDataConfig: &transcribe.LanguageModelInputDataConfigArgs{
 //					DataAccessRoleArn: exampleRole.Arn,
 //					S3Uri: exampleBucket.ID().ApplyT(func(id pulumi.ID) (string, error) {
 //						return fmt.Sprintf("s3://%v/transcribe/", id), nil
 //					}).(pulumi.StringOutput),
 //				},
-//				LanguageCode: pulumi.String("en-US"),
+//				ModelName:     pulumi.String("example"),
+//				BaseModelName: pulumi.String("NarrowBand"),
+//				LanguageCode:  pulumi.String("en-US"),
 //				Tags: pulumi.StringMap{
 //					"ENVIRONMENT": pulumi.String("development"),
 //				},

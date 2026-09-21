@@ -62,14 +62,14 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("glacier:DeleteArchive")
- *                 .effect("Deny")
- *                 .resources(exampleVault.arn())
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("NumericLessThanEquals")
  *                     .variable("glacier:ArchiveAgeinDays")
  *                     .values("365")
  *                     .build())
+ *                 .actions("glacier:DeleteArchive")
+ *                 .effect("Deny")
+ *                 .resources(exampleVault.arn())
  *                 .build())
  *             .build());
  * 

@@ -64,12 +64,8 @@ type GetRepositoriesResult struct {
 }
 
 func GetRepositoriesOutput(ctx *pulumi.Context, args GetRepositoriesOutputArgs, opts ...pulumi.InvokeOption) GetRepositoriesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRepositoriesResultOutput, error) {
-			args := v.(GetRepositoriesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecr/getRepositories:getRepositories", args, GetRepositoriesResultOutput{}, options).(GetRepositoriesResultOutput), nil
-		}).(GetRepositoriesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecr/getRepositories:getRepositories", args, GetRepositoriesResultOutput{}, options).(GetRepositoriesResultOutput)
 }
 
 // A collection of arguments for invoking getRepositories.

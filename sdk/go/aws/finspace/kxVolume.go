@@ -31,6 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxVolume(ctx, "example", &finspace.KxVolumeArgs{
+//				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
+//					&finspace.KxVolumeNas1ConfigurationArgs{
+//						Size: pulumi.Int(1200),
+//						Type: pulumi.String("SSD_250"),
+//					},
+//				},
 //				Name:          pulumi.String("my-tf-kx-volume"),
 //				EnvironmentId: pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
 //				AvailabilityZones: pulumi.StringArray{
@@ -38,12 +44,6 @@ import (
 //				},
 //				AzMode: pulumi.String("SINGLE"),
 //				Type:   pulumi.String("NAS_1"),
-//				Nas1Configurations: finspace.KxVolumeNas1ConfigurationArray{
-//					&finspace.KxVolumeNas1ConfigurationArgs{
-//						Size: pulumi.Int(1200),
-//						Type: pulumi.String("SSD_250"),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -64,7 +64,7 @@ import (
 type KxVolume struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX volume.
+	// ARN identifier of the KX volume.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Clusters attached to the volume. See `attachedClusters` Block below.
 	AttachedClusters KxVolumeAttachedClusterArrayOutput `pulumi:"attachedClusters"`
@@ -141,7 +141,7 @@ func GetKxVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxVolume resources.
 type kxVolumeState struct {
-	// Amazon Resource Name (ARN) identifier of the KX volume.
+	// ARN identifier of the KX volume.
 	Arn *string `pulumi:"arn"`
 	// Clusters attached to the volume. See `attachedClusters` Block below.
 	AttachedClusters []KxVolumeAttachedCluster `pulumi:"attachedClusters"`
@@ -177,7 +177,7 @@ type kxVolumeState struct {
 }
 
 type KxVolumeState struct {
-	// Amazon Resource Name (ARN) identifier of the KX volume.
+	// ARN identifier of the KX volume.
 	Arn pulumi.StringPtrInput
 	// Clusters attached to the volume. See `attachedClusters` Block below.
 	AttachedClusters KxVolumeAttachedClusterArrayInput
@@ -350,7 +350,7 @@ func (o KxVolumeOutput) ToKxVolumeOutputWithContext(ctx context.Context) KxVolum
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX volume.
+// ARN identifier of the KX volume.
 func (o KxVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

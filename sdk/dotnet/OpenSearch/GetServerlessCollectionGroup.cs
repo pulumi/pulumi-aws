@@ -152,7 +152,7 @@ namespace Pulumi.Aws.OpenSearch
     public sealed class GetServerlessCollectionGroupResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the collection group.
+        /// ARN of the collection group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

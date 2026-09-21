@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+        /// ARN of the IAM Role to associate with the DB Cluster.
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -135,7 +135,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+        /// ARN of the IAM Role to associate with the DB Cluster.
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -167,7 +167,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role to associate with the DB Cluster.
+        /// ARN of the IAM Role to associate with the DB Cluster.
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

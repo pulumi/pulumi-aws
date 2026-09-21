@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Cognito.Inputs
         public Input<string>? ReplyTo { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+        /// ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
         /// </summary>
         [Input("sourceArn", required: true)]
         public Input<string> SourceArn { get; set; } = null!;

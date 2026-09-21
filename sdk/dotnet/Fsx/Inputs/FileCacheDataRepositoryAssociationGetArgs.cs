@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data repository association.
+        /// ARN of the data repository association.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

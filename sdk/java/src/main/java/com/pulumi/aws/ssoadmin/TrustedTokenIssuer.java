@@ -53,9 +53,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrustedTokenIssuer = new TrustedTokenIssuer("exampleTrustedTokenIssuer", TrustedTokenIssuerArgs.builder()
- *             .name("example")
- *             .instanceArn(example.arns()[0])
- *             .trustedTokenIssuerType("OIDC_JWT")
  *             .trustedTokenIssuerConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs.builder()
  *                 .oidcJwtConfiguration(TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs.builder()
  *                     .claimAttributePath("email")
@@ -64,6 +61,9 @@ import javax.annotation.Nullable;
  *                     .jwksRetrievalOption("OPEN_ID_DISCOVERY")
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .instanceArn(example.arns()[0])
+ *             .trustedTokenIssuerType("OIDC_JWT")
  *             .build());
  * 
  *     }

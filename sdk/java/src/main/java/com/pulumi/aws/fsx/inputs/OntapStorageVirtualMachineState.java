@@ -35,14 +35,14 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
     }
 
     /**
-     * Amazon Resource Name of the storage virtual machine.
+     * ARN of the storage virtual machine.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the storage virtual machine.
+     * @return ARN of the storage virtual machine.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -256,7 +256,7 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn Amazon Resource Name of the storage virtual machine.
+         * @param arn ARN of the storage virtual machine.
          * 
          * @return builder
          * 
@@ -267,7 +267,7 @@ public final class OntapStorageVirtualMachineState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn Amazon Resource Name of the storage virtual machine.
+         * @param arn ARN of the storage virtual machine.
          * 
          * @return builder
          * 

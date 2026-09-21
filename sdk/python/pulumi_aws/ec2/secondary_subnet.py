@@ -410,11 +410,11 @@ class SecondarySubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.ec2.SecondaryNetwork("example",
             ipv4_cidr_block="10.0.0.0/16",
             network_type="rdma",
@@ -499,11 +499,11 @@ class SecondarySubnet(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.ec2.SecondaryNetwork("example",
             ipv4_cidr_block="10.0.0.0/16",
             network_type="rdma",

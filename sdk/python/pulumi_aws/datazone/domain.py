@@ -529,15 +529,6 @@ class Domain(pulumi.CustomResource):
         current = aws.get_caller_identity()
         # IAM role for Domain Execution
         assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "sts:AssumeRole",
-                "sts:TagSession",
-                "sts:SetContext",
-            ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -550,6 +541,15 @@ class Domain(pulumi.CustomResource):
                     "variable": "aws:TagKeys",
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
         }])
         domain_execution = aws.iam.Role("domain_execution",
             assume_role_policy=assume_role_domain_execution.json,
@@ -560,16 +560,16 @@ class Domain(pulumi.CustomResource):
             role=domain_execution.name)
         # IAM role for Domain Service
         assume_role_domain_service = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         domain_service = aws.iam.Role("domain_service",
             assume_role_policy=assume_role_domain_service.json,
@@ -694,15 +694,6 @@ class Domain(pulumi.CustomResource):
         current = aws.get_caller_identity()
         # IAM role for Domain Execution
         assume_role_domain_execution = aws.iam.get_policy_document(statements=[{
-            "actions": [
-                "sts:AssumeRole",
-                "sts:TagSession",
-                "sts:SetContext",
-            ],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -715,6 +706,15 @@ class Domain(pulumi.CustomResource):
                     "variable": "aws:TagKeys",
                 },
             ],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "actions": [
+                "sts:AssumeRole",
+                "sts:TagSession",
+                "sts:SetContext",
+            ],
         }])
         domain_execution = aws.iam.Role("domain_execution",
             assume_role_policy=assume_role_domain_execution.json,
@@ -725,16 +725,16 @@ class Domain(pulumi.CustomResource):
             role=domain_execution.name)
         # IAM role for Domain Service
         assume_role_domain_service = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "type": "Service",
-                "identifiers": ["datazone.amazonaws.com"],
-            }],
             "conditions": [{
                 "test": "StringEquals",
                 "values": [current.account_id],
                 "variable": "aws:SourceAccount",
             }],
+            "principals": [{
+                "type": "Service",
+                "identifiers": ["datazone.amazonaws.com"],
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         domain_service = aws.iam.Role("domain_service",
             assume_role_policy=assume_role_domain_service.json,

@@ -50,9 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DaemonTaskDefinition("example", DaemonTaskDefinitionArgs.builder()
- *             .family("my-daemon-service")
- *             .cpu("512")
- *             .memory("1024")
  *             .containerDefinitions(DaemonTaskDefinitionContainerDefinitionArgs.builder()
  *                 .name("app")
  *                 .image("nginx:latest")
@@ -60,6 +57,9 @@ import javax.annotation.Nullable;
  *                 .memory(512)
  *                 .essential(true)
  *                 .build())
+ *             .family("my-daemon-service")
+ *             .cpu("512")
+ *             .memory("1024")
  *             .build());
  * 
  *     }
@@ -126,11 +126,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new DaemonTaskDefinition("example", DaemonTaskDefinitionArgs.builder()
- *             .family("my-daemon-service")
- *             .executionRoleArn(taskExecution.arn())
- *             .taskRoleArn(task.arn())
- *             .cpu("512")
- *             .memory("1024")
  *             .containerDefinitions(DaemonTaskDefinitionContainerDefinitionArgs.builder()
  *                 .name("app")
  *                 .image("nginx:latest")
@@ -138,6 +133,11 @@ import javax.annotation.Nullable;
  *                 .memory(512)
  *                 .essential(true)
  *                 .build())
+ *             .family("my-daemon-service")
+ *             .executionRoleArn(taskExecution.arn())
+ *             .taskRoleArn(task.arn())
+ *             .cpu("512")
+ *             .memory("1024")
  *             .build());
  * 
  *     }
@@ -173,9 +173,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DaemonTaskDefinition("example", DaemonTaskDefinitionArgs.builder()
- *             .family("my-daemon-service")
- *             .cpu("512")
- *             .memory("1024")
  *             .containerDefinitions(DaemonTaskDefinitionContainerDefinitionArgs.builder()
  *                 .name("app")
  *                 .image("nginx:latest")
@@ -185,17 +182,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .volumes(            
  *                 DaemonTaskDefinitionVolumeArgs.builder()
- *                     .name("data-volume")
  *                     .hosts(DaemonTaskDefinitionVolumeHostArgs.builder()
  *                         .sourcePath("/data")
  *                         .build())
+ *                     .name("data-volume")
  *                     .build(),
  *                 DaemonTaskDefinitionVolumeArgs.builder()
- *                     .name("logs-volume")
  *                     .hosts(DaemonTaskDefinitionVolumeHostArgs.builder()
  *                         .sourcePath("/var/log")
  *                         .build())
+ *                     .name("logs-volume")
  *                     .build())
+ *             .family("my-daemon-service")
+ *             .cpu("512")
+ *             .memory("1024")
  *             .build());
  * 
  *     }
@@ -229,9 +229,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DaemonTaskDefinition("example", DaemonTaskDefinitionArgs.builder()
- *             .family("my-daemon-service")
- *             .cpu("512")
- *             .memory("1024")
  *             .containerDefinitions(            
  *                 DaemonTaskDefinitionContainerDefinitionArgs.builder()
  *                     .name("app")
@@ -247,6 +244,9 @@ import javax.annotation.Nullable;
  *                     .memory(256)
  *                     .essential(false)
  *                     .build())
+ *             .family("my-daemon-service")
+ *             .cpu("512")
+ *             .memory("1024")
  *             .build());
  * 
  *     }

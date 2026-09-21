@@ -136,7 +136,7 @@ namespace Pulumi.Aws.Kms
     public sealed class GetAliasResult
     {
         /// <summary>
-        /// Amazon Resource Name(ARN) of the key alias.
+        /// ARN of the key alias.
         /// </summary>
         public readonly string Arn;
         /// <summary>

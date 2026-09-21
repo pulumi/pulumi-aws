@@ -64,7 +64,7 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
+     * Identifier for the AMI that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
@@ -79,7 +79,7 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
     private Output<String> imageId;
 
     /**
-     * @return The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
+     * @return Identifier for the AMI that&#39;s used to create the EC2 instance. Valid values are
      * * `amazonlinux-2-x86_64`
      * * `amazonlinux-2023-x86_64`
      * * `ubuntu-18.04-x86_64`
@@ -281,7 +281,7 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param imageId The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
+         * @param imageId Identifier for the AMI that&#39;s used to create the EC2 instance. Valid values are
          * * `amazonlinux-2-x86_64`
          * * `amazonlinux-2023-x86_64`
          * * `ubuntu-18.04-x86_64`
@@ -300,7 +300,7 @@ public final class EnvironmentEC2Args extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param imageId The identifier for the Amazon Machine Image (AMI) that&#39;s used to create the EC2 instance. Valid values are
+         * @param imageId Identifier for the AMI that&#39;s used to create the EC2 instance. Valid values are
          * * `amazonlinux-2-x86_64`
          * * `amazonlinux-2023-x86_64`
          * * `ubuntu-18.04-x86_64`

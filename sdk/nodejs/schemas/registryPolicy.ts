@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  *
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         sid: "example",
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["109876543210"],
  *         }],
+ *         sid: "example",
+ *         effect: "Allow",
  *         actions: ["schemas:*"],
  *         resources: [
  *             "arn:aws:schemas:us-east-1:123456789012:registry/example",

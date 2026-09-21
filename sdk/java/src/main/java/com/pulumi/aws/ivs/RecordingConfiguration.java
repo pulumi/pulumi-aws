@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RecordingConfiguration("example", RecordingConfigurationArgs.builder()
- *             .name("recording_configuration-1")
  *             .destinationConfiguration(RecordingConfigurationDestinationConfigurationArgs.builder()
  *                 .s3(RecordingConfigurationDestinationConfigurationS3Args.builder()
  *                     .bucketName("ivs-stream-archive")
  *                     .build())
  *                 .build())
+ *             .name("recording_configuration-1")
  *             .build());
  * 
  *     }
@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the IVS recording configuration.
+ * - `arn` (String) ARN of the IVS recording configuration.
  * 
  * Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
  * 

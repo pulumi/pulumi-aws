@@ -382,9 +382,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
     }
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
     @Export(name="parameterGroupName", refs={String.class}, tree="[0]")
@@ -392,9 +390,7 @@ public class GlobalReplicationGroup extends com.pulumi.resources.CustomResource 
 
     /**
      * @return An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
     public Output<Optional<String>> parameterGroupName() {

@@ -72,7 +72,7 @@ class GetUserResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the User.
+        ARN of the User.
         """
         return pulumi.get(self, "arn")
 

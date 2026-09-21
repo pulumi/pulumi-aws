@@ -18,14 +18,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
     public static final AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationArgs();
 
     /**
-     * Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+     * Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
      * 
      */
     @Import(name="toolFilters")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs>> toolFilters;
 
     /**
-     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+     * @return Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolFilterArgs>>> toolFilters() {
@@ -33,14 +33,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
     }
 
     /**
-     * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+     * Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
      * 
      */
     @Import(name="toolOverrides")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs>> toolOverrides;
 
     /**
-     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+     * @return Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGatewayToolConfigurationToolOverrideArgs>>> toolOverrides() {
@@ -73,7 +73,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` below.
+         * @param toolFilters Repeatable block of path and method patterns to expose as tools. See `toolFilter` Block below.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayApiGate
         }
 
         /**
-         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` below.
+         * @param toolOverrides Repeatable block of explicit tool definitions with optional custom names and descriptions. See `toolOverride` Block below.
          * 
          * @return builder
          * 

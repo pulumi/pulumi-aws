@@ -28,11 +28,11 @@ class AccountVdmAttributesArgs:
         """
         The set of arguments for constructing a AccountVdmAttributes resource.
 
-        :param pulumi.Input[_builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] vdm_enabled: Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
-        :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Additional settings for your VDM configuration as applicable to the Guardian.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "vdm_enabled", vdm_enabled)
@@ -47,7 +47,7 @@ class AccountVdmAttributesArgs:
     @pulumi.getter(name="vdmEnabled")
     def vdm_enabled(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
 
         The following arguments are optional:
         """
@@ -61,7 +61,7 @@ class AccountVdmAttributesArgs:
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -73,7 +73,7 @@ class AccountVdmAttributesArgs:
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
@@ -104,10 +104,10 @@ class _AccountVdmAttributesState:
         """
         Input properties used for looking up and filtering AccountVdmAttributes resources.
 
-        :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input['AccountVdmAttributesDashboardAttributesArgs'] dashboard_attributes: Additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input['AccountVdmAttributesGuardianAttributesArgs'] guardian_attributes: Additional settings for your VDM configuration as applicable to the Guardian.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] vdm_enabled: Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
         """
@@ -124,7 +124,7 @@ class _AccountVdmAttributesState:
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesDashboardAttributesArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -136,7 +136,7 @@ class _AccountVdmAttributesState:
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> pulumi.Input[Optional['AccountVdmAttributesGuardianAttributesArgs']]:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
@@ -160,7 +160,7 @@ class _AccountVdmAttributesState:
     @pulumi.getter(name="vdmEnabled")
     def vdm_enabled(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
 
         The following arguments are optional:
         """
@@ -194,13 +194,13 @@ class AccountVdmAttributes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.AccountVdmAttributes("example",
-            vdm_enabled="ENABLED",
             dashboard_attributes={
                 "engagement_metrics": "ENABLED",
             },
             guardian_attributes={
                 "optimized_shared_delivery": "ENABLED",
-            })
+            },
+            vdm_enabled="ENABLED")
         ```
 
         ## Import
@@ -214,10 +214,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Additional settings for your VDM configuration as applicable to the Guardian.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] vdm_enabled: Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
         """
@@ -239,13 +239,13 @@ class AccountVdmAttributes(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sesv2.AccountVdmAttributes("example",
-            vdm_enabled="ENABLED",
             dashboard_attributes={
                 "engagement_metrics": "ENABLED",
             },
             guardian_attributes={
                 "optimized_shared_delivery": "ENABLED",
-            })
+            },
+            vdm_enabled="ENABLED")
         ```
 
         ## Import
@@ -312,10 +312,10 @@ class AccountVdmAttributes(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param pulumi.Input[Union['AccountVdmAttributesDashboardAttributesArgs', 'AccountVdmAttributesDashboardAttributesArgsDict']] dashboard_attributes: Additional settings for your VDM configuration as applicable to the Dashboard.
+        :param pulumi.Input[Union['AccountVdmAttributesGuardianAttributesArgs', 'AccountVdmAttributesGuardianAttributesArgsDict']] guardian_attributes: Additional settings for your VDM configuration as applicable to the Guardian.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] vdm_enabled: Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        :param pulumi.Input[_builtins.str] vdm_enabled: Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
                
                The following arguments are optional:
         """
@@ -333,7 +333,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
     @pulumi.getter(name="dashboardAttributes")
     def dashboard_attributes(self) -> pulumi.Output['outputs.AccountVdmAttributesDashboardAttributes']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_attributes")
 
@@ -341,7 +341,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
     @pulumi.getter(name="guardianAttributes")
     def guardian_attributes(self) -> pulumi.Output['outputs.AccountVdmAttributesGuardianAttributes']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_attributes")
 
@@ -357,7 +357,7 @@ class AccountVdmAttributes(pulumi.CustomResource):
     @pulumi.getter(name="vdmEnabled")
     def vdm_enabled(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM configuration. Valid values: `ENABLED`, `DISABLED`.
 
         The following arguments are optional:
         """

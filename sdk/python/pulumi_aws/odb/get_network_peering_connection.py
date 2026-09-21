@@ -71,7 +71,7 @@ class GetNetworkPeeringConnectionResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the  ODB network peering connection.
+        ARN for the  ODB network peering connection.
         """
         return pulumi.get(self, "arn")
 

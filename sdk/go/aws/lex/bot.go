@@ -38,29 +38,29 @@ import (
 //						},
 //					},
 //				},
-//				ChildDirected: pulumi.Bool(false),
 //				ClarificationPrompt: &lex.BotClarificationPromptArgs{
-//					MaxAttempts: pulumi.Int(2),
 //					Messages: lex.BotClarificationPromptMessageArray{
 //						&lex.BotClarificationPromptMessageArgs{
 //							Content:     pulumi.String("I didn't understand you, what would you like to do?"),
 //							ContentType: pulumi.String("PlainText"),
 //						},
 //					},
+//					MaxAttempts: pulumi.Int(2),
 //				},
-//				CreateVersion:           pulumi.Bool(false),
-//				Description:             pulumi.String("Bot to order flowers on the behalf of a user"),
-//				IdleSessionTtlInSeconds: pulumi.Int(600),
 //				Intents: lex.BotIntentArray{
 //					&lex.BotIntentArgs{
 //						IntentName:    pulumi.String("OrderFlowers"),
 //						IntentVersion: pulumi.String("1"),
 //					},
 //				},
-//				Locale:          pulumi.String("en-US"),
-//				Name:            pulumi.String("OrderFlowers"),
-//				ProcessBehavior: pulumi.String("BUILD"),
-//				VoiceId:         pulumi.String("Salli"),
+//				ChildDirected:           pulumi.Bool(false),
+//				CreateVersion:           pulumi.Bool(false),
+//				Description:             pulumi.String("Bot to order flowers on the behalf of a user"),
+//				IdleSessionTtlInSeconds: pulumi.Int(600),
+//				Locale:                  pulumi.String("en-US"),
+//				Name:                    pulumi.String("OrderFlowers"),
+//				ProcessBehavior:         pulumi.String("BUILD"),
+//				VoiceId:                 pulumi.String("Salli"),
 //			})
 //			if err != nil {
 //				return err

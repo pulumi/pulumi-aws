@@ -154,14 +154,14 @@ public final class PhoneNumberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * ARN for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
     @Import(name="targetArn")
     private @Nullable Output<String> targetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+     * @return ARN for Amazon Connect instances that phone numbers are claimed to.
      * 
      */
     public Optional<Output<String>> targetArn() {
@@ -417,7 +417,7 @@ public final class PhoneNumberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+         * @param targetArn ARN for Amazon Connect instances that phone numbers are claimed to.
          * 
          * @return builder
          * 
@@ -428,7 +428,7 @@ public final class PhoneNumberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetArn The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+         * @param targetArn ARN for Amazon Connect instances that phone numbers are claimed to.
          * 
          * @return builder
          * 

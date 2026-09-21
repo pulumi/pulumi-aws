@@ -9,8 +9,6 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs extends com.pulumi.resources.ResourceArgs {
@@ -18,18 +16,18 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs ext
     public static final AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs Empty = new AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs();
 
     /**
-     * Content configurations for stream delivery. See `contentConfiguration` below.
+     * Content configurations for stream delivery. See `contentConfiguration` Block below.
      * 
      */
-    @Import(name="contentConfiguration")
-    private @Nullable Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs> contentConfiguration;
+    @Import(name="contentConfiguration", required=true)
+    private Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs> contentConfiguration;
 
     /**
-     * @return Content configurations for stream delivery. See `contentConfiguration` below.
+     * @return Content configurations for stream delivery. See `contentConfiguration` Block below.
      * 
      */
-    public Optional<Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs>> contentConfiguration() {
-        return Optional.ofNullable(this.contentConfiguration);
+    public Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs> contentConfiguration() {
+        return this.contentConfiguration;
     }
 
     /**
@@ -73,18 +71,18 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs ext
         }
 
         /**
-         * @param contentConfiguration Content configurations for stream delivery. See `contentConfiguration` below.
+         * @param contentConfiguration Content configurations for stream delivery. See `contentConfiguration` Block below.
          * 
          * @return builder
          * 
          */
-        public Builder contentConfiguration(@Nullable Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs> contentConfiguration) {
+        public Builder contentConfiguration(Output<AgentcoreMemoryStreamDeliveryResourcesResourceKinesisContentConfigurationArgs> contentConfiguration) {
             $.contentConfiguration = contentConfiguration;
             return this;
         }
 
         /**
-         * @param contentConfiguration Content configurations for stream delivery. See `contentConfiguration` below.
+         * @param contentConfiguration Content configurations for stream delivery. See `contentConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -115,6 +113,9 @@ public final class AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs ext
         }
 
         public AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs build() {
+            if ($.contentConfiguration == null) {
+                throw new MissingRequiredPropertyException("AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs", "contentConfiguration");
+            }
             if ($.dataStreamArn == null) {
                 throw new MissingRequiredPropertyException("AgentcoreMemoryStreamDeliveryResourcesResourceKinesisArgs", "dataStreamArn");
             }

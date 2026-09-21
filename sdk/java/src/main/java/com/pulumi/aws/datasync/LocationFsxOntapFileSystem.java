@@ -50,9 +50,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new LocationFsxOntapFileSystem("test", LocationFsxOntapFileSystemArgs.builder()
- *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
- *             .securityGroupArns(testAwsSecurityGroup.arn())
- *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
  *             .protocol(LocationFsxOntapFileSystemProtocolArgs.builder()
  *                 .nfs(LocationFsxOntapFileSystemProtocolNfsArgs.builder()
  *                     .mountOptions(LocationFsxOntapFileSystemProtocolNfsMountOptionsArgs.builder()
@@ -60,6 +57,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .fsxFilesystemArn(testAwsFsxOntapFileSystem.arn())
+ *             .securityGroupArns(testAwsSecurityGroup.arn())
+ *             .storageVirtualMachineArn(testAwsFsxOntapStorageVirtualMachine.arn())
  *             .build());
  * 
  *     }

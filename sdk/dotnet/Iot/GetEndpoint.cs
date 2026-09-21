@@ -44,8 +44,6 @@ namespace Pulumi.Aws.Iot
         ///                 {
         ///                     
         ///                     {
-        ///                         { "image", "gcr.io/my-project/image-name" },
-        ///                         { "name", "image-name" },
         ///                         { "env", new[]
         ///                         {
         ///                             
@@ -54,6 +52,8 @@ namespace Pulumi.Aws.Iot
         ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
         ///                             },
         ///                         } },
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
         ///                     },
         ///                 } },
         ///             },
@@ -99,8 +99,6 @@ namespace Pulumi.Aws.Iot
         ///                 {
         ///                     
         ///                     {
-        ///                         { "image", "gcr.io/my-project/image-name" },
-        ///                         { "name", "image-name" },
         ///                         { "env", new[]
         ///                         {
         ///                             
@@ -109,6 +107,8 @@ namespace Pulumi.Aws.Iot
         ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
         ///                             },
         ///                         } },
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
         ///                     },
         ///                 } },
         ///             },
@@ -154,8 +154,6 @@ namespace Pulumi.Aws.Iot
         ///                 {
         ///                     
         ///                     {
-        ///                         { "image", "gcr.io/my-project/image-name" },
-        ///                         { "name", "image-name" },
         ///                         { "env", new[]
         ///                         {
         ///                             
@@ -164,6 +162,8 @@ namespace Pulumi.Aws.Iot
         ///                                 { "value", example.Apply(getEndpointResult =&gt; getEndpointResult.EndpointAddress) },
         ///                             },
         ///                         } },
+        ///                         { "image", "gcr.io/my-project/image-name" },
+        ///                         { "name", "image-name" },
         ///                     },
         ///                 } },
         ///             },

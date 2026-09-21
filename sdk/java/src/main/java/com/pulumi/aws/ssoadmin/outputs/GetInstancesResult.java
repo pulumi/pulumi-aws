@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class GetInstancesResult {
     /**
-     * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
+     * @return Set of ARNs of the SSO Instances.
      * 
      */
     private List<String> arns;
@@ -30,7 +30,7 @@ public final class GetInstancesResult {
 
     private GetInstancesResult() {}
     /**
-     * @return Set of Amazon Resource Names (ARNs) of the SSO Instances.
+     * @return Set of ARNs of the SSO Instances.
      * 
      */
     public List<String> arns() {

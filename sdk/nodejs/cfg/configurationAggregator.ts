@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const account = new aws.cfg.ConfigurationAggregator("account", {
- *     name: "example",
  *     accountAggregationSource: {
  *         accountIds: ["123456789012"],
  *         regions: ["us-west-2"],
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -35,11 +35,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["config.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -52,11 +52,11 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
  * });
  * const organization = new aws.cfg.ConfigurationAggregator("organization", {
- *     name: "example",
  *     organizationAggregationSource: {
  *         allRegions: true,
  *         roleArn: organizationRole.arn,
  *     },
+ *     name: "example",
  * }, {
  *     dependsOn: [organizationRolePolicyAttachment],
  * });

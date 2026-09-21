@@ -62,7 +62,7 @@ type LookupNetworkArgs struct {
 
 // A collection of values returned by getNetwork.
 type LookupNetworkResult struct {
-	// Amazon Resource Name (ARN) of the odb network resource.
+	// ARN of the odb network resource.
 	Arn string `pulumi:"arn"`
 	// Availability zone where the ODB network is located.
 	AvailabilityZone string `pulumi:"availabilityZone"`
@@ -112,12 +112,8 @@ type LookupNetworkResult struct {
 }
 
 func LookupNetworkOutput(ctx *pulumi.Context, args LookupNetworkOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkResultOutput, error) {
-			args := v.(LookupNetworkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getNetwork:getNetwork", args, LookupNetworkResultOutput{}, options).(LookupNetworkResultOutput), nil
-		}).(LookupNetworkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getNetwork:getNetwork", args, LookupNetworkResultOutput{}, options).(LookupNetworkResultOutput)
 }
 
 // A collection of arguments for invoking getNetwork.
@@ -149,7 +145,7 @@ func (o LookupNetworkResultOutput) ToLookupNetworkResultOutputWithContext(ctx co
 	return o
 }
 
-// Amazon Resource Name (ARN) of the odb network resource.
+// ARN of the odb network resource.
 func (o LookupNetworkResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupNetworkResult) string { return v.Arn }).(pulumi.StringOutput)
 }

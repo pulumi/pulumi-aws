@@ -62,7 +62,7 @@ type LookupCloudAutonomousVmClusterArgs struct {
 
 // A collection of values returned by getCloudAutonomousVmCluster.
 type LookupCloudAutonomousVmClusterResult struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn string `pulumi:"arn"`
 	// Percentage of data storage currently in use for Autonomous Databases in the Autonomous VM cluster.
 	AutonomousDataStoragePercentage float64 `pulumi:"autonomousDataStoragePercentage"`
@@ -169,12 +169,8 @@ type LookupCloudAutonomousVmClusterResult struct {
 }
 
 func LookupCloudAutonomousVmClusterOutput(ctx *pulumi.Context, args LookupCloudAutonomousVmClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCloudAutonomousVmClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudAutonomousVmClusterResultOutput, error) {
-			args := v.(LookupCloudAutonomousVmClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getCloudAutonomousVmCluster:getCloudAutonomousVmCluster", args, LookupCloudAutonomousVmClusterResultOutput{}, options).(LookupCloudAutonomousVmClusterResultOutput), nil
-		}).(LookupCloudAutonomousVmClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getCloudAutonomousVmCluster:getCloudAutonomousVmCluster", args, LookupCloudAutonomousVmClusterResultOutput{}, options).(LookupCloudAutonomousVmClusterResultOutput)
 }
 
 // A collection of arguments for invoking getCloudAutonomousVmCluster.
@@ -204,7 +200,7 @@ func (o LookupCloudAutonomousVmClusterResultOutput) ToLookupCloudAutonomousVmClu
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o LookupCloudAutonomousVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudAutonomousVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

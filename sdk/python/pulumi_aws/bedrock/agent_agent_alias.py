@@ -335,11 +335,6 @@ class AgentAgentAlias(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -352,6 +347,11 @@ class AgentAgentAlias(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],
@@ -415,11 +415,6 @@ class AgentAgentAlias(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -432,6 +427,11 @@ class AgentAgentAlias(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[{
             "actions": ["bedrock:InvokeModel"],

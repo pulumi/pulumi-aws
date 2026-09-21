@@ -65,11 +65,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("example")
- *             .engineVersion("Elasticsearch_7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r4.large.search")
  *                 .build())
+ *             .domainName("example")
+ *             .engineVersion("Elasticsearch_7.10")
  *             .tags(Map.of("Domain", "TestDomain"))
  *             .build());
  * 
@@ -95,8 +95,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.opensearch.Domain;
  * import com.pulumi.aws.opensearch.DomainArgs;
  * import java.util.ArrayList;
@@ -122,18 +122,18 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .type("*")
- *                     .identifiers("*")
- *                     .build())
- *                 .actions("es:*")
- *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                     .test("IpAddress")
  *                     .variable("aws:SourceIp")
  *                     .values("66.193.100.22/32")
  *                     .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type("*")
+ *                     .identifiers("*")
+ *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("es:*")
+ *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .build())
  *             .build());
  * 
@@ -186,11 +186,11 @@ import javax.annotation.Nullable;
  * 
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("es.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "logs:PutLogEvents",
  *                     "logs:PutLogEventsBatch",
@@ -281,15 +281,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecurityGroup = new SecurityGroup("exampleSecurityGroup", SecurityGroupArgs.builder()
- *             .name(String.format("%s-opensearch-%s", vpc,domain))
- *             .description("Managed by Pulumi")
- *             .vpcId(example.id())
  *             .ingress(SecurityGroupIngressArgs.builder()
  *                 .fromPort(443)
  *                 .toPort(443)
  *                 .protocol("tcp")
  *                 .cidrBlocks(example.cidrBlock())
  *                 .build())
+ *             .name(String.format("%s-opensearch-%s", vpc,domain))
+ *             .description("Managed by Pulumi")
+ *             .vpcId(example.id())
  *             .build());
  * 
  *         var exampleServiceLinkedRole = new ServiceLinkedRole("exampleServiceLinkedRole", ServiceLinkedRoleArgs.builder()
@@ -298,19 +298,17 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleGetPolicyDocument = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("es:*")
  *                 .resources(String.format("arn:aws:es:%s:%s:domain/%s/*", current.region(),currentGetCallerIdentity.accountId(),domain))
  *                 .build())
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .domainName(domain)
- *             .engineVersion("OpenSearch_1.0")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("m4.large.search")
  *                 .zoneAwarenessEnabled(true)
@@ -321,6 +319,8 @@ import javax.annotation.Nullable;
  *                     exampleGetSubnets.ids()[1])
  *                 .securityGroupIds(exampleSecurityGroup.id())
  *                 .build())
+ *             .domainName(domain)
+ *             .engineVersion("OpenSearch_1.0")
  *             .advancedOptions(Map.of("rest.action.multi.allow_explicit_index", "true"))
  *             .accessPolicies(exampleGetPolicyDocument.json())
  *             .tags(Map.of("Domain", "TestDomain"))
@@ -369,19 +369,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("ggkitty")
- *             .engineVersion("Elasticsearch_7.1")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r5.large.search")
  *                 .build())
  *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .enabled(false)
- *                 .anonymousAuthEnabled(true)
- *                 .internalUserDatabaseEnabled(true)
  *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
  *                     .masterUserName("example")
  *                     .masterUserPassword("Barbarbarbar1!")
  *                     .build())
+ *                 .enabled(false)
+ *                 .anonymousAuthEnabled(true)
+ *                 .internalUserDatabaseEnabled(true)
  *                 .build())
  *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
  *                 .enabled(true)
@@ -397,6 +395,8 @@ import javax.annotation.Nullable;
  *                 .ebsEnabled(true)
  *                 .volumeSize(10)
  *                 .build())
+ *             .domainName("ggkitty")
+ *             .engineVersion("Elasticsearch_7.1")
  *             .build());
  * 
  *     }
@@ -438,19 +438,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Domain("example", DomainArgs.builder()
- *             .domainName("ggkitty")
- *             .engineVersion("Elasticsearch_7.1")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r5.large.search")
  *                 .build())
  *             .advancedSecurityOptions(DomainAdvancedSecurityOptionsArgs.builder()
- *                 .enabled(true)
- *                 .anonymousAuthEnabled(true)
- *                 .internalUserDatabaseEnabled(true)
  *                 .masterUserOptions(DomainAdvancedSecurityOptionsMasterUserOptionsArgs.builder()
  *                     .masterUserName("example")
  *                     .masterUserPassword("Barbarbarbar1!")
  *                     .build())
+ *                 .enabled(true)
+ *                 .anonymousAuthEnabled(true)
+ *                 .internalUserDatabaseEnabled(true)
  *                 .build())
  *             .encryptAtRest(DomainEncryptAtRestArgs.builder()
  *                 .enabled(true)
@@ -466,6 +464,8 @@ import javax.annotation.Nullable;
  *                 .ebsEnabled(true)
  *                 .volumeSize(10)
  *                 .build())
+ *             .domainName("ggkitty")
+ *             .engineVersion("Elasticsearch_7.1")
  *             .build());
  * 
  *     }

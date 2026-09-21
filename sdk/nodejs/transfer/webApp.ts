@@ -24,50 +24,50 @@ import * as utilities from "../utilities";
  * const example = aws.ssoadmin.getInstances({});
  * const assumeRoleTransfer = current.then(current => aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: [
- *             "sts:AssumeRole",
- *             "sts:SetContext",
- *         ],
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["transfer.amazonaws.com"],
- *         }],
  *         conditions: [{
  *             test: "StringEquals",
  *             values: [current.accountId],
  *             variable: "aws:SourceAccount",
  *         }],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["transfer.amazonaws.com"],
+ *         }],
+ *         effect: "Allow",
+ *         actions: [
+ *             "sts:AssumeRole",
+ *             "sts:SetContext",
+ *         ],
  *     }],
  * }));
  * const exampleRole = new aws.iam.Role("example", {
  *     name: "example",
  *     assumeRolePolicy: assumeRoleTransfer.then(assumeRoleTransfer => assumeRoleTransfer.json),
  * });
- * const exampleGetPolicyDocument = Promise.all([currentGetPartition, currentGetRegion, current]).then(([currentGetPartition, currentGetRegion, current]) => aws.iam.getPolicyDocument({
+ * const exampleGetPolicyDocument = Promise.all([current, currentGetPartition, currentGetRegion]).then(([current, currentGetPartition, currentGetRegion]) => aws.iam.getPolicyDocument({
  *     statements: [
  *         {
+ *             conditions: [{
+ *                 test: "StringEquals",
+ *                 values: [current.accountId],
+ *                 variable: "s3:ResourceAccount",
+ *             }],
  *             effect: "Allow",
  *             actions: [
  *                 "s3:GetDataAccess",
  *                 "s3:ListCallerAccessGrants",
  *             ],
  *             resources: [`arn:${currentGetPartition.partition}:s3:${currentGetRegion.region}:${current.accountId}:access-grants/*`],
+ *         },
+ *         {
  *             conditions: [{
  *                 test: "StringEquals",
  *                 values: [current.accountId],
  *                 variable: "s3:ResourceAccount",
  *             }],
- *         },
- *         {
  *             effect: "Allow",
  *             actions: ["s3:ListAccessGrantsInstances"],
  *             resources: ["*"],
- *             conditions: [{
- *                 test: "StringEquals",
- *                 values: [current.accountId],
- *                 variable: "s3:ResourceAccount",
- *             }],
  *         },
  *     ],
  * }));

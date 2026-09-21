@@ -256,10 +256,10 @@ class V2UserJourney(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_policy = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         example_v2_user_journey = aws.resiliencehub.V2UserJourney("example",
             system_arn=example.arn,
             name="checkout-flow",
@@ -331,10 +331,10 @@ class V2UserJourney(pulumi.CustomResource):
 
         example = aws.resiliencehub.V2System("example", name="example-system")
         example_v2_policy = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         example_v2_user_journey = aws.resiliencehub.V2UserJourney("example",
             system_arn=example.arn,
             name="checkout-flow",

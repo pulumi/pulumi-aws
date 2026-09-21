@@ -75,7 +75,7 @@ type LookupMountTargetResult struct {
 	AvailabilityZoneName string `pulumi:"availabilityZoneName"`
 	// DNS name for the EFS file system.
 	DnsName string `pulumi:"dnsName"`
-	// Amazon Resource Name of the file system for which the mount target is intended.
+	// ARN of the file system for which the mount target is intended.
 	FileSystemArn string `pulumi:"fileSystemArn"`
 	FileSystemId  string `pulumi:"fileSystemId"`
 	// The provider-assigned unique ID for this managed resource.
@@ -101,12 +101,8 @@ type LookupMountTargetResult struct {
 }
 
 func LookupMountTargetOutput(ctx *pulumi.Context, args LookupMountTargetOutputArgs, opts ...pulumi.InvokeOption) LookupMountTargetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMountTargetResultOutput, error) {
-			args := v.(LookupMountTargetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:efs/getMountTarget:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput), nil
-		}).(LookupMountTargetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:efs/getMountTarget:getMountTarget", args, LookupMountTargetResultOutput{}, options).(LookupMountTargetResultOutput)
 }
 
 // A collection of arguments for invoking getMountTarget.
@@ -159,7 +155,7 @@ func (o LookupMountTargetResultOutput) DnsName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.DnsName }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name of the file system for which the mount target is intended.
+// ARN of the file system for which the mount target is intended.
 func (o LookupMountTargetResultOutput) FileSystemArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMountTargetResult) string { return v.FileSystemArn }).(pulumi.StringOutput)
 }

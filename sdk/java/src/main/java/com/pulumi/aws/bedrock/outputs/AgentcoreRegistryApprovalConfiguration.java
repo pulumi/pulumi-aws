@@ -10,9 +10,17 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreRegistryApprovalConfiguration {
+    /**
+     * @return Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * 
+     */
     private Boolean autoApproval;
 
     private AgentcoreRegistryApprovalConfiguration() {}
+    /**
+     * @return Whether registry records are auto-approved. When set to `true`, records are automatically approved upon creation. When set to `false` (the default), records require explicit approval.
+     * 
+     */
     public Boolean autoApproval() {
         return this.autoApproval;
     }

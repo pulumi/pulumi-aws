@@ -54,11 +54,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLfTagExpression = new LfTagExpression("exampleLfTagExpression", LfTagExpressionArgs.builder()
- *             .name("example")
  *             .expressions(LfTagExpressionExpressionArgs.builder()
  *                 .tagKey(example.key())
  *                 .tagValues(example.values())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

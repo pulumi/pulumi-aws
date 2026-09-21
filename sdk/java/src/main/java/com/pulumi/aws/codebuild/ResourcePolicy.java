@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReportGroup("example", ReportGroupArgs.builder()
- *             .name("example")
- *             .type("TEST")
  *             .exportConfig(ReportGroupExportConfigArgs.builder()
  *                 .type("NO_EXPORT")
  *                 .build())
+ *             .name("example")
+ *             .type("TEST")
  *             .build());
  * 
  *         final var current = AwsFunctions.getPartition(GetPartitionArgs.builder()
@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the CodeBuild resource.
+ * - `resourceArn` (String) ARN of the CodeBuild resource.
  * 
  * Using `pulumi import`, import CodeBuild Resource Policy using the CodeBuild Resource Policy arn. For example:
  * 

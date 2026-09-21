@@ -145,7 +145,7 @@ import (
 type ContactFlow struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Contact Flow.
+	// ARN of the Contact Flow.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the Contact Flow.
 	ContactFlowId pulumi.StringOutput `pulumi:"contactFlowId"`
@@ -204,7 +204,7 @@ func GetContactFlow(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ContactFlow resources.
 type contactFlowState struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow.
+	// ARN of the Contact Flow.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the Contact Flow.
 	ContactFlowId *string `pulumi:"contactFlowId"`
@@ -231,7 +231,7 @@ type contactFlowState struct {
 }
 
 type ContactFlowState struct {
-	// The Amazon Resource Name (ARN) of the Contact Flow.
+	// ARN of the Contact Flow.
 	Arn pulumi.StringPtrInput
 	// The identifier of the Contact Flow.
 	ContactFlowId pulumi.StringPtrInput
@@ -391,7 +391,7 @@ func (o ContactFlowOutput) ToContactFlowOutputWithContext(ctx context.Context) C
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Contact Flow.
+// ARN of the Contact Flow.
 func (o ContactFlowOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactFlow) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

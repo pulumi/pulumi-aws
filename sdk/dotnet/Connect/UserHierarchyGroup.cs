@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Connect
     public partial class UserHierarchyGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
+        /// The ARN of the hierarchy group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.Connect
     public sealed class UserHierarchyGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the hierarchy group.
+        /// The ARN of the hierarchy group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

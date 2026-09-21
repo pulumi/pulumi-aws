@@ -14,9 +14,9 @@ import (
 
 // Provides an AWS Savings Plan resource.
 //
-// > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+// > Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
 //
-// > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+// > Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
 //
 // ## Example Usage
 //
@@ -113,8 +113,8 @@ type SavingsPlan struct {
 	PaymentOption pulumi.StringOutput `pulumi:"paymentOption"`
 	// The product types.
 	ProductTypes pulumi.StringArrayOutput `pulumi:"productTypes"`
-	// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
-	PurchaseTime pulumi.StringPtrOutput `pulumi:"purchaseTime"`
+	// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+	PurchaseTime pulumi.StringOutput `pulumi:"purchaseTime"`
 	// The recurring payment amount.
 	RecurringPaymentAmount pulumi.StringOutput `pulumi:"recurringPaymentAmount"`
 	// The AWS Region.
@@ -140,8 +140,8 @@ type SavingsPlan struct {
 	// The duration of the term, in seconds.
 	TermDurationInSeconds pulumi.IntOutput             `pulumi:"termDurationInSeconds"`
 	Timeouts              SavingsPlanTimeoutsPtrOutput `pulumi:"timeouts"`
-	// The up-front payment amount.
-	UpfrontPaymentAmount pulumi.StringPtrOutput `pulumi:"upfrontPaymentAmount"`
+	// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
+	UpfrontPaymentAmount pulumi.StringOutput `pulumi:"upfrontPaymentAmount"`
 }
 
 // NewSavingsPlan registers a new resource with the given unique name, arguments, and options.
@@ -200,7 +200,7 @@ type savingsPlanState struct {
 	PaymentOption *string `pulumi:"paymentOption"`
 	// The product types.
 	ProductTypes []string `pulumi:"productTypes"`
-	// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+	// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
 	PurchaseTime *string `pulumi:"purchaseTime"`
 	// The recurring payment amount.
 	RecurringPaymentAmount *string `pulumi:"recurringPaymentAmount"`
@@ -227,7 +227,7 @@ type savingsPlanState struct {
 	// The duration of the term, in seconds.
 	TermDurationInSeconds *int                 `pulumi:"termDurationInSeconds"`
 	Timeouts              *SavingsPlanTimeouts `pulumi:"timeouts"`
-	// The up-front payment amount.
+	// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
 	UpfrontPaymentAmount *string `pulumi:"upfrontPaymentAmount"`
 }
 
@@ -252,7 +252,7 @@ type SavingsPlanState struct {
 	PaymentOption pulumi.StringPtrInput
 	// The product types.
 	ProductTypes pulumi.StringArrayInput
-	// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+	// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
 	PurchaseTime pulumi.StringPtrInput
 	// The recurring payment amount.
 	RecurringPaymentAmount pulumi.StringPtrInput
@@ -279,7 +279,7 @@ type SavingsPlanState struct {
 	// The duration of the term, in seconds.
 	TermDurationInSeconds pulumi.IntPtrInput
 	Timeouts              SavingsPlanTimeoutsPtrInput
-	// The up-front payment amount.
+	// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
 	UpfrontPaymentAmount pulumi.StringPtrInput
 }
 
@@ -292,14 +292,14 @@ type savingsPlanArgs struct {
 	//
 	// The following arguments are optional:
 	Commitment string `pulumi:"commitment"`
-	// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+	// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
 	PurchaseTime *string `pulumi:"purchaseTime"`
 	// The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
 	SavingsPlanOfferingId string `pulumi:"savingsPlanOfferingId"`
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string    `pulumi:"tags"`
 	Timeouts *SavingsPlanTimeouts `pulumi:"timeouts"`
-	// The up-front payment amount.
+	// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
 	UpfrontPaymentAmount *string `pulumi:"upfrontPaymentAmount"`
 }
 
@@ -309,14 +309,14 @@ type SavingsPlanArgs struct {
 	//
 	// The following arguments are optional:
 	Commitment pulumi.StringInput
-	// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+	// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
 	PurchaseTime pulumi.StringPtrInput
 	// The unique ID of a Savings Plan offering. You can find available offerings using the `aws savingsplans describe-savings-plans-offerings` CLI command.
 	SavingsPlanOfferingId pulumi.StringInput
 	// Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
 	Timeouts SavingsPlanTimeoutsPtrInput
-	// The up-front payment amount.
+	// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
 	UpfrontPaymentAmount pulumi.StringPtrInput
 }
 
@@ -451,9 +451,9 @@ func (o SavingsPlanOutput) ProductTypes() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *SavingsPlan) pulumi.StringArrayOutput { return v.ProductTypes }).(pulumi.StringArrayOutput)
 }
 
-// The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
-func (o SavingsPlanOutput) PurchaseTime() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SavingsPlan) pulumi.StringPtrOutput { return v.PurchaseTime }).(pulumi.StringPtrOutput)
+// The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+func (o SavingsPlanOutput) PurchaseTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavingsPlan) pulumi.StringOutput { return v.PurchaseTime }).(pulumi.StringOutput)
 }
 
 // The recurring payment amount.
@@ -520,9 +520,9 @@ func (o SavingsPlanOutput) Timeouts() SavingsPlanTimeoutsPtrOutput {
 	return o.ApplyT(func(v *SavingsPlan) SavingsPlanTimeoutsPtrOutput { return v.Timeouts }).(SavingsPlanTimeoutsPtrOutput)
 }
 
-// The up-front payment amount.
-func (o SavingsPlanOutput) UpfrontPaymentAmount() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *SavingsPlan) pulumi.StringPtrOutput { return v.UpfrontPaymentAmount }).(pulumi.StringPtrOutput)
+// The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
+func (o SavingsPlanOutput) UpfrontPaymentAmount() pulumi.StringOutput {
+	return o.ApplyT(func(v *SavingsPlan) pulumi.StringOutput { return v.UpfrontPaymentAmount }).(pulumi.StringOutput)
 }
 
 type SavingsPlanArrayOutput struct{ *pulumi.OutputState }

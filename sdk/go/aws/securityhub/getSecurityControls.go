@@ -67,12 +67,8 @@ type GetSecurityControlsResult struct {
 }
 
 func GetSecurityControlsOutput(ctx *pulumi.Context, args GetSecurityControlsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityControlsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityControlsResultOutput, error) {
-			args := v.(GetSecurityControlsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:securityhub/getSecurityControls:getSecurityControls", args, GetSecurityControlsResultOutput{}, options).(GetSecurityControlsResultOutput), nil
-		}).(GetSecurityControlsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:securityhub/getSecurityControls:getSecurityControls", args, GetSecurityControlsResultOutput{}, options).(GetSecurityControlsResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityControls.

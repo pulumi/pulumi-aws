@@ -79,7 +79,7 @@ type GetOutpostResult struct {
 	Name            string  `pulumi:"name"`
 	OwnerId         *string `pulumi:"ownerId"`
 	Region          string  `pulumi:"region"`
-	// The Amazon Resource Name (ARN) of the site.
+	// ARN of the site.
 	SiteArn string `pulumi:"siteArn"`
 	// The ID of the site.
 	SiteId string `pulumi:"siteId"`
@@ -90,12 +90,8 @@ type GetOutpostResult struct {
 }
 
 func GetOutpostOutput(ctx *pulumi.Context, args GetOutpostOutputArgs, opts ...pulumi.InvokeOption) GetOutpostResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOutpostResultOutput, error) {
-			args := v.(GetOutpostArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:outposts/getOutpost:getOutpost", args, GetOutpostResultOutput{}, options).(GetOutpostResultOutput), nil
-		}).(GetOutpostResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:outposts/getOutpost:getOutpost", args, GetOutpostResultOutput{}, options).(GetOutpostResultOutput)
 }
 
 // A collection of arguments for invoking getOutpost.
@@ -173,7 +169,7 @@ func (o GetOutpostResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the site.
+// ARN of the site.
 func (o GetOutpostResultOutput) SiteArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetOutpostResult) string { return v.SiteArn }).(pulumi.StringOutput)
 }

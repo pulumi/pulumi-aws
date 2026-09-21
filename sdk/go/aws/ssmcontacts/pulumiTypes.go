@@ -363,7 +363,7 @@ func (o PlanStageTargetArrayOutput) Index(i pulumi.IntInput) PlanStageTargetOutp
 }
 
 type PlanStageTargetChannelTargetInfo struct {
-	// The Amazon Resource Name (ARN) of the contact channel.
+	// The ARN of the contact channel.
 	ContactChannelId string `pulumi:"contactChannelId"`
 	// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
 	RetryIntervalInMinutes *int `pulumi:"retryIntervalInMinutes"`
@@ -381,7 +381,7 @@ type PlanStageTargetChannelTargetInfoInput interface {
 }
 
 type PlanStageTargetChannelTargetInfoArgs struct {
-	// The Amazon Resource Name (ARN) of the contact channel.
+	// The ARN of the contact channel.
 	ContactChannelId pulumi.StringInput `pulumi:"contactChannelId"`
 	// The number of minutes to wait before retrying to send engagement if the engagement initially failed.
 	RetryIntervalInMinutes pulumi.IntPtrInput `pulumi:"retryIntervalInMinutes"`
@@ -464,7 +464,7 @@ func (o PlanStageTargetChannelTargetInfoOutput) ToPlanStageTargetChannelTargetIn
 	}).(PlanStageTargetChannelTargetInfoPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact channel.
+// The ARN of the contact channel.
 func (o PlanStageTargetChannelTargetInfoOutput) ContactChannelId() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanStageTargetChannelTargetInfo) string { return v.ContactChannelId }).(pulumi.StringOutput)
 }
@@ -498,7 +498,7 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) Elem() PlanStageTargetChannel
 	}).(PlanStageTargetChannelTargetInfoOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact channel.
+// The ARN of the contact channel.
 func (o PlanStageTargetChannelTargetInfoPtrOutput) ContactChannelId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetChannelTargetInfo) *string {
 		if v == nil {
@@ -519,7 +519,7 @@ func (o PlanStageTargetChannelTargetInfoPtrOutput) RetryIntervalInMinutes() pulu
 }
 
 type PlanStageTargetContactTargetInfo struct {
-	// The Amazon Resource Name (ARN) of the contact.
+	// The ARN of the contact.
 	ContactId *string `pulumi:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 	IsEssential bool `pulumi:"isEssential"`
@@ -537,7 +537,7 @@ type PlanStageTargetContactTargetInfoInput interface {
 }
 
 type PlanStageTargetContactTargetInfoArgs struct {
-	// The Amazon Resource Name (ARN) of the contact.
+	// The ARN of the contact.
 	ContactId pulumi.StringPtrInput `pulumi:"contactId"`
 	// A Boolean value determining if the contact's acknowledgement stops the progress of stages in the plan.
 	IsEssential pulumi.BoolInput `pulumi:"isEssential"`
@@ -620,7 +620,7 @@ func (o PlanStageTargetContactTargetInfoOutput) ToPlanStageTargetContactTargetIn
 	}).(PlanStageTargetContactTargetInfoPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact.
+// The ARN of the contact.
 func (o PlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v PlanStageTargetContactTargetInfo) *string { return v.ContactId }).(pulumi.StringPtrOutput)
 }
@@ -654,7 +654,7 @@ func (o PlanStageTargetContactTargetInfoPtrOutput) Elem() PlanStageTargetContact
 	}).(PlanStageTargetContactTargetInfoOutput)
 }
 
-// The Amazon Resource Name (ARN) of the contact.
+// The ARN of the contact.
 func (o PlanStageTargetContactTargetInfoPtrOutput) ContactId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *PlanStageTargetContactTargetInfo) *string {
 		if v == nil {
@@ -1069,7 +1069,7 @@ func (o GetPlanStageTargetChannelTargetInfoArrayOutput) Index(i pulumi.IntInput)
 }
 
 type GetPlanStageTargetContactTargetInfo struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// ARN of the contact or escalation plan.
 	ContactId   string `pulumi:"contactId"`
 	IsEssential bool   `pulumi:"isEssential"`
 }
@@ -1086,7 +1086,7 @@ type GetPlanStageTargetContactTargetInfoInput interface {
 }
 
 type GetPlanStageTargetContactTargetInfoArgs struct {
-	// The Amazon Resource Name (ARN) of the contact or escalation plan.
+	// ARN of the contact or escalation plan.
 	ContactId   pulumi.StringInput `pulumi:"contactId"`
 	IsEssential pulumi.BoolInput   `pulumi:"isEssential"`
 }
@@ -1142,7 +1142,7 @@ func (o GetPlanStageTargetContactTargetInfoOutput) ToGetPlanStageTargetContactTa
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the contact or escalation plan.
+// ARN of the contact or escalation plan.
 func (o GetPlanStageTargetContactTargetInfoOutput) ContactId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetPlanStageTargetContactTargetInfo) string { return v.ContactId }).(pulumi.StringOutput)
 }

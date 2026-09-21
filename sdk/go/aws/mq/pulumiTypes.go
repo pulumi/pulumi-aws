@@ -1423,7 +1423,7 @@ func (o GetBrokerConfigurationOutput) Revision() pulumi.IntOutput {
 }
 
 type GetBrokerEncryptionOption struct {
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+	// ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
 	KmsKeyId string `pulumi:"kmsKeyId"`
 	// Whether to enable an AWS-owned KMS CMK that is not in your account.
 	UseAwsOwnedKey bool `pulumi:"useAwsOwnedKey"`
@@ -1441,7 +1441,7 @@ type GetBrokerEncryptionOptionInput interface {
 }
 
 type GetBrokerEncryptionOptionArgs struct {
-	// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+	// ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
 	KmsKeyId pulumi.StringInput `pulumi:"kmsKeyId"`
 	// Whether to enable an AWS-owned KMS CMK that is not in your account.
 	UseAwsOwnedKey pulumi.BoolInput `pulumi:"useAwsOwnedKey"`
@@ -1498,7 +1498,7 @@ func (o GetBrokerEncryptionOptionOutput) ToGetBrokerEncryptionOptionOutputWithCo
 	return o
 }
 
-// Amazon Resource Name (ARN) of Key Management Service (KMS) Customer Master Key (CMK) to use for encryption at rest.
+// ARN of KMS Customer Master Key (CMK) to use for encryption at rest.
 func (o GetBrokerEncryptionOptionOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBrokerEncryptionOption) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }

@@ -120,7 +120,7 @@ func (o ApplicationAppConfigArrayOutput) Index(i pulumi.IntInput) ApplicationApp
 }
 
 type ApplicationDataSource struct {
-	// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+	// ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
 	DataSourceArn *string `pulumi:"dataSourceArn"`
 	// A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
 	DataSourceDescription *string `pulumi:"dataSourceDescription"`
@@ -138,7 +138,7 @@ type ApplicationDataSourceInput interface {
 }
 
 type ApplicationDataSourceArgs struct {
-	// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+	// ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
 	DataSourceArn pulumi.StringPtrInput `pulumi:"dataSourceArn"`
 	// A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
 	DataSourceDescription pulumi.StringPtrInput `pulumi:"dataSourceDescription"`
@@ -195,7 +195,7 @@ func (o ApplicationDataSourceOutput) ToApplicationDataSourceOutputWithContext(ct
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+// ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
 func (o ApplicationDataSourceOutput) DataSourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationDataSource) *string { return v.DataSourceArn }).(pulumi.StringPtrOutput)
 }
@@ -229,7 +229,7 @@ type ApplicationIamIdentityCenterOptions struct {
 	// Specifies whether IAM Identity Center is enabled or disabled.
 	Enabled                         *bool   `pulumi:"enabled"`
 	IamIdentityCenterApplicationArn *string `pulumi:"iamIdentityCenterApplicationArn"`
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+	// ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
 	// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
 	IamRoleForIdentityCenterApplicationArn *string `pulumi:"iamRoleForIdentityCenterApplicationArn"`
@@ -250,7 +250,7 @@ type ApplicationIamIdentityCenterOptionsArgs struct {
 	// Specifies whether IAM Identity Center is enabled or disabled.
 	Enabled                         pulumi.BoolPtrInput   `pulumi:"enabled"`
 	IamIdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"iamIdentityCenterApplicationArn"`
-	// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+	// ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput `pulumi:"iamIdentityCenterInstanceArn"`
 	// The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
 	IamRoleForIdentityCenterApplicationArn pulumi.StringPtrInput `pulumi:"iamRoleForIdentityCenterApplicationArn"`
@@ -342,7 +342,7 @@ func (o ApplicationIamIdentityCenterOptionsOutput) IamIdentityCenterApplicationA
 	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *string { return v.IamIdentityCenterApplicationArn }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+// ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
 func (o ApplicationIamIdentityCenterOptionsOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationIamIdentityCenterOptions) *string { return v.IamIdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
@@ -395,7 +395,7 @@ func (o ApplicationIamIdentityCenterOptionsPtrOutput) IamIdentityCenterApplicati
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+// ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
 func (o ApplicationIamIdentityCenterOptionsPtrOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ApplicationIamIdentityCenterOptions) *string {
 		if v == nil {
@@ -7307,7 +7307,7 @@ func (o ServerlessSecurityConfigIamFederationOptionsPtrOutput) UserAttribute() p
 type ServerlessSecurityConfigIamIdentityCenterOptions struct {
 	// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
 	GroupAttribute *string `pulumi:"groupAttribute"`
-	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 	InstanceArn string `pulumi:"instanceArn"`
 	// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
 	UserAttribute *string `pulumi:"userAttribute"`
@@ -7327,7 +7327,7 @@ type ServerlessSecurityConfigIamIdentityCenterOptionsInput interface {
 type ServerlessSecurityConfigIamIdentityCenterOptionsArgs struct {
 	// Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
 	GroupAttribute pulumi.StringPtrInput `pulumi:"groupAttribute"`
-	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
 	UserAttribute pulumi.StringPtrInput `pulumi:"userAttribute"`
@@ -7415,7 +7415,7 @@ func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) GroupAttribute()
 	return o.ApplyT(func(v ServerlessSecurityConfigIamIdentityCenterOptions) *string { return v.GroupAttribute }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o ServerlessSecurityConfigIamIdentityCenterOptionsOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ServerlessSecurityConfigIamIdentityCenterOptions) string { return v.InstanceArn }).(pulumi.StringOutput)
 }
@@ -7459,7 +7459,7 @@ func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) GroupAttribut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o ServerlessSecurityConfigIamIdentityCenterOptionsPtrOutput) InstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServerlessSecurityConfigIamIdentityCenterOptions) *string {
 		if v == nil {
@@ -10770,7 +10770,7 @@ func (o GetServerlessCollectionGroupCapacityLimitArrayOutput) Index(i pulumi.Int
 }
 
 type GetServerlessCollectionGroupsCollectionGroupSummary struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn string `pulumi:"arn"`
 	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
 	CapacityLimits []GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimit `pulumi:"capacityLimits"`
@@ -10798,7 +10798,7 @@ type GetServerlessCollectionGroupsCollectionGroupSummaryInput interface {
 }
 
 type GetServerlessCollectionGroupsCollectionGroupSummaryArgs struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
 	CapacityLimits GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArrayInput `pulumi:"capacityLimits"`
@@ -10865,7 +10865,7 @@ func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) ToGetServerle
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection group.
+// ARN of the collection group.
 func (o GetServerlessCollectionGroupsCollectionGroupSummaryOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessCollectionGroupsCollectionGroupSummary) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -11163,7 +11163,7 @@ func (o GetServerlessSecurityConfigIamFederationOptionArrayOutput) Index(i pulum
 type GetServerlessSecurityConfigIamIdentityCenterOption struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute string `pulumi:"groupAttribute"`
-	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 	InstanceArn string `pulumi:"instanceArn"`
 	// User attribute for this SAML integration.
 	UserAttribute string `pulumi:"userAttribute"`
@@ -11183,7 +11183,7 @@ type GetServerlessSecurityConfigIamIdentityCenterOptionInput interface {
 type GetServerlessSecurityConfigIamIdentityCenterOptionArgs struct {
 	// Group attribute for this SAML integration.
 	GroupAttribute pulumi.StringInput `pulumi:"groupAttribute"`
-	// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+	// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 	InstanceArn pulumi.StringInput `pulumi:"instanceArn"`
 	// User attribute for this SAML integration.
 	UserAttribute pulumi.StringInput `pulumi:"userAttribute"`
@@ -11245,7 +11245,7 @@ func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) GroupAttribute
 	return o.ApplyT(func(v GetServerlessSecurityConfigIamIdentityCenterOption) string { return v.GroupAttribute }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
 func (o GetServerlessSecurityConfigIamIdentityCenterOptionOutput) InstanceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetServerlessSecurityConfigIamIdentityCenterOption) string { return v.InstanceArn }).(pulumi.StringOutput)
 }

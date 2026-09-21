@@ -158,12 +158,8 @@ type LookupInvocationResult struct {
 }
 
 func LookupInvocationOutput(ctx *pulumi.Context, args LookupInvocationOutputArgs, opts ...pulumi.InvokeOption) LookupInvocationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupInvocationResultOutput, error) {
-			args := v.(LookupInvocationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:lambda/getInvocation:getInvocation", args, LookupInvocationResultOutput{}, options).(LookupInvocationResultOutput), nil
-		}).(LookupInvocationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:lambda/getInvocation:getInvocation", args, LookupInvocationResultOutput{}, options).(LookupInvocationResultOutput)
 }
 
 // A collection of arguments for invoking getInvocation.

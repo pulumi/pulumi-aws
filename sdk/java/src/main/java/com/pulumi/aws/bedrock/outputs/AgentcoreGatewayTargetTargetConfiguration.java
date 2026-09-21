@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.outputs;
 
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationHttp;
+import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationInference;
 import com.pulumi.aws.bedrock.outputs.AgentcoreGatewayTargetTargetConfigurationMcp;
 import com.pulumi.core.annotations.CustomType;
 import java.util.Objects;
@@ -13,26 +14,38 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetTargetConfiguration {
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationHttp http;
     /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
+     * @return Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+     * 
+     */
+    private @Nullable AgentcoreGatewayTargetTargetConfigurationInference inference;
+    /**
+     * @return Model Context Protocol (MCP) configuration. See `mcp` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp;
 
     private AgentcoreGatewayTargetTargetConfiguration() {}
     /**
-     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` below.
+     * @return HTTP target configuration for routing requests directly to an AgentCore Runtime agent. See `http` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationHttp> http() {
         return Optional.ofNullable(this.http);
     }
     /**
-     * @return Model Context Protocol (MCP) configuration. See `mcp` below.
+     * @return Inference target configuration for routing requests to a large language model (LLM) provider, either through a built-in connector or an explicitly configured provider. See `inference` Block below.
+     * 
+     */
+    public Optional<AgentcoreGatewayTargetTargetConfigurationInference> inference() {
+        return Optional.ofNullable(this.inference);
+    }
+    /**
+     * @return Model Context Protocol (MCP) configuration. See `mcp` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcp> mcp() {
@@ -49,11 +62,13 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable AgentcoreGatewayTargetTargetConfigurationHttp http;
+        private @Nullable AgentcoreGatewayTargetTargetConfigurationInference inference;
         private @Nullable AgentcoreGatewayTargetTargetConfigurationMcp mcp;
         public Builder() {}
         public Builder(AgentcoreGatewayTargetTargetConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.http = defaults.http;
+    	      this.inference = defaults.inference;
     	      this.mcp = defaults.mcp;
         }
 
@@ -61,6 +76,12 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
         public Builder http(@Nullable AgentcoreGatewayTargetTargetConfigurationHttp http) {
 
             this.http = http;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder inference(@Nullable AgentcoreGatewayTargetTargetConfigurationInference inference) {
+
+            this.inference = inference;
             return this;
         }
         @CustomType.Setter
@@ -72,6 +93,7 @@ public final class AgentcoreGatewayTargetTargetConfiguration {
         public AgentcoreGatewayTargetTargetConfiguration build() {
             final var _resultValue = new AgentcoreGatewayTargetTargetConfiguration();
             _resultValue.http = http;
+            _resultValue.inference = inference;
             _resultValue.mcp = mcp;
             return _resultValue;
         }

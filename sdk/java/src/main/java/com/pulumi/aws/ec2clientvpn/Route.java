@@ -29,8 +29,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2clientvpn.Endpoint;
  * import com.pulumi.aws.ec2clientvpn.EndpointArgs;
- * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
  * import com.pulumi.aws.ec2clientvpn.inputs.EndpointConnectionLogOptionsArgs;
+ * import com.pulumi.aws.ec2clientvpn.inputs.EndpointAuthenticationOptionArgs;
  * import com.pulumi.aws.ec2clientvpn.NetworkAssociation;
  * import com.pulumi.aws.ec2clientvpn.NetworkAssociationArgs;
  * import com.pulumi.aws.ec2clientvpn.Route;
@@ -49,16 +49,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleEndpoint = new Endpoint("exampleEndpoint", EndpointArgs.builder()
- *             .description("Example Client VPN endpoint")
- *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
- *             .clientCidrBlock("10.0.0.0/16")
+ *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
+ *                 .enabled(false)
+ *                 .build())
  *             .authenticationOptions(EndpointAuthenticationOptionArgs.builder()
  *                 .type("certificate-authentication")
  *                 .rootCertificateChainArn(exampleAwsAcmCertificate.arn())
  *                 .build())
- *             .connectionLogOptions(EndpointConnectionLogOptionsArgs.builder()
- *                 .enabled(false)
- *                 .build())
+ *             .description("Example Client VPN endpoint")
+ *             .serverCertificateArn(exampleAwsAcmCertificate.arn())
+ *             .clientCidrBlock("10.0.0.0/16")
  *             .build());
  * 
  *         var exampleNetworkAssociation = new NetworkAssociation("exampleNetworkAssociation", NetworkAssociationArgs.builder()

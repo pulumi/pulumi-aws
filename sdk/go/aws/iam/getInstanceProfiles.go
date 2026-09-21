@@ -70,12 +70,8 @@ type GetInstanceProfilesResult struct {
 }
 
 func GetInstanceProfilesOutput(ctx *pulumi.Context, args GetInstanceProfilesOutputArgs, opts ...pulumi.InvokeOption) GetInstanceProfilesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetInstanceProfilesResultOutput, error) {
-			args := v.(GetInstanceProfilesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getInstanceProfiles:getInstanceProfiles", args, GetInstanceProfilesResultOutput{}, options).(GetInstanceProfilesResultOutput), nil
-		}).(GetInstanceProfilesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getInstanceProfiles:getInstanceProfiles", args, GetInstanceProfilesResultOutput{}, options).(GetInstanceProfilesResultOutput)
 }
 
 // A collection of arguments for invoking getInstanceProfiles.

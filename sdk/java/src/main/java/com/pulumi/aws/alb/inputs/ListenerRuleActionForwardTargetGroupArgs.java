@@ -18,14 +18,14 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
     public static final ListenerRuleActionForwardTargetGroupArgs Empty = new ListenerRuleActionForwardTargetGroupArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the target group.
+     * ARN of the target group.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target group.
+     * @return ARN of the target group.
      * 
      */
     public Output<String> arn() {
@@ -73,7 +73,7 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the target group.
+         * @param arn ARN of the target group.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ListenerRuleActionForwardTargetGroupArgs extends com.pulumi.r
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the target group.
+         * @param arn ARN of the target group.
          * 
          * @return builder
          * 

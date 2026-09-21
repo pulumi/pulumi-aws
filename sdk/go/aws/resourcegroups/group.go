@@ -28,7 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resourcegroups.NewGroup(ctx, "test", &resourcegroups.GroupArgs{
-//				Name: pulumi.String("test-group"),
 //				ResourceQuery: &resourcegroups.GroupResourceQueryArgs{
 //					Query: pulumi.String(`{
 //	  \"ResourceTypeFilters\": [
@@ -45,6 +44,7 @@ import (
 // `),
 //
 //				},
+//				Name: pulumi.String("test-group"),
 //			})
 //			if err != nil {
 //				return err

@@ -458,13 +458,13 @@ def get_engine_version(default_only: Optional[_builtins.bool] = None,
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        version="10.14",
-        include_all=True,
-        filters=[{
+    test = aws.rds.get_engine_version(filters=[{
             "name": "engine-mode",
             "values": ["serverless"],
-        }])
+        }],
+        engine="aurora-postgresql",
+        version="10.14",
+        include_all=True)
     ```
 
 
@@ -472,7 +472,7 @@ def get_engine_version(default_only: Optional[_builtins.bool] = None,
     :param _builtins.str engine: Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
            
            The following arguments are optional:
-    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: Configuration block for filtering versions. See `filter` Block below.
     :param _builtins.bool has_major_target: Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
     :param _builtins.bool has_minor_target: Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
     :param _builtins.bool include_all: Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
@@ -575,13 +575,13 @@ def get_engine_version_output(default_only: pulumi.Input[Optional[Optional[_buil
     import pulumi
     import pulumi_aws as aws
 
-    test = aws.rds.get_engine_version(engine="aurora-postgresql",
-        version="10.14",
-        include_all=True,
-        filters=[{
+    test = aws.rds.get_engine_version(filters=[{
             "name": "engine-mode",
             "values": ["serverless"],
-        }])
+        }],
+        engine="aurora-postgresql",
+        version="10.14",
+        include_all=True)
     ```
 
 
@@ -589,7 +589,7 @@ def get_engine_version_output(default_only: pulumi.Input[Optional[Optional[_buil
     :param _builtins.str engine: Database engine. Engine values include `aurora`, `aurora-mysql`, `aurora-postgresql`, `docdb`, `mariadb`, `mysql`, `neptune`, `oracle-ee`, `oracle-se`, `oracle-se1`, `oracle-se2`, `postgres`, `sqlserver-ee`, `sqlserver-ex`, `sqlserver-se`, and `sqlserver-web`.
            
            The following arguments are optional:
-    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+    :param Sequence[Union['GetEngineVersionFilterArgs', 'GetEngineVersionFilterArgsDict']] filters: Configuration block for filtering versions. See `filter` Block below.
     :param _builtins.bool has_major_target: Whether the engine version must have one or more major upgrade targets. Not including `has_major_target` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
     :param _builtins.bool has_minor_target: Whether the engine version must have one or more minor upgrade targets. Not including `has_minor_target` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
     :param _builtins.bool include_all: Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.

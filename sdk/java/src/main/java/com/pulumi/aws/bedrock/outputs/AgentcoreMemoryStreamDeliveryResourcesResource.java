@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreMemoryStreamDeliveryResourcesResource {
     /**
-     * @return Kinesis Data Stream configuration. See `kinesis` below.
+     * @return Kinesis Data Stream configuration. See `kinesis` Block below.
      * 
      */
     private @Nullable AgentcoreMemoryStreamDeliveryResourcesResourceKinesis kinesis;
 
     private AgentcoreMemoryStreamDeliveryResourcesResource() {}
     /**
-     * @return Kinesis Data Stream configuration. See `kinesis` below.
+     * @return Kinesis Data Stream configuration. See `kinesis` Block below.
      * 
      */
     public Optional<AgentcoreMemoryStreamDeliveryResourcesResourceKinesis> kinesis() {

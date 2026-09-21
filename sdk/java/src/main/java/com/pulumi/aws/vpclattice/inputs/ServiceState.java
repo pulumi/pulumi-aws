@@ -50,14 +50,14 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the certificate.
+     * ARN of the certificate.
      * 
      */
     @Import(name="certificateArn")
     private @Nullable Output<String> certificateArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the certificate.
+     * @return ARN of the certificate.
      * 
      */
     public Optional<Output<String>> certificateArn() {
@@ -265,7 +265,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn Amazon Resource Name (ARN) of the certificate.
+         * @param certificateArn ARN of the certificate.
          * 
          * @return builder
          * 
@@ -276,7 +276,7 @@ public final class ServiceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param certificateArn Amazon Resource Name (ARN) of the certificate.
+         * @param certificateArn ARN of the certificate.
          * 
          * @return builder
          * 

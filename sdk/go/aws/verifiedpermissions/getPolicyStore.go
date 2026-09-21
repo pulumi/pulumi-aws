@@ -78,12 +78,8 @@ type LookupPolicyStoreResult struct {
 }
 
 func LookupPolicyStoreOutput(ctx *pulumi.Context, args LookupPolicyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupPolicyStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupPolicyStoreResultOutput, error) {
-			args := v.(LookupPolicyStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args, LookupPolicyStoreResultOutput{}, options).(LookupPolicyStoreResultOutput), nil
-		}).(LookupPolicyStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:verifiedpermissions/getPolicyStore:getPolicyStore", args, LookupPolicyStoreResultOutput{}, options).(LookupPolicyStoreResultOutput)
 }
 
 // A collection of arguments for invoking getPolicyStore.

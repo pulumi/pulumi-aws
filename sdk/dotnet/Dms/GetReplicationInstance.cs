@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Dms
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the KMS key used to encrypt the connection parameters.
+        /// ARN for the KMS key used to encrypt the connection parameters.
         /// </summary>
         public readonly string KmsKeyArn;
         /// <summary>
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Dms
         public readonly bool PubliclyAccessible;
         public readonly string Region;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the replication instance.
+        /// ARN of the replication instance.
         /// </summary>
         public readonly string ReplicationInstanceArn;
         /// <summary>

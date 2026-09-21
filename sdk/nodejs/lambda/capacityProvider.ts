@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example",
  * });
  * ```
  *
@@ -37,7 +37,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.CapacityProvider("example", {
- *     name: "example",
  *     vpcConfig: {
  *         subnetIds: exampleAwsSubnet.map(__item => __item.id),
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
@@ -45,13 +44,6 @@ import * as utilities from "../utilities";
  *     permissionsConfig: {
  *         capacityProviderOperatorRoleArn: exampleAwsIamRole.arn,
  *     },
- *     instanceRequirements: [{
- *         architectures: ["x86_64"],
- *         allowedInstanceTypes: [
- *             "c6i.2xlarge",
- *             "c7i.2xlarge",
- *         ],
- *     }],
  *     capacityProviderScalingConfigs: [{
  *         scalingMode: "Manual",
  *         scalingPolicies: [{
@@ -59,6 +51,14 @@ import * as utilities from "../utilities";
  *             targetValue: 50,
  *         }],
  *     }],
+ *     instanceRequirements: [{
+ *         architectures: ["x86_64"],
+ *         allowedInstanceTypes: [
+ *             "c6i.2xlarge",
+ *             "c7i.2xlarge",
+ *         ],
+ *     }],
+ *     name: "example",
  * });
  * ```
  *
@@ -122,17 +122,15 @@ export class CapacityProvider extends pulumi.CustomResource {
      */
     declare public readonly instanceRequirements: pulumi.Output<outputs.lambda.CapacityProviderInstanceRequirement[]>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * ARN of the KMS key used to encrypt the Capacity Provider.
      */
     declare public readonly kmsKeyArn: pulumi.Output<string | undefined>;
     /**
-     * The name of the Capacity Provider.
+     * Name of the Capacity Provider.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
      * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
      */
     declare public readonly permissionsConfig: pulumi.Output<outputs.lambda.CapacityProviderPermissionsConfig>;
     /**
@@ -150,6 +148,8 @@ export class CapacityProvider extends pulumi.CustomResource {
     declare public readonly timeouts: pulumi.Output<outputs.lambda.CapacityProviderTimeouts | undefined>;
     /**
      * Configuration block for VPC settings. See VPC Config below.
+     *
+     * The following arguments are optional:
      */
     declare public readonly vpcConfig: pulumi.Output<outputs.lambda.CapacityProviderVpcConfig>;
 
@@ -219,17 +219,15 @@ export interface CapacityProviderState {
      */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[] | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * ARN of the KMS key used to encrypt the Capacity Provider.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Capacity Provider.
+     * Name of the Capacity Provider.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
      */
     permissionsConfig?: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig | undefined>;
     /**
@@ -247,6 +245,8 @@ export interface CapacityProviderState {
     timeouts?: pulumi.Input<inputs.lambda.CapacityProviderTimeouts | undefined>;
     /**
      * Configuration block for VPC settings. See VPC Config below.
+     *
+     * The following arguments are optional:
      */
     vpcConfig?: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig | undefined>;
 }
@@ -264,17 +264,15 @@ export interface CapacityProviderArgs {
      */
     instanceRequirements?: pulumi.Input<pulumi.Input<inputs.lambda.CapacityProviderInstanceRequirement>[] | undefined>;
     /**
-     * ARN of the AWS Key Management Service key used to encrypt the Capacity Provider.
+     * ARN of the KMS key used to encrypt the Capacity Provider.
      */
     kmsKeyArn?: pulumi.Input<string | undefined>;
     /**
-     * The name of the Capacity Provider.
+     * Name of the Capacity Provider.
      */
     name?: pulumi.Input<string | undefined>;
     /**
      * Configuration block for permissions settings. See Permissions Config below.
-     *
-     * The following arguments are optional:
      */
     permissionsConfig: pulumi.Input<inputs.lambda.CapacityProviderPermissionsConfig>;
     /**
@@ -288,6 +286,8 @@ export interface CapacityProviderArgs {
     timeouts?: pulumi.Input<inputs.lambda.CapacityProviderTimeouts | undefined>;
     /**
      * Configuration block for VPC settings. See VPC Config below.
+     *
+     * The following arguments are optional:
      */
     vpcConfig: pulumi.Input<inputs.lambda.CapacityProviderVpcConfig>;
 }

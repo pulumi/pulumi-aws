@@ -71,7 +71,7 @@ export class App extends pulumi.CustomResource {
      */
     declare public readonly appType: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the app.
+     * ARN of the app.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -83,7 +83,7 @@ export class App extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      */
     declare public readonly resourceSpec: pulumi.Output<outputs.sagemaker.AppResourceSpec>;
     /**
@@ -166,7 +166,7 @@ export interface AppState {
      */
     appType?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the app.
+     * ARN of the app.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -178,7 +178,7 @@ export interface AppState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec | undefined>;
     /**
@@ -220,7 +220,7 @@ export interface AppArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+     * Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
      */
     resourceSpec?: pulumi.Input<inputs.sagemaker.AppResourceSpec | undefined>;
     /**

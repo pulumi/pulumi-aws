@@ -423,8 +423,6 @@ class V2InputSourceResourceConfigurationArgsDict(TypedDict):
     tf_state_file_url: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     S3 URL.
-
-    Exactly one attribute must be configured.
     """
 
 @pulumi.input_type
@@ -441,8 +439,6 @@ class V2InputSourceResourceConfigurationArgs:
         :param pulumi.Input['V2InputSourceResourceConfigurationEksArgs'] eks: EKS configuration. See `eks` Block below.
         :param pulumi.Input[Sequence[pulumi.Input['V2InputSourceResourceConfigurationResourceTagArgs']]] resource_tags: Resource tags used for discovery. See `resource_tag` Block below.
         :param pulumi.Input[_builtins.str] tf_state_file_url: S3 URL.
-               
-               Exactly one attribute must be configured.
         """
         if cfn_stack_arn is not None:
             pulumi.set(__self__, "cfn_stack_arn", cfn_stack_arn)
@@ -508,8 +504,6 @@ class V2InputSourceResourceConfigurationArgs:
     def tf_state_file_url(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
         S3 URL.
-
-        Exactly one attribute must be configured.
         """
         return pulumi.get(self, "tf_state_file_url")
 
@@ -809,15 +803,23 @@ class V2ServiceAssociatedSystemArgsDict(TypedDict):
     """
     ARN of the system to associate with the service.
     """
+    user_journey_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    List of user journey identifiers that associate the system with the service.
+    """
 
 @pulumi.input_type
 class V2ServiceAssociatedSystemArgs:
     def __init__(__self__, *,
-                 system_arn: pulumi.Input[_builtins.str]):
+                 system_arn: pulumi.Input[_builtins.str],
+                 user_journey_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[_builtins.str] system_arn: ARN of the system to associate with the service.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] user_journey_ids: List of user journey identifiers that associate the system with the service.
         """
         pulumi.set(__self__, "system_arn", system_arn)
+        if user_journey_ids is not None:
+            pulumi.set(__self__, "user_journey_ids", user_journey_ids)
 
     @_builtins.property
     @pulumi.getter(name="systemArn")
@@ -830,6 +832,18 @@ class V2ServiceAssociatedSystemArgs:
     @system_arn.setter
     def system_arn(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "system_arn", value)
+
+    @_builtins.property
+    @pulumi.getter(name="userJourneyIds")
+    def user_journey_ids(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        List of user journey identifiers that associate the system with the service.
+        """
+        return pulumi.get(self, "user_journey_ids")
+
+    @user_journey_ids.setter
+    def user_journey_ids(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "user_journey_ids", value)
 
 
 class V2ServicePermissionModelArgsDict(TypedDict):

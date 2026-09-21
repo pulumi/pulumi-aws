@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Cognito.Inputs
     public sealed class UserPoolLambdaConfigCustomEmailSenderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+        /// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
         /// </summary>
         [Input("lambdaArn", required: true)]
         public Input<string> LambdaArn { get; set; } = null!;

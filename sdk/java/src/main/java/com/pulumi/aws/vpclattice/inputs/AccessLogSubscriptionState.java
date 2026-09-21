@@ -17,14 +17,14 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
     public static final AccessLogSubscriptionState Empty = new AccessLogSubscriptionState();
 
     /**
-     * Amazon Resource Name (ARN) of the access log subscription.
+     * ARN of the access log subscription.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the access log subscription.
+     * @return ARN of the access log subscription.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -32,14 +32,14 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of the log destination.
+     * ARN of the log destination.
      * 
      */
     @Import(name="destinationArn")
     private @Nullable Output<String> destinationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the log destination.
+     * @return ARN of the log destination.
      * 
      */
     public Optional<Output<String>> destinationArn() {
@@ -62,14 +62,14 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
     }
 
     /**
-     * Amazon Resource Name (ARN) of the service network or service.
+     * ARN of the service network or service.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the service network or service.
+     * @return ARN of the service network or service.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -164,7 +164,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the access log subscription.
+         * @param arn ARN of the access log subscription.
          * 
          * @return builder
          * 
@@ -175,7 +175,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the access log subscription.
+         * @param arn ARN of the access log subscription.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
+         * @param destinationArn ARN of the log destination.
          * 
          * @return builder
          * 
@@ -196,7 +196,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param destinationArn Amazon Resource Name (ARN) of the log destination.
+         * @param destinationArn ARN of the log destination.
          * 
          * @return builder
          * 
@@ -227,7 +227,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the service network or service.
+         * @param resourceArn ARN of the service network or service.
          * 
          * @return builder
          * 
@@ -238,7 +238,7 @@ public final class AccessLogSubscriptionState extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the service network or service.
+         * @param resourceArn ARN of the service network or service.
          * 
          * @return builder
          * 

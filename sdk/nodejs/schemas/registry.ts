@@ -58,7 +58,7 @@ export class Registry extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the discoverer.
+     * ARN of the discoverer.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class Registry extends pulumi.CustomResource {
  */
 export interface RegistryState {
     /**
-     * The Amazon Resource Name (ARN) of the discoverer.
+     * ARN of the discoverer.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -108,23 +108,23 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      */
     declare public readonly clusterEndpointIdentifier: pulumi.Output<string>;
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      */
     declare public readonly customEndpointType: pulumi.Output<string>;
     /**
-     * A custom endpoint for the Aurora cluster
+     * Custom endpoint for the Aurora cluster
      */
     declare public /*out*/ readonly endpoint: pulumi.Output<string>;
     /**
@@ -141,13 +141,10 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     declare public readonly staticMembers: pulumi.Output<string[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
 
@@ -206,23 +203,23 @@ export class ClusterEndpoint extends pulumi.CustomResource {
  */
 export interface ClusterEndpointState {
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      */
     clusterEndpointIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      */
     customEndpointType?: pulumi.Input<string | undefined>;
     /**
-     * A custom endpoint for the Aurora cluster
+     * Custom endpoint for the Aurora cluster
      */
     endpoint?: pulumi.Input<string | undefined>;
     /**
@@ -239,13 +236,10 @@ export interface ClusterEndpointState {
     staticMembers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -255,15 +249,15 @@ export interface ClusterEndpointState {
  */
 export interface ClusterEndpointArgs {
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      */
     clusterEndpointIdentifier: pulumi.Input<string>;
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      */
     clusterIdentifier: pulumi.Input<string>;
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      */
     customEndpointType: pulumi.Input<string>;
     /**
@@ -280,9 +274,6 @@ export interface ClusterEndpointArgs {
     staticMembers?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     *
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

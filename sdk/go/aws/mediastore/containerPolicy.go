@@ -53,24 +53,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Sid:    pulumi.String("MediaStoreFullAccess"),
-//						Effect: pulumi.String("Allow"),
-//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
-//							&iam.GetPolicyDocumentStatementPrincipalArgs{
-//								Type: pulumi.String("AWS"),
-//								Identifiers: pulumi.StringArray{
-//									pulumi.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId),
-//								},
-//							},
-//						},
-//						Actions: pulumi.StringArray{
-//							pulumi.String("mediastore:*"),
-//						},
-//						Resources: pulumi.StringArray{
-//							exampleContainer.Name.ApplyT(func(name string) (string, error) {
-//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Region, currentGetCallerIdentity.AccountId, name), nil
-//							}).(pulumi.StringOutput),
-//						},
 //						Conditions: iam.GetPolicyDocumentStatementConditionArray{
 //							&iam.GetPolicyDocumentStatementConditionArgs{
 //								Test:     pulumi.String("Bool"),
@@ -79,6 +61,24 @@ import (
 //									pulumi.String("true"),
 //								},
 //							},
+//						},
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("AWS"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.Sprintf("arn:aws:iam::%v:root", currentGetCallerIdentity.AccountId),
+//								},
+//							},
+//						},
+//						Sid:    pulumi.String("MediaStoreFullAccess"),
+//						Effect: pulumi.String("Allow"),
+//						Actions: pulumi.StringArray{
+//							pulumi.String("mediastore:*"),
+//						},
+//						Resources: pulumi.StringArray{
+//							exampleContainer.Name.ApplyT(func(name string) (string, error) {
+//								return fmt.Sprintf("arn:aws:mediastore:%v:%v:container/%v/*", current.Region, currentGetCallerIdentity.AccountId, name), nil
+//							}).(pulumi.StringOutput),
 //						},
 //					},
 //				},

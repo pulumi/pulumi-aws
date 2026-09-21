@@ -63,7 +63,7 @@ export class EndpointAccess extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly address: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * ARN of the Redshift Serverless Endpoint Access.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -158,7 +158,7 @@ export interface EndpointAccessState {
      */
     address?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Endpoint Access.
+     * ARN of the Redshift Serverless Endpoint Access.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

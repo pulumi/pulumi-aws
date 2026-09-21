@@ -20,7 +20,6 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const foo = new aws.ecrpublic.Repository("foo", {
- *     repositoryName: "bar",
  *     catalogData: {
  *         aboutText: "About Text",
  *         architectures: ["ARM"],
@@ -31,6 +30,7 @@ import * as utilities from "../utilities";
  *         operatingSystems: ["Linux"],
  *         usageText: "Usage Text",
  *     },
+ *     repositoryName: "bar",
  *     tags: {
  *         env: "production",
  *     },

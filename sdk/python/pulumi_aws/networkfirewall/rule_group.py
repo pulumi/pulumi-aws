@@ -187,7 +187,7 @@ class _RuleGroupState:
         """
         Input properties used for looking up and filtering RuleGroup resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the rule group.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input['RuleGroupEncryptionConfigurationArgs'] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -229,7 +229,7 @@ class _RuleGroupState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the rule group.
+        ARN that identifies the rule group.
         """
         return pulumi.get(self, "arn")
 
@@ -398,9 +398,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "rules_source_list": {
@@ -410,6 +407,9 @@ class RuleGroup(pulumi.CustomResource):
                     },
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -427,29 +427,29 @@ class RuleGroup(pulumi.CustomResource):
             "1.0.0.1/32",
         ]
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=50,
-            description="Permits http traffic from source",
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "stateful_rules": [{
-                        "action": "PASS",
                         "header": {
                             "destination": "ANY",
                             "destination_port": "ANY",
                             "protocol": "HTTP",
                             "direction": "ANY",
                             "source_port": "ANY",
-                            "source": entry["value"],
+                            "source": entry,
                         },
                         "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
-                    } for entry in [{"key": k, "value": v} for k, v in sorted(ips.items())]],
+                        "action": "PASS",
+                    } for entry in ips],
                 },
             },
+            capacity=50,
+            description="Permits http traffic from source",
+            name="example",
+            type="STATEFUL",
             tags={
                 "Name": "permit HTTP from source",
             })
@@ -462,13 +462,9 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "stateful_rules": [{
-                        "action": "DROP",
                         "header": {
                             "destination": "124.1.1.24/32",
                             "destination_port": "53",
@@ -481,9 +477,13 @@ class RuleGroup(pulumi.CustomResource):
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
+                        "action": "DROP",
                     }],
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -516,14 +516,10 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rule_variables": {
                     "ip_sets": [
                         {
-                            "key": "WEBSERVERS_HOSTS",
                             "ip_set": {
                                 "definitions": [
                                     "10.0.0.0/16",
@@ -531,28 +527,32 @@ class RuleGroup(pulumi.CustomResource):
                                     "192.168.0.0/16",
                                 ],
                             },
+                            "key": "WEBSERVERS_HOSTS",
                         },
                         {
-                            "key": "EXTERNAL_HOST",
                             "ip_set": {
                                 "definitions": ["1.2.3.4/32"],
                             },
+                            "key": "EXTERNAL_HOST",
                         },
                     ],
                     "port_sets": [{
-                        "key": "HTTP_PORTS",
                         "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
                             ],
                         },
+                        "key": "HTTP_PORTS",
                     }],
                 },
                 "rules_source": {
                     "rules_string": std.file(input="suricata_rules_file").result,
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -566,10 +566,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            description="Stateless Rate Limiting Rule",
-            capacity=100,
-            name="example",
-            type="STATELESS",
             rule_group={
                 "rules_source": {
                     "stateless_rules_and_custom_actions": {
@@ -584,28 +580,22 @@ class RuleGroup(pulumi.CustomResource):
                             "action_name": "ExampleMetricsAction",
                         }],
                         "stateless_rules": [{
-                            "priority": 1,
                             "rule_definition": {
-                                "actions": [
-                                    "aws:pass",
-                                    "ExampleMetricsAction",
-                                ],
                                 "match_attributes": {
-                                    "sources": [{
-                                        "address_definition": "1.2.3.4/32",
-                                    }],
-                                    "source_ports": [{
+                                    "destination_ports": [{
                                         "from_port": 443,
                                         "to_port": 443,
                                     }],
                                     "destinations": [{
                                         "address_definition": "124.1.1.5/32",
                                     }],
-                                    "destination_ports": [{
+                                    "source_ports": [{
                                         "from_port": 443,
                                         "to_port": 443,
                                     }],
-                                    "protocols": [6],
+                                    "sources": [{
+                                        "address_definition": "1.2.3.4/32",
+                                    }],
                                     "tcp_flags": [{
                                         "flags": ["SYN"],
                                         "masks": [
@@ -613,12 +603,22 @@ class RuleGroup(pulumi.CustomResource):
                                             "ACK",
                                         ],
                                     }],
+                                    "protocols": [6],
                                 },
+                                "actions": [
+                                    "aws:pass",
+                                    "ExampleMetricsAction",
+                                ],
                             },
+                            "priority": 1,
                         }],
                     },
                 },
             },
+            description="Stateless Rate Limiting Rule",
+            capacity=100,
+            name="example",
+            type="STATELESS",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -632,9 +632,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "rules_source_list": {
@@ -645,13 +642,16 @@ class RuleGroup(pulumi.CustomResource):
                 },
                 "reference_sets": {
                     "ip_set_references": [{
-                        "key": "example",
                         "ip_set_references": [{
                             "reference_arn": this["arn"],
                         }],
+                        "key": "example",
                     }],
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -667,13 +667,9 @@ class RuleGroup(pulumi.CustomResource):
         suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
             key="rules/custom.rules")
         s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
-            capacity=1000,
-            name="my-terraform-s3-rules",
-            type="STATEFUL",
             rule_group={
                 "rule_variables": {
                     "ip_sets": [{
-                        "key": "HOME_NET",
                         "ip_set": {
                             "definitions": [
                                 "10.0.0.0/16",
@@ -681,21 +677,25 @@ class RuleGroup(pulumi.CustomResource):
                                 "172.16.0.0/12",
                             ],
                         },
+                        "key": "HOME_NET",
                     }],
                     "port_sets": [{
-                        "key": "HTTP_PORTS",
                         "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
                             ],
                         },
+                        "key": "HTTP_PORTS",
                     }],
                 },
                 "rules_source": {
                     "rules_string": suricata_rules.body,
                 },
             },
+            capacity=1000,
+            name="my-terraform-s3-rules",
+            type="STATEFUL",
             tags={
                 "ManagedBy": "terraform",
             })
@@ -740,9 +740,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "rules_source_list": {
@@ -752,6 +749,9 @@ class RuleGroup(pulumi.CustomResource):
                     },
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -769,29 +769,29 @@ class RuleGroup(pulumi.CustomResource):
             "1.0.0.1/32",
         ]
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=50,
-            description="Permits http traffic from source",
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "stateful_rules": [{
-                        "action": "PASS",
                         "header": {
                             "destination": "ANY",
                             "destination_port": "ANY",
                             "protocol": "HTTP",
                             "direction": "ANY",
                             "source_port": "ANY",
-                            "source": entry["value"],
+                            "source": entry,
                         },
                         "rule_options": [{
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
-                    } for entry in [{"key": k, "value": v} for k, v in sorted(ips.items())]],
+                        "action": "PASS",
+                    } for entry in ips],
                 },
             },
+            capacity=50,
+            description="Permits http traffic from source",
+            name="example",
+            type="STATEFUL",
             tags={
                 "Name": "permit HTTP from source",
             })
@@ -804,13 +804,9 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "stateful_rules": [{
-                        "action": "DROP",
                         "header": {
                             "destination": "124.1.1.24/32",
                             "destination_port": "53",
@@ -823,9 +819,13 @@ class RuleGroup(pulumi.CustomResource):
                             "keyword": "sid",
                             "settings": ["1"],
                         }],
+                        "action": "DROP",
                     }],
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -858,14 +858,10 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rule_variables": {
                     "ip_sets": [
                         {
-                            "key": "WEBSERVERS_HOSTS",
                             "ip_set": {
                                 "definitions": [
                                     "10.0.0.0/16",
@@ -873,28 +869,32 @@ class RuleGroup(pulumi.CustomResource):
                                     "192.168.0.0/16",
                                 ],
                             },
+                            "key": "WEBSERVERS_HOSTS",
                         },
                         {
-                            "key": "EXTERNAL_HOST",
                             "ip_set": {
                                 "definitions": ["1.2.3.4/32"],
                             },
+                            "key": "EXTERNAL_HOST",
                         },
                     ],
                     "port_sets": [{
-                        "key": "HTTP_PORTS",
                         "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
                             ],
                         },
+                        "key": "HTTP_PORTS",
                     }],
                 },
                 "rules_source": {
                     "rules_string": std.file(input="suricata_rules_file").result,
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -908,10 +908,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            description="Stateless Rate Limiting Rule",
-            capacity=100,
-            name="example",
-            type="STATELESS",
             rule_group={
                 "rules_source": {
                     "stateless_rules_and_custom_actions": {
@@ -926,28 +922,22 @@ class RuleGroup(pulumi.CustomResource):
                             "action_name": "ExampleMetricsAction",
                         }],
                         "stateless_rules": [{
-                            "priority": 1,
                             "rule_definition": {
-                                "actions": [
-                                    "aws:pass",
-                                    "ExampleMetricsAction",
-                                ],
                                 "match_attributes": {
-                                    "sources": [{
-                                        "address_definition": "1.2.3.4/32",
-                                    }],
-                                    "source_ports": [{
+                                    "destination_ports": [{
                                         "from_port": 443,
                                         "to_port": 443,
                                     }],
                                     "destinations": [{
                                         "address_definition": "124.1.1.5/32",
                                     }],
-                                    "destination_ports": [{
+                                    "source_ports": [{
                                         "from_port": 443,
                                         "to_port": 443,
                                     }],
-                                    "protocols": [6],
+                                    "sources": [{
+                                        "address_definition": "1.2.3.4/32",
+                                    }],
                                     "tcp_flags": [{
                                         "flags": ["SYN"],
                                         "masks": [
@@ -955,12 +945,22 @@ class RuleGroup(pulumi.CustomResource):
                                             "ACK",
                                         ],
                                     }],
+                                    "protocols": [6],
                                 },
+                                "actions": [
+                                    "aws:pass",
+                                    "ExampleMetricsAction",
+                                ],
                             },
+                            "priority": 1,
                         }],
                     },
                 },
             },
+            description="Stateless Rate Limiting Rule",
+            capacity=100,
+            name="example",
+            type="STATELESS",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -974,9 +974,6 @@ class RuleGroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.networkfirewall.RuleGroup("example",
-            capacity=100,
-            name="example",
-            type="STATEFUL",
             rule_group={
                 "rules_source": {
                     "rules_source_list": {
@@ -987,13 +984,16 @@ class RuleGroup(pulumi.CustomResource):
                 },
                 "reference_sets": {
                     "ip_set_references": [{
-                        "key": "example",
                         "ip_set_references": [{
                             "reference_arn": this["arn"],
                         }],
+                        "key": "example",
                     }],
                 },
             },
+            capacity=100,
+            name="example",
+            type="STATEFUL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -1009,13 +1009,9 @@ class RuleGroup(pulumi.CustomResource):
         suricata_rules = aws.s3.get_object(bucket=suricata_rules_aws_s3_bucket["id"],
             key="rules/custom.rules")
         s3_rules_example = aws.networkfirewall.RuleGroup("s3_rules_example",
-            capacity=1000,
-            name="my-terraform-s3-rules",
-            type="STATEFUL",
             rule_group={
                 "rule_variables": {
                     "ip_sets": [{
-                        "key": "HOME_NET",
                         "ip_set": {
                             "definitions": [
                                 "10.0.0.0/16",
@@ -1023,21 +1019,25 @@ class RuleGroup(pulumi.CustomResource):
                                 "172.16.0.0/12",
                             ],
                         },
+                        "key": "HOME_NET",
                     }],
                     "port_sets": [{
-                        "key": "HTTP_PORTS",
                         "port_set": {
                             "definitions": [
                                 "443",
                                 "80",
                             ],
                         },
+                        "key": "HTTP_PORTS",
                     }],
                 },
                 "rules_source": {
                     "rules_string": suricata_rules.body,
                 },
             },
+            capacity=1000,
+            name="my-terraform-s3-rules",
+            type="STATEFUL",
             tags={
                 "ManagedBy": "terraform",
             })
@@ -1130,7 +1130,7 @@ class RuleGroup(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the rule group.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the rule group.
         :param pulumi.Input[_builtins.int] capacity: The maximum number of operating resources that this rule group can use. For a stateless rule group, the capacity required is the sum of the capacity requirements of the individual rules. For a stateful rule group, the minimum capacity required is the number of individual rules.
         :param pulumi.Input[_builtins.str] description: A friendly description of the rule group.
         :param pulumi.Input[Union['RuleGroupEncryptionConfigurationArgs', 'RuleGroupEncryptionConfigurationArgsDict']] encryption_configuration: KMS encryption configuration settings. See Encryption Configuration below for details.
@@ -1165,7 +1165,7 @@ class RuleGroup(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that identifies the rule group.
+        ARN that identifies the rule group.
         """
         return pulumi.get(self, "arn")
 

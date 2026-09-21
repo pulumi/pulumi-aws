@@ -163,14 +163,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:connect/contactFlow:ContactFlow")
 public class ContactFlow extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the Contact Flow.
+     * ARN of the Contact Flow.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Contact Flow.
+     * @return ARN of the Contact Flow.
      * 
      */
     public Output<String> arn() {

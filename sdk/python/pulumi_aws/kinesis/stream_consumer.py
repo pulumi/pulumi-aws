@@ -26,7 +26,7 @@ class StreamConsumerArgs:
         """
         The set of arguments for constructing a StreamConsumer resource.
 
-        :param pulumi.Input[_builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        :param pulumi.Input[_builtins.str] stream_arn: ARN of the data stream the consumer is registered with.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -42,7 +42,7 @@ class StreamConsumerArgs:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        ARN of the data stream the consumer is registered with.
         """
         return pulumi.get(self, "stream_arn")
 
@@ -97,11 +97,11 @@ class _StreamConsumerState:
         """
         Input properties used for looking up and filtering StreamConsumer resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
+        :param pulumi.Input[_builtins.str] arn: ARN of the stream consumer.
         :param pulumi.Input[_builtins.str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        :param pulumi.Input[_builtins.str] stream_arn: ARN of the data stream the consumer is registered with.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -122,7 +122,7 @@ class _StreamConsumerState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the stream consumer.
+        ARN of the stream consumer.
         """
         return pulumi.get(self, "arn")
 
@@ -170,7 +170,7 @@ class _StreamConsumerState:
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        ARN of the data stream the consumer is registered with.
         """
         return pulumi.get(self, "stream_arn")
 
@@ -248,7 +248,7 @@ class StreamConsumer(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        :param pulumi.Input[_builtins.str] stream_arn: ARN of the data stream the consumer is registered with.
         """
         ...
     @overload
@@ -353,11 +353,11 @@ class StreamConsumer(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the stream consumer.
+        :param pulumi.Input[_builtins.str] arn: ARN of the stream consumer.
         :param pulumi.Input[_builtins.str] creation_timestamp: Approximate timestamp in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) of when the stream consumer was created.
         :param pulumi.Input[_builtins.str] name: Name of the stream consumer.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] stream_arn: Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        :param pulumi.Input[_builtins.str] stream_arn: ARN of the data stream the consumer is registered with.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -376,7 +376,7 @@ class StreamConsumer(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the stream consumer.
+        ARN of the stream consumer.
         """
         return pulumi.get(self, "arn")
 
@@ -408,7 +408,7 @@ class StreamConsumer(pulumi.CustomResource):
     @pulumi.getter(name="streamArn")
     def stream_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+        ARN of the data stream the consumer is registered with.
         """
         return pulumi.get(self, "stream_arn")
 

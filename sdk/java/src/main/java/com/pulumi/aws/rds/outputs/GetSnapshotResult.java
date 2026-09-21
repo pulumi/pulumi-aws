@@ -80,6 +80,10 @@ public final class GetSnapshotResult {
      * 
      */
     private String originalSnapshotCreateTime;
+    /**
+     * @return Port that the database engine was listening on at the time of the snapshot.
+     * 
+     */
     private Integer port;
     private String region;
     /**
@@ -215,6 +219,10 @@ public final class GetSnapshotResult {
     public String originalSnapshotCreateTime() {
         return this.originalSnapshotCreateTime;
     }
+    /**
+     * @return Port that the database engine was listening on at the time of the snapshot.
+     * 
+     */
     public Integer port() {
         return this.port;
     }

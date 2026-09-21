@@ -24,7 +24,6 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const example = new aws.waf.RegexMatchSet("example", {
- *     name: "example",
  *     regexMatchTuples: [{
  *         fieldToMatch: {
  *             data: "User-Agent",
@@ -33,6 +32,7 @@ import * as utilities from "../utilities";
  *         regexPatternSetId: exampleRegexPatternSet.id,
  *         textTransformation: "NONE",
  *     }],
+ *     name: "example",
  * });
  * ```
  *
@@ -73,7 +73,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -117,7 +117,7 @@ export class RegexMatchSet extends pulumi.CustomResource {
  */
 export interface RegexMatchSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

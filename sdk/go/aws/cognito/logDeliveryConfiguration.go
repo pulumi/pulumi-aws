@@ -44,16 +44,16 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("ERROR"),
 //						CloudWatchLogsConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{
 //							LogGroupArn: exampleLogGroup.Arn,
 //						},
+//						EventSource: pulumi.String("userNotification"),
+//						LogLevel:    pulumi.String("ERROR"),
 //					},
 //				},
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -164,34 +164,34 @@ import (
 //				return err
 //			}
 //			exampleFirehoseDeliveryStream, err := kinesis.NewFirehoseDeliveryStream(ctx, "example", &kinesis.FirehoseDeliveryStreamArgs{
-//				Name:        pulumi.String("example-stream"),
-//				Destination: pulumi.String("extended_s3"),
 //				ExtendedS3Configuration: &kinesis.FirehoseDeliveryStreamExtendedS3ConfigurationArgs{
 //					RoleArn:   firehose.Arn,
 //					BucketArn: exampleBucket.Arn,
 //				},
+//				Name:        pulumi.String("example-stream"),
+//				Destination: pulumi.String("extended_s3"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userNotification"),
-//						LogLevel:    pulumi.String("INFO"),
 //						CloudWatchLogsConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationCloudWatchLogsConfigurationArgs{
 //							LogGroupArn: exampleLogGroup.Arn,
 //						},
+//						EventSource: pulumi.String("userNotification"),
+//						LogLevel:    pulumi.String("INFO"),
 //					},
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userAuthEvents"),
-//						LogLevel:    pulumi.String("INFO"),
 //						FirehoseConfiguration: &cognito.LogDeliveryConfigurationLogConfigurationFirehoseConfigurationArgs{
 //							StreamArn: exampleFirehoseDeliveryStream.Arn,
 //						},
+//						EventSource: pulumi.String("userAuthEvents"),
+//						LogLevel:    pulumi.String("INFO"),
 //					},
 //				},
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -232,16 +232,16 @@ import (
 //				return err
 //			}
 //			_, err = cognito.NewLogDeliveryConfiguration(ctx, "example", &cognito.LogDeliveryConfigurationArgs{
-//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //				LogConfigurations: cognito.LogDeliveryConfigurationLogConfigurationArray{
 //					&cognito.LogDeliveryConfigurationLogConfigurationArgs{
-//						EventSource: pulumi.String("userAuthEvents"),
-//						LogLevel:    pulumi.String("INFO"),
 //						S3Configuration: &cognito.LogDeliveryConfigurationLogConfigurationS3ConfigurationArgs{
 //							BucketArn: exampleBucket.Arn,
 //						},
+//						EventSource: pulumi.String("userAuthEvents"),
+//						LogLevel:    pulumi.String("INFO"),
 //					},
 //				},
+//				UserPoolId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

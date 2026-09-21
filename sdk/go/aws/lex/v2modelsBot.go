@@ -61,13 +61,13 @@ import (
 //				return err
 //			}
 //			_, err = lex.NewV2modelsBot(ctx, "example", &lex.V2modelsBotArgs{
-//				Name:        pulumi.String("example"),
-//				Description: pulumi.String("Example description"),
 //				DataPrivacies: lex.V2modelsBotDataPrivacyArray{
 //					&lex.V2modelsBotDataPrivacyArgs{
 //						ChildDirected: pulumi.Bool(false),
 //					},
 //				},
+//				Name:                    pulumi.String("example"),
+//				Description:             pulumi.String("Example description"),
 //				IdleSessionTtlInSeconds: pulumi.Int(60),
 //				RoleArn:                 exampleRole.Arn,
 //				Type:                    pulumi.String("Bot"),

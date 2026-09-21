@@ -187,12 +187,8 @@ type LookupVpcEndpointServiceResult struct {
 }
 
 func LookupVpcEndpointServiceOutput(ctx *pulumi.Context, args LookupVpcEndpointServiceOutputArgs, opts ...pulumi.InvokeOption) LookupVpcEndpointServiceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcEndpointServiceResultOutput, error) {
-			args := v.(LookupVpcEndpointServiceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, LookupVpcEndpointServiceResultOutput{}, options).(LookupVpcEndpointServiceResultOutput), nil
-		}).(LookupVpcEndpointServiceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getVpcEndpointService:getVpcEndpointService", args, LookupVpcEndpointServiceResultOutput{}, options).(LookupVpcEndpointServiceResultOutput)
 }
 
 // A collection of arguments for invoking getVpcEndpointService.

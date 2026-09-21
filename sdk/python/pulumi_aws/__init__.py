@@ -33,10 +33,14 @@ if typing.TYPE_CHECKING:
     accessanalyzer = __accessanalyzer
     import pulumi_aws.account as __account
     account = __account
+    import pulumi_aws.accountaccess as __accountaccess
+    accountaccess = __accountaccess
     import pulumi_aws.acm as __acm
     acm = __acm
     import pulumi_aws.acmpca as __acmpca
     acmpca = __acmpca
+    import pulumi_aws.agentregistry as __agentregistry
+    agentregistry = __agentregistry
     import pulumi_aws.alb as __alb
     alb = __alb
     import pulumi_aws.amp as __amp
@@ -285,6 +289,8 @@ if typing.TYPE_CHECKING:
     lakeformation = __lakeformation
     import pulumi_aws.lambda_ as __lambda_
     lambda_ = __lambda_
+    import pulumi_aws.lambdamicrovms as __lambdamicrovms
+    lambdamicrovms = __lambdamicrovms
     import pulumi_aws.lb as __lb
     lb = __lb
     import pulumi_aws.lex as __lex
@@ -498,8 +504,10 @@ if typing.TYPE_CHECKING:
 else:
     accessanalyzer = _utilities.lazy_import('pulumi_aws.accessanalyzer')
     account = _utilities.lazy_import('pulumi_aws.account')
+    accountaccess = _utilities.lazy_import('pulumi_aws.accountaccess')
     acm = _utilities.lazy_import('pulumi_aws.acm')
     acmpca = _utilities.lazy_import('pulumi_aws.acmpca')
+    agentregistry = _utilities.lazy_import('pulumi_aws.agentregistry')
     alb = _utilities.lazy_import('pulumi_aws.alb')
     amp = _utilities.lazy_import('pulumi_aws.amp')
     amplify = _utilities.lazy_import('pulumi_aws.amplify')
@@ -624,6 +632,7 @@ else:
     kms = _utilities.lazy_import('pulumi_aws.kms')
     lakeformation = _utilities.lazy_import('pulumi_aws.lakeformation')
     lambda_ = _utilities.lazy_import('pulumi_aws.lambda_')
+    lambdamicrovms = _utilities.lazy_import('pulumi_aws.lambdamicrovms')
     lb = _utilities.lazy_import('pulumi_aws.lb')
     lex = _utilities.lazy_import('pulumi_aws.lex')
     licensemanager = _utilities.lazy_import('pulumi_aws.licensemanager')
@@ -775,6 +784,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "accountaccess/application",
+  "fqn": "pulumi_aws.accountaccess",
+  "classes": {
+   "aws:accountaccess/application:Application": "Application"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "accountaccess/entitlement",
+  "fqn": "pulumi_aws.accountaccess",
+  "classes": {
+   "aws:accountaccess/entitlement:Entitlement": "Entitlement"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "acm/certificate",
   "fqn": "pulumi_aws.acm",
   "classes": {
@@ -827,6 +852,14 @@ _utilities.register(
   "fqn": "pulumi_aws.acmpca",
   "classes": {
    "aws:acmpca/policy:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "agentregistry/registry",
+  "fqn": "pulumi_aws.agentregistry",
+  "classes": {
+   "aws:agentregistry/registry:Registry": "Registry"
   }
  },
  {
@@ -2403,6 +2436,14 @@ _utilities.register(
   "fqn": "pulumi_aws.bedrockfoundation",
   "classes": {
    "aws:bedrockfoundation/modelAgreement:ModelAgreement": "ModelAgreement"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "bedrockmodel/invocationJob",
+  "fqn": "pulumi_aws.bedrockmodel",
+  "classes": {
+   "aws:bedrockmodel/invocationJob:InvocationJob": "InvocationJob"
   }
  },
  {
@@ -4135,6 +4176,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "datazone/policyGrant",
+  "fqn": "pulumi_aws.datazone",
+  "classes": {
+   "aws:datazone/policyGrant:PolicyGrant": "PolicyGrant"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "datazone/project",
   "fqn": "pulumi_aws.datazone",
   "classes": {
@@ -4527,6 +4576,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "dms/dataProvider",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/dataProvider:DataProvider": "DataProvider"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "dms/endpoint",
   "fqn": "pulumi_aws.dms",
   "classes": {
@@ -4539,6 +4596,22 @@ _utilities.register(
   "fqn": "pulumi_aws.dms",
   "classes": {
    "aws:dms/eventSubscription:EventSubscription": "EventSubscription"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dms/instanceProfile",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/instanceProfile:InstanceProfile": "InstanceProfile"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dms/migrationProject",
+  "fqn": "pulumi_aws.dms",
+  "classes": {
+   "aws:dms/migrationProject:MigrationProject": "MigrationProject"
   }
  },
  {
@@ -5879,6 +5952,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "ec2transitgateway/policyTableEntry",
+  "fqn": "pulumi_aws.ec2transitgateway",
+  "classes": {
+   "aws:ec2transitgateway/policyTableEntry:PolicyTableEntry": "PolicyTableEntry"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "ec2transitgateway/prefixListReference",
   "fqn": "pulumi_aws.ec2transitgateway",
   "classes": {
@@ -6651,6 +6732,14 @@ _utilities.register(
   "fqn": "pulumi_aws.fis",
   "classes": {
    "aws:fis/experimentTemplate:ExperimentTemplate": "ExperimentTemplate"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "fis/safetyLeverState",
+  "fqn": "pulumi_aws.fis",
+  "classes": {
+   "aws:fis/safetyLeverState:SafetyLeverState": "SafetyLeverState"
   }
  },
  {
@@ -8287,10 +8376,34 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lambda/resourcePolicy",
+  "fqn": "pulumi_aws.lambda_",
+  "classes": {
+   "aws:lambda/resourcePolicy:ResourcePolicy": "ResourcePolicy"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lambda/runtimeManagementConfig",
   "fqn": "pulumi_aws.lambda_",
   "classes": {
    "aws:lambda/runtimeManagementConfig:RuntimeManagementConfig": "RuntimeManagementConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdamicrovms/image",
+  "fqn": "pulumi_aws.lambdamicrovms",
+  "classes": {
+   "aws:lambdamicrovms/image:Image": "Image"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "lambdamicrovms/microvm",
+  "fqn": "pulumi_aws.lambdamicrovms",
+  "classes": {
+   "aws:lambdamicrovms/microvm:Microvm": "Microvm"
   }
  },
  {
@@ -8795,6 +8908,14 @@ _utilities.register(
   "fqn": "pulumi_aws.macie2",
   "classes": {
    "aws:macie2/organizationConfiguration:OrganizationConfiguration": "OrganizationConfiguration"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "mailmanager/archive",
+  "fqn": "pulumi_aws.mailmanager",
+  "classes": {
+   "aws:mailmanager/archive:Archive": "Archive"
   }
  },
  {
@@ -10019,6 +10140,14 @@ _utilities.register(
   "fqn": "pulumi_aws.pinpoint",
   "classes": {
    "aws:pinpoint/smsvoicev2EventDestination:Smsvoicev2EventDestination": "Smsvoicev2EventDestination"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "pinpoint/smsvoicev2Keyword",
+  "fqn": "pulumi_aws.pinpoint",
+  "classes": {
+   "aws:pinpoint/smsvoicev2Keyword:Smsvoicev2Keyword": "Smsvoicev2Keyword"
   }
  },
  {
@@ -12891,6 +13020,14 @@ _utilities.register(
   "fqn": "pulumi_aws.sesv2",
   "classes": {
    "aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy": "EmailIdentityPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "sesv2/multiRegionEndpoint",
+  "fqn": "pulumi_aws.sesv2",
+  "classes": {
+   "aws:sesv2/multiRegionEndpoint:MultiRegionEndpoint": "MultiRegionEndpoint"
   }
  },
  {

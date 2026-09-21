@@ -264,7 +264,7 @@ class _TransitGatewayState:
         :param pulumi.Input[_builtins.int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway ARN
         :param pulumi.Input[_builtins.str] association_default_route_table_id: Identifier of the default association route table
         :param pulumi.Input[_builtins.str] auto_accept_shared_attachments: Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] default_route_table_association: Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -337,7 +337,7 @@ class _TransitGatewayState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        EC2 Transit Gateway Amazon Resource Name (ARN)
+        EC2 Transit Gateway ARN
         """
         return pulumi.get(self, "arn")
 
@@ -717,7 +717,7 @@ class TransitGateway(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] amazon_side_asn: Private Autonomous System Number (ASN) for the Amazon side of a BGP session. The range is `64512` to `65534` for 16-bit ASNs and `4200000000` to `4294967294` for 32-bit ASNs. Default value: `64512`.
                
                > **NOTE:** Modifying `amazon_side_asn` on a Transit Gateway with active BGP sessions is [not allowed](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifyTransitGatewayOptions.html). You must first delete all Transit Gateway attachments that have BGP configured prior to modifying `amazon_side_asn`.
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway ARN
         :param pulumi.Input[_builtins.str] association_default_route_table_id: Identifier of the default association route table
         :param pulumi.Input[_builtins.str] auto_accept_shared_attachments: Whether resource attachment requests are automatically accepted. Valid values: `disable`, `enable`. Default value: `disable`.
         :param pulumi.Input[_builtins.str] default_route_table_association: Whether resource attachments are automatically associated with the default association route table. Valid values: `disable`, `enable`. Default value: `enable`.
@@ -773,7 +773,7 @@ class TransitGateway(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        EC2 Transit Gateway Amazon Resource Name (ARN)
+        EC2 Transit Gateway ARN
         """
         return pulumi.get(self, "arn")
 

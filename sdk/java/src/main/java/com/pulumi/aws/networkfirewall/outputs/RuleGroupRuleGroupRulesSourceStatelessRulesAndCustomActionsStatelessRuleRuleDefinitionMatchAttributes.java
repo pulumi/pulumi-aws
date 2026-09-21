@@ -27,7 +27,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
      */
     private @Nullable List<RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsStatelessRuleRuleDefinitionMatchAttributesDestination> destinations;
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
      * 
      */
     private @Nullable List<Integer> protocols;
@@ -63,7 +63,7 @@ public final class RuleGroupRuleGroupRulesSourceStatelessRulesAndCustomActionsSt
         return this.destinations == null ? List.of() : this.destinations;
     }
     /**
-     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned internet protocol number (IANA). If not specified, this matches with any protocol.
+     * @return Set of protocols to inspect for, specified using the protocol&#39;s assigned IP number (IANA). If not specified, this matches with any protocol.
      * 
      */
     public List<Integer> protocols() {

@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Neptune
         public Output<bool> ApplyImmediately { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of neptune instance
+        /// ARN of neptune instance
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -424,7 +424,7 @@ namespace Pulumi.Aws.Neptune
         public Input<bool>? ApplyImmediately { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of neptune instance
+        /// ARN of neptune instance
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

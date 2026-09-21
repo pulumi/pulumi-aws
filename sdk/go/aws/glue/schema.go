@@ -50,7 +50,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Glue schema.
+// - `arn` (String) ARN of the Glue schema.
 //
 // Using `pulumi import`, import Glue Registries using `arn`. For example:
 //
@@ -60,7 +60,7 @@ import (
 type Schema struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the schema.
+	// ARN of the schema.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringOutput `pulumi:"compatibility"`
@@ -132,7 +132,7 @@ func GetSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schema resources.
 type schemaState struct {
-	// Amazon Resource Name (ARN) of the schema.
+	// ARN of the schema.
 	Arn *string `pulumi:"arn"`
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility *string `pulumi:"compatibility"`
@@ -163,7 +163,7 @@ type schemaState struct {
 }
 
 type SchemaState struct {
-	// Amazon Resource Name (ARN) of the schema.
+	// ARN of the schema.
 	Arn pulumi.StringPtrInput
 	// The compatibility mode of the schema. Values values are: `NONE`, `DISABLED`, `BACKWARD`, `BACKWARD_ALL`, `FORWARD`, `FORWARD_ALL`, `FULL`, and `FULL_ALL`.
 	Compatibility pulumi.StringPtrInput
@@ -323,7 +323,7 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
-// Amazon Resource Name (ARN) of the schema.
+// ARN of the schema.
 func (o SchemaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

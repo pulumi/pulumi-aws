@@ -50,17 +50,8 @@ namespace Pulumi.Aws.Ecs
     /// {
     ///     var example = new Aws.Ecs.Daemon("example", new()
     ///     {
-    ///         Name = "example-daemon",
-    ///         ClusterArn = exampleAwsEcsCluster.Arn,
-    ///         DaemonTaskDefinitionArn = exampleAwsEcsDaemonTaskDefinition.Arn,
-    ///         CapacityProviderArns = new[]
-    ///         {
-    ///             exampleAwsEcsCapacityProvider.Arn,
-    ///         },
     ///         DeploymentConfiguration = new Aws.Ecs.Inputs.DaemonDeploymentConfigurationArgs
     ///         {
-    ///             DrainPercent = 50,
-    ///             BakeTimeInMinutes = 10,
     ///             Alarms = new Aws.Ecs.Inputs.DaemonDeploymentConfigurationAlarmsArgs
     ///             {
     ///                 AlarmNames = new[]
@@ -69,6 +60,15 @@ namespace Pulumi.Aws.Ecs
     ///                 },
     ///                 Enable = true,
     ///             },
+    ///             DrainPercent = 50,
+    ///             BakeTimeInMinutes = 10,
+    ///         },
+    ///         Name = "example-daemon",
+    ///         ClusterArn = exampleAwsEcsCluster.Arn,
+    ///         DaemonTaskDefinitionArn = exampleAwsEcsDaemonTaskDefinition.Arn,
+    ///         CapacityProviderArns = new[]
+    ///         {
+    ///             exampleAwsEcsCapacityProvider.Arn,
     ///         },
     ///     });
     /// 

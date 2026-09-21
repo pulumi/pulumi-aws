@@ -14,7 +14,7 @@ namespace Pulumi.Aws.CodeGuruReviewer.Outputs
     public sealed class RepositoryAssociationRepositoryGithubEnterpriseServer
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        /// ARN of an AWS CodeStar Connections connection.
         /// </summary>
         public readonly string ConnectionArn;
         /// <summary>

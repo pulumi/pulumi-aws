@@ -17,14 +17,14 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
     public static final CustomRoutingListenerArgs Empty = new CustomRoutingListenerArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * ARN of a custom routing accelerator.
      * 
      */
     @Import(name="acceleratorArn", required=true)
     private Output<String> acceleratorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a custom routing accelerator.
+     * @return ARN of a custom routing accelerator.
      * 
      */
     public Output<String> acceleratorArn() {
@@ -72,7 +72,7 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
+         * @param acceleratorArn ARN of a custom routing accelerator.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class CustomRoutingListenerArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of a custom routing accelerator.
+         * @param acceleratorArn ARN of a custom routing accelerator.
          * 
          * @return builder
          * 

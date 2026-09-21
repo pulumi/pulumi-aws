@@ -20,16 +20,16 @@ import * as utilities from "../utilities";
  * const exampleModelPackageGroup = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
+ *         principals: [{
+ *             identifiers: [current.then(current => current.accountId)],
+ *             type: "AWS",
+ *         }],
  *         sid: "AddPermModelPackageGroup",
  *         actions: [
  *             "sagemaker:DescribeModelPackage",
  *             "sagemaker:ListModelPackages",
  *         ],
  *         resources: [exampleModelPackageGroup.arn],
- *         principals: [{
- *             identifiers: [current.then(current => current.accountId)],
- *             type: "AWS",
- *         }],
  *     }],
  * });
  * const exampleModelPackageGroupPolicy = new aws.sagemaker.ModelPackageGroupPolicy("example", {

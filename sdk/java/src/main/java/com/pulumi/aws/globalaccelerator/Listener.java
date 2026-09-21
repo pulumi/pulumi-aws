@@ -48,24 +48,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Accelerator("example", AcceleratorArgs.builder()
- *             .name("Example")
- *             .ipAddressType("IPV4")
- *             .enabled(true)
  *             .attributes(AcceleratorAttributesArgs.builder()
  *                 .flowLogsEnabled(true)
  *                 .flowLogsS3Bucket("example-bucket")
  *                 .flowLogsS3Prefix("flow-logs/")
  *                 .build())
+ *             .name("Example")
+ *             .ipAddressType("IPV4")
+ *             .enabled(true)
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .acceleratorArn(example.arn())
- *             .clientAffinity("SOURCE_IP")
- *             .protocol("TCP")
  *             .portRanges(ListenerPortRangeArgs.builder()
  *                 .fromPort(80)
  *                 .toPort(80)
  *                 .build())
+ *             .acceleratorArn(example.arn())
+ *             .clientAffinity("SOURCE_IP")
+ *             .protocol("TCP")
  *             .build());
  * 
  *     }
@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator listener.
+ * - `arn` (String) ARN of the Global Accelerator listener.
  * 
  * Using `pulumi import`, import Global Accelerator listeners using the `id`. For example:
  * 
@@ -91,28 +91,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:globalaccelerator/listener:Listener")
 public class Listener extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      * 
      */
     @Export(name="acceleratorArn", refs={String.class}, tree="[0]")
     private Output<String> acceleratorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of your accelerator.
+     * @return ARN of your accelerator.
      * 
      */
     public Output<String> acceleratorArn() {
         return this.acceleratorArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of the listener.
+     * ARN of the listener.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the listener.
+     * @return ARN of the listener.
      * 
      */
     public Output<String> arn() {

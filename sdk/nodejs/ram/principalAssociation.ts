@@ -89,7 +89,7 @@ export class PrincipalAssociation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     declare public readonly resourceShareArn: pulumi.Output<string>;
 
@@ -139,7 +139,7 @@ export interface PrincipalAssociationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     resourceShareArn?: pulumi.Input<string | undefined>;
 }
@@ -157,7 +157,7 @@ export interface PrincipalAssociationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the resource share.
+     * ARN of the resource share.
      */
     resourceShareArn: pulumi.Input<string>;
 }

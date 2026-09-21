@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument {
     /**
-     * @return The name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     private String name;
 
     private RuleGroupRuleStatementRateBasedStatementScopeDownStatementSqliMatchStatementFieldToMatchSingleQueryArgument() {}
     /**
-     * @return The name of the query header to inspect. This setting must be provided as lower case characters.
+     * @return The name of the query argument to inspect. Maximum length of 30. AWS returns query argument names in lower case, so provide the name as lower case characters to avoid a perpetual diff.
      * 
      */
     public String name() {

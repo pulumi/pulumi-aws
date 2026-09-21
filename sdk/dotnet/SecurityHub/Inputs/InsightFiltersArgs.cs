@@ -688,7 +688,7 @@ namespace Pulumi.Aws.SecurityHub.Inputs
         private InputList<Inputs.InsightFiltersResourceAwsEc2InstanceImageIdArgs>? _resourceAwsEc2InstanceImageIds;
 
         /// <summary>
-        /// The Amazon Machine Image (AMI) ID of the instance. See String Filter below for more details.
+        /// AMI ID of the instance. See String Filter below for more details.
         /// </summary>
         public InputList<Inputs.InsightFiltersResourceAwsEc2InstanceImageIdArgs> ResourceAwsEc2InstanceImageIds
         {

@@ -31,15 +31,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
-//				PermanentDeletionTimeInDays: pulumi.Int(7),
-//				Type:                        pulumi.String("ROOT"),
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
+//				PermanentDeletionTimeInDays: pulumi.Int(7),
+//				Type:                        pulumi.String("ROOT"),
 //			})
 //			if err != nil {
 //				return err
@@ -49,14 +49,14 @@ import (
 //				return err
 //			}
 //			_, err = acmpca.NewCertificate(ctx, "test", &acmpca.CertificateArgs{
-//				CertificateAuthorityArn:   example.Arn,
-//				CertificateSigningRequest: example.CertificateSigningRequest,
-//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
-//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //				Validity: &acmpca.CertificateValidityArgs{
 //					Type:  pulumi.String("YEARS"),
 //					Value: pulumi.String("1"),
 //				},
+//				CertificateAuthorityArn:   example.Arn,
+//				CertificateSigningRequest: example.CertificateSigningRequest,
+//				SigningAlgorithm:          pulumi.String("SHA512WITHRSA"),
+//				TemplateArn:               pulumi.Sprintf("arn:%v:acm-pca:::template/RootCACertificate/V1", current.Partition),
 //			})
 //			if err != nil {
 //				return err
@@ -70,13 +70,13 @@ import (
 //				return err
 //			}
 //			_, err = rolesanywhere.NewTrustAnchor(ctx, "test", &rolesanywhere.TrustAnchorArgs{
-//				Name: pulumi.String("example"),
 //				Source: &rolesanywhere.TrustAnchorSourceArgs{
 //					SourceData: &rolesanywhere.TrustAnchorSourceSourceDataArgs{
 //						AcmPcaArn: example.Arn,
 //					},
 //					SourceType: pulumi.String("AWS_ACM_PCA"),
 //				},
+//				Name: pulumi.String("example"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleCertificateAuthorityCertificate,
 //			}))
@@ -99,7 +99,7 @@ import (
 type TrustAnchor struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
@@ -147,7 +147,7 @@ func GetTrustAnchor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrustAnchor resources.
 type trustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn *string `pulumi:"arn"`
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled *bool `pulumi:"enabled"`
@@ -163,7 +163,7 @@ type trustAnchorState struct {
 }
 
 type TrustAnchorState struct {
-	// Amazon Resource Name (ARN) of the Trust Anchor
+	// ARN of the Trust Anchor
 	Arn pulumi.StringPtrInput
 	// Whether or not the Trust Anchor should be enabled.
 	Enabled pulumi.BoolPtrInput
@@ -294,7 +294,7 @@ func (o TrustAnchorOutput) ToTrustAnchorOutputWithContext(ctx context.Context) T
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Trust Anchor
+// ARN of the Trust Anchor
 func (o TrustAnchorOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TrustAnchor) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -33,6 +33,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_minimum_parameters", &odb.CloudAutonomousVmClusterArgs{
+//				MaintenanceWindow: &odb.CloudAutonomousVmClusterMaintenanceWindowArgs{
+//					Preference: pulumi.String("NO_PREFERENCE"),
+//				},
 //				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
 //				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
@@ -46,30 +49,11 @@ import (
 //				},
 //				ScanListenerPortTls:    pulumi.Int(8561),
 //				ScanListenerPortNonTls: pulumi.Int(1024),
-//				MaintenanceWindow: &odb.CloudAutonomousVmClusterMaintenanceWindowArgs{
-//					Preference: pulumi.String("NO_PREFERENCE"),
-//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = odb.NewCloudAutonomousVmCluster(ctx, "avmc_with_all_params", &odb.CloudAutonomousVmClusterArgs{
-//				Description:                     pulumi.String("my first avmc"),
-//				TimeZone:                        pulumi.String("UTC"),
-//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
-//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
-//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
-//				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
-//				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
-//				TotalContainerDatabases:         pulumi.Int(1),
-//				CpuCoreCountPerNode:             pulumi.Int(40),
-//				LicenseModel:                    pulumi.String("LICENSE_INCLUDED"),
-//				DbServers: pulumi.StringArray{
-//					pulumi.String("<my_db_server_1>"),
-//					pulumi.String("<my_db_server_2>"),
-//				},
-//				ScanListenerPortTls:    pulumi.Int(8561),
-//				ScanListenerPortNonTls: pulumi.Int(1024),
 //				MaintenanceWindow: &odb.CloudAutonomousVmClusterMaintenanceWindowArgs{
 //					DaysOfWeeks: odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArray{
 //						&odb.CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs{
@@ -104,6 +88,22 @@ import (
 //						pulumi.Int(4),
 //					},
 //				},
+//				Description:                     pulumi.String("my first avmc"),
+//				TimeZone:                        pulumi.String("UTC"),
+//				CloudExadataInfrastructureId:    pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
+//				OdbNetworkId:                    pulumi.String("<aws_odb_network_id>"),
+//				DisplayName:                     pulumi.String("my_autonomous_vm_cluster"),
+//				AutonomousDataStorageSizeInTbs:  pulumi.Float64(5),
+//				MemoryPerOracleComputeUnitInGbs: pulumi.Int(2),
+//				TotalContainerDatabases:         pulumi.Int(1),
+//				CpuCoreCountPerNode:             pulumi.Int(40),
+//				LicenseModel:                    pulumi.String("LICENSE_INCLUDED"),
+//				DbServers: pulumi.StringArray{
+//					pulumi.String("<my_db_server_1>"),
+//					pulumi.String("<my_db_server_2>"),
+//				},
+//				ScanListenerPortTls:    pulumi.Int(8561),
+//				ScanListenerPortNonTls: pulumi.Int(1024),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("dev"),
 //				},
@@ -127,7 +127,7 @@ import (
 type CloudAutonomousVmCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64Output `pulumi:"autonomousDataStoragePercentage"`
@@ -295,7 +295,7 @@ func GetCloudAutonomousVmCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudAutonomousVmCluster resources.
 type cloudAutonomousVmClusterState struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn *string `pulumi:"arn"`
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage *float64 `pulumi:"autonomousDataStoragePercentage"`
@@ -407,7 +407,7 @@ type cloudAutonomousVmClusterState struct {
 }
 
 type CloudAutonomousVmClusterState struct {
-	// Amazon Resource Name (ARN) for the Exadata infrastructure.
+	// ARN for the Exadata infrastructure.
 	Arn pulumi.StringPtrInput
 	// Progress of the current operation on the Autonomous VM cluster, as a percentage.
 	AutonomousDataStoragePercentage pulumi.Float64PtrInput
@@ -698,7 +698,7 @@ func (o CloudAutonomousVmClusterOutput) ToCloudAutonomousVmClusterOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) for the Exadata infrastructure.
+// ARN for the Exadata infrastructure.
 func (o CloudAutonomousVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudAutonomousVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -54,9 +54,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync agent.
+ * - `arn` (String) ARN of the DataSync agent.
  *
- * Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.Agent` using the DataSync Agent ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
@@ -95,7 +95,7 @@ export class Agent extends pulumi.CustomResource {
      */
     declare public readonly activationKey: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Agent.
+     * ARN of the DataSync Agent.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class Agent extends pulumi.CustomResource {
      */
     declare public readonly securityGroupArns: pulumi.Output<string[] | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
     declare public readonly subnetArns: pulumi.Output<string[] | undefined>;
     /**
@@ -131,7 +131,7 @@ export class Agent extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * ID of the VPC endpoint that the agent has access to.
      */
     declare public readonly vpcEndpointId: pulumi.Output<string | undefined>;
 
@@ -187,7 +187,7 @@ export interface AgentState {
      */
     activationKey?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Agent.
+     * ARN of the DataSync Agent.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -211,7 +211,7 @@ export interface AgentState {
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
     subnetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -223,7 +223,7 @@ export interface AgentState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * ID of the VPC endpoint that the agent has access to.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
 }
@@ -257,7 +257,7 @@ export interface AgentArgs {
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
+     * ARNs of the subnets in which DataSync will create elastic network interfaces for each data transfer task.
      */
     subnetArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -265,7 +265,7 @@ export interface AgentArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The ID of the VPC (virtual private cloud) endpoint that the agent has access to.
+     * ID of the VPC endpoint that the agent has access to.
      */
     vpcEndpointId?: pulumi.Input<string | undefined>;
 }

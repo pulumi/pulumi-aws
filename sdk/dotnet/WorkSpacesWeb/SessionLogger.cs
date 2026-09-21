@@ -35,7 +35,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -47,6 +46,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:PutObject",
@@ -67,7 +67,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleSessionLogger = new Aws.WorkSpacesWeb.SessionLogger("example", new()
     ///     {
-    ///         DisplayName = "example-session-logger",
     ///         EventFilter = new Aws.WorkSpacesWeb.Inputs.SessionLoggerEventFilterArgs
     ///         {
     ///             All = null,
@@ -81,6 +80,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 LogFileFormat = "Json",
     ///             },
     ///         },
+    ///         DisplayName = "example-session-logger",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -114,7 +114,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -126,6 +125,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "s3:PutObject",
@@ -211,13 +211,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// 
     ///     var exampleSessionLogger = new Aws.WorkSpacesWeb.SessionLogger("example", new()
     ///     {
-    ///         DisplayName = "example-session-logger",
-    ///         CustomerManagedKey = exampleKey.Arn,
-    ///         AdditionalEncryptionContext = 
-    ///         {
-    ///             { "Environment", "Production" },
-    ///             { "Application", "WorkSpacesWeb" },
-    ///         },
     ///         EventFilter = new Aws.WorkSpacesWeb.Inputs.SessionLoggerEventFilterArgs
     ///         {
     ///             Includes = new[]
@@ -236,6 +229,13 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 KeyPrefix = "workspaces-web-logs/",
     ///                 LogFileFormat = "JsonLines",
     ///             },
+    ///         },
+    ///         DisplayName = "example-session-logger",
+    ///         CustomerManagedKey = exampleKey.Arn,
+    ///         AdditionalEncryptionContext = 
+    ///         {
+    ///             { "Environment", "Production" },
+    ///             { "Application", "WorkSpacesWeb" },
     ///         },
     ///         Tags = 
     ///         {

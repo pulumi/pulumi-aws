@@ -77,12 +77,8 @@ type GetCredentialsResult struct {
 }
 
 func GetCredentialsOutput(ctx *pulumi.Context, args GetCredentialsOutputArgs, opts ...pulumi.InvokeOption) GetCredentialsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetCredentialsResultOutput, error) {
-			args := v.(GetCredentialsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:redshiftserverless/getCredentials:getCredentials", args, GetCredentialsResultOutput{}, options).(GetCredentialsResultOutput), nil
-		}).(GetCredentialsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:redshiftserverless/getCredentials:getCredentials", args, GetCredentialsResultOutput{}, options).(GetCredentialsResultOutput)
 }
 
 // A collection of arguments for invoking getCredentials.

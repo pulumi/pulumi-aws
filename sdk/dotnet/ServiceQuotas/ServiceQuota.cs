@@ -54,7 +54,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public Output<bool> Adjustable { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service quota.
+        /// ARN of the service quota.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -198,7 +198,7 @@ namespace Pulumi.Aws.ServiceQuotas
         public Input<bool>? Adjustable { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the service quota.
+        /// ARN of the service quota.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

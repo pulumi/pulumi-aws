@@ -27,11 +27,11 @@ class TemplateArgs:
         """
         The set of arguments for constructing a Template resource.
 
-        :param pulumi.Input[_builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-        :param pulumi.Input[_builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        :param pulumi.Input[_builtins.str] html: HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] name: Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subject: The subject line of the email.
-        :param pulumi.Input[_builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] subject: Subject line of the email.
+        :param pulumi.Input[_builtins.str] text: Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         if html is not None:
             pulumi.set(__self__, "html", html)
@@ -48,7 +48,7 @@ class TemplateArgs:
     @pulumi.getter
     def html(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "html")
 
@@ -60,7 +60,7 @@ class TemplateArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         """
         return pulumi.get(self, "name")
 
@@ -84,7 +84,7 @@ class TemplateArgs:
     @pulumi.getter
     def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subject line of the email.
+        Subject line of the email.
         """
         return pulumi.get(self, "subject")
 
@@ -96,7 +96,7 @@ class TemplateArgs:
     @pulumi.getter
     def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "text")
 
@@ -117,12 +117,12 @@ class _TemplateState:
         """
         Input properties used for looking up and filtering Template resources.
 
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SES template
-        :param pulumi.Input[_builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-        :param pulumi.Input[_builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        :param pulumi.Input[_builtins.str] arn: ARN of the SES template
+        :param pulumi.Input[_builtins.str] html: HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] name: Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subject: The subject line of the email.
-        :param pulumi.Input[_builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] subject: Subject line of the email.
+        :param pulumi.Input[_builtins.str] text: Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -141,7 +141,7 @@ class _TemplateState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN of the SES template
+        ARN of the SES template
         """
         return pulumi.get(self, "arn")
 
@@ -153,7 +153,7 @@ class _TemplateState:
     @pulumi.getter
     def html(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "html")
 
@@ -165,7 +165,7 @@ class _TemplateState:
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         """
         return pulumi.get(self, "name")
 
@@ -189,7 +189,7 @@ class _TemplateState:
     @pulumi.getter
     def subject(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The subject line of the email.
+        Subject line of the email.
         """
         return pulumi.get(self, "subject")
 
@@ -201,7 +201,7 @@ class _TemplateState:
     @pulumi.getter
     def text(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "text")
 
@@ -250,11 +250,11 @@ class Template(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-        :param pulumi.Input[_builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        :param pulumi.Input[_builtins.str] html: HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] name: Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subject: The subject line of the email.
-        :param pulumi.Input[_builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] subject: Subject line of the email.
+        :param pulumi.Input[_builtins.str] text: Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         ...
     @overload
@@ -346,12 +346,12 @@ class Template(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The ARN of the SES template
-        :param pulumi.Input[_builtins.str] html: The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
-        :param pulumi.Input[_builtins.str] name: The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        :param pulumi.Input[_builtins.str] arn: ARN of the SES template
+        :param pulumi.Input[_builtins.str] html: HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] name: Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] subject: The subject line of the email.
-        :param pulumi.Input[_builtins.str] text: The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        :param pulumi.Input[_builtins.str] subject: Subject line of the email.
+        :param pulumi.Input[_builtins.str] text: Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -369,7 +369,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN of the SES template
+        ARN of the SES template
         """
         return pulumi.get(self, "arn")
 
@@ -377,7 +377,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def html(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "html")
 
@@ -385,7 +385,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
-        The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         """
         return pulumi.get(self, "name")
 
@@ -401,7 +401,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def subject(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The subject line of the email.
+        Subject line of the email.
         """
         return pulumi.get(self, "subject")
 
@@ -409,7 +409,7 @@ class Template(pulumi.CustomResource):
     @pulumi.getter
     def text(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         """
         return pulumi.get(self, "text")
 

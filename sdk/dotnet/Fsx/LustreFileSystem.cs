@@ -58,6 +58,12 @@ namespace Pulumi.Aws.Fsx
     ///         {
     ///             exampleAwsSecurityGroup.Id,
     ///         },
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "securityGroupIds",
+    ///         },
     ///     });
     /// 
     /// });
@@ -67,7 +73,7 @@ namespace Pulumi.Aws.Fsx
     public partial class LustreFileSystem : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -272,7 +278,7 @@ namespace Pulumi.Aws.Fsx
         public Output<int?> ThroughputCapacity { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -531,7 +537,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class LustreFileSystemState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -766,7 +772,7 @@ namespace Pulumi.Aws.Fsx
         public Input<int>? ThroughputCapacity { get; set; }
 
         /// <summary>
-        /// Identifier of the Virtual Private Cloud for the file system.
+        /// Identifier of the VPC for the file system.
         /// </summary>
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

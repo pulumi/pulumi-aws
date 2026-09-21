@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcorePolicy(ctx, "example", &bedrock.AgentcorePolicyArgs{
-//				Name:           pulumi.String("example_policy"),
-//				PolicyEngineId: pulumi.Any(exampleAwsBedrockagentcorePolicyEngine.PolicyEngineId),
-//				Description:    pulumi.String("Allow read access to example resources"),
 //				Definition: &bedrock.AgentcorePolicyDefinitionArgs{
 //					Cedar: &bedrock.AgentcorePolicyDefinitionCedarArgs{
 //						Statement: pulumi.String("permit(principal, action == Action::\\\"Read\\\", resource);\n"),
 //					},
 //				},
+//				Name:           pulumi.String("example_policy"),
+//				PolicyEngineId: pulumi.Any(exampleAwsBedrockagentcorePolicyEngine.PolicyEngineId),
+//				Description:    pulumi.String("Allow read access to example resources"),
 //			})
 //			if err != nil {
 //				return err

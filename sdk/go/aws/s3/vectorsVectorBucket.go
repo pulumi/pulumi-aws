@@ -57,13 +57,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewVectorsVectorBucket(ctx, "example", &s3.VectorsVectorBucketArgs{
-//				VectorBucketName: pulumi.String("example-bucket"),
 //				EncryptionConfigurations: s3.VectorsVectorBucketEncryptionConfigurationArray{
 //					&s3.VectorsVectorBucketEncryptionConfigurationArgs{
 //						SseType:   pulumi.String("aws:kms"),
 //						KmsKeyArn: pulumi.Any(exampleAwsKmsKey.Arn),
 //					},
 //				},
+//				VectorBucketName: pulumi.String("example-bucket"),
 //			})
 //			if err != nil {
 //				return err

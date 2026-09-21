@@ -14,7 +14,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRealtimeLogConfigResult {
     /**
-     * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * @return ARN of the CloudFront real-time log configuration.
      * 
      */
     private String arn;
@@ -42,7 +42,7 @@ public final class GetRealtimeLogConfigResult {
 
     private GetRealtimeLogConfigResult() {}
     /**
-     * @return ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * @return ARN of the CloudFront real-time log configuration.
      * 
      */
     public String arn() {

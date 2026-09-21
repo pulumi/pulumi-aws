@@ -412,7 +412,7 @@ type DomainNameDomainNameConfiguration struct {
 	IpAddressType *string `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn *string `pulumi:"ownershipVerificationCertificateArn"`
-	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	// TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 	SecurityPolicy string `pulumi:"securityPolicy"`
 	// Target domain name.
 	TargetDomainName *string `pulumi:"targetDomainName"`
@@ -440,7 +440,7 @@ type DomainNameDomainNameConfigurationArgs struct {
 	IpAddressType pulumi.StringPtrInput `pulumi:"ipAddressType"`
 	// ARN of the AWS-issued certificate used to validate custom domain ownership (when `certificateArn` is issued via an ACM Private CA or `mutualTlsAuthentication` is configured with an ACM-imported certificate.)
 	OwnershipVerificationCertificateArn pulumi.StringPtrInput `pulumi:"ownershipVerificationCertificateArn"`
-	// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+	// TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 	SecurityPolicy pulumi.StringInput `pulumi:"securityPolicy"`
 	// Target domain name.
 	TargetDomainName pulumi.StringPtrInput `pulumi:"targetDomainName"`
@@ -548,7 +548,7 @@ func (o DomainNameDomainNameConfigurationOutput) OwnershipVerificationCertificat
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) *string { return v.OwnershipVerificationCertificateArn }).(pulumi.StringPtrOutput)
 }
 
-// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+// TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 func (o DomainNameDomainNameConfigurationOutput) SecurityPolicy() pulumi.StringOutput {
 	return o.ApplyT(func(v DomainNameDomainNameConfiguration) string { return v.SecurityPolicy }).(pulumi.StringOutput)
 }
@@ -632,7 +632,7 @@ func (o DomainNameDomainNameConfigurationPtrOutput) OwnershipVerificationCertifi
 	}).(pulumi.StringPtrOutput)
 }
 
-// Transport Layer Security (TLS) version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
+// TLS version of the [security policy](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-custom-domain-tls-version.html) for the domain name. Valid values: `TLS_1_2`.
 func (o DomainNameDomainNameConfigurationPtrOutput) SecurityPolicy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DomainNameDomainNameConfiguration) *string {
 		if v == nil {
@@ -1255,11 +1255,11 @@ func (o RoutingRuleActionArrayOutput) Index(i pulumi.IntInput) RoutingRuleAction
 }
 
 type RoutingRuleActionInvokeApi struct {
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// API identifier of the target API.
 	ApiId string `pulumi:"apiId"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Name of the target stage.
 	Stage string `pulumi:"stage"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Whether to strip the base path when forwarding the request to the target API.
 	StripBasePath *bool `pulumi:"stripBasePath"`
 }
 
@@ -1275,11 +1275,11 @@ type RoutingRuleActionInvokeApiInput interface {
 }
 
 type RoutingRuleActionInvokeApiArgs struct {
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// API identifier of the target API.
 	ApiId pulumi.StringInput `pulumi:"apiId"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Name of the target stage.
 	Stage pulumi.StringInput `pulumi:"stage"`
-	// Action to invoke a stage of a target API. Only REST APIs are supported.
+	// Whether to strip the base path when forwarding the request to the target API.
 	StripBasePath pulumi.BoolPtrInput `pulumi:"stripBasePath"`
 }
 
@@ -1309,17 +1309,17 @@ func (o RoutingRuleActionInvokeApiOutput) ToRoutingRuleActionInvokeApiOutputWith
 	return o
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// API identifier of the target API.
 func (o RoutingRuleActionInvokeApiOutput) ApiId() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.ApiId }).(pulumi.StringOutput)
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// Name of the target stage.
 func (o RoutingRuleActionInvokeApiOutput) Stage() pulumi.StringOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) string { return v.Stage }).(pulumi.StringOutput)
 }
 
-// Action to invoke a stage of a target API. Only REST APIs are supported.
+// Whether to strip the base path when forwarding the request to the target API.
 func (o RoutingRuleActionInvokeApiOutput) StripBasePath() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v RoutingRuleActionInvokeApi) *bool { return v.StripBasePath }).(pulumi.BoolPtrOutput)
 }

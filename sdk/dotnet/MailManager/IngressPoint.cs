@@ -47,15 +47,15 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.IngressPoint("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "AUTH",
-    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
-    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///         IngressPointConfiguration = new Aws.MailManager.Inputs.IngressPointIngressPointConfigurationArgs
     ///         {
     ///             SmtpPasswordWo = smtpPassword,
     ///             SmtpPasswordWoVersion = 1,
     ///         },
+    ///         Name = "example",
+    ///         Type = "AUTH",
+    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
+    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///     });
     /// 
     /// });
@@ -73,10 +73,6 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.IngressPoint("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "OPEN",
-    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
-    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///         NetworkConfiguration = new Aws.MailManager.Inputs.IngressPointNetworkConfigurationArgs
     ///         {
     ///             PrivateNetworkConfiguration = new Aws.MailManager.Inputs.IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs
@@ -84,6 +80,10 @@ namespace Pulumi.Aws.MailManager
     ///                 VpcEndpointId = exampleAwsVpcEndpoint.Id,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Type = "OPEN",
+    ///         RuleSetId = exampleAwsMailmanagerRuleSet.Id,
+    ///         TrafficPolicyId = exampleAwsMailmanagerTrafficPolicy.Id,
     ///     });
     /// 
     /// });
@@ -170,6 +170,12 @@ namespace Pulumi.Aws.MailManager
         /// </summary>
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Output("statusToUpdate")]
+        public Output<string?> StatusToUpdate { get; private set; } = null!;
 
         /// <summary>
         /// Map of tags assigned to the resource. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -282,6 +288,12 @@ namespace Pulumi.Aws.MailManager
         [Input("ruleSetId", required: true)]
         public Input<string> RuleSetId { get; set; } = null!;
 
+        /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Input("statusToUpdate")]
+        public Input<string>? StatusToUpdate { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -384,6 +396,12 @@ namespace Pulumi.Aws.MailManager
         /// </summary>
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        /// </summary>
+        [Input("statusToUpdate")]
+        public Input<string>? StatusToUpdate { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

@@ -17,14 +17,14 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
     public static final HostKeyState Empty = new HostKeyState();
 
     /**
-     * Amazon Resource Name (ARN) of host key.
+     * ARN of host key.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of host key.
+     * @return ARN of host key.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -202,7 +202,7 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of host key.
+         * @param arn ARN of host key.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class HostKeyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of host key.
+         * @param arn ARN of host key.
          * 
          * @return builder
          * 

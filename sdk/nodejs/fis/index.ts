@@ -15,6 +15,11 @@ export const getExperimentTemplates: typeof import("./getExperimentTemplates").g
 export const getExperimentTemplatesOutput: typeof import("./getExperimentTemplates").getExperimentTemplatesOutput = null as any;
 utilities.lazyLoad(exports, ["getExperimentTemplates","getExperimentTemplatesOutput"], () => require("./getExperimentTemplates"));
 
+export { SafetyLeverStateArgs, SafetyLeverStateState } from "./safetyLeverState";
+export type SafetyLeverState = import("./safetyLeverState").SafetyLeverState;
+export const SafetyLeverState: typeof import("./safetyLeverState").SafetyLeverState = null as any;
+utilities.lazyLoad(exports, ["SafetyLeverState"], () => require("./safetyLeverState"));
+
 export { TargetAccountConfigurationArgs, TargetAccountConfigurationState } from "./targetAccountConfiguration";
 export type TargetAccountConfiguration = import("./targetAccountConfiguration").TargetAccountConfiguration;
 export const TargetAccountConfiguration: typeof import("./targetAccountConfiguration").TargetAccountConfiguration = null as any;
@@ -27,6 +32,8 @@ const _module = {
         switch (type) {
             case "aws:fis/experimentTemplate:ExperimentTemplate":
                 return new ExperimentTemplate(name, <any>undefined, { urn })
+            case "aws:fis/safetyLeverState:SafetyLeverState":
+                return new SafetyLeverState(name, <any>undefined, { urn })
             case "aws:fis/targetAccountConfiguration:TargetAccountConfiguration":
                 return new TargetAccountConfiguration(name, <any>undefined, { urn })
             default:
@@ -35,4 +42,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("aws", "fis/experimentTemplate", _module)
+pulumi.runtime.registerResourceModule("aws", "fis/safetyLeverState", _module)
 pulumi.runtime.registerResourceModule("aws", "fis/targetAccountConfiguration", _module)

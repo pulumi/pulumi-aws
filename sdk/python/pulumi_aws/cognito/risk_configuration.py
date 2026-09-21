@@ -250,10 +250,10 @@ class RiskConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=example_aws_cognito_user_pool["id"],
             risk_exception_configuration={
                 "blocked_ip_range_lists": ["10.10.10.10/32"],
-            })
+            },
+            user_pool_id=example_aws_cognito_user_pool["id"])
         ```
 
         ## Import
@@ -300,10 +300,10 @@ class RiskConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cognito.RiskConfiguration("example",
-            user_pool_id=example_aws_cognito_user_pool["id"],
             risk_exception_configuration={
                 "blocked_ip_range_lists": ["10.10.10.10/32"],
-            })
+            },
+            user_pool_id=example_aws_cognito_user_pool["id"])
         ```
 
         ## Import

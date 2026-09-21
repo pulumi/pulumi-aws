@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         public Input<string> CopyStrategy { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the origin snapshot.
+        /// The ARN of the origin snapshot.
         /// </summary>
         [Input("snapshotArn", required: true)]
         public Input<string> SnapshotArn { get; set; } = null!;

@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS VPC (Virtual Private Cloud) Endpoint Service Private DNS Verification.
+ * Resource for managing an AWS VPC Endpoint Service Private DNS Verification.
  * This resource begins the verification process by calling the [`StartVpcEndpointServicePrivateDnsVerification`](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_StartVpcEndpointServicePrivateDnsVerification.html) API.
  * The service provider should add a record to the DNS server _before_ creating this resource.
  *

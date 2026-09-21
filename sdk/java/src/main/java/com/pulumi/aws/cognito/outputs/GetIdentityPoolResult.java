@@ -52,7 +52,7 @@ public final class GetIdentityPoolResult {
     private List<String> openidConnectProviderArns;
     private String region;
     /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * @return Array of ARNs of the SAML provider for your identity.
      * 
      */
     private List<String> samlProviderArns;
@@ -124,7 +124,7 @@ public final class GetIdentityPoolResult {
         return this.region;
     }
     /**
-     * @return An array of Amazon Resource Names (ARNs) of the SAML provider for your identity.
+     * @return Array of ARNs of the SAML provider for your identity.
      * 
      */
     public List<String> samlProviderArns() {

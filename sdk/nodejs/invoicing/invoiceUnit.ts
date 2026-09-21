@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.invoicing.InvoiceUnit("example", {
- *     name: "example-unit",
- *     description: "Example invoice unit",
- *     invoiceReceiver: "123456789012",
  *     rules: [{
  *         linkedAccounts: ["098765432109"],
  *     }],
+ *     name: "example-unit",
+ *     description: "Example invoice unit",
+ *     invoiceReceiver: "123456789012",
  *     tags: {
  *         Environment: "production",
  *     },
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the invoice unit.
+ * - `arn` (String) ARN of the invoice unit.
  *
  * Using `pulumi import`, import Invoice Units using the ARN. For example:
  *

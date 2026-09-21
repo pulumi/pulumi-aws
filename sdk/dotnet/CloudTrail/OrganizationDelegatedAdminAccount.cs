@@ -52,7 +52,7 @@ namespace Pulumi.Aws.CloudTrail
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
+        /// ARN of the delegated administrator's account.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.CloudTrail
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the delegated administrator's account.
+        /// ARN of the delegated administrator's account.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

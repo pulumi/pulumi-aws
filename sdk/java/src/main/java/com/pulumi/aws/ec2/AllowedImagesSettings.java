@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AllowedImagesSettings("example", AllowedImagesSettingsArgs.builder()
- *             .state("enabled")
  *             .imageCriterions(AllowedImagesSettingsImageCriterionArgs.builder()
  *                 .imageProviders("amazon")
  *                 .build())
+ *             .state("enabled")
  *             .build());
  * 
  *     }
@@ -90,12 +90,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AllowedImagesSettings("example", AllowedImagesSettingsArgs.builder()
- *             .state("audit-mode")
  *             .imageCriterions(AllowedImagesSettingsImageCriterionArgs.builder()
  *                 .imageProviders(                
  *                     "amazon",
  *                     "123456789012")
  *                 .build())
+ *             .state("audit-mode")
  *             .build());
  * 
  *     }

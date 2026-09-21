@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageResult> EphemeralStorages;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+        /// ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
         /// </summary>
         public readonly string ExecutionRoleArn;
         /// <summary>
@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Batch.Outputs
         /// </summary>
         public readonly string InstanceType;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+        /// ARN of the IAM role that the container can assume for AWS permissions.
         /// </summary>
         public readonly string JobRoleArn;
         /// <summary>

@@ -17,14 +17,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowState Empty = new WorkflowState();
 
     /**
-     * Amazon Resource Name (ARN) of the workflow.
+     * ARN of the workflow.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the workflow.
+     * @return ARN of the workflow.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -92,14 +92,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+     * @return ARN of the KMS Key used to encrypt the workflow.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -260,7 +260,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workflow.
+         * @param arn ARN of the workflow.
          * 
          * @return builder
          * 
@@ -271,7 +271,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the workflow.
+         * @param arn ARN of the workflow.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the workflow.
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the workflow.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the workflow.
          * 
          * @return builder
          * 

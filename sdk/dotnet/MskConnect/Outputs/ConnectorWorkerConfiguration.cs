@@ -14,7 +14,7 @@ namespace Pulumi.Aws.MskConnect.Outputs
     public sealed class ConnectorWorkerConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the worker configuration.
+        /// ARN of the worker configuration.
         /// </summary>
         public readonly string Arn;
         /// <summary>

@@ -33,14 +33,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lex.V2modelsBotLocale("example", {
- *     botId: exampleAwsLexv2modelsBot.id,
- *     botVersion: "DRAFT",
- *     localeId: "en_US",
- *     nLuIntentConfidenceThreshold: 0.7,
  *     voiceSettings: {
  *         voiceId: "Kendra",
  *         engine: "standard",
  *     },
+ *     botId: exampleAwsLexv2modelsBot.id,
+ *     botVersion: "DRAFT",
+ *     localeId: "en_US",
+ *     nLuIntentConfidenceThreshold: 0.7,
  * });
  * ```
  *

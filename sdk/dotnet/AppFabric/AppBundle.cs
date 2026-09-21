@@ -42,7 +42,7 @@ namespace Pulumi.Aws.AppFabric
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the AppFabric app bundle.
+    /// - `Arn` (String) ARN of the AppFabric app bundle.
     /// 
     /// Using `pulumi import`, import AppFabric AppBundle using the `Arn`. For example:
     /// 
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.AppFabric
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        /// ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         /// </summary>
         [Output("customerManagedKeyArn")]
         public Output<string?> CustomerManagedKeyArn { get; private set; } = null!;
@@ -130,7 +130,7 @@ namespace Pulumi.Aws.AppFabric
     public sealed class AppBundleArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        /// ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         /// </summary>
         [Input("customerManagedKeyArn")]
         public Input<string>? CustomerManagedKeyArn { get; set; }
@@ -168,7 +168,7 @@ namespace Pulumi.Aws.AppFabric
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS Key Management Service (AWS KMS) key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
+        /// ARN of the KMS key to use to encrypt the application data. If this is not specified, an AWS owned key is used for encryption.
         /// </summary>
         [Input("customerManagedKeyArn")]
         public Input<string>? CustomerManagedKeyArn { get; set; }

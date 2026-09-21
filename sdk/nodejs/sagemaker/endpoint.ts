@@ -49,7 +49,7 @@ export class Endpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * ARN assigned by AWS to this endpoint.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -120,7 +120,7 @@ export class Endpoint extends pulumi.CustomResource {
  */
 export interface EndpointState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * ARN assigned by AWS to this endpoint.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

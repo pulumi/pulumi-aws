@@ -13,7 +13,7 @@ namespace Pulumi.Aws.OpenSearch.Inputs
     public sealed class ApplicationDataSourceGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        /// ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         /// </summary>
         [Input("dataSourceArn")]
         public Input<string>? DataSourceArn { get; set; }

@@ -19,14 +19,14 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
     public static final ListenerArgs Empty = new ListenerArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of your accelerator.
+     * ARN of your accelerator.
      * 
      */
     @Import(name="acceleratorArn", required=true)
     private Output<String> acceleratorArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of your accelerator.
+     * @return ARN of your accelerator.
      * 
      */
     public Output<String> acceleratorArn() {
@@ -106,7 +106,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
+         * @param acceleratorArn ARN of your accelerator.
          * 
          * @return builder
          * 
@@ -117,7 +117,7 @@ public final class ListenerArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param acceleratorArn The Amazon Resource Name (ARN) of your accelerator.
+         * @param acceleratorArn ARN of your accelerator.
          * 
          * @return builder
          * 

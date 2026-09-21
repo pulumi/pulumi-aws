@@ -80,14 +80,14 @@ import (
 // base, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
 // CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
 // {
-// AsnRanges: []string{
-// "65022-65534",
-// },
 // EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 // {
 // Location: "us-west-2",
 // Asn: pulumi.StringRef("65500"),
 // },
+// },
+// AsnRanges: []string{
+// "65022-65534",
 // },
 // },
 // },
@@ -123,20 +123,15 @@ import (
 // example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
 // EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
 // Location: pulumi.String("us-west-2"),
 // Asn: pulumi.String("65500"),
 // },
 // },
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
 // },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
 // },
 // },
 // SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
@@ -149,6 +144,11 @@ import (
 // Destinations: pulumi.StringArray{
 // exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
 // },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
 // },
 // },
 // }, nil);
@@ -210,19 +210,14 @@ import (
 // example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
 // EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
 // Location: pulumi.String("us-west-2"),
 // },
 // },
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
 // },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
 // },
 // },
 // SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
@@ -235,6 +230,11 @@ import (
 // Destinations: pulumi.StringArray{
 // exampleVpcAttachment.ID().ToIDOutput().ToStringOutput(),
 // },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
 // },
 // },
 // }, nil);
@@ -284,9 +284,6 @@ import (
 // base, err := networkmanager.GetCoreNetworkPolicyDocument(ctx, &networkmanager.GetCoreNetworkPolicyDocumentArgs{
 // CoreNetworkConfigurations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfiguration{
 // {
-// AsnRanges: []string{
-// "65022-65534",
-// },
 // EdgeLocations: []networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocation{
 // {
 // Location: "us-west-2",
@@ -296,6 +293,9 @@ import (
 // Location: "us-east-1",
 // Asn: pulumi.StringRef("65501"),
 // },
+// },
+// AsnRanges: []string{
+// "65022-65534",
 // },
 // },
 // },
@@ -343,9 +343,6 @@ import (
 // example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
 // EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
 // Location: pulumi.String("us-west-2"),
@@ -356,14 +353,9 @@ import (
 // Asn: pulumi.String("65501"),
 // },
 // },
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
 // },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
-// },
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment2"),
 // },
 // },
 // SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
@@ -386,6 +378,14 @@ import (
 // Destinations: pulumi.StringArray{
 // exampleUsEast1.ID().ToIDOutput().ToStringOutput(),
 // },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
+// },
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment2"),
 // },
 // },
 // }, nil);
@@ -463,9 +463,6 @@ import (
 // example := networkmanager.GetCoreNetworkPolicyDocumentOutput(ctx, networkmanager.GetCoreNetworkPolicyDocumentOutputArgs{
 // CoreNetworkConfigurations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs{
-// AsnRanges: pulumi.StringArray{
-// pulumi.String("65022-65534"),
-// },
 // EdgeLocations: networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArray{
 // &networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs{
 // Location: pulumi.String("us-west-2"),
@@ -474,14 +471,9 @@ import (
 // Location: pulumi.String("us-east-1"),
 // },
 // },
+// AsnRanges: pulumi.StringArray{
+// pulumi.String("65022-65534"),
 // },
-// },
-// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment"),
-// },
-// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
-// Name: pulumi.String("segment2"),
 // },
 // },
 // SegmentActions: networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArray{
@@ -504,6 +496,14 @@ import (
 // Destinations: pulumi.StringArray{
 // exampleUsEast1.ID().ToIDOutput().ToStringOutput(),
 // },
+// },
+// },
+// Segments: networkmanager.GetCoreNetworkPolicyDocumentSegmentArray{
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment"),
+// },
+// &networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs{
+// Name: pulumi.String("segment2"),
 // },
 // },
 // }, nil);

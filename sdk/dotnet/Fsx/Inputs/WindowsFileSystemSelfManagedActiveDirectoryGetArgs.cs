@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
+        /// ARN for the AWS Secrets Manager secret that contains the credentials for the service account on your self-managed AD domain. Conflicts with `Username` and `Password`.
         /// </summary>
         [Input("domainJoinServiceAccountSecret")]
         public Input<string>? DomainJoinServiceAccountSecret { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Fsx.Inputs
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This is a write-only argument which is not persisted to state. Conflicts with `DomainJoinServiceAccountSecret` and `Password`. Required with `PasswordWoVersion`.
+        /// Password for the service account on your self-managed AD domain that Amazon FSx will use to join to your AD domain. This argument is not persisted to state. Conflicts with `DomainJoinServiceAccountSecret` and `Password`. If set, requires `PasswordWoVersion` to be set.
         /// </summary>
         public Input<string>? PasswordWo
         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Fsx.Inputs
         }
 
         /// <summary>
-        /// Version of the password. Required with `PasswordWo`. Update this argument when the value of `PasswordWo` has changed to trigger an update to the remote password.
+        /// Required when `PasswordWo` is set. Changing this value triggers an update to `PasswordWo`.
         /// </summary>
         [Input("passwordWoVersion")]
         public Input<int>? PasswordWoVersion { get; set; }

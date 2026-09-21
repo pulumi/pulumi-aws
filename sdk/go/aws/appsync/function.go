@@ -56,12 +56,12 @@ import (
 //				return err
 //			}
 //			exampleDataSource, err := appsync.NewDataSource(ctx, "example", &appsync.DataSourceArgs{
-//				ApiId: example.ID().ToIDOutput().ToStringOutput(),
-//				Name:  pulumi.String("example"),
-//				Type:  pulumi.String("HTTP"),
 //				HttpConfig: &appsync.DataSourceHttpConfigArgs{
 //					Endpoint: pulumi.String("http://example.com"),
 //				},
+//				ApiId: example.ID().ToIDOutput().ToStringOutput(),
+//				Name:  pulumi.String("example"),
+//				Type:  pulumi.String("HTTP"),
 //			})
 //			if err != nil {
 //				return err
@@ -123,14 +123,14 @@ import (
 //				return err
 //			}
 //			_, err = appsync.NewFunction(ctx, "example", &appsync.FunctionArgs{
-//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
-//				DataSource: pulumi.Any(exampleAwsAppsyncDatasource.Name),
-//				Name:       pulumi.String("example"),
-//				Code:       pulumi.String(invokeFile.Result),
 //				Runtime: &appsync.FunctionRuntimeArgs{
 //					Name:           pulumi.String("APPSYNC_JS"),
 //					RuntimeVersion: pulumi.String("1.0.0"),
 //				},
+//				ApiId:      pulumi.Any(exampleAwsAppsyncGraphqlApi.Id),
+//				DataSource: pulumi.Any(exampleAwsAppsyncDatasource.Name),
+//				Name:       pulumi.String("example"),
+//				Code:       pulumi.String(invokeFile.Result),
 //			})
 //			if err != nil {
 //				return err

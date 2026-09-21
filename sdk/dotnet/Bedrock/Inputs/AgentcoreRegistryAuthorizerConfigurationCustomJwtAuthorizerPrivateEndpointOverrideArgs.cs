@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Domain the override applies to.
+        /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
 
+        /// <summary>
+        /// Private endpoint configuration. See `PrivateEndpoint` below.
+        /// </summary>
         [Input("privateEndpoint", required: true)]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs> PrivateEndpoint { get; set; } = null!;
 

@@ -56,7 +56,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -64,7 +64,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly creationTime: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * ARN for the FSx for Lustre file system.
      */
     declare public readonly fsxFilesystemArn: pulumi.Output<string>;
     /**
@@ -72,7 +72,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */
     declare public readonly securityGroupArns: pulumi.Output<string[]>;
     /**
@@ -142,7 +142,7 @@ export class LocationFsxLustre extends pulumi.CustomResource {
  */
 export interface LocationFsxLustreState {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -150,7 +150,7 @@ export interface LocationFsxLustreState {
      */
     creationTime?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * ARN for the FSx for Lustre file system.
      */
     fsxFilesystemArn?: pulumi.Input<string | undefined>;
     /**
@@ -158,7 +158,7 @@ export interface LocationFsxLustreState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */
     securityGroupArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -184,7 +184,7 @@ export interface LocationFsxLustreState {
  */
 export interface LocationFsxLustreArgs {
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Lustre file system.
+     * ARN for the FSx for Lustre file system.
      */
     fsxFilesystemArn: pulumi.Input<string>;
     /**
@@ -192,7 +192,7 @@ export interface LocationFsxLustreArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Lustre file system.
+     * ARNs of the security groups that are to use to configure the FSx for Lustre file system.
      */
     securityGroupArns: pulumi.Input<pulumi.Input<string>[]>;
     /**

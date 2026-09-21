@@ -18,7 +18,7 @@ public final class VpnConnectionVgwTelemetry {
      */
     private @Nullable Integer acceptedRouteCount;
     /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+     * @return ARN of the VPN tunnel endpoint certificate.
      * 
      */
     private @Nullable String certificateArn;
@@ -52,7 +52,7 @@ public final class VpnConnectionVgwTelemetry {
         return Optional.ofNullable(this.acceptedRouteCount);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the VPN tunnel endpoint certificate.
+     * @return ARN of the VPN tunnel endpoint certificate.
      * 
      */
     public Optional<String> certificateArn() {

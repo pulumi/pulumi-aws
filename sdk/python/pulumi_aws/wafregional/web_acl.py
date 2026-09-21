@@ -152,7 +152,7 @@ class _WebAclState:
         """
         Input properties used for looking up and filtering WebAcl resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        :param pulumi.Input[_builtins.str] arn: ARN of the WAF Regional WebACL.
         :param pulumi.Input['WebAclDefaultActionArgs'] default_action: The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
         :param pulumi.Input['WebAclLoggingConfigurationArgs'] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
@@ -185,7 +185,7 @@ class _WebAclState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        ARN of the WAF Regional WebACL.
         """
         return pulumi.get(self, "arn")
 
@@ -316,22 +316,20 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
-            }])
+            }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule")
         wafacl = aws.wafregional.WebAcl("wafacl",
-            name="tfWebACL",
-            metric_name="tfWebACL",
             default_action={
                 "type": "ALLOW",
             },
@@ -342,7 +340,9 @@ class WebAcl(pulumi.CustomResource):
                 "priority": 1,
                 "rule_id": wafrule.id,
                 "type": "REGULAR",
-            }])
+            }],
+            name="tfWebACL",
+            metric_name="tfWebACL")
         ```
 
         ### Group Rule
@@ -352,19 +352,19 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example",
-            name="example",
-            metric_name="example",
             default_action={
                 "type": "ALLOW",
             },
             rules=[{
-                "priority": 1,
-                "rule_id": example_aws_wafregional_rule_group["id"],
-                "type": "GROUP",
                 "override_action": {
                     "type": "NONE",
                 },
-            }])
+                "priority": 1,
+                "rule_id": example_aws_wafregional_rule_group["id"],
+                "type": "GROUP",
+            }],
+            name="example",
+            metric_name="example")
         ```
 
         ### Logging
@@ -376,7 +376,6 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example", logging_configuration={
-            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
             "redacted_fields": {
                 "field_to_matches": [
                     {
@@ -388,6 +387,7 @@ class WebAcl(pulumi.CustomResource):
                     },
                 ],
             },
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
         })
         ```
 
@@ -428,22 +428,20 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.Rule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
-            }])
+            }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule")
         wafacl = aws.wafregional.WebAcl("wafacl",
-            name="tfWebACL",
-            metric_name="tfWebACL",
             default_action={
                 "type": "ALLOW",
             },
@@ -454,7 +452,9 @@ class WebAcl(pulumi.CustomResource):
                 "priority": 1,
                 "rule_id": wafrule.id,
                 "type": "REGULAR",
-            }])
+            }],
+            name="tfWebACL",
+            metric_name="tfWebACL")
         ```
 
         ### Group Rule
@@ -464,19 +464,19 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example",
-            name="example",
-            metric_name="example",
             default_action={
                 "type": "ALLOW",
             },
             rules=[{
-                "priority": 1,
-                "rule_id": example_aws_wafregional_rule_group["id"],
-                "type": "GROUP",
                 "override_action": {
                     "type": "NONE",
                 },
-            }])
+                "priority": 1,
+                "rule_id": example_aws_wafregional_rule_group["id"],
+                "type": "GROUP",
+            }],
+            name="example",
+            metric_name="example")
         ```
 
         ### Logging
@@ -488,7 +488,6 @@ class WebAcl(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafregional.WebAcl("example", logging_configuration={
-            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
             "redacted_fields": {
                 "field_to_matches": [
                     {
@@ -500,6 +499,7 @@ class WebAcl(pulumi.CustomResource):
                     },
                 ],
             },
+            "log_destination": example_aws_kinesis_firehose_delivery_stream["arn"],
         })
         ```
 
@@ -582,7 +582,7 @@ class WebAcl(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        :param pulumi.Input[_builtins.str] arn: ARN of the WAF Regional WebACL.
         :param pulumi.Input[Union['WebAclDefaultActionArgs', 'WebAclDefaultActionArgsDict']] default_action: The action that you want AWS WAF Regional to take when a request doesn't match the criteria in any of the rules that are associated with the web ACL.
         :param pulumi.Input[Union['WebAclLoggingConfigurationArgs', 'WebAclLoggingConfigurationArgsDict']] logging_configuration: Configuration block to enable WAF logging. Detailed below.
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this web ACL.
@@ -611,7 +611,7 @@ class WebAcl(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the WAF Regional WebACL.
+        ARN of the WAF Regional WebACL.
         """
         return pulumi.get(self, "arn")
 

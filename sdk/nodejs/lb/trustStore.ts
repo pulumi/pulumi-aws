@@ -21,15 +21,15 @@ import * as utilities from "../utilities";
  *     caCertificatesBundleS3Key: "...",
  * });
  * const example = new aws.lb.Listener("example", {
- *     loadBalancerArn: exampleAwsLb.id,
- *     defaultActions: [{
- *         targetGroupArn: exampleAwsLbTargetGroup.id,
- *         type: "forward",
- *     }],
  *     mutualAuthentication: {
  *         mode: "verify",
  *         trustStoreArn: test.arn,
  *     },
+ *     defaultActions: [{
+ *         targetGroupArn: exampleAwsLbTargetGroup.id,
+ *         type: "forward",
+ *     }],
+ *     loadBalancerArn: exampleAwsLb.id,
  * });
  * ```
  *
@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+ * - `arn` (String) ARN of the trust store.
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *

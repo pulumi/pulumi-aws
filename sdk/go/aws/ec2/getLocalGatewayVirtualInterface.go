@@ -62,12 +62,8 @@ type GetLocalGatewayVirtualInterfaceResult struct {
 }
 
 func GetLocalGatewayVirtualInterfaceOutput(ctx *pulumi.Context, args GetLocalGatewayVirtualInterfaceOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewayVirtualInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalGatewayVirtualInterfaceResultOutput, error) {
-			args := v.(GetLocalGatewayVirtualInterfaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, GetLocalGatewayVirtualInterfaceResultOutput{}, options).(GetLocalGatewayVirtualInterfaceResultOutput), nil
-		}).(GetLocalGatewayVirtualInterfaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getLocalGatewayVirtualInterface:getLocalGatewayVirtualInterface", args, GetLocalGatewayVirtualInterfaceResultOutput{}, options).(GetLocalGatewayVirtualInterfaceResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGatewayVirtualInterface.

@@ -38,11 +38,17 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
-    ///                 Actions = new[]
+    ///                 Conditions = new[]
     ///                 {
-    ///                     "sts:AssumeRole",
-    ///                     "sts:SetContext",
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "aws:SourceAccount",
+    ///                     },
     ///                 },
     ///                 Principals = new[]
     ///                 {
@@ -55,17 +61,11 @@ namespace Pulumi.Aws.Transfer
     ///                         },
     ///                     },
     ///                 },
-    ///                 Conditions = new[]
+    ///                 Effect = "Allow",
+    ///                 Actions = new[]
     ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "aws:SourceAccount",
-    ///                     },
+    ///                     "sts:AssumeRole",
+    ///                     "sts:SetContext",
     ///                 },
     ///             },
     ///         },
@@ -83,6 +83,18 @@ namespace Pulumi.Aws.Transfer
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "StringEquals",
+    ///                         Values = new[]
+    ///                         {
+    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                         },
+    ///                         Variable = "s3:ResourceAccount",
+    ///                     },
+    ///                 },
     ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
@@ -93,6 +105,9 @@ namespace Pulumi.Aws.Transfer
     ///                 {
     ///                     $"arn:{currentGetPartition.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:s3:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:{current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:access-grants/*",
     ///                 },
+    ///             },
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
@@ -105,9 +120,6 @@ namespace Pulumi.Aws.Transfer
     ///                         Variable = "s3:ResourceAccount",
     ///                     },
     ///                 },
-    ///             },
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
     ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
@@ -116,18 +128,6 @@ namespace Pulumi.Aws.Transfer
     ///                 Resources = new[]
     ///                 {
     ///                     "*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                         },
-    ///                         Variable = "s3:ResourceAccount",
-    ///                     },
     ///                 },
     ///             },
     ///         },

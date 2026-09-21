@@ -47,7 +47,7 @@ namespace Pulumi.Aws.FinSpace
     public partial class KxScalingGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+        /// ARN identifier of the KX Scaling Group.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.FinSpace
     public sealed class KxScalingGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) identifier of the KX Scaling Group.
+        /// ARN identifier of the KX Scaling Group.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -112,7 +112,7 @@ namespace Pulumi.Aws.Inspector2.Inputs
         private InputList<Inputs.FilterFilterCriteriaEc2InstanceImageIdGetArgs>? _ec2InstanceImageIds;
 
         /// <summary>
-        /// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        /// (Optional) ID of the AMI. Documented below.
         /// </summary>
         public InputList<Inputs.FilterFilterCriteriaEc2InstanceImageIdGetArgs> Ec2InstanceImageIds
         {

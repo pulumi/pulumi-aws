@@ -26,8 +26,6 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
-    ///         Name = "example-virtual-gateway",
-    ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
     ///             Listeners = new[]
@@ -42,6 +40,8 @@ namespace Pulumi.Aws.AppMesh
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-virtual-gateway",
+    ///         MeshName = "example-service-mesh",
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },
@@ -63,10 +63,18 @@ namespace Pulumi.Aws.AppMesh
     /// {
     ///     var example = new Aws.AppMesh.VirtualGateway("example", new()
     ///     {
-    ///         Name = "example-virtual-gateway",
-    ///         MeshName = "example-service-mesh",
     ///         Spec = new Aws.AppMesh.Inputs.VirtualGatewaySpecArgs
     ///         {
+    ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
+    ///             {
+    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
+    ///                 {
+    ///                     File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
+    ///                     {
+    ///                         Path = "/var/log/access.log",
+    ///                     },
+    ///                 },
+    ///             },
     ///             Listeners = new[]
     ///             {
     ///                 new Aws.AppMesh.Inputs.VirtualGatewaySpecListenerArgs
@@ -89,17 +97,9 @@ namespace Pulumi.Aws.AppMesh
     ///                     },
     ///                 },
     ///             },
-    ///             Logging = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingArgs
-    ///             {
-    ///                 AccessLog = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogArgs
-    ///                 {
-    ///                     File = new Aws.AppMesh.Inputs.VirtualGatewaySpecLoggingAccessLogFileArgs
-    ///                     {
-    ///                         Path = "/var/log/access.log",
-    ///                     },
-    ///                 },
-    ///             },
     ///         },
+    ///         Name = "example-virtual-gateway",
+    ///         MeshName = "example-service-mesh",
     ///     });
     /// 
     /// });

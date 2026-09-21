@@ -24,14 +24,14 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
     public static final TaskSetState Empty = new TaskSetState();
 
     /**
-     * Amazon Resource Name (ARN) that identifies the task set.
+     * ARN that identifies the task set.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) that identifies the task set.
+     * @return ARN that identifies the task set.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -387,7 +387,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that identifies the task set.
+         * @param arn ARN that identifies the task set.
          * 
          * @return builder
          * 
@@ -398,7 +398,7 @@ public final class TaskSetState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) that identifies the task set.
+         * @param arn ARN that identifies the task set.
          * 
          * @return builder
          * 

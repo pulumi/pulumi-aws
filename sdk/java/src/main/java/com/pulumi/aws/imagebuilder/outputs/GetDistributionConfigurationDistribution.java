@@ -38,7 +38,7 @@ public final class GetDistributionConfigurationDistribution {
      */
     private List<GetDistributionConfigurationDistributionLaunchTemplateConfiguration> launchTemplateConfigurations;
     /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * @return Set of ARNs of License Manager License Configurations.
      * 
      */
     private List<String> licenseConfigurationArns;
@@ -88,7 +88,7 @@ public final class GetDistributionConfigurationDistribution {
         return this.launchTemplateConfigurations;
     }
     /**
-     * @return Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+     * @return Set of ARNs of License Manager License Configurations.
      * 
      */
     public List<String> licenseConfigurationArns() {

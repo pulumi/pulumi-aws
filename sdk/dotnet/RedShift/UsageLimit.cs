@@ -51,7 +51,7 @@ namespace Pulumi.Aws.RedShift
         public Output<int> Amount { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        /// ARN of the Redshift Usage Limit.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.RedShift
         public Input<int>? Amount { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Redshift Usage Limit.
+        /// ARN of the Redshift Usage Limit.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

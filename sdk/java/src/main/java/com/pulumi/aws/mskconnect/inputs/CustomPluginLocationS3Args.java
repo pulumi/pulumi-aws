@@ -17,14 +17,14 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
     public static final CustomPluginLocationS3Args Empty = new CustomPluginLocationS3Args();
 
     /**
-     * The Amazon Resource Name (ARN) of an S3 bucket.
+     * ARN of an S3 bucket.
      * 
      */
     @Import(name="bucketArn", required=true)
     private Output<String> bucketArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an S3 bucket.
+     * @return ARN of an S3 bucket.
      * 
      */
     public Output<String> bucketArn() {
@@ -88,7 +88,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucketArn The Amazon Resource Name (ARN) of an S3 bucket.
+         * @param bucketArn ARN of an S3 bucket.
          * 
          * @return builder
          * 
@@ -99,7 +99,7 @@ public final class CustomPluginLocationS3Args extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param bucketArn The Amazon Resource Name (ARN) of an S3 bucket.
+         * @param bucketArn ARN of an S3 bucket.
          * 
          * @return builder
          * 

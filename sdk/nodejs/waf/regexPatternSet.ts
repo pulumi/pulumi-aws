@@ -59,7 +59,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class RegexPatternSet extends pulumi.CustomResource {
  */
 export interface RegexPatternSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

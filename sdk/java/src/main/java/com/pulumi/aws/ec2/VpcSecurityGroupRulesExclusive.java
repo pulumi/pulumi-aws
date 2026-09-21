@@ -15,7 +15,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+ * Resource for managing an exclusive set of AWS VPC Security Group Rules.
  * 
  * This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
  * 

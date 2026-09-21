@@ -50,9 +50,9 @@ import (
 type EmailIdentity struct {
 	pulumi.CustomResourceState
 
-	// The ARN of the email identity.
+	// ARN of the email identity.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The email address to assign to SES.
+	// Email address to assign to SES.
 	Email pulumi.StringOutput `pulumi:"email"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -91,18 +91,18 @@ func GetEmailIdentity(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EmailIdentity resources.
 type emailIdentityState struct {
-	// The ARN of the email identity.
+	// ARN of the email identity.
 	Arn *string `pulumi:"arn"`
-	// The email address to assign to SES.
+	// Email address to assign to SES.
 	Email *string `pulumi:"email"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
 }
 
 type EmailIdentityState struct {
-	// The ARN of the email identity.
+	// ARN of the email identity.
 	Arn pulumi.StringPtrInput
-	// The email address to assign to SES.
+	// Email address to assign to SES.
 	Email pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -113,7 +113,7 @@ func (EmailIdentityState) ElementType() reflect.Type {
 }
 
 type emailIdentityArgs struct {
-	// The email address to assign to SES.
+	// Email address to assign to SES.
 	Email string `pulumi:"email"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -121,7 +121,7 @@ type emailIdentityArgs struct {
 
 // The set of arguments for constructing a EmailIdentity resource.
 type EmailIdentityArgs struct {
-	// The email address to assign to SES.
+	// Email address to assign to SES.
 	Email pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -214,12 +214,12 @@ func (o EmailIdentityOutput) ToEmailIdentityOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The ARN of the email identity.
+// ARN of the email identity.
 func (o EmailIdentityOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The email address to assign to SES.
+// Email address to assign to SES.
 func (o EmailIdentityOutput) Email() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentity) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
 }

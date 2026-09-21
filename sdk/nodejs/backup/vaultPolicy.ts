@@ -17,11 +17,11 @@ import * as utilities from "../utilities";
  * const exampleVault = new aws.backup.Vault("example", {name: "example"});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [current.then(current => current.accountId)],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "backup:DescribeBackupVault",
  *             "backup:DeleteBackupVault",

@@ -18,14 +18,14 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
     public static final WorkflowState Empty = new WorkflowState();
 
     /**
-     * Amazon Resource Name (ARN) of Glue Workflow
+     * ARN of Glue Workflow
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of Glue Workflow
+     * @return ARN of Glue Workflow
      * 
      */
     public Optional<Output<String>> arn() {
@@ -169,7 +169,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Workflow
+         * @param arn ARN of Glue Workflow
          * 
          * @return builder
          * 
@@ -180,7 +180,7 @@ public final class WorkflowState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of Glue Workflow
+         * @param arn ARN of Glue Workflow
          * 
          * @return builder
          * 

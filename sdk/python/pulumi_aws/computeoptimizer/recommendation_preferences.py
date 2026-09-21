@@ -383,11 +383,11 @@ class RecommendationPreferences(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.computeoptimizer.RecommendationPreferences("example",
-            resource_type="Ec2Instance",
             scope={
                 "name": "AccountId",
                 "value": "123456789012",
             },
+            resource_type="Ec2Instance",
             look_back_period="DAYS_32")
         ```
 
@@ -398,12 +398,10 @@ class RecommendationPreferences(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.computeoptimizer.RecommendationPreferences("example",
-            resource_type="Ec2Instance",
             scope={
                 "name": "AccountId",
                 "value": "123456789012",
             },
-            enhanced_infrastructure_metrics="Active",
             external_metrics_preference={
                 "source": "Datadog",
             },
@@ -413,7 +411,9 @@ class RecommendationPreferences(pulumi.CustomResource):
                     "r5",
                 ],
                 "name": "Ec2InstanceTypes",
-            }])
+            }],
+            resource_type="Ec2Instance",
+            enhanced_infrastructure_metrics="Active")
         ```
 
         ## Import
@@ -456,11 +456,11 @@ class RecommendationPreferences(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.computeoptimizer.RecommendationPreferences("example",
-            resource_type="Ec2Instance",
             scope={
                 "name": "AccountId",
                 "value": "123456789012",
             },
+            resource_type="Ec2Instance",
             look_back_period="DAYS_32")
         ```
 
@@ -471,12 +471,10 @@ class RecommendationPreferences(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.computeoptimizer.RecommendationPreferences("example",
-            resource_type="Ec2Instance",
             scope={
                 "name": "AccountId",
                 "value": "123456789012",
             },
-            enhanced_infrastructure_metrics="Active",
             external_metrics_preference={
                 "source": "Datadog",
             },
@@ -486,7 +484,9 @@ class RecommendationPreferences(pulumi.CustomResource):
                     "r5",
                 ],
                 "name": "Ec2InstanceTypes",
-            }])
+            }],
+            resource_type="Ec2Instance",
+            enhanced_infrastructure_metrics="Active")
         ```
 
         ## Import

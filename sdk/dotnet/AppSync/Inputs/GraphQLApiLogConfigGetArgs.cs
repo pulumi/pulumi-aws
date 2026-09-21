@@ -13,7 +13,7 @@ namespace Pulumi.Aws.AppSync.Inputs
     public sealed class GraphQLApiLogConfigGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+        /// ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
         /// </summary>
         [Input("cloudwatchLogsRoleArn", required: true)]
         public Input<string> CloudwatchLogsRoleArn { get; set; } = null!;

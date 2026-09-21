@@ -23,14 +23,14 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
     public static final RoleState Empty = new RoleState();
 
     /**
-     * Amazon Resource Name (ARN) specifying the role.
+     * ARN specifying the role.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) specifying the role.
+     * @return ARN specifying the role.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -294,7 +294,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) specifying the role.
+         * @param arn ARN specifying the role.
          * 
          * @return builder
          * 
@@ -305,7 +305,7 @@ public final class RoleState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) specifying the role.
+         * @param arn ARN specifying the role.
          * 
          * @return builder
          * 

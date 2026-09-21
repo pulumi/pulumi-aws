@@ -31,14 +31,14 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the resource policy.
+     * ARN that identifies the resource policy.
      * 
      */
     @Import(name="resourceArn", required=true)
     private String resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the resource policy.
+     * @return ARN that identifies the resource policy.
      * 
      */
     public String resourceArn() {
@@ -82,7 +82,7 @@ public final class GetResourcePolicyPlainArgs extends com.pulumi.resources.Invok
         }
 
         /**
-         * @param resourceArn The Amazon Resource Name (ARN) that identifies the resource policy.
+         * @param resourceArn ARN that identifies the resource policy.
          * 
          * @return builder
          * 

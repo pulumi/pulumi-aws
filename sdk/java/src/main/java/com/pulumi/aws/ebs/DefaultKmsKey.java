@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/defaultKmsKey:DefaultKmsKey")
 public class DefaultKmsKey extends com.pulumi.resources.CustomResource {
     /**
-     * The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+     * ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
      * 
      */
     @Export(name="keyArn", refs={String.class}, tree="[0]")
     private Output<String> keyArn;
 
     /**
-     * @return The ARN of the AWS Key Management Service (AWS KMS) customer master key (CMK) to use to encrypt the EBS volume.
+     * @return ARN of the KMS customer master key (CMK) to use to encrypt the EBS volume.
      * 
      */
     public Output<String> keyArn() {

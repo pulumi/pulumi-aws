@@ -106,7 +106,7 @@ class GetSubnetGroupResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
-        The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet group.
+        VPC identifier (VPC ID) of the cache subnet group.
         """
         return pulumi.get(self, "vpc_id")
 

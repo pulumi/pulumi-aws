@@ -112,7 +112,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfiguration(dict):
                  client_ids: Optional[Sequence[_builtins.str]] = None,
                  group_configuration: Optional['outputs.IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfiguration'] = None):
         """
-        :param _builtins.str user_pool_arn: The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        :param _builtins.str user_pool_arn: ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         :param Sequence[_builtins.str] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
         :param 'IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs' group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
@@ -126,7 +126,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfiguration(dict):
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         """
         return pulumi.get(self, "user_pool_arn")
 

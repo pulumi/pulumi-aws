@@ -15,14 +15,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
     public static final AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayloadArgs();
 
     /**
-     * The inline schema payload content.
+     * Inline schema payload content.
      * 
      */
     @Import(name="payload", required=true)
     private Output<String> payload;
 
     /**
-     * @return The inline schema payload content.
+     * @return Inline schema payload content.
      * 
      */
     public Output<String> payload() {
@@ -54,7 +54,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
         }
 
         /**
-         * @param payload The inline schema payload content.
+         * @param payload Inline schema payload content.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolS
         }
 
         /**
-         * @param payload The inline schema payload content.
+         * @param payload Inline schema payload content.
          * 
          * @return builder
          * 

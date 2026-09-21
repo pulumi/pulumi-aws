@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const example = aws.getRegion({});
  * const available = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const exampleVpc = new aws.ec2.Vpc("example", {
  *     cidrBlock: "10.0.0.0/16",
@@ -48,20 +48,20 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * const exampleDirectory = new aws.directoryservice.Directory("example", {
- *     name: "example.com",
- *     password: "SuperSecretPassw0rd",
- *     type: "MicrosoftAD",
  *     vpcSettings: {
  *         vpcId: exampleVpc.id,
  *         subnetIds: exampleSubnet.map(__item => __item.id),
  *     },
+ *     name: "example.com",
+ *     password: "SuperSecretPassw0rd",
+ *     type: "MicrosoftAD",
  * });
  * const available_secondary = aws.getAvailabilityZones({
- *     state: "available",
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["opt-in-not-required"],
  *     }],
+ *     state: "available",
  * });
  * const example_secondary = new aws.ec2.Vpc("example-secondary", {
  *     cidrBlock: "10.1.0.0/16",
@@ -85,12 +85,12 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * const exampleServiceRegion = new aws.directoryservice.ServiceRegion("example", {
- *     directoryId: exampleDirectory.id,
- *     regionName: example.then(example => example.region),
  *     vpcSettings: {
  *         vpcId: example_secondary.id,
  *         subnetIds: example_secondarySubnet.map(__item => __item.id),
  *     },
+ *     directoryId: exampleDirectory.id,
+ *     regionName: example.then(example => example.region),
  *     tags: {
  *         Name: "Secondary",
  *     },

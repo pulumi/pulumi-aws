@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.eks.FargateProfile("example", {
+ *     selectors: [{
+ *         namespace: "example",
+ *     }],
  *     clusterName: exampleAwsEksCluster.name,
  *     fargateProfileName: "example",
  *     podExecutionRoleArn: exampleAwsIamRole.arn,
  *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- *     selectors: [{
- *         namespace: "example",
- *     }],
  * });
  * ```
  *
@@ -101,7 +101,7 @@ export class FargateProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
+     * ARN of the EKS Fargate Profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -113,7 +113,7 @@ export class FargateProfile extends pulumi.CustomResource {
      */
     declare public readonly fargateProfileName: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
     declare public readonly podExecutionRoleArn: pulumi.Output<string>;
     /**
@@ -198,7 +198,7 @@ export class FargateProfile extends pulumi.CustomResource {
  */
 export interface FargateProfileState {
     /**
-     * Amazon Resource Name (ARN) of the EKS Fargate Profile.
+     * ARN of the EKS Fargate Profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -210,7 +210,7 @@ export interface FargateProfileState {
      */
     fargateProfileName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
     podExecutionRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -254,7 +254,7 @@ export interface FargateProfileArgs {
      */
     fargateProfileName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+     * ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
      */
     podExecutionRoleArn: pulumi.Input<string>;
     /**

@@ -396,13 +396,13 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            name="Example",
-            description="Example Description",
             data_delivery={
                 "cloudwatch_logs": {
                     "log_group": "example-log-group-name",
                 },
             },
+            name="Example",
+            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -415,14 +415,14 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            name="Example",
-            description="Example Description",
             data_delivery={
                 "s3_destination": {
                     "bucket": "example-bucket-name",
                     "prefix": "example",
                 },
             },
+            name="Example",
+            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -479,13 +479,13 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            name="Example",
-            description="Example Description",
             data_delivery={
                 "cloudwatch_logs": {
                     "log_group": "example-log-group-name",
                 },
             },
+            name="Example",
+            description="Example Description",
             tags={
                 "Key1": "example Project",
             })
@@ -498,14 +498,14 @@ class Project(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.evidently.Project("example",
-            name="Example",
-            description="Example Description",
             data_delivery={
                 "s3_destination": {
                     "bucket": "example-bucket-name",
                     "prefix": "example",
                 },
             },
+            name="Example",
+            description="Example Description",
             tags={
                 "Key1": "example Project",
             })

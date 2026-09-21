@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:kinesis/streamConsumer:StreamConsumer")
 public class StreamConsumer extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the stream consumer.
+     * ARN of the stream consumer.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the stream consumer.
+     * @return ARN of the stream consumer.
      * 
      */
     public Output<String> arn() {
@@ -137,14 +137,14 @@ public class StreamConsumer extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      * 
      */
     @Export(name="streamArn", refs={String.class}, tree="[0]")
     private Output<String> streamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * @return ARN of the data stream the consumer is registered with.
      * 
      */
     public Output<String> streamArn() {

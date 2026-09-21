@@ -16,14 +16,14 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
     public static final ActiveReceiptRuleSetState Empty = new ActiveReceiptRuleSetState();
 
     /**
-     * The SES receipt rule set ARN.
+     * SES receipt rule set ARN.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The SES receipt rule set ARN.
+     * @return SES receipt rule set ARN.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -46,14 +46,14 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The name of the rule set
+     * Name of the rule set
      * 
      */
     @Import(name="ruleSetName")
     private @Nullable Output<String> ruleSetName;
 
     /**
-     * @return The name of the rule set
+     * @return Name of the rule set
      * 
      */
     public Optional<Output<String>> ruleSetName() {
@@ -87,7 +87,7 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The SES receipt rule set ARN.
+         * @param arn SES receipt rule set ARN.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param arn The SES receipt rule set ARN.
+         * @param arn SES receipt rule set ARN.
          * 
          * @return builder
          * 
@@ -129,7 +129,7 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set
          * 
          * @return builder
          * 
@@ -140,7 +140,7 @@ public final class ActiveReceiptRuleSetState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ruleSetName The name of the rule set
+         * @param ruleSetName Name of the rule set
          * 
          * @return builder
          * 

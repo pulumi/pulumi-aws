@@ -309,14 +309,14 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+     * ARN for a third-party product that generated a finding in Security Hub. Documented below.
      * 
      */
     @Import(name="productArns")
     private @Nullable Output<List<AutomationRuleCriteriaProductArnArgs>> productArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+     * @return ARN for a third-party product that generated a finding in Security Hub. Documented below.
      * 
      */
     public Optional<Output<List<AutomationRuleCriteriaProductArnArgs>>> productArns() {
@@ -384,14 +384,14 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+     * ARN of the application that is related to a finding. Documented below.
      * 
      */
     @Import(name="resourceApplicationArns")
     private @Nullable Output<List<AutomationRuleCriteriaResourceApplicationArnArgs>> resourceApplicationArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+     * @return ARN of the application that is related to a finding. Documented below.
      * 
      */
     public Optional<Output<List<AutomationRuleCriteriaResourceApplicationArnArgs>>> resourceApplicationArns() {
@@ -429,14 +429,14 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+     * Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
      * 
      */
     @Import(name="resourceIds")
     private @Nullable Output<List<AutomationRuleCriteriaResourceIdArgs>> resourceIds;
 
     /**
-     * @return The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+     * @return Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
      * 
      */
     public Optional<Output<List<AutomationRuleCriteriaResourceIdArgs>>> resourceIds() {
@@ -1212,7 +1212,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param productArns The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+         * @param productArns ARN for a third-party product that generated a finding in Security Hub. Documented below.
          * 
          * @return builder
          * 
@@ -1223,7 +1223,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param productArns The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+         * @param productArns ARN for a third-party product that generated a finding in Security Hub. Documented below.
          * 
          * @return builder
          * 
@@ -1233,7 +1233,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param productArns The Amazon Resource Name (ARN) for a third-party product that generated a finding in Security Hub. Documented below.
+         * @param productArns ARN for a third-party product that generated a finding in Security Hub. Documented below.
          * 
          * @return builder
          * 
@@ -1367,7 +1367,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceApplicationArns The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+         * @param resourceApplicationArns ARN of the application that is related to a finding. Documented below.
          * 
          * @return builder
          * 
@@ -1378,7 +1378,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceApplicationArns The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+         * @param resourceApplicationArns ARN of the application that is related to a finding. Documented below.
          * 
          * @return builder
          * 
@@ -1388,7 +1388,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceApplicationArns The Amazon Resource Name (ARN) of the application that is related to a finding. Documented below.
+         * @param resourceApplicationArns ARN of the application that is related to a finding. Documented below.
          * 
          * @return builder
          * 
@@ -1460,7 +1460,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceIds The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+         * @param resourceIds Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
          * 
          * @return builder
          * 
@@ -1471,7 +1471,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceIds The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+         * @param resourceIds Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
          * 
          * @return builder
          * 
@@ -1481,7 +1481,7 @@ public final class AutomationRuleCriteriaArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param resourceIds The identifier for the given resource type. For AWS resources that are identified by Amazon Resource Names (ARNs), this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
+         * @param resourceIds Identifier for the given resource type. For AWS resources that are identified by ARNs, this is the ARN. For AWS resources that lack ARNs, this is the identifier as defined by the AWS service that created the resource. For non-AWS resources, this is a unique identifier that is associated with the resource. Documented below.
          * 
          * @return builder
          * 

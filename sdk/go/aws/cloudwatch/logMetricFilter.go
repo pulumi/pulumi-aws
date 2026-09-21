@@ -35,14 +35,14 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewLogMetricFilter(ctx, "yada", &cloudwatch.LogMetricFilterArgs{
-//				Name:         pulumi.String("MyAppAccessCount"),
-//				Pattern:      pulumi.String(""),
-//				LogGroupName: dada.Name,
 //				MetricTransformation: &cloudwatch.LogMetricFilterMetricTransformationArgs{
 //					Name:      pulumi.String("EventCount"),
 //					Namespace: pulumi.String("YourNamespace"),
 //					Value:     pulumi.String("1"),
 //				},
+//				Name:         pulumi.String("MyAppAccessCount"),
+//				Pattern:      pulumi.String(""),
+//				LogGroupName: dada.Name,
 //			})
 //			if err != nil {
 //				return err

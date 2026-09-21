@@ -448,15 +448,6 @@ class Collaboration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
-            name="pulumi-example-collaboration",
-            creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
-            ],
-            creator_display_name="Creator ",
-            description="I made this collaboration with Pulumi!",
-            query_log_status="DISABLED",
-            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -468,6 +459,15 @@ class Collaboration(pulumi.CustomResource):
                 "display_name": "Other member",
                 "member_abilities": [],
             }],
+            name="pulumi-example-collaboration",
+            creator_member_abilities=[
+                "CAN_QUERY",
+                "CAN_RECEIVE_RESULTS",
+            ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
+            analytics_engine="SPARK",
             tags={
                 "Project": "Pulumi",
             })
@@ -525,15 +525,6 @@ class Collaboration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test_collaboration = aws.cleanrooms.Collaboration("test_collaboration",
-            name="pulumi-example-collaboration",
-            creator_member_abilities=[
-                "CAN_QUERY",
-                "CAN_RECEIVE_RESULTS",
-            ],
-            creator_display_name="Creator ",
-            description="I made this collaboration with Pulumi!",
-            query_log_status="DISABLED",
-            analytics_engine="SPARK",
             data_encryption_metadata={
                 "allow_clear_text": True,
                 "allow_duplicates": True,
@@ -545,6 +536,15 @@ class Collaboration(pulumi.CustomResource):
                 "display_name": "Other member",
                 "member_abilities": [],
             }],
+            name="pulumi-example-collaboration",
+            creator_member_abilities=[
+                "CAN_QUERY",
+                "CAN_RECEIVE_RESULTS",
+            ],
+            creator_display_name="Creator ",
+            description="I made this collaboration with Pulumi!",
+            query_log_status="DISABLED",
+            analytics_engine="SPARK",
             tags={
                 "Project": "Pulumi",
             })

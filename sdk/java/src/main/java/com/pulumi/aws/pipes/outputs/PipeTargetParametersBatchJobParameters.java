@@ -34,7 +34,7 @@ public final class PipeTargetParametersBatchJobParameters {
      */
     private @Nullable List<PipeTargetParametersBatchJobParametersDependsOn> dependsOns;
     /**
-     * @return The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * @return Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
      * 
      */
     private String jobDefinition;
@@ -77,7 +77,7 @@ public final class PipeTargetParametersBatchJobParameters {
         return this.dependsOns == null ? List.of() : this.dependsOns;
     }
     /**
-     * @return The job definition used by this job. This value can be one of name, name:revision, or the Amazon Resource Name (ARN) for the job definition. If name is specified without a revision then the latest active revision is used.
+     * @return Job definition used by this job. This value can be one of name, name:revision, or the ARN for the job definition. If name is specified without a revision then the latest active revision is used.
      * 
      */
     public String jobDefinition() {

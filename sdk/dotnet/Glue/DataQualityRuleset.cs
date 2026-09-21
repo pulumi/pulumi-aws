@@ -88,13 +88,13 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.DataQualityRuleset("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///         TargetTable = new Aws.Glue.Inputs.DataQualityRulesetTargetTableArgs
     ///         {
     ///             DatabaseName = exampleAwsGlueCatalogDatabase.Name,
     ///             TableName = exampleAwsGlueCatalogTable.Name,
     ///         },
+    ///         Name = "example",
+    ///         Ruleset = "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
     ///     });
     /// 
     /// });

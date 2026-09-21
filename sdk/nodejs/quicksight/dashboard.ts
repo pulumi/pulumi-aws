@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Dashboard("example", {
- *     dashboardId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: source.arn,
  *             dataSetReferences: [{
  *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
+ *             arn: source.arn,
  *         },
  *     },
+ *     dashboardId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *
@@ -41,20 +41,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Dashboard("example", {
- *     dashboardId: "example-id",
- *     name: "example-name",
- *     versionDescription: "version",
  *     definition: {
  *         dataSetIdentifiersDeclarations: [{
  *             dataSetArn: dataset.arn,
  *             identifier: "1",
  *         }],
  *         sheets: [{
- *             title: "Example",
- *             sheetId: "Example1",
  *             visuals: [{
  *                 lineChartVisual: {
- *                     visualId: "LineChart",
  *                     title: {
  *                         formatText: {
  *                             plainText: "Line Chart Example",
@@ -65,30 +59,36 @@ import * as utilities from "../utilities";
  *                             lineChartAggregatedFieldWells: {
  *                                 categories: [{
  *                                     categoricalDimensionField: {
- *                                         fieldId: "1",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "1",
  *                                     },
  *                                 }],
  *                                 values: [{
  *                                     categoricalMeasureField: {
- *                                         fieldId: "2",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "2",
  *                                         aggregationFunction: "COUNT",
  *                                     },
  *                                 }],
  *                             },
  *                         },
  *                     },
+ *                     visualId: "LineChart",
  *                 },
  *             }],
+ *             title: "Example",
+ *             sheetId: "Example1",
  *         }],
  *     },
+ *     dashboardId: "example-id",
+ *     name: "example-name",
+ *     versionDescription: "version",
  * });
  * ```
  *
@@ -174,7 +174,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public readonly sourceEntity: pulumi.Output<outputs.quicksight.DashboardSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      */
     declare public /*out*/ readonly sourceEntityArn: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export class Dashboard extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     declare public readonly themeArn: pulumi.Output<string | undefined>;
     /**
@@ -319,7 +319,7 @@ export interface DashboardState {
      */
     sourceEntity?: pulumi.Input<inputs.quicksight.DashboardSourceEntity | undefined>;
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      */
     sourceEntityArn?: pulumi.Input<string | undefined>;
     /**
@@ -335,7 +335,7 @@ export interface DashboardState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**
@@ -391,7 +391,7 @@ export interface DashboardArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      */
     themeArn?: pulumi.Input<string | undefined>;
     /**

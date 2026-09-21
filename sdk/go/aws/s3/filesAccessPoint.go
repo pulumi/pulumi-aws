@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewFilesAccessPoint(ctx, "example", &s3.FilesAccessPointArgs{
-//				FileSystemId: pulumi.Any(exampleAwsS3filesFileSystem.Id),
 //				PosixUsers: s3.FilesAccessPointPosixUserArray{
 //					&s3.FilesAccessPointPosixUserArgs{
 //						Gid: pulumi.Int(1001),
 //						Uid: pulumi.Int(1001),
 //					},
 //				},
+//				FileSystemId: pulumi.Any(exampleAwsS3filesFileSystem.Id),
 //			})
 //			if err != nil {
 //				return err

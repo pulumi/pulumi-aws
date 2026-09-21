@@ -24,11 +24,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["backup.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -50,14 +50,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     name: "my_example_backup_selection",
- *     planId: exampleAwsBackupPlan.id,
  *     selectionTags: [{
  *         type: "STRINGEQUALS",
  *         key: "foo",
  *         value: "bar",
  *     }],
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
  * });
  * ```
  *
@@ -68,10 +68,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.Selection("example", {
- *     iamRoleArn: exampleAwsIamRole.arn,
- *     name: "my_example_backup_selection",
- *     planId: exampleAwsBackupPlan.id,
- *     resources: ["*"],
  *     conditions: [{
  *         stringEquals: [{
  *             key: "aws:ResourceTag/Component",
@@ -90,6 +86,10 @@ import * as utilities from "../utilities";
  *             value: "test*",
  *         }],
  *     }],
+ *     iamRoleArn: exampleAwsIamRole.arn,
+ *     name: "my_example_backup_selection",
+ *     planId: exampleAwsBackupPlan.id,
+ *     resources: ["*"],
  * });
  * ```
  *
@@ -190,7 +190,7 @@ export class Selection extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      */
     declare public readonly notResources: pulumi.Output<string[]>;
     /**
@@ -202,7 +202,7 @@ export class Selection extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      */
     declare public readonly resources: pulumi.Output<string[] | undefined>;
     /**
@@ -270,7 +270,7 @@ export interface SelectionState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      */
     notResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -282,7 +282,7 @@ export interface SelectionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      */
     resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -308,7 +308,7 @@ export interface SelectionArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
      */
     notResources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -320,7 +320,7 @@ export interface SelectionArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+     * Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
      */
     resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

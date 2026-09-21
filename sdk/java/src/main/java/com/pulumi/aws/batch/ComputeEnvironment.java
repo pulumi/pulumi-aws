@@ -76,11 +76,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var ec2AssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("ec2.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -102,11 +102,11 @@ import javax.annotation.Nullable;
  * 
  *         final var batchAssumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("batch.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -122,13 +122,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sample = new SecurityGroup("sample", SecurityGroupArgs.builder()
- *             .name("aws_batch_compute_environment_security_group")
  *             .egress(SecurityGroupEgressArgs.builder()
  *                 .fromPort(0)
  *                 .toPort(0)
  *                 .protocol("-1")
  *                 .cidrBlocks("0.0.0.0/0")
  *                 .build())
+ *             .name("aws_batch_compute_environment_security_group")
  *             .build());
  * 
  *         var sampleVpc = new Vpc("sampleVpc", VpcArgs.builder()
@@ -146,7 +146,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sampleComputeEnvironment = new ComputeEnvironment("sampleComputeEnvironment", ComputeEnvironmentArgs.builder()
- *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .instanceRole(ecsInstanceRoleInstanceProfile.arn())
  *                 .instanceTypes("c4.large")
@@ -157,6 +156,7 @@ import javax.annotation.Nullable;
  *                 .subnets(sampleSubnet.id())
  *                 .type("EC2")
  *                 .build())
+ *             .name("sample")
  *             .serviceRole(awsBatchServiceRole.arn())
  *             .type("MANAGED")
  *             .build(), CustomResourceOptions.builder()
@@ -195,13 +195,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
- *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .maxVcpus(16)
  *                 .securityGroupIds(sampleAwsSecurityGroup.id())
  *                 .subnets(sampleAwsSubnet.id())
  *                 .type("FARGATE")
  *                 .build())
+ *             .name("sample")
  *             .serviceRole(awsBatchServiceRoleAwsIamRole.arn())
  *             .type("MANAGED")
  *             .build(), CustomResourceOptions.builder()
@@ -240,7 +240,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sample = new ComputeEnvironment("sample", ComputeEnvironmentArgs.builder()
- *             .name("sample")
  *             .computeResources(ComputeEnvironmentComputeResourcesArgs.builder()
  *                 .allocationStrategy("BEST_FIT_PROGRESSIVE")
  *                 .instanceRole(ecsInstance.arn())
@@ -255,6 +254,7 @@ import javax.annotation.Nullable;
  *                 .jobExecutionTimeoutMinutes(30)
  *                 .terminateJobsOnUpdate(false)
  *                 .build())
+ *             .name("sample")
  *             .type("MANAGED")
  *             .build());
  * 
@@ -269,7 +269,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the compute environment.
+ * - `arn` (String) ARN of the compute environment.
  * 
  * Using `pulumi import`, import AWS Batch compute using the `name`. For example:
  * 
@@ -281,14 +281,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:batch/computeEnvironment:ComputeEnvironment")
 public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the compute environment.
+     * ARN of the compute environment.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the compute environment.
+     * @return ARN of the compute environment.
      * 
      */
     public Output<String> arn() {
@@ -309,14 +309,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.computeResources;
     }
     /**
-     * The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     @Export(name="ecsClusterArn", refs={String.class}, tree="[0]")
     private Output<String> ecsClusterArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the underlying Amazon ECS cluster used by the compute environment.
+     * @return ARN of the underlying Amazon ECS cluster used by the compute environment.
      * 
      */
     public Output<String> ecsClusterArn() {
@@ -379,14 +379,14 @@ public class ComputeEnvironment extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
-     * @return The full Amazon Resource Name (ARN) of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
+     * @return Full ARN of the IAM role that allows AWS Batch to make calls to other AWS services on your behalf.
      * 
      */
     public Output<String> serviceRole() {

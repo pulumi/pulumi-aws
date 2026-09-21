@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * });
  * const testDestinationPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["123456789012"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["logs:PutSubscriptionFilter"],
  *         resources: [testDestination.arn],
  *     }],

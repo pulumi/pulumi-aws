@@ -47,10 +47,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) }{{@code
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
+ *             .contactId("arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());
@@ -93,10 +93,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new ContactChannel("example", ContactChannelArgs.builder()
- *             .contactId(exampleContact.arn())
  *             .deliveryAddress(ContactChannelDeliveryAddressArgs.builder()
  *                 .simpleAddress("email}{@literal @}{@code example.com")
  *                 .build())
+ *             .contactId(exampleContact.arn())
  *             .name("Example contact channel")
  *             .type("EMAIL")
  *             .build());
@@ -112,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the contact channel.
+ * - `arn` (String) ARN of the contact channel.
  * 
  * Using `pulumi import`, import SSM Contact Channel using the `arn`. For example:
  * 
@@ -138,28 +138,28 @@ public class ContactChannel extends com.pulumi.resources.CustomResource {
         return this.activationStatus;
     }
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
+     * @return ARN of the contact channel.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     @Export(name="contactId", refs={String.class}, tree="[0]")
     private Output<String> contactId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     public Output<String> contactId() {

@@ -63,7 +63,7 @@ type LookupMultiRegionAccessPointResult struct {
 	AccountId string `pulumi:"accountId"`
 	// Alias for the Multi-Region Access Point.
 	Alias string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+	// ARN of the Multi-Region Access Point.
 	Arn string `pulumi:"arn"`
 	// Timestamp when the resource has been created.
 	CreatedAt string `pulumi:"createdAt"`
@@ -83,12 +83,8 @@ type LookupMultiRegionAccessPointResult struct {
 }
 
 func LookupMultiRegionAccessPointOutput(ctx *pulumi.Context, args LookupMultiRegionAccessPointOutputArgs, opts ...pulumi.InvokeOption) LookupMultiRegionAccessPointResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupMultiRegionAccessPointResultOutput, error) {
-			args := v.(LookupMultiRegionAccessPointArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, LookupMultiRegionAccessPointResultOutput{}, options).(LookupMultiRegionAccessPointResultOutput), nil
-		}).(LookupMultiRegionAccessPointResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3control/getMultiRegionAccessPoint:getMultiRegionAccessPoint", args, LookupMultiRegionAccessPointResultOutput{}, options).(LookupMultiRegionAccessPointResultOutput)
 }
 
 // A collection of arguments for invoking getMultiRegionAccessPoint.
@@ -129,7 +125,7 @@ func (o LookupMultiRegionAccessPointResultOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+// ARN of the Multi-Region Access Point.
 func (o LookupMultiRegionAccessPointResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupMultiRegionAccessPointResult) string { return v.Arn }).(pulumi.StringOutput)
 }

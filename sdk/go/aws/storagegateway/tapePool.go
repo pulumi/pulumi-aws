@@ -43,7 +43,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.TapePool` using the volume Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.TapePool` using the volume ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/tapePool:TapePool example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678
@@ -51,7 +51,7 @@ import (
 type TapePool struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+	// Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringOutput `pulumi:"poolName"`
@@ -105,7 +105,7 @@ func GetTapePool(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TapePool resources.
 type tapePoolState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+	// Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
 	Arn *string `pulumi:"arn"`
 	// The name of the new custom tape pool.
 	PoolName *string `pulumi:"poolName"`
@@ -124,7 +124,7 @@ type tapePoolState struct {
 }
 
 type TapePoolState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+	// Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
 	Arn pulumi.StringPtrInput
 	// The name of the new custom tape pool.
 	PoolName pulumi.StringPtrInput
@@ -264,7 +264,7 @@ func (o TapePoolOutput) ToTapePoolOutputWithContext(ctx context.Context) TapePoo
 	return o
 }
 
-// Volume Amazon Resource Name (ARN), e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
+// Volume ARN, e.g., `aws_storagegateway_tape_pool.example arn:aws:storagegateway:us-east-1:123456789012:tapepool/pool-12345678`.
 func (o TapePoolOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *TapePool) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

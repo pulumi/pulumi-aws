@@ -31,17 +31,17 @@ import (
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
 // _, err := ecs.GetTaskExecution(ctx, &ecs.GetTaskExecutionArgs{
-// Cluster: exampleAwsEcsCluster.Id,
-// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
-// DesiredCount: pulumi.IntRef(1),
-// LaunchType: pulumi.StringRef("FARGATE"),
 // NetworkConfiguration: ecs.GetTaskExecutionNetworkConfiguration{
-// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:6,22-44)),
+// Subnets: pulumi.StringArray(%!v(PANIC=Format method: fatal: A failure has occurred: unlowered splat expression @ example.pp:2,22-44)),
 // SecurityGroups: pulumi.StringArray{
 // exampleAwsSecurityGroup.Id,
 // },
 // AssignPublicIp: pulumi.BoolRef(false),
 // },
+// Cluster: exampleAwsEcsCluster.Id,
+// TaskDefinition: exampleAwsEcsTaskDefinition.Arn,
+// DesiredCount: pulumi.IntRef(1),
+// LaunchType: pulumi.StringRef("FARGATE"),
 // }, nil);
 // if err != nil {
 // return err
@@ -66,7 +66,7 @@ type GetTaskExecutionArgs struct {
 	CapacityProviderStrategies []GetTaskExecutionCapacityProviderStrategy `pulumi:"capacityProviderStrategies"`
 	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken *string `pulumi:"clientToken"`
-	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+	// Short name or full ARN of the cluster to run the task on.
 	Cluster string `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount *int `pulumi:"desiredCount"`
@@ -132,12 +132,8 @@ type GetTaskExecutionResult struct {
 }
 
 func GetTaskExecutionOutput(ctx *pulumi.Context, args GetTaskExecutionOutputArgs, opts ...pulumi.InvokeOption) GetTaskExecutionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetTaskExecutionResultOutput, error) {
-			args := v.(GetTaskExecutionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecs/getTaskExecution:getTaskExecution", args, GetTaskExecutionResultOutput{}, options).(GetTaskExecutionResultOutput), nil
-		}).(GetTaskExecutionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecs/getTaskExecution:getTaskExecution", args, GetTaskExecutionResultOutput{}, options).(GetTaskExecutionResultOutput)
 }
 
 // A collection of arguments for invoking getTaskExecution.
@@ -146,7 +142,7 @@ type GetTaskExecutionOutputArgs struct {
 	CapacityProviderStrategies GetTaskExecutionCapacityProviderStrategyArrayInput `pulumi:"capacityProviderStrategies"`
 	// Identifier that you provide to ensure the idempotency of the request. It must be unique and is case sensitive. Up to 64 characters are allowed. The valid characters are characters in the range of 33-126, inclusive. For more information, see [Ensuring idempotency](https://docs.aws.amazon.com/AmazonECS/latest/APIReference/ECS_Idempotency.html).
 	ClientToken pulumi.StringPtrInput `pulumi:"clientToken"`
-	// Short name or full Amazon Resource Name (ARN) of the cluster to run the task on.
+	// Short name or full ARN of the cluster to run the task on.
 	Cluster pulumi.StringInput `pulumi:"cluster"`
 	// Number of instantiations of the specified task to place on your cluster. You can specify up to 10 tasks for each call.
 	DesiredCount pulumi.IntPtrInput `pulumi:"desiredCount"`

@@ -223,7 +223,7 @@ class _DataSourceState:
         """
         Input properties used for looking up and filtering DataSource resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data source
+        :param pulumi.Input[_builtins.str] arn: ARN of the data source
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input['DataSourceCredentialsArgs'] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
@@ -270,7 +270,7 @@ class _DataSourceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the data source
+        ARN of the data source
         """
         return pulumi.get(self, "arn")
 
@@ -455,8 +455,6 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -465,6 +463,8 @@ class DataSource(pulumi.CustomResource):
                     },
                 },
             },
+            data_source_id="example-id",
+            name="My Cool Data in S3",
             type="S3")
         ```
 
@@ -536,8 +536,6 @@ class DataSource(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -547,6 +545,8 @@ class DataSource(pulumi.CustomResource):
                     "role_arn": example_role.arn,
                 },
             },
+            data_source_id="example-id",
+            name="manifest in S3",
             type="S3")
         ```
 
@@ -593,8 +593,6 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.quicksight.DataSource("default",
-            data_source_id="example-id",
-            name="My Cool Data in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -603,6 +601,8 @@ class DataSource(pulumi.CustomResource):
                     },
                 },
             },
+            data_source_id="example-id",
+            name="My Cool Data in S3",
             type="S3")
         ```
 
@@ -674,8 +674,6 @@ class DataSource(pulumi.CustomResource):
             policy_arn=example_policy.arn,
             role=example_role.name)
         example_data_source = aws.quicksight.DataSource("example",
-            data_source_id="example-id",
-            name="manifest in S3",
             parameters={
                 "s3": {
                     "manifest_file_location": {
@@ -685,6 +683,8 @@ class DataSource(pulumi.CustomResource):
                     "role_arn": example_role.arn,
                 },
             },
+            data_source_id="example-id",
+            name="manifest in S3",
             type="S3")
         ```
 
@@ -781,7 +781,7 @@ class DataSource(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data source
+        :param pulumi.Input[_builtins.str] arn: ARN of the data source
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Union['DataSourceCredentialsArgs', 'DataSourceCredentialsArgsDict']] credentials: The credentials Amazon QuickSight uses to connect to your underlying source. See Credentials below for more details.
         :param pulumi.Input[_builtins.str] data_source_id: An identifier for the data source.
@@ -820,7 +820,7 @@ class DataSource(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the data source
+        ARN of the data source
         """
         return pulumi.get(self, "arn")
 

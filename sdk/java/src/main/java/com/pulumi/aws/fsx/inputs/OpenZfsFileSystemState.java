@@ -23,14 +23,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     public static final OpenZfsFileSystemState Empty = new OpenZfsFileSystemState();
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -353,14 +353,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     @Import(name="routeTableIds")
     private @Nullable Output<List<String>> routeTableIds;
 
     /**
-     * @return (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+     * @return (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
      * 
      */
     public Optional<Output<List<String>>> routeTableIds() {
@@ -492,14 +492,14 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -578,7 +578,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -589,7 +589,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name of the file system.
+         * @param arn ARN of the file system.
          * 
          * @return builder
          * 
@@ -1060,7 +1060,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -1071,7 +1071,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -1081,7 +1081,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all virtual private cloud (VPC) route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
+         * @param routeTableIds (Multi-AZ only) Specifies the route tables in which Amazon FSx creates the rules for routing traffic to the correct file server. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC&#39;s default route table.
          * 
          * @return builder
          * 
@@ -1283,7 +1283,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 
@@ -1294,7 +1294,7 @@ public final class OpenZfsFileSystemState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param vpcId Identifier of the Virtual Private Cloud for the file system.
+         * @param vpcId Identifier of the VPC for the file system.
          * 
          * @return builder
          * 

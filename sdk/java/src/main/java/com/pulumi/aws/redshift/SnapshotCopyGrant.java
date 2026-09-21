@@ -74,28 +74,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/snapshotCopyGrant:SnapshotCopyGrant")
 public class SnapshotCopyGrant extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of snapshot copy grant
+     * ARN of snapshot copy grant
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of snapshot copy grant
+     * @return ARN of snapshot copy grant
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
+     * @return Unique identifier for the customer master key (CMK) that the grant applies to. Specify the key ID or the ARN of the CMK. To specify a CMK in a different AWS account, you must use the key ARN. If not specified, the default key is used.
      * 
      */
     public Output<String> kmsKeyId() {

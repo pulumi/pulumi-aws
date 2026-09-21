@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ebs/snapshot:Snapshot")
 public class Snapshot extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the EBS Snapshot.
+     * ARN of the EBS Snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EBS Snapshot.
+     * @return ARN of the EBS Snapshot.
      * 
      */
     public Output<String> arn() {
@@ -144,14 +144,14 @@ public class Snapshot extends com.pulumi.resources.CustomResource {
         return this.kmsKeyId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * ARN of the Outpost on which to create a local snapshot.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost on which to create a local snapshot.
+     * @return ARN of the Outpost on which to create a local snapshot.
      * 
      */
     public Output<Optional<String>> outpostArn() {

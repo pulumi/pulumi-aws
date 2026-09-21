@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.fsx.getOpenZfsSnapshot({
- *     mostRecent: true,
  *     filters: [{
  *         name: "volume-id",
  *         values: ["fsvol-073a32b6098a73feb"],
  *     }],
+ *     mostRecent: true,
  * });
  * ```
  */
@@ -75,7 +75,7 @@ export interface GetOpenZfsSnapshotArgs {
  */
 export interface GetOpenZfsSnapshotResult {
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      */
     readonly arn: string;
     /**
@@ -119,11 +119,11 @@ export interface GetOpenZfsSnapshotResult {
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.fsx.getOpenZfsSnapshot({
- *     mostRecent: true,
  *     filters: [{
  *         name: "volume-id",
  *         values: ["fsvol-073a32b6098a73feb"],
  *     }],
+ *     mostRecent: true,
  * });
  * ```
  */

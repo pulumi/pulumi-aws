@@ -5,20 +5,29 @@ package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs();
 
-    @Import(name="resourceConfigurationIdentifier", required=true)
-    private Output<String> resourceConfigurationIdentifier;
+    /**
+     * Identifier of the VPC Lattice resource configuration.
+     * 
+     */
+    @Import(name="resourceConfigurationIdentifier")
+    private @Nullable Output<String> resourceConfigurationIdentifier;
 
-    public Output<String> resourceConfigurationIdentifier() {
-        return this.resourceConfigurationIdentifier;
+    /**
+     * @return Identifier of the VPC Lattice resource configuration.
+     * 
+     */
+    public Optional<Output<String>> resourceConfigurationIdentifier() {
+        return Optional.ofNullable(this.resourceConfigurationIdentifier);
     }
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs() {}
@@ -45,19 +54,28 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPr
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder resourceConfigurationIdentifier(Output<String> resourceConfigurationIdentifier) {
+        /**
+         * @param resourceConfigurationIdentifier Identifier of the VPC Lattice resource configuration.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder resourceConfigurationIdentifier(@Nullable Output<String> resourceConfigurationIdentifier) {
             $.resourceConfigurationIdentifier = resourceConfigurationIdentifier;
             return this;
         }
 
+        /**
+         * @param resourceConfigurationIdentifier Identifier of the VPC Lattice resource configuration.
+         * 
+         * @return builder
+         * 
+         */
         public Builder resourceConfigurationIdentifier(String resourceConfigurationIdentifier) {
             return resourceConfigurationIdentifier(Output.of(resourceConfigurationIdentifier));
         }
 
         public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs build() {
-            if ($.resourceConfigurationIdentifier == null) {
-                throw new MissingRequiredPropertyException("AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs", "resourceConfigurationIdentifier");
-            }
             return $;
         }
     }

@@ -110,14 +110,14 @@ public class TopicRuleDestination extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
     @Export(name="vpcConfiguration", refs={TopicRuleDestinationVpcConfiguration.class}, tree="[0]")
     private Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration;
 
     /**
-     * @return Configuration of the virtual private cloud (VPC) connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
+     * @return Configuration of the VPC connection. For more info, see the [AWS documentation](https://docs.aws.amazon.com/iot/latest/developerguide/vpc-rule-action.html).
      * 
      */
     public Output<TopicRuleDestinationVpcConfiguration> vpcConfiguration() {

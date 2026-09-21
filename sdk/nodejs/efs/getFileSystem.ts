@@ -66,7 +66,7 @@ export interface GetFileSystemArgs {
  */
 export interface GetFileSystemResult {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     readonly arn: string;
     /**

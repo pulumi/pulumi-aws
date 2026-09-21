@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Lex.Outputs
         /// </summary>
         public readonly string MessageVersion;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Lambda function.
+        /// ARN of the Lambda function.
         /// </summary>
         public readonly string Uri;
 

@@ -8,7 +8,7 @@ Backport of hashicorp/terraform-provider-aws#48280.
 
 diff --git a/.changelog/48280.txt b/.changelog/48280.txt
 new file mode 100644
-index 00000000000..625502fcbcf
+index 000000000000..625502fcbcfc
 --- /dev/null
 +++ b/.changelog/48280.txt
 @@ -0,0 +1,3 @@
@@ -16,7 +16,7 @@ index 00000000000..625502fcbcf
 +resource/aws_wafv2_web_acl_rule: Fix `scope_down_statement` not supporting logical statements (`and_statement`, `not_statement`, `or_statement`)
 +```
 diff --git a/internal/service/wafv2/web_acl_rule.go b/internal/service/wafv2/web_acl_rule.go
-index f56046b8a3c..86bfd0302b2 100644
+index f56046b8a3c6..86bfd0302b2c 100644
 --- a/internal/service/wafv2/web_acl_rule.go
 +++ b/internal/service/wafv2/web_acl_rule.go
 @@ -1637,7 +1637,48 @@ type webACLRuleRuleActionOverrideModel struct {
@@ -159,7 +159,7 @@ index f56046b8a3c..86bfd0302b2 100644
  		var stmt awstypes.IPSetReferenceStatement
  		diags.Append(flex.Expand(ctx, m.IPSetReferenceStatement, &stmt)...)
 diff --git a/internal/service/wafv2/web_acl_rule_blocks.go b/internal/service/wafv2/web_acl_rule_blocks.go
-index b8b27e6f458..c212f02dfe8 100644
+index b8b27e6f458d..c212f02dfe89 100644
 --- a/internal/service/wafv2/web_acl_rule_blocks.go
 +++ b/internal/service/wafv2/web_acl_rule_blocks.go
 @@ -879,24 +879,109 @@ var ruleActionOverrideBlock = tfsync.OnceValueCtx(func(ctx context.Context) sche
@@ -285,7 +285,7 @@ index b8b27e6f458..c212f02dfe8 100644
  	}
  })
 diff --git a/internal/service/wafv2/web_acl_rule_statement_models.gtpl b/internal/service/wafv2/web_acl_rule_statement_models.gtpl
-index 9d0f787ad63..619c2a835ee 100644
+index 9d0f787ad636..619c2a835ee3 100644
 --- a/internal/service/wafv2/web_acl_rule_statement_models.gtpl
 +++ b/internal/service/wafv2/web_acl_rule_statement_models.gtpl
 @@ -30,10 +30,12 @@ type webACLRuleStatementLevel{{.}}Model struct {
@@ -342,7 +342,7 @@ index 9d0f787ad63..619c2a835ee 100644
  		"sqli_match_statement":                  sqliMatchStatementBlock(ctx),
  		"xss_match_statement":                   xssMatchStatementBlock(ctx),
 diff --git a/internal/service/wafv2/web_acl_rule_statement_models_gen.go b/internal/service/wafv2/web_acl_rule_statement_models_gen.go
-index 812eba8c8df..9f40ce0246c 100644
+index 812eba8c8df4..9f40ce0246c1 100644
 --- a/internal/service/wafv2/web_acl_rule_statement_models_gen.go
 +++ b/internal/service/wafv2/web_acl_rule_statement_models_gen.go
 @@ -24,10 +24,7 @@ const StatementModelMaxLevel = 3
@@ -508,7 +508,7 @@ index 812eba8c8df..9f40ce0246c 100644
  		"sqli_match_statement":                  sqliMatchStatementBlock(ctx),
  		"xss_match_statement":                   xssMatchStatementBlock(ctx),
 diff --git a/internal/service/wafv2/web_acl_rule_test.go b/internal/service/wafv2/web_acl_rule_test.go
-index b5a5cc6584c..d25bbdd921a 100644
+index b5a5cc6584c1..d25bbdd921a4 100644
 --- a/internal/service/wafv2/web_acl_rule_test.go
 +++ b/internal/service/wafv2/web_acl_rule_test.go
 @@ -379,6 +379,37 @@ func TestAccWAFV2WebACLRule_sizeConstraintStatement(t *testing.T) {
@@ -630,7 +630,7 @@ index b5a5cc6584c..d25bbdd921a 100644
  	return fmt.Sprintf(`
  resource "aws_wafv2_web_acl" "test" {
 diff --git a/website/docs/r/wafv2_web_acl_rule.html.markdown b/website/docs/r/wafv2_web_acl_rule.html.markdown
-index a4520b7fbce..31aafaaa4b2 100644
+index a4520b7fbce9..31aafaaa4b21 100644
 --- a/website/docs/r/wafv2_web_acl_rule.html.markdown
 +++ b/website/docs/r/wafv2_web_acl_rule.html.markdown
 @@ -747,16 +747,21 @@ Exactly one of the following must be specified:

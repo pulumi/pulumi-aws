@@ -31,14 +31,14 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * Owner account ID of the VPC for a configuration for DNSSEC validation.
      * 
      */
     @Import(name="ownerId")
     private @Nullable Output<String> ownerId;
 
     /**
-     * @return The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * @return Owner account ID of the VPC for a configuration for DNSSEC validation.
      * 
      */
     public Optional<Output<String>> ownerId() {
@@ -61,14 +61,14 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
     }
 
     /**
-     * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+     * ID of the VPC that you&#39;re updating the DNSSEC validation status for.
      * 
      */
     @Import(name="resourceId")
     private @Nullable Output<String> resourceId;
 
     /**
-     * @return The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+     * @return ID of the VPC that you&#39;re updating the DNSSEC validation status for.
      * 
      */
     public Optional<Output<String>> resourceId() {
@@ -140,7 +140,7 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ownerId The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+         * @param ownerId Owner account ID of the VPC for a configuration for DNSSEC validation.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param ownerId The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+         * @param ownerId Owner account ID of the VPC for a configuration for DNSSEC validation.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceId The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+         * @param resourceId ID of the VPC that you&#39;re updating the DNSSEC validation status for.
          * 
          * @return builder
          * 
@@ -193,7 +193,7 @@ public final class ResolverDnsSecConfigState extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param resourceId The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+         * @param resourceId ID of the VPC that you&#39;re updating the DNSSEC validation status for.
          * 
          * @return builder
          * 

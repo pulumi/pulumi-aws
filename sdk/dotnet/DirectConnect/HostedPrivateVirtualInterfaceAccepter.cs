@@ -82,6 +82,18 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string?> DxGatewayId { get; private set; } = null!;
 
         /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Output("prefixPoolAllocatedCountIpv4")]
+        public Output<int> PrefixPoolAllocatedCountIpv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Output("prefixPoolAllocatedCountIpv6")]
+        public Output<int> PrefixPoolAllocatedCountIpv6 { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -164,6 +176,18 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? DxGatewayId { get; set; }
 
         /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv4")]
+        public Input<int>? PrefixPoolAllocatedCountIpv4 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv6")]
+        public Input<int>? PrefixPoolAllocatedCountIpv6 { get; set; }
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Input("region")]
@@ -212,6 +236,18 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("dxGatewayId")]
         public Input<string>? DxGatewayId { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv4")]
+        public Input<int>? PrefixPoolAllocatedCountIpv4 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv6")]
+        public Input<int>? PrefixPoolAllocatedCountIpv6 { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

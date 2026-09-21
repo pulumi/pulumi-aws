@@ -18,14 +18,14 @@ public final class AccessEntryState extends com.pulumi.resources.ResourceArgs {
     public static final AccessEntryState Empty = new AccessEntryState();
 
     /**
-     * Amazon Resource Name (ARN) of the Access Entry.
+     * ARN of the Access Entry.
      * 
      */
     @Import(name="accessEntryArn")
     private @Nullable Output<String> accessEntryArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Access Entry.
+     * @return ARN of the Access Entry.
      * 
      */
     public Optional<Output<String>> accessEntryArn() {
@@ -221,7 +221,7 @@ public final class AccessEntryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEntryArn Amazon Resource Name (ARN) of the Access Entry.
+         * @param accessEntryArn ARN of the Access Entry.
          * 
          * @return builder
          * 
@@ -232,7 +232,7 @@ public final class AccessEntryState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param accessEntryArn Amazon Resource Name (ARN) of the Access Entry.
+         * @param accessEntryArn ARN of the Access Entry.
          * 
          * @return builder
          * 

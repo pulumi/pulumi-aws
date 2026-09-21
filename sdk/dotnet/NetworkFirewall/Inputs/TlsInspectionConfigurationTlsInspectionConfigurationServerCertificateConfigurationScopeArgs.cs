@@ -40,7 +40,7 @@ namespace Pulumi.Aws.NetworkFirewall.Inputs
         private InputList<int>? _protocols;
 
         /// <summary>
-        /// Set of protocols to inspect for, specified using the protocol's assigned internet protocol number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
+        /// Set of protocols to inspect for, specified using the protocol's assigned IP number (IANA). Network Firewall currently supports TCP only. Valid values: `6`
         /// </summary>
         public InputList<int> Protocols
         {

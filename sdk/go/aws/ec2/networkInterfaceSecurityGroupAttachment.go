@@ -44,7 +44,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			ami, err := ec2.LookupAmi(ctx, &ec2.LookupAmiArgs{
-//				MostRecent: pulumi.BoolRef(true),
 //				Filters: []ec2.GetAmiFilter{
 //					{
 //						Name: "name",
@@ -53,6 +52,7 @@ import (
 //						},
 //					},
 //				},
+//				MostRecent: pulumi.BoolRef(true),
 //				Owners: []string{
 //					"amazon",
 //				},

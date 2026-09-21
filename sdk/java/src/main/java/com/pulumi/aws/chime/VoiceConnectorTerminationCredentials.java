@@ -66,11 +66,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var defaultVoiceConnectorTerminationCredentials = new VoiceConnectorTerminationCredentials("defaultVoiceConnectorTerminationCredentials", VoiceConnectorTerminationCredentialsArgs.builder()
- *             .voiceConnectorId(default_.id())
  *             .credentials(VoiceConnectorTerminationCredentialsCredentialArgs.builder()
  *                 .username("test")
  *                 .password("test!")
  *                 .build())
+ *             .voiceConnectorId(default_.id())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(defaultVoiceConnectorTermination)
  *                 .build());

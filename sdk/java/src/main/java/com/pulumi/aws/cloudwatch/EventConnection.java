@@ -48,15 +48,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("API_KEY")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .apiKey(EventConnectionAuthParametersApiKeyArgs.builder()
  *                     .key("x-signature")
  *                     .value("1234")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("API_KEY")
  *             .build());
  * 
  *     }
@@ -91,15 +91,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
  *                     .password("Pass1234!")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .build());
  * 
  *     }
@@ -139,13 +139,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint("https://auth.url.com/endpoint")
- *                     .httpMethod("GET")
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
  *                         .clientId("1234567890")
  *                         .clientSecret("Pass1234!")
@@ -167,8 +162,13 @@ import javax.annotation.Nullable;
  *                             .isValueSecret(false)
  *                             .build())
  *                         .build())
+ *                     .authorizationEndpoint("https://auth.url.com/endpoint")
+ *                     .httpMethod("GET")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .build());
  * 
  *     }
@@ -207,9 +207,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
@@ -239,6 +236,9 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .build());
  * 
  *     }
@@ -278,9 +278,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new EventConnection("test", EventConnectionArgs.builder()
- *             .name("private-api-connection")
- *             .description("A connection to a private API")
- *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .connectivityParameters(EventConnectionAuthParametersConnectivityParametersArgs.builder()
  *                     .resourceParameters(EventConnectionAuthParametersConnectivityParametersResourceParametersArgs.builder()
@@ -288,8 +285,6 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .oauth(EventConnectionAuthParametersOauthArgs.builder()
- *                     .authorizationEndpoint("https://private-api.example.com/auth")
- *                     .httpMethod("POST")
  *                     .clientParameters(EventConnectionAuthParametersOauthClientParametersArgs.builder()
  *                         .clientId("1234567890")
  *                         .clientSecret("Pass1234!")
@@ -301,8 +296,13 @@ import javax.annotation.Nullable;
  *                             .isValueSecret(false)
  *                             .build())
  *                         .build())
+ *                     .authorizationEndpoint("https://private-api.example.com/auth")
+ *                     .httpMethod("POST")
  *                     .build())
  *                 .build())
+ *             .name("private-api-connection")
+ *             .description("A connection to a private API")
+ *             .authorizationType("OAUTH_CLIENT_CREDENTIALS")
  *             .build());
  * 
  *     }
@@ -389,15 +389,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testEventConnection = new EventConnection("testEventConnection", EventConnectionArgs.builder()
- *             .name("ngrok-connection")
- *             .description("A connection description")
- *             .authorizationType("BASIC")
  *             .authParameters(EventConnectionAuthParametersArgs.builder()
  *                 .basic(EventConnectionAuthParametersBasicArgs.builder()
  *                     .username("user")
  *                     .password("Pass1234!")
  *                     .build())
  *                 .build())
+ *             .name("ngrok-connection")
+ *             .description("A connection description")
+ *             .authorizationType("BASIC")
  *             .kmsKeyIdentifier(example.id())
  *             .build());
  * 
@@ -429,14 +429,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:cloudwatch/eventConnection:EventConnection")
 public class EventConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the connection.
+     * ARN of the connection.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the connection.
+     * @return ARN of the connection.
      * 
      */
     public Output<String> arn() {
@@ -499,14 +499,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.invocationConnectivityParameters);
     }
     /**
-     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      * 
      */
     @Export(name="kmsKeyIdentifier", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKeyIdentifier;
 
     /**
-     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+     * @return Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this connection. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
      * 
      */
     public Output<Optional<String>> kmsKeyIdentifier() {
@@ -541,14 +541,14 @@ public class EventConnection extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     @Export(name="secretArn", refs={String.class}, tree="[0]")
     private Output<String> secretArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the secret created from the authorization parameters specified for the connection.
+     * @return ARN of the secret created from the authorization parameters specified for the connection.
      * 
      */
     public Output<String> secretArn() {

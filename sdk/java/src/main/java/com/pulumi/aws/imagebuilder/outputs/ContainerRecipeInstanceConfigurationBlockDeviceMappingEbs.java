@@ -28,7 +28,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
      */
     private @Nullable Integer iops;
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return ARN of the KMS Key for encryption.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -76,7 +76,7 @@ public final class ContainerRecipeInstanceConfigurationBlockDeviceMappingEbs {
         return Optional.ofNullable(this.iops);
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key for encryption.
+     * @return ARN of the KMS Key for encryption.
      * 
      */
     public Optional<String> kmsKeyId() {

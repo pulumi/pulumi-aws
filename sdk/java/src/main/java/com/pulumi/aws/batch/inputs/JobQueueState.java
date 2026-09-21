@@ -22,14 +22,14 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
     public static final JobQueueState Empty = new JobQueueState();
 
     /**
-     * The Amazon Resource Name of the job queue.
+     * ARN of the job queue.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the job queue.
+     * @return ARN of the job queue.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -215,7 +215,7 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job queue.
+         * @param arn ARN of the job queue.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class JobQueueState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of the job queue.
+         * @param arn ARN of the job queue.
          * 
          * @return builder
          * 

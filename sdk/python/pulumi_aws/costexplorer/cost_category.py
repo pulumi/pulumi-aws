@@ -338,11 +338,8 @@ class CostCategory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
-            name="NAME",
-            rule_version="CostCategoryExpression.v1",
             rules=[
                 {
-                    "value": "production",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -350,9 +347,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "production",
                 },
                 {
-                    "value": "staging",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -360,9 +357,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "staging",
                 },
                 {
-                    "value": "testing",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -370,8 +367,11 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "testing",
                 },
-            ])
+            ],
+            name="NAME",
+            rule_version="CostCategoryExpression.v1")
         ```
 
         ## Import
@@ -380,7 +380,7 @@ class CostCategory(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+        - `arn` (String) ARN of the Cost Explorer cost category.
 
         Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 
@@ -417,11 +417,8 @@ class CostCategory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.costexplorer.CostCategory("test",
-            name="NAME",
-            rule_version="CostCategoryExpression.v1",
             rules=[
                 {
-                    "value": "production",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -429,9 +426,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "production",
                 },
                 {
-                    "value": "staging",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -439,9 +436,9 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "staging",
                 },
                 {
-                    "value": "testing",
                     "rule": {
                         "dimension": {
                             "key": "LINKED_ACCOUNT_NAME",
@@ -449,8 +446,11 @@ class CostCategory(pulumi.CustomResource):
                             "match_options": ["ENDS_WITH"],
                         },
                     },
+                    "value": "testing",
                 },
-            ])
+            ],
+            name="NAME",
+            rule_version="CostCategoryExpression.v1")
         ```
 
         ## Import
@@ -459,7 +459,7 @@ class CostCategory(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer cost category.
+        - `arn` (String) ARN of the Cost Explorer cost category.
 
         Using `pulumi import`, import `costexplorer.CostCategory` using the id. For example:
 

@@ -141,11 +141,6 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
-    ///         Enrichment = exampleAwsCloudwatchEventApiDestination.Arn,
     ///         EnrichmentParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersArgs
     ///         {
     ///             HttpParameters = new Aws.Pipes.Inputs.PipeEnrichmentParametersHttpParametersArgs
@@ -163,6 +158,11 @@ namespace Pulumi.Aws.Pipes
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
+    ///         Enrichment = exampleAwsCloudwatchEventApiDestination.Arn,
     ///     });
     /// 
     /// });
@@ -181,10 +181,6 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
     ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
     ///         {
     ///             FilterCriteria = new Aws.Pipes.Inputs.PipeSourceParametersFilterCriteriaArgs
@@ -204,6 +200,10 @@ namespace Pulumi.Aws.Pipes
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
     ///     });
     /// 
     /// });
@@ -226,22 +226,22 @@ namespace Pulumi.Aws.Pipes
     /// 
     ///     var examplePipe = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = sourceAwsSqsQueue.Arn,
-    ///         Target = targetAwsSqsQueue.Arn,
     ///         LogConfiguration = new Aws.Pipes.Inputs.PipeLogConfigurationArgs
     ///         {
+    ///             CloudwatchLogsLogDestination = new Aws.Pipes.Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs
+    ///             {
+    ///                 LogGroupArn = targetAwsCloudwatchLogGroup.Arn,
+    ///             },
     ///             IncludeExecutionDatas = new[]
     ///             {
     ///                 "ALL",
     ///             },
     ///             Level = "INFO",
-    ///             CloudwatchLogsLogDestination = new Aws.Pipes.Inputs.PipeLogConfigurationCloudwatchLogsLogDestinationArgs
-    ///             {
-    ///                 LogGroupArn = targetAwsCloudwatchLogGroup.Arn,
-    ///             },
     ///         },
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = sourceAwsSqsQueue.Arn,
+    ///         Target = targetAwsSqsQueue.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -266,10 +266,6 @@ namespace Pulumi.Aws.Pipes
     /// {
     ///     var example = new Aws.Pipes.Pipe("example", new()
     ///     {
-    ///         Name = "example-pipe",
-    ///         RoleArn = exampleAwsIamRole.Arn,
-    ///         Source = source.Arn,
-    ///         Target = target.Arn,
     ///         SourceParameters = new Aws.Pipes.Inputs.PipeSourceParametersArgs
     ///         {
     ///             SqsQueueParameters = new Aws.Pipes.Inputs.PipeSourceParametersSqsQueueParametersArgs
@@ -286,6 +282,10 @@ namespace Pulumi.Aws.Pipes
     ///                 MessageGroupId = "example-group",
     ///             },
     ///         },
+    ///         Name = "example-pipe",
+    ///         RoleArn = exampleAwsIamRole.Arn,
+    ///         Source = source.Arn,
+    ///         Target = target.Arn,
     ///     });
     /// 
     /// });
@@ -333,7 +333,7 @@ namespace Pulumi.Aws.Pipes
         public Output<Outputs.PipeEnrichmentParameters?> EnrichmentParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
         [Output("kmsKeyIdentifier")]
         public Output<string?> KmsKeyIdentifier { get; private set; } = null!;
@@ -369,7 +369,7 @@ namespace Pulumi.Aws.Pipes
         public Output<string> RoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -477,7 +477,7 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeEnrichmentParametersArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -513,7 +513,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string> RoleArn { get; set; } = null!;
 
         /// <summary>
-        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         [Input("source", required: true)]
         public Input<string> Source { get; set; } = null!;
@@ -589,7 +589,7 @@ namespace Pulumi.Aws.Pipes
         public Input<Inputs.PipeEnrichmentParametersGetArgs>? EnrichmentParameters { get; set; }
 
         /// <summary>
-        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        /// Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         /// </summary>
         [Input("kmsKeyIdentifier")]
         public Input<string>? KmsKeyIdentifier { get; set; }
@@ -625,7 +625,7 @@ namespace Pulumi.Aws.Pipes
         public Input<string>? RoleArn { get; set; }
 
         /// <summary>
-        /// Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        /// Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

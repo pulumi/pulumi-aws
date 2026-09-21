@@ -19,14 +19,14 @@ public final class SnapshotScheduleState extends com.pulumi.resources.ResourceAr
     public static final SnapshotScheduleState Empty = new SnapshotScheduleState();
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * ARN of the Redshift Snapshot Schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * @return ARN of the Redshift Snapshot Schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -188,7 +188,7 @@ public final class SnapshotScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+         * @param arn ARN of the Redshift Snapshot Schedule.
          * 
          * @return builder
          * 
@@ -199,7 +199,7 @@ public final class SnapshotScheduleState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+         * @param arn ARN of the Redshift Snapshot Schedule.
          * 
          * @return builder
          * 

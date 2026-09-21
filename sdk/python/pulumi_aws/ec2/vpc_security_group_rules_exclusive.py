@@ -171,7 +171,7 @@ class VpcSecurityGroupRulesExclusive(pulumi.CustomResource):
                  security_group_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+        Resource for managing an exclusive set of AWS VPC Security Group Rules.
 
         This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
 
@@ -248,7 +248,7 @@ class VpcSecurityGroupRulesExclusive(pulumi.CustomResource):
                  args: VpcSecurityGroupRulesExclusiveArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an exclusive set of AWS VPC (Virtual Private Cloud) Security Group Rules.
+        Resource for managing an exclusive set of AWS VPC Security Group Rules.
 
         This resource manages the complete set of ingress and egress rules assigned to a security group. It provides exclusive control by removing any rules not explicitly defined in the configuration.
 

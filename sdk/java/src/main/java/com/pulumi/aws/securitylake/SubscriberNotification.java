@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .sqsNotificationConfiguration(SubscriberNotificationConfigurationSqsNotificationConfigurationArgs.builder()
  *                     .build())
  *                 .build())
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .build());
  * 
  *     }
@@ -85,13 +85,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriberNotification("example", SubscriberNotificationArgs.builder()
- *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .configuration(SubscriberNotificationConfigurationArgs.builder()
  *                 .httpsNotificationConfiguration(SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs.builder()
  *                     .endpoint(test.apiEndpoint())
  *                     .targetRoleArn(eventBridge.arn())
  *                     .build())
  *                 .build())
+ *             .subscriberId(exampleAwsSecuritylakeSubscriber.id())
  *             .build());
  * 
  *     }

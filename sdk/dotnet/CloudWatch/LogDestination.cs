@@ -55,7 +55,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogDestination : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log destination.
+        /// ARN specifying the log destination.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogDestinationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log destination.
+        /// ARN specifying the log destination.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

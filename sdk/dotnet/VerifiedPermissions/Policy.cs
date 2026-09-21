@@ -26,7 +26,6 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// {
     ///     var test = new Aws.VerifiedPermissions.Policy("test", new()
     ///     {
-    ///         PolicyStoreId = testAwsVerifiedpermissionsPolicyStore.Id,
     ///         Definition = new Aws.VerifiedPermissions.Inputs.PolicyDefinitionArgs
     ///         {
     ///             Static = new Aws.VerifiedPermissions.Inputs.PolicyDefinitionStaticArgs
@@ -34,6 +33,7 @@ namespace Pulumi.Aws.VerifiedPermissions
     ///                 Statement = "permit (principal, action == Action::\"view\", resource in Album:: \"test_album\");",
     ///             },
     ///         },
+    ///         PolicyStoreId = testAwsVerifiedpermissionsPolicyStore.Id,
     ///     });
     /// 
     /// });

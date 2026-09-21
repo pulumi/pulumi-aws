@@ -268,13 +268,6 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.NetworkInsightsAccessScope("example",
-            match_paths=[{
-                "source": {
-                    "resource_statement": {
-                        "resource_types": ["AWS::EC2::NetworkInterface"],
-                    },
-                },
-            }],
             exclude_paths=[{
                 "source": {
                     "resource_statement": {
@@ -286,6 +279,13 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
                         "resource_types": ["AWS::EC2::NatGateway"],
                     },
                 }],
+            }],
+            match_paths=[{
+                "source": {
+                    "resource_statement": {
+                        "resource_types": ["AWS::EC2::NetworkInterface"],
+                    },
+                },
             }])
         ```
 
@@ -362,13 +362,6 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.NetworkInsightsAccessScope("example",
-            match_paths=[{
-                "source": {
-                    "resource_statement": {
-                        "resource_types": ["AWS::EC2::NetworkInterface"],
-                    },
-                },
-            }],
             exclude_paths=[{
                 "source": {
                     "resource_statement": {
@@ -380,6 +373,13 @@ class NetworkInsightsAccessScope(pulumi.CustomResource):
                         "resource_types": ["AWS::EC2::NatGateway"],
                     },
                 }],
+            }],
+            match_paths=[{
+                "source": {
+                    "resource_statement": {
+                        "resource_types": ["AWS::EC2::NetworkInterface"],
+                    },
+                },
             }])
         ```
 

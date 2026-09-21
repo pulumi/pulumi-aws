@@ -21,7 +21,7 @@ public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurat
      */
     private Boolean enabled;
     /**
-     * @return The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+     * @return KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
      * 
      */
     private @Nullable String encryptionKeyArn;
@@ -50,7 +50,7 @@ public final class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurat
         return this.enabled;
     }
     /**
-     * @return The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+     * @return KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
      * 
      */
     public Optional<String> encryptionKeyArn() {

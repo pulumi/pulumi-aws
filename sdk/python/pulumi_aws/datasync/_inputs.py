@@ -66,11 +66,11 @@ __all__ = [
 class EfsLocationEc2ConfigArgsDict(TypedDict):
     security_group_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+    List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
     """
     subnet_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+    ARN of the EC2 Subnet that is associated with the EFS Mount Target.
     """
 
 @pulumi.input_type
@@ -79,8 +79,8 @@ class EfsLocationEc2ConfigArgs:
                  security_group_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  subnet_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
-        :param pulumi.Input[_builtins.str] subnet_arn: Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_arns: List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
+        :param pulumi.Input[_builtins.str] subnet_arn: ARN of the EC2 Subnet that is associated with the EFS Mount Target.
         """
         pulumi.set(__self__, "security_group_arns", security_group_arns)
         pulumi.set(__self__, "subnet_arn", subnet_arn)
@@ -89,7 +89,7 @@ class EfsLocationEc2ConfigArgs:
     @pulumi.getter(name="securityGroupArns")
     def security_group_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of Amazon Resource Names (ARNs) of the EC2 Security Groups that are associated with the EFS Mount Target.
+        List of ARNs of the EC2 Security Groups that are associated with the EFS Mount Target.
         """
         return pulumi.get(self, "security_group_arns")
 
@@ -101,7 +101,7 @@ class EfsLocationEc2ConfigArgs:
     @pulumi.getter(name="subnetArn")
     def subnet_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EC2 Subnet that is associated with the EFS Mount Target.
+        ARN of the EC2 Subnet that is associated with the EFS Mount Target.
         """
         return pulumi.get(self, "subnet_arn")
 
@@ -583,7 +583,7 @@ class NfsLocationMountOptionsArgs:
 class NfsLocationOnPremConfigArgsDict(TypedDict):
     agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+    List of ARNs of the DataSync Agents used to connect to the NFS server.
     """
 
 @pulumi.input_type
@@ -591,7 +591,7 @@ class NfsLocationOnPremConfigArgs:
     def __init__(__self__, *,
                  agent_arns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_arns: List of ARNs of the DataSync Agents used to connect to the NFS server.
         """
         pulumi.set(__self__, "agent_arns", agent_arns)
 
@@ -599,7 +599,7 @@ class NfsLocationOnPremConfigArgs:
     @pulumi.getter(name="agentArns")
     def agent_arns(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        List of Amazon Resource Names (ARNs) of the DataSync Agents used to connect to the NFS server.
+        List of ARNs of the DataSync Agents used to connect to the NFS server.
         """
         return pulumi.get(self, "agent_arns")
 
@@ -1297,7 +1297,7 @@ class TaskTaskReportConfigReportOverridesArgs:
 class TaskTaskReportConfigS3DestinationArgsDict(TypedDict):
     bucket_access_role_arn: pulumi.Input[_builtins.str]
     """
-    Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+    ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
     """
     s3_bucket_arn: pulumi.Input[_builtins.str]
     """
@@ -1315,7 +1315,7 @@ class TaskTaskReportConfigS3DestinationArgs:
                  s3_bucket_arn: pulumi.Input[_builtins.str],
                  subdirectory: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] bucket_access_role_arn: Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+        :param pulumi.Input[_builtins.str] bucket_access_role_arn: ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: Specifies the ARN of the S3 bucket where DataSync uploads your report.
         :param pulumi.Input[_builtins.str] subdirectory: Specifies a bucket prefix for your report.
         """
@@ -1328,7 +1328,7 @@ class TaskTaskReportConfigS3DestinationArgs:
     @pulumi.getter(name="bucketAccessRoleArn")
     def bucket_access_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Specifies the Amazon Resource Name (ARN) of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
+        ARN of the IAM policy that allows DataSync to upload a task report to your S3 bucket.
         """
         return pulumi.get(self, "bucket_access_role_arn")
 

@@ -28,12 +28,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const simple = new aws.appmesh.Mesh("simple", {
- *     name: "simpleapp",
  *     spec: {
  *         egressFilter: {
  *             type: "ALLOW_ALL",
  *         },
  *     },
+ *     name: "simpleapp",
  * });
  * ```
  *

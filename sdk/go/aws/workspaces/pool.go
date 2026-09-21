@@ -51,14 +51,14 @@ import (
 //				return err
 //			}
 //			_, err = workspaces.NewPool(ctx, "example", &workspaces.PoolArgs{
+//				Capacity: &workspaces.PoolCapacityArgs{
+//					DesiredUserSessions: pulumi.Int(10),
+//				},
 //				BundleId:    pulumi.String(example.Id),
 //				PoolName:    pulumi.String("example-pool"),
 //				Description: pulumi.String("Example WorkSpaces Pool"),
 //				DirectoryId: exampleDirectory.DirectoryId,
 //				RunningMode: pulumi.String("AUTO_STOP"),
-//				Capacity: &workspaces.PoolCapacityArgs{
-//					DesiredUserSessions: pulumi.Int(10),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -84,14 +84,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.NewPool(ctx, "example", &workspaces.PoolArgs{
+//				Capacity: &workspaces.PoolCapacityArgs{
+//					DesiredUserSessions: pulumi.Int(10),
+//				},
 //				BundleId:    pulumi.Any(exampleAwsWorkspacesBundle.Id),
 //				PoolName:    pulumi.String("example-pool"),
 //				Description: pulumi.String("Example WorkSpaces Pool with Application Settings"),
 //				DirectoryId: pulumi.Any(exampleAwsWorkspacesDirectory.DirectoryId),
 //				RunningMode: pulumi.String("AUTO_STOP"),
-//				Capacity: &workspaces.PoolCapacityArgs{
-//					DesiredUserSessions: pulumi.Int(10),
-//				},
 //				ApplicationSettings: workspaces.PoolApplicationSettingArray{
 //					&workspaces.PoolApplicationSettingArgs{
 //						Status:        pulumi.String("ENABLED"),
@@ -123,14 +123,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspaces.NewPool(ctx, "example", &workspaces.PoolArgs{
+//				Capacity: &workspaces.PoolCapacityArgs{
+//					DesiredUserSessions: pulumi.Int(10),
+//				},
 //				BundleId:    pulumi.Any(exampleAwsWorkspacesBundle.Id),
 //				PoolName:    pulumi.String("example-pool"),
 //				Description: pulumi.String("Example WorkSpaces Pool with Timeout Settings"),
 //				DirectoryId: pulumi.Any(exampleAwsWorkspacesDirectory.DirectoryId),
 //				RunningMode: pulumi.String("AUTO_STOP"),
-//				Capacity: &workspaces.PoolCapacityArgs{
-//					DesiredUserSessions: pulumi.Int(10),
-//				},
 //				TimeoutSettings: workspaces.PoolTimeoutSettingArray{
 //					&workspaces.PoolTimeoutSettingArgs{
 //						DisconnectTimeoutInSeconds:     pulumi.Int(900),

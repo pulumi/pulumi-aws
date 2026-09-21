@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var main = new Aws.Ec2.NetworkAcl("main", new()
     ///     {
-    ///         VpcId = mainAwsVpc.Id,
     ///         Egress = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkAclEgressArgs
@@ -60,6 +59,7 @@ namespace Pulumi.Aws.Ec2
     ///                 ToPort = 80,
     ///             },
     ///         },
+    ///         VpcId = mainAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "main" },
@@ -70,6 +70,17 @@ namespace Pulumi.Aws.Ec2
     /// ```
     /// 
     /// ## Import
+    /// 
+    /// ### Identity Schema
+    /// 
+    /// #### Required
+    /// 
+    /// * `Id` (String) ID of the Network ACL.
+    /// 
+    /// #### Optional
+    /// 
+    /// * `AccountId` (String) AWS Account where this resource is managed.
+    /// * `Region` (String) Region where this resource is managed.
     /// 
     /// Using `pulumi import`, import Network ACLs using the `Id`. For example:
     /// 

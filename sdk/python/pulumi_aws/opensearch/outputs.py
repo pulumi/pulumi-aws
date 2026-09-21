@@ -153,7 +153,7 @@ class ApplicationDataSource(dict):
                  data_source_arn: Optional[_builtins.str] = None,
                  data_source_description: Optional[_builtins.str] = None):
         """
-        :param _builtins.str data_source_arn: The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        :param _builtins.str data_source_arn: ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         :param _builtins.str data_source_description: A detailed description of the data source. Must be at most 1000 characters and contain only alphanumeric characters, underscores, spaces, and the following special characters: `@#%*+=:?./!-`.
         """
         if data_source_arn is not None:
@@ -165,7 +165,7 @@ class ApplicationDataSource(dict):
     @pulumi.getter(name="dataSourceArn")
     def data_source_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
+        ARN of the OpenSearch domain or collection. Must be between 20 and 2048 characters.
         """
         return pulumi.get(self, "data_source_arn")
 
@@ -208,7 +208,7 @@ class ApplicationIamIdentityCenterOptions(dict):
                  iam_role_for_identity_center_application_arn: Optional[_builtins.str] = None):
         """
         :param _builtins.bool enabled: Specifies whether IAM Identity Center is enabled or disabled.
-        :param _builtins.str iam_identity_center_instance_arn: The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        :param _builtins.str iam_identity_center_instance_arn: ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
         :param _builtins.str iam_role_for_identity_center_application_arn: The ARN of the IAM role associated with the IAM Identity Center application. Must be between 20 and 2048 characters and match the pattern for IAM role ARNs.
         """
         if enabled is not None:
@@ -237,7 +237,7 @@ class ApplicationIamIdentityCenterOptions(dict):
     @pulumi.getter(name="iamIdentityCenterInstanceArn")
     def iam_identity_center_instance_arn(self) -> Optional[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+        ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
         """
         return pulumi.get(self, "iam_identity_center_instance_arn")
 
@@ -2663,7 +2663,7 @@ class ServerlessSecurityConfigIamIdentityCenterOptions(dict):
                  group_attribute: Optional[_builtins.str] = None,
                  user_attribute: Optional[_builtins.str] = None):
         """
-        :param _builtins.str instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param _builtins.str instance_arn: ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         :param _builtins.str group_attribute: Group attribute for this IAM Identity Center integration. Valid values are `GroupId` and `GroupName`. Defaults to `GroupId`.
         :param _builtins.str user_attribute: User attribute for this IAM Identity Center integration. Valid values are `UserId`, `UserName` and `Email`. Defaults to `UserId`.
         """
@@ -2677,7 +2677,7 @@ class ServerlessSecurityConfigIamIdentityCenterOptions(dict):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -3864,7 +3864,7 @@ class GetServerlessCollectionGroupsCollectionGroupSummaryResult(dict):
                  number_of_collections: _builtins.int,
                  standby_replicas: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) of the collection group.
+        :param _builtins.str arn: ARN of the collection group.
         :param Sequence['GetServerlessCollectionGroupsCollectionGroupSummaryCapacityLimitArgs'] capacity_limits: Capacity limits configured for the collection group. See `capacity_limits` below for details.
         :param _builtins.str created_date: Epoch time, in milliseconds, when the collection group was created.
         :param _builtins.str id: Unique identifier for the collection group.
@@ -3884,7 +3884,7 @@ class GetServerlessCollectionGroupsCollectionGroupSummaryResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the collection group.
+        ARN of the collection group.
         """
         return pulumi.get(self, "arn")
 
@@ -4025,7 +4025,7 @@ class GetServerlessSecurityConfigIamIdentityCenterOptionResult(dict):
                  user_attribute: _builtins.str):
         """
         :param _builtins.str group_attribute: Group attribute for this SAML integration.
-        :param _builtins.str instance_arn: Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        :param _builtins.str instance_arn: ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         :param _builtins.str user_attribute: User attribute for this SAML integration.
         """
         pulumi.set(__self__, "group_attribute", group_attribute)
@@ -4044,7 +4044,7 @@ class GetServerlessSecurityConfigIamIdentityCenterOptionResult(dict):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         """
         return pulumi.get(self, "instance_arn")
 

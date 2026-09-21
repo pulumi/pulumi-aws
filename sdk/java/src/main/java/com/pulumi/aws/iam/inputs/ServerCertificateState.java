@@ -17,14 +17,14 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
     public static final ServerCertificateState Empty = new ServerCertificateState();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the server certificate.
+     * ARN specifying the server certificate.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the server certificate.
+     * @return ARN specifying the server certificate.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -234,7 +234,7 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the server certificate.
+         * @param arn ARN specifying the server certificate.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class ServerCertificateState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the server certificate.
+         * @param arn ARN specifying the server certificate.
          * 
          * @return builder
          * 

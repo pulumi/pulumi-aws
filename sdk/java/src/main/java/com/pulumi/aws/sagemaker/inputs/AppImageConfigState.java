@@ -35,14 +35,14 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * ARN assigned by AWS to this App Image Config.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+     * @return ARN assigned by AWS to this App Image Config.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -196,7 +196,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+         * @param arn ARN assigned by AWS to this App Image Config.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class AppImageConfigState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+         * @param arn ARN assigned by AWS to this App Image Config.
          * 
          * @return builder
          * 

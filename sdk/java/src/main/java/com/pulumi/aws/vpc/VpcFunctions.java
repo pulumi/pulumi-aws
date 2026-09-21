@@ -22,7 +22,7 @@ import java.util.concurrent.CompletableFuture;
 
 public final class VpcFunctions {
     /**
-     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * Data source for managing an AWS EC2 Vpc Endpoint Associations.
      * 
      * ## Example Usage
      * 
@@ -64,7 +64,7 @@ public final class VpcFunctions {
         return getEndpointAssociations(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * Data source for managing an AWS EC2 Vpc Endpoint Associations.
      * 
      * ## Example Usage
      * 
@@ -106,7 +106,7 @@ public final class VpcFunctions {
         return getEndpointAssociationsPlain(args, InvokeOptions.Empty);
     }
     /**
-     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * Data source for managing an AWS EC2 Vpc Endpoint Associations.
      * 
      * ## Example Usage
      * 
@@ -148,7 +148,7 @@ public final class VpcFunctions {
         return Deployment.getInstance().invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", TypeShape.of(GetEndpointAssociationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * Data source for managing an AWS EC2 Vpc Endpoint Associations.
      * 
      * ## Example Usage
      * 
@@ -190,7 +190,7 @@ public final class VpcFunctions {
         return Deployment.getInstance().invoke("aws:vpc/getEndpointAssociations:getEndpointAssociations", TypeShape.of(GetEndpointAssociationsResult.class), args, Utilities.withVersion(options));
     }
     /**
-     * Data source for managing an AWS EC2 (Elastic Compute Cloud) Vpc Endpoint Associations.
+     * Data source for managing an AWS EC2 Vpc Endpoint Associations.
      * 
      * ## Example Usage
      * 

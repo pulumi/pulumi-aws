@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("sagemaker.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -73,13 +73,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
+ *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
+ *                 .executionRole(exampleRole.arn())
+ *                 .build())
  *             .domainName("example")
  *             .authMode("IAM")
  *             .vpcId(exampleAwsVpc.id())
  *             .subnetIds(exampleAwsSubnet.id())
- *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(exampleRole.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -128,12 +128,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppImageConfig = new AppImageConfig("exampleAppImageConfig", AppImageConfigArgs.builder()
- *             .appImageConfigName("example")
  *             .kernelGatewayImageConfig(AppImageConfigKernelGatewayImageConfigArgs.builder()
  *                 .kernelSpecs(AppImageConfigKernelGatewayImageConfigKernelSpecArgs.builder()
  *                     .name("example")
  *                     .build())
  *                 .build())
+ *             .appImageConfigName("example")
  *             .build());
  * 
  *         var exampleImageVersion = new ImageVersion("exampleImageVersion", ImageVersionArgs.builder()
@@ -142,19 +142,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDomain = new Domain("exampleDomain", DomainArgs.builder()
- *             .domainName("example")
- *             .authMode("IAM")
- *             .vpcId(exampleAwsVpc.id())
- *             .subnetIds(exampleAwsSubnet.id())
  *             .defaultUserSettings(DomainDefaultUserSettingsArgs.builder()
- *                 .executionRole(exampleAwsIamRole.arn())
  *                 .kernelGatewayAppSettings(DomainDefaultUserSettingsKernelGatewayAppSettingsArgs.builder()
  *                     .customImages(DomainDefaultUserSettingsKernelGatewayAppSettingsCustomImageArgs.builder()
  *                         .appImageConfigName(exampleAppImageConfig.appImageConfigName())
  *                         .imageName(exampleImageVersion.imageName())
  *                         .build())
  *                     .build())
+ *                 .executionRole(exampleAwsIamRole.arn())
  *                 .build())
+ *             .domainName("example")
+ *             .authMode("IAM")
+ *             .vpcId(exampleAwsVpc.id())
+ *             .subnetIds(exampleAwsSubnet.id())
  *             .build());
  * 
  *     }
@@ -202,14 +202,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.appSecurityGroupManagement);
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * ARN assigned by AWS to this Domain.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Domain.
+     * @return ARN assigned by AWS to this Domain.
      * 
      */
     public Output<String> arn() {
@@ -454,7 +454,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.url;
     }
     /**
-     * The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 
@@ -463,7 +463,7 @@ public class Domain extends com.pulumi.resources.CustomResource {
     private Output<String> vpcId;
 
     /**
-     * @return The ID of the Amazon Virtual Private Cloud (VPC) that Studio uses for communication.
+     * @return ID of the VPC that Studio uses for communication.
      * 
      * The following arguments are optional:
      * 

@@ -281,13 +281,13 @@ class Build(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.gamelift.Build("test",
-            name="example-build",
-            operating_system="WINDOWS_2012",
             storage_location={
                 "bucket": test_aws_s3_bucket["id"],
                 "key": test_aws_s3_object["key"],
                 "role_arn": test_aws_iam_role["arn"],
-            })
+            },
+            name="example-build",
+            operating_system="WINDOWS_2012")
         ```
 
         ## Import
@@ -324,13 +324,13 @@ class Build(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.gamelift.Build("test",
-            name="example-build",
-            operating_system="WINDOWS_2012",
             storage_location={
                 "bucket": test_aws_s3_bucket["id"],
                 "key": test_aws_s3_object["key"],
                 "role_arn": test_aws_iam_role["arn"],
-            })
+            },
+            name="example-build",
+            operating_system="WINDOWS_2012")
         ```
 
         ## Import

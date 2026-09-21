@@ -30,11 +30,11 @@ import (
 type Function struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	// ARN identifying your CloudFront Function.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Source code of the function
+	// Source code of the function. Must be between 1 and 40960 bytes.
 	Code pulumi.StringOutput `pulumi:"code"`
-	// Comment.
+	// Comment. Must not exceed 128 characters.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringOutput `pulumi:"etag"`
@@ -42,7 +42,7 @@ type Function struct {
 	KeyValueStoreAssociations pulumi.StringArrayOutput `pulumi:"keyValueStoreAssociations"`
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag pulumi.StringOutput `pulumi:"liveStageEtag"`
-	// Unique name for your CloudFront Function.
+	// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrOutput `pulumi:"publish"`
@@ -94,11 +94,11 @@ func GetFunction(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Function resources.
 type functionState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	// ARN identifying your CloudFront Function.
 	Arn *string `pulumi:"arn"`
-	// Source code of the function
+	// Source code of the function. Must be between 1 and 40960 bytes.
 	Code *string `pulumi:"code"`
-	// Comment.
+	// Comment. Must not exceed 128 characters.
 	Comment *string `pulumi:"comment"`
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag *string `pulumi:"etag"`
@@ -106,7 +106,7 @@ type functionState struct {
 	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag *string `pulumi:"liveStageEtag"`
-	// Unique name for your CloudFront Function.
+	// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 	Name *string `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish *bool `pulumi:"publish"`
@@ -123,11 +123,11 @@ type functionState struct {
 }
 
 type FunctionState struct {
-	// Amazon Resource Name (ARN) identifying your CloudFront Function.
+	// ARN identifying your CloudFront Function.
 	Arn pulumi.StringPtrInput
-	// Source code of the function
+	// Source code of the function. Must be between 1 and 40960 bytes.
 	Code pulumi.StringPtrInput
-	// Comment.
+	// Comment. Must not exceed 128 characters.
 	Comment pulumi.StringPtrInput
 	// ETag hash of the function. This is the value for the `DEVELOPMENT` stage of the function.
 	Etag pulumi.StringPtrInput
@@ -135,7 +135,7 @@ type FunctionState struct {
 	KeyValueStoreAssociations pulumi.StringArrayInput
 	// ETag hash of any `LIVE` stage of the function.
 	LiveStageEtag pulumi.StringPtrInput
-	// Unique name for your CloudFront Function.
+	// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 	Name pulumi.StringPtrInput
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrInput
@@ -156,13 +156,13 @@ func (FunctionState) ElementType() reflect.Type {
 }
 
 type functionArgs struct {
-	// Source code of the function
+	// Source code of the function. Must be between 1 and 40960 bytes.
 	Code string `pulumi:"code"`
-	// Comment.
+	// Comment. Must not exceed 128 characters.
 	Comment *string `pulumi:"comment"`
 	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
 	KeyValueStoreAssociations []string `pulumi:"keyValueStoreAssociations"`
-	// Unique name for your CloudFront Function.
+	// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 	Name *string `pulumi:"name"`
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish *bool `pulumi:"publish"`
@@ -176,13 +176,13 @@ type functionArgs struct {
 
 // The set of arguments for constructing a Function resource.
 type FunctionArgs struct {
-	// Source code of the function
+	// Source code of the function. Must be between 1 and 40960 bytes.
 	Code pulumi.StringInput
-	// Comment.
+	// Comment. Must not exceed 128 characters.
 	Comment pulumi.StringPtrInput
 	// List of `cloudfront.KeyValueStore` ARNs to be associated to the function. AWS limits associations to one key value store per function.
 	KeyValueStoreAssociations pulumi.StringArrayInput
-	// Unique name for your CloudFront Function.
+	// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 	Name pulumi.StringPtrInput
 	// Whether to publish creation/change as Live CloudFront Function Version. Defaults to `true`.
 	Publish pulumi.BoolPtrInput
@@ -281,17 +281,17 @@ func (o FunctionOutput) ToFunctionOutputWithContext(ctx context.Context) Functio
 	return o
 }
 
-// Amazon Resource Name (ARN) identifying your CloudFront Function.
+// ARN identifying your CloudFront Function.
 func (o FunctionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Source code of the function
+// Source code of the function. Must be between 1 and 40960 bytes.
 func (o FunctionOutput) Code() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Code }).(pulumi.StringOutput)
 }
 
-// Comment.
+// Comment. Must not exceed 128 characters.
 func (o FunctionOutput) Comment() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringPtrOutput { return v.Comment }).(pulumi.StringPtrOutput)
 }
@@ -311,7 +311,7 @@ func (o FunctionOutput) LiveStageEtag() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.LiveStageEtag }).(pulumi.StringOutput)
 }
 
-// Unique name for your CloudFront Function.
+// Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
 func (o FunctionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Function) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

@@ -313,18 +313,16 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="app",
             custom_rules=[{
                 "source": "https://example.com",
                 "status": "302",
                 "target": "https://www.example.com",
-            }])
+            }],
+            name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master")
         example_domain_association = aws.amplify.DomainAssociation("example",
-            app_id=example.id,
-            domain_name="example.com",
             sub_domains=[
                 {
                     "branch_name": master.branch_name,
@@ -334,7 +332,9 @@ class DomainAssociation(pulumi.CustomResource):
                     "branch_name": master.branch_name,
                     "prefix": "www",
                 },
-            ])
+            ],
+            app_id=example.id,
+            domain_name="example.com")
         ```
 
         ## Import
@@ -372,18 +372,16 @@ class DomainAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.amplify.App("example",
-            name="app",
             custom_rules=[{
                 "source": "https://example.com",
                 "status": "302",
                 "target": "https://www.example.com",
-            }])
+            }],
+            name="app")
         master = aws.amplify.Branch("master",
             app_id=example.id,
             branch_name="master")
         example_domain_association = aws.amplify.DomainAssociation("example",
-            app_id=example.id,
-            domain_name="example.com",
             sub_domains=[
                 {
                     "branch_name": master.branch_name,
@@ -393,7 +391,9 @@ class DomainAssociation(pulumi.CustomResource):
                     "branch_name": master.branch_name,
                     "prefix": "www",
                 },
-            ])
+            ],
+            app_id=example.id,
+            domain_name="example.com")
         ```
 
         ## Import

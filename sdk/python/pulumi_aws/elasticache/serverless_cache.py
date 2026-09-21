@@ -313,7 +313,7 @@ class _ServerlessCacheState:
         """
         Input properties used for looking up and filtering ServerlessCache resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the serverless cache.
+        :param pulumi.Input[_builtins.str] arn: ARN of the serverless cache.
         :param pulumi.Input['ServerlessCacheCacheUsageLimitsArgs'] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -389,7 +389,7 @@ class _ServerlessCacheState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the serverless cache.
+        ARN of the serverless cache.
         """
         return pulumi.get(self, "arn")
 
@@ -694,8 +694,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -705,6 +703,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="memcached",
+            name="example",
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -719,8 +719,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -730,6 +728,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="redis",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -746,8 +746,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -757,6 +755,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="valkey",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -814,8 +814,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="memcached",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -825,6 +823,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="memcached",
+            name="example",
             description="Test Server",
             kms_key_id=test["arn"],
             major_engine_version="1.6",
@@ -839,8 +839,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="redis",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -850,6 +848,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="redis",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -866,8 +866,6 @@ class ServerlessCache(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.elasticache.ServerlessCache("example",
-            engine="valkey",
-            name="example",
             cache_usage_limits={
                 "data_storage": {
                     "maximum": 10,
@@ -877,6 +875,8 @@ class ServerlessCache(pulumi.CustomResource):
                     "maximum": 5000,
                 }],
             },
+            engine="valkey",
+            name="example",
             daily_snapshot_time="09:00",
             description="Test Server",
             kms_key_id=test["arn"],
@@ -1000,7 +1000,7 @@ class ServerlessCache(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the serverless cache.
+        :param pulumi.Input[_builtins.str] arn: ARN of the serverless cache.
         :param pulumi.Input[Union['ServerlessCacheCacheUsageLimitsArgs', 'ServerlessCacheCacheUsageLimitsArgsDict']] cache_usage_limits: Sets the cache usage limits for storage and ElastiCache Processing Units for the cache. See `cache_usage_limits` Block for details.
         :param pulumi.Input[_builtins.str] create_time: Timestamp of when the serverless cache was created.
         :param pulumi.Input[_builtins.str] daily_snapshot_time: The daily time that snapshots will be created from the new serverless cache. Only supported for engine types `"redis"` or `"valkey"`. Defaults to `0`.
@@ -1058,7 +1058,7 @@ class ServerlessCache(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the serverless cache.
+        ARN of the serverless cache.
         """
         return pulumi.get(self, "arn")
 

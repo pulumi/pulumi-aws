@@ -76,7 +76,7 @@ class GetQuicksightUserResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the user.
+        ARN for the user.
         """
         return pulumi.get(self, "arn")
 

@@ -80,6 +80,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.athena.Database;
  * import com.pulumi.aws.athena.DatabaseArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -96,7 +97,9 @@ import javax.annotation.Nullable;
  *         var example = new Database("example", DatabaseArgs.builder()
  *             .name("database_name")
  *             .bucket(exampleAwsS3Bucket.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("bucket")
+ *                 .build());
  * 
  *     }
  * }
@@ -149,14 +152,14 @@ public class Database extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.comment);
     }
     /**
-     * Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      * 
      */
     @Export(name="encryptionConfiguration", refs={DatabaseEncryptionConfiguration.class}, tree="[0]")
     private Output</* @Nullable */ DatabaseEncryptionConfiguration> encryptionConfiguration;
 
     /**
-     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as an AWS Key Management Service (AWS KMS) key. See Encryption Configuration below.
+     * @return Encryption key block AWS Athena uses to decrypt the data in S3, such as a KMS key. See Encryption Configuration below.
      * 
      */
     public Output<Optional<DatabaseEncryptionConfiguration>> encryptionConfiguration() {

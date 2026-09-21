@@ -55,10 +55,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var main = new VpcIpamResourceDiscovery("main", VpcIpamResourceDiscoveryArgs.builder()
- *             .description("My IPAM Resource Discovery")
  *             .operatingRegions(VpcIpamResourceDiscoveryOperatingRegionArgs.builder()
  *                 .regionName(current.region())
  *                 .build())
+ *             .description("My IPAM Resource Discovery")
  *             .tags(Map.of("Test", "Main"))
  *             .build());
  * 
@@ -79,14 +79,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery")
 public class VpcIpamResourceDiscovery extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * ARN of IPAM Resource Discovery
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM Resource Discovery
+     * @return ARN of IPAM Resource Discovery
      * 
      */
     public Output<String> arn() {

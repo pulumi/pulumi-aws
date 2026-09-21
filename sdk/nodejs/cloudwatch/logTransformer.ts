@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `logGroupArn` (String) Amazon Resource Name (ARN) of the CloudWatch Logs log group.
+ * - `logGroupArn` (String) ARN of the CloudWatch Logs log group.
  *
  * Using `pulumi import`, import CloudWatch Logs Transformer using the `logGroupArn`. For example:
  *

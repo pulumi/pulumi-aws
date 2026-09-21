@@ -222,14 +222,14 @@ class VaultLock(pulumi.CustomResource):
 
         example_vault = aws.glacier.Vault("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["glacier:DeleteArchive"],
-            "effect": "Deny",
-            "resources": [example_vault.arn],
             "conditions": [{
                 "test": "NumericLessThanEquals",
                 "variable": "glacier:ArchiveAgeinDays",
                 "values": ["365"],
             }],
+            "actions": ["glacier:DeleteArchive"],
+            "effect": "Deny",
+            "resources": [example_vault.arn],
         }])
         example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,
@@ -291,14 +291,14 @@ class VaultLock(pulumi.CustomResource):
 
         example_vault = aws.glacier.Vault("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["glacier:DeleteArchive"],
-            "effect": "Deny",
-            "resources": [example_vault.arn],
             "conditions": [{
                 "test": "NumericLessThanEquals",
                 "variable": "glacier:ArchiveAgeinDays",
                 "values": ["365"],
             }],
+            "actions": ["glacier:DeleteArchive"],
+            "effect": "Deny",
+            "resources": [example_vault.arn],
         }])
         example_vault_lock = aws.glacier.VaultLock("example",
             complete_lock=False,

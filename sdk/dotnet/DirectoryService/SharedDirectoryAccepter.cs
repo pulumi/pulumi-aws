@@ -26,12 +26,12 @@ namespace Pulumi.Aws.DirectoryService
     /// {
     ///     var example = new Aws.DirectoryService.SharedDirectory("example", new()
     ///     {
-    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
-    ///         Notes = "example",
     ///         Target = new Aws.DirectoryService.Inputs.SharedDirectoryTargetArgs
     ///         {
     ///             Id = receiver.AccountId,
     ///         },
+    ///         DirectoryId = exampleAwsDirectoryServiceDirectory.Id,
+    ///         Notes = "example",
     ///     });
     /// 
     ///     var exampleSharedDirectoryAccepter = new Aws.DirectoryService.SharedDirectoryAccepter("example", new()

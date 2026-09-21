@@ -25,7 +25,7 @@ public final class GetProducerDataSharesResult {
      */
     private String id;
     /**
-     * @return ARN (Amazon Resource Name) of the producer.
+     * @return ARN of the producer.
      * 
      */
     private String producerArn;
@@ -48,7 +48,7 @@ public final class GetProducerDataSharesResult {
         return this.id;
     }
     /**
-     * @return ARN (Amazon Resource Name) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public String producerArn() {

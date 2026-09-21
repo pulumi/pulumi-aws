@@ -135,7 +135,7 @@ class _WorkflowState:
         """
         Input properties used for looking up and filtering Workflow resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Workflow
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue Workflow
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -165,7 +165,7 @@ class _WorkflowState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of Glue Workflow
+        ARN of Glue Workflow
         """
         return pulumi.get(self, "arn")
 
@@ -284,16 +284,13 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
-            name="trigger-start",
-            type="ON_DEMAND",
-            workflow_name=example.name,
             actions=[{
                 "job_name": "example-job",
-            }])
+            }],
+            name="trigger-start",
+            type="ON_DEMAND",
+            workflow_name=example.name)
         example_inner = aws.glue.Trigger("example-inner",
-            name="trigger-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name,
             predicate={
                 "conditions": [{
                     "job_name": "example-job",
@@ -302,7 +299,10 @@ class Workflow(pulumi.CustomResource):
             },
             actions=[{
                 "job_name": "another-example-job",
-            }])
+            }],
+            name="trigger-inner",
+            type="CONDITIONAL",
+            workflow_name=example.name)
         ```
 
         ## Import
@@ -342,16 +342,13 @@ class Workflow(pulumi.CustomResource):
 
         example = aws.glue.Workflow("example", name="example")
         example_start = aws.glue.Trigger("example-start",
-            name="trigger-start",
-            type="ON_DEMAND",
-            workflow_name=example.name,
             actions=[{
                 "job_name": "example-job",
-            }])
+            }],
+            name="trigger-start",
+            type="ON_DEMAND",
+            workflow_name=example.name)
         example_inner = aws.glue.Trigger("example-inner",
-            name="trigger-inner",
-            type="CONDITIONAL",
-            workflow_name=example.name,
             predicate={
                 "conditions": [{
                     "job_name": "example-job",
@@ -360,7 +357,10 @@ class Workflow(pulumi.CustomResource):
             },
             actions=[{
                 "job_name": "another-example-job",
-            }])
+            }],
+            name="trigger-inner",
+            type="CONDITIONAL",
+            workflow_name=example.name)
         ```
 
         ## Import
@@ -435,7 +435,7 @@ class Workflow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue Workflow
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue Workflow
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] default_run_properties: A map of default run properties for this workflow. These properties are passed to all jobs associated to the workflow.
         :param pulumi.Input[_builtins.str] description: Description of the workflow.
         :param pulumi.Input[_builtins.int] max_concurrent_runs: Prevents exceeding the maximum number of concurrent runs of any of the component jobs. If you leave this parameter blank, there is no limit to the number of concurrent workflow runs.
@@ -462,7 +462,7 @@ class Workflow(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of Glue Workflow
+        ARN of Glue Workflow
         """
         return pulumi.get(self, "arn")
 

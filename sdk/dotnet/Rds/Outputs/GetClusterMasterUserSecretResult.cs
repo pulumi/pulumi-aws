@@ -13,8 +13,17 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class GetClusterMasterUserSecretResult
     {
+        /// <summary>
+        /// Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        /// </summary>
         public readonly string KmsKeyId;
+        /// <summary>
+        /// ARN of the secret.
+        /// </summary>
         public readonly string SecretArn;
+        /// <summary>
+        /// Status of the secret.
+        /// </summary>
         public readonly string SecretStatus;
 
         [OutputConstructor]

@@ -639,16 +639,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=example_aws_gamelift_build["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            name="example-fleet-name",
             runtime_configuration={
                 "server_processes": [{
                     "concurrent_executions": 1,
                     "launch_path": "C:\\\\game\\\\GomokuServer.exe",
                 }],
-            })
+            },
+            build_id=example_aws_gamelift_build["id"],
+            ec2_instance_type="t2.micro",
+            fleet_type="ON_DEMAND",
+            name="example-fleet-name")
         ```
 
         ## Import
@@ -694,16 +694,16 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.gamelift.Fleet("example",
-            build_id=example_aws_gamelift_build["id"],
-            ec2_instance_type="t2.micro",
-            fleet_type="ON_DEMAND",
-            name="example-fleet-name",
             runtime_configuration={
                 "server_processes": [{
                     "concurrent_executions": 1,
                     "launch_path": "C:\\\\game\\\\GomokuServer.exe",
                 }],
-            })
+            },
+            build_id=example_aws_gamelift_build["id"],
+            ec2_instance_type="t2.micro",
+            fleet_type="ON_DEMAND",
+            name="example-fleet-name")
         ```
 
         ## Import

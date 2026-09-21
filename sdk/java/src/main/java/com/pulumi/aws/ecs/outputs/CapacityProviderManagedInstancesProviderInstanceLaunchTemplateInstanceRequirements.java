@@ -45,7 +45,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
      */
     private @Nullable CapacityProviderManagedInstancesProviderInstanceLaunchTemplateInstanceRequirementsAcceleratorTotalMemoryMib acceleratorTotalMemoryMib;
     /**
-     * @return Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * @return Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     private @Nullable List<String> acceleratorTypes;
@@ -175,7 +175,7 @@ public final class CapacityProviderManagedInstancesProviderInstanceLaunchTemplat
         return Optional.ofNullable(this.acceleratorTotalMemoryMib);
     }
     /**
-     * @return Accelerator types to include. You can specify `gpu` for graphics processing units, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
+     * @return Accelerator types to include. You can specify `gpu` for GPUs, `fpga` for field programmable gate arrays, or `inference` for machine learning inference accelerators. Valid values are `gpu`, `fpga`, `inference`.
      * 
      */
     public List<String> acceleratorTypes() {

@@ -26,12 +26,12 @@ namespace Pulumi.Aws.Ebs
     ///     {
     ///         DiskContainer = new Aws.Ebs.Inputs.SnapshotImportDiskContainerArgs
     ///         {
-    ///             Format = "VHD",
     ///             UserBucket = new Aws.Ebs.Inputs.SnapshotImportDiskContainerUserBucketArgs
     ///             {
     ///                 S3Bucket = "disk-images",
     ///                 S3Key = "source.vhd",
     ///             },
+    ///             Format = "VHD",
     ///         },
     ///         RoleName = "disk-image-import",
     ///         Tags = 
@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Ebs
     public partial class SnapshotImport : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// ARN of the EBS Snapshot.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -281,7 +281,7 @@ namespace Pulumi.Aws.Ebs
     public sealed class SnapshotImportState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EBS Snapshot.
+        /// ARN of the EBS Snapshot.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

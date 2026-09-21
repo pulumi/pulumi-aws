@@ -154,7 +154,7 @@ export class HealthCheck extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Health Check.
+     * ARN of the Health Check.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -232,7 +232,7 @@ export class HealthCheck extends pulumi.CustomResource {
      */
     declare public readonly resourcePath: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
     declare public readonly routingControlArn: pulumi.Output<string | undefined>;
     /**
@@ -333,7 +333,7 @@ export class HealthCheck extends pulumi.CustomResource {
  */
 export interface HealthCheckState {
     /**
-     * The Amazon Resource Name (ARN) of the Health Check.
+     * ARN of the Health Check.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -411,7 +411,7 @@ export interface HealthCheckState {
      */
     resourcePath?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
     routingControlArn?: pulumi.Input<string | undefined>;
     /**
@@ -515,7 +515,7 @@ export interface HealthCheckArgs {
      */
     resourcePath?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+     * ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
      */
     routingControlArn?: pulumi.Input<string | undefined>;
     /**

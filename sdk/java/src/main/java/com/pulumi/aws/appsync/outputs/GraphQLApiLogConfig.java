@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GraphQLApiLogConfig {
     /**
-     * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+     * @return ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
     private String cloudwatchLogsRoleArn;
@@ -31,7 +31,7 @@ public final class GraphQLApiLogConfig {
 
     private GraphQLApiLogConfig() {}
     /**
-     * @return Amazon Resource Name of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
+     * @return ARN of the service role that AWS AppSync will assume to publish to Amazon CloudWatch logs in your account.
      * 
      */
     public String cloudwatchLogsRoleArn() {

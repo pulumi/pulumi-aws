@@ -20,29 +20,29 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.opensearch.Domain("example", {
- *     domainName: "example",
- *     engineVersion: "OpenSearch_1.1",
  *     clusterConfig: {
  *         instanceType: "r4.large.search",
  *     },
  *     snapshotOptions: {
  *         automatedSnapshotStartHour: 23,
  *     },
+ *     domainName: "example",
+ *     engineVersion: "OpenSearch_1.1",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
  * });
  * const exampleDomainSamlOptions = new aws.opensearch.DomainSamlOptions("example", {
- *     domainName: example.domainName,
  *     samlOptions: {
- *         enabled: true,
  *         idp: {
  *             entityId: "https://example.com",
  *             metadataContent: std.file({
  *                 input: "./saml-metadata.xml",
  *             }).then(invoke => invoke.result),
  *         },
+ *         enabled: true,
  *     },
+ *     domainName: example.domainName,
  * });
  * ```
  *

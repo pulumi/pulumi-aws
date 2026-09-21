@@ -78,12 +78,8 @@ type GetSolutionStackResult struct {
 }
 
 func GetSolutionStackOutput(ctx *pulumi.Context, args GetSolutionStackOutputArgs, opts ...pulumi.InvokeOption) GetSolutionStackResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSolutionStackResultOutput, error) {
-			args := v.(GetSolutionStackArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, GetSolutionStackResultOutput{}, options).(GetSolutionStackResultOutput), nil
-		}).(GetSolutionStackResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:elasticbeanstalk/getSolutionStack:getSolutionStack", args, GetSolutionStackResultOutput{}, options).(GetSolutionStackResultOutput)
 }
 
 // A collection of arguments for invoking getSolutionStack.

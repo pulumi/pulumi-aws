@@ -127,7 +127,7 @@ class _MapState:
         :param pulumi.Input['MapConfigurationArgs'] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
-        :param pulumi.Input[_builtins.str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] map_arn: ARN for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
                
                The following arguments are optional:
@@ -195,7 +195,7 @@ class _MapState:
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        ARN for the map resource. Used to specify a resource across all AWS.
         """
         return pulumi.get(self, "map_arn")
 
@@ -415,7 +415,7 @@ class Map(pulumi.CustomResource):
         :param pulumi.Input[Union['MapConfigurationArgs', 'MapConfigurationArgsDict']] configuration: Configuration block with the map style selected from an available data provider. Detailed below.
         :param pulumi.Input[_builtins.str] create_time: The timestamp for when the map resource was created in ISO 8601 format.
         :param pulumi.Input[_builtins.str] description: An optional description for the map resource.
-        :param pulumi.Input[_builtins.str] map_arn: The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        :param pulumi.Input[_builtins.str] map_arn: ARN for the map resource. Used to specify a resource across all AWS.
         :param pulumi.Input[_builtins.str] map_name: The name for the map resource.
                
                The following arguments are optional:
@@ -467,7 +467,7 @@ class Map(pulumi.CustomResource):
     @pulumi.getter(name="mapArn")
     def map_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the map resource. Used to specify a resource across all AWS.
+        ARN for the map resource. Used to specify a resource across all AWS.
         """
         return pulumi.get(self, "map_arn")
 

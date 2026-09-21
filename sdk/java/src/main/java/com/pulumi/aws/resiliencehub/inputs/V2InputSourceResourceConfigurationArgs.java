@@ -81,16 +81,12 @@ public final class V2InputSourceResourceConfigurationArgs extends com.pulumi.res
     /**
      * S3 URL.
      * 
-     * Exactly one attribute must be configured.
-     * 
      */
     @Import(name="tfStateFileUrl")
     private @Nullable Output<String> tfStateFileUrl;
 
     /**
      * @return S3 URL.
-     * 
-     * Exactly one attribute must be configured.
      * 
      */
     public Optional<Output<String>> tfStateFileUrl() {
@@ -222,8 +218,6 @@ public final class V2InputSourceResourceConfigurationArgs extends com.pulumi.res
         /**
          * @param tfStateFileUrl S3 URL.
          * 
-         * Exactly one attribute must be configured.
-         * 
          * @return builder
          * 
          */
@@ -234,8 +228,6 @@ public final class V2InputSourceResourceConfigurationArgs extends com.pulumi.res
 
         /**
          * @param tfStateFileUrl S3 URL.
-         * 
-         * Exactly one attribute must be configured.
          * 
          * @return builder
          * 

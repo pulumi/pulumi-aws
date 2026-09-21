@@ -41,7 +41,7 @@ class AccessArgs:
         :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] role: ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
         pulumi.set(__self__, "external_id", external_id)
         pulumi.set(__self__, "server_id", server_id)
@@ -160,7 +160,7 @@ class AccessArgs:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 
@@ -191,7 +191,7 @@ class _AccessState:
         :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input['AccessPosixProfileArgs'] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] role: ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         if external_id is not None:
@@ -301,7 +301,7 @@ class _AccessState:
     @pulumi.getter
     def role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 
@@ -365,14 +365,14 @@ class Access(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
-            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=test_aws_transfer_server["id"],
-            role=test_aws_iam_role["arn"],
-            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/")
         ```
 
         ## Import
@@ -393,7 +393,7 @@ class Access(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] role: ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         ...
@@ -429,14 +429,14 @@ class Access(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.transfer.Access("test",
-            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
-            server_id=test_aws_transfer_server["id"],
-            role=test_aws_iam_role["arn"],
-            home_directory=f"/{test_aws_efs_file_system['id']}/",
             posix_profile={
                 "gid": 1000,
                 "uid": 1000,
-            })
+            },
+            external_id="S-1-1-12-1234567890-123456789-1234567890-1234",
+            server_id=test_aws_transfer_server["id"],
+            role=test_aws_iam_role["arn"],
+            home_directory=f"/{test_aws_efs_file_system['id']}/")
         ```
 
         ## Import
@@ -527,7 +527,7 @@ class Access(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] policy: IAM JSON policy document that scopes down user access to portions of their Amazon S3 bucket. IAM variables you can use inside this policy include `${Transfer:UserName}`, `${Transfer:HomeDirectory}`, and `${Transfer:HomeBucket}`. These are evaluated on-the-fly when navigating the bucket.
         :param pulumi.Input[Union['AccessPosixProfileArgs', 'AccessPosixProfileArgsDict']] posix_profile: Full POSIX identity, including user ID (Uid), group ID (Gid), and any secondary groups IDs (SecondaryGids), that controls your users' access to your Amazon EFS file systems. See `posix_profile` Block below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role: Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        :param pulumi.Input[_builtins.str] role: ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         :param pulumi.Input[_builtins.str] server_id: Server ID of the Transfer Server (e.g., `s-12345678`)
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -605,7 +605,7 @@ class Access(pulumi.CustomResource):
     @pulumi.getter
     def role(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         """
         return pulumi.get(self, "role")
 

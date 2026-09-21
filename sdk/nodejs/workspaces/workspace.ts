@@ -25,12 +25,6 @@ import * as utilities from "../utilities";
  *     keyId: "alias/aws/workspaces",
  * });
  * const example = new aws.workspaces.Workspace("example", {
- *     directoryId: exampleAwsWorkspacesDirectory.id,
- *     bundleId: valueWindows10.then(valueWindows10 => valueWindows10.id),
- *     userName: "john.doe",
- *     rootVolumeEncryptionEnabled: true,
- *     userVolumeEncryptionEnabled: true,
- *     volumeEncryptionKey: workspaces.then(workspaces => workspaces.arn),
  *     workspaceProperties: {
  *         computeTypeName: "VALUE",
  *         userVolumeSizeGib: 10,
@@ -38,6 +32,12 @@ import * as utilities from "../utilities";
  *         runningMode: "AUTO_STOP",
  *         runningModeAutoStopTimeoutInMinutes: 60,
  *     },
+ *     directoryId: exampleAwsWorkspacesDirectory.id,
+ *     bundleId: valueWindows10.then(valueWindows10 => valueWindows10.id),
+ *     userName: "john.doe",
+ *     rootVolumeEncryptionEnabled: true,
+ *     userVolumeEncryptionEnabled: true,
+ *     volumeEncryptionKey: workspaces.then(workspaces => workspaces.arn),
  *     tags: {
  *         Department: "IT",
  *     },

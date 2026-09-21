@@ -41,7 +41,7 @@ export interface GetInstancesArgs {
  */
 export interface GetInstancesResult {
     /**
-     * Set of Amazon Resource Names (ARNs) of the SSO Instances.
+     * Set of ARNs of the SSO Instances.
      */
     readonly arns: string[];
     /**

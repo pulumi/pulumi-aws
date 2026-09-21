@@ -625,11 +625,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
             primary_container={
                 "image": "nginx:latest",
-            })
+            },
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"])
         ```
 
         ### Container Logging, Environment Variables, and Secrets
@@ -639,13 +639,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            health_check_path="/health",
             primary_container={
-                "image": "my-app:latest",
-                "container_port": 8080,
-                "commands": ["./start.sh"],
                 "aws_logs_configurations": [{
                     "log_group": app["name"],
                 }],
@@ -663,7 +657,13 @@ class ExpressGatewayService(pulumi.CustomResource):
                     "name": "DB_PASSWORD",
                     "value_from": db_password["arn"],
                 }],
-            })
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
+            },
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health")
         ```
 
         ### Custom Networking
@@ -673,12 +673,6 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            service_name="my-express-service",
-            cluster=main["name"],
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            cpu="256",
-            memory="512",
             primary_container={
                 "image": "nginx:latest",
                 "container_port": 80,
@@ -689,7 +683,13 @@ class ExpressGatewayService(pulumi.CustomResource):
                     private_b["id"],
                 ],
                 "security_groups": [app["id"]],
-            }])
+            }],
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512")
         ```
 
         ### Service Updates and Deletion
@@ -749,11 +749,11 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
             primary_container={
                 "image": "nginx:latest",
-            })
+            },
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"])
         ```
 
         ### Container Logging, Environment Variables, and Secrets
@@ -763,13 +763,7 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            health_check_path="/health",
             primary_container={
-                "image": "my-app:latest",
-                "container_port": 8080,
-                "commands": ["./start.sh"],
                 "aws_logs_configurations": [{
                     "log_group": app["name"],
                 }],
@@ -787,7 +781,13 @@ class ExpressGatewayService(pulumi.CustomResource):
                     "name": "DB_PASSWORD",
                     "value_from": db_password["arn"],
                 }],
-            })
+                "image": "my-app:latest",
+                "container_port": 8080,
+                "commands": ["./start.sh"],
+            },
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            health_check_path="/health")
         ```
 
         ### Custom Networking
@@ -797,12 +797,6 @@ class ExpressGatewayService(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ecs.ExpressGatewayService("example",
-            service_name="my-express-service",
-            cluster=main["name"],
-            execution_role_arn=execution["arn"],
-            infrastructure_role_arn=infrastructure["arn"],
-            cpu="256",
-            memory="512",
             primary_container={
                 "image": "nginx:latest",
                 "container_port": 80,
@@ -813,7 +807,13 @@ class ExpressGatewayService(pulumi.CustomResource):
                     private_b["id"],
                 ],
                 "security_groups": [app["id"]],
-            }])
+            }],
+            service_name="my-express-service",
+            cluster=main["name"],
+            execution_role_arn=execution["arn"],
+            infrastructure_role_arn=infrastructure["arn"],
+            cpu="256",
+            memory="512")
         ```
 
         ### Service Updates and Deletion

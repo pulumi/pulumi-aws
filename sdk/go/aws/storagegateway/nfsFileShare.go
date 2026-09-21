@@ -47,7 +47,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -55,9 +55,9 @@ import (
 type NfsFileShare struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the NFS File Share.
+	// ARN of the NFS File Share.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	// ARN of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrOutput `pulumi:"auditDestinationArn"`
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrOutput `pulumi:"bucketRegion"`
@@ -71,13 +71,13 @@ type NfsFileShare struct {
 	FileShareName pulumi.StringOutput `pulumi:"fileShareName"`
 	// ID of the NFS File Share.
 	FileshareId pulumi.StringOutput `pulumi:"fileshareId"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrOutput `pulumi:"guessMimeTypeEnabled"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrOutput `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrOutput `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringOutput `pulumi:"locationArn"`
@@ -149,9 +149,9 @@ func GetNfsFileShare(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering NfsFileShare resources.
 type nfsFileShareState struct {
-	// Amazon Resource Name (ARN) of the NFS File Share.
+	// ARN of the NFS File Share.
 	Arn *string `pulumi:"arn"`
-	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	// ARN of the storage used for audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
@@ -165,13 +165,13 @@ type nfsFileShareState struct {
 	FileShareName *string `pulumi:"fileShareName"`
 	// ID of the NFS File Share.
 	FileshareId *string `pulumi:"fileshareId"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled *bool `pulumi:"guessMimeTypeEnabled"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn *string `pulumi:"locationArn"`
@@ -202,9 +202,9 @@ type nfsFileShareState struct {
 }
 
 type NfsFileShareState struct {
-	// Amazon Resource Name (ARN) of the NFS File Share.
+	// ARN of the NFS File Share.
 	Arn pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	// ARN of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
@@ -218,13 +218,13 @@ type NfsFileShareState struct {
 	FileShareName pulumi.StringPtrInput
 	// ID of the NFS File Share.
 	FileshareId pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringPtrInput
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrInput
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringPtrInput
@@ -259,7 +259,7 @@ func (NfsFileShareState) ElementType() reflect.Type {
 }
 
 type nfsFileShareArgs struct {
-	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	// ARN of the storage used for audit logs.
 	AuditDestinationArn *string `pulumi:"auditDestinationArn"`
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
 	BucketRegion *string `pulumi:"bucketRegion"`
@@ -271,13 +271,13 @@ type nfsFileShareArgs struct {
 	DefaultStorageClass *string `pulumi:"defaultStorageClass"`
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName *string `pulumi:"fileShareName"`
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled *bool `pulumi:"guessMimeTypeEnabled"`
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// The ARN of the backed storage used for storing file data.
 	LocationArn string `pulumi:"locationArn"`
@@ -305,7 +305,7 @@ type nfsFileShareArgs struct {
 
 // The set of arguments for constructing a NfsFileShare resource.
 type NfsFileShareArgs struct {
-	// The Amazon Resource Name (ARN) of the storage used for audit logs.
+	// ARN of the storage used for audit logs.
 	AuditDestinationArn pulumi.StringPtrInput
 	// The region of the S3 bucket used by the file share. Required when specifying `vpcEndpointDnsName`.
 	BucketRegion pulumi.StringPtrInput
@@ -317,13 +317,13 @@ type NfsFileShareArgs struct {
 	DefaultStorageClass pulumi.StringPtrInput
 	// The name of the file share. Must be set if an S3 prefix name is set in `locationArn`.
 	FileShareName pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the file gateway.
+	// ARN of the file gateway.
 	GatewayArn pulumi.StringInput
 	// Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
 	GuessMimeTypeEnabled pulumi.BoolPtrInput
 	// Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
 	KmsEncrypted pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+	// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 	KmsKeyArn pulumi.StringPtrInput
 	// The ARN of the backed storage used for storing file data.
 	LocationArn pulumi.StringInput
@@ -436,12 +436,12 @@ func (o NfsFileShareOutput) ToNfsFileShareOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the NFS File Share.
+// ARN of the NFS File Share.
 func (o NfsFileShareOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the storage used for audit logs.
+// ARN of the storage used for audit logs.
 func (o NfsFileShareOutput) AuditDestinationArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.AuditDestinationArn }).(pulumi.StringPtrOutput)
 }
@@ -476,7 +476,7 @@ func (o NfsFileShareOutput) FileshareId() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.FileshareId }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the file gateway.
+// ARN of the file gateway.
 func (o NfsFileShareOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
@@ -491,7 +491,7 @@ func (o NfsFileShareOutput) KmsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.BoolPtrOutput { return v.KmsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
+// ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is true.
 func (o NfsFileShareOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NfsFileShare) pulumi.StringPtrOutput { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }

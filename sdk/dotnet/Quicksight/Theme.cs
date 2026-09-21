@@ -26,9 +26,6 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.Theme("example", new()
     ///     {
-    ///         ThemeId = "example",
-    ///         Name = "example",
-    ///         BaseThemeId = "MIDNIGHT",
     ///         Configuration = new Aws.Quicksight.Inputs.ThemeConfigurationArgs
     ///         {
     ///             DataColorPalette = new Aws.Quicksight.Inputs.ThemeConfigurationDataColorPaletteArgs
@@ -54,6 +51,9 @@ namespace Pulumi.Aws.Quicksight
     ///                 },
     ///             },
     ///         },
+    ///         ThemeId = "example",
+    ///         Name = "example",
+    ///         BaseThemeId = "MIDNIGHT",
     ///     });
     /// 
     /// });

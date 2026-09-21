@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm upload.
+ * - `arn` (String) ARN of the Device Farm upload.
  * 
  * Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
  * 
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/upload:Upload")
 public class Upload extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this upload.
+     * ARN of this upload.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this upload.
+     * @return ARN of this upload.
      * 
      */
     public Output<String> arn() {

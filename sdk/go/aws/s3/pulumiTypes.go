@@ -12353,7 +12353,7 @@ func (o BucketReplicationConfigRuleDestinationAccessControlTranslationPtrOutput)
 }
 
 type BucketReplicationConfigRuleDestinationEncryptionConfiguration struct {
-	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 	ReplicaKmsKeyId string `pulumi:"replicaKmsKeyId"`
 }
 
@@ -12369,7 +12369,7 @@ type BucketReplicationConfigRuleDestinationEncryptionConfigurationInput interfac
 }
 
 type BucketReplicationConfigRuleDestinationEncryptionConfigurationArgs struct {
-	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 	ReplicaKmsKeyId pulumi.StringInput `pulumi:"replicaKmsKeyId"`
 }
 
@@ -12450,7 +12450,7 @@ func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ToB
 	}).(BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput)
 }
 
-// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v BucketReplicationConfigRuleDestinationEncryptionConfiguration) string { return v.ReplicaKmsKeyId }).(pulumi.StringOutput)
 }
@@ -12479,7 +12479,7 @@ func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) 
 	}).(BucketReplicationConfigRuleDestinationEncryptionConfigurationOutput)
 }
 
-// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 func (o BucketReplicationConfigRuleDestinationEncryptionConfigurationPtrOutput) ReplicaKmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketReplicationConfigRuleDestinationEncryptionConfiguration) *string {
 		if v == nil {
@@ -24240,7 +24240,7 @@ func (o PolicyDocumentPtrOutput) Version() iam.PolicyDocumentVersionPtrOutput {
 }
 
 type VectorsIndexEncryptionConfiguration struct {
-	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+	// KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
 	KmsKeyArn string `pulumi:"kmsKeyArn"`
 	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
 	SseType string `pulumi:"sseType"`
@@ -24258,7 +24258,7 @@ type VectorsIndexEncryptionConfigurationInput interface {
 }
 
 type VectorsIndexEncryptionConfigurationArgs struct {
-	// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+	// KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
 	KmsKeyArn pulumi.StringInput `pulumi:"kmsKeyArn"`
 	// Type of encryption to use. Valid values: `AES256`, `aws:kms`. Defaults to `AES256`.
 	SseType pulumi.StringInput `pulumi:"sseType"`
@@ -24315,7 +24315,7 @@ func (o VectorsIndexEncryptionConfigurationOutput) ToVectorsIndexEncryptionConfi
 	return o
 }
 
-// AWS Key Management Service (KMS) customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key Amazon Resource Name (ARN).
+// KMS customer managed key ID to use for the encryption configuration. This parameter is allowed if and only if `sseType` is set to `aws:kms`. To specify the KMS key, you must use the format of the KMS key ARN.
 func (o VectorsIndexEncryptionConfigurationOutput) KmsKeyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v VectorsIndexEncryptionConfiguration) string { return v.KmsKeyArn }).(pulumi.StringOutput)
 }
@@ -25439,7 +25439,7 @@ type GetBucketReplicationConfigurationRule struct {
 	Priority int `pulumi:"priority"`
 	// Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
 	SourceSelectionCriterias []GetBucketReplicationConfigurationRuleSourceSelectionCriteria `pulumi:"sourceSelectionCriterias"`
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -25471,7 +25471,7 @@ type GetBucketReplicationConfigurationRuleArgs struct {
 	Priority pulumi.IntInput `pulumi:"priority"`
 	// Configuration block that specifies special object selection criteria. See `sourceSelectionCriteria` Block below.
 	SourceSelectionCriterias GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayInput `pulumi:"sourceSelectionCriterias"`
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -25576,7 +25576,7 @@ func (o GetBucketReplicationConfigurationRuleOutput) SourceSelectionCriterias() 
 	}).(GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRule) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -25602,7 +25602,7 @@ func (o GetBucketReplicationConfigurationRuleArrayOutput) Index(i pulumi.IntInpu
 }
 
 type GetBucketReplicationConfigurationRuleDeleteMarkerReplication struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -25618,7 +25618,7 @@ type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationInput interface
 }
 
 type GetBucketReplicationConfigurationRuleDeleteMarkerReplicationArgs struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -25673,7 +25673,7 @@ func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) ToGe
 	return o
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleDeleteMarkerReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDeleteMarkerReplication) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -25957,7 +25957,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationAccessControlTranslation
 }
 
 type GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration struct {
-	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 	ReplicaKmsKeyId string `pulumi:"replicaKmsKeyId"`
 }
 
@@ -25973,7 +25973,7 @@ type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationInpu
 }
 
 type GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationArgs struct {
-	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+	// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 	ReplicaKmsKeyId pulumi.StringInput `pulumi:"replicaKmsKeyId"`
 }
 
@@ -26028,7 +26028,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationO
 	return o
 }
 
-// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in AWS Key Management Service (KMS) for the destination bucket.
+// ID (Key ARN or Alias ARN) of the customer managed AWS KMS key stored in KMS for the destination bucket.
 func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationOutput) ReplicaKmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationEncryptionConfiguration) string {
 		return v.ReplicaKmsKeyId
@@ -26058,7 +26058,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationEncryptionConfigurationA
 type GetBucketReplicationConfigurationRuleDestinationMetric struct {
 	// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
 	EventThresholds []GetBucketReplicationConfigurationRuleDestinationMetricEventThreshold `pulumi:"eventThresholds"`
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -26076,7 +26076,7 @@ type GetBucketReplicationConfigurationRuleDestinationMetricInput interface {
 type GetBucketReplicationConfigurationRuleDestinationMetricArgs struct {
 	// Configuration block that specifies the time threshold for emitting the `s3:Replication:OperationMissedThreshold` event. See `eventThreshold` Block below.
 	EventThresholds GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayInput `pulumi:"eventThresholds"`
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -26138,7 +26138,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) EventThres
 	}).(GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArrayOutput)
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleDestinationMetricOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationMetric) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -26261,7 +26261,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationMetricEventThresholdArra
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTime struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 	// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
 	Times []GetBucketReplicationConfigurationRuleDestinationReplicationTimeTime `pulumi:"times"`
@@ -26279,7 +26279,7 @@ type GetBucketReplicationConfigurationRuleDestinationReplicationTimeInput interf
 }
 
 type GetBucketReplicationConfigurationRuleDestinationReplicationTimeArgs struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 	// Configuration block that specifies the time by which replication should be complete for all objects and operations on objects. See `time` Block below.
 	Times GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArrayInput `pulumi:"times"`
@@ -26336,7 +26336,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) T
 	return o
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleDestinationReplicationTime) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -26466,7 +26466,7 @@ func (o GetBucketReplicationConfigurationRuleDestinationReplicationTimeTimeArray
 }
 
 type GetBucketReplicationConfigurationRuleExistingObjectReplication struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -26482,7 +26482,7 @@ type GetBucketReplicationConfigurationRuleExistingObjectReplicationInput interfa
 }
 
 type GetBucketReplicationConfigurationRuleExistingObjectReplicationArgs struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -26537,7 +26537,7 @@ func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) To
 	return o
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleExistingObjectReplicationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleExistingObjectReplication) string { return v.Status }).(pulumi.StringOutput)
 }
@@ -27112,7 +27112,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaArrayOutput)
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -27128,7 +27128,7 @@ type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModifica
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationArgs struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -27183,7 +27183,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModif
 	return o
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModificationOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModification) string {
 		return v.Status
@@ -27211,7 +27211,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaReplicaModif
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status string `pulumi:"status"`
 }
 
@@ -27227,7 +27227,7 @@ type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncrypted
 }
 
 type GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectArgs struct {
-	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+	// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 	Status pulumi.StringInput `pulumi:"status"`
 }
 
@@ -27282,7 +27282,7 @@ func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryp
 	return o
 }
 
-// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in AWS Key Management Service.
+// Whether Amazon S3 replicates objects created with server-side encryption using an AWS KMS key stored in KMS.
 func (o GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObjectOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v GetBucketReplicationConfigurationRuleSourceSelectionCriteriaSseKmsEncryptedObject) string {
 		return v.Status

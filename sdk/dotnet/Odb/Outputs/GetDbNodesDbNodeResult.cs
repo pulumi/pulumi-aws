@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Odb.Outputs
         /// </summary>
         public readonly string AdditionalDetails;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the DB node.
+        /// ARN of the DB node.
         /// </summary>
         public readonly string Arn;
         /// <summary>

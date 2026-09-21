@@ -30,10 +30,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("test-lb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(25),
@@ -47,6 +43,10 @@ import (
 //						LbPort:           pulumi.Int(587),
 //						LbProtocol:       pulumi.String("tcp"),
 //					},
+//				},
+//				Name: pulumi.String("test-lb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
 //				},
 //			})
 //			if err != nil {

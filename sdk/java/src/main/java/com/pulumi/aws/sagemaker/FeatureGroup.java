@@ -36,8 +36,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.sagemaker.FeatureGroup;
  * import com.pulumi.aws.sagemaker.FeatureGroupArgs;
- * import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
  * import com.pulumi.aws.sagemaker.inputs.FeatureGroupOnlineStoreConfigArgs;
+ * import com.pulumi.aws.sagemaker.inputs.FeatureGroupFeatureDefinitionArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -52,17 +52,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FeatureGroup("example", FeatureGroupArgs.builder()
- *             .featureGroupName("example")
- *             .recordIdentifierFeatureName("example")
- *             .eventTimeFeatureName("example")
- *             .roleArn(test.arn())
+ *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
+ *                 .enableOnlineStore(true)
+ *                 .build())
  *             .featureDefinitions(FeatureGroupFeatureDefinitionArgs.builder()
  *                 .featureName("example")
  *                 .featureType("String")
  *                 .build())
- *             .onlineStoreConfig(FeatureGroupOnlineStoreConfigArgs.builder()
- *                 .enableOnlineStore(true)
- *                 .build())
+ *             .featureGroupName("example")
+ *             .recordIdentifierFeatureName("example")
+ *             .eventTimeFeatureName("example")
+ *             .roleArn(test.arn())
  *             .build());
  * 
  *     }
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/featureGroup:FeatureGroup")
 public class FeatureGroup extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * ARN assigned by AWS to this feature_group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this feature_group.
+     * @return ARN assigned by AWS to this feature_group.
      * 
      */
     public Output<String> arn() {
@@ -208,14 +208,14 @@ public class FeatureGroup extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     @Export(name="roleArn", refs={String.class}, tree="[0]")
     private Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
+     * @return The ARN of the IAM execution role used to persist data into the Offline Store if an `offlineStoreConfig` is provided.
      * 
      */
     public Output<String> roleArn() {

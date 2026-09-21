@@ -20,14 +20,14 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
     public static final FlowDefinitionHumanLoopConfigArgs Empty = new FlowDefinitionHumanLoopConfigArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the human task user interface.
+     * ARN of the human task user interface.
      * 
      */
     @Import(name="humanTaskUiArn", required=true)
     private Output<String> humanTaskUiArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface.
+     * @return ARN of the human task user interface.
      * 
      */
     public Output<String> humanTaskUiArn() {
@@ -140,14 +140,14 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+     * ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
     @Import(name="workteamArn", required=true)
     private Output<String> workteamArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+     * @return ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
      * 
      */
     public Output<String> workteamArn() {
@@ -187,7 +187,7 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param humanTaskUiArn The Amazon Resource Name (ARN) of the human task user interface.
+         * @param humanTaskUiArn ARN of the human task user interface.
          * 
          * @return builder
          * 
@@ -198,7 +198,7 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param humanTaskUiArn The Amazon Resource Name (ARN) of the human task user interface.
+         * @param humanTaskUiArn ARN of the human task user interface.
          * 
          * @return builder
          * 
@@ -365,7 +365,7 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param workteamArn The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+         * @param workteamArn ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
          * 
          * @return builder
          * 
@@ -376,7 +376,7 @@ public final class FlowDefinitionHumanLoopConfigArgs extends com.pulumi.resource
         }
 
         /**
-         * @param workteamArn The Amazon Resource Name (ARN) of the human task user interface. Amazon Resource Name (ARN) of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
+         * @param workteamArn ARN of the human task user interface. ARN of a team of workers. For Public workforces see [AWS Docs](https://docs.aws.amazon.com/sagemaker/latest/dg/sms-workforce-management-public.html).
          * 
          * @return builder
          * 

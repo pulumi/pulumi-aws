@@ -20,14 +20,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
  *         kinesisFirehoseConfig: {
  *             firehoseArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *         },
  *         storageType: "KINESIS_FIREHOSE",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     resourceType: "CONTACT_TRACE_RECORDS",
  * });
  * ```
  *
@@ -38,14 +38,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     resourceType: "CONTACT_TRACE_RECORDS",
  *     storageConfig: {
  *         kinesisStreamConfig: {
  *             streamArn: exampleAwsKinesisStream.arn,
  *         },
  *         storageType: "KINESIS_STREAM",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     resourceType: "CONTACT_TRACE_RECORDS",
  * });
  * ```
  *
@@ -56,19 +56,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     resourceType: "MEDIA_STREAMS",
  *     storageConfig: {
  *         kinesisVideoStreamConfig: {
- *             prefix: "example",
- *             retentionPeriodHours: 3,
  *             encryptionConfig: {
  *                 encryptionType: "KMS",
  *                 keyId: exampleAwsKmsKey.arn,
  *             },
+ *             prefix: "example",
+ *             retentionPeriodHours: 3,
  *         },
  *         storageType: "KINESIS_VIDEO_STREAM",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     resourceType: "MEDIA_STREAMS",
  * });
  * ```
  *
@@ -79,8 +79,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {
  *         s3Config: {
  *             bucketName: exampleAwsS3Bucket.id,
@@ -88,6 +86,8 @@ import * as utilities from "../utilities";
  *         },
  *         storageType: "S3",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     resourceType: "CHAT_TRANSCRIPTS",
  * });
  * ```
  *
@@ -98,19 +98,19 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.connect.InstanceStorageConfig("example", {
- *     instanceId: exampleAwsConnectInstance.id,
- *     resourceType: "CHAT_TRANSCRIPTS",
  *     storageConfig: {
  *         s3Config: {
- *             bucketName: exampleAwsS3Bucket.id,
- *             bucketPrefix: "example",
  *             encryptionConfig: {
  *                 encryptionType: "KMS",
  *                 keyId: exampleAwsKmsKey.arn,
  *             },
+ *             bucketName: exampleAwsS3Bucket.id,
+ *             bucketPrefix: "example",
  *         },
  *         storageType: "S3",
  *     },
+ *     instanceId: exampleAwsConnectInstance.id,
+ *     resourceType: "CHAT_TRANSCRIPTS",
  * });
  * ```
  *

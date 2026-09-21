@@ -55,7 +55,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new RegexMatchSet("example", RegexMatchSetArgs.builder()
- *             .name("example")
  *             .regexMatchTuples(RegexMatchSetRegexMatchTupleArgs.builder()
  *                 .fieldToMatch(RegexMatchSetRegexMatchTupleFieldToMatchArgs.builder()
  *                     .data("User-Agent")
@@ -64,6 +63,7 @@ import javax.annotation.Nullable;
  *                 .regexPatternSetId(exampleRegexPatternSet.id())
  *                 .textTransformation("NONE")
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

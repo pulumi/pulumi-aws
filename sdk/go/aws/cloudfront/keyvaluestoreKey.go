@@ -76,7 +76,7 @@ type KeyvaluestoreKey struct {
 
 	// Key to put.
 	Key pulumi.StringOutput `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	KeyValueStoreArn pulumi.StringOutput `pulumi:"keyValueStoreArn"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntOutput `pulumi:"totalSizeInBytes"`
@@ -125,7 +125,7 @@ func GetKeyvaluestoreKey(ctx *pulumi.Context,
 type keyvaluestoreKeyState struct {
 	// Key to put.
 	Key *string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	KeyValueStoreArn *string `pulumi:"keyValueStoreArn"`
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes *int `pulumi:"totalSizeInBytes"`
@@ -136,7 +136,7 @@ type keyvaluestoreKeyState struct {
 type KeyvaluestoreKeyState struct {
 	// Key to put.
 	Key pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	KeyValueStoreArn pulumi.StringPtrInput
 	// Total size of the Key Value Store in bytes.
 	TotalSizeInBytes pulumi.IntPtrInput
@@ -151,7 +151,7 @@ func (KeyvaluestoreKeyState) ElementType() reflect.Type {
 type keyvaluestoreKeyArgs struct {
 	// Key to put.
 	Key string `pulumi:"key"`
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	KeyValueStoreArn string `pulumi:"keyValueStoreArn"`
 	// Value to put.
 	Value string `pulumi:"value"`
@@ -161,7 +161,7 @@ type keyvaluestoreKeyArgs struct {
 type KeyvaluestoreKeyArgs struct {
 	// Key to put.
 	Key pulumi.StringInput
-	// Amazon Resource Name (ARN) of the Key Value Store.
+	// ARN of the Key Value Store.
 	KeyValueStoreArn pulumi.StringInput
 	// Value to put.
 	Value pulumi.StringInput
@@ -259,7 +259,7 @@ func (o KeyvaluestoreKeyOutput) Key() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.StringOutput { return v.Key }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Key Value Store.
+// ARN of the Key Value Store.
 func (o KeyvaluestoreKeyOutput) KeyValueStoreArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KeyvaluestoreKey) pulumi.StringOutput { return v.KeyValueStoreArn }).(pulumi.StringOutput)
 }

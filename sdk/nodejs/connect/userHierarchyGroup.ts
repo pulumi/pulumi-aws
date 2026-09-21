@@ -90,7 +90,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * The ARN of the hierarchy group.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -180,7 +180,7 @@ export class UserHierarchyGroup extends pulumi.CustomResource {
  */
 export interface UserHierarchyGroupState {
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * The ARN of the hierarchy group.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

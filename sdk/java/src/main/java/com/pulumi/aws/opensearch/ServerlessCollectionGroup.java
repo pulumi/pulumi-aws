@@ -50,15 +50,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ServerlessCollectionGroup("example", ServerlessCollectionGroupArgs.builder()
- *             .name("example-group")
- *             .description("Shared compute for production collections")
- *             .standbyReplicas("ENABLED")
  *             .capacityLimits(ServerlessCollectionGroupCapacityLimitArgs.builder()
  *                 .minIndexingCapacityInOcu(2.0)
  *                 .maxIndexingCapacityInOcu(16.0)
  *                 .minSearchCapacityInOcu(2.0)
  *                 .maxSearchCapacityInOcu(16.0)
  *                 .build())
+ *             .name("example-group")
+ *             .description("Shared compute for production collections")
+ *             .standbyReplicas("ENABLED")
  *             .build());
  * 
  *     }
@@ -89,14 +89,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/serverlessCollectionGroup:ServerlessCollectionGroup")
 public class ServerlessCollectionGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the collection group.
+     * @return ARN of the collection group.
      * 
      */
     public Output<String> arn() {

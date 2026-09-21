@@ -71,15 +71,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Directory("bar", DirectoryArgs.builder()
- *             .name("corp.notexample.com")
- *             .password("SuperSecretPassw0rd")
- *             .size("Small")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(main.id())
  *                 .subnetIds(                
  *                     foo.id(),
  *                     barSubnet.id())
  *                 .build())
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .size("Small")
  *             .tags(Map.of("Project", "foo"))
  *             .build());
  * 
@@ -134,16 +134,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var bar = new Directory("bar", DirectoryArgs.builder()
- *             .name("corp.notexample.com")
- *             .password("SuperSecretPassw0rd")
- *             .edition("Standard")
- *             .type("MicrosoftAD")
  *             .vpcSettings(DirectoryVpcSettingsArgs.builder()
  *                 .vpcId(main.id())
  *                 .subnetIds(                
  *                     foo.id(),
  *                     barSubnet.id())
  *                 .build())
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .edition("Standard")
+ *             .type("MicrosoftAD")
  *             .tags(Map.of("Project", "foo"))
  *             .build());
  * 
@@ -198,10 +198,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var connector = new Directory("connector", DirectoryArgs.builder()
- *             .name("corp.notexample.com")
- *             .password("SuperSecretPassw0rd")
- *             .size("Small")
- *             .type("ADConnector")
  *             .connectSettings(DirectoryConnectSettingsArgs.builder()
  *                 .customerDnsIps("A.B.C.D")
  *                 .customerUsername("Admin")
@@ -210,6 +206,10 @@ import javax.annotation.Nullable;
  *                     bar.id())
  *                 .vpcId(main.id())
  *                 .build())
+ *             .name("corp.notexample.com")
+ *             .password("SuperSecretPassw0rd")
+ *             .size("Small")
+ *             .type("ADConnector")
  *             .build());
  * 
  *     }

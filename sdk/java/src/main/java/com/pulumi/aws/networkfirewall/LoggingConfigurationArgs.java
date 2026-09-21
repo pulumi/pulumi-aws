@@ -34,14 +34,14 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * ARN of the Network Firewall firewall.
      * 
      */
     @Import(name="firewallArn", required=true)
     private Output<String> firewallArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Network Firewall firewall.
+     * @return ARN of the Network Firewall firewall.
      * 
      */
     public Output<String> firewallArn() {
@@ -127,7 +127,7 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param firewallArn The Amazon Resource Name (ARN) of the Network Firewall firewall.
+         * @param firewallArn ARN of the Network Firewall firewall.
          * 
          * @return builder
          * 
@@ -138,7 +138,7 @@ public final class LoggingConfigurationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param firewallArn The Amazon Resource Name (ARN) of the Network Firewall firewall.
+         * @param firewallArn ARN of the Network Firewall firewall.
          * 
          * @return builder
          * 

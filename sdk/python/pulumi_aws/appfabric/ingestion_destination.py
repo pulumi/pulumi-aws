@@ -31,9 +31,9 @@ class IngestionDestinationArgs:
         """
         The set of arguments for constructing a IngestionDestination resource.
 
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
-        :param pulumi.Input[_builtins.str] ingestion_arn: Amazon Resource Name (ARN) of the ingestion to use for the request.
+        :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationProcessingConfigurationArgs'] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
@@ -55,7 +55,7 @@ class IngestionDestinationArgs:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -79,7 +79,7 @@ class IngestionDestinationArgs:
     @pulumi.getter(name="ingestionArn")
     def ingestion_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the ingestion to use for the request.
+        ARN of the ingestion to use for the request.
         """
         return pulumi.get(self, "ingestion_arn")
 
@@ -150,10 +150,10 @@ class _IngestionDestinationState:
         """
         Input properties used for looking up and filtering IngestionDestination resources.
 
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion Destination.
         :param pulumi.Input['IngestionDestinationDestinationConfigurationArgs'] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
-        :param pulumi.Input[_builtins.str] ingestion_arn: Amazon Resource Name (ARN) of the ingestion to use for the request.
+        :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
         :param pulumi.Input['IngestionDestinationProcessingConfigurationArgs'] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
@@ -184,7 +184,7 @@ class _IngestionDestinationState:
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -220,7 +220,7 @@ class _IngestionDestinationState:
     @pulumi.getter(name="ingestionArn")
     def ingestion_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the ingestion to use for the request.
+        ARN of the ingestion to use for the request.
         """
         return pulumi.get(self, "ingestion_arn")
 
@@ -314,8 +314,6 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -330,15 +328,17 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"])
         ```
 
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
-        :param pulumi.Input[_builtins.str] ingestion_arn: Amazon Resource Name (ARN) of the ingestion to use for the request.
+        :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
         :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
@@ -363,8 +363,6 @@ class IngestionDestination(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appfabric.IngestionDestination("example",
-            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
-            ingestion_arn=example_aws_appfabric_ingestion["arn"],
             processing_configuration={
                 "audit_log": {
                     "format": "json",
@@ -379,7 +377,9 @@ class IngestionDestination(pulumi.CustomResource):
                         },
                     },
                 },
-            })
+            },
+            app_bundle_arn=example_aws_appfabric_app_bundle["arn"],
+            ingestion_arn=example_aws_appfabric_ingestion["arn"])
         ```
 
 
@@ -457,10 +457,10 @@ class IngestionDestination(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] app_bundle_arn: Amazon Resource Name (ARN) of the app bundle to use for the request.
+        :param pulumi.Input[_builtins.str] app_bundle_arn: ARN of the app bundle to use for the request.
         :param pulumi.Input[_builtins.str] arn: ARN of the Ingestion Destination.
         :param pulumi.Input[Union['IngestionDestinationDestinationConfigurationArgs', 'IngestionDestinationDestinationConfigurationArgsDict']] destination_configuration: Configuration for the destination of ingested data. See `destination_configuration` Block below.
-        :param pulumi.Input[_builtins.str] ingestion_arn: Amazon Resource Name (ARN) of the ingestion to use for the request.
+        :param pulumi.Input[_builtins.str] ingestion_arn: ARN of the ingestion to use for the request.
         :param pulumi.Input[Union['IngestionDestinationProcessingConfigurationArgs', 'IngestionDestinationProcessingConfigurationArgsDict']] processing_configuration: Configuration for how ingested data is processed. See `processing_configuration` Block below.
                
                The following arguments are optional:
@@ -487,7 +487,7 @@ class IngestionDestination(pulumi.CustomResource):
     @pulumi.getter(name="appBundleArn")
     def app_bundle_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the app bundle to use for the request.
+        ARN of the app bundle to use for the request.
         """
         return pulumi.get(self, "app_bundle_arn")
 
@@ -511,7 +511,7 @@ class IngestionDestination(pulumi.CustomResource):
     @pulumi.getter(name="ingestionArn")
     def ingestion_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the ingestion to use for the request.
+        ARN of the ingestion to use for the request.
         """
         return pulumi.get(self, "ingestion_arn")
 

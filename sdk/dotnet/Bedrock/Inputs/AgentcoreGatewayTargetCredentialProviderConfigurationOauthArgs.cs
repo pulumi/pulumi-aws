@@ -25,13 +25,13 @@ namespace Pulumi.Aws.Bedrock.Inputs
         }
 
         /// <summary>
-        /// The URL where the end user's browser is redirected after obtaining the authorization code. Required when `GrantType` is `AUTHORIZATION_CODE`.
+        /// URL where the end user's browser is redirected after obtaining the authorization code. Required when `GrantType` is `AUTHORIZATION_CODE`.
         /// </summary>
         [Input("defaultReturnUrl")]
         public Input<string>? DefaultReturnUrl { get; set; }
 
         /// <summary>
-        /// The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+        /// OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
         /// </summary>
         [Input("grantType")]
         public Input<string>? GrantType { get; set; }

@@ -134,7 +134,7 @@ class _RateBasedRuleState:
         """
         Input properties used for looking up and filtering RateBasedRule resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input['RateBasedRulePredicateArgs']]] predicates: The objects to include in a rule (documented below).
@@ -164,7 +164,7 @@ class _RateBasedRuleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 
@@ -280,21 +280,21 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.RateBasedRule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
-            rate_key="IP",
-            rate_limit=100,
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
+            rate_key="IP",
+            rate_limit=100,
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -332,21 +332,21 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.waf.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.waf.RateBasedRule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
-            rate_key="IP",
-            rate_limit=100,
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
+            rate_key="IP",
+            rate_limit=100,
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -428,7 +428,7 @@ class RateBasedRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN)
+        :param pulumi.Input[_builtins.str] arn: ARN
         :param pulumi.Input[_builtins.str] metric_name: The name or description for the Amazon CloudWatch metric of this rule.
         :param pulumi.Input[_builtins.str] name: The name or description of the rule.
         :param pulumi.Input[Sequence[pulumi.Input[Union['RateBasedRulePredicateArgs', 'RateBasedRulePredicateArgsDict']]]] predicates: The objects to include in a rule (documented below).
@@ -455,7 +455,7 @@ class RateBasedRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN)
+        ARN
         """
         return pulumi.get(self, "arn")
 

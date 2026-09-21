@@ -68,7 +68,7 @@ class GetAccessEntryResult:
     @pulumi.getter(name="accessEntryArn")
     def access_entry_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the Access Entry.
+        ARN of the Access Entry.
         """
         return pulumi.get(self, "access_entry_arn")
 

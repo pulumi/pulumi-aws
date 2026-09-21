@@ -2,6 +2,9 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "../types/input";
+import * as outputs from "../types/output";
+import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
@@ -79,9 +82,29 @@ export interface GetConnectionResult {
      */
     readonly partnerName: string;
     /**
+     * The total number of inbound IPv4 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    readonly prefixPoolSizeIpv4: number;
+    /**
+     * The total number of inbound IPv6 route prefixes that can be allocated across the virtual interfaces on the connection.
+     */
+    readonly prefixPoolSizeIpv6: number;
+    /**
+     * The number of inbound IPv4 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    readonly prefixPoolUnallocatedCountIpv4: number;
+    /**
+     * The number of inbound IPv6 route prefixes in the connection prefix pool not yet allocated to a virtual interface.
+     */
+    readonly prefixPoolUnallocatedCountIpv6: number;
+    /**
      * Name of the service provider associated with the connection.
      */
     readonly providerName: string;
+    /**
+     * Rate limiter status for the connection. See `rateLimiterStatus` Block below.
+     */
+    readonly rateLimiterStatuses: outputs.directconnect.GetConnectionRateLimiterStatus[];
     readonly region: string;
     /**
      * State of the connection.

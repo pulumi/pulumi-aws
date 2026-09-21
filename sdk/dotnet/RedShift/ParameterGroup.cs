@@ -24,8 +24,6 @@ namespace Pulumi.Aws.RedShift
     /// {
     ///     var bar = new Aws.RedShift.ParameterGroup("bar", new()
     ///     {
-    ///         Name = "parameter-group-test",
-    ///         Family = "redshift-1.0",
     ///         Parameters = new[]
     ///         {
     ///             new Aws.RedShift.Inputs.ParameterGroupParameterArgs
@@ -44,6 +42,8 @@ namespace Pulumi.Aws.RedShift
     ///                 Value = "true",
     ///             },
     ///         },
+    ///         Name = "parameter-group-test",
+    ///         Family = "redshift-1.0",
     ///     });
     /// 
     /// });
@@ -61,7 +61,7 @@ namespace Pulumi.Aws.RedShift
     public partial class ParameterGroup : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of parameter group
+        /// ARN of parameter group
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.RedShift
     public sealed class ParameterGroupState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of parameter group
+        /// ARN of parameter group
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

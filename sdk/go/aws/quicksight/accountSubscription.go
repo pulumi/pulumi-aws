@@ -61,9 +61,9 @@ type AccountSubscription struct {
 	AccountSubscriptionStatus pulumi.StringOutput `pulumi:"accountSubscriptionStatus"`
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName pulumi.StringPtrOutput `pulumi:"activeDirectoryName"`
-	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+	// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayOutput `pulumi:"adminGroups"`
-	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminProGroups pulumi.StringArrayOutput `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringOutput `pulumi:"authenticationMethod"`
@@ -83,7 +83,7 @@ type AccountSubscription struct {
 	EmailAddress pulumi.StringPtrOutput `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrOutput `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrOutput `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrOutput `pulumi:"lastName"`
@@ -95,7 +95,7 @@ type AccountSubscription struct {
 	ReaderGroups pulumi.StringArrayOutput `pulumi:"readerGroups"`
 	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
 	ReaderProGroups pulumi.StringArrayOutput `pulumi:"readerProGroups"`
-	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+	// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	Realm pulumi.StringPtrOutput `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -149,9 +149,9 @@ type accountSubscriptionState struct {
 	AccountSubscriptionStatus *string `pulumi:"accountSubscriptionStatus"`
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
-	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+	// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
-	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminProGroups []string `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod *string `pulumi:"authenticationMethod"`
@@ -171,7 +171,7 @@ type accountSubscriptionState struct {
 	EmailAddress *string `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
@@ -183,7 +183,7 @@ type accountSubscriptionState struct {
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
 	ReaderProGroups []string `pulumi:"readerProGroups"`
-	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+	// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -196,9 +196,9 @@ type AccountSubscriptionState struct {
 	AccountSubscriptionStatus pulumi.StringPtrInput
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName pulumi.StringPtrInput
-	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+	// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
-	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminProGroups pulumi.StringArrayInput
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringPtrInput
@@ -218,7 +218,7 @@ type AccountSubscriptionState struct {
 	EmailAddress pulumi.StringPtrInput
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
@@ -230,7 +230,7 @@ type AccountSubscriptionState struct {
 	ReaderGroups pulumi.StringArrayInput
 	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
 	ReaderProGroups pulumi.StringArrayInput
-	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+	// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -245,9 +245,9 @@ type accountSubscriptionArgs struct {
 	AccountName string `pulumi:"accountName"`
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName *string `pulumi:"activeDirectoryName"`
-	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+	// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups []string `pulumi:"adminGroups"`
-	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminProGroups []string `pulumi:"adminProGroups"`
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod string `pulumi:"authenticationMethod"`
@@ -267,7 +267,7 @@ type accountSubscriptionArgs struct {
 	EmailAddress *string `pulumi:"emailAddress"`
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName *string `pulumi:"firstName"`
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn *string `pulumi:"iamIdentityCenterInstanceArn"`
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName *string `pulumi:"lastName"`
@@ -279,7 +279,7 @@ type accountSubscriptionArgs struct {
 	ReaderGroups []string `pulumi:"readerGroups"`
 	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
 	ReaderProGroups []string `pulumi:"readerProGroups"`
-	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+	// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	Realm *string `pulumi:"realm"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -291,9 +291,9 @@ type AccountSubscriptionArgs struct {
 	AccountName pulumi.StringInput
 	// Name of your Active Directory. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	ActiveDirectoryName pulumi.StringPtrInput
-	// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+	// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminGroups pulumi.StringArrayInput
-	// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+	// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 	AdminProGroups pulumi.StringArrayInput
 	// Method that you want to use to authenticate your Amazon QuickSight account. Currently, the valid values for this parameter are `IAM_AND_QUICKSIGHT`, `IAM_ONLY`, `IAM_IDENTITY_CENTER`, and `ACTIVE_DIRECTORY`.
 	AuthenticationMethod pulumi.StringInput
@@ -313,7 +313,7 @@ type AccountSubscriptionArgs struct {
 	EmailAddress pulumi.StringPtrInput
 	// First name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	FirstName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+	// ARN for the IAM Identity Center instance.
 	IamIdentityCenterInstanceArn pulumi.StringPtrInput
 	// Last name of the author of the Amazon QuickSight account to use for future communications. This field is required if `ENTERPRISE_AND_Q` is the selected edition of the new Amazon QuickSight account.
 	LastName pulumi.StringPtrInput
@@ -325,7 +325,7 @@ type AccountSubscriptionArgs struct {
 	ReaderGroups pulumi.StringArrayInput
 	// Reader PRO group associated with your Active Directory or IAM Identity Center account.
 	ReaderProGroups pulumi.StringArrayInput
-	// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+	// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 	Realm pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -433,12 +433,12 @@ func (o AccountSubscriptionOutput) ActiveDirectoryName() pulumi.StringPtrOutput 
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.ActiveDirectoryName }).(pulumi.StringPtrOutput)
 }
 
-// Admin group associated with your Active Directory or IAM Identity Center account. This field is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
+// Admin group associated with your Active Directory or IAM Identity Center account. Either this field or `adminProGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) AdminGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AdminGroups }).(pulumi.StringArrayOutput)
 }
 
-// Admin PRO group associated with your Active Directory or IAM Identity Center account.
+// Admin PRO group associated with your Active Directory or IAM Identity Center account. Either this field or `adminGroup` is required if `ACTIVE_DIRECTORY` or `IAM_IDENTITY_CENTER` is the selected authentication method of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) AdminProGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.AdminProGroups }).(pulumi.StringArrayOutput)
 }
@@ -488,7 +488,7 @@ func (o AccountSubscriptionOutput) FirstName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.FirstName }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) for the IAM Identity Center instance.
+// ARN for the IAM Identity Center instance.
 func (o AccountSubscriptionOutput) IamIdentityCenterInstanceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.IamIdentityCenterInstanceArn }).(pulumi.StringPtrOutput)
 }
@@ -515,7 +515,7 @@ func (o AccountSubscriptionOutput) ReaderProGroups() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringArrayOutput { return v.ReaderProGroups }).(pulumi.StringArrayOutput)
 }
 
-// Realm of the Active Directory that is associated with your Amazon QuickSight account.
+// Realm of the Active Directory that is associated with your Amazon QuickSight account. This field is required if `ACTIVE_DIRECTORY` is the selected authentication method of the new Amazon QuickSight account.
 func (o AccountSubscriptionOutput) Realm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountSubscription) pulumi.StringPtrOutput { return v.Realm }).(pulumi.StringPtrOutput)
 }

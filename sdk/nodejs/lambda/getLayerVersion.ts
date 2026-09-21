@@ -146,21 +146,19 @@ export function getLayerVersion(args?: GetLayerVersionArgs, opts?: pulumi.Invoke
  */
 export interface GetLayerVersionArgs {
     /**
-     * Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
      */
     compatibleArchitecture?: string;
     /**
-     * Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
+     * Specific runtime the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
      */
     compatibleRuntime?: string;
     /**
-     * Name of the Lambda layer.
+     * Name of the Lambda layer. One of `layerName` or `layerVersionArn` is required.
      */
     layerName?: string;
     /**
-     * ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-     *
-     * The following are optional when using `layerName`:
+     * ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layerName` or `layerVersionArn` is required.
      */
     layerVersionArn?: string;
     /**
@@ -168,7 +166,7 @@ export interface GetLayerVersionArgs {
      */
     region?: string;
     /**
-     * Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Only valid with `layerName`. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
      */
     version?: number;
 }
@@ -380,21 +378,19 @@ export function getLayerVersionOutput(args?: GetLayerVersionOutputArgs, opts?: p
  */
 export interface GetLayerVersionOutputArgs {
     /**
-     * Specific architecture the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
+     * Specific architecture the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided architecture will be used.
      */
     compatibleArchitecture?: pulumi.Input<string | undefined>;
     /**
-     * Specific runtime the layer version must support. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
+     * Specific runtime the layer version must support. Only valid with `layerName`. Conflicts with `version` and `layerVersionArn`. If specified, the latest available layer version supporting the provided runtime will be used.
      */
     compatibleRuntime?: pulumi.Input<string | undefined>;
     /**
-     * Name of the Lambda layer.
+     * Name of the Lambda layer. One of `layerName` or `layerVersionArn` is required.
      */
     layerName?: pulumi.Input<string | undefined>;
     /**
-     * ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions.
-     *
-     * The following are optional when using `layerName`:
+     * ARN of the Lambda layer version. Can be a full ARN with version (e.g., `arn:aws:lambda:region:account:layer:name:1`) or without version (e.g., `arn:aws:lambda:region:account:layer:name`). When the version is omitted, the latest version will be retrieved (requires `lambda:ListLayerVersions` permission). Use the full ARN with version for cross-account layers where you don't have list permissions. One of `layerName` or `layerVersionArn` is required.
      */
     layerVersionArn?: pulumi.Input<string | undefined>;
     /**
@@ -402,7 +398,7 @@ export interface GetLayerVersionOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Specific layer version. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
+     * Specific layer version. Only valid with `layerName`. Conflicts with `compatibleRuntime`, `compatibleArchitecture`, and `layerVersionArn`. If omitted, the latest available layer version will be used.
      */
     version?: pulumi.Input<number | undefined>;
 }

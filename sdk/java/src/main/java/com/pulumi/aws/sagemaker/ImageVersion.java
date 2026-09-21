@@ -119,14 +119,14 @@ public class ImageVersion extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aliases);
     }
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * ARN assigned by AWS to this Image Version.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * @return ARN assigned by AWS to this Image Version.
      * 
      */
     public Output<String> arn() {

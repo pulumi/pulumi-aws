@@ -167,11 +167,11 @@ import javax.annotation.Nullable;
  *         // IAM
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("lambda.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -411,17 +411,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleListener = new Listener("exampleListener", ListenerArgs.builder()
- *             .loadBalancerArn(exampleLoadBalancer.arn())
- *             .port(80)
- *             .protocol("HTTP")
  *             .defaultActions(ListenerDefaultActionArgs.builder()
- *                 .type("fixed-response")
  *                 .fixedResponse(ListenerDefaultActionFixedResponseArgs.builder()
  *                     .contentType("text/plain")
  *                     .messageBody("OK")
  *                     .statusCode("200")
  *                     .build())
+ *                 .type("fixed-response")
  *                 .build())
+ *             .loadBalancerArn(exampleLoadBalancer.arn())
+ *             .port(80)
+ *             .protocol("HTTP")
  *             .build());
  * 
  *         var exampleRestApi = new RestApi("exampleRestApi", RestApiArgs.builder()

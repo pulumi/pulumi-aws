@@ -5,6 +5,11 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { InvocationJobArgs, InvocationJobState } from "./invocationJob";
+export type InvocationJob = import("./invocationJob").InvocationJob;
+export const InvocationJob: typeof import("./invocationJob").InvocationJob = null as any;
+utilities.lazyLoad(exports, ["InvocationJob"], () => require("./invocationJob"));
+
 export { InvocationLoggingConfigurationArgs, InvocationLoggingConfigurationState } from "./invocationLoggingConfiguration";
 export type InvocationLoggingConfiguration = import("./invocationLoggingConfiguration").InvocationLoggingConfiguration;
 export const InvocationLoggingConfiguration: typeof import("./invocationLoggingConfiguration").InvocationLoggingConfiguration = null as any;
@@ -15,6 +20,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "aws:bedrockmodel/invocationJob:InvocationJob":
+                return new InvocationJob(name, <any>undefined, { urn })
             case "aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration":
                 return new InvocationLoggingConfiguration(name, <any>undefined, { urn })
             default:
@@ -22,4 +29,5 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("aws", "bedrockmodel/invocationJob", _module)
 pulumi.runtime.registerResourceModule("aws", "bedrockmodel/invocationLoggingConfiguration", _module)

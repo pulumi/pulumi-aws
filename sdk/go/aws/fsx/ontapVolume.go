@@ -64,15 +64,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := fsx.NewOntapVolume(ctx, "test", &fsx.OntapVolumeArgs{
+//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
+//					Name:          pulumi.String("AUTO"),
+//					CoolingPeriod: pulumi.Int(31),
+//				},
 //				Name:                     pulumi.String("test"),
 //				JunctionPath:             pulumi.String("/test"),
 //				SizeInMegabytes:          pulumi.Int(1024),
 //				StorageEfficiencyEnabled: pulumi.Bool(true),
 //				StorageVirtualMachineId:  pulumi.Any(testAwsFsxOntapStorageVirtualMachine.Id),
-//				TieringPolicy: &fsx.OntapVolumeTieringPolicyArgs{
-//					Name:          pulumi.String("AUTO"),
-//					CoolingPeriod: pulumi.Int(31),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +95,7 @@ type OntapVolume struct {
 
 	// Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
 	AggregateConfiguration OntapVolumeAggregateConfigurationPtrOutput `pulumi:"aggregateConfiguration"`
-	// Amazon Resource Name of the volune.
+	// ARN of the volune.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention pulumi.BoolPtrOutput `pulumi:"bypassSnaplockEnterpriseRetention"`
@@ -182,7 +182,7 @@ func GetOntapVolume(ctx *pulumi.Context,
 type ontapVolumeState struct {
 	// Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
 	AggregateConfiguration *OntapVolumeAggregateConfiguration `pulumi:"aggregateConfiguration"`
-	// Amazon Resource Name of the volune.
+	// ARN of the volune.
 	Arn *string `pulumi:"arn"`
 	// Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention *bool `pulumi:"bypassSnaplockEnterpriseRetention"`
@@ -237,7 +237,7 @@ type ontapVolumeState struct {
 type OntapVolumeState struct {
 	// Aggregate configuration only applies to `FLEXGROUP` volumes. See [`aggregateConfiguration` Block] for details.
 	AggregateConfiguration OntapVolumeAggregateConfigurationPtrInput
-	// Amazon Resource Name of the volune.
+	// ARN of the volune.
 	Arn pulumi.StringPtrInput
 	// Whether to allow a SnapLock administrator to delete an FSx for ONTAP SnapLock Enterprise volume with unexpired write once, read many (WORM) files. This configuration must be applied separately before attempting to delete the resource to have the desired behavior. Defaults to `false`.
 	BypassSnaplockEnterpriseRetention pulumi.BoolPtrInput
@@ -476,7 +476,7 @@ func (o OntapVolumeOutput) AggregateConfiguration() OntapVolumeAggregateConfigur
 	return o.ApplyT(func(v *OntapVolume) OntapVolumeAggregateConfigurationPtrOutput { return v.AggregateConfiguration }).(OntapVolumeAggregateConfigurationPtrOutput)
 }
 
-// Amazon Resource Name of the volune.
+// ARN of the volune.
 func (o OntapVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *OntapVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

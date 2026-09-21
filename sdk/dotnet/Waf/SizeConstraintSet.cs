@@ -24,20 +24,20 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var sizeConstraintSet = new Aws.Waf.SizeConstraintSet("size_constraint_set", new()
     ///     {
-    ///         Name = "tfsize_constraints",
     ///         SizeConstraints = new[]
     ///         {
     ///             new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintArgs
     ///             {
-    ///                 TextTransformation = "NONE",
-    ///                 ComparisonOperator = "EQ",
-    ///                 Size = 4096,
     ///                 FieldToMatch = new Aws.Waf.Inputs.SizeConstraintSetSizeConstraintFieldToMatchArgs
     ///                 {
     ///                     Type = "BODY",
     ///                 },
+    ///                 TextTransformation = "NONE",
+    ///                 ComparisonOperator = "EQ",
+    ///                 Size = 4096,
     ///             },
     ///         },
+    ///         Name = "tfsize_constraints",
     ///     });
     /// 
     /// });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Waf
     public partial class SizeConstraintSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN).
+        /// ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Waf
     public sealed class SizeConstraintSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN).
+        /// ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

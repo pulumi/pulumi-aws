@@ -111,14 +111,14 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     @Import(name="role", required=true)
     private Output<String> role;
 
     /**
-     * @return Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+     * @return ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
      * 
      */
     public Output<String> role() {
@@ -340,7 +340,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+         * @param role ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
          * 
          * @return builder
          * 
@@ -351,7 +351,7 @@ public final class UserArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param role Amazon Resource Name (ARN) of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
+         * @param role ARN of an IAM role that allows the service to control your user’s access to your Amazon S3 bucket.
          * 
          * @return builder
          * 

@@ -31,7 +31,7 @@ class ProtectionGroupArgs:
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
         :param pulumi.Input[_builtins.str] protection_group_id: The name of the protection group.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         :param pulumi.Input[_builtins.str] resource_type: The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -85,7 +85,7 @@ class ProtectionGroupArgs:
     @pulumi.getter
     def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         """
         return pulumi.get(self, "members")
 
@@ -133,9 +133,9 @@ class _ProtectionGroupState:
         Input properties used for looking up and filtering ProtectionGroup resources.
 
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
-        :param pulumi.Input[_builtins.str] protection_group_arn: The ARN (Amazon Resource Name) of the protection group.
+        :param pulumi.Input[_builtins.str] protection_group_arn: ARN of the protection group.
         :param pulumi.Input[_builtins.str] protection_group_id: The name of the protection group.
         :param pulumi.Input[_builtins.str] resource_type: The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -174,7 +174,7 @@ class _ProtectionGroupState:
     @pulumi.getter
     def members(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         """
         return pulumi.get(self, "members")
 
@@ -198,7 +198,7 @@ class _ProtectionGroupState:
     @pulumi.getter(name="protectionGroupArn")
     def protection_group_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN (Amazon Resource Name) of the protection group.
+        ARN of the protection group.
         """
         return pulumi.get(self, "protection_group_arn")
 
@@ -332,7 +332,7 @@ class ProtectionGroup(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
         :param pulumi.Input[_builtins.str] protection_group_id: The name of the protection group.
         :param pulumi.Input[_builtins.str] resource_type: The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
@@ -475,9 +475,9 @@ class ProtectionGroup(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] aggregation: Defines how AWS Shield combines resource data for the group in order to detect, mitigate, and report events.
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] members: ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         :param pulumi.Input[_builtins.str] pattern: The criteria to use to choose the protected resources for inclusion in the group.
-        :param pulumi.Input[_builtins.str] protection_group_arn: The ARN (Amazon Resource Name) of the protection group.
+        :param pulumi.Input[_builtins.str] protection_group_arn: ARN of the protection group.
         :param pulumi.Input[_builtins.str] protection_group_id: The name of the protection group.
         :param pulumi.Input[_builtins.str] resource_type: The resource type to include in the protection group. You must set this when you set `pattern` to BY_RESOURCE_TYPE and you must not set it for any other `pattern` setting.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -509,7 +509,7 @@ class ProtectionGroup(pulumi.CustomResource):
     @pulumi.getter
     def members(self) -> pulumi.Output[Optional[Sequence[_builtins.str]]]:
         """
-        The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+        ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
         """
         return pulumi.get(self, "members")
 
@@ -525,7 +525,7 @@ class ProtectionGroup(pulumi.CustomResource):
     @pulumi.getter(name="protectionGroupArn")
     def protection_group_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN (Amazon Resource Name) of the protection group.
+        ARN of the protection group.
         """
         return pulumi.get(self, "protection_group_arn")
 

@@ -43,14 +43,14 @@ import * as utilities from "../utilities";
  *     status: "ENABLED",
  * });
  * const eksRuntimeMonitoring = new aws.guardduty.DetectorFeature("eks_runtime_monitoring", {
- *     detectorId: example.id,
- *     accountId: "123456789012",
- *     name: "EKS_RUNTIME_MONITORING",
- *     status: "ENABLED",
  *     additionalConfigurations: [{
  *         name: "EKS_ADDON_MANAGEMENT",
  *         status: "ENABLED",
  *     }],
+ *     detectorId: example.id,
+ *     accountId: "123456789012",
+ *     name: "EKS_RUNTIME_MONITORING",
+ *     status: "ENABLED",
  * });
  * ```
  */

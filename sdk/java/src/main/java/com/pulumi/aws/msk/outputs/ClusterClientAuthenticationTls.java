@@ -12,14 +12,14 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ClusterClientAuthenticationTls {
     /**
-     * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
+     * @return List of ACM Certificate Authority ARNs.
      * 
      */
     private @Nullable List<String> certificateAuthorityArns;
 
     private ClusterClientAuthenticationTls() {}
     /**
-     * @return List of ACM Certificate Authority Amazon Resource Names (ARNs).
+     * @return List of ACM Certificate Authority ARNs.
      * 
      */
     public List<String> certificateAuthorityArns() {

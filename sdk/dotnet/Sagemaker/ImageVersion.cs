@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<ImmutableArray<string>> Aliases { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        /// ARN assigned by AWS to this Image Version.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -294,7 +294,7 @@ namespace Pulumi.Aws.Sagemaker
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+        /// ARN assigned by AWS to this Image Version.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -370,7 +370,7 @@ class GetObjectResult:
     @pulumi.getter(name="sseKmsKeyId")
     def sse_kms_key_id(self) -> _builtins.str:
         """
-        If present, specifies the ID of the Key Management Service (KMS) master encryption key that was used for the object.
+        If present, specifies the ID of the KMS master encryption key that was used for the object.
         """
         return pulumi.get(self, "sse_kms_key_id")
 

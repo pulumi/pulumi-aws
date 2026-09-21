@@ -28,33 +28,33 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleWorkspaceConfiguration = new Aws.Amp.WorkspaceConfiguration("example", new()
     ///     {
-    ///         WorkspaceId = example.Id,
-    ///         RetentionPeriodInDays = 60,
     ///         LimitsPerLabelSets = new[]
     ///         {
     ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
     ///             {
-    ///                 LabelSet = 
-    ///                 {
-    ///                     { "env", "dev" },
-    ///                 },
     ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
     ///                 {
     ///                     MaxSeries = 100000,
     ///                 },
+    ///                 LabelSet = 
+    ///                 {
+    ///                     { "env", "dev" },
+    ///                 },
     ///             },
     ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
     ///             {
-    ///                 LabelSet = 
-    ///                 {
-    ///                     { "env", "prod" },
-    ///                 },
     ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
     ///                 {
     ///                     MaxSeries = 400000,
     ///                 },
+    ///                 LabelSet = 
+    ///                 {
+    ///                     { "env", "prod" },
+    ///                 },
     ///             },
     ///         },
+    ///         WorkspaceId = example.Id,
+    ///         RetentionPeriodInDays = 60,
     ///     });
     /// 
     /// });
@@ -78,18 +78,18 @@ namespace Pulumi.Aws.Amp
     /// 
     ///     var exampleWorkspaceConfiguration = new Aws.Amp.WorkspaceConfiguration("example", new()
     ///     {
-    ///         WorkspaceId = example.Id,
     ///         LimitsPerLabelSets = new[]
     ///         {
     ///             new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetArgs
     ///             {
-    ///                 LabelSet = null,
     ///                 Limits = new Aws.Amp.Inputs.WorkspaceConfigurationLimitsPerLabelSetLimitsArgs
     ///                 {
     ///                     MaxSeries = 50000,
     ///                 },
+    ///                 LabelSet = null,
     ///             },
     ///         },
+    ///         WorkspaceId = example.Id,
     ///     });
     /// 
     /// });

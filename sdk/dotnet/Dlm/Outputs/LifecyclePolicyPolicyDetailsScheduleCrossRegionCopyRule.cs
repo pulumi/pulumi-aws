@@ -20,7 +20,7 @@ namespace Pulumi.Aws.Dlm.Outputs
         public readonly Outputs.LifecyclePolicyPolicyDetailsScheduleCrossRegionCopyRuleRetainRule? RetainRule;
         public readonly string? Target;
         /// <summary>
-        /// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the Amazon Resource Name (ARN) of the target Outpost for the snapshot copies.
+        /// Use only for DLM policies of `policy_type=IMAGE_MANAGEMENT`. The target Region or the ARN of the target Outpost for the snapshot copies.
         /// </summary>
         public readonly string? TargetRegion;
 

@@ -94,18 +94,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("example")
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("API")
  *                 .build())
- *             .roleArn(cluster.arn())
- *             .version("1.35")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .subnetIds(                
  *                     az1.id(),
  *                     az2.id(),
  *                     az3.id())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(cluster.arn())
+ *             .version("1.35")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(clusterAmazonEKSClusterPolicy)
  *                 .build());
@@ -213,13 +213,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("example")
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("API")
  *                 .build())
- *             .roleArn(cluster.arn())
- *             .version("1.35")
- *             .bootstrapSelfManagedAddons(false)
  *             .computeConfig(ClusterComputeConfigArgs.builder()
  *                 .enabled(true)
  *                 .nodePools("general-purpose")
@@ -243,6 +239,10 @@ import javax.annotation.Nullable;
  *                     az2.id(),
  *                     az3.id())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(cluster.arn())
+ *             .version("1.35")
+ *             .bootstrapSelfManagedAddons(false)
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(                
  *                     clusterAmazonEKSClusterPolicy,
@@ -326,12 +326,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Cluster("example", ClusterArgs.builder()
- *             .name("example")
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("API")
  *                 .build())
- *             .roleArn(cluster.arn())
- *             .version("1.35")
  *             .remoteNetworkConfig(ClusterRemoteNetworkConfigArgs.builder()
  *                 .remoteNodeNetworks(ClusterRemoteNetworkConfigRemoteNodeNetworksArgs.builder()
  *                     .cidrs("172.16.0.0/18")
@@ -348,6 +345,9 @@ import javax.annotation.Nullable;
  *                     az2.id(),
  *                     az3.id())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(cluster.arn())
+ *             .version("1.35")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(clusterAmazonEKSClusterPolicy)
  *                 .build());
@@ -425,12 +425,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster("exampleCluster", ClusterArgs.builder()
- *             .name("example")
  *             .accessConfig(ClusterAccessConfigArgs.builder()
  *                 .authenticationMode("CONFIG_MAP")
  *                 .build())
- *             .roleArn(cluster.arn())
- *             .version("1.35")
  *             .vpcConfig(ClusterVpcConfigArgs.builder()
  *                 .endpointPrivateAccess(true)
  *                 .endpointPublicAccess(false)
@@ -443,6 +440,9 @@ import javax.annotation.Nullable;
  *                 .controlPlaneInstanceType("m5.large")
  *                 .outpostArns(example.arn())
  *                 .build())
+ *             .name("example")
+ *             .roleArn(cluster.arn())
+ *             .version("1.35")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(clusterAmazonEKSLocalOutpostClusterPolicy)
  *                 .build());

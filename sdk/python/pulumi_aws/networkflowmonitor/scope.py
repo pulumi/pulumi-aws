@@ -104,7 +104,7 @@ class _ScopeState:
         Input properties used for looking up and filtering Scope resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope.
+        :param pulumi.Input[_builtins.str] scope_arn: ARN of the scope.
         :param pulumi.Input[_builtins.str] scope_id: The identifier for the scope that includes the resources you want to get data results for.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -143,7 +143,7 @@ class _ScopeState:
     @pulumi.getter(name="scopeArn")
     def scope_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the scope.
+        ARN of the scope.
         """
         return pulumi.get(self, "scope_arn")
 
@@ -236,13 +236,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
-                "region": "us-east-1",
                 "target_identifier": {
-                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
+                    "target_type": "ACCOUNT",
                 },
+                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",
@@ -286,13 +286,13 @@ class Scope(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.networkflowmonitor.Scope("example",
             targets=[{
-                "region": "us-east-1",
                 "target_identifier": {
-                    "target_type": "ACCOUNT",
                     "target_id": {
                         "account_id": current.account_id,
                     },
+                    "target_type": "ACCOUNT",
                 },
+                "region": "us-east-1",
             }],
             tags={
                 "Name": "example",
@@ -370,7 +370,7 @@ class Scope(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] scope_arn: The Amazon Resource Name (ARN) of the scope.
+        :param pulumi.Input[_builtins.str] scope_arn: ARN of the scope.
         :param pulumi.Input[_builtins.str] scope_id: The identifier for the scope that includes the resources you want to get data results for.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -403,7 +403,7 @@ class Scope(pulumi.CustomResource):
     @pulumi.getter(name="scopeArn")
     def scope_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the scope.
+        ARN of the scope.
         """
         return pulumi.get(self, "scope_arn")
 

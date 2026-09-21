@@ -33,6 +33,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "with_minimum_parameter", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(false),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(false),
+//					IsIncidentLogsEnabled:      pulumi.Bool(false),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -52,11 +57,6 @@ import (
 //				},
 //				DbNodeStorageSizeInGbs: pulumi.Int(120),
 //				MemorySizeInGbs:        pulumi.Int(60),
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(false),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(false),
-//					IsIncidentLogsEnabled:      pulumi.Bool(false),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -82,6 +82,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "with_all_parameters", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
+//					IsIncidentLogsEnabled:      pulumi.Bool(true),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -106,11 +111,6 @@ import (
 //				ScanListenerPortTcp:    pulumi.Int(1521),
 //				Tags: pulumi.StringMap{
 //					"env": pulumi.String("dev"),
-//				},
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
-//					IsIncidentLogsEnabled:      pulumi.Bool(true),
 //				},
 //			})
 //			if err != nil {
@@ -137,6 +137,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := odb.NewCloudVmCluster(ctx, "gi_version_tag_example", &odb.CloudVmClusterArgs{
+//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
+//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
+//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
+//					IsIncidentLogsEnabled:      pulumi.Bool(true),
+//				},
 //				DisplayName:                  pulumi.String("my_vm_cluster"),
 //				CloudExadataInfrastructureId: pulumi.String("<aws_odb_cloud_exadata_infrastructure_id>"),
 //				CpuCoreCount:                 pulumi.Int(6),
@@ -162,11 +167,6 @@ import (
 //				Tags: pulumi.StringMap{
 //					"odb:input_gi_version": pulumi.String("23.0.0.0"),
 //				},
-//				DataCollectionOptions: &odb.CloudVmClusterDataCollectionOptionsArgs{
-//					IsDiagnosticsEventsEnabled: pulumi.Bool(true),
-//					IsHealthMonitoringEnabled:  pulumi.Bool(true),
-//					IsIncidentLogsEnabled:      pulumi.Bool(true),
-//				},
 //			})
 //			if err != nil {
 //				return err
@@ -187,7 +187,7 @@ import (
 type CloudVmCluster struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn pulumi.StringOutput `pulumi:"cloudExadataInfrastructureArn"`
@@ -340,7 +340,7 @@ func GetCloudVmCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CloudVmCluster resources.
 type cloudVmClusterState struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn *string `pulumi:"arn"`
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn *string `pulumi:"cloudExadataInfrastructureArn"`
@@ -440,7 +440,7 @@ type cloudVmClusterState struct {
 }
 
 type CloudVmClusterState struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn pulumi.StringPtrInput
 	// ARN of the Exadata infrastructure for this VM cluster. Changing this will create a new resource. Either the combination of cloudExadataInfrastructureId and odbNetworkId or cloudExadataInfrastructureArn and odbNetworkArn must be used.
 	CloudExadataInfrastructureArn pulumi.StringPtrInput
@@ -731,7 +731,7 @@ func (o CloudVmClusterOutput) ToCloudVmClusterOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Amazon Resource Name (ARN) for the cloud vm cluster.
+// ARN for the cloud vm cluster.
 func (o CloudVmClusterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *CloudVmCluster) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -48,7 +48,9 @@ import (
 //				UserIds: pulumi.StringArray{
 //					_default.UserId,
 //				},
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"userIds",
+//			}))
 //			if err != nil {
 //				return err
 //			}

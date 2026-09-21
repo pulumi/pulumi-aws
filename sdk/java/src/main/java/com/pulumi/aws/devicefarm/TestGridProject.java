@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new TestGridProject("example", TestGridProjectArgs.builder()
- *             .name("example")
  *             .vpcConfig(TestGridProjectVpcConfigArgs.builder()
  *                 .vpcId(exampleAwsVpc.id())
  *                 .subnetIds(exampleAwsSubnet.stream().map(element -> element.id()).collect(toList()))
  *                 .securityGroupIds(exampleAwsSecurityGroup.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm test grid project.
+ * - `arn` (String) ARN of the Device Farm test grid project.
  * 
  * Using `pulumi import`, import DeviceFarm Test Grid Projects using their ARN. For example:
  * 
@@ -78,14 +78,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/testGridProject:TestGridProject")
 public class TestGridProject extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this Test Grid Project.
+     * ARN of this Test Grid Project.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this Test Grid Project.
+     * @return ARN of this Test Grid Project.
      * 
      */
     public Output<String> arn() {

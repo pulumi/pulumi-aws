@@ -196,7 +196,7 @@ namespace Pulumi.Aws.Efs
     public sealed class GetFileSystemResult
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         public readonly string Arn;
         /// <summary>

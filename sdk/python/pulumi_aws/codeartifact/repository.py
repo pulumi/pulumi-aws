@@ -381,11 +381,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
             upstreams=[{
                 "repository_name": upstream.repository,
-            }])
+            }],
+            repository="example",
+            domain=example["domain"])
         ```
 
         ### Example Usage with external connection
@@ -398,11 +398,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
             external_connections={
                 "external_connection_name": "public:npmjs",
-            })
+            },
+            repository="example",
+            domain=example["domain"])
         ```
 
         ## Import
@@ -411,7 +411,7 @@ class Repository(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+        - `arn` (String) ARN of the CodeArtifact repository.
 
         Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
 
@@ -465,11 +465,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
             upstreams=[{
                 "repository_name": upstream.repository,
-            }])
+            }],
+            repository="example",
+            domain=example["domain"])
         ```
 
         ### Example Usage with external connection
@@ -482,11 +482,11 @@ class Repository(pulumi.CustomResource):
             repository="upstream",
             domain=test_aws_codeartifact_domain["domain"])
         test = aws.codeartifact.Repository("test",
-            repository="example",
-            domain=example["domain"],
             external_connections={
                 "external_connection_name": "public:npmjs",
-            })
+            },
+            repository="example",
+            domain=example["domain"])
         ```
 
         ## Import
@@ -495,7 +495,7 @@ class Repository(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+        - `arn` (String) ARN of the CodeArtifact repository.
 
         Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
 

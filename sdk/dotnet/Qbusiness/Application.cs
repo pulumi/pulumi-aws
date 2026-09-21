@@ -24,13 +24,13 @@ namespace Pulumi.Aws.Qbusiness
     /// {
     ///     var example = new Aws.Qbusiness.Application("example", new()
     ///     {
-    ///         DisplayName = "example-app",
-    ///         IamServiceRoleArn = exampleAwsIamRole.Arn,
-    ///         IdentityCenterInstanceArn = exampleAwsSsoadminInstances.Arns[0],
     ///         AttachmentsConfiguration = new Aws.Qbusiness.Inputs.ApplicationAttachmentsConfigurationArgs
     ///         {
     ///             AttachmentsControlMode = "ENABLED",
     ///         },
+    ///         DisplayName = "example-app",
+    ///         IamServiceRoleArn = exampleAwsIamRole.Arn,
+    ///         IdentityCenterInstanceArn = exampleAwsSsoadminInstances.Arns[0],
     ///     });
     /// 
     /// });

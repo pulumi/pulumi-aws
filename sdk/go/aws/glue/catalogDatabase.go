@@ -54,17 +54,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewCatalogDatabase(ctx, "example", &glue.CatalogDatabaseArgs{
-//				Name: pulumi.String("MyCatalogDatabase"),
 //				CreateTableDefaultPermissions: glue.CatalogDatabaseCreateTableDefaultPermissionArray{
 //					&glue.CatalogDatabaseCreateTableDefaultPermissionArgs{
-//						Permissions: pulumi.StringArray{
-//							pulumi.String("SELECT"),
-//						},
 //						Principal: &glue.CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs{
 //							DataLakePrincipalIdentifier: pulumi.String("IAM_ALLOWED_PRINCIPALS"),
 //						},
+//						Permissions: pulumi.StringArray{
+//							pulumi.String("SELECT"),
+//						},
 //					},
 //				},
+//				Name: pulumi.String("MyCatalogDatabase"),
 //			})
 //			if err != nil {
 //				return err

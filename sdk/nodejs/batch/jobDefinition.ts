@@ -110,31 +110,31 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.batch.JobDefinition("test", {
- *     name: " tf_test_batch_job_definition_eks",
- *     type: "container",
  *     eksProperties: {
  *         podProperties: {
- *             hostNetwork: true,
+ *             metadata: {
+ *                 labels: {
+ *                     environment: "test",
+ *                 },
+ *             },
  *             containers: [{
- *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
- *                 commands: [
- *                     "sleep",
- *                     "60",
- *                 ],
  *                 resources: {
  *                     limits: {
  *                         cpu: "1",
  *                         memory: "1024Mi",
  *                     },
  *                 },
+ *                 image: "public.ecr.aws/amazonlinux/amazonlinux:1",
+ *                 commands: [
+ *                     "sleep",
+ *                     "60",
+ *                 ],
  *             }],
- *             metadata: {
- *                 labels: {
- *                     environment: "test",
- *                 },
- *             },
+ *             hostNetwork: true,
  *         },
  *     },
+ *     name: " tf_test_batch_job_definition_eks",
+ *     type: "container",
  * });
  * ```
  *
@@ -146,11 +146,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["ecs-tasks.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const ecsTaskExecutionRole = new aws.iam.Role("ecs_task_execution_role", {
@@ -276,7 +276,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+ * - `arn` (String) ARN of the job definition.
  *
  * Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
  *

@@ -58,7 +58,7 @@ export interface GetServerlessCollectionGroupArgs {
  */
 export interface GetServerlessCollectionGroupResult {
     /**
-     * Amazon Resource Name (ARN) of the collection group.
+     * ARN of the collection group.
      */
     readonly arn: string;
     /**

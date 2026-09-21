@@ -79,12 +79,8 @@ type GetLocalGatewaysResult struct {
 }
 
 func GetLocalGatewaysOutput(ctx *pulumi.Context, args GetLocalGatewaysOutputArgs, opts ...pulumi.InvokeOption) GetLocalGatewaysResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetLocalGatewaysResultOutput, error) {
-			args := v.(GetLocalGatewaysArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getLocalGateways:getLocalGateways", args, GetLocalGatewaysResultOutput{}, options).(GetLocalGatewaysResultOutput), nil
-		}).(GetLocalGatewaysResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getLocalGateways:getLocalGateways", args, GetLocalGatewaysResultOutput{}, options).(GetLocalGatewaysResultOutput)
 }
 
 // A collection of arguments for invoking getLocalGateways.

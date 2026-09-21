@@ -53,12 +53,12 @@ import * as utilities from "../utilities";
  *     standbyReplicas: "ENABLED",
  * });
  * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {
- *     name: "example",
- *     type: "SEARCH",
- *     collectionGroupName: exampleServerlessCollectionGroup.name,
  *     encryptionConfigs: [{
  *         kmsKeyArn: example.arn,
  *     }],
+ *     name: "example",
+ *     type: "SEARCH",
+ *     collectionGroupName: exampleServerlessCollectionGroup.name,
  * });
  * ```
  *
@@ -110,7 +110,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the collection.
+     * ARN of the collection.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -225,7 +225,7 @@ export class ServerlessCollection extends pulumi.CustomResource {
  */
 export interface ServerlessCollectionState {
     /**
-     * Amazon Resource Name (ARN) of the collection.
+     * ARN of the collection.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

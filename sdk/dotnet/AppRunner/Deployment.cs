@@ -46,7 +46,7 @@ namespace Pulumi.Aws.AppRunner
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// ARN of the App Runner service to start the deployment for.
         /// </summary>
         [Output("serviceArn")]
         public Output<string> ServiceArn { get; private set; } = null!;
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// ARN of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn", required: true)]
         public Input<string> ServiceArn { get; set; } = null!;
@@ -142,7 +142,7 @@ namespace Pulumi.Aws.AppRunner
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the App Runner service to start the deployment for.
+        /// ARN of the App Runner service to start the deployment for.
         /// </summary>
         [Input("serviceArn")]
         public Input<string>? ServiceArn { get; set; }

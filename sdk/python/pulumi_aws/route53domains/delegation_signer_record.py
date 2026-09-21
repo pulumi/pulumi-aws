@@ -223,12 +223,12 @@ class DelegationSignerRecord(pulumi.CustomResource):
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
         opts = pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         example_delegation_signer_record = aws.route53domains.DelegationSignerRecord("example",
-            domain_name="example.com",
             signing_attributes={
                 "algorithm": example_key_signing_key.signing_algorithm_type,
                 "flags": example_key_signing_key.flag,
                 "public_key": example_key_signing_key.public_key,
-            })
+            },
+            domain_name="example.com")
         ```
 
         ## Import
@@ -325,12 +325,12 @@ class DelegationSignerRecord(pulumi.CustomResource):
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id,
         opts = pulumi.ResourceOptions(depends_on=[example_key_signing_key]))
         example_delegation_signer_record = aws.route53domains.DelegationSignerRecord("example",
-            domain_name="example.com",
             signing_attributes={
                 "algorithm": example_key_signing_key.signing_algorithm_type,
                 "flags": example_key_signing_key.flag,
                 "public_key": example_key_signing_key.public_key,
-            })
+            },
+            domain_name="example.com")
         ```
 
         ## Import

@@ -32,14 +32,14 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the contact channel.
+     * ARN of the contact channel.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the contact channel.
+     * @return ARN of the contact channel.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -47,14 +47,14 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     @Import(name="contactId")
     private @Nullable Output<String> contactId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+     * @return ARN of the AWS SSM Contact that the contact channel belongs to.
      * 
      */
     public Optional<Output<String>> contactId() {
@@ -173,7 +173,7 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the contact channel.
+         * @param arn ARN of the contact channel.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the contact channel.
+         * @param arn ARN of the contact channel.
          * 
          * @return builder
          * 
@@ -194,7 +194,7 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param contactId Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+         * @param contactId ARN of the AWS SSM Contact that the contact channel belongs to.
          * 
          * @return builder
          * 
@@ -205,7 +205,7 @@ public final class ContactChannelState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param contactId Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+         * @param contactId ARN of the AWS SSM Contact that the contact channel belongs to.
          * 
          * @return builder
          * 

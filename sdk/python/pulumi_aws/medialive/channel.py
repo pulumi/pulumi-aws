@@ -564,29 +564,11 @@ class Channel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
-            name="example-channel",
-            channel_class="STANDARD",
-            role_arn=example_aws_iam_role["arn"],
             input_specification={
                 "codec": "AVC",
                 "input_resolution": "HD",
                 "maximum_bitrate": "MAX_20_MBPS",
             },
-            input_attachments=[{
-                "input_attachment_name": "example-input",
-                "input_id": example_aws_medialive_input["id"],
-            }],
-            destinations=[{
-                "id": "destination",
-                "settings": [
-                    {
-                        "url": f"s3://{main['id']}/test1",
-                    },
-                    {
-                        "url": f"s3://{main2['id']}/test2",
-                    },
-                ],
-            }],
             encoder_settings={
                 "timecode_config": {
                     "source": "EMBEDDED",
@@ -594,9 +576,6 @@ class Channel(pulumi.CustomResource):
                 "audio_descriptions": [{
                     "audio_selector_name": "example audio selector",
                     "name": "audio-selector",
-                }],
-                "video_descriptions": [{
-                    "name": "example-video",
                 }],
                 "output_groups": [{
                     "output_group_settings": {
@@ -607,13 +586,8 @@ class Channel(pulumi.CustomResource):
                         }],
                     },
                     "outputs": [{
-                        "output_name": "example-name",
-                        "video_description_name": "example-video",
-                        "audio_description_names": ["audio-selector"],
                         "output_settings": {
                             "archive_output_settings": {
-                                "name_modifier": "_1",
-                                "extension": "m2ts",
                                 "container_settings": {
                                     "m2ts_settings": {
                                         "audio_buffer_model": "ATSC",
@@ -621,11 +595,37 @@ class Channel(pulumi.CustomResource):
                                         "rate_mode": "CBR",
                                     },
                                 },
+                                "name_modifier": "_1",
+                                "extension": "m2ts",
                             },
                         },
+                        "output_name": "example-name",
+                        "video_description_name": "example-video",
+                        "audio_description_names": ["audio-selector"],
                     }],
                 }],
-            })
+                "video_descriptions": [{
+                    "name": "example-video",
+                }],
+            },
+            destinations=[{
+                "settings": [
+                    {
+                        "url": f"s3://{main['id']}/test1",
+                    },
+                    {
+                        "url": f"s3://{main2['id']}/test2",
+                    },
+                ],
+                "id": "destination",
+            }],
+            input_attachments=[{
+                "input_attachment_name": "example-input",
+                "input_id": example_aws_medialive_input["id"],
+            }],
+            name="example-channel",
+            channel_class="STANDARD",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -685,29 +685,11 @@ class Channel(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.medialive.Channel("example",
-            name="example-channel",
-            channel_class="STANDARD",
-            role_arn=example_aws_iam_role["arn"],
             input_specification={
                 "codec": "AVC",
                 "input_resolution": "HD",
                 "maximum_bitrate": "MAX_20_MBPS",
             },
-            input_attachments=[{
-                "input_attachment_name": "example-input",
-                "input_id": example_aws_medialive_input["id"],
-            }],
-            destinations=[{
-                "id": "destination",
-                "settings": [
-                    {
-                        "url": f"s3://{main['id']}/test1",
-                    },
-                    {
-                        "url": f"s3://{main2['id']}/test2",
-                    },
-                ],
-            }],
             encoder_settings={
                 "timecode_config": {
                     "source": "EMBEDDED",
@@ -715,9 +697,6 @@ class Channel(pulumi.CustomResource):
                 "audio_descriptions": [{
                     "audio_selector_name": "example audio selector",
                     "name": "audio-selector",
-                }],
-                "video_descriptions": [{
-                    "name": "example-video",
                 }],
                 "output_groups": [{
                     "output_group_settings": {
@@ -728,13 +707,8 @@ class Channel(pulumi.CustomResource):
                         }],
                     },
                     "outputs": [{
-                        "output_name": "example-name",
-                        "video_description_name": "example-video",
-                        "audio_description_names": ["audio-selector"],
                         "output_settings": {
                             "archive_output_settings": {
-                                "name_modifier": "_1",
-                                "extension": "m2ts",
                                 "container_settings": {
                                     "m2ts_settings": {
                                         "audio_buffer_model": "ATSC",
@@ -742,11 +716,37 @@ class Channel(pulumi.CustomResource):
                                         "rate_mode": "CBR",
                                     },
                                 },
+                                "name_modifier": "_1",
+                                "extension": "m2ts",
                             },
                         },
+                        "output_name": "example-name",
+                        "video_description_name": "example-video",
+                        "audio_description_names": ["audio-selector"],
                     }],
                 }],
-            })
+                "video_descriptions": [{
+                    "name": "example-video",
+                }],
+            },
+            destinations=[{
+                "settings": [
+                    {
+                        "url": f"s3://{main['id']}/test1",
+                    },
+                    {
+                        "url": f"s3://{main2['id']}/test2",
+                    },
+                ],
+                "id": "destination",
+            }],
+            input_attachments=[{
+                "input_attachment_name": "example-input",
+                "input_id": example_aws_medialive_input["id"],
+            }],
+            name="example-channel",
+            channel_class="STANDARD",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import

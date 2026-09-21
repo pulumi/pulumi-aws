@@ -52,14 +52,14 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
 
         :param pulumi.Input[_builtins.str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
-        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         :param pulumi.Input['EnvironmentNetworkConfigurationArgs'] network_configuration: Specifies the network configuration for your Apache Airflow Environment. This includes two private subnets as well as security groups for the Airflow environment. Each subnet requires internet connection, otherwise the deployment will fail. See `network_configuration` Block for details.
-        :param pulumi.Input[_builtins.str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[_builtins.str] source_bucket_arn: ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] airflow_configuration_options: The `airflow_configuration_options` parameter specifies airflow override options. Check the [Official documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-env-variables.html#configuring-env-variables-reference) for all possible configuration options.
         :param pulumi.Input[_builtins.str] airflow_version: Airflow version of your environment, will be set by default to the latest version that MWAA supports.
         :param pulumi.Input[_builtins.str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
@@ -146,7 +146,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -170,7 +170,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         """
         return pulumi.get(self, "source_bucket_arn")
 
@@ -230,7 +230,7 @@ class EnvironmentArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         """
         return pulumi.get(self, "kms_key")
 
@@ -506,8 +506,8 @@ class _EnvironmentState:
                * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[_builtins.str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         :param pulumi.Input['EnvironmentLoggingConfigurationArgs'] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
@@ -522,7 +522,7 @@ class _EnvironmentState:
         :param pulumi.Input[_builtins.str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[_builtins.str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
-        :param pulumi.Input[_builtins.str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[_builtins.str] source_bucket_arn: ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[_builtins.str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         :param pulumi.Input[_builtins.str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[_builtins.str] status: The status of the Amazon MWAA Environment
@@ -708,7 +708,7 @@ class _EnvironmentState:
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -720,7 +720,7 @@ class _EnvironmentState:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         """
         return pulumi.get(self, "kms_key")
 
@@ -909,7 +909,7 @@ class _EnvironmentState:
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         """
         return pulumi.get(self, "source_bucket_arn")
 
@@ -1086,13 +1086,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1103,6 +1103,10 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1110,10 +1114,6 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1126,8 +1126,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1150,11 +1148,13 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1165,13 +1165,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
@@ -1195,8 +1195,8 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] dag_s3_path: The relative path to the DAG folder on your Amazon S3 storage bucket. For example, dags. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
@@ -1210,7 +1210,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] requirements_s3_object_version: The requirements.txt file version you want to use.
         :param pulumi.Input[_builtins.str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
-        :param pulumi.Input[_builtins.str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[_builtins.str] source_bucket_arn: ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[_builtins.str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         :param pulumi.Input[_builtins.str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of resource tags to associate with the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -1238,13 +1238,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1255,6 +1255,10 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
+            network_configuration={
+                "security_group_ids": [example_aws_security_group["id"]],
+                "subnet_ids": [__item["id"] for __item in private],
+            },
             airflow_configuration_options={
                 "core.default_task_retries": "16",
                 "core.parallelism": "1",
@@ -1262,10 +1266,6 @@ class Environment(pulumi.CustomResource):
             dag_s3_path="dags/",
             execution_role_arn=example_aws_iam_role["arn"],
             name="example",
-            network_configuration={
-                "security_group_ids": [example_aws_security_group["id"]],
-                "subnet_ids": [__item["id"] for __item in private],
-            },
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1278,8 +1278,6 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
             logging_configuration={
                 "dag_processing_logs": {
                     "enabled": True,
@@ -1302,11 +1300,13 @@ class Environment(pulumi.CustomResource):
                     "log_level": "CRITICAL",
                 },
             },
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"])
         ```
 
@@ -1317,13 +1317,13 @@ class Environment(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mwaa.Environment("example",
-            dag_s3_path="dags/",
-            execution_role_arn=example_aws_iam_role["arn"],
-            name="example",
             network_configuration={
                 "security_group_ids": [example_aws_security_group["id"]],
                 "subnet_ids": [__item["id"] for __item in private],
             },
+            dag_s3_path="dags/",
+            execution_role_arn=example_aws_iam_role["arn"],
+            name="example",
             source_bucket_arn=example_aws_s3_bucket["arn"],
             tags={
                 "Name": "example",
@@ -1499,8 +1499,8 @@ class Environment(pulumi.CustomResource):
                * `logging_configuration[0].<LOG_CONFIGURATION_TYPE>[0].cloud_watch_log_group_arn` - Provides the ARN for the CloudWatch group where the logs will be published
         :param pulumi.Input[_builtins.str] endpoint_management: Defines whether the VPC endpoints configured for the environment are created and managed by the customer or by AWS. If set to `SERVICE`, Amazon MWAA will create and manage the required VPC endpoints in your VPC. If set to `CUSTOMER`, you must create, and manage, the VPC endpoints for your VPC. Defaults to `SERVICE` if not set.
         :param pulumi.Input[_builtins.str] environment_class: Environment class for the cluster. Possible options are `mw1.micro`, `mw1.small`, `mw1.medium`, `mw1.large`. Will be set by default to `mw1.small`. Please check the [AWS Pricing](https://aws.amazon.com/de/managed-workflows-for-apache-airflow/pricing/) for more information about the environment classes.
-        :param pulumi.Input[_builtins.str] execution_role_arn: The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
-        :param pulumi.Input[_builtins.str] kms_key: The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        :param pulumi.Input[_builtins.str] execution_role_arn: ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        :param pulumi.Input[_builtins.str] kms_key: ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         :param pulumi.Input[Union['EnvironmentLoggingConfigurationArgs', 'EnvironmentLoggingConfigurationArgsDict']] logging_configuration: The Apache Airflow logs you want to send to Amazon CloudWatch Logs. See `logging_configuration` Block for details.
         :param pulumi.Input[_builtins.int] max_webservers: The maximum number of web servers that you want to run in your environment. Value need to be between `2` and `5` if `environment_class` is not `mw1.micro`, `1` otherwise.
         :param pulumi.Input[_builtins.int] max_workers: The maximum number of workers that can be automatically scaled up. Value need to be between `1` and `25`. Will be `10` by default.
@@ -1515,7 +1515,7 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] requirements_s3_path: The relative path to the requirements.txt file on your Amazon S3 storage bucket. For example, requirements.txt. If a relative path is provided in the request, then requirements_s3_object_version is required. For more information, see [Importing DAGs on Amazon MWAA](https://docs.aws.amazon.com/mwaa/latest/userguide/configuring-dag-import.html).
         :param pulumi.Input[_builtins.int] schedulers: The number of schedulers that you want to run in your environment. v2.0.2 and above accepts `2` - `5`, default `2`. v1.10.12 accepts `1`.
         :param pulumi.Input[_builtins.str] service_role_arn: The Service Role ARN of the Amazon MWAA Environment
-        :param pulumi.Input[_builtins.str] source_bucket_arn: The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        :param pulumi.Input[_builtins.str] source_bucket_arn: ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         :param pulumi.Input[_builtins.str] startup_script_s3_object_version: The version of the startup shell script you want to use. You must specify the version ID that Amazon S3 assigns to the file every time you update the script.
         :param pulumi.Input[_builtins.str] startup_script_s3_path: The relative path to the script hosted in your bucket. The script runs as your environment starts before starting the Apache Airflow process. Use this script to install dependencies, modify configuration options, and set environment variables. See [Using a startup script](https://docs.aws.amazon.com/mwaa/latest/userguide/using-startup-script.html). Supported for environment versions 2.x and later.
         :param pulumi.Input[_builtins.str] status: The status of the Amazon MWAA Environment
@@ -1638,7 +1638,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="executionRoleArn")
     def execution_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+        ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
         """
         return pulumi.get(self, "execution_role_arn")
 
@@ -1646,7 +1646,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+        ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
         """
         return pulumi.get(self, "kms_key")
 
@@ -1771,7 +1771,7 @@ class Environment(pulumi.CustomResource):
     @pulumi.getter(name="sourceBucketArn")
     def source_bucket_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+        ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
         """
         return pulumi.get(self, "source_bucket_arn")
 

@@ -42,7 +42,7 @@ class VolumeArgs:
         :param pulumi.Input[_builtins.int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[_builtins.str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] size: Size of the drive in GiBs.
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot to base the EBS volume off of.
@@ -159,7 +159,7 @@ class VolumeArgs:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -287,7 +287,7 @@ class _VolumeState:
         :param pulumi.Input[_builtins.int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[_builtins.str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] size: Size of the drive in GiBs.
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot to base the EBS volume off of.
@@ -436,7 +436,7 @@ class _VolumeState:
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 
@@ -611,7 +611,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[_builtins.str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] size: Size of the drive in GiBs.
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot to base the EBS volume off of.
@@ -766,7 +766,7 @@ class Volume(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] iops: Amount of IOPS to provision for the disk. Only valid for `type` of `io1`, `io2` or `gp3`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key. When specifying `kms_key_id`, `encrypted` needs to be set to true. Note: The provider must be running with credentials which have the `GenerateDataKeyWithoutPlaintext` permission on the specified KMS key as required by the [EBS KMS CMK volume provisioning process](https://docs.aws.amazon.com/kms/latest/developerguide/services-ebs.html#ebs-cmk) to prevent a volume from being created and almost immediately deleted.
         :param pulumi.Input[_builtins.bool] multi_attach_enabled: Specifies whether to enable Amazon EBS Multi-Attach. Multi-Attach is supported on `io1` and `io2` volumes.
-        :param pulumi.Input[_builtins.str] outpost_arn: Amazon Resource Name (ARN) of the Outpost.
+        :param pulumi.Input[_builtins.str] outpost_arn: ARN of the Outpost.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] size: Size of the drive in GiBs.
         :param pulumi.Input[_builtins.str] snapshot_id: A snapshot to base the EBS volume off of.
@@ -871,7 +871,7 @@ class Volume(pulumi.CustomResource):
     @pulumi.getter(name="outpostArn")
     def outpost_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Outpost.
+        ARN of the Outpost.
         """
         return pulumi.get(self, "outpost_arn")
 

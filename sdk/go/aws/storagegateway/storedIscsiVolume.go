@@ -81,7 +81,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import `storagegateway.StoredIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import `storagegateway.StoredIscsiVolume` using the volume ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -89,17 +89,17 @@ import (
 type StoredIscsiVolume struct {
 	pulumi.CustomResourceState
 
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolOutput `pulumi:"chapEnabled"`
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId pulumi.StringOutput `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringOutput `pulumi:"gatewayArn"`
 	// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
 	KmsEncrypted pulumi.BoolPtrOutput `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+	// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey pulumi.StringPtrOutput `pulumi:"kmsKey"`
 	// Logical disk number.
 	LunNumber pulumi.IntOutput `pulumi:"lunNumber"`
@@ -117,7 +117,7 @@ type StoredIscsiVolume struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringOutput `pulumi:"targetName"`
@@ -178,17 +178,17 @@ func GetStoredIscsiVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering StoredIscsiVolume resources.
 type storedIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn *string `pulumi:"arn"`
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled *bool `pulumi:"chapEnabled"`
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId *string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn *string `pulumi:"gatewayArn"`
 	// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+	// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey *string `pulumi:"kmsKey"`
 	// Logical disk number.
 	LunNumber *int `pulumi:"lunNumber"`
@@ -206,7 +206,7 @@ type storedIscsiVolumeState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn *string `pulumi:"targetArn"`
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName *string `pulumi:"targetName"`
@@ -223,17 +223,17 @@ type storedIscsiVolumeState struct {
 }
 
 type StoredIscsiVolumeState struct {
-	// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+	// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 	Arn pulumi.StringPtrInput
 	// Whether mutual CHAP is enabled for the iSCSI target.
 	ChapEnabled pulumi.BoolPtrInput
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringPtrInput
 	// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
 	KmsEncrypted pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+	// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey pulumi.StringPtrInput
 	// Logical disk number.
 	LunNumber pulumi.IntPtrInput
@@ -251,7 +251,7 @@ type StoredIscsiVolumeState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+	// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 	TargetArn pulumi.StringPtrInput
 	// The name of the iSCSI target used by initiators to connect to the target and as a suffix for the target ARN. The target name must be unique across all volumes of a gateway.
 	TargetName pulumi.StringPtrInput
@@ -274,11 +274,11 @@ func (StoredIscsiVolumeState) ElementType() reflect.Type {
 type storedIscsiVolumeArgs struct {
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId string `pulumi:"diskId"`
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn string `pulumi:"gatewayArn"`
 	// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
 	KmsEncrypted *bool `pulumi:"kmsEncrypted"`
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+	// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey *string `pulumi:"kmsKey"`
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId string `pulumi:"networkInterfaceId"`
@@ -298,11 +298,11 @@ type storedIscsiVolumeArgs struct {
 type StoredIscsiVolumeArgs struct {
 	// The unique identifier for the gateway local disk that is configured as a stored volume.
 	DiskId pulumi.StringInput
-	// The Amazon Resource Name (ARN) of the gateway.
+	// ARN of the gateway.
 	GatewayArn pulumi.StringInput
 	// `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Optional.
 	KmsEncrypted pulumi.BoolPtrInput
-	// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+	// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 	KmsKey pulumi.StringPtrInput
 	// The network interface of the gateway on which to expose the iSCSI target. Only IPv4 addresses are accepted.
 	NetworkInterfaceId pulumi.StringInput
@@ -405,7 +405,7 @@ func (o StoredIscsiVolumeOutput) ToStoredIscsiVolumeOutputWithContext(ctx contex
 	return o
 }
 
-// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
 func (o StoredIscsiVolumeOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -420,7 +420,7 @@ func (o StoredIscsiVolumeOutput) DiskId() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.DiskId }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the gateway.
+// ARN of the gateway.
 func (o StoredIscsiVolumeOutput) GatewayArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.GatewayArn }).(pulumi.StringOutput)
 }
@@ -430,7 +430,7 @@ func (o StoredIscsiVolumeOutput) KmsEncrypted() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.BoolPtrOutput { return v.KmsEncrypted }).(pulumi.BoolPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
+// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `kmsEncrypted` is `true`.
 func (o StoredIscsiVolumeOutput) KmsKey() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringPtrOutput { return v.KmsKey }).(pulumi.StringPtrOutput)
 }
@@ -475,7 +475,7 @@ func (o StoredIscsiVolumeOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
 func (o StoredIscsiVolumeOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StoredIscsiVolume) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

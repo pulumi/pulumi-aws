@@ -77,14 +77,14 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      * 
      */
     @Import(name="roleArn", required=true)
     private Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role.
+     * @return ARN of the IAM role.
      * 
      */
     public Output<String> roleArn() {
@@ -224,7 +224,7 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 
@@ -235,7 +235,7 @@ public final class AssessmentDelegationArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role.
+         * @param roleArn ARN of the IAM role.
          * 
          * @return builder
          * 

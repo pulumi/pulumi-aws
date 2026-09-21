@@ -26,7 +26,7 @@ class IdentityPolicyArgs:
         """
         The set of arguments for constructing a IdentityPolicy resource.
 
-        :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
+        :param pulumi.Input[_builtins.str] identity: Name or ARN of the SES Identity.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -42,7 +42,7 @@ class IdentityPolicyArgs:
     @pulumi.getter
     def identity(self) -> pulumi.Input[_builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the SES Identity.
+        Name or ARN of the SES Identity.
         """
         return pulumi.get(self, "identity")
 
@@ -97,7 +97,7 @@ class _IdentityPolicyState:
         """
         Input properties used for looking up and filtering IdentityPolicy resources.
 
-        :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
+        :param pulumi.Input[_builtins.str] identity: Name or ARN of the SES Identity.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -115,7 +115,7 @@ class _IdentityPolicyState:
     @pulumi.getter
     def identity(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Name or Amazon Resource Name (ARN) of the SES Identity.
+        Name or ARN of the SES Identity.
         """
         return pulumi.get(self, "identity")
 
@@ -182,15 +182,15 @@ class IdentityPolicy(pulumi.CustomResource):
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
         example = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
             "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
             "resources": [example_domain_identity.arn],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
         }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
@@ -209,7 +209,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
+        :param pulumi.Input[_builtins.str] identity: Name or ARN of the SES Identity.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -231,15 +231,15 @@ class IdentityPolicy(pulumi.CustomResource):
 
         example_domain_identity = aws.ses.DomainIdentity("example", domain="example.com")
         example = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["*"],
+                "type": "AWS",
+            }],
             "actions": [
                 "SES:SendEmail",
                 "SES:SendRawEmail",
             ],
             "resources": [example_domain_identity.arn],
-            "principals": [{
-                "identifiers": ["*"],
-                "type": "AWS",
-            }],
         }])
         example_identity_policy = aws.ses.IdentityPolicy("example",
             identity=example_domain_identity.arn,
@@ -313,7 +313,7 @@ class IdentityPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] identity: Name or Amazon Resource Name (ARN) of the SES Identity.
+        :param pulumi.Input[_builtins.str] identity: Name or ARN of the SES Identity.
         :param pulumi.Input[_builtins.str] name: Name of the policy.
         :param pulumi.Input[_builtins.str] policy: JSON string of the policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -332,7 +332,7 @@ class IdentityPolicy(pulumi.CustomResource):
     @pulumi.getter
     def identity(self) -> pulumi.Output[_builtins.str]:
         """
-        Name or Amazon Resource Name (ARN) of the SES Identity.
+        Name or ARN of the SES Identity.
         """
         return pulumi.get(self, "identity")
 

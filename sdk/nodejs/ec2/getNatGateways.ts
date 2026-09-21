@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ngws = aws.ec2.getNatGateways({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "state",
  *         values: ["available"],
  *     }],
+ *     vpcId: vpcId,
  * });
  * const ngw = .map(__index => (aws.ec2.getNatGateway({
  *     id: _arg0_.ids[__index],
@@ -93,11 +93,11 @@ export interface GetNatGatewaysResult {
  * import * as aws from "@pulumi/aws";
  *
  * const ngws = aws.ec2.getNatGateways({
- *     vpcId: vpcId,
  *     filters: [{
  *         name: "state",
  *         values: ["available"],
  *     }],
+ *     vpcId: vpcId,
  * });
  * const ngw = .map(__index => (aws.ec2.getNatGateway({
  *     id: _arg0_.ids[__index],

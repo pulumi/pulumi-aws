@@ -70,7 +70,7 @@ export class Alias extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the key alias.
+     * ARN of the key alias.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -87,7 +87,7 @@ export class Alias extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
+     * ARN of the target key identifier.
      */
     declare public /*out*/ readonly targetKeyArn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class Alias extends pulumi.CustomResource {
  */
 export interface AliasState {
     /**
-     * The Amazon Resource Name (ARN) of the key alias.
+     * ARN of the key alias.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -153,7 +153,7 @@ export interface AliasState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
+     * ARN of the target key identifier.
      */
     targetKeyArn?: pulumi.Input<string | undefined>;
     /**

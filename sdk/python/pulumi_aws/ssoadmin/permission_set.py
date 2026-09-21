@@ -29,7 +29,7 @@ class PermissionSetArgs:
         """
         The set of arguments for constructing a PermissionSet resource.
 
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] description: The description of the Permission Set.
         :param pulumi.Input[_builtins.str] name: The name of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -55,7 +55,7 @@ class PermissionSetArgs:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -152,10 +152,10 @@ class _PermissionSetState:
         """
         Input properties used for looking up and filtering PermissionSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Permission Set.
         :param pulumi.Input[_builtins.str] created_date: The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] description: The description of the Permission Set.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] name: The name of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
@@ -188,7 +188,7 @@ class _PermissionSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Permission Set.
+        ARN of the Permission Set.
         """
         return pulumi.get(self, "arn")
 
@@ -224,7 +224,7 @@ class _PermissionSetState:
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 
@@ -351,7 +351,7 @@ class PermissionSet(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: The description of the Permission Set.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] name: The name of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
@@ -463,10 +463,10 @@ class PermissionSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Permission Set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Permission Set.
         :param pulumi.Input[_builtins.str] created_date: The date the Permission Set was created in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8).
         :param pulumi.Input[_builtins.str] description: The description of the Permission Set.
-        :param pulumi.Input[_builtins.str] instance_arn: The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        :param pulumi.Input[_builtins.str] instance_arn: ARN of the SSO Instance under which the operation will be executed.
         :param pulumi.Input[_builtins.str] name: The name of the Permission Set.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] relay_state: The relay state URL used to redirect users within the application during the federation authentication process.
@@ -494,7 +494,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Permission Set.
+        ARN of the Permission Set.
         """
         return pulumi.get(self, "arn")
 
@@ -518,7 +518,7 @@ class PermissionSet(pulumi.CustomResource):
     @pulumi.getter(name="instanceArn")
     def instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+        ARN of the SSO Instance under which the operation will be executed.
         """
         return pulumi.get(self, "instance_arn")
 

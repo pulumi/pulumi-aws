@@ -29,13 +29,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := gamelift.NewBuild(ctx, "test", &gamelift.BuildArgs{
-//				Name:            pulumi.String("example-build"),
-//				OperatingSystem: pulumi.String("WINDOWS_2012"),
 //				StorageLocation: &gamelift.BuildStorageLocationArgs{
 //					Bucket:  pulumi.Any(testAwsS3Bucket.Id),
 //					Key:     pulumi.Any(testAwsS3Object.Key),
 //					RoleArn: pulumi.Any(testAwsIamRole.Arn),
 //				},
+//				Name:            pulumi.String("example-build"),
+//				OperatingSystem: pulumi.String("WINDOWS_2012"),
 //			})
 //			if err != nil {
 //				return err

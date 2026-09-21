@@ -34,12 +34,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.cloudwatch.EventEndpoint;
  * import com.pulumi.aws.cloudwatch.EventEndpointArgs;
- * import com.pulumi.aws.cloudwatch.inputs.EventEndpointEventBusArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventEndpointReplicationConfigArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigPrimaryArgs;
  * import com.pulumi.aws.cloudwatch.inputs.EventEndpointRoutingConfigFailoverConfigSecondaryArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.EventEndpointEventBusArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,15 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var this_ = new EventEndpoint("this", EventEndpointArgs.builder()
- *             .name("global-endpoint")
- *             .roleArn(replication.arn())
- *             .eventBuses(            
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(primary.arn())
- *                     .build(),
- *                 EventEndpointEventBusArgs.builder()
- *                     .eventBusArn(secondary.arn())
- *                     .build())
  *             .replicationConfig(EventEndpointReplicationConfigArgs.builder()
  *                 .state("DISABLED")
  *                 .build())
@@ -76,6 +67,15 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .eventBuses(            
+ *                 EventEndpointEventBusArgs.builder()
+ *                     .eventBusArn(primary.arn())
+ *                     .build(),
+ *                 EventEndpointEventBusArgs.builder()
+ *                     .eventBusArn(secondary.arn())
+ *                     .build())
+ *             .name("global-endpoint")
+ *             .roleArn(replication.arn())
  *             .build());
  * 
  *     }

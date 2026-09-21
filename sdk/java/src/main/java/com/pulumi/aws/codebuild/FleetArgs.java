@@ -102,14 +102,14 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Machine Image (AMI) of the compute fleet.
+     * AMI of the compute fleet.
      * 
      */
     @Import(name="imageId")
     private @Nullable Output<String> imageId;
 
     /**
-     * @return The Amazon Machine Image (AMI) of the compute fleet.
+     * @return AMI of the compute fleet.
      * 
      */
     public Optional<Output<String>> imageId() {
@@ -351,7 +351,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageId The Amazon Machine Image (AMI) of the compute fleet.
+         * @param imageId AMI of the compute fleet.
          * 
          * @return builder
          * 
@@ -362,7 +362,7 @@ public final class FleetArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param imageId The Amazon Machine Image (AMI) of the compute fleet.
+         * @param imageId AMI of the compute fleet.
          * 
          * @return builder
          * 

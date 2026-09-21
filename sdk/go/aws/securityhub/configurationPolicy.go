@@ -39,11 +39,11 @@ import (
 //				return err
 //			}
 //			exampleOrganizationConfiguration, err := securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
 //				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
 //					ConfigurationType: pulumi.String("CENTRAL"),
 //				},
+//				AutoEnable:          pulumi.Bool(false),
+//				AutoEnableStandards: pulumi.String("NONE"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -51,18 +51,18 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewConfigurationPolicy(ctx, "example", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Example"),
-//				Description: pulumi.String("This is an example configuration policy"),
 //				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
+//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
+//						DisabledControlIdentifiers: pulumi.StringArray{},
+//					},
 //					ServiceEnabled: pulumi.Bool(true),
 //					EnabledStandardArns: pulumi.StringArray{
 //						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
 //						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
 //					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						DisabledControlIdentifiers: pulumi.StringArray{},
-//					},
 //				},
+//				Name:        pulumi.String("Example"),
+//				Description: pulumi.String("This is an example configuration policy"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleOrganizationConfiguration,
 //			}))
@@ -90,11 +90,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securityhub.NewConfigurationPolicy(ctx, "disabled", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Disabled"),
-//				Description: pulumi.String("This is an example of disabled configuration policy"),
 //				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
 //					ServiceEnabled: pulumi.Bool(false),
 //				},
+//				Name:        pulumi.String("Disabled"),
+//				Description: pulumi.String("This is an example of disabled configuration policy"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))
@@ -122,54 +122,54 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securityhub.NewConfigurationPolicy(ctx, "disabled", &securityhub.ConfigurationPolicyArgs{
-//				Name:        pulumi.String("Custom Controls"),
-//				Description: pulumi.String("This is an example of configuration policy with custom control settings"),
 //				ConfigurationPolicy: &securityhub.ConfigurationPolicyConfigurationPolicyArgs{
+//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
+//						SecurityControlCustomParameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray{
+//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
+//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
+//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
+//										Enum: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{
+//											Value: pulumi.String("INFO"),
+//										},
+//										Name:      pulumi.String("loggingLevel"),
+//										ValueType: pulumi.String("CUSTOM"),
+//									},
+//								},
+//								SecurityControlId: pulumi.String("APIGateway.1"),
+//							},
+//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
+//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
+//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
+//										Bool: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{
+//											Value: pulumi.Bool(false),
+//										},
+//										Name:      pulumi.String("RequireLowercaseCharacters"),
+//										ValueType: pulumi.String("CUSTOM"),
+//									},
+//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
+//										Int: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{
+//											Value: pulumi.Int(60),
+//										},
+//										Name:      pulumi.String("MaxPasswordAge"),
+//										ValueType: pulumi.String("CUSTOM"),
+//									},
+//								},
+//								SecurityControlId: pulumi.String("IAM.7"),
+//							},
+//						},
+//						EnabledControlIdentifiers: pulumi.StringArray{
+//							pulumi.String("APIGateway.1"),
+//							pulumi.String("IAM.7"),
+//						},
+//					},
 //					ServiceEnabled: pulumi.Bool(true),
 //					EnabledStandardArns: pulumi.StringArray{
 //						pulumi.String("arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0"),
 //						pulumi.String("arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0"),
 //					},
-//					SecurityControlsConfiguration: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{
-//						EnabledControlIdentifiers: pulumi.StringArray{
-//							pulumi.String("APIGateway.1"),
-//							pulumi.String("IAM.7"),
-//						},
-//						SecurityControlCustomParameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray{
-//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
-//								SecurityControlId: pulumi.String("APIGateway.1"),
-//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("loggingLevel"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Enum: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{
-//											Value: pulumi.String("INFO"),
-//										},
-//									},
-//								},
-//							},
-//							&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{
-//								SecurityControlId: pulumi.String("IAM.7"),
-//								Parameters: securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("RequireLowercaseCharacters"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Bool: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{
-//											Value: pulumi.Bool(false),
-//										},
-//									},
-//									&securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{
-//										Name:      pulumi.String("MaxPasswordAge"),
-//										ValueType: pulumi.String("CUSTOM"),
-//										Int: &securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{
-//											Value: pulumi.Int(60),
-//										},
-//									},
-//								},
-//							},
-//						},
-//					},
 //				},
+//				Name:        pulumi.String("Custom Controls"),
+//				Description: pulumi.String("This is an example of configuration policy with custom control settings"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				example,
 //			}))

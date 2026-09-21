@@ -28,11 +28,11 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
         ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
         ///         {
         ///             Name = "Test",
         ///         },
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
@@ -58,11 +58,11 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
         ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
         ///         {
         ///             Name = "Test",
         ///         },
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });
@@ -88,11 +88,11 @@ namespace Pulumi.Aws.Connect
         /// {
         ///     var example = Aws.Connect.GetBotAssociation.Invoke(new()
         ///     {
-        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///         LexBot = new Aws.Connect.Inputs.GetBotAssociationLexBotInputArgs
         ///         {
         ///             Name = "Test",
         ///         },
+        ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
         ///     });
         /// 
         /// });

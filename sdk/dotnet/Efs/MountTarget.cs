@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Efs
         public Output<string> DnsName { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("fileSystemArn")]
         public Output<string> FileSystemArn { get; private set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.Efs
         public Input<string>? DnsName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("fileSystemArn")]
         public Input<string>? FileSystemArn { get; set; }

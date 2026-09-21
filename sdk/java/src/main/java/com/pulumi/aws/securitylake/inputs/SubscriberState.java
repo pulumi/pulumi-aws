@@ -66,14 +66,14 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
     @Import(name="resourceShareArn")
     private @Nullable Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * @return ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
     public Optional<Output<String>> resourceShareArn() {
@@ -355,7 +355,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+         * @param resourceShareArn ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
          * 
          * @return builder
          * 
@@ -366,7 +366,7 @@ public final class SubscriberState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceShareArn The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+         * @param resourceShareArn ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
          * 
          * @return builder
          * 

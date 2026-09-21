@@ -211,7 +211,7 @@ namespace Pulumi.Aws.Route53
     public sealed class GetResolverRuleResult
     {
         /// <summary>
-        /// ARN (Amazon Resource Name) for the resolver rule.
+        /// ARN for the resolver rule.
         /// </summary>
         public readonly string Arn;
         public readonly string DomainName;

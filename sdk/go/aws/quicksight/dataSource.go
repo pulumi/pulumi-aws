@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := quicksight.NewDataSource(ctx, "default", &quicksight.DataSourceArgs{
-//				DataSourceId: pulumi.String("example-id"),
-//				Name:         pulumi.String("My Cool Data in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
@@ -41,7 +39,9 @@ import (
 //						},
 //					},
 //				},
-//				Type: pulumi.String("S3"),
+//				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("My Cool Data in S3"),
+//				Type:         pulumi.String("S3"),
 //			})
 //			if err != nil {
 //				return err
@@ -190,8 +190,6 @@ import (
 //				return err
 //			}
 //			_, err = quicksight.NewDataSource(ctx, "example", &quicksight.DataSourceArgs{
-//				DataSourceId: pulumi.String("example-id"),
-//				Name:         pulumi.String("manifest in S3"),
 //				Parameters: &quicksight.DataSourceParametersArgs{
 //					S3: &quicksight.DataSourceParametersS3Args{
 //						ManifestFileLocation: &quicksight.DataSourceParametersS3ManifestFileLocationArgs{
@@ -201,7 +199,9 @@ import (
 //						RoleArn: exampleRole.Arn,
 //					},
 //				},
-//				Type: pulumi.String("S3"),
+//				DataSourceId: pulumi.String("example-id"),
+//				Name:         pulumi.String("manifest in S3"),
+//				Type:         pulumi.String("S3"),
 //			})
 //			if err != nil {
 //				return err
@@ -222,7 +222,7 @@ import (
 type DataSource struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the data source
+	// ARN of the data source
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringOutput `pulumi:"awsAccountId"`
@@ -291,7 +291,7 @@ func GetDataSource(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DataSource resources.
 type dataSourceState struct {
-	// Amazon Resource Name (ARN) of the data source
+	// ARN of the data source
 	Arn *string `pulumi:"arn"`
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId *string `pulumi:"awsAccountId"`
@@ -322,7 +322,7 @@ type dataSourceState struct {
 }
 
 type DataSourceState struct {
-	// Amazon Resource Name (ARN) of the data source
+	// ARN of the data source
 	Arn pulumi.StringPtrInput
 	// AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
 	AwsAccountId pulumi.StringPtrInput
@@ -498,7 +498,7 @@ func (o DataSourceOutput) ToDataSourceOutputWithContext(ctx context.Context) Dat
 	return o
 }
 
-// Amazon Resource Name (ARN) of the data source
+// ARN of the data source
 func (o DataSourceOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DataSource) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

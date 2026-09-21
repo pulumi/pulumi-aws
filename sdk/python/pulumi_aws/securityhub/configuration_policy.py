@@ -201,25 +201,25 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         example = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
+            auto_enable=False,
+            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
-            name="Example",
-            description="This is an example configuration policy",
             configuration_policy={
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
+                },
                 "service_enabled": True,
                 "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "security_controls_configuration": {
-                    "disabled_control_identifiers": [],
-                },
             },
+            name="Example",
+            description="This is an example configuration policy",
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
 
@@ -230,11 +230,11 @@ class ConfigurationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Disabled",
-            description="This is an example of disabled configuration policy",
             configuration_policy={
                 "service_enabled": False,
             },
+            name="Disabled",
+            description="This is an example of disabled configuration policy",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -245,52 +245,52 @@ class ConfigurationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Custom Controls",
-            description="This is an example of configuration policy with custom control settings",
             configuration_policy={
+                "security_controls_configuration": {
+                    "security_control_custom_parameters": [
+                        {
+                            "parameters": [{
+                                "enum": {
+                                    "value": "INFO",
+                                },
+                                "name": "loggingLevel",
+                                "value_type": "CUSTOM",
+                            }],
+                            "security_control_id": "APIGateway.1",
+                        },
+                        {
+                            "parameters": [
+                                {
+                                    "bool": {
+                                        "value": False,
+                                    },
+                                    "name": "RequireLowercaseCharacters",
+                                    "value_type": "CUSTOM",
+                                },
+                                {
+                                    "int": {
+                                        "value": 60,
+                                    },
+                                    "name": "MaxPasswordAge",
+                                    "value_type": "CUSTOM",
+                                },
+                            ],
+                            "security_control_id": "IAM.7",
+                        },
+                    ],
+                    "enabled_control_identifiers": [
+                        "APIGateway.1",
+                        "IAM.7",
+                    ],
+                },
                 "service_enabled": True,
                 "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "security_controls_configuration": {
-                    "enabled_control_identifiers": [
-                        "APIGateway.1",
-                        "IAM.7",
-                    ],
-                    "security_control_custom_parameters": [
-                        {
-                            "security_control_id": "APIGateway.1",
-                            "parameters": [{
-                                "name": "loggingLevel",
-                                "value_type": "CUSTOM",
-                                "enum": {
-                                    "value": "INFO",
-                                },
-                            }],
-                        },
-                        {
-                            "security_control_id": "IAM.7",
-                            "parameters": [
-                                {
-                                    "name": "RequireLowercaseCharacters",
-                                    "value_type": "CUSTOM",
-                                    "bool": {
-                                        "value": False,
-                                    },
-                                },
-                                {
-                                    "name": "MaxPasswordAge",
-                                    "value_type": "CUSTOM",
-                                    "int": {
-                                        "value": 60,
-                                    },
-                                },
-                            ],
-                        },
-                    ],
-                },
             },
+            name="Custom Controls",
+            description="This is an example of configuration policy with custom control settings",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -342,25 +342,25 @@ class ConfigurationPolicy(pulumi.CustomResource):
 
         example = aws.securityhub.FindingAggregator("example", linking_mode="ALL_REGIONS")
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example",
-            auto_enable=False,
-            auto_enable_standards="NONE",
             organization_configuration={
                 "configuration_type": "CENTRAL",
             },
+            auto_enable=False,
+            auto_enable_standards="NONE",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         example_configuration_policy = aws.securityhub.ConfigurationPolicy("example",
-            name="Example",
-            description="This is an example configuration policy",
             configuration_policy={
+                "security_controls_configuration": {
+                    "disabled_control_identifiers": [],
+                },
                 "service_enabled": True,
                 "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "security_controls_configuration": {
-                    "disabled_control_identifiers": [],
-                },
             },
+            name="Example",
+            description="This is an example configuration policy",
             opts = pulumi.ResourceOptions(depends_on=[example_organization_configuration]))
         ```
 
@@ -371,11 +371,11 @@ class ConfigurationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Disabled",
-            description="This is an example of disabled configuration policy",
             configuration_policy={
                 "service_enabled": False,
             },
+            name="Disabled",
+            description="This is an example of disabled configuration policy",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -386,52 +386,52 @@ class ConfigurationPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         disabled = aws.securityhub.ConfigurationPolicy("disabled",
-            name="Custom Controls",
-            description="This is an example of configuration policy with custom control settings",
             configuration_policy={
+                "security_controls_configuration": {
+                    "security_control_custom_parameters": [
+                        {
+                            "parameters": [{
+                                "enum": {
+                                    "value": "INFO",
+                                },
+                                "name": "loggingLevel",
+                                "value_type": "CUSTOM",
+                            }],
+                            "security_control_id": "APIGateway.1",
+                        },
+                        {
+                            "parameters": [
+                                {
+                                    "bool": {
+                                        "value": False,
+                                    },
+                                    "name": "RequireLowercaseCharacters",
+                                    "value_type": "CUSTOM",
+                                },
+                                {
+                                    "int": {
+                                        "value": 60,
+                                    },
+                                    "name": "MaxPasswordAge",
+                                    "value_type": "CUSTOM",
+                                },
+                            ],
+                            "security_control_id": "IAM.7",
+                        },
+                    ],
+                    "enabled_control_identifiers": [
+                        "APIGateway.1",
+                        "IAM.7",
+                    ],
+                },
                 "service_enabled": True,
                 "enabled_standard_arns": [
                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
                 ],
-                "security_controls_configuration": {
-                    "enabled_control_identifiers": [
-                        "APIGateway.1",
-                        "IAM.7",
-                    ],
-                    "security_control_custom_parameters": [
-                        {
-                            "security_control_id": "APIGateway.1",
-                            "parameters": [{
-                                "name": "loggingLevel",
-                                "value_type": "CUSTOM",
-                                "enum": {
-                                    "value": "INFO",
-                                },
-                            }],
-                        },
-                        {
-                            "security_control_id": "IAM.7",
-                            "parameters": [
-                                {
-                                    "name": "RequireLowercaseCharacters",
-                                    "value_type": "CUSTOM",
-                                    "bool": {
-                                        "value": False,
-                                    },
-                                },
-                                {
-                                    "name": "MaxPasswordAge",
-                                    "value_type": "CUSTOM",
-                                    "int": {
-                                        "value": 60,
-                                    },
-                                },
-                            ],
-                        },
-                    ],
-                },
             },
+            name="Custom Controls",
+            description="This is an example of configuration policy with custom control settings",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 

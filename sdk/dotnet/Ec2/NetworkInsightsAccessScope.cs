@@ -70,22 +70,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.NetworkInsightsAccessScope("example", new()
     ///     {
-    ///         MatchPaths = new[]
-    ///         {
-    ///             new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathArgs
-    ///             {
-    ///                 Source = new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathSourceArgs
-    ///                 {
-    ///                     ResourceStatement = new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs
-    ///                     {
-    ///                         ResourceTypes = new[]
-    ///                         {
-    ///                             "AWS::EC2::NetworkInterface",
-    ///                         },
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
     ///         ExcludePaths = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.NetworkInsightsAccessScopeExcludePathArgs
@@ -110,6 +94,22 @@ namespace Pulumi.Aws.Ec2
     ///                             {
     ///                                 "AWS::EC2::NatGateway",
     ///                             },
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///         MatchPaths = new[]
+    ///         {
+    ///             new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathArgs
+    ///             {
+    ///                 Source = new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathSourceArgs
+    ///                 {
+    ///                     ResourceStatement = new Aws.Ec2.Inputs.NetworkInsightsAccessScopeMatchPathSourceResourceStatementArgs
+    ///                     {
+    ///                         ResourceTypes = new[]
+    ///                         {
+    ///                             "AWS::EC2::NetworkInterface",
     ///                         },
     ///                     },
     ///                 },

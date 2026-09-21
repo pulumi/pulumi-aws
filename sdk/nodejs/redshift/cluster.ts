@@ -101,7 +101,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly aquaConfigurationStatus: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -121,7 +121,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly clusterIdentifier: pulumi.Output<string>;
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      */
     declare public /*out*/ readonly clusterNamespaceArn: pulumi.Output<string>;
     /**
@@ -141,7 +141,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly clusterRevisionNumber: pulumi.Output<string>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     declare public readonly clusterSubnetGroupName: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly databaseName: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     declare public readonly defaultIamRoleArn: pulumi.Output<string>;
     /**
@@ -200,9 +200,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly maintenanceTrackName: pulumi.Output<string | undefined>;
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     declare public readonly manageMasterPassword: pulumi.Output<boolean | undefined>;
     /**
@@ -210,11 +208,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public readonly manualSnapshotRetentionPeriod: pulumi.Output<number | undefined>;
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     declare public readonly masterPassword: pulumi.Output<string | undefined>;
     /**
@@ -227,15 +221,11 @@ export class Cluster extends pulumi.CustomResource {
     declare public readonly masterPasswordSecretKmsKeyId: pulumi.Output<string>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      */
     declare public readonly masterPasswordWo: pulumi.Output<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     declare public readonly masterPasswordWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -306,7 +296,7 @@ export class Cluster extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     declare public readonly vpcSecurityGroupIds: pulumi.Output<string[]>;
 
@@ -460,7 +450,7 @@ export interface ClusterState {
      */
     aquaConfigurationStatus?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -480,7 +470,7 @@ export interface ClusterState {
      */
     clusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      */
     clusterNamespaceArn?: pulumi.Input<string | undefined>;
     /**
@@ -500,7 +490,7 @@ export interface ClusterState {
      */
     clusterRevisionNumber?: pulumi.Input<string | undefined>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -518,7 +508,7 @@ export interface ClusterState {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -559,9 +549,7 @@ export interface ClusterState {
      */
     maintenanceTrackName?: pulumi.Input<string | undefined>;
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     manageMasterPassword?: pulumi.Input<boolean | undefined>;
     /**
@@ -569,11 +557,7 @@ export interface ClusterState {
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     masterPassword?: pulumi.Input<string | undefined>;
     /**
@@ -586,15 +570,11 @@ export interface ClusterState {
     masterPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      */
     masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -665,7 +645,7 @@ export interface ClusterState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
@@ -711,7 +691,7 @@ export interface ClusterArgs {
      */
     clusterParameterGroupName?: pulumi.Input<string | undefined>;
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      */
     clusterSubnetGroupName?: pulumi.Input<string | undefined>;
     /**
@@ -729,7 +709,7 @@ export interface ClusterArgs {
      */
     databaseName?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      */
     defaultIamRoleArn?: pulumi.Input<string | undefined>;
     /**
@@ -762,9 +742,7 @@ export interface ClusterArgs {
      */
     maintenanceTrackName?: pulumi.Input<string | undefined>;
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      */
     manageMasterPassword?: pulumi.Input<boolean | undefined>;
     /**
@@ -772,11 +750,7 @@ export interface ClusterArgs {
      */
     manualSnapshotRetentionPeriod?: pulumi.Input<number | undefined>;
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      */
     masterPassword?: pulumi.Input<string | undefined>;
     /**
@@ -785,15 +759,11 @@ export interface ClusterArgs {
     masterPasswordSecretKmsKeyId?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      */
     masterPasswordWo?: pulumi.Input<string | undefined>;
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      */
     masterPasswordWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -860,7 +830,7 @@ export interface ClusterArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      */
     vpcSecurityGroupIds?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }

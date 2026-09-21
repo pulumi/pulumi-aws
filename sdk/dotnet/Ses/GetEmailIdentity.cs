@@ -130,7 +130,7 @@ namespace Pulumi.Aws.Ses
     public sealed class GetEmailIdentityResult
     {
         /// <summary>
-        /// The ARN of the email identity.
+        /// ARN of the email identity.
         /// </summary>
         public readonly string Arn;
         /// <summary>

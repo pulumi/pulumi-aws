@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshiftserverless/namespace:Namespace")
 public class Namespace extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     @Export(name="adminPasswordSecretArn", refs={String.class}, tree="[0]")
     private Output<String> adminPasswordSecretArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of namespace&#39;s admin user credentials secret.
+     * @return ARN of namespace&#39;s admin user credentials secret.
      * 
      */
     public Output<String> adminPasswordSecretArn() {
@@ -96,16 +96,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.adminPasswordSecretKmsKeyId;
     }
     /**
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     @Export(name="adminUserPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> adminUserPassword;
 
     /**
-     * @return The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
+     * @return The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<String>> adminUserPassword() {
@@ -113,8 +111,7 @@ public class Namespace extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     @Export(name="adminUserPasswordWo", refs={String.class}, tree="[0]")
@@ -122,22 +119,21 @@ public class Namespace extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * The password of the administrator for the first database created in the namespace.
-     * Conflicts with `manageAdminPassword` and `adminUserPassword`.
+     * The password of the administrator for the first database created in the namespace. Conflicts with `manageAdminPassword` and `adminUserPassword`. If set, requires `adminUserPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> adminUserPasswordWo() {
         return Codegen.optional(this.adminUserPasswordWo);
     }
     /**
-     * Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     @Export(name="adminUserPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> adminUserPasswordWoVersion;
 
     /**
-     * @return Used together with `adminUserPasswordWo` to trigger an update. Increment this value when an update to the `adminUserPasswordWo` is required
+     * @return Required when `adminUserPasswordWo` is set. Changing this value triggers an update to `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> adminUserPasswordWoVersion() {
@@ -158,14 +154,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.adminUsername;
     }
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * ARN of the Redshift Serverless Namespace.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Namespace.
+     * @return ARN of the Redshift Serverless Namespace.
      * 
      */
     public Output<String> arn() {
@@ -186,14 +182,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.dbName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
+     * @return ARN of the IAM role to set as a default in the namespace. When specifying `defaultIamRoleArn`, it also must be part of `iamRoles`.
      * 
      */
     public Output<Optional<String>> defaultIamRoleArn() {
@@ -214,14 +210,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return this.iamRoles;
     }
     /**
-     * The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the Amazon Web Services Key Management Service key used to encrypt your data.
+     * @return ARN of the Amazon Web Services KMS key used to encrypt your data.
      * 
      */
     public Output<String> kmsKeyId() {
@@ -242,16 +238,14 @@ public class Namespace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.logExports);
     }
     /**
-     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     @Export(name="manageAdminPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageAdminPassword;
 
     /**
-     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials.
-     * Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
+     * @return Whether to use AWS SecretManager to manage namespace&#39;s admin credentials. Conflicts with `adminUserPassword` and `adminUserPasswordWo`.
      * 
      */
     public Output<Optional<Boolean>> manageAdminPassword() {

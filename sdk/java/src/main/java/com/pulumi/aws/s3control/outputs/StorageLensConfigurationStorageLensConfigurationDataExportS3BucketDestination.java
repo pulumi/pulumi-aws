@@ -19,7 +19,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
      */
     private String accountId;
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     private String arn;
@@ -53,7 +53,7 @@ public final class StorageLensConfigurationStorageLensConfigurationDataExportS3B
         return this.accountId;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the bucket.
+     * @return ARN of the bucket.
      * 
      */
     public String arn() {

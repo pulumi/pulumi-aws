@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentcoreCodeInterpreter("example", {
- *     name: "example-code-interpreter",
- *     description: "Code interpreter for data analysis",
  *     networkConfiguration: {
  *         networkMode: "PUBLIC",
  *     },
+ *     name: "example-code-interpreter",
+ *     description: "Code interpreter for data analysis",
  * });
  * ```
  *
@@ -35,12 +35,12 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sts:AssumeRole"],
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["bedrock-agentcore.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sts:AssumeRole"],
  *     }],
  * });
  * const example = new aws.iam.Role("example", {
@@ -48,12 +48,12 @@ import * as utilities from "../utilities";
  *     assumeRolePolicy: assumeRole.then(assumeRole => assumeRole.json),
  * });
  * const exampleAgentcoreCodeInterpreter = new aws.bedrock.AgentcoreCodeInterpreter("example", {
- *     name: "example-code-interpreter",
- *     description: "Code interpreter with custom execution role",
- *     executionRoleArn: example.arn,
  *     networkConfiguration: {
  *         networkMode: "SANDBOX",
  *     },
+ *     name: "example-code-interpreter",
+ *     description: "Code interpreter with custom execution role",
+ *     executionRoleArn: example.arn,
  * });
  * ```
  *

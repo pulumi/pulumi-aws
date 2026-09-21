@@ -103,112 +103,112 @@ public class ShardGroup extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+     * Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
      * 
      */
     @Export(name="computeRedundancy", refs={Integer.class}, tree="[0]")
     private Output<Integer> computeRedundancy;
 
     /**
-     * @return Specifies whether to create standby DB shard groups for the DB shard group. Valid values are:
+     * @return Whether to create standby DB shard groups for the DB shard group. Valid values are `0` (no standby DB shard group, the default), `1` (one standby DB shard group in a different Availability Zone), and `2` (two standby DB shard groups in two different Availability Zones).
      * 
      */
     public Output<Integer> computeRedundancy() {
         return this.computeRedundancy;
     }
     /**
-     * The name of the primary DB cluster for the DB shard group.
+     * Name of the primary DB cluster for the DB shard group.
      * 
      */
     @Export(name="dbClusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbClusterIdentifier;
 
     /**
-     * @return The name of the primary DB cluster for the DB shard group.
+     * @return Name of the primary DB cluster for the DB shard group.
      * 
      */
     public Output<String> dbClusterIdentifier() {
         return this.dbClusterIdentifier;
     }
     /**
-     * The name of the DB shard group.
+     * Name of the DB shard group.
      * 
      */
     @Export(name="dbShardGroupIdentifier", refs={String.class}, tree="[0]")
     private Output<String> dbShardGroupIdentifier;
 
     /**
-     * @return The name of the DB shard group.
+     * @return Name of the DB shard group.
      * 
      */
     public Output<String> dbShardGroupIdentifier() {
         return this.dbShardGroupIdentifier;
     }
     /**
-     * The AWS Region-unique, immutable identifier for the DB shard group.
+     * AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
     @Export(name="dbShardGroupResourceId", refs={String.class}, tree="[0]")
     private Output<String> dbShardGroupResourceId;
 
     /**
-     * @return The AWS Region-unique, immutable identifier for the DB shard group.
+     * @return AWS Region-unique, immutable identifier for the DB shard group.
      * 
      */
     public Output<String> dbShardGroupResourceId() {
         return this.dbShardGroupResourceId;
     }
     /**
-     * The connection endpoint for the DB shard group.
+     * Connection endpoint for the DB shard group.
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return The connection endpoint for the DB shard group.
+     * @return Connection endpoint for the DB shard group.
      * 
      */
     public Output<String> endpoint() {
         return this.endpoint;
     }
     /**
-     * The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     @Export(name="maxAcu", refs={Double.class}, tree="[0]")
     private Output<Double> maxAcu;
 
     /**
-     * @return The maximum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * @return Maximum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     public Output<Double> maxAcu() {
         return this.maxAcu;
     }
     /**
-     * The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     @Export(name="minAcu", refs={Double.class}, tree="[0]")
     private Output<Double> minAcu;
 
     /**
-     * @return The minimum capacity of the DB shard group in Aurora capacity units (ACUs).
+     * @return Minimum capacity of the DB shard group in Aurora capacity units (ACUs).
      * 
      */
     public Output<Double> minAcu() {
         return this.minAcu;
     }
     /**
-     * Indicates whether the DB shard group is publicly accessible.
+     * Whether the DB shard group is publicly accessible.
      * 
      */
     @Export(name="publiclyAccessible", refs={Boolean.class}, tree="[0]")
     private Output<Boolean> publiclyAccessible;
 
     /**
-     * @return Indicates whether the DB shard group is publicly accessible.
+     * @return Whether the DB shard group is publicly accessible.
      * 
      */
     public Output<Boolean> publiclyAccessible() {
@@ -231,8 +231,6 @@ public class ShardGroup extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
@@ -240,21 +238,19 @@ public class ShardGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-shard-group.html).
-     * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

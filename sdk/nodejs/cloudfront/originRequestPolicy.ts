@@ -17,26 +17,26 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudfront.OriginRequestPolicy("example", {
- *     name: "example-policy",
- *     comment: "example comment",
  *     cookiesConfig: {
- *         cookieBehavior: "whitelist",
  *         cookies: {
  *             items: ["example"],
  *         },
+ *         cookieBehavior: "whitelist",
  *     },
  *     headersConfig: {
- *         headerBehavior: "whitelist",
  *         headers: {
  *             items: ["example"],
  *         },
+ *         headerBehavior: "whitelist",
  *     },
  *     queryStringsConfig: {
- *         queryStringBehavior: "whitelist",
  *         queryStrings: {
  *             items: ["example"],
  *         },
+ *         queryStringBehavior: "whitelist",
  *     },
+ *     name: "example-policy",
+ *     comment: "example comment",
  * });
  * ```
  *

@@ -50,7 +50,7 @@ import (
 type GeofenceCollection struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+	// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringOutput `pulumi:"collectionArn"`
 	// The name of the geofence collection.
 	//
@@ -104,7 +104,7 @@ func GetGeofenceCollection(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering GeofenceCollection resources.
 type geofenceCollectionState struct {
-	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+	// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn *string `pulumi:"collectionArn"`
 	// The name of the geofence collection.
 	//
@@ -126,7 +126,7 @@ type geofenceCollectionState struct {
 }
 
 type GeofenceCollectionState struct {
-	// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+	// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 	CollectionArn pulumi.StringPtrInput
 	// The name of the geofence collection.
 	//
@@ -269,7 +269,7 @@ func (o GeofenceCollectionOutput) ToGeofenceCollectionOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) for the geofence collection resource. Used when you need to specify a resource across all AWS.
+// ARN for the geofence collection resource. Used when you need to specify a resource across all AWS.
 func (o GeofenceCollectionOutput) CollectionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *GeofenceCollection) pulumi.StringOutput { return v.CollectionArn }).(pulumi.StringOutput)
 }

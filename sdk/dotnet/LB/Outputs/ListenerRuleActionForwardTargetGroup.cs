@@ -14,7 +14,7 @@ namespace Pulumi.Aws.LB.Outputs
     public sealed class ListenerRuleActionForwardTargetGroup
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the target group.
+        /// ARN of the target group.
         /// </summary>
         public readonly string Arn;
         /// <summary>

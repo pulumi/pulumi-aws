@@ -33,14 +33,14 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -104,7 +104,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettingsArgs extends com.
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          * 
          * @return builder
          * 

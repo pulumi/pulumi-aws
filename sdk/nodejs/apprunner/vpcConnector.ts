@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner VPC connector.
+ * - `arn` (String) ARN of the App Runner VPC connector.
  *
  * Using `pulumi import`, import App Runner vpc connector using the `arn`. For example:
  *

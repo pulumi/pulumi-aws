@@ -17,14 +17,14 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
     public static final ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs Empty = new ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the AWS Lambda function.
+     * ARN of the AWS Lambda function.
      * 
      */
     @Import(name="functionArn", required=true)
     private Output<String> functionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Lambda function.
+     * @return ARN of the AWS Lambda function.
      * 
      */
     public Output<String> functionArn() {
@@ -72,7 +72,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the AWS Lambda function.
+         * @param functionArn ARN of the AWS Lambda function.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ObjectLambdaAccessPointConfigurationTransformationConfigurati
         }
 
         /**
-         * @param functionArn Amazon Resource Name (ARN) of the AWS Lambda function.
+         * @param functionArn ARN of the AWS Lambda function.
          * 
          * @return builder
          * 

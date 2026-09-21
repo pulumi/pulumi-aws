@@ -15,14 +15,14 @@ public final class PipeLogConfigurationFirehoseLogDestinationArgs extends com.pu
     public static final PipeLogConfigurationFirehoseLogDestinationArgs Empty = new PipeLogConfigurationFirehoseLogDestinationArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+     * ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
      * 
      */
     @Import(name="deliveryStreamArn", required=true)
     private Output<String> deliveryStreamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+     * @return ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
      * 
      */
     public Output<String> deliveryStreamArn() {
@@ -54,7 +54,7 @@ public final class PipeLogConfigurationFirehoseLogDestinationArgs extends com.pu
         }
 
         /**
-         * @param deliveryStreamArn Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+         * @param deliveryStreamArn ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class PipeLogConfigurationFirehoseLogDestinationArgs extends com.pu
         }
 
         /**
-         * @param deliveryStreamArn Amazon Resource Name (ARN) of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
+         * @param deliveryStreamArn ARN of the Kinesis Data Firehose delivery stream to which EventBridge delivers the pipe log records.
          * 
          * @return builder
          * 

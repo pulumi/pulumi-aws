@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cognito.NewRiskConfiguration(ctx, "example", &cognito.RiskConfigurationArgs{
-//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
 //				RiskExceptionConfiguration: &cognito.RiskConfigurationRiskExceptionConfigurationArgs{
 //					BlockedIpRangeLists: pulumi.StringArray{
 //						pulumi.String("10.10.10.10/32"),
 //					},
 //				},
+//				UserPoolId: pulumi.Any(exampleAwsCognitoUserPool.Id),
 //			})
 //			if err != nil {
 //				return err

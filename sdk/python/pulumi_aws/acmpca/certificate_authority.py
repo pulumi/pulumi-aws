@@ -482,11 +482,11 @@ class CertificateAuthority(pulumi.CustomResource):
 
         example = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
             },
             permanent_deletion_time_in_days=7)
         ```
@@ -498,14 +498,14 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            usage_mode="SHORT_LIVED_CERTIFICATE",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            usage_mode="SHORT_LIVED_CERTIFICATE")
         ```
 
         ### Enable Certificate Revocation List
@@ -518,6 +518,10 @@ class CertificateAuthority(pulumi.CustomResource):
             bucket="example",
             force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["acm-pca.amazonaws.com"],
+                "type": "Service",
+            }],
             "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -528,21 +532,17 @@ class CertificateAuthority(pulumi.CustomResource):
                 example.arn,
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
-            "principals": [{
-                "identifiers": ["acm-pca.amazonaws.com"],
-                "type": "Service",
-            }],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
             },
             revocation_configuration={
                 "crl_configuration": {
@@ -562,7 +562,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.CertificateAuthority` using the certificate authority ARN. For example:
 
@@ -604,11 +604,11 @@ class CertificateAuthority(pulumi.CustomResource):
 
         example = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
             },
             permanent_deletion_time_in_days=7)
         ```
@@ -620,14 +620,14 @@ class CertificateAuthority(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.acmpca.CertificateAuthority("example",
-            usage_mode="SHORT_LIVED_CERTIFICATE",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
-            })
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
+            },
+            usage_mode="SHORT_LIVED_CERTIFICATE")
         ```
 
         ### Enable Certificate Revocation List
@@ -640,6 +640,10 @@ class CertificateAuthority(pulumi.CustomResource):
             bucket="example",
             force_destroy=True)
         acmpca_bucket_access = aws.iam.get_policy_document_output(statements=[{
+            "principals": [{
+                "identifiers": ["acm-pca.amazonaws.com"],
+                "type": "Service",
+            }],
             "actions": [
                 "s3:GetBucketAcl",
                 "s3:GetBucketLocation",
@@ -650,21 +654,17 @@ class CertificateAuthority(pulumi.CustomResource):
                 example.arn,
                 example.arn.apply(lambda arn: f"{arn}/*"),
             ],
-            "principals": [{
-                "identifiers": ["acm-pca.amazonaws.com"],
-                "type": "Service",
-            }],
         }])
         example_bucket_policy = aws.s3.BucketPolicy("example",
             bucket=example.id,
             policy=acmpca_bucket_access.json)
         example_certificate_authority = aws.acmpca.CertificateAuthority("example",
             certificate_authority_configuration={
-                "key_algorithm": "RSA_4096",
-                "signing_algorithm": "SHA512WITHRSA",
                 "subject": {
                     "common_name": "example.com",
                 },
+                "key_algorithm": "RSA_4096",
+                "signing_algorithm": "SHA512WITHRSA",
             },
             revocation_configuration={
                 "crl_configuration": {
@@ -684,7 +684,7 @@ class CertificateAuthority(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.CertificateAuthority` using the certificate authority ARN. For example:
 

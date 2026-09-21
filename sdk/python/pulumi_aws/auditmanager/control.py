@@ -178,7 +178,7 @@ class _ControlState:
 
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the control.
+        :param pulumi.Input[_builtins.str] arn: ARN of the control.
         :param pulumi.Input[Sequence[pulumi.Input['ControlControlMappingSourceArgs']]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
         :param pulumi.Input[_builtins.str] description: Description of the control.
         :param pulumi.Input[_builtins.str] name: Name of the control.
@@ -240,7 +240,7 @@ class _ControlState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the control.
+        ARN of the control.
         """
         return pulumi.get(self, "arn")
 
@@ -371,12 +371,12 @@ class Control(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.Control("example",
-            name="example",
             control_mapping_sources=[{
                 "source_name": "example",
                 "source_set_up_option": "Procedural_Controls_Mapping",
                 "source_type": "MANUAL",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -430,12 +430,12 @@ class Control(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.auditmanager.Control("example",
-            name="example",
             control_mapping_sources=[{
                 "source_name": "example",
                 "source_set_up_option": "Procedural_Controls_Mapping",
                 "source_type": "MANUAL",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -531,7 +531,7 @@ class Control(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] action_plan_instructions: Recommended actions to carry out if the control isn't fulfilled.
         :param pulumi.Input[_builtins.str] action_plan_title: Title of the action plan for remediating the control.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the control.
+        :param pulumi.Input[_builtins.str] arn: ARN of the control.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ControlControlMappingSourceArgs', 'ControlControlMappingSourceArgsDict']]]] control_mapping_sources: Data mapping sources. See `control_mapping_sources` below.
         :param pulumi.Input[_builtins.str] description: Description of the control.
         :param pulumi.Input[_builtins.str] name: Name of the control.
@@ -579,7 +579,7 @@ class Control(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the control.
+        ARN of the control.
         """
         return pulumi.get(self, "arn")
 

@@ -192,12 +192,12 @@ class SecretPolicy(pulumi.CustomResource):
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "EnableAnotherAWSAccountToReadTheSecret",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
             "actions": ["secretsmanager:GetSecretValue"],
             "resources": ["*"],
         }])
@@ -212,9 +212,9 @@ class SecretPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `secret_arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_arn` (String) ARN of the Secrets Manager secret.
 
-        Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret ARN. For example:
 
         ```sh
         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456
@@ -249,12 +249,12 @@ class SecretPolicy(pulumi.CustomResource):
 
         example_secret = aws.secretsmanager.Secret("example", name="example")
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "EnableAnotherAWSAccountToReadTheSecret",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["arn:aws:iam::123456789012:root"],
             }],
+            "sid": "EnableAnotherAWSAccountToReadTheSecret",
+            "effect": "Allow",
             "actions": ["secretsmanager:GetSecretValue"],
             "resources": ["*"],
         }])
@@ -269,9 +269,9 @@ class SecretPolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `secret_arn` (String) Amazon Resource Name (ARN) of the Secrets Manager secret.
+        - `secret_arn` (String) ARN of the Secrets Manager secret.
 
-        Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `secretsmanager.SecretPolicy` using the secret ARN. For example:
 
         ```sh
         $ pulumi import aws:secretsmanager/secretPolicy:SecretPolicy example arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456

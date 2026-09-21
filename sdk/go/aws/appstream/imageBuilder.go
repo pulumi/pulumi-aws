@@ -29,17 +29,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewImageBuilder(ctx, "test_fleet", &appstream.ImageBuilderArgs{
+//				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						example.Id,
+//					},
+//				},
 //				Name:                        pulumi.String("Name"),
 //				Description:                 pulumi.String("Description of a ImageBuilder"),
 //				DisplayName:                 pulumi.String("Display name of a ImageBuilder"),
 //				EnableDefaultInternetAccess: pulumi.Bool(false),
 //				ImageName:                   pulumi.String("AppStream-WinServer2019-10-05-2022"),
 //				InstanceType:                pulumi.String("stream.standard.large"),
-//				VpcConfig: &appstream.ImageBuilderVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						example.Id,
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Image Builder"),
 //				},

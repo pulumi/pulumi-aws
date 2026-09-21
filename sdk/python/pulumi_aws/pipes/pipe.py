@@ -40,7 +40,7 @@ class PipeArgs:
         The set of arguments for constructing a Pipe resource.
 
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[_builtins.str] target: Target resource of the pipe (typically an ARN).
                
                The following arguments are optional:
@@ -48,7 +48,7 @@ class PipeArgs:
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -101,7 +101,7 @@ class PipeArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
-        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 
@@ -175,7 +175,7 @@ class PipeArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -296,13 +296,13 @@ class _PipeState:
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input['PipeEnrichmentParametersArgs'] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         :param pulumi.Input['PipeLogConfigurationArgs'] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input['PipeSourceParametersArgs'] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -410,7 +410,7 @@ class _PipeState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -482,7 +482,7 @@ class _PipeState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 
@@ -653,11 +653,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
-            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
@@ -670,7 +665,12 @@ class Pipe(pulumi.CustomResource):
                         "second-example-query-string": "second-example-value",
                     },
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"])
         ```
 
         ### Filter Usage
@@ -681,10 +681,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "filter_criteria": {
                     "filters": [{
@@ -693,7 +689,11 @@ class Pipe(pulumi.CustomResource):
                         }),
                     }],
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ### CloudWatch Logs Logging Configuration Usage
@@ -704,17 +704,17 @@ class Pipe(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
         example_pipe = aws.pipes.Pipe("example",
+            log_configuration={
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+            },
             name="example-pipe",
             role_arn=example_aws_iam_role["arn"],
             source=source_aws_sqs_queue["arn"],
             target=target_aws_sqs_queue["arn"],
-            log_configuration={
-                "include_execution_datas": ["ALL"],
-                "level": "INFO",
-                "cloudwatch_logs_log_destination": {
-                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     source,
                     target,
@@ -728,10 +728,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "sqs_queue_parameters": {
                     "batch_size": 1,
@@ -743,7 +739,11 @@ class Pipe(pulumi.CustomResource):
                     "message_deduplication_id": "example-dedupe",
                     "message_group_id": "example-group",
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ## Import
@@ -761,13 +761,13 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] target: Target resource of the pipe (typically an ARN).
@@ -859,11 +859,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
-            enrichment=example_aws_cloudwatch_event_api_destination["arn"],
             enrichment_parameters={
                 "http_parameters": {
                     "path_parameter_values": "example-path-param",
@@ -876,7 +871,12 @@ class Pipe(pulumi.CustomResource):
                         "second-example-query-string": "second-example-value",
                     },
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"],
+            enrichment=example_aws_cloudwatch_event_api_destination["arn"])
         ```
 
         ### Filter Usage
@@ -887,10 +887,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "filter_criteria": {
                     "filters": [{
@@ -899,7 +895,11 @@ class Pipe(pulumi.CustomResource):
                         }),
                     }],
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ### CloudWatch Logs Logging Configuration Usage
@@ -910,17 +910,17 @@ class Pipe(pulumi.CustomResource):
 
         example = aws.cloudwatch.LogGroup("example", name="example-pipe-target")
         example_pipe = aws.pipes.Pipe("example",
+            log_configuration={
+                "cloudwatch_logs_log_destination": {
+                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
+                },
+                "include_execution_datas": ["ALL"],
+                "level": "INFO",
+            },
             name="example-pipe",
             role_arn=example_aws_iam_role["arn"],
             source=source_aws_sqs_queue["arn"],
             target=target_aws_sqs_queue["arn"],
-            log_configuration={
-                "include_execution_datas": ["ALL"],
-                "level": "INFO",
-                "cloudwatch_logs_log_destination": {
-                    "log_group_arn": target_aws_cloudwatch_log_group["arn"],
-                },
-            },
             opts = pulumi.ResourceOptions(depends_on=[
                     source,
                     target,
@@ -934,10 +934,6 @@ class Pipe(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.pipes.Pipe("example",
-            name="example-pipe",
-            role_arn=example_aws_iam_role["arn"],
-            source=source["arn"],
-            target=target["arn"],
             source_parameters={
                 "sqs_queue_parameters": {
                     "batch_size": 1,
@@ -949,7 +945,11 @@ class Pipe(pulumi.CustomResource):
                     "message_deduplication_id": "example-dedupe",
                     "message_group_id": "example-group",
                 },
-            })
+            },
+            name="example-pipe",
+            role_arn=example_aws_iam_role["arn"],
+            source=source["arn"],
+            target=target["arn"])
         ```
 
         ## Import
@@ -1062,13 +1062,13 @@ class Pipe(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] desired_state: The state the pipe should be in. One of: `RUNNING`, `STOPPED`.
         :param pulumi.Input[_builtins.str] enrichment: Enrichment resource of the pipe (typically an ARN). Read more about enrichment in the [User Guide](https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-pipes.html#pipes-enrichment).
         :param pulumi.Input[Union['PipeEnrichmentParametersArgs', 'PipeEnrichmentParametersArgsDict']] enrichment_parameters: Parameters to configure enrichment for your pipe. Detailed below.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         :param pulumi.Input[Union['PipeLogConfigurationArgs', 'PipeLogConfigurationArgsDict']] log_configuration: Logging configuration settings for the pipe. Detailed below.
         :param pulumi.Input[_builtins.str] name: Name of the pipe. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] role_arn: ARN of the role that allows the pipe to send data to the target.
-        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        :param pulumi.Input[_builtins.str] source: Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         :param pulumi.Input[Union['PipeSourceParametersArgs', 'PipeSourceParametersArgsDict']] source_parameters: Parameters to configure a source for the pipe. Detailed below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1144,7 +1144,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt pipe data. The identifier can be the key ARN, KeyId, key alias, or key alias ARN. If not set, EventBridge uses an AWS owned key to encrypt pipe data.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -1192,7 +1192,7 @@ class Pipe(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        Source resource of the pipe. This field typically requires an ARN (Amazon Resource Name). However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
+        Source resource of the pipe. This field typically requires an ARN. However, when using a self-managed Kafka cluster, you should use a different format. Instead of an ARN, use 'smk://' followed by the bootstrap server's address.
         """
         return pulumi.get(self, "source")
 

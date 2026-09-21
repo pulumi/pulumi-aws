@@ -21,9 +21,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.HyperParameterTuningJob("example", {
- *     name: "example",
  *     config: {
- *         strategy: "Bayesian",
  *         objective: {
  *             metricName: "test:msd",
  *             type: "Minimize",
@@ -61,41 +59,13 @@ import * as utilities from "../utilities";
  *             maxNumberOfTrainingJobs: 2,
  *             maxParallelTrainingJobs: 1,
  *         },
+ *         strategy: "Bayesian",
  *     },
  *     trainingJobDefinition: {
- *         roleArn: "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
  *         algorithmSpecification: {
  *             trainingImage: "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
  *             trainingInputMode: "File",
  *         },
- *         staticHyperParameters: {
- *             feature_dim: "3",
- *             k: "2",
- *         },
- *         inputDataConfigs: [
- *             {
- *                 channelName: "train",
- *                 contentType: "text/csv",
- *                 inputMode: "File",
- *                 dataSource: {
- *                     s3DataSource: {
- *                         s3DataType: "S3Prefix",
- *                         s3Uri: "s3://example-bucket/input/",
- *                     },
- *                 },
- *             },
- *             {
- *                 channelName: "test",
- *                 contentType: "text/csv",
- *                 inputMode: "File",
- *                 dataSource: {
- *                     s3DataSource: {
- *                         s3DataType: "S3Prefix",
- *                         s3Uri: "s3://example-bucket/input/",
- *                     },
- *                 },
- *             },
- *         ],
  *         outputDataConfig: {
  *             s3OutputPath: "s3://example-bucket/output/",
  *         },
@@ -107,7 +77,37 @@ import * as utilities from "../utilities";
  *         stoppingCondition: {
  *             maxRuntimeInSeconds: 3600,
  *         },
+ *         inputDataConfigs: [
+ *             {
+ *                 dataSource: {
+ *                     s3DataSource: {
+ *                         s3DataType: "S3Prefix",
+ *                         s3Uri: "s3://example-bucket/input/",
+ *                     },
+ *                 },
+ *                 channelName: "train",
+ *                 contentType: "text/csv",
+ *                 inputMode: "File",
+ *             },
+ *             {
+ *                 dataSource: {
+ *                     s3DataSource: {
+ *                         s3DataType: "S3Prefix",
+ *                         s3Uri: "s3://example-bucket/input/",
+ *                     },
+ *                 },
+ *                 channelName: "test",
+ *                 contentType: "text/csv",
+ *                 inputMode: "File",
+ *             },
+ *         ],
+ *         roleArn: "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
+ *         staticHyperParameters: {
+ *             feature_dim: "3",
+ *             k: "2",
+ *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *

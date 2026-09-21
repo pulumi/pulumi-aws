@@ -255,7 +255,7 @@ class _MLTransformState:
         """
         Input properties used for looking up and filtering MLTransform resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue ML Transform.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[Sequence[pulumi.Input['MLTransformInputRecordTableArgs']]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -312,7 +312,7 @@ class _MLTransformState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of Glue ML Transform.
+        ARN of Glue ML Transform.
         """
         return pulumi.get(self, "arn")
 
@@ -544,23 +544,20 @@ class MLTransform(pulumi.CustomResource):
 
         test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
         test_catalog_table = aws.glue.CatalogTable("test",
-            name="example",
-            database_name=test_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
             storage_descriptor={
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
+                "ser_de_info": {
+                    "name": "ser_de_name",
+                    "parameters": {
+                        "param1": "param_val_1",
+                    },
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
+                        "my_column_1": "my_column_1_val_loc_map",
+                    },
+                    "skewed_column_values": ["skewed_val_1"],
                 },
                 "columns": [
                     {
@@ -574,23 +571,19 @@ class MLTransform(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
                 "sort_columns": [{
                     "column": "my_column_1",
                     "sort_order": 1,
                 }],
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
+                "bucket_columns": ["bucket_column_1"],
+                "compressed": False,
+                "input_format": "SequenceFileInputFormat",
+                "location": "my_location",
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
+                "parameters": {
+                    "param1": "param1_val",
                 },
             },
             partition_keys=[
@@ -605,22 +598,29 @@ class MLTransform(pulumi.CustomResource):
                     "comment": "my_column_2_comment",
                 },
             ],
+            name="example",
+            database_name=test_catalog_database.name,
+            owner="my_owner",
+            retention=1,
+            table_type="VIRTUAL_VIEW",
+            view_expanded_text="view_expanded_text_1",
+            view_original_text="view_original_text_1",
             parameters={
                 "param1": "param1_val",
             })
         test = aws.glue.MLTransform("test",
-            name="example",
-            role_arn=test_aws_iam_role["arn"],
+            parameters={
+                "find_matches_parameters": {
+                    "primary_key_column_name": "my_column_1",
+                },
+                "transform_type": "FIND_MATCHES",
+            },
             input_record_tables=[{
                 "database_name": test_catalog_table.database_name,
                 "table_name": test_catalog_table.name,
             }],
-            parameters={
-                "transform_type": "FIND_MATCHES",
-                "find_matches_parameters": {
-                    "primary_key_column_name": "my_column_1",
-                },
-            },
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             opts = pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
         ```
 
@@ -666,23 +666,20 @@ class MLTransform(pulumi.CustomResource):
 
         test_catalog_database = aws.glue.CatalogDatabase("test", name="example")
         test_catalog_table = aws.glue.CatalogTable("test",
-            name="example",
-            database_name=test_catalog_database.name,
-            owner="my_owner",
-            retention=1,
-            table_type="VIRTUAL_VIEW",
-            view_expanded_text="view_expanded_text_1",
-            view_original_text="view_original_text_1",
             storage_descriptor={
-                "bucket_columns": ["bucket_column_1"],
-                "compressed": False,
-                "input_format": "SequenceFileInputFormat",
-                "location": "my_location",
-                "number_of_buckets": 1,
-                "output_format": "SequenceFileInputFormat",
-                "stored_as_sub_directories": False,
-                "parameters": {
-                    "param1": "param1_val",
+                "ser_de_info": {
+                    "name": "ser_de_name",
+                    "parameters": {
+                        "param1": "param_val_1",
+                    },
+                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
+                },
+                "skewed_info": {
+                    "skewed_column_names": ["my_column_1"],
+                    "skewed_column_value_location_maps": {
+                        "my_column_1": "my_column_1_val_loc_map",
+                    },
+                    "skewed_column_values": ["skewed_val_1"],
                 },
                 "columns": [
                     {
@@ -696,23 +693,19 @@ class MLTransform(pulumi.CustomResource):
                         "comment": "my_column2_comment",
                     },
                 ],
-                "ser_de_info": {
-                    "name": "ser_de_name",
-                    "parameters": {
-                        "param1": "param_val_1",
-                    },
-                    "serialization_library": "org.apache.hadoop.hive.serde2.columnar.ColumnarSerDe",
-                },
                 "sort_columns": [{
                     "column": "my_column_1",
                     "sort_order": 1,
                 }],
-                "skewed_info": {
-                    "skewed_column_names": ["my_column_1"],
-                    "skewed_column_value_location_maps": {
-                        "my_column_1": "my_column_1_val_loc_map",
-                    },
-                    "skewed_column_values": ["skewed_val_1"],
+                "bucket_columns": ["bucket_column_1"],
+                "compressed": False,
+                "input_format": "SequenceFileInputFormat",
+                "location": "my_location",
+                "number_of_buckets": 1,
+                "output_format": "SequenceFileInputFormat",
+                "stored_as_sub_directories": False,
+                "parameters": {
+                    "param1": "param1_val",
                 },
             },
             partition_keys=[
@@ -727,22 +720,29 @@ class MLTransform(pulumi.CustomResource):
                     "comment": "my_column_2_comment",
                 },
             ],
+            name="example",
+            database_name=test_catalog_database.name,
+            owner="my_owner",
+            retention=1,
+            table_type="VIRTUAL_VIEW",
+            view_expanded_text="view_expanded_text_1",
+            view_original_text="view_original_text_1",
             parameters={
                 "param1": "param1_val",
             })
         test = aws.glue.MLTransform("test",
-            name="example",
-            role_arn=test_aws_iam_role["arn"],
+            parameters={
+                "find_matches_parameters": {
+                    "primary_key_column_name": "my_column_1",
+                },
+                "transform_type": "FIND_MATCHES",
+            },
             input_record_tables=[{
                 "database_name": test_catalog_table.database_name,
                 "table_name": test_catalog_table.name,
             }],
-            parameters={
-                "transform_type": "FIND_MATCHES",
-                "find_matches_parameters": {
-                    "primary_key_column_name": "my_column_1",
-                },
-            },
+            name="example",
+            role_arn=test_aws_iam_role["arn"],
             opts = pulumi.ResourceOptions(depends_on=[test_aws_iam_role_policy_attachment]))
         ```
 
@@ -849,7 +849,7 @@ class MLTransform(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of Glue ML Transform.
+        :param pulumi.Input[_builtins.str] arn: ARN of Glue ML Transform.
         :param pulumi.Input[_builtins.str] description: Description of the ML Transform.
         :param pulumi.Input[_builtins.str] glue_version: The version of glue to use, for example "1.0". For information about available versions, see the [AWS Glue Release Notes](https://docs.aws.amazon.com/glue/latest/dg/release-notes.html).
         :param pulumi.Input[Sequence[pulumi.Input[Union['MLTransformInputRecordTableArgs', 'MLTransformInputRecordTableArgsDict']]]] input_record_tables: A list of AWS Glue table definitions used by the transform. see Input Record Tables.
@@ -894,7 +894,7 @@ class MLTransform(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of Glue ML Transform.
+        ARN of Glue ML Transform.
         """
         return pulumi.get(self, "arn")
 

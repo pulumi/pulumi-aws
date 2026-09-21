@@ -20,12 +20,12 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
      */
     private @Nullable List<SpaceSpaceSettingsJupyterServerAppSettingsCodeRepository> codeRepositories;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     private SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec;
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     private @Nullable List<String> lifecycleConfigArns;
@@ -39,14 +39,14 @@ public final class SpaceSpaceSettingsJupyterServerAppSettings {
         return this.codeRepositories == null ? List.of() : this.codeRepositories;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. See `defaultResourceSpec` Block below.
      * 
      */
     public SpaceSpaceSettingsJupyterServerAppSettingsDefaultResourceSpec defaultResourceSpec() {
         return this.defaultResourceSpec;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public List<String> lifecycleConfigArns() {

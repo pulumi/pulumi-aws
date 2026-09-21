@@ -27,16 +27,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
-        ///         ExecutableUsers = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-[0-9]{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -63,6 +53,16 @@ namespace Pulumi.Aws.Ec2
         ///                     "hvm",
         ///                 },
         ///             },
+        ///         },
+        ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-[0-9]{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
         ///         },
         ///     });
         /// 
@@ -88,16 +88,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
-        ///         ExecutableUsers = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-[0-9]{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -124,6 +114,16 @@ namespace Pulumi.Aws.Ec2
         ///                     "hvm",
         ///                 },
         ///             },
+        ///         },
+        ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-[0-9]{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
         ///         },
         ///     });
         /// 
@@ -149,16 +149,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var example = Aws.Ec2.GetAmi.Invoke(new()
         ///     {
-        ///         ExecutableUsers = new[]
-        ///         {
-        ///             "self",
-        ///         },
-        ///         MostRecent = true,
-        ///         NameRegex = "^myami-[0-9]{3}",
-        ///         Owners = new[]
-        ///         {
-        ///             "self",
-        ///         },
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -185,6 +175,16 @@ namespace Pulumi.Aws.Ec2
         ///                     "hvm",
         ///                 },
         ///             },
+        ///         },
+        ///         ExecutableUsers = new[]
+        ///         {
+        ///             "self",
+        ///         },
+        ///         MostRecent = true,
+        ///         NameRegex = "^myami-[0-9]{3}",
+        ///         Owners = new[]
+        ///         {
+        ///             "self",
         ///         },
         ///     });
         /// 

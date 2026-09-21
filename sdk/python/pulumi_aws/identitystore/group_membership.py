@@ -197,13 +197,13 @@ class GroupMembership(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_user = aws.identitystore.User("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="John Doe",
-            user_name="john.doe@example.com",
             name={
                 "family_name": "Doe",
                 "given_name": "John",
-            })
+            },
+            identity_store_id=example.identity_store_ids[0],
+            display_name="John Doe",
+            user_name="john.doe@example.com")
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],
             display_name="MyGroup",
@@ -247,13 +247,13 @@ class GroupMembership(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_user = aws.identitystore.User("example",
-            identity_store_id=example.identity_store_ids[0],
-            display_name="John Doe",
-            user_name="john.doe@example.com",
             name={
                 "family_name": "Doe",
                 "given_name": "John",
-            })
+            },
+            identity_store_id=example.identity_store_ids[0],
+            display_name="John Doe",
+            user_name="john.doe@example.com")
         example_group = aws.identitystore.Group("example",
             identity_store_id=example.identity_store_ids[0],
             display_name="MyGroup",

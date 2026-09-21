@@ -57,7 +57,7 @@ export class CloudExadataInfrastructure extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly additionalStorageCount: pulumi.Output<number>;
     /**
-     * Amazon Resource Name (ARN) of the Exadata infrastructure.
+     * ARN of the Exadata infrastructure.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -337,7 +337,7 @@ export interface CloudExadataInfrastructureState {
      */
     additionalStorageCount?: pulumi.Input<number | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Exadata infrastructure.
+     * ARN of the Exadata infrastructure.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

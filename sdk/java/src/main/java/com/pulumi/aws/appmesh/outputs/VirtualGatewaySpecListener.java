@@ -31,7 +31,7 @@ public final class VirtualGatewaySpecListener {
      */
     private VirtualGatewaySpecListenerPortMapping portMapping;
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerTls tls;
@@ -59,7 +59,7 @@ public final class VirtualGatewaySpecListener {
         return this.portMapping;
     }
     /**
-     * @return Transport Layer Security (TLS) properties for the listener. See `spec.listener.tls` Block for details.
+     * @return TLS properties for the listener. See `spec.listener.tls` Block for details.
      * 
      */
     public Optional<VirtualGatewaySpecListenerTls> tls() {

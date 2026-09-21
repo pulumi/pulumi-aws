@@ -30,15 +30,6 @@ import * as utilities from "../utilities";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
- *     ingress: [{
- *         protocol: "-1",
- *         ruleNo: 100,
- *         action: "allow",
- *         cidrBlock: "0.0.0.0/0",
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
  *     egress: [{
  *         protocol: "-1",
  *         ruleNo: 100,
@@ -47,6 +38,15 @@ import * as utilities from "../utilities";
  *         fromPort: 0,
  *         toPort: 0,
  *     }],
+ *     ingress: [{
+ *         protocol: "-1",
+ *         ruleNo: 100,
+ *         action: "allow",
+ *         cidrBlock: "0.0.0.0/0",
+ *         fromPort: 0,
+ *         toPort: 0,
+ *     }],
+ *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  * });
  * ```
  *
@@ -60,7 +60,6 @@ import * as utilities from "../utilities";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultNetworkAcl("default", {
- *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  *     ingress: [{
  *         protocol: "-1",
  *         ruleNo: 100,
@@ -69,6 +68,7 @@ import * as utilities from "../utilities";
  *         fromPort: 0,
  *         toPort: 0,
  *     }],
+ *     defaultNetworkAclId: mainvpc.defaultNetworkAclId,
  * });
  * ```
  *
@@ -98,7 +98,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const _default = new aws.ec2.DefaultNetworkAcl("default", {});
+ * const _default = new aws.ec2.DefaultNetworkAcl("default", {}, {
+ *     ignoreChanges: ["subnetIds"],
+ * });
  * ```
  *
  * ### Removing `aws.ec2.DefaultNetworkAcl` From Your Configuration

@@ -19,12 +19,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.datasync.LocationAzureBlob("example", {
- *     agentArns: [exampleAwsDatasyncAgent.arn],
- *     authenticationType: "SAS",
- *     containerUrl: "https://myaccount.blob.core.windows.net/mycontainer",
  *     sasConfiguration: {
  *         token: "sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D",
  *     },
+ *     agentArns: [exampleAwsDatasyncAgent.arn],
+ *     authenticationType: "SAS",
+ *     containerUrl: "https://myaccount.blob.core.windows.net/mycontainer",
  * });
  * ```
  *
@@ -34,9 +34,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync Azure Blob location.
+ * - `arn` (String) ARN of the DataSync Azure Blob location.
  *
- * Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.LocationAzureBlob` using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:datasync/locationAzureBlob:LocationAzureBlob example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
@@ -79,7 +79,7 @@ export class LocationAzureBlob extends pulumi.CustomResource {
      */
     declare public readonly agentArns: pulumi.Output<string[]>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -183,7 +183,7 @@ export interface LocationAzureBlobState {
      */
     agentArns?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the DataSync Location.
+     * ARN of the DataSync Location.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

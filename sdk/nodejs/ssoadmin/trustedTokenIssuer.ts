@@ -20,9 +20,6 @@ import * as utilities from "../utilities";
  *
  * const example = aws.ssoadmin.getInstances({});
  * const exampleTrustedTokenIssuer = new aws.ssoadmin.TrustedTokenIssuer("example", {
- *     name: "example",
- *     instanceArn: example.then(example => example.arns?.[0]),
- *     trustedTokenIssuerType: "OIDC_JWT",
  *     trustedTokenIssuerConfiguration: {
  *         oidcJwtConfiguration: {
  *             claimAttributePath: "email",
@@ -31,6 +28,9 @@ import * as utilities from "../utilities";
  *             jwksRetrievalOption: "OPEN_ID_DISCOVERY",
  *         },
  *     },
+ *     name: "example",
+ *     instanceArn: example.then(example => example.arns?.[0]),
+ *     trustedTokenIssuerType: "OIDC_JWT",
  * });
  * ```
  *

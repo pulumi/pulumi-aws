@@ -32,14 +32,14 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
     }
 
     /**
-     * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
      * 
      */
     @Import(name="userSecretId")
     private @Nullable Output<String> userSecretId;
 
     /**
-     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
      * 
      */
     public Optional<Output<String>> userSecretId() {
@@ -103,7 +103,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class ConnectorSftpConfigArgs extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+         * @param userSecretId Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
          * 
          * @return builder
          * 

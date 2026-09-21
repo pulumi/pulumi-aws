@@ -25,14 +25,14 @@ import * as utilities from "../utilities";
  *     source: new pulumi.asset.FileAsset("debezium.zip"),
  * });
  * const exampleCustomPlugin = new aws.mskconnect.CustomPlugin("example", {
- *     name: "debezium-example",
- *     contentType: "ZIP",
  *     location: {
  *         s3: {
  *             bucketArn: example.arn,
  *             fileKey: exampleBucketObjectv2.key,
  *         },
  *     },
+ *     name: "debezium-example",
+ *     contentType: "ZIP",
  * });
  * ```
  *
@@ -73,7 +73,7 @@ export class CustomPlugin extends pulumi.CustomResource {
     }
 
     /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
+     * the ARN of the custom plugin.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export class CustomPlugin extends pulumi.CustomResource {
  */
 export interface CustomPluginState {
     /**
-     * the Amazon Resource Name (ARN) of the custom plugin.
+     * the ARN of the custom plugin.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -24,10 +24,6 @@ namespace Pulumi.Aws.Eks
     /// {
     ///     var example = new Aws.Eks.FargateProfile("example", new()
     ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         FargateProfileName = "example",
-    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///         Selectors = new[]
     ///         {
     ///             new Aws.Eks.Inputs.FargateProfileSelectorArgs
@@ -35,6 +31,10 @@ namespace Pulumi.Aws.Eks
     ///                 Namespace = "example",
     ///             },
     ///         },
+    ///         ClusterName = exampleAwsEksCluster.Name,
+    ///         FargateProfileName = "example",
+    ///         PodExecutionRoleArn = exampleAwsIamRole.Arn,
+    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
     ///     });
     /// 
     /// });
@@ -105,7 +105,7 @@ namespace Pulumi.Aws.Eks
     public partial class FargateProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        /// ARN of the EKS Fargate Profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -123,7 +123,7 @@ namespace Pulumi.Aws.Eks
         public Output<string> FargateProfileName { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        /// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
         [Output("podExecutionRoleArn")]
         public Output<string> PodExecutionRoleArn { get; private set; } = null!;
@@ -225,7 +225,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? FargateProfileName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        /// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
         [Input("podExecutionRoleArn", required: true)]
         public Input<string> PodExecutionRoleArn { get; set; } = null!;
@@ -283,7 +283,7 @@ namespace Pulumi.Aws.Eks
     public sealed class FargateProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EKS Fargate Profile.
+        /// ARN of the EKS Fargate Profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -301,7 +301,7 @@ namespace Pulumi.Aws.Eks
         public Input<string>? FargateProfileName { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role that provides permissions for the EKS Fargate Profile.
+        /// ARN of the IAM Role that provides permissions for the EKS Fargate Profile.
         /// </summary>
         [Input("podExecutionRoleArn")]
         public Input<string>? PodExecutionRoleArn { get; set; }

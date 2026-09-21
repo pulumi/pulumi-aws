@@ -17,7 +17,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+ * Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
  * 
  * ## Example Usage
  * 
@@ -110,7 +110,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
+ * Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `id`. For example:
  * 
  * ```sh
  * $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -152,14 +152,14 @@ public class VpcBlockPublicAccessExclusion extends com.pulumi.resources.CustomRe
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) the excluded resource.
+     * ARN the excluded resource.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) the excluded resource.
+     * @return ARN the excluded resource.
      * 
      */
     public Output<String> resourceArn() {

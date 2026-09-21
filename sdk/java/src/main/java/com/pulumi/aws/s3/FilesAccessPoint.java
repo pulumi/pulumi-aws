@@ -48,11 +48,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FilesAccessPoint("example", FilesAccessPointArgs.builder()
- *             .fileSystemId(exampleAwsS3filesFileSystem.id())
  *             .posixUsers(FilesAccessPointPosixUserArgs.builder()
  *                 .gid(1001)
  *                 .uid(1001)
  *                 .build())
+ *             .fileSystemId(exampleAwsS3filesFileSystem.id())
  *             .build());
  * 
  *     }

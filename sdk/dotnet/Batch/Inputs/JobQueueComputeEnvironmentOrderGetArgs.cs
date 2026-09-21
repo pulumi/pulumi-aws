@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Batch.Inputs
     public sealed class JobQueueComputeEnvironmentOrderGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         [Input("computeEnvironment", required: true)]
         public Input<string> ComputeEnvironment { get; set; } = null!;

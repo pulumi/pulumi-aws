@@ -29,10 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			lb, err := elb.NewLoadBalancer(ctx, "lb", &elb.LoadBalancerArgs{
-//				Name: pulumi.String("test-lb"),
-//				AvailabilityZones: pulumi.StringArray{
-//					pulumi.String("us-east-1a"),
-//				},
 //				Listeners: elb.LoadBalancerListenerArray{
 //					&elb.LoadBalancerListenerArgs{
 //						InstancePort:     pulumi.Int(8000),
@@ -42,14 +38,15 @@ import (
 //						SslCertificateId: pulumi.String("arn:aws:iam::123456789012:server-certificate/certName"),
 //					},
 //				},
+//				Name: pulumi.String("test-lb"),
+//				AvailabilityZones: pulumi.StringArray{
+//					pulumi.String("us-east-1a"),
+//				},
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = elb.NewSslNegotiationPolicy(ctx, "foo", &elb.SslNegotiationPolicyArgs{
-//				Name:         pulumi.String("foo-policy"),
-//				LoadBalancer: lb.ID().ToIDOutput().ToStringOutput(),
-//				LbPort:       pulumi.Int(443),
 //				Attributes: elb.SslNegotiationPolicyAttributeArray{
 //					&elb.SslNegotiationPolicyAttributeArgs{
 //						Name:  pulumi.String("Protocol-TLSv1"),
@@ -80,6 +77,9 @@ import (
 //						Value: pulumi.String("false"),
 //					},
 //				},
+//				Name:         pulumi.String("foo-policy"),
+//				LoadBalancer: lb.ID().ToIDOutput().ToStringOutput(),
+//				LbPort:       pulumi.Int(443),
 //			})
 //			if err != nil {
 //				return err

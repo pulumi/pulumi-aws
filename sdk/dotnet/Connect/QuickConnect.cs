@@ -25,12 +25,8 @@ namespace Pulumi.Aws.Connect
     /// {
     ///     var test = new Aws.Connect.QuickConnect("test", new()
     ///     {
-    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
-    ///         Name = "Example Name",
-    ///         Description = "quick connect phone number",
     ///         QuickConnectConfig = new Aws.Connect.Inputs.QuickConnectQuickConnectConfigArgs
     ///         {
-    ///             QuickConnectType = "PHONE_NUMBER",
     ///             PhoneConfigs = new[]
     ///             {
     ///                 new Aws.Connect.Inputs.QuickConnectQuickConnectConfigPhoneConfigArgs
@@ -38,7 +34,11 @@ namespace Pulumi.Aws.Connect
     ///                     PhoneNumber = "+12345678912",
     ///                 },
     ///             },
+    ///             QuickConnectType = "PHONE_NUMBER",
     ///         },
+    ///         InstanceId = "aaaaaaaa-bbbb-cccc-dddd-111111111111",
+    ///         Name = "Example Name",
+    ///         Description = "quick connect phone number",
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Quick Connect" },
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Connect
     public partial class QuickConnect : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Quick Connect.
+        /// ARN of the Quick Connect.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Connect
     public sealed class QuickConnectState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Quick Connect.
+        /// ARN of the Quick Connect.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -81,12 +81,8 @@ type LookupVirtualClusterResult struct {
 }
 
 func LookupVirtualClusterOutput(ctx *pulumi.Context, args LookupVirtualClusterOutputArgs, opts ...pulumi.InvokeOption) LookupVirtualClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVirtualClusterResultOutput, error) {
-			args := v.(LookupVirtualClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, LookupVirtualClusterResultOutput{}, options).(LookupVirtualClusterResultOutput), nil
-		}).(LookupVirtualClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:emrcontainers/getVirtualCluster:getVirtualCluster", args, LookupVirtualClusterResultOutput{}, options).(LookupVirtualClusterResultOutput)
 }
 
 // A collection of arguments for invoking getVirtualCluster.

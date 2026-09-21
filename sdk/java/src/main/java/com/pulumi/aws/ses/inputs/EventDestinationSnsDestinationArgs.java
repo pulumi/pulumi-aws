@@ -15,14 +15,14 @@ public final class EventDestinationSnsDestinationArgs extends com.pulumi.resourc
     public static final EventDestinationSnsDestinationArgs Empty = new EventDestinationSnsDestinationArgs();
 
     /**
-     * The ARN of the SNS topic
+     * ARN of the SNS topic
      * 
      */
     @Import(name="topicArn", required=true)
     private Output<String> topicArn;
 
     /**
-     * @return The ARN of the SNS topic
+     * @return ARN of the SNS topic
      * 
      */
     public Output<String> topicArn() {
@@ -54,7 +54,7 @@ public final class EventDestinationSnsDestinationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param topicArn The ARN of the SNS topic
+         * @param topicArn ARN of the SNS topic
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class EventDestinationSnsDestinationArgs extends com.pulumi.resourc
         }
 
         /**
-         * @param topicArn The ARN of the SNS topic
+         * @param topicArn ARN of the SNS topic
          * 
          * @return builder
          * 

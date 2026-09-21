@@ -107,12 +107,8 @@ type GetPublicIpv4PoolsResult struct {
 }
 
 func GetPublicIpv4PoolsOutput(ctx *pulumi.Context, args GetPublicIpv4PoolsOutputArgs, opts ...pulumi.InvokeOption) GetPublicIpv4PoolsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPublicIpv4PoolsResultOutput, error) {
-			args := v.(GetPublicIpv4PoolsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args, GetPublicIpv4PoolsResultOutput{}, options).(GetPublicIpv4PoolsResultOutput), nil
-		}).(GetPublicIpv4PoolsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getPublicIpv4Pools:getPublicIpv4Pools", args, GetPublicIpv4PoolsResultOutput{}, options).(GetPublicIpv4PoolsResultOutput)
 }
 
 // A collection of arguments for invoking getPublicIpv4Pools.

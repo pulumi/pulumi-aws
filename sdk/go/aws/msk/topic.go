@@ -64,7 +64,7 @@ import (
 //
 // #### Required
 //
-// * `clusterArn` (String) Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+// * `clusterArn` (String) ARN that uniquely identifies MSK Cluster.
 // * `name` (String) Name of Topic.
 //
 // #### Optional
@@ -82,7 +82,7 @@ type Topic struct {
 
 	// ARN of the Topic.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+	// ARN that uniquely identifies MSK Cluster.
 	ClusterArn pulumi.StringOutput `pulumi:"clusterArn"`
 	// Explicit configured Kafka configuration in JSON format for Topic.
 	Configs pulumi.StringPtrOutput `pulumi:"configs"`
@@ -142,7 +142,7 @@ func GetTopic(ctx *pulumi.Context,
 type topicState struct {
 	// ARN of the Topic.
 	Arn *string `pulumi:"arn"`
-	// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+	// ARN that uniquely identifies MSK Cluster.
 	ClusterArn *string `pulumi:"clusterArn"`
 	// Explicit configured Kafka configuration in JSON format for Topic.
 	Configs *string `pulumi:"configs"`
@@ -164,7 +164,7 @@ type topicState struct {
 type TopicState struct {
 	// ARN of the Topic.
 	Arn pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+	// ARN that uniquely identifies MSK Cluster.
 	ClusterArn pulumi.StringPtrInput
 	// Explicit configured Kafka configuration in JSON format for Topic.
 	Configs pulumi.StringPtrInput
@@ -188,7 +188,7 @@ func (TopicState) ElementType() reflect.Type {
 }
 
 type topicArgs struct {
-	// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+	// ARN that uniquely identifies MSK Cluster.
 	ClusterArn string `pulumi:"clusterArn"`
 	// Explicit configured Kafka configuration in JSON format for Topic.
 	Configs *string `pulumi:"configs"`
@@ -207,7 +207,7 @@ type topicArgs struct {
 
 // The set of arguments for constructing a Topic resource.
 type TopicArgs struct {
-	// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+	// ARN that uniquely identifies MSK Cluster.
 	ClusterArn pulumi.StringInput
 	// Explicit configured Kafka configuration in JSON format for Topic.
 	Configs pulumi.StringPtrInput
@@ -316,7 +316,7 @@ func (o TopicOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) that uniquely identifies MSK Cluster.
+// ARN that uniquely identifies MSK Cluster.
 func (o TopicOutput) ClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Topic) pulumi.StringOutput { return v.ClusterArn }).(pulumi.StringOutput)
 }

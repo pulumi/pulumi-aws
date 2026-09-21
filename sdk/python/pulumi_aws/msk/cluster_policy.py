@@ -25,7 +25,7 @@ class ClusterPolicyArgs:
         """
         The set of arguments for constructing a ClusterPolicy resource.
 
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -38,7 +38,7 @@ class ClusterPolicyArgs:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        ARN that uniquely identifies the cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -81,7 +81,7 @@ class _ClusterPolicyState:
         """
         Input properties used for looking up and filtering ClusterPolicy resources.
 
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -98,7 +98,7 @@ class _ClusterPolicyState:
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        ARN that uniquely identifies the cluster.
         """
         return pulumi.get(self, "cluster_arn")
 
@@ -196,7 +196,7 @@ class ClusterPolicy(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -306,7 +306,7 @@ class ClusterPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] cluster_arn: The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        :param pulumi.Input[_builtins.str] cluster_arn: ARN that uniquely identifies the cluster.
         :param pulumi.Input[_builtins.str] policy: Resource policy for cluster.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
@@ -324,7 +324,7 @@ class ClusterPolicy(pulumi.CustomResource):
     @pulumi.getter(name="clusterArn")
     def cluster_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that uniquely identifies the cluster.
+        ARN that uniquely identifies the cluster.
         """
         return pulumi.get(self, "cluster_arn")
 

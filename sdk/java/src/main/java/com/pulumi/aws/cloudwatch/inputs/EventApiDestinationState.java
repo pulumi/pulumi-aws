@@ -17,14 +17,14 @@ public final class EventApiDestinationState extends com.pulumi.resources.Resourc
     public static final EventApiDestinationState Empty = new EventApiDestinationState();
 
     /**
-     * The Amazon Resource Name (ARN) of the event API Destination.
+     * ARN of the event API Destination.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the event API Destination.
+     * @return ARN of the event API Destination.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -168,7 +168,7 @@ public final class EventApiDestinationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event API Destination.
+         * @param arn ARN of the event API Destination.
          * 
          * @return builder
          * 
@@ -179,7 +179,7 @@ public final class EventApiDestinationState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the event API Destination.
+         * @param arn ARN of the event API Destination.
          * 
          * @return builder
          * 

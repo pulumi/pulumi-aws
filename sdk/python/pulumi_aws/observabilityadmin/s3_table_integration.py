@@ -30,7 +30,7 @@ class S3TableIntegrationArgs:
         The set of arguments for constructing a S3TableIntegration resource.
 
         :param pulumi.Input['S3TableIntegrationEncryptionArgs'] encryption: Encryption configuration block. Documented below.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -59,7 +59,7 @@ class S3TableIntegrationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         """
         return pulumi.get(self, "role_arn")
 
@@ -115,11 +115,11 @@ class _S3TableIntegrationState:
         """
         Input properties used for looking up and filtering S3TableIntegration resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the S3 Table integration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the S3 Table integration.
         :param pulumi.Input[_builtins.str] destination_table_bucket_arn: ARN of the S3 Table bucket where CloudWatch data is stored. AWS automatically creates a bucket named `_aws-cloudwatch_` if one does not already exist.
         :param pulumi.Input['S3TableIntegrationEncryptionArgs'] encryption: Encryption configuration block. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -144,7 +144,7 @@ class _S3TableIntegrationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the S3 Table integration.
+        ARN of the S3 Table integration.
         """
         return pulumi.get(self, "arn")
 
@@ -192,7 +192,7 @@ class _S3TableIntegrationState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         """
         return pulumi.get(self, "role_arn")
 
@@ -295,10 +295,10 @@ class S3TableIntegration(pulumi.CustomResource):
                 }],
             }))
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "AES256",
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ### Integration with KMS Encryption
@@ -324,11 +324,11 @@ class S3TableIntegration(pulumi.CustomResource):
             description="S3 Table Integration KMS key",
             deletion_window_in_days=7)
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "aws:kms",
                 "kms_key_arn": example_key.arn,
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ## Import
@@ -350,7 +350,7 @@ class S3TableIntegration(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union['S3TableIntegrationEncryptionArgs', 'S3TableIntegrationEncryptionArgsDict']] encryption: Encryption configuration block. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -408,10 +408,10 @@ class S3TableIntegration(pulumi.CustomResource):
                 }],
             }))
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "AES256",
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ### Integration with KMS Encryption
@@ -437,11 +437,11 @@ class S3TableIntegration(pulumi.CustomResource):
             description="S3 Table Integration KMS key",
             deletion_window_in_days=7)
         example_s3_table_integration = aws.observabilityadmin.S3TableIntegration("example",
-            role_arn=example.arn,
             encryption={
                 "sse_algorithm": "aws:kms",
                 "kms_key_arn": example_key.arn,
-            })
+            },
+            role_arn=example.arn)
         ```
 
         ## Import
@@ -525,11 +525,11 @@ class S3TableIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the S3 Table integration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the S3 Table integration.
         :param pulumi.Input[_builtins.str] destination_table_bucket_arn: ARN of the S3 Table bucket where CloudWatch data is stored. AWS automatically creates a bucket named `_aws-cloudwatch_` if one does not already exist.
         :param pulumi.Input[Union['S3TableIntegrationEncryptionArgs', 'S3TableIntegrationEncryptionArgsDict']] encryption: Encryption configuration block. Documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
@@ -551,7 +551,7 @@ class S3TableIntegration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the S3 Table integration.
+        ARN of the S3 Table integration.
         """
         return pulumi.get(self, "arn")
 
@@ -583,7 +583,7 @@ class S3TableIntegration(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+        ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
         """
         return pulumi.get(self, "role_arn")
 

@@ -66,14 +66,14 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs extends com
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     @Import(name="validation", required=true)
     private Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public Output<VirtualNodeSpecBackendDefaultsClientPolicyTlsValidationArgs> validation() {
@@ -181,7 +181,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs extends com
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * @param validation Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class VirtualNodeSpecBackendDefaultsClientPolicyTlsArgs extends com
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * @param validation Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 

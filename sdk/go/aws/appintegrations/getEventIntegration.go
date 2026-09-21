@@ -77,12 +77,8 @@ type GetEventIntegrationResult struct {
 }
 
 func GetEventIntegrationOutput(ctx *pulumi.Context, args GetEventIntegrationOutputArgs, opts ...pulumi.InvokeOption) GetEventIntegrationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetEventIntegrationResultOutput, error) {
-			args := v.(GetEventIntegrationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", args, GetEventIntegrationResultOutput{}, options).(GetEventIntegrationResultOutput), nil
-		}).(GetEventIntegrationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appintegrations/getEventIntegration:getEventIntegration", args, GetEventIntegrationResultOutput{}, options).(GetEventIntegrationResultOutput)
 }
 
 // A collection of arguments for invoking getEventIntegration.

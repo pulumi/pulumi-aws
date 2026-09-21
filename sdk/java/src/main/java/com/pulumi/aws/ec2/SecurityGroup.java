@@ -256,6 +256,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ec2.SecurityGroup;
  * import com.pulumi.aws.ec2.SecurityGroupArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.resources.CustomTimeouts;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -271,7 +273,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new SecurityGroup("example", SecurityGroupArgs.builder()
  *             .name("izizavle")
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .customTimeouts(CustomTimeouts.builder()
+ *                     .delete(CustomTimeouts.parseTimeoutString("2m"))
+ *                 .build())
+ *                 .build());
  * 
  *     }
  * }
@@ -333,7 +339,7 @@ import javax.annotation.Nullable;
  *             .delete("""
  *             ENDPOINT_ID=`aws ec2 describe-vpc-endpoints --filters \"Name=tag:Name,Values=%s\" --query \"VpcEndpoints[0].VpcEndpointId\" --output text` &&
  *             aws ec2 modify-vpc-endpoint --vpc-endpoint-id ${ENDPOINT_ID} --add-security-group-ids %s --remove-security-group-ids %s
- * ", tags.workaround1(),tags.workaround2(),id))
+ * ", example.tags().workaround1(),example.tags().workaround2(),example.id()))
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(Arrays.asList(example))
  *                 .build());

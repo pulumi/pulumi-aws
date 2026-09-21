@@ -48,7 +48,7 @@ namespace Pulumi.Aws.Dms
     public partial class Certificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate.
+        /// ARN for the certificate.
         /// </summary>
         [Output("certificateArn")]
         public Output<string> CertificateArn { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Dms
     public sealed class CertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate.
+        /// ARN for the certificate.
         /// </summary>
         [Input("certificateArn")]
         public Input<string>? CertificateArn { get; set; }

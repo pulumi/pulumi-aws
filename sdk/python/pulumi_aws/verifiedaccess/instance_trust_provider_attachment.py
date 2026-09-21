@@ -149,12 +149,12 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
 
         example = aws.verifiedaccess.Instance("example")
         example_trust_provider = aws.verifiedaccess.TrustProvider("example",
-            device_trust_provider_type="jamf",
-            policy_reference_name="example",
-            trust_provider_type="device",
             device_options={
                 "tenant_id": "example",
-            })
+            },
+            device_trust_provider_type="jamf",
+            policy_reference_name="example",
+            trust_provider_type="device")
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)
@@ -192,12 +192,12 @@ class InstanceTrustProviderAttachment(pulumi.CustomResource):
 
         example = aws.verifiedaccess.Instance("example")
         example_trust_provider = aws.verifiedaccess.TrustProvider("example",
-            device_trust_provider_type="jamf",
-            policy_reference_name="example",
-            trust_provider_type="device",
             device_options={
                 "tenant_id": "example",
-            })
+            },
+            device_trust_provider_type="jamf",
+            policy_reference_name="example",
+            trust_provider_type="device")
         example_instance_trust_provider_attachment = aws.verifiedaccess.InstanceTrustProviderAttachment("example",
             verifiedaccess_instance_id=example.id,
             verifiedaccess_trust_provider_id=example_trust_provider.id)

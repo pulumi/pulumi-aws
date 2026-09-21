@@ -44,12 +44,12 @@ import (
 //				return err
 //			}
 //			exampleZone, err := route53.NewZone(ctx, "example", &route53.ZoneArgs{
-//				Name: pulumi.String("example.com"),
 //				Vpcs: route53.ZoneVpcArray{
 //					&route53.ZoneVpcArgs{
 //						VpcId: exampleVpc.ID().ToIDOutput().ToStringOutput(),
 //					},
 //				},
+//				Name: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err

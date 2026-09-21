@@ -24,18 +24,18 @@ import * as utilities from "../utilities";
  *     vpc: example.id,
  * });
  * const exampleService = new aws.servicediscovery.Service("example", {
- *     name: "example",
  *     dnsConfig: {
- *         namespaceId: examplePrivateDnsNamespace.id,
  *         dnsRecords: [{
  *             ttl: 10,
  *             type: "A",
  *         }],
+ *         namespaceId: examplePrivateDnsNamespace.id,
  *         routingPolicy: "MULTIVALUE",
  *     },
  *     healthCheckCustomConfig: {
  *         failureThreshold: 1,
  *     },
+ *     name: "example",
  * });
  * const exampleInstance = new aws.servicediscovery.Instance("example", {
  *     instanceId: "example-instance-id",

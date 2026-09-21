@@ -47,7 +47,7 @@ namespace Pulumi.Aws.Route53
     public partial class ResolverQueryLogConfig : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        /// ARN of the Route 53 Resolver query logging configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -183,7 +183,7 @@ namespace Pulumi.Aws.Route53
     public sealed class ResolverQueryLogConfigState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+        /// ARN of the Route 53 Resolver query logging configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

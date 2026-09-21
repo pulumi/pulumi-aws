@@ -49,14 +49,14 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     @Import(name="validation")
     private @Nullable Output<VirtualNodeSpecListenerTlsValidationArgs> validation;
 
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+     * @return Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
      * 
      */
     public Optional<Output<VirtualNodeSpecListenerTlsValidationArgs>> validation() {
@@ -132,7 +132,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * @param validation Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 
@@ -143,7 +143,7 @@ public final class VirtualNodeSpecListenerTlsArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param validation Listener&#39;s Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+         * @param validation Listener&#39;s TLS validation context. See `spec.listener.tls.validation` Block for details.
          * 
          * @return builder
          * 

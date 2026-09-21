@@ -18,14 +18,14 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
     public static final DomainDomainSettingsRStudioServerProDomainSettingsArgs Empty = new DomainDomainSettingsRStudioServerProDomainSettingsArgs();
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     public Optional<Output<DomainDomainSettingsRStudioServerProDomainSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -105,7 +105,7 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          * 
          * @return builder
          * 
@@ -116,7 +116,7 @@ public final class DomainDomainSettingsRStudioServerProDomainSettingsArgs extend
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
          * 
          * @return builder
          * 

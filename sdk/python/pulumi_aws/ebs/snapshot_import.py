@@ -227,7 +227,7 @@ class _SnapshotImportState:
         """
         Input properties used for looking up and filtering SnapshotImport resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input['SnapshotImportClientDataArgs'] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
@@ -288,7 +288,7 @@ class _SnapshotImportState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -536,11 +536,11 @@ class SnapshotImport(pulumi.CustomResource):
 
         example = aws.ebs.SnapshotImport("example",
             disk_container={
-                "format": "VHD",
                 "user_bucket": {
                     "s3_bucket": "disk-images",
                     "s3_key": "source.vhd",
                 },
+                "format": "VHD",
             },
             role_name="disk-image-import",
             tags={
@@ -580,11 +580,11 @@ class SnapshotImport(pulumi.CustomResource):
 
         example = aws.ebs.SnapshotImport("example",
             disk_container={
-                "format": "VHD",
                 "user_bucket": {
                     "s3_bucket": "disk-images",
                     "s3_key": "source.vhd",
                 },
+                "format": "VHD",
             },
             role_name="disk-image-import",
             tags={
@@ -685,7 +685,7 @@ class SnapshotImport(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the EBS Snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the EBS Snapshot.
         :param pulumi.Input[Union['SnapshotImportClientDataArgs', 'SnapshotImportClientDataArgsDict']] client_data: The client-specific data. Detailed below.
         :param pulumi.Input[_builtins.str] data_encryption_key_id: The data encryption key identifier for the snapshot.
         :param pulumi.Input[_builtins.str] description: The description string for the import snapshot task.
@@ -732,7 +732,7 @@ class SnapshotImport(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EBS Snapshot.
+        ARN of the EBS Snapshot.
         """
         return pulumi.get(self, "arn")
 

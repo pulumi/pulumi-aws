@@ -24,14 +24,14 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
     public static final CloudVmClusterState Empty = new CloudVmClusterState();
 
     /**
-     * Amazon Resource Name (ARN) for the cloud vm cluster.
+     * ARN for the cloud vm cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the cloud vm cluster.
+     * @return ARN for the cloud vm cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -811,7 +811,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the cloud vm cluster.
+         * @param arn ARN for the cloud vm cluster.
          * 
          * @return builder
          * 
@@ -822,7 +822,7 @@ public final class CloudVmClusterState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for the cloud vm cluster.
+         * @param arn ARN for the cloud vm cluster.
          * 
          * @return builder
          * 

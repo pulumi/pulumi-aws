@@ -125,12 +125,12 @@ def get_spot_price(availability_zone: Optional[_builtins.str] = None,
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_spot_price(instance_type="t3.medium",
-        availability_zone="us-west-2a",
-        filters=[{
+    example = aws.ec2.get_spot_price(filters=[{
             "name": "product-description",
             "values": ["Linux/UNIX"],
-        }])
+        }],
+        instance_type="t3.medium",
+        availability_zone="us-west-2a")
     ```
 
 
@@ -169,12 +169,12 @@ def get_spot_price_output(availability_zone: pulumi.Input[Optional[Optional[_bui
     import pulumi
     import pulumi_aws as aws
 
-    example = aws.ec2.get_spot_price(instance_type="t3.medium",
-        availability_zone="us-west-2a",
-        filters=[{
+    example = aws.ec2.get_spot_price(filters=[{
             "name": "product-description",
             "values": ["Linux/UNIX"],
-        }])
+        }],
+        instance_type="t3.medium",
+        availability_zone="us-west-2a")
     ```
 
 

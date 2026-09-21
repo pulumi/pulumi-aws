@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
 //					KernelSpecs: sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArray{
 //						&sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
@@ -39,6 +38,7 @@ import (
 //						},
 //					},
 //				},
+//				AppImageConfigName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,8 +64,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName:       pulumi.String("example"),
 //				CodeEditorAppImageConfig: &sagemaker.AppImageConfigCodeEditorAppImageConfigArgs{},
+//				AppImageConfigName:       pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -91,15 +91,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAppImageConfig(ctx, "test", &sagemaker.AppImageConfigArgs{
-//				AppImageConfigName: pulumi.String("example"),
 //				KernelGatewayImageConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigArgs{
+//					FileSystemConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{},
 //					KernelSpecs: sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArray{
 //						&sagemaker.AppImageConfigKernelGatewayImageConfigKernelSpecArgs{
 //							Name: pulumi.String("example"),
 //						},
 //					},
-//					FileSystemConfig: &sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs{},
 //				},
+//				AppImageConfigName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -122,7 +122,7 @@ type AppImageConfig struct {
 
 	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringOutput `pulumi:"appImageConfigName"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+	// ARN assigned by AWS to this App Image Config.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
 	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrOutput `pulumi:"codeEditorAppImageConfig"`
@@ -175,7 +175,7 @@ func GetAppImageConfig(ctx *pulumi.Context,
 type appImageConfigState struct {
 	// The name of the App Image Config.
 	AppImageConfigName *string `pulumi:"appImageConfigName"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+	// ARN assigned by AWS to this App Image Config.
 	Arn *string `pulumi:"arn"`
 	// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
 	CodeEditorAppImageConfig *AppImageConfigCodeEditorAppImageConfig `pulumi:"codeEditorAppImageConfig"`
@@ -196,7 +196,7 @@ type appImageConfigState struct {
 type AppImageConfigState struct {
 	// The name of the App Image Config.
 	AppImageConfigName pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+	// ARN assigned by AWS to this App Image Config.
 	Arn pulumi.StringPtrInput
 	// The CodeEditorAppImageConfig. See Code Editor App Image Config details below.
 	CodeEditorAppImageConfig AppImageConfigCodeEditorAppImageConfigPtrInput
@@ -345,7 +345,7 @@ func (o AppImageConfigOutput) AppImageConfigName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.AppImageConfigName }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this App Image Config.
+// ARN assigned by AWS to this App Image Config.
 func (o AppImageConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *AppImageConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

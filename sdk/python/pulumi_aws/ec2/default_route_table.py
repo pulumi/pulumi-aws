@@ -295,7 +295,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -306,6 +305,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             tags={
                 "Name": "example",
             })
@@ -366,7 +366,6 @@ class DefaultRouteTable(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.ec2.DefaultRouteTable("example",
-            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             routes=[
                 {
                     "cidr_block": "10.0.1.0/24",
@@ -377,6 +376,7 @@ class DefaultRouteTable(pulumi.CustomResource):
                     "egress_only_gateway_id": example_aws_egress_only_internet_gateway["id"],
                 },
             ],
+            default_route_table_id=example_aws_vpc["defaultRouteTableId"],
             tags={
                 "Name": "example",
             })

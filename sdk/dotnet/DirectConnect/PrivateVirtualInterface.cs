@@ -41,6 +41,8 @@ namespace Pulumi.Aws.DirectConnect
     /// ```sh
     /// $ pulumi import aws:directconnect/privateVirtualInterface:PrivateVirtualInterface test dxvif-33cc44dd
     /// ```
+    /// 
+    /// &gt; **Note:** When a virtual interface uses an ASN in the `BgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `Asn` and `asnLong` API fields, so import always populates `BgpAsn` rather than `BgpAsnLong`. If the virtual interface was originally created with `BgpAsnLong` set to a value in that range, update your configuration to use `BgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `BgpAsnLong` as expected.
     /// </summary>
     [AwsResourceType("aws:directconnect/privateVirtualInterface:PrivateVirtualInterface")]
     public partial class PrivateVirtualInterface : global::Pulumi.CustomResource
@@ -73,10 +75,16 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> AwsDevice { get; private set; } = null!;
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
         [Output("bgpAsn")]
-        public Output<int> BgpAsn { get; private set; } = null!;
+        public Output<int?> BgpAsn { get; private set; } = null!;
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Output("bgpAsnLong")]
+        public Output<string?> BgpAsnLong { get; private set; } = null!;
 
         /// <summary>
         /// The authentication key for BGP configuration.
@@ -120,6 +128,24 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Output("prefixPoolAllocatedCountIpv4")]
+        public Output<int> PrefixPoolAllocatedCountIpv4 { get; private set; } = null!;
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Output("prefixPoolAllocatedCountIpv6")]
+        public Output<int> PrefixPoolAllocatedCountIpv6 { get; private set; } = null!;
+
+        /// <summary>
+        /// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        /// </summary>
+        [Output("rateLimit")]
+        public Output<string> RateLimit { get; private set; } = null!;
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -216,10 +242,16 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? AmazonAddress { get; set; }
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
-        [Input("bgpAsn", required: true)]
-        public Input<int> BgpAsn { get; set; } = null!;
+        [Input("bgpAsn")]
+        public Input<int>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Input("bgpAsnLong")]
+        public Input<string>? BgpAsnLong { get; set; }
 
         /// <summary>
         /// The authentication key for BGP configuration.
@@ -257,6 +289,24 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv4")]
+        public Input<int>? PrefixPoolAllocatedCountIpv4 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv6")]
+        public Input<int>? PrefixPoolAllocatedCountIpv6 { get; set; }
+
+        /// <summary>
+        /// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        /// </summary>
+        [Input("rateLimit")]
+        public Input<string>? RateLimit { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -330,10 +380,16 @@ namespace Pulumi.Aws.DirectConnect
         public Input<string>? AwsDevice { get; set; }
 
         /// <summary>
-        /// The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+        /// BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `BgpAsnLong`. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
         /// </summary>
         [Input("bgpAsn")]
         public Input<int>? BgpAsn { get; set; }
+
+        /// <summary>
+        /// BGP autonomous system number as an asplain decimal string between `1` and `4294967294`. This argument also accepts values in the `BgpAsn` range. Exactly one of `BgpAsn` or `BgpAsnLong` must be specified.
+        /// </summary>
+        [Input("bgpAsnLong")]
+        public Input<string>? BgpAsnLong { get; set; }
 
         /// <summary>
         /// The authentication key for BGP configuration.
@@ -377,6 +433,24 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv4 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv4")]
+        public Input<int>? PrefixPoolAllocatedCountIpv4 { get; set; }
+
+        /// <summary>
+        /// The number of inbound IPv6 route prefixes to allocate to the virtual interface. Valid values are `0` to `1000`. If not specified, AWS applies the default allocation of `100`.
+        /// </summary>
+        [Input("prefixPoolAllocatedCountIpv6")]
+        public Input<int>? PrefixPoolAllocatedCountIpv6 { get; set; }
+
+        /// <summary>
+        /// Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+        /// </summary>
+        [Input("rateLimit")]
+        public Input<string>? RateLimit { get; set; }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

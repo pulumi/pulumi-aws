@@ -118,15 +118,15 @@ import (
 type ClusterEndpoint struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringOutput `pulumi:"clusterEndpointIdentifier"`
-	// The cluster identifier.
+	// Cluster identifier.
 	ClusterIdentifier pulumi.StringOutput `pulumi:"clusterIdentifier"`
-	// The type of the endpoint. One of: READER , ANY .
+	// Type of the endpoint. One of: READER , ANY .
 	CustomEndpointType pulumi.StringOutput `pulumi:"customEndpointType"`
-	// A custom endpoint for the Aurora cluster
+	// Custom endpoint for the Aurora cluster
 	Endpoint pulumi.StringOutput `pulumi:"endpoint"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers pulumi.StringArrayOutput `pulumi:"excludedMembers"`
@@ -135,11 +135,8 @@ type ClusterEndpoint struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayOutput `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
 }
 
@@ -182,15 +179,15 @@ func GetClusterEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ClusterEndpoint resources.
 type clusterEndpointState struct {
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn *string `pulumi:"arn"`
-	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier *string `pulumi:"clusterEndpointIdentifier"`
-	// The cluster identifier.
+	// Cluster identifier.
 	ClusterIdentifier *string `pulumi:"clusterIdentifier"`
-	// The type of the endpoint. One of: READER , ANY .
+	// Type of the endpoint. One of: READER , ANY .
 	CustomEndpointType *string `pulumi:"customEndpointType"`
-	// A custom endpoint for the Aurora cluster
+	// Custom endpoint for the Aurora cluster
 	Endpoint *string `pulumi:"endpoint"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers []string `pulumi:"excludedMembers"`
@@ -199,24 +196,21 @@ type clusterEndpointState struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags map[string]string `pulumi:"tags"`
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
 }
 
 type ClusterEndpointState struct {
-	// Amazon Resource Name (ARN) of cluster
+	// ARN of cluster
 	Arn pulumi.StringPtrInput
-	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringPtrInput
-	// The cluster identifier.
+	// Cluster identifier.
 	ClusterIdentifier pulumi.StringPtrInput
-	// The type of the endpoint. One of: READER , ANY .
+	// Type of the endpoint. One of: READER , ANY .
 	CustomEndpointType pulumi.StringPtrInput
-	// A custom endpoint for the Aurora cluster
+	// Custom endpoint for the Aurora cluster
 	Endpoint pulumi.StringPtrInput
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers pulumi.StringArrayInput
@@ -225,11 +219,8 @@ type ClusterEndpointState struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapInput
-	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+	// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
 }
 
@@ -238,11 +229,11 @@ func (ClusterEndpointState) ElementType() reflect.Type {
 }
 
 type clusterEndpointArgs struct {
-	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier string `pulumi:"clusterEndpointIdentifier"`
-	// The cluster identifier.
+	// Cluster identifier.
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
-	// The type of the endpoint. One of: READER , ANY .
+	// Type of the endpoint. One of: READER , ANY .
 	CustomEndpointType string `pulumi:"customEndpointType"`
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers []string `pulumi:"excludedMembers"`
@@ -251,19 +242,16 @@ type clusterEndpointArgs struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers []string `pulumi:"staticMembers"`
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // The set of arguments for constructing a ClusterEndpoint resource.
 type ClusterEndpointArgs struct {
-	// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+	// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 	ClusterEndpointIdentifier pulumi.StringInput
-	// The cluster identifier.
+	// Cluster identifier.
 	ClusterIdentifier pulumi.StringInput
-	// The type of the endpoint. One of: READER , ANY .
+	// Type of the endpoint. One of: READER , ANY .
 	CustomEndpointType pulumi.StringInput
 	// List of DB instance identifiers that aren't part of the custom endpoint group. All other eligible instances are reachable through the custom endpoint. Only relevant if the list of static members is empty. Conflicts with `staticMembers`.
 	ExcludedMembers pulumi.StringArrayInput
@@ -272,9 +260,6 @@ type ClusterEndpointArgs struct {
 	// List of DB instance identifiers that are part of the custom endpoint group. Conflicts with `excludedMembers`.
 	StaticMembers pulumi.StringArrayInput
 	// Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-	//
-	// For more detailed documentation about each argument, refer to
-	// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 	Tags pulumi.StringMapInput
 }
 
@@ -365,27 +350,27 @@ func (o ClusterEndpointOutput) ToClusterEndpointOutputWithContext(ctx context.Co
 	return o
 }
 
-// Amazon Resource Name (ARN) of cluster
+// ARN of cluster
 func (o ClusterEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+// Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
 func (o ClusterEndpointOutput) ClusterEndpointIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.ClusterEndpointIdentifier }).(pulumi.StringOutput)
 }
 
-// The cluster identifier.
+// Cluster identifier.
 func (o ClusterEndpointOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
-// The type of the endpoint. One of: READER , ANY .
+// Type of the endpoint. One of: READER , ANY .
 func (o ClusterEndpointOutput) CustomEndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.CustomEndpointType }).(pulumi.StringOutput)
 }
 
-// A custom endpoint for the Aurora cluster
+// Custom endpoint for the Aurora cluster
 func (o ClusterEndpointOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringOutput { return v.Endpoint }).(pulumi.StringOutput)
 }
@@ -406,14 +391,11 @@ func (o ClusterEndpointOutput) StaticMembers() pulumi.StringArrayOutput {
 }
 
 // Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-//
-// For more detailed documentation about each argument, refer to
-// the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
 func (o ClusterEndpointOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+// Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 func (o ClusterEndpointOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *ClusterEndpoint) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }

@@ -332,7 +332,7 @@ class _VpcIpamPoolState:
         :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
         :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM
         :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
@@ -458,7 +458,7 @@ class _VpcIpamPoolState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of IPAM
+        ARN of IPAM
         """
         return pulumi.get(self, "arn")
 
@@ -748,16 +748,16 @@ class VpcIpamPool(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
-            locale=current.region,
-            source_ipam_pool_id=test.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
+            locale=current.region,
+            source_ipam_pool_id=test.id)
         ```
 
         ## Import
@@ -866,16 +866,16 @@ class VpcIpamPool(pulumi.CustomResource):
             ipv4_netmask_length=24,
             opts = pulumi.ResourceOptions(depends_on=[test_vpc_ipam_pool_cidr]))
         vpc = aws.ec2.VpcIpamPool("vpc",
-            address_family="ipv4",
-            ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
-            locale=current.region,
-            source_ipam_pool_id=test.id,
             source_resource={
                 "resource_id": test_vpc.id,
                 "resource_owner": current_aws_caller_identity["accountId"],
                 "resource_region": current.region,
                 "resource_type": "vpc",
-            })
+            },
+            address_family="ipv4",
+            ipam_scope_id=test_aws_vpc_ipam["privateDefaultScopeId"],
+            locale=current.region,
+            source_ipam_pool_id=test.id)
         ```
 
         ## Import
@@ -998,7 +998,7 @@ class VpcIpamPool(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] allocation_max_netmask_length: The maximum netmask length that will be required for CIDR allocations in this pool.
         :param pulumi.Input[_builtins.int] allocation_min_netmask_length: The minimum netmask length that will be required for CIDR allocations in this pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] allocation_resource_tags: Tags that are required for resources that use CIDRs from this IPAM pool. Resources that do not have these tags will not be allowed to allocate space from the pool. If the resources have their tags changed after they have allocated space or if the allocation tagging requirements are changed on the pool, the resource may be marked as noncompliant.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of IPAM
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM
         :param pulumi.Input[_builtins.bool] auto_import: If you include this argument, IPAM automatically imports any VPCs you have in your scope that fall
                within the CIDR range in the pool.
         :param pulumi.Input[_builtins.str] aws_service: Limits which AWS service the pool can be used in. Only useable on public scopes. Valid Values: `ec2`.
@@ -1087,7 +1087,7 @@ class VpcIpamPool(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of IPAM
+        ARN of IPAM
         """
         return pulumi.get(self, "arn")
 

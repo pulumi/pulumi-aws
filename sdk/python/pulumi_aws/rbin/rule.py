@@ -389,16 +389,16 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="Example tag-level retention rule",
-            resource_type="EBS_SNAPSHOT",
-            resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
             retention_period={
                 "retention_period_value": 10,
                 "retention_period_unit": "DAYS",
             },
+            resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            description="Example tag-level retention rule",
+            resource_type="EBS_SNAPSHOT",
             tags={
                 "test_tag_key": "test_tag_value",
             })
@@ -411,16 +411,16 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="Example region-level retention rule with exclusion tags",
-            resource_type="EC2_IMAGE",
-            exclude_resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
             retention_period={
                 "retention_period_value": 10,
                 "retention_period_unit": "DAYS",
             },
+            exclude_resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            description="Example region-level retention rule with exclusion tags",
+            resource_type="EC2_IMAGE",
             tags={
                 "test_tag_key": "test_tag_value",
             })
@@ -465,16 +465,16 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="Example tag-level retention rule",
-            resource_type="EBS_SNAPSHOT",
-            resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
             retention_period={
                 "retention_period_value": 10,
                 "retention_period_unit": "DAYS",
             },
+            resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            description="Example tag-level retention rule",
+            resource_type="EBS_SNAPSHOT",
             tags={
                 "test_tag_key": "test_tag_value",
             })
@@ -487,16 +487,16 @@ class Rule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.rbin.Rule("example",
-            description="Example region-level retention rule with exclusion tags",
-            resource_type="EC2_IMAGE",
-            exclude_resource_tags=[{
-                "resource_tag_key": "tag_key",
-                "resource_tag_value": "tag_value",
-            }],
             retention_period={
                 "retention_period_value": 10,
                 "retention_period_unit": "DAYS",
             },
+            exclude_resource_tags=[{
+                "resource_tag_key": "tag_key",
+                "resource_tag_value": "tag_value",
+            }],
+            description="Example region-level retention rule with exclusion tags",
+            resource_type="EC2_IMAGE",
             tags={
                 "test_tag_key": "test_tag_value",
             })

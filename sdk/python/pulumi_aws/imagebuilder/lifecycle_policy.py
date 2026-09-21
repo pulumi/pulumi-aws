@@ -33,7 +33,7 @@ class LifecyclePolicyArgs:
         """
         The set of arguments for constructing a LifecyclePolicy resource.
 
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input['LifecyclePolicyResourceSelectionArgs'] resource_selection: Selection criteria for the resources that the lifecycle policy applies to. Detailed below.
                
@@ -64,7 +64,7 @@ class LifecyclePolicyArgs:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         """
         return pulumi.get(self, "execution_role")
 
@@ -188,9 +188,9 @@ class _LifecyclePolicyState:
         """
         Input properties used for looking up and filtering LifecyclePolicy resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the lifecycle policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the lifecycle policy.
         :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input['LifecyclePolicyPolicyDetailArgs']]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -229,7 +229,7 @@ class _LifecyclePolicyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the lifecycle policy.
+        ARN of the lifecycle policy.
         """
         return pulumi.get(self, "arn")
 
@@ -253,7 +253,7 @@ class _LifecyclePolicyState:
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         """
         return pulumi.get(self, "execution_role")
 
@@ -404,10 +404,12 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -419,12 +421,10 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
@@ -434,9 +434,9 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+        - `arn` (String) ARN of the Image Builder lifecycle policy.
 
-        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
@@ -446,7 +446,7 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -491,10 +491,12 @@ class LifecyclePolicy(pulumi.CustomResource):
             policy_arn=f"arn:{current_get_partition.partition}:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy",
             role=example.name)
         example_lifecycle_policy = aws.imagebuilder.LifecyclePolicy("example",
-            name="name",
-            description="Example description",
-            execution_role=example.arn,
-            resource_type="AMI_IMAGE",
+            resource_selection={
+                "tag_map": {
+                    "key1": "value1",
+                    "key2": "value2",
+                },
+            },
             policy_details=[{
                 "action": {
                     "type": "DELETE",
@@ -506,12 +508,10 @@ class LifecyclePolicy(pulumi.CustomResource):
                     "unit": "YEARS",
                 },
             }],
-            resource_selection={
-                "tag_map": {
-                    "key1": "value1",
-                    "key2": "value2",
-                },
-            },
+            name="name",
+            description="Example description",
+            execution_role=example.arn,
+            resource_type="AMI_IMAGE",
             opts = pulumi.ResourceOptions(depends_on=[example_role_policy_attachment]))
         ```
 
@@ -521,9 +521,9 @@ class LifecyclePolicy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder lifecycle policy.
+        - `arn` (String) ARN of the Image Builder lifecycle policy.
 
-        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder.LifecyclePolicy` using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/lifecyclePolicy:LifecyclePolicy example arn:aws:imagebuilder:us-east-1:123456789012:lifecycle-policy/example
@@ -610,9 +610,9 @@ class LifecyclePolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the lifecycle policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the lifecycle policy.
         :param pulumi.Input[_builtins.str] description: description for the lifecycle policy.
-        :param pulumi.Input[_builtins.str] execution_role: The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        :param pulumi.Input[_builtins.str] execution_role: ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         :param pulumi.Input[_builtins.str] name: The name of the lifecycle policy to create.
         :param pulumi.Input[Sequence[pulumi.Input[Union['LifecyclePolicyPolicyDetailArgs', 'LifecyclePolicyPolicyDetailArgsDict']]]] policy_details: Configuration block with policy details. Detailed below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -645,7 +645,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the lifecycle policy.
+        ARN of the lifecycle policy.
         """
         return pulumi.get(self, "arn")
 
@@ -661,7 +661,7 @@ class LifecyclePolicy(pulumi.CustomResource):
     @pulumi.getter(name="executionRole")
     def execution_role(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
+        ARN for the IAM role you create that grants Image Builder access to run lifecycle actions. More information about this role can be found [`here`](https://docs.aws.amazon.com/imagebuilder/latest/userguide/image-lifecycle-prerequisites.html#image-lifecycle-prereq-role).
         """
         return pulumi.get(self, "execution_role")
 

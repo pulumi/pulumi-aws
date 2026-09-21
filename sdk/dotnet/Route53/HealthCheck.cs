@@ -179,7 +179,7 @@ namespace Pulumi.Aws.Route53
     public partial class HealthCheck : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Health Check.
+        /// ARN of the Health Check.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -293,7 +293,7 @@ namespace Pulumi.Aws.Route53
         public Output<string?> ResourcePath { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
         [Output("routingControlArn")]
         public Output<string?> RoutingControlArn { get; private set; } = null!;
@@ -495,7 +495,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ResourcePath { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
         [Input("routingControlArn")]
         public Input<string>? RoutingControlArn { get; set; }
@@ -545,7 +545,7 @@ namespace Pulumi.Aws.Route53
     public sealed class HealthCheckState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Health Check.
+        /// ARN of the Health Check.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -671,7 +671,7 @@ namespace Pulumi.Aws.Route53
         public Input<string>? ResourcePath { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        /// ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         /// </summary>
         [Input("routingControlArn")]
         public Input<string>? RoutingControlArn { get; set; }

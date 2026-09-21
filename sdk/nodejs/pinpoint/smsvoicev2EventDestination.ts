@@ -22,13 +22,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.pinpoint.Smsvoicev2ConfigurationSet("example", {name: "example-configuration-set"});
  * const exampleSmsvoicev2EventDestination = new aws.pinpoint.Smsvoicev2EventDestination("example", {
- *     configurationSetName: example.name,
- *     eventDestinationName: "example",
- *     matchingEventTypes: ["ALL"],
  *     cloudwatchLogsDestination: {
  *         iamRoleArn: exampleAwsIamRole.arn,
  *         logGroupArn: exampleAwsCloudwatchLogGroup.arn,
  *     },
+ *     configurationSetName: example.name,
+ *     eventDestinationName: "example",
+ *     matchingEventTypes: ["ALL"],
  * });
  * ```
  *
@@ -40,13 +40,13 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.pinpoint.Smsvoicev2ConfigurationSet("example", {name: "example-configuration-set"});
  * const exampleSmsvoicev2EventDestination = new aws.pinpoint.Smsvoicev2EventDestination("example", {
- *     configurationSetName: example.name,
- *     eventDestinationName: "example",
- *     matchingEventTypes: ["ALL"],
  *     kinesisFirehoseDestination: {
  *         deliveryStreamArn: exampleAwsKinesisFirehoseDeliveryStream.arn,
  *         iamRoleArn: exampleAwsIamRole.arn,
  *     },
+ *     configurationSetName: example.name,
+ *     eventDestinationName: "example",
+ *     matchingEventTypes: ["ALL"],
  * });
  * ```
  *
@@ -58,12 +58,12 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.pinpoint.Smsvoicev2ConfigurationSet("example", {name: "example-configuration-set"});
  * const exampleSmsvoicev2EventDestination = new aws.pinpoint.Smsvoicev2EventDestination("example", {
- *     configurationSetName: example.name,
- *     eventDestinationName: "example",
- *     matchingEventTypes: ["ALL"],
  *     snsDestination: {
  *         topicArn: exampleAwsSnsTopic.arn,
  *     },
+ *     configurationSetName: example.name,
+ *     eventDestinationName: "example",
+ *     matchingEventTypes: ["ALL"],
  * });
  * ```
  *

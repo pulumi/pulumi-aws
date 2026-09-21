@@ -162,26 +162,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
             cluster_config={
                 "instance_type": "r4.large.search",
             },
             snapshot_options={
                 "automated_snapshot_start_hour": 23,
             },
+            domain_name="example",
+            engine_version="OpenSearch_1.1",
             tags={
                 "Domain": "TestDomain",
             })
         example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
-            domain_name=example.domain_name,
             saml_options={
-                "enabled": True,
                 "idp": {
                     "entity_id": "https://example.com",
                     "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
-            })
+                "enabled": True,
+            },
+            domain_name=example.domain_name)
         ```
 
         ## Import
@@ -220,26 +220,26 @@ class DomainSamlOptions(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.opensearch.Domain("example",
-            domain_name="example",
-            engine_version="OpenSearch_1.1",
             cluster_config={
                 "instance_type": "r4.large.search",
             },
             snapshot_options={
                 "automated_snapshot_start_hour": 23,
             },
+            domain_name="example",
+            engine_version="OpenSearch_1.1",
             tags={
                 "Domain": "TestDomain",
             })
         example_domain_saml_options = aws.opensearch.DomainSamlOptions("example",
-            domain_name=example.domain_name,
             saml_options={
-                "enabled": True,
                 "idp": {
                     "entity_id": "https://example.com",
                     "metadata_content": std.file(input="./saml-metadata.xml").result,
                 },
-            })
+                "enabled": True,
+            },
+            domain_name=example.domain_name)
         ```
 
         ## Import

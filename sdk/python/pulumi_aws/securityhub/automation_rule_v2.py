@@ -364,10 +364,6 @@ class AutomationRuleV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_automation_rule_v2 = aws.securityhub.AutomationRuleV2("example",
-            rule_name="suppress-guardduty-low",
-            description="Suppress low severity GuardDuty findings",
-            rule_order=float(100),
-            rule_status="ENABLED",
             criteria={
                 "ocsf_finding_criteria_json": json.dumps({
                     "CompositeFilters": [{
@@ -383,13 +379,17 @@ class AutomationRuleV2(pulumi.CustomResource):
                 }),
             },
             action={
-                "type": "FINDING_FIELDS_UPDATE",
                 "finding_fields_update": {
                     "severity_id": 99,
                     "status_id": 3,
                     "comment": "Low severity GuardDuty finding suppressed",
                 },
+                "type": "FINDING_FIELDS_UPDATE",
             },
+            rule_name="suppress-guardduty-low",
+            description="Suppress low severity GuardDuty findings",
+            rule_order=float(100),
+            rule_status="ENABLED",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         ```
 
@@ -399,7 +399,7 @@ class AutomationRuleV2(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 automation rule.
+        - `arn` (String) ARN of the Security Hub V2 automation rule.
 
         Using `pulumi import`, import Security Hub V2 automation rules using `arn`. For example:
 
@@ -443,10 +443,6 @@ class AutomationRuleV2(pulumi.CustomResource):
         example_aggregator_v2 = aws.securityhub.AggregatorV2("example", region_linking_mode="ALL_REGIONS",
         opts = pulumi.ResourceOptions(depends_on=[example]))
         example_automation_rule_v2 = aws.securityhub.AutomationRuleV2("example",
-            rule_name="suppress-guardduty-low",
-            description="Suppress low severity GuardDuty findings",
-            rule_order=float(100),
-            rule_status="ENABLED",
             criteria={
                 "ocsf_finding_criteria_json": json.dumps({
                     "CompositeFilters": [{
@@ -462,13 +458,17 @@ class AutomationRuleV2(pulumi.CustomResource):
                 }),
             },
             action={
-                "type": "FINDING_FIELDS_UPDATE",
                 "finding_fields_update": {
                     "severity_id": 99,
                     "status_id": 3,
                     "comment": "Low severity GuardDuty finding suppressed",
                 },
+                "type": "FINDING_FIELDS_UPDATE",
             },
+            rule_name="suppress-guardduty-low",
+            description="Suppress low severity GuardDuty findings",
+            rule_order=float(100),
+            rule_status="ENABLED",
             opts = pulumi.ResourceOptions(depends_on=[example_aggregator_v2]))
         ```
 
@@ -478,7 +478,7 @@ class AutomationRuleV2(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Security Hub V2 automation rule.
+        - `arn` (String) ARN of the Security Hub V2 automation rule.
 
         Using `pulumi import`, import Security Hub V2 automation rules using `arn`. For example:
 

@@ -53,12 +53,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -106,12 +106,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -159,12 +159,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -212,12 +212,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -265,12 +265,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -318,12 +318,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -371,12 +371,12 @@ public final class IotFunctions {
      *         var agent = new Pod("agent", PodArgs.builder()
      *             .metadata(Arrays.asList(Map.of("name", "my-device")))
      *             .spec(Arrays.asList(Map.of("container", Arrays.asList(Map.ofEntries(
-     *                 Map.entry("image", "gcr.io/my-project/image-name"),
-     *                 Map.entry("name", "image-name"),
      *                 Map.entry("env", Arrays.asList(Map.ofEntries(
      *                     Map.entry("name", "IOT_ENDPOINT"),
      *                     Map.entry("value", example.endpointAddress())
-     *                 )))
+     *                 ))),
+     *                 Map.entry("image", "gcr.io/my-project/image-name"),
+     *                 Map.entry("name", "image-name")
      *             )))))
      *             .build());
      * 
@@ -428,11 +428,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -483,11 +483,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -538,11 +538,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -593,11 +593,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -648,11 +648,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -703,11 +703,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }
@@ -758,11 +758,11 @@ public final class IotFunctions {
      *             .build());
      * 
      *         var verificationCertRequest = new CertRequest("verificationCertRequest", CertRequestArgs.builder()
-     *             .keyAlgorithm("RSA")
-     *             .privateKeyPem(verification.privateKeyPem())
      *             .subject(com.pulumi.tls.inputs.CertRequestSubjectArgs.builder()
      *                 .commonName(example.registrationCode())
      *                 .build())
+     *             .keyAlgorithm("RSA")
+     *             .privateKeyPem(verification.privateKeyPem())
      *             .build());
      * 
      *     }

@@ -25,21 +25,21 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetOrganization = aws.organizations.getOrganization({});
  * const example = new aws.observabilityadmin.CentralizationRuleForOrganization("example", {
- *     ruleName: "example-centralization-rule",
  *     rule: {
  *         destination: {
  *             region: "eu-west-1",
  *             account: current.then(current => current.accountId),
  *         },
  *         source: {
- *             regions: ["ap-southeast-1"],
- *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
  *             sourceLogsConfiguration: {
  *                 encryptedLogGroupStrategy: "SKIP",
  *                 logGroupSelectionCriteria: "*",
  *             },
+ *             regions: ["ap-southeast-1"],
+ *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
  *         },
  *     },
+ *     ruleName: "example-centralization-rule",
  *     tags: {
  *         Name: "example-centralization-rule",
  *         Environment: "production",
@@ -56,11 +56,8 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetOrganization = aws.organizations.getOrganization({});
  * const advanced = new aws.observabilityadmin.CentralizationRuleForOrganization("advanced", {
- *     ruleName: "advanced-centralization-rule",
  *     rule: {
  *         destination: {
- *             region: "eu-west-1",
- *             account: current.then(current => current.accountId),
  *             destinationLogsConfiguration: {
  *                 logsEncryptionConfiguration: {
  *                     encryptionStrategy: "AWS_OWNED",
@@ -72,19 +69,22 @@ import * as utilities from "../utilities";
  *                     logGroupNamePattern: "/centralized-logs/${source.accountId}/${source.region}/${source.logGroup}",
  *                 },
  *             },
+ *             region: "eu-west-1",
+ *             account: current.then(current => current.accountId),
  *         },
  *         source: {
+ *             sourceLogsConfiguration: {
+ *                 encryptedLogGroupStrategy: "ALLOW",
+ *                 logGroupSelectionCriteria: "*",
+ *             },
  *             regions: [
  *                 "ap-southeast-1",
  *                 "us-east-1",
  *             ],
  *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
- *             sourceLogsConfiguration: {
- *                 encryptedLogGroupStrategy: "ALLOW",
- *                 logGroupSelectionCriteria: "*",
- *             },
  *         },
  *     },
+ *     ruleName: "advanced-centralization-rule",
  *     tags: {
  *         Name: "advanced-centralization-rule",
  *         Environment: "production",
@@ -102,24 +102,24 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetOrganization = aws.organizations.getOrganization({});
  * const filtered = new aws.observabilityadmin.CentralizationRuleForOrganization("filtered", {
- *     ruleName: "filtered-centralization-rule",
  *     rule: {
  *         destination: {
  *             region: "eu-west-1",
  *             account: current.then(current => current.accountId),
  *         },
  *         source: {
+ *             sourceLogsConfiguration: {
+ *                 encryptedLogGroupStrategy: "ALLOW",
+ *                 logGroupSelectionCriteria: "LogGroupName LIKE '/aws/lambda%'",
+ *             },
  *             regions: [
  *                 "ap-southeast-1",
  *                 "us-east-1",
  *             ],
  *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
- *             sourceLogsConfiguration: {
- *                 encryptedLogGroupStrategy: "ALLOW",
- *                 logGroupSelectionCriteria: "LogGroupName LIKE '/aws/lambda%'",
- *             },
  *         },
  *     },
+ *     ruleName: "filtered-centralization-rule",
  *     tags: {
  *         Name: "filtered-centralization-rule",
  *         Filter: "lambda-logs",
@@ -136,28 +136,28 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const currentGetOrganization = aws.organizations.getOrganization({});
  * const metrics = new aws.observabilityadmin.CentralizationRuleForOrganization("metrics", {
- *     ruleName: "metrics-centralization-rule",
  *     rule: {
  *         destination: {
- *             region: "eu-west-1",
- *             account: current.then(current => current.accountId),
  *             destinationMetricsConfiguration: {
  *                 backupConfiguration: {
  *                     region: "us-west-1",
  *                 },
  *             },
+ *             region: "eu-west-1",
+ *             account: current.then(current => current.accountId),
  *         },
  *         source: {
+ *             sourceMetricsConfiguration: {
+ *                 metricsSelectionCriteria: "*",
+ *             },
  *             regions: [
  *                 "ap-southeast-1",
  *                 "us-east-1",
  *             ],
  *             scope: currentGetOrganization.then(currentGetOrganization => `OrganizationId = '${currentGetOrganization.id}'`),
- *             sourceMetricsConfiguration: {
- *                 metricsSelectionCriteria: "*",
- *             },
  *         },
  *     },
+ *     ruleName: "metrics-centralization-rule",
  * });
  * ```
  *
@@ -216,6 +216,14 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
      */
     declare public readonly ruleName: pulumi.Output<string>;
     /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     */
+    declare public /*out*/ readonly tagPropagationFailureReason: pulumi.Output<string>;
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     */
+    declare public /*out*/ readonly tagPropagationStatus: pulumi.Output<string>;
+    /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -242,6 +250,8 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
             resourceInputs["rule"] = state?.rule;
             resourceInputs["ruleArn"] = state?.ruleArn;
             resourceInputs["ruleName"] = state?.ruleName;
+            resourceInputs["tagPropagationFailureReason"] = state?.tagPropagationFailureReason;
+            resourceInputs["tagPropagationStatus"] = state?.tagPropagationStatus;
             resourceInputs["tags"] = state?.tags;
             resourceInputs["tagsAll"] = state?.tagsAll;
             resourceInputs["timeouts"] = state?.timeouts;
@@ -259,6 +269,8 @@ export class CentralizationRuleForOrganization extends pulumi.CustomResource {
             resourceInputs["tags"] = args?.tags;
             resourceInputs["timeouts"] = args?.timeouts;
             resourceInputs["ruleArn"] = undefined /*out*/;
+            resourceInputs["tagPropagationFailureReason"] = undefined /*out*/;
+            resourceInputs["tagPropagationStatus"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -288,6 +300,14 @@ export interface CentralizationRuleForOrganizationState {
      * Name of the centralization rule. Must be unique within the organization.
      */
     ruleName?: pulumi.Input<string | undefined>;
+    /**
+     * Reason tag propagation is unhealthy, when applicable (for example, `RoleNotAssumable` or `RoleLacksPermissions`).
+     */
+    tagPropagationFailureReason?: pulumi.Input<string | undefined>;
+    /**
+     * Health status of tag propagation for the rule (for example, `Healthy` or `Unhealthy`). Independent of the overall rule health.
+     */
+    tagPropagationStatus?: pulumi.Input<string | undefined>;
     /**
      * Key-value map of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

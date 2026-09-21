@@ -17,27 +17,27 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {
- *     autoEnable: false,
- *     autoEnableStandards: "NONE",
  *     organizationConfiguration: {
  *         configurationType: "CENTRAL",
  *     },
+ *     autoEnable: false,
+ *     autoEnableStandards: "NONE",
  * }, {
  *     dependsOn: [example],
  * });
  * const exampleConfigurationPolicy = new aws.securityhub.ConfigurationPolicy("example", {
- *     name: "Example",
- *     description: "This is an example configuration policy",
  *     configurationPolicy: {
+ *         securityControlsConfiguration: {
+ *             disabledControlIdentifiers: [],
+ *         },
  *         serviceEnabled: true,
  *         enabledStandardArns: [
  *             "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *             "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0",
  *         ],
- *         securityControlsConfiguration: {
- *             disabledControlIdentifiers: [],
- *         },
  *     },
+ *     name: "Example",
+ *     description: "This is an example configuration policy",
  * }, {
  *     dependsOn: [exampleOrganizationConfiguration],
  * });

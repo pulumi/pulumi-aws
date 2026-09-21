@@ -403,28 +403,28 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=example_aws_iam_role["arn"],
-            stop_conditions=[{
-                "source": "none",
-            }],
             actions=[{
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
                 },
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+            }],
+            stop_conditions=[{
+                "source": "none",
             }],
             targets=[{
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
                 "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],
-            }])
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+            }],
+            description="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Example Usage with Report Configuration
@@ -447,8 +447,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                 }],
                 "Version": "2012-10-17",
             }))
-        report_access = aws.iam.get_policy_document(version="2012-10-17",
-            statements=[
+        report_access = aws.iam.get_policy_document(statements=[
                 {
                     "sid": "logsDelivery",
                     "effect": "Allow",
@@ -476,7 +475,8 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "actions": ["cloudwatch:getMetricWidgetImage"],
                     "resources": ["*"],
                 },
-            ])
+            ],
+            version="2012-10-17")
         report_access_policy = aws.iam.Policy("report_access",
             name="report_access",
             policy=report_access.json)
@@ -484,28 +484,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             role=test["name"],
             policy_arn=report_access_policy.arn)
         example_experiment_template = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=example.arn,
-            stop_conditions=[{
-                "source": "none",
-            }],
-            actions=[{
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-                "target": {
-                    "key": "Instances",
-                    "value": "example-target",
-                },
-            }],
-            targets=[{
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-                "resource_tags": [{
-                    "key": "env",
-                    "value": "example",
-                }],
-            }],
             experiment_report_configuration={
                 "data_sources": {
                     "cloudwatch_dashboards": [{
@@ -521,6 +499,28 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "post_experiment_duration": "PT10M",
                 "pre_experiment_duration": "PT10M",
             },
+            actions=[{
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+            }],
+            stop_conditions=[{
+                "source": "none",
+            }],
+            targets=[{
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+            }],
+            description="example",
+            role_arn=example.arn,
             tags={
                 "Name": "example",
             })
@@ -570,28 +570,28 @@ class ExperimentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=example_aws_iam_role["arn"],
-            stop_conditions=[{
-                "source": "none",
-            }],
             actions=[{
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
                 "target": {
                     "key": "Instances",
                     "value": "example-target",
                 },
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+            }],
+            stop_conditions=[{
+                "source": "none",
             }],
             targets=[{
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
                 "resource_tags": [{
                     "key": "env",
                     "value": "example",
                 }],
-            }])
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+            }],
+            description="example",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### Example Usage with Report Configuration
@@ -614,8 +614,7 @@ class ExperimentTemplate(pulumi.CustomResource):
                 }],
                 "Version": "2012-10-17",
             }))
-        report_access = aws.iam.get_policy_document(version="2012-10-17",
-            statements=[
+        report_access = aws.iam.get_policy_document(statements=[
                 {
                     "sid": "logsDelivery",
                     "effect": "Allow",
@@ -643,7 +642,8 @@ class ExperimentTemplate(pulumi.CustomResource):
                     "actions": ["cloudwatch:getMetricWidgetImage"],
                     "resources": ["*"],
                 },
-            ])
+            ],
+            version="2012-10-17")
         report_access_policy = aws.iam.Policy("report_access",
             name="report_access",
             policy=report_access.json)
@@ -651,28 +651,6 @@ class ExperimentTemplate(pulumi.CustomResource):
             role=test["name"],
             policy_arn=report_access_policy.arn)
         example_experiment_template = aws.fis.ExperimentTemplate("example",
-            description="example",
-            role_arn=example.arn,
-            stop_conditions=[{
-                "source": "none",
-            }],
-            actions=[{
-                "name": "example-action",
-                "action_id": "aws:ec2:terminate-instances",
-                "target": {
-                    "key": "Instances",
-                    "value": "example-target",
-                },
-            }],
-            targets=[{
-                "name": "example-target",
-                "resource_type": "aws:ec2:instance",
-                "selection_mode": "COUNT(1)",
-                "resource_tags": [{
-                    "key": "env",
-                    "value": "example",
-                }],
-            }],
             experiment_report_configuration={
                 "data_sources": {
                     "cloudwatch_dashboards": [{
@@ -688,6 +666,28 @@ class ExperimentTemplate(pulumi.CustomResource):
                 "post_experiment_duration": "PT10M",
                 "pre_experiment_duration": "PT10M",
             },
+            actions=[{
+                "target": {
+                    "key": "Instances",
+                    "value": "example-target",
+                },
+                "name": "example-action",
+                "action_id": "aws:ec2:terminate-instances",
+            }],
+            stop_conditions=[{
+                "source": "none",
+            }],
+            targets=[{
+                "resource_tags": [{
+                    "key": "env",
+                    "value": "example",
+                }],
+                "name": "example-target",
+                "resource_type": "aws:ec2:instance",
+                "selection_mode": "COUNT(1)",
+            }],
+            description="example",
+            role_arn=example.arn,
             tags={
                 "Name": "example",
             })

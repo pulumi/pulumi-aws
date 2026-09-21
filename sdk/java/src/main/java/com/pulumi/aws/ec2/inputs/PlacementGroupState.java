@@ -20,14 +20,14 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
     public static final PlacementGroupState Empty = new PlacementGroupState();
 
     /**
-     * Amazon Resource Name (ARN) of the placement group.
+     * ARN of the placement group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the placement group.
+     * @return ARN of the placement group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -193,7 +193,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the placement group.
+         * @param arn ARN of the placement group.
          * 
          * @return builder
          * 
@@ -204,7 +204,7 @@ public final class PlacementGroupState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the placement group.
+         * @param arn ARN of the placement group.
          * 
          * @return builder
          * 

@@ -345,7 +345,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
 
         :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
@@ -429,7 +429,7 @@ class _WorkspaceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Grafana workspace.
+        ARN of the Grafana workspace.
         """
         return pulumi.get(self, "arn")
 
@@ -975,7 +975,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] account_access_type: The type of account access for the workspace. Valid values are `CURRENT_ACCOUNT` and `ORGANIZATION`. If `ORGANIZATION` is specified, then `organizational_units` must also be present.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Grafana workspace.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Grafana workspace.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] authentication_providers: The authentication providers for the workspace. Valid values are `AWS_SSO`, `SAML`, or both.
         :param pulumi.Input[_builtins.str] configuration: The configuration string for the workspace that you create. For more information about the format and configuration options available, see [Working in your Grafana workspace](https://docs.aws.amazon.com/grafana/latest/userguide/AMG-configure-workspace.html).
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] data_sources: The data sources for the workspace. Valid values are `AMAZON_OPENSEARCH_SERVICE`, `ATHENA`, `CLOUDWATCH`, `PROMETHEUS`, `REDSHIFT`, `SITEWISE`, `TIMESTREAM`, `TWINMAKER`, `XRAY`
@@ -1038,7 +1038,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Grafana workspace.
+        ARN of the Grafana workspace.
         """
         return pulumi.get(self, "arn")
 

@@ -87,7 +87,7 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * ARN of the rule
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -103,7 +103,7 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
      */
     declare public readonly inputParameters: pulumi.Output<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      */
     declare public readonly lambdaFunctionArn: pulumi.Output<string>;
     /**
@@ -197,7 +197,7 @@ export class OrganizationCustomRule extends pulumi.CustomResource {
  */
 export interface OrganizationCustomRuleState {
     /**
-     * Amazon Resource Name (ARN) of the rule
+     * ARN of the rule
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -213,7 +213,7 @@ export interface OrganizationCustomRuleState {
      */
     inputParameters?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      */
     lambdaFunctionArn?: pulumi.Input<string | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface OrganizationCustomRuleArgs {
      */
     inputParameters?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the rule Lambda Function
+     * ARN of the rule Lambda Function
      */
     lambdaFunctionArn: pulumi.Input<string>;
     /**

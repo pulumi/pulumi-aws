@@ -20,14 +20,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     public static final SnapshotCopyState Empty = new SnapshotCopyState();
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Import(name="allocatedStorage")
     private @Nullable Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Optional<Output<Integer>> allocatedStorage() {
@@ -35,14 +35,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
     @Import(name="availabilityZone")
     private @Nullable Output<String> availabilityZone;
 
     /**
-     * @return Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+     * @return Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
      * 
      */
     public Optional<Output<String>> availabilityZone() {
@@ -65,14 +65,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DB snapshot.
+     * ARN for the DB snapshot.
      * 
      */
     @Import(name="dbSnapshotArn")
     private @Nullable Output<String> dbSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB snapshot.
+     * @return ARN for the DB snapshot.
      * 
      */
     public Optional<Output<String>> dbSnapshotArn() {
@@ -80,14 +80,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Destination region to place snapshot copy.
+     * Destination Region to place snapshot copy.
      * 
      */
     @Import(name="destinationRegion")
     private @Nullable Output<String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination Region to place snapshot copy.
      * 
      */
     public Optional<Output<String>> destinationRegion() {
@@ -95,14 +95,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies whether the DB snapshot is encrypted.
+     * Whether the DB snapshot is encrypted.
      * 
      */
     @Import(name="encrypted")
     private @Nullable Output<Boolean> encrypted;
 
     /**
-     * @return Specifies whether the DB snapshot is encrypted.
+     * @return Whether the DB snapshot is encrypted.
      * 
      */
     public Optional<Output<Boolean>> encrypted() {
@@ -110,14 +110,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -125,14 +125,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Specifies the version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -140,14 +140,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
     @Import(name="iops")
     private @Nullable Output<Integer> iops;
 
     /**
-     * @return Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+     * @return Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
      * 
      */
     public Optional<Output<Integer>> iops() {
@@ -185,36 +185,44 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The name of an option group to associate with the copy of the snapshot.
+     * Name of an option group to associate with the copy of the snapshot.
      * 
      */
     @Import(name="optionGroupName")
     private @Nullable Output<String> optionGroupName;
 
     /**
-     * @return The name of an option group to associate with the copy of the snapshot.
+     * @return Name of an option group to associate with the copy of the snapshot.
      * 
      */
     public Optional<Output<String>> optionGroupName() {
         return Optional.ofNullable(this.optionGroupName);
     }
 
+    /**
+     * Port that the database engine is listening on.
+     * 
+     */
     @Import(name="port")
     private @Nullable Output<Integer> port;
 
+    /**
+     * @return Port that the database engine is listening on.
+     * 
+     */
     public Optional<Output<Integer>> port() {
         return Optional.ofNullable(this.port);
     }
 
     /**
-     * he URL that contains a Signature Version 4 signed request.
+     * URL that contains a Signature Version 4 signed request.
      * 
      */
     @Import(name="presignedUrl")
     private @Nullable Output<String> presignedUrl;
 
     /**
-     * @return he URL that contains a Signature Version 4 signed request.
+     * @return URL that contains a Signature Version 4 signed request.
      * 
      */
     public Optional<Output<String>> presignedUrl() {
@@ -251,9 +259,17 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.sharedAccounts);
     }
 
+    /**
+     * Type of the DB snapshot.
+     * 
+     */
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB snapshot.
+     * 
+     */
     public Optional<Output<String>> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
@@ -274,14 +290,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The region that the DB snapshot was created in or copied from.
+     * Region that the DB snapshot was created in or copied from.
      * 
      */
     @Import(name="sourceRegion")
     private @Nullable Output<String> sourceRegion;
 
     /**
-     * @return The region that the DB snapshot was created in or copied from.
+     * @return Region that the DB snapshot was created in or copied from.
      * 
      */
     public Optional<Output<String>> sourceRegion() {
@@ -289,14 +305,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the storage type associated with DB snapshot.
+     * Storage type associated with DB snapshot.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return Specifies the storage type associated with DB snapshot.
+     * @return Storage type associated with DB snapshot.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -319,14 +335,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -334,14 +350,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The external custom Availability Zone.
+     * External custom Availability Zone.
      * 
      */
     @Import(name="targetCustomAvailabilityZone")
     private @Nullable Output<String> targetCustomAvailabilityZone;
 
     /**
-     * @return The external custom Availability Zone.
+     * @return External custom Availability Zone.
      * 
      */
     public Optional<Output<String>> targetCustomAvailabilityZone() {
@@ -349,14 +365,14 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Import(name="targetDbSnapshotIdentifier")
     private @Nullable Output<String> targetDbSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Optional<Output<String>> targetDbSnapshotIdentifier() {
@@ -427,7 +443,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -438,7 +454,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -448,7 +464,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+         * @param availabilityZone Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
          * 
          * @return builder
          * 
@@ -459,7 +475,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param availabilityZone Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+         * @param availabilityZone Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
          * 
          * @return builder
          * 
@@ -490,7 +506,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotArn The Amazon Resource Name (ARN) for the DB snapshot.
+         * @param dbSnapshotArn ARN for the DB snapshot.
          * 
          * @return builder
          * 
@@ -501,7 +517,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dbSnapshotArn The Amazon Resource Name (ARN) for the DB snapshot.
+         * @param dbSnapshotArn ARN for the DB snapshot.
          * 
          * @return builder
          * 
@@ -511,7 +527,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination Region to place snapshot copy.
          * 
          * @return builder
          * 
@@ -522,7 +538,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination Region to place snapshot copy.
          * 
          * @return builder
          * 
@@ -532,7 +548,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted Specifies whether the DB snapshot is encrypted.
+         * @param encrypted Whether the DB snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -543,7 +559,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param encrypted Specifies whether the DB snapshot is encrypted.
+         * @param encrypted Whether the DB snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -553,7 +569,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -564,7 +580,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -574,7 +590,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Specifies the version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -585,7 +601,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param engineVersion Specifies the version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -595,7 +611,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+         * @param iops Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
          * 
          * @return builder
          * 
@@ -606,7 +622,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param iops Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+         * @param iops Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
          * 
          * @return builder
          * 
@@ -658,7 +674,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupName The name of an option group to associate with the copy of the snapshot.
+         * @param optionGroupName Name of an option group to associate with the copy of the snapshot.
          * 
          * @return builder
          * 
@@ -669,7 +685,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param optionGroupName The name of an option group to associate with the copy of the snapshot.
+         * @param optionGroupName Name of an option group to associate with the copy of the snapshot.
          * 
          * @return builder
          * 
@@ -678,17 +694,29 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
             return optionGroupName(Output.of(optionGroupName));
         }
 
+        /**
+         * @param port Port that the database engine is listening on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(@Nullable Output<Integer> port) {
             $.port = port;
             return this;
         }
 
+        /**
+         * @param port Port that the database engine is listening on.
+         * 
+         * @return builder
+         * 
+         */
         public Builder port(Integer port) {
             return port(Output.of(port));
         }
 
         /**
-         * @param presignedUrl he URL that contains a Signature Version 4 signed request.
+         * @param presignedUrl URL that contains a Signature Version 4 signed request.
          * 
          * @return builder
          * 
@@ -699,7 +727,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param presignedUrl he URL that contains a Signature Version 4 signed request.
+         * @param presignedUrl URL that contains a Signature Version 4 signed request.
          * 
          * @return builder
          * 
@@ -760,11 +788,23 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
             return sharedAccounts(List.of(sharedAccounts));
         }
 
+        /**
+         * @param snapshotType Type of the DB snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(@Nullable Output<String> snapshotType) {
             $.snapshotType = snapshotType;
             return this;
         }
 
+        /**
+         * @param snapshotType Type of the DB snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(String snapshotType) {
             return snapshotType(Output.of(snapshotType));
         }
@@ -791,7 +831,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRegion The region that the DB snapshot was created in or copied from.
+         * @param sourceRegion Region that the DB snapshot was created in or copied from.
          * 
          * @return builder
          * 
@@ -802,7 +842,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceRegion The region that the DB snapshot was created in or copied from.
+         * @param sourceRegion Region that the DB snapshot was created in or copied from.
          * 
          * @return builder
          * 
@@ -812,7 +852,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Specifies the storage type associated with DB snapshot.
+         * @param storageType Storage type associated with DB snapshot.
          * 
          * @return builder
          * 
@@ -823,7 +863,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageType Specifies the storage type associated with DB snapshot.
+         * @param storageType Storage type associated with DB snapshot.
          * 
          * @return builder
          * 
@@ -854,7 +894,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -865,7 +905,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -875,7 +915,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetCustomAvailabilityZone The external custom Availability Zone.
+         * @param targetCustomAvailabilityZone External custom Availability Zone.
          * 
          * @return builder
          * 
@@ -886,7 +926,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetCustomAvailabilityZone The external custom Availability Zone.
+         * @param targetCustomAvailabilityZone External custom Availability Zone.
          * 
          * @return builder
          * 
@@ -896,7 +936,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetDbSnapshotIdentifier The Identifier for the snapshot.
+         * @param targetDbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 
@@ -907,7 +947,7 @@ public final class SnapshotCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetDbSnapshotIdentifier The Identifier for the snapshot.
+         * @param targetDbSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 

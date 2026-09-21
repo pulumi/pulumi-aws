@@ -92,7 +92,7 @@ class GetProxyResult:
     @pulumi.getter
     def auths(self) -> Sequence['outputs.GetProxyAuthResult']:
         """
-        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+        Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
         """
         return pulumi.get(self, "auths")
 
@@ -166,7 +166,7 @@ class GetProxyResult:
     @pulumi.getter(name="requireTls")
     def require_tls(self) -> _builtins.bool:
         """
-        Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+        Whether TLS encryption is required for connections to the proxy.
         """
         return pulumi.get(self, "require_tls")
 

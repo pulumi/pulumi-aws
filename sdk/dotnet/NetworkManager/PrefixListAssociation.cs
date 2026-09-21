@@ -26,9 +26,6 @@ namespace Pulumi.Aws.NetworkManager
     /// {
     ///     var prefixList = new Aws.Ec2.ManagedPrefixList("prefix_list", new()
     ///     {
-    ///         Name = "example",
-    ///         AddressFamily = "IPv4",
-    ///         MaxEntries = 5,
     ///         Entries = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.ManagedPrefixListEntryArgs
@@ -37,6 +34,9 @@ namespace Pulumi.Aws.NetworkManager
     ///                 Description = "Example CIDR",
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         AddressFamily = "IPv4",
+    ///         MaxEntries = 5,
     ///     });
     /// 
     ///     var plAssociation = new Aws.NetworkManager.PrefixListAssociation("pl_association", new()

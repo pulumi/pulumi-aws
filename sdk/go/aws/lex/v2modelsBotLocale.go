@@ -60,14 +60,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := lex.NewV2modelsBotLocale(ctx, "example", &lex.V2modelsBotLocaleArgs{
-//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
-//				BotVersion:                   pulumi.String("DRAFT"),
-//				LocaleId:                     pulumi.String("en_US"),
-//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
 //				VoiceSettings: &lex.V2modelsBotLocaleVoiceSettingsArgs{
 //					VoiceId: pulumi.String("Kendra"),
 //					Engine:  pulumi.String("standard"),
 //				},
+//				BotId:                        pulumi.Any(exampleAwsLexv2modelsBot.Id),
+//				BotVersion:                   pulumi.String("DRAFT"),
+//				LocaleId:                     pulumi.String("en_US"),
+//				NLuIntentConfidenceThreshold: pulumi.Float64(0.7),
 //			})
 //			if err != nil {
 //				return err

@@ -53,7 +53,7 @@ public final class GetReceivedLicenseResult {
      */
     private List<GetReceivedLicenseIssuer> issuers;
     /**
-     * @return Amazon Resource Name (ARN) of the license.
+     * @return ARN of the license.
      * 
      */
     private String licenseArn;
@@ -147,7 +147,7 @@ public final class GetReceivedLicenseResult {
         return this.issuers;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the license.
+     * @return ARN of the license.
      * 
      */
     public String licenseArn() {

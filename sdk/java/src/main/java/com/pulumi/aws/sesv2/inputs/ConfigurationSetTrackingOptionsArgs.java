@@ -17,14 +17,14 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
     public static final ConfigurationSetTrackingOptionsArgs Empty = new ConfigurationSetTrackingOptionsArgs();
 
     /**
-     * The domain to use for tracking open and click events.
+     * Domain to use for tracking open and click events.
      * 
      */
     @Import(name="customRedirectDomain", required=true)
     private Output<String> customRedirectDomain;
 
     /**
-     * @return The domain to use for tracking open and click events.
+     * @return Domain to use for tracking open and click events.
      * 
      */
     public Output<String> customRedirectDomain() {
@@ -32,14 +32,14 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
     }
 
     /**
-     * The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
      * 
      */
     @Import(name="httpsPolicy")
     private @Nullable Output<String> httpsPolicy;
 
     /**
-     * @return The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+     * @return HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
      * 
      */
     public Optional<Output<String>> httpsPolicy() {
@@ -72,7 +72,7 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
+         * @param customRedirectDomain Domain to use for tracking open and click events.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param customRedirectDomain The domain to use for tracking open and click events.
+         * @param customRedirectDomain Domain to use for tracking open and click events.
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * @param httpsPolicy HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ConfigurationSetTrackingOptionsArgs extends com.pulumi.resour
         }
 
         /**
-         * @param httpsPolicy The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+         * @param httpsPolicy HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
          * 
          * @return builder
          * 

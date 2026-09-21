@@ -35,16 +35,16 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     ///     var dynamodbScheduledAction = new Aws.AppAutoScaling.ScheduledAction("dynamodb", new()
     ///     {
-    ///         Name = "dynamodb",
-    ///         ServiceNamespace = dynamodb.ServiceNamespace,
-    ///         ResourceId = dynamodb.ResourceId,
-    ///         ScalableDimension = dynamodb.ScalableDimension,
-    ///         Schedule = "at(2006-01-02T15:04:05)",
     ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
     ///         {
     ///             MinCapacity = 1,
     ///             MaxCapacity = 200,
     ///         },
+    ///         Name = "dynamodb",
+    ///         ServiceNamespace = dynamodb.ServiceNamespace,
+    ///         ResourceId = dynamodb.ResourceId,
+    ///         ScalableDimension = dynamodb.ScalableDimension,
+    ///         Schedule = "at(2006-01-02T15:04:05)",
     ///     });
     /// 
     /// });
@@ -71,16 +71,16 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     ///     var ecsScheduledAction = new Aws.AppAutoScaling.ScheduledAction("ecs", new()
     ///     {
-    ///         Name = "ecs",
-    ///         ServiceNamespace = ecs.ServiceNamespace,
-    ///         ResourceId = ecs.ResourceId,
-    ///         ScalableDimension = ecs.ScalableDimension,
-    ///         Schedule = "at(2006-01-02T15:04:05)",
     ///         ScalableTargetAction = new Aws.AppAutoScaling.Inputs.ScheduledActionScalableTargetActionArgs
     ///         {
     ///             MinCapacity = 1,
     ///             MaxCapacity = 10,
     ///         },
+    ///         Name = "ecs",
+    ///         ServiceNamespace = ecs.ServiceNamespace,
+    ///         ResourceId = ecs.ResourceId,
+    ///         ScalableDimension = ecs.ScalableDimension,
+    ///         Schedule = "at(2006-01-02T15:04:05)",
     ///     });
     /// 
     /// });

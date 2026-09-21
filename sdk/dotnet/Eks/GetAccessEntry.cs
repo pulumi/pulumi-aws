@@ -199,7 +199,7 @@ namespace Pulumi.Aws.Eks
     public sealed class GetAccessEntryResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Access Entry.
+        /// ARN of the Access Entry.
         /// </summary>
         public readonly string AccessEntryArn;
         public readonly string ClusterName;

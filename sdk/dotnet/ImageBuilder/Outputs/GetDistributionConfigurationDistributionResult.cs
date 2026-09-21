@@ -30,7 +30,7 @@ namespace Pulumi.Aws.ImageBuilder.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetDistributionConfigurationDistributionLaunchTemplateConfigurationResult> LaunchTemplateConfigurations;
         /// <summary>
-        /// Set of Amazon Resource Names (ARNs) of License Manager License Configurations.
+        /// Set of ARNs of License Manager License Configurations.
         /// </summary>
         public readonly ImmutableArray<string> LicenseConfigurationArns;
         /// <summary>

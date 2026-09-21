@@ -62,7 +62,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			tmpJSON0, err := json.Marshal(map[string]map[string]interface{}{
+//			tmpJSON0, err := json.Marshal(map[string]interface{}{
 //				"And":            nil,
 //				"CostCategories": nil,
 //				"Dimensions":     nil,
@@ -100,7 +100,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the Cost Explorer anomaly monitor.
+// - `arn` (String) ARN of the Cost Explorer anomaly monitor.
 //
 // Using `pulumi import`, import `costexplorer.AnomalyMonitor` using the `id`. For example:
 //

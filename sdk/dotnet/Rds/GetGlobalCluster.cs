@@ -94,7 +94,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetGlobalClusterArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The global cluster identifier of the RDS global cluster.
+        /// Global cluster identifier of the RDS global cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetGlobalClusterInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The global cluster identifier of the RDS global cluster.
+        /// Global cluster identifier of the RDS global cluster.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -140,7 +140,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GetGlobalClusterResult
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN)
+        /// RDS Global Cluster ARN
         /// </summary>
         public readonly string Arn;
         /// <summary>
@@ -152,7 +152,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool DeletionProtection;
         /// <summary>
-        /// The endpoint for the Global Cluster.
+        /// Endpoint for the Global Cluster.
         /// </summary>
         public readonly string Endpoint;
         /// <summary>
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly string Engine;
         /// <summary>
-        /// The current lifecycle support status of the database engine for this Global Cluster.
+        /// Current lifecycle support status of the database engine for this Global Cluster.
         /// </summary>
         public readonly string EngineLifecycleSupport;
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         public readonly bool StorageEncrypted;
         /// <summary>
-        /// A map of tags to assigned to the Global Cluster.
+        /// Map of tags assigned to the Global Cluster.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Tags;
 

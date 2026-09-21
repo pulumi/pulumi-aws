@@ -29,15 +29,10 @@ namespace Pulumi.Aws.Rds
     /// {
     ///     var example = new Aws.Rds.OptionGroup("example", new()
     ///     {
-    ///         Name = "option-group-test",
-    ///         OptionGroupDescription = "Option Group",
-    ///         EngineName = "sqlserver-ee",
-    ///         MajorEngineVersion = "11.00",
     ///         Options = new[]
     ///         {
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
-    ///                 OptionName = "Timezone",
     ///                 OptionSettings = new[]
     ///                 {
     ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
@@ -46,10 +41,10 @@ namespace Pulumi.Aws.Rds
     ///                         Value = "UTC",
     ///                     },
     ///                 },
+    ///                 OptionName = "Timezone",
     ///             },
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
-    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
     ///                 OptionSettings = new[]
     ///                 {
     ///                     new Aws.Rds.Inputs.OptionGroupOptionOptionSettingArgs
@@ -58,12 +53,17 @@ namespace Pulumi.Aws.Rds
     ///                         Value = exampleAwsIamRole.Arn,
     ///                     },
     ///                 },
+    ///                 OptionName = "SQLSERVER_BACKUP_RESTORE",
     ///             },
     ///             new Aws.Rds.Inputs.OptionGroupOptionArgs
     ///             {
     ///                 OptionName = "TDE",
     ///             },
     ///         },
+    ///         Name = "option-group-test",
+    ///         OptionGroupDescription = "Option Group",
+    ///         EngineName = "sqlserver-ee",
+    ///         MajorEngineVersion = "11.00",
     ///     });
     /// 
     /// });
@@ -97,13 +97,13 @@ namespace Pulumi.Aws.Rds
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the name of the engine that this option group should be associated with.
+        /// Name of the engine that this option group should be associated with.
         /// </summary>
         [Output("engineName")]
         public Output<string> EngineName { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the major version of the engine that this option group should be associated with.
+        /// Major version of the engine that this option group should be associated with.
         /// </summary>
         [Output("majorEngineVersion")]
         public Output<string> MajorEngineVersion { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> OptionGroupDescription { get; private set; } = null!;
 
         /// <summary>
-        /// The options to apply. See `Option` Block below for more details.
+        /// Options to apply. See `Option` Block below for more details.
         /// </summary>
         [Output("options")]
         public Output<ImmutableArray<Outputs.OptionGroupOption>> Options { get; private set; } = null!;
@@ -203,13 +203,13 @@ namespace Pulumi.Aws.Rds
     public sealed class OptionGroupArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Specifies the name of the engine that this option group should be associated with.
+        /// Name of the engine that this option group should be associated with.
         /// </summary>
         [Input("engineName", required: true)]
         public Input<string> EngineName { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the major version of the engine that this option group should be associated with.
+        /// Major version of the engine that this option group should be associated with.
         /// </summary>
         [Input("majorEngineVersion", required: true)]
         public Input<string> MajorEngineVersion { get; set; } = null!;
@@ -236,7 +236,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionArgs>? _options;
 
         /// <summary>
-        /// The options to apply. See `Option` Block below for more details.
+        /// Options to apply. See `Option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionArgs> Options
         {
@@ -284,13 +284,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// Specifies the name of the engine that this option group should be associated with.
+        /// Name of the engine that this option group should be associated with.
         /// </summary>
         [Input("engineName")]
         public Input<string>? EngineName { get; set; }
 
         /// <summary>
-        /// Specifies the major version of the engine that this option group should be associated with.
+        /// Major version of the engine that this option group should be associated with.
         /// </summary>
         [Input("majorEngineVersion")]
         public Input<string>? MajorEngineVersion { get; set; }
@@ -317,7 +317,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.OptionGroupOptionGetArgs>? _options;
 
         /// <summary>
-        /// The options to apply. See `Option` Block below for more details.
+        /// Options to apply. See `Option` Block below for more details.
         /// </summary>
         public InputList<Inputs.OptionGroupOptionGetArgs> Options
         {

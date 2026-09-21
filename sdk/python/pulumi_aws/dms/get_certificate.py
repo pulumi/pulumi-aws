@@ -71,7 +71,7 @@ class GetCertificateResult:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) for the certificate.
+        ARN for the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 

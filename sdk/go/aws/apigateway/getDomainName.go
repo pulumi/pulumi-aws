@@ -100,12 +100,8 @@ type LookupDomainNameResult struct {
 }
 
 func LookupDomainNameOutput(ctx *pulumi.Context, args LookupDomainNameOutputArgs, opts ...pulumi.InvokeOption) LookupDomainNameResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupDomainNameResultOutput, error) {
-			args := v.(LookupDomainNameArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigateway/getDomainName:getDomainName", args, LookupDomainNameResultOutput{}, options).(LookupDomainNameResultOutput), nil
-		}).(LookupDomainNameResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigateway/getDomainName:getDomainName", args, LookupDomainNameResultOutput{}, options).(LookupDomainNameResultOutput)
 }
 
 // A collection of arguments for invoking getDomainName.

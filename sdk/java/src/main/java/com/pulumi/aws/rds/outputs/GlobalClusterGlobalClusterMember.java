@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GlobalClusterGlobalClusterMember {
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster.
+     * @return ARN of member DB Cluster.
      * 
      */
     private @Nullable String dbClusterArn;
@@ -25,7 +25,7 @@ public final class GlobalClusterGlobalClusterMember {
 
     private GlobalClusterGlobalClusterMember() {}
     /**
-     * @return Amazon Resource Name (ARN) of member DB Cluster.
+     * @return ARN of member DB Cluster.
      * 
      */
     public Optional<String> dbClusterArn() {

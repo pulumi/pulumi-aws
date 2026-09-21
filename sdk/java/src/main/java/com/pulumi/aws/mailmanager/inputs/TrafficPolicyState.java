@@ -97,12 +97,16 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     /**
      * Name of the traffic policy.
      * 
+     * The following arguments are optional:
+     * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
      * @return Name of the traffic policy.
+     * 
+     * The following arguments are optional:
      * 
      */
     public Optional<Output<String>> name() {
@@ -112,16 +116,12 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
     /**
      * Traffic policy statements. See `policyStatement` Block below.
      * 
-     * The following arguments are optional:
-     * 
      */
     @Import(name="policyStatements")
     private @Nullable Output<List<TrafficPolicyPolicyStatementArgs>> policyStatements;
 
     /**
      * @return Traffic policy statements. See `policyStatement` Block below.
-     * 
-     * The following arguments are optional:
      * 
      */
     public Optional<Output<List<TrafficPolicyPolicyStatementArgs>>> policyStatements() {
@@ -314,6 +314,8 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Name of the traffic policy.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -325,6 +327,8 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param name Name of the traffic policy.
          * 
+         * The following arguments are optional:
+         * 
          * @return builder
          * 
          */
@@ -334,8 +338,6 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policyStatements Traffic policy statements. See `policyStatement` Block below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 
@@ -348,8 +350,6 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
         /**
          * @param policyStatements Traffic policy statements. See `policyStatement` Block below.
          * 
-         * The following arguments are optional:
-         * 
          * @return builder
          * 
          */
@@ -359,8 +359,6 @@ public final class TrafficPolicyState extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param policyStatements Traffic policy statements. See `policyStatement` Block below.
-         * 
-         * The following arguments are optional:
          * 
          * @return builder
          * 

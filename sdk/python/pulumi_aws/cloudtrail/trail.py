@@ -701,29 +701,21 @@ class Trail(pulumi.CustomResource):
         current_get_region = aws.get_region()
         example = aws.iam.get_policy_document_output(statements=[
             {
-                "sid": "AWSCloudTrailAclCheck",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["cloudtrail.amazonaws.com"],
-                }],
-                "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
                     "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
-            },
-            {
-                "sid": "AWSCloudTrailWrite",
-                "effect": "Allow",
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
-                "actions": ["s3:PutObject"],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "sid": "AWSCloudTrailAclCheck",
+                "effect": "Allow",
+                "actions": ["s3:GetBucketAcl"],
+                "resources": [example_bucket.arn],
+            },
+            {
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -736,6 +728,14 @@ class Trail(pulumi.CustomResource):
                         "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "sid": "AWSCloudTrailWrite",
+                "effect": "Allow",
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
@@ -763,12 +763,12 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::Lambda::Function",
                 "values": ["arn:aws:lambda"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -779,12 +779,12 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": ["arn:aws:s3"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -796,12 +796,12 @@ class Trail(pulumi.CustomResource):
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": [f"{important_bucket.arn}/"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -815,7 +815,6 @@ class Trail(pulumi.CustomResource):
         not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
-                "name": "Log all S3 objects events except for two S3 buckets",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -833,13 +832,14 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log all S3 objects events except for two S3 buckets",
             },
             {
-                "name": "Log readOnly and writeOnly management events",
                 "field_selectors": [{
                     "field": "eventCategory",
                     "equals": ["Management"],
                 }],
+                "name": "Log readOnly and writeOnly management events",
             },
         ])
         ```
@@ -855,7 +855,6 @@ class Trail(pulumi.CustomResource):
         important_bucket_3 = aws.s3.get_bucket(bucket="important-bucket-3")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
-                "name": "Log PutObject and DeleteObject events for two S3 buckets",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -884,9 +883,9 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log PutObject and DeleteObject events for two S3 buckets",
             },
             {
-                "name": "Log Delete* events for one S3 bucket",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -909,6 +908,7 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log Delete* events for one S3 bucket",
             },
         ])
         ```
@@ -929,7 +929,7 @@ class Trail(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail trail.
+        - `arn` (String) ARN of the CloudTrail trail.
 
         Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 
@@ -992,29 +992,21 @@ class Trail(pulumi.CustomResource):
         current_get_region = aws.get_region()
         example = aws.iam.get_policy_document_output(statements=[
             {
-                "sid": "AWSCloudTrailAclCheck",
-                "effect": "Allow",
-                "principals": [{
-                    "type": "Service",
-                    "identifiers": ["cloudtrail.amazonaws.com"],
-                }],
-                "actions": ["s3:GetBucketAcl"],
-                "resources": [example_bucket.arn],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "aws:SourceArn",
                     "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                 }],
-            },
-            {
-                "sid": "AWSCloudTrailWrite",
-                "effect": "Allow",
                 "principals": [{
                     "type": "Service",
                     "identifiers": ["cloudtrail.amazonaws.com"],
                 }],
-                "actions": ["s3:PutObject"],
-                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
+                "sid": "AWSCloudTrailAclCheck",
+                "effect": "Allow",
+                "actions": ["s3:GetBucketAcl"],
+                "resources": [example_bucket.arn],
+            },
+            {
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -1027,6 +1019,14 @@ class Trail(pulumi.CustomResource):
                         "values": [f"arn:{current_get_partition.partition}:cloudtrail:{current_get_region.region}:{current.account_id}:trail/example"],
                     },
                 ],
+                "principals": [{
+                    "type": "Service",
+                    "identifiers": ["cloudtrail.amazonaws.com"],
+                }],
+                "sid": "AWSCloudTrailWrite",
+                "effect": "Allow",
+                "actions": ["s3:PutObject"],
+                "resources": [example_bucket.arn.apply(lambda arn: f"{arn}/prefix/AWSLogs/{current.account_id}/*")],
             },
         ])
         example_bucket_policy = aws.s3.BucketPolicy("example",
@@ -1054,12 +1054,12 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::Lambda::Function",
                 "values": ["arn:aws:lambda"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -1070,12 +1070,12 @@ class Trail(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": ["arn:aws:s3"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -1087,12 +1087,12 @@ class Trail(pulumi.CustomResource):
 
         important_bucket = aws.s3.get_bucket(bucket="important-bucket")
         example = aws.cloudtrail.Trail("example", event_selectors=[{
-            "read_write_type": "All",
-            "include_management_events": True,
             "data_resources": [{
                 "type": "AWS::S3::Object",
                 "values": [f"{important_bucket.arn}/"],
             }],
+            "read_write_type": "All",
+            "include_management_events": True,
         }])
         ```
 
@@ -1106,7 +1106,6 @@ class Trail(pulumi.CustomResource):
         not_important_bucket_2 = aws.s3.get_bucket(bucket="not-important-bucket-2")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
-                "name": "Log all S3 objects events except for two S3 buckets",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -1124,13 +1123,14 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log all S3 objects events except for two S3 buckets",
             },
             {
-                "name": "Log readOnly and writeOnly management events",
                 "field_selectors": [{
                     "field": "eventCategory",
                     "equals": ["Management"],
                 }],
+                "name": "Log readOnly and writeOnly management events",
             },
         ])
         ```
@@ -1146,7 +1146,6 @@ class Trail(pulumi.CustomResource):
         important_bucket_3 = aws.s3.get_bucket(bucket="important-bucket-3")
         example = aws.cloudtrail.Trail("example", advanced_event_selectors=[
             {
-                "name": "Log PutObject and DeleteObject events for two S3 buckets",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -1175,9 +1174,9 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log PutObject and DeleteObject events for two S3 buckets",
             },
             {
-                "name": "Log Delete* events for one S3 bucket",
                 "field_selectors": [
                     {
                         "field": "eventCategory",
@@ -1200,6 +1199,7 @@ class Trail(pulumi.CustomResource):
                         "equals": ["AWS::S3::Object"],
                     },
                 ],
+                "name": "Log Delete* events for one S3 bucket",
             },
         ])
         ```
@@ -1220,7 +1220,7 @@ class Trail(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail trail.
+        - `arn` (String) ARN of the CloudTrail trail.
 
         Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 

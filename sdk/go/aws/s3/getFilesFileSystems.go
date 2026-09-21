@@ -62,12 +62,8 @@ type GetFilesFileSystemsResult struct {
 }
 
 func GetFilesFileSystemsOutput(ctx *pulumi.Context, args GetFilesFileSystemsOutputArgs, opts ...pulumi.InvokeOption) GetFilesFileSystemsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetFilesFileSystemsResultOutput, error) {
-			args := v.(GetFilesFileSystemsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getFilesFileSystems:getFilesFileSystems", args, GetFilesFileSystemsResultOutput{}, options).(GetFilesFileSystemsResultOutput), nil
-		}).(GetFilesFileSystemsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getFilesFileSystems:getFilesFileSystems", args, GetFilesFileSystemsResultOutput{}, options).(GetFilesFileSystemsResultOutput)
 }
 
 // A collection of arguments for invoking getFilesFileSystems.

@@ -64,14 +64,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:redshift/snapshotSchedule:SnapshotSchedule")
 public class SnapshotSchedule extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * ARN of the Redshift Snapshot Schedule.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * @return ARN of the Redshift Snapshot Schedule.
      * 
      */
     public Output<String> arn() {

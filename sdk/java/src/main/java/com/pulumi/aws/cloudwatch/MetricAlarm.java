@@ -8,6 +8,7 @@ import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
 import com.pulumi.aws.cloudwatch.inputs.MetricAlarmState;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmEvaluationCriteria;
 import com.pulumi.aws.cloudwatch.outputs.MetricAlarmMetricQuery;
+import com.pulumi.aws.cloudwatch.outputs.MetricAlarmWarmUpConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -148,12 +149,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foobar = new MetricAlarm("foobar", MetricAlarmArgs.builder()
- *             .name("test-foobar")
- *             .comparisonOperator("GreaterThanOrEqualToThreshold")
- *             .evaluationPeriods(2)
- *             .threshold(10.0)
- *             .alarmDescription("Request error rate has exceeded 10%")
- *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
@@ -162,7 +157,6 @@ import javax.annotation.Nullable;
  *                     .returnData(true)
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m1")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("RequestCount")
  *                         .namespace("AWS/ApplicationELB")
@@ -171,9 +165,9 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
+ *                     .id("m1")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m2")
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("HTTPCode_ELB_5XX_Count")
  *                         .namespace("AWS/ApplicationELB")
@@ -182,7 +176,14 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("LoadBalancer", "app/web"))
  *                         .build())
+ *                     .id("m2")
  *                     .build())
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanOrEqualToThreshold")
+ *             .evaluationPeriods(2)
+ *             .threshold(10.0)
+ *             .alarmDescription("Request error rate has exceeded 10%")
+ *             .insufficientDataActions()
  *             .build());
  * 
  *     }
@@ -217,8 +218,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var promqlAlarm = new MetricAlarm("promqlAlarm", MetricAlarmArgs.builder()
- *             .name("high-cpu-promql")
- *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
  *             .evaluationCriteria(MetricAlarmEvaluationCriteriaArgs.builder()
  *                 .promqlCriteria(MetricAlarmEvaluationCriteriaPromqlCriteriaArgs.builder()
  *                     .query("avg(cpu_utilization_percent) > 80")
@@ -226,6 +225,8 @@ import javax.annotation.Nullable;
  *                     .recoveryPeriod(120)
  *                     .build())
  *                 .build())
+ *             .name("high-cpu-promql")
+ *             .alarmDescription("Alarm when average CPU exceeds 80% using PromQL")
  *             .evaluationInterval(30)
  *             .alarmActions(alerts.arn())
  *             .build());
@@ -260,12 +261,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var xxAnomalyDetection = new MetricAlarm("xxAnomalyDetection", MetricAlarmArgs.builder()
- *             .name("test-foobar")
- *             .comparisonOperator("GreaterThanUpperThreshold")
- *             .evaluationPeriods(2)
- *             .thresholdMetricId("e1")
- *             .alarmDescription("This metric monitors ec2 cpu utilization")
- *             .insufficientDataActions()
  *             .metricQueries(            
  *                 MetricAlarmMetricQueryArgs.builder()
  *                     .id("e1")
@@ -274,8 +269,6 @@ import javax.annotation.Nullable;
  *                     .label("CPUUtilization (Expected)")
  *                     .build(),
  *                 MetricAlarmMetricQueryArgs.builder()
- *                     .id("m1")
- *                     .returnData(true)
  *                     .metric(MetricAlarmMetricQueryMetricArgs.builder()
  *                         .metricName("CPUUtilization")
  *                         .namespace("AWS/EC2")
@@ -284,7 +277,15 @@ import javax.annotation.Nullable;
  *                         .unit("Count")
  *                         .dimensions(Map.of("InstanceId", "i-abc123"))
  *                         .build())
+ *                     .id("m1")
+ *                     .returnData(true)
  *                     .build())
+ *             .name("test-foobar")
+ *             .comparisonOperator("GreaterThanUpperThreshold")
+ *             .evaluationPeriods(2)
+ *             .thresholdMetricId("e1")
+ *             .alarmDescription("This metric monitors ec2 cpu utilization")
+ *             .insufficientDataActions()
  *             .build());
  * 
  *     }
@@ -318,12 +319,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
- *             .name("example-alarm")
- *             .alarmDescription("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold")
- *             .comparisonOperator("GreaterThanThreshold")
- *             .evaluationPeriods(1)
- *             .threshold(0.6)
- *             .treatMissingData("notBreaching")
  *             .metricQueries(MetricAlarmMetricQueryArgs.builder()
  *                 .id("q1")
  *                 .expression("""
@@ -339,6 +334,12 @@ import javax.annotation.Nullable;
  *                 .returnData(true)
  *                 .label("Max DB Load of the Least-Loaded RDS Instance")
  *                 .build())
+ *             .name("example-alarm")
+ *             .alarmDescription("Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(1)
+ *             .threshold(0.6)
+ *             .treatMissingData("notBreaching")
  *             .build());
  * 
  *     }
@@ -394,6 +395,52 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### With a Warm-Up Period
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.cloudwatch.MetricAlarm;
+ * import com.pulumi.aws.cloudwatch.MetricAlarmArgs;
+ * import com.pulumi.aws.cloudwatch.inputs.MetricAlarmWarmUpConfigurationArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new MetricAlarm("example", MetricAlarmArgs.builder()
+ *             .warmUpConfiguration(MetricAlarmWarmUpConfigurationArgs.builder()
+ *                 .warmUpPeriodDurationInMinutes(30)
+ *                 .build())
+ *             .name("example-service-errors")
+ *             .comparisonOperator("GreaterThanThreshold")
+ *             .evaluationPeriods(3)
+ *             .metricName("Errors")
+ *             .namespace("ExampleApp")
+ *             .period(60)
+ *             .statistic("Sum")
+ *             .threshold(0.0)
+ *             .treatMissingData("breaching")
+ *             .alarmActions(exampleAwsSnsTopic.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
  * &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other.
  * 
@@ -434,14 +481,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.actionsEnabled);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="alarmActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> alarmActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> alarmActions() {
@@ -594,14 +641,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.extendedStatistic);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="insufficientDataActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> insufficientDataActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> insufficientDataActions() {
@@ -668,14 +715,14 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.namespace);
     }
     /**
-     * The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     @Export(name="okActions", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> okActions;
 
     /**
-     * @return The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+     * @return List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
      * 
      */
     public Output<Optional<List<String>>> okActions() {
@@ -820,6 +867,20 @@ public class MetricAlarm extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> unit() {
         return Codegen.optional(this.unit);
+    }
+    /**
+     * Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    @Export(name="warmUpConfiguration", refs={MetricAlarmWarmUpConfiguration.class}, tree="[0]")
+    private Output</* @Nullable */ MetricAlarmWarmUpConfiguration> warmUpConfiguration;
+
+    /**
+     * @return Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `warmUpConfiguration` below.
+     * 
+     */
+    public Output<Optional<MetricAlarmWarmUpConfiguration>> warmUpConfiguration() {
+        return Codegen.optional(this.warmUpConfiguration);
     }
 
     /**

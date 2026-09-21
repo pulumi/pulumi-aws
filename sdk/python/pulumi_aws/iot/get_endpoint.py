@@ -104,12 +104,12 @@ def get_endpoint(endpoint_type: Optional[_builtins.str] = None,
         }],
         spec=[{
             container: [{
-                image: gcr.io/my-project/image-name,
-                name: image-name,
                 env: [{
                     name: IOT_ENDPOINT,
                     value: example.endpoint_address,
                 }],
+                image: gcr.io/my-project/image-name,
+                name: image-name,
             }],
         }])
     ```
@@ -149,12 +149,12 @@ def get_endpoint_output(endpoint_type: pulumi.Input[Optional[Optional[_builtins.
         }],
         spec=[{
             container: [{
-                image: gcr.io/my-project/image-name,
-                name: image-name,
                 env: [{
                     name: IOT_ENDPOINT,
                     value: example.endpoint_address,
                 }],
+                image: gcr.io/my-project/image-name,
+                name: image-name,
             }],
         }])
     ```

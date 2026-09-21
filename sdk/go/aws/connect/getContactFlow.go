@@ -117,12 +117,8 @@ type LookupContactFlowResult struct {
 }
 
 func LookupContactFlowOutput(ctx *pulumi.Context, args LookupContactFlowOutputArgs, opts ...pulumi.InvokeOption) LookupContactFlowResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupContactFlowResultOutput, error) {
-			args := v.(LookupContactFlowArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getContactFlow:getContactFlow", args, LookupContactFlowResultOutput{}, options).(LookupContactFlowResultOutput), nil
-		}).(LookupContactFlowResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getContactFlow:getContactFlow", args, LookupContactFlowResultOutput{}, options).(LookupContactFlowResultOutput)
 }
 
 // A collection of arguments for invoking getContactFlow.

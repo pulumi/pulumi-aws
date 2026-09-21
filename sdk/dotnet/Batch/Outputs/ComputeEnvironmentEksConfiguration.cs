@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class ComputeEnvironmentEksConfiguration
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+        /// ARN of the Amazon EKS cluster.
         /// </summary>
         public readonly string EksClusterArn;
         /// <summary>

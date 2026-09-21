@@ -68,7 +68,7 @@ export class ClusterSnapshot extends pulumi.CustomResource {
      */
     declare public readonly dbClusterIdentifier: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      */
     declare public /*out*/ readonly dbClusterSnapshotArn: pulumi.Output<string>;
     /**
@@ -190,7 +190,7 @@ export interface ClusterSnapshotState {
      */
     dbClusterIdentifier?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      */
     dbClusterSnapshotArn?: pulumi.Input<string | undefined>;
     /**

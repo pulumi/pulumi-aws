@@ -17,7 +17,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     public static final ResourceState Empty = new ResourceState();
 
     /**
-     * Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      * 
      * The following arguments are optional:
      * 
@@ -26,7 +26,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      * The following arguments are optional:
      * 
@@ -176,7 +176,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * The following arguments are optional:
          * 
@@ -189,7 +189,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * The following arguments are optional:
          * 

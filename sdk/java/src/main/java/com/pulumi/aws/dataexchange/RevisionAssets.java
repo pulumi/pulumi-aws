@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RevisionAssets("example", RevisionAssetsArgs.builder()
- *             .dataSetId("example-data-set-id")
  *             .assets(RevisionAssetsAssetArgs.builder()
  *                 .createS3DataAccessFromS3Bucket(RevisionAssetsAssetCreateS3DataAccessFromS3BucketArgs.builder()
  *                     .assetSource(RevisionAssetsAssetCreateS3DataAccessFromS3BucketAssetSourceArgs.builder()
@@ -62,6 +61,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .dataSetId("example-data-set-id")
  *             .tags(Map.of("Environment", "Production"))
  *             .build());
  * 

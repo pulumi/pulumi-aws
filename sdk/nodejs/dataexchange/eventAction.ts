@@ -79,7 +79,7 @@ export class EventAction extends pulumi.CustomResource {
      */
     declare public readonly action: pulumi.Output<outputs.dataexchange.EventActionAction>;
     /**
-     * Amazon Resource Name (ARN) of the event action.
+     * ARN of the event action.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export interface EventActionState {
      */
     action?: pulumi.Input<inputs.dataexchange.EventActionAction | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the event action.
+     * ARN of the event action.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

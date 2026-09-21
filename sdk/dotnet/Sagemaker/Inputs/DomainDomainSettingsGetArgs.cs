@@ -34,7 +34,7 @@ namespace Pulumi.Aws.Sagemaker.Inputs
         private InputList<string>? _securityGroupIds;
 
         /// <summary>
-        /// The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+        /// Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
         /// </summary>
         public InputList<string> SecurityGroupIds
         {

@@ -37,9 +37,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.Subscriber;
  * import com.pulumi.aws.securitylake.SubscriberArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -55,18 +55,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Subscriber("example", SubscriberArgs.builder()
- *             .subscriberName("example-name")
- *             .accessType("S3")
+ *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
+ *                 .externalId("example")
+ *                 .principal("1234567890")
+ *                 .build())
  *             .sources(SubscriberSourceArgs.builder()
  *                 .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
  *                     .sourceName("ROUTE53")
  *                     .sourceVersion("1.0")
  *                     .build())
  *                 .build())
- *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
- *                 .externalId("example")
- *                 .principal("1234567890")
- *                 .build())
+ *             .subscriberName("example-name")
+ *             .accessType("S3")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecuritylakeDataLake)
  *                 .build());
@@ -87,9 +87,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.securitylake.Subscriber;
  * import com.pulumi.aws.securitylake.SubscriberArgs;
+ * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceArgs;
  * import com.pulumi.aws.securitylake.inputs.SubscriberSourceAwsLogSourceResourceArgs;
- * import com.pulumi.aws.securitylake.inputs.SubscriberSubscriberIdentityArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -105,8 +105,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Subscriber("example", SubscriberArgs.builder()
- *             .subscriberName("example-name")
- *             .accessType("S3")
+ *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
+ *                 .externalId("example")
+ *                 .principal("1234567890")
+ *                 .build())
  *             .sources(            
  *                 SubscriberSourceArgs.builder()
  *                     .awsLogSourceResource(SubscriberSourceAwsLogSourceResourceArgs.builder()
@@ -120,10 +122,8 @@ import javax.annotation.Nullable;
  *                         .sourceVersion("2.0")
  *                         .build())
  *                     .build())
- *             .subscriberIdentity(SubscriberSubscriberIdentityArgs.builder()
- *                 .externalId("example")
- *                 .principal("1234567890")
- *                 .build())
+ *             .subscriberName("example-name")
+ *             .accessType("S3")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleAwsSecuritylakeDataLake)
  *                 .build());
@@ -187,14 +187,14 @@ public class Subscriber extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
     @Export(name="resourceShareArn", refs={String.class}, tree="[0]")
     private Output<String> resourceShareArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+     * @return ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
      * 
      */
     public Output<String> resourceShareArn() {

@@ -298,12 +298,12 @@ class ReportGroup(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
             }],
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
             "actions": ["kms:*"],
             "resources": ["*"],
         }])
@@ -313,10 +313,7 @@ class ReportGroup(pulumi.CustomResource):
             policy=example.json)
         example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
-            name="my test report group",
-            type="TEST",
             export_config={
-                "type": "S3",
                 "s3_destination": {
                     "bucket": example_bucket.id,
                     "encryption_disabled": False,
@@ -324,7 +321,10 @@ class ReportGroup(pulumi.CustomResource):
                     "packaging": "NONE",
                     "path": "/some",
                 },
-            })
+                "type": "S3",
+            },
+            name="my test report group",
+            type="TEST")
         ```
 
         ## Import
@@ -333,7 +333,7 @@ class ReportGroup(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
+        - `arn` (String) ARN of the CodeBuild report group.
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 
@@ -368,12 +368,12 @@ class ReportGroup(pulumi.CustomResource):
 
         current = aws.get_caller_identity()
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "Enable IAM User Permissions",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [f"arn:aws:iam::{current.account_id}:root"],
             }],
+            "sid": "Enable IAM User Permissions",
+            "effect": "Allow",
             "actions": ["kms:*"],
             "resources": ["*"],
         }])
@@ -383,10 +383,7 @@ class ReportGroup(pulumi.CustomResource):
             policy=example.json)
         example_bucket = aws.s3.Bucket("example", bucket="my-test")
         example_report_group = aws.codebuild.ReportGroup("example",
-            name="my test report group",
-            type="TEST",
             export_config={
-                "type": "S3",
                 "s3_destination": {
                     "bucket": example_bucket.id,
                     "encryption_disabled": False,
@@ -394,7 +391,10 @@ class ReportGroup(pulumi.CustomResource):
                     "packaging": "NONE",
                     "path": "/some",
                 },
-            })
+                "type": "S3",
+            },
+            name="my test report group",
+            type="TEST")
         ```
 
         ## Import
@@ -403,7 +403,7 @@ class ReportGroup(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild report group.
+        - `arn` (String) ARN of the CodeBuild report group.
 
         Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
 

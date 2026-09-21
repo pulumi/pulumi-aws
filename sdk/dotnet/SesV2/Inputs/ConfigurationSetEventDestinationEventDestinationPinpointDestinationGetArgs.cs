@@ -12,6 +12,9 @@ namespace Pulumi.Aws.SesV2.Inputs
 
     public sealed class ConfigurationSetEventDestinationEventDestinationPinpointDestinationGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// ARN of the AWS End User Messaging project to send email events to.
+        /// </summary>
         [Input("applicationArn", required: true)]
         public Input<string> ApplicationArn { get; set; } = null!;
 

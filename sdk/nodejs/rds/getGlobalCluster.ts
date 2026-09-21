@@ -36,7 +36,7 @@ export function getGlobalCluster(args: GetGlobalClusterArgs, opts?: pulumi.Invok
  */
 export interface GetGlobalClusterArgs {
     /**
-     * The global cluster identifier of the RDS global cluster.
+     * Global cluster identifier of the RDS global cluster.
      *
      * The following arguments are optional:
      */
@@ -52,7 +52,7 @@ export interface GetGlobalClusterArgs {
  */
 export interface GetGlobalClusterResult {
     /**
-     * RDS Global Cluster Amazon Resource Name (ARN)
+     * RDS Global Cluster ARN
      */
     readonly arn: string;
     /**
@@ -64,7 +64,7 @@ export interface GetGlobalClusterResult {
      */
     readonly deletionProtection: boolean;
     /**
-     * The endpoint for the Global Cluster.
+     * Endpoint for the Global Cluster.
      */
     readonly endpoint: string;
     /**
@@ -72,7 +72,7 @@ export interface GetGlobalClusterResult {
      */
     readonly engine: string;
     /**
-     * The current lifecycle support status of the database engine for this Global Cluster.
+     * Current lifecycle support status of the database engine for this Global Cluster.
      */
     readonly engineLifecycleSupport: string;
     /**
@@ -94,7 +94,7 @@ export interface GetGlobalClusterResult {
      */
     readonly storageEncrypted: boolean;
     /**
-     * A map of tags to assigned to the Global Cluster.
+     * Map of tags assigned to the Global Cluster.
      */
     readonly tags: {[key: string]: string};
 }
@@ -127,7 +127,7 @@ export function getGlobalClusterOutput(args: GetGlobalClusterOutputArgs, opts?: 
  */
 export interface GetGlobalClusterOutputArgs {
     /**
-     * The global cluster identifier of the RDS global cluster.
+     * Global cluster identifier of the RDS global cluster.
      *
      * The following arguments are optional:
      */

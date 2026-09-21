@@ -26,6 +26,11 @@ namespace Pulumi.Aws.CleanRooms
     /// {
     ///     var testConfiguredTable = new Aws.CleanRooms.ConfiguredTable("test_configured_table", new()
     ///     {
+    ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
+    ///         {
+    ///             DatabaseName = "example_database",
+    ///             TableName = "example_table",
+    ///         },
     ///         Name = "pulumi-example-table",
     ///         Description = "I made this table with Pulumi!",
     ///         AnalysisMethod = "DIRECT_QUERY",
@@ -34,11 +39,6 @@ namespace Pulumi.Aws.CleanRooms
     ///             "column1",
     ///             "column2",
     ///             "column3",
-    ///         },
-    ///         TableReference = new Aws.CleanRooms.Inputs.ConfiguredTableTableReferenceArgs
-    ///         {
-    ///             DatabaseName = "example_database",
-    ///             TableName = "example_table",
     ///         },
     ///         Tags = 
     ///         {

@@ -37,14 +37,14 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name of the volune.
+     * ARN of the volune.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the volune.
+     * @return ARN of the volune.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -470,7 +470,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name of the volune.
+         * @param arn ARN of the volune.
          * 
          * @return builder
          * 
@@ -481,7 +481,7 @@ public final class OntapVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name of the volune.
+         * @param arn ARN of the volune.
          * 
          * @return builder
          * 

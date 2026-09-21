@@ -316,18 +316,18 @@ class Workgroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.athena.Workgroup("example",
-            name="example",
             configuration={
-                "enforce_workgroup_configuration": True,
-                "publish_cloudwatch_metrics_enabled": True,
                 "result_configuration": {
-                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
                     "encryption_configuration": {
                         "encryption_option": "SSE_KMS",
                         "kms_key_arn": example_aws_kms_key["arn"],
                     },
+                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
                 },
-            })
+                "enforce_workgroup_configuration": True,
+                "publish_cloudwatch_metrics_enabled": True,
+            },
+            name="example")
         ```
 
         ## Import
@@ -365,18 +365,18 @@ class Workgroup(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.athena.Workgroup("example",
-            name="example",
             configuration={
-                "enforce_workgroup_configuration": True,
-                "publish_cloudwatch_metrics_enabled": True,
                 "result_configuration": {
-                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
                     "encryption_configuration": {
                         "encryption_option": "SSE_KMS",
                         "kms_key_arn": example_aws_kms_key["arn"],
                     },
+                    "output_location": f"s3://{example_aws_s3_bucket['bucket']}/output/",
                 },
-            })
+                "enforce_workgroup_configuration": True,
+                "publish_cloudwatch_metrics_enabled": True,
+            },
+            name="example")
         ```
 
         ## Import

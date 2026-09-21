@@ -32,7 +32,7 @@ class VpcConnectionArgs:
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
-        :param pulumi.Input[_builtins.str] target_cluster_arn: The Amazon Resource Name (ARN) of the cluster.
+        :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -87,7 +87,7 @@ class VpcConnectionArgs:
     @pulumi.getter(name="targetClusterArn")
     def target_cluster_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "target_cluster_arn")
 
@@ -147,14 +147,14 @@ class _VpcConnectionState:
         """
         Input properties used for looking up and filtering VpcConnection resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPC connection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_cluster_arn: The Amazon Resource Name (ARN) of the cluster.
+        :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
         """
         if arn is not None:
@@ -180,7 +180,7 @@ class _VpcConnectionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the VPC connection.
+        ARN of the VPC connection.
         """
         return pulumi.get(self, "arn")
 
@@ -264,7 +264,7 @@ class _VpcConnectionState:
     @pulumi.getter(name="targetClusterArn")
     def target_cluster_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "target_cluster_arn")
 
@@ -332,7 +332,7 @@ class VpcConnection(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[_builtins.str] target_cluster_arn: The Amazon Resource Name (ARN) of the cluster.
+        :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
         """
         ...
@@ -443,14 +443,14 @@ class VpcConnection(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the VPC connection.
+        :param pulumi.Input[_builtins.str] arn: ARN of the VPC connection.
         :param pulumi.Input[_builtins.str] authentication: The authentication type for the client VPC connection. Specify one of these auth type strings: SASL_IAM, SASL_SCRAM, or TLS.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_subnets: The list of subnets in the client VPC to connect to.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_groups: The security groups to attach to the ENIs for the broker nodes.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
-        :param pulumi.Input[_builtins.str] target_cluster_arn: The Amazon Resource Name (ARN) of the cluster.
+        :param pulumi.Input[_builtins.str] target_cluster_arn: ARN of the cluster.
         :param pulumi.Input[_builtins.str] vpc_id: The VPC ID of the remote client.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -472,7 +472,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the VPC connection.
+        ARN of the VPC connection.
         """
         return pulumi.get(self, "arn")
 
@@ -528,7 +528,7 @@ class VpcConnection(pulumi.CustomResource):
     @pulumi.getter(name="targetClusterArn")
     def target_cluster_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the cluster.
+        ARN of the cluster.
         """
         return pulumi.get(self, "target_cluster_arn")
 

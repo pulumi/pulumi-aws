@@ -17,14 +17,16 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "example"});
  * const exampleAccessPoint = new aws.s3.AccessPoint("example", {
- *     bucket: example.id,
- *     name: "example",
  *     publicAccessBlockConfiguration: {
  *         blockPublicAcls: true,
  *         blockPublicPolicy: false,
  *         ignorePublicAcls: true,
  *         restrictPublicBuckets: false,
  *     },
+ *     bucket: example.id,
+ *     name: "example",
+ * }, {
+ *     ignoreChanges: ["policy"],
  * });
  * const exampleAccessPointPolicy = new aws.s3control.AccessPointPolicy("example", {
  *     accessPointArn: exampleAccessPoint.arn,

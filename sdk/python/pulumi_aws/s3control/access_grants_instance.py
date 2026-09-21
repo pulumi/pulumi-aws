@@ -103,7 +103,7 @@ class _AccessGrantsInstanceState:
         """
         Input properties used for looking up and filtering AccessGrantsInstance resources.
 
-        :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
+        :param pulumi.Input[_builtins.str] access_grants_instance_arn: ARN of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
@@ -133,7 +133,7 @@ class _AccessGrantsInstanceState:
     @pulumi.getter(name="accessGrantsInstanceArn")
     def access_grants_instance_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Grants instance.
+        ARN of the S3 Access Grants instance.
         """
         return pulumi.get(self, "access_grants_instance_arn")
 
@@ -377,7 +377,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] access_grants_instance_arn: Amazon Resource Name (ARN) of the S3 Access Grants instance.
+        :param pulumi.Input[_builtins.str] access_grants_instance_arn: ARN of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] access_grants_instance_id: Unique ID of the S3 Access Grants instance.
         :param pulumi.Input[_builtins.str] account_id: AWS account ID for the S3 Access Grants instance. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[_builtins.str] identity_center_application_arn: ARN of the AWS IAM Identity Center instance application; a subresource of the original Identity Center instance.
@@ -404,7 +404,7 @@ class AccessGrantsInstance(pulumi.CustomResource):
     @pulumi.getter(name="accessGrantsInstanceArn")
     def access_grants_instance_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the S3 Access Grants instance.
+        ARN of the S3 Access Grants instance.
         """
         return pulumi.get(self, "access_grants_instance_arn")
 

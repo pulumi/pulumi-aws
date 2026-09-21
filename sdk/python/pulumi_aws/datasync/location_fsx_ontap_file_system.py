@@ -338,16 +338,16 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.datasync.LocationFsxOntapFileSystem("test",
-            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
-            security_group_arns=[test_aws_security_group["arn"]],
-            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
             protocol={
                 "nfs": {
                     "mount_options": {
                         "version": "NFS3",
                     },
                 },
-            })
+            },
+            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
+            security_group_arns=[test_aws_security_group["arn"]],
+            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"])
         ```
 
         ## Import
@@ -390,16 +390,16 @@ class LocationFsxOntapFileSystem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.datasync.LocationFsxOntapFileSystem("test",
-            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
-            security_group_arns=[test_aws_security_group["arn"]],
-            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"],
             protocol={
                 "nfs": {
                     "mount_options": {
                         "version": "NFS3",
                     },
                 },
-            })
+            },
+            fsx_filesystem_arn=test_aws_fsx_ontap_file_system["arn"],
+            security_group_arns=[test_aws_security_group["arn"]],
+            storage_virtual_machine_arn=test_aws_fsx_ontap_storage_virtual_machine["arn"])
         ```
 
         ## Import

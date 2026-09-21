@@ -214,14 +214,14 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
     }
 
     /**
-     * Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+     * Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     @Import(name="securityProtocol")
     private @Nullable Output<String> securityProtocol;
 
     /**
-     * @return Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+     * @return Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
      * 
      */
     public Optional<Output<String>> securityProtocol() {
@@ -619,7 +619,7 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param securityProtocol Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+         * @param securityProtocol Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
          * 
          * @return builder
          * 
@@ -630,7 +630,7 @@ public final class EndpointKafkaSettingsArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param securityProtocol Set secure connection to a Kafka target endpoint using Transport Layer Security (TLS). Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
+         * @param securityProtocol Set secure connection to a Kafka target endpoint using TLS. Options include `ssl-encryption`, `ssl-authentication`, and `sasl-ssl`. `sasl-ssl` requires `saslUsername` and `saslPassword`.
          * 
          * @return builder
          * 

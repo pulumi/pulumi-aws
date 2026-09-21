@@ -51,9 +51,6 @@ namespace Pulumi.Aws.Rds
         /// {
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
-        ///         Engine = "aurora-postgresql",
-        ///         Version = "10.14",
-        ///         IncludeAll = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
@@ -65,6 +62,9 @@ namespace Pulumi.Aws.Rds
         ///                 },
         ///             },
         ///         },
+        ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
         ///     });
         /// 
         /// });
@@ -113,9 +113,6 @@ namespace Pulumi.Aws.Rds
         /// {
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
-        ///         Engine = "aurora-postgresql",
-        ///         Version = "10.14",
-        ///         IncludeAll = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
@@ -127,6 +124,9 @@ namespace Pulumi.Aws.Rds
         ///                 },
         ///             },
         ///         },
+        ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
         ///     });
         /// 
         /// });
@@ -175,9 +175,6 @@ namespace Pulumi.Aws.Rds
         /// {
         ///     var test = Aws.Rds.GetEngineVersion.Invoke(new()
         ///     {
-        ///         Engine = "aurora-postgresql",
-        ///         Version = "10.14",
-        ///         IncludeAll = true,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Rds.Inputs.GetEngineVersionFilterInputArgs
@@ -189,6 +186,9 @@ namespace Pulumi.Aws.Rds
         ///                 },
         ///             },
         ///         },
+        ///         Engine = "aurora-postgresql",
+        ///         Version = "10.14",
+        ///         IncludeAll = true,
         ///     });
         /// 
         /// });
@@ -219,7 +219,7 @@ namespace Pulumi.Aws.Rds
         private List<Inputs.GetEngineVersionFilterArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        /// Configuration block for filtering versions. See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetEngineVersionFilterArgs> Filters
         {
@@ -331,7 +331,7 @@ namespace Pulumi.Aws.Rds
         private InputList<Inputs.GetEngineVersionFilterInputArgs>? _filters;
 
         /// <summary>
-        /// One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+        /// Configuration block for filtering versions. See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetEngineVersionFilterInputArgs> Filters
         {

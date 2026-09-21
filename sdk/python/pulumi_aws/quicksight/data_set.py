@@ -327,7 +327,7 @@ class _DataSetState:
         """
         Input properties used for looking up and filtering DataSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the data set.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnGroupArgs']]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input['DataSetColumnLevelPermissionRuleArgs']]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -395,7 +395,7 @@ class _DataSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the data set.
+        ARN of the data set.
         """
         return pulumi.get(self, "arn")
 
@@ -670,22 +670,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
-            }])
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With use_as
@@ -695,23 +695,23 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            use_as="RLS_RULES",
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "UserName",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
-            }])
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            use_as="RLS_RULES")
         ```
 
         ### With Column Level Permission Rules
@@ -721,26 +721,26 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
+            column_level_permission_rules=[{
+                "column_names": ["Column1"],
+                "principals": [example_aws_quicksight_user["arn"]],
+            }],
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
+                "physical_table_map_id": "example-id",
             }],
-            column_level_permission_rules=[{
-                "column_names": ["Column1"],
-                "principals": [example_aws_quicksight_user["arn"]],
-            }])
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Field Folders
@@ -750,27 +750,27 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             field_folders=[{
                 "field_folders_id": "example-id",
                 "columns": ["Column1"],
                 "description": "example description",
-            }])
+            }],
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Permissions
@@ -780,22 +780,6 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             permissions=[{
                 "actions": [
                     "quicksight:DescribeDataSet",
@@ -805,7 +789,23 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:ListIngestions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }])
+            }],
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Row Level Permission Tag Configuration
@@ -815,31 +815,31 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             row_level_permission_tag_configuration={
-                "status": "ENABLED",
                 "tag_rules": [{
                     "column_name": "Column1",
                     "tag_key": "tagkey",
                     "match_all_value": "*",
                     "tag_multi_value_delimiter": ",",
                 }],
-            })
+                "status": "ENABLED",
+            },
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ## Import
@@ -891,22 +891,22 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
-            }])
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With use_as
@@ -916,23 +916,23 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            use_as="RLS_RULES",
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "UserName",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
-            }])
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE",
+            use_as="RLS_RULES")
         ```
 
         ### With Column Level Permission Rules
@@ -942,26 +942,26 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
+            column_level_permission_rules=[{
+                "column_names": ["Column1"],
+                "principals": [example_aws_quicksight_user["arn"]],
+            }],
             physical_table_maps=[{
-                "physical_table_map_id": "example-id",
                 "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
                     "input_columns": [{
                         "name": "Column1",
                         "type": "STRING",
                     }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
                 },
+                "physical_table_map_id": "example-id",
             }],
-            column_level_permission_rules=[{
-                "column_names": ["Column1"],
-                "principals": [example_aws_quicksight_user["arn"]],
-            }])
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Field Folders
@@ -971,27 +971,27 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             field_folders=[{
                 "field_folders_id": "example-id",
                 "columns": ["Column1"],
                 "description": "example description",
-            }])
+            }],
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Permissions
@@ -1001,22 +1001,6 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             permissions=[{
                 "actions": [
                     "quicksight:DescribeDataSet",
@@ -1026,7 +1010,23 @@ class DataSet(pulumi.CustomResource):
                     "quicksight:ListIngestions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }])
+            }],
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ### With Row Level Permission Tag Configuration
@@ -1036,31 +1036,31 @@ class DataSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.DataSet("example",
-            data_set_id="example-id",
-            name="example-name",
-            import_mode="SPICE",
-            physical_table_maps=[{
-                "physical_table_map_id": "example-id",
-                "s3_source": {
-                    "data_source_arn": example_aws_quicksight_data_source["arn"],
-                    "input_columns": [{
-                        "name": "Column1",
-                        "type": "STRING",
-                    }],
-                    "upload_settings": {
-                        "format": "JSON",
-                    },
-                },
-            }],
             row_level_permission_tag_configuration={
-                "status": "ENABLED",
                 "tag_rules": [{
                     "column_name": "Column1",
                     "tag_key": "tagkey",
                     "match_all_value": "*",
                     "tag_multi_value_delimiter": ",",
                 }],
-            })
+                "status": "ENABLED",
+            },
+            physical_table_maps=[{
+                "s3_source": {
+                    "upload_settings": {
+                        "format": "JSON",
+                    },
+                    "input_columns": [{
+                        "name": "Column1",
+                        "type": "STRING",
+                    }],
+                    "data_source_arn": example_aws_quicksight_data_source["arn"],
+                },
+                "physical_table_map_id": "example-id",
+            }],
+            data_set_id="example-id",
+            name="example-name",
+            import_mode="SPICE")
         ```
 
         ## Import
@@ -1174,7 +1174,7 @@ class DataSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the data set.
+        :param pulumi.Input[_builtins.str] arn: ARN of the data set.
         :param pulumi.Input[_builtins.str] aws_account_id: AWS account ID. Defaults to automatically determined account ID of the Terraform AWS provider.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnGroupArgs', 'DataSetColumnGroupArgsDict']]]] column_groups: Groupings of columns that work together in certain Amazon QuickSight features. Currently, only geospatial hierarchy is supported. See column_groups.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DataSetColumnLevelPermissionRuleArgs', 'DataSetColumnLevelPermissionRuleArgsDict']]]] column_level_permission_rules: A set of 1 or more definitions of a [ColumnLevelPermissionRule](https://docs.aws.amazon.com/quicksight/latest/APIReference/API_ColumnLevelPermissionRule.html). See column_level_permission_rules.
@@ -1227,7 +1227,7 @@ class DataSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the data set.
+        ARN of the data set.
         """
         return pulumi.get(self, "arn")
 

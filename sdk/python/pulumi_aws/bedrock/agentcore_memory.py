@@ -37,13 +37,13 @@ class AgentcoreMemoryArgs:
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         pulumi.set(__self__, "event_expiry_duration", event_expiry_duration)
@@ -106,7 +106,7 @@ class AgentcoreMemoryArgs:
     @pulumi.getter(name="indexedKeys")
     def indexed_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]:
         """
-        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         """
         return pulumi.get(self, "indexed_keys")
 
@@ -156,7 +156,7 @@ class AgentcoreMemoryArgs:
     @pulumi.getter(name="streamDeliveryResources")
     def stream_delivery_resources(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]:
         """
-        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         """
         return pulumi.get(self, "stream_delivery_resources")
 
@@ -208,15 +208,15 @@ class _AgentcoreMemoryState:
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        :param pulumi.Input['AgentcoreMemoryStreamDeliveryResourcesArgs'] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
@@ -295,7 +295,7 @@ class _AgentcoreMemoryState:
     @pulumi.getter(name="indexedKeys")
     def indexed_keys(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['AgentcoreMemoryIndexedKeyArgs']]]]:
         """
-        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         """
         return pulumi.get(self, "indexed_keys")
 
@@ -345,7 +345,7 @@ class _AgentcoreMemoryState:
     @pulumi.getter(name="streamDeliveryResources")
     def stream_delivery_resources(self) -> pulumi.Input[Optional['AgentcoreMemoryStreamDeliveryResourcesArgs']]:
         """
-        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         """
         return pulumi.get(self, "stream_delivery_resources")
 
@@ -369,7 +369,7 @@ class _AgentcoreMemoryState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -416,12 +416,12 @@ class AgentcoreMemory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-memory-role",
@@ -452,10 +452,21 @@ class AgentcoreMemory(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Memory ID.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import memories using `id`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
         ```
 
 
@@ -464,13 +475,13 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
         ...
@@ -491,12 +502,12 @@ class AgentcoreMemory(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-memory-role",
@@ -527,10 +538,21 @@ class AgentcoreMemory(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Bedrock AgentCore Memory using the memory ID. For example:
+        ### Identity Schema
+
+        #### Required
+
+        * `id` (String) Memory ID.
+
+        #### Optional
+
+        * `account_id` (String) Account ID where this resource is managed.
+        * `region` (String) Region where this resource is managed.
+
+        Using `pulumi import`, import memories using `id`. For example:
 
         ```sh
-        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example MEMORY1234567890
+        $ pulumi import aws:bedrock/agentcoreMemory:AgentcoreMemory example example_memory-5xKsqQHSWW
         ```
 
 
@@ -615,15 +637,15 @@ class AgentcoreMemory(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the memory.
         :param pulumi.Input[_builtins.str] encryption_key_arn: ARN of the KMS key used to encrypt the memory. If not provided, AWS managed encryption is used.
         :param pulumi.Input[_builtins.int] event_expiry_duration: Number of days after which memory events expire. Must be a positive integer in the range of 7 to 365.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AgentcoreMemoryIndexedKeyArgs', 'AgentcoreMemoryIndexedKeyArgsDict']]]] indexed_keys: Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         :param pulumi.Input[_builtins.str] memory_execution_role_arn: ARN of the IAM role that the memory service assumes to perform operations. Required when using custom memory strategies with model processing.
         :param pulumi.Input[_builtins.str] name: Name of the memory.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        :param pulumi.Input[Union['AgentcoreMemoryStreamDeliveryResourcesArgs', 'AgentcoreMemoryStreamDeliveryResourcesArgsDict']] stream_delivery_resources: Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -679,7 +701,7 @@ class AgentcoreMemory(pulumi.CustomResource):
     @pulumi.getter(name="indexedKeys")
     def indexed_keys(self) -> pulumi.Output[Optional[Sequence['outputs.AgentcoreMemoryIndexedKey']]]:
         """
-        Metadata keys to index for filtering. Up to 10 entries. Changing this forces a new resource to be created. See `indexed_key` below.
+        Metadata keys to index for filtering. Up to 10 entries. Additional keys can be added in place; removing or changing an existing key forces a new resource to be created, because previously indexed keys cannot be removed. See `indexed_key` Block below.
         """
         return pulumi.get(self, "indexed_keys")
 
@@ -713,7 +735,7 @@ class AgentcoreMemory(pulumi.CustomResource):
     @pulumi.getter(name="streamDeliveryResources")
     def stream_delivery_resources(self) -> pulumi.Output[Optional['outputs.AgentcoreMemoryStreamDeliveryResources']]:
         """
-        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` below.
+        Configuration for streaming memory record data to external resources. See `stream_delivery_resources` Block below.
         """
         return pulumi.get(self, "stream_delivery_resources")
 
@@ -729,7 +751,7 @@ class AgentcoreMemory(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

@@ -33,9 +33,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewHyperParameterTuningJob(ctx, "example", &sagemaker.HyperParameterTuningJobArgs{
-//				Name: pulumi.String("example"),
 //				Config: &sagemaker.HyperParameterTuningJobConfigArgs{
-//					Strategy: pulumi.String("Bayesian"),
 //					Objective: &sagemaker.HyperParameterTuningJobConfigObjectiveArgs{
 //						MetricName: pulumi.String("test:msd"),
 //						Type:       pulumi.String("Minimize"),
@@ -75,40 +73,12 @@ import (
 //						MaxNumberOfTrainingJobs: pulumi.Int(2),
 //						MaxParallelTrainingJobs: pulumi.Int(1),
 //					},
+//					Strategy: pulumi.String("Bayesian"),
 //				},
 //				TrainingJobDefinition: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionArgs{
-//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-sagemaker-execution-role"),
 //					AlgorithmSpecification: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionAlgorithmSpecificationArgs{
 //						TrainingImage:     pulumi.String("174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1"),
 //						TrainingInputMode: pulumi.String("File"),
-//					},
-//					StaticHyperParameters: pulumi.StringMap{
-//						"feature_dim": pulumi.String("3"),
-//						"k":           pulumi.String("2"),
-//					},
-//					InputDataConfigs: sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArray{
-//						&sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs{
-//							ChannelName: pulumi.String("train"),
-//							ContentType: pulumi.String("text/csv"),
-//							InputMode:   pulumi.String("File"),
-//							DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs{
-//								S3DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
-//									S3DataType: pulumi.String("S3Prefix"),
-//									S3Uri:      pulumi.String("s3://example-bucket/input/"),
-//								},
-//							},
-//						},
-//						&sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs{
-//							ChannelName: pulumi.String("test"),
-//							ContentType: pulumi.String("text/csv"),
-//							InputMode:   pulumi.String("File"),
-//							DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs{
-//								S3DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
-//									S3DataType: pulumi.String("S3Prefix"),
-//									S3Uri:      pulumi.String("s3://example-bucket/input/"),
-//								},
-//							},
-//						},
 //					},
 //					OutputDataConfig: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionOutputDataConfigArgs{
 //						S3OutputPath: pulumi.String("s3://example-bucket/output/"),
@@ -121,7 +91,37 @@ import (
 //					StoppingCondition: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionStoppingConditionArgs{
 //						MaxRuntimeInSeconds: pulumi.Int(3600),
 //					},
+//					InputDataConfigs: sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArray{
+//						&sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs{
+//							DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs{
+//								S3DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
+//									S3DataType: pulumi.String("S3Prefix"),
+//									S3Uri:      pulumi.String("s3://example-bucket/input/"),
+//								},
+//							},
+//							ChannelName: pulumi.String("train"),
+//							ContentType: pulumi.String("text/csv"),
+//							InputMode:   pulumi.String("File"),
+//						},
+//						&sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigArgs{
+//							DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceArgs{
+//								S3DataSource: &sagemaker.HyperParameterTuningJobTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
+//									S3DataType: pulumi.String("S3Prefix"),
+//									S3Uri:      pulumi.String("s3://example-bucket/input/"),
+//								},
+//							},
+//							ChannelName: pulumi.String("test"),
+//							ContentType: pulumi.String("text/csv"),
+//							InputMode:   pulumi.String("File"),
+//						},
+//					},
+//					RoleArn: pulumi.String("arn:aws:iam::123456789012:role/example-sagemaker-execution-role"),
+//					StaticHyperParameters: pulumi.StringMap{
+//						"feature_dim": pulumi.String("3"),
+//						"k":           pulumi.String("2"),
+//					},
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

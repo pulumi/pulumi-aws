@@ -366,7 +366,7 @@ func (o NotificationChannelFiltersPtrOutput) Severities() pulumi.StringArrayOutp
 }
 
 type NotificationChannelSns struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	// ARN of an Amazon Simple Notification Service topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -382,7 +382,7 @@ type NotificationChannelSnsInput interface {
 }
 
 type NotificationChannelSnsArgs struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	// ARN of an Amazon Simple Notification Service topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -463,7 +463,7 @@ func (o NotificationChannelSnsOutput) ToNotificationChannelSnsPtrOutputWithConte
 	}).(NotificationChannelSnsPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+// ARN of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v NotificationChannelSns) string { return v.TopicArn }).(pulumi.StringOutput)
 }
@@ -492,7 +492,7 @@ func (o NotificationChannelSnsPtrOutput) Elem() NotificationChannelSnsOutput {
 	}).(NotificationChannelSnsOutput)
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+// ARN of an Amazon Simple Notification Service topic.
 func (o NotificationChannelSnsPtrOutput) TopicArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NotificationChannelSns) *string {
 		if v == nil {
@@ -1351,7 +1351,7 @@ func (o GetNotificationChannelFilterArrayOutput) Index(i pulumi.IntInput) GetNot
 }
 
 type GetNotificationChannelSn struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	// ARN of an Amazon Simple Notification Service topic.
 	TopicArn string `pulumi:"topicArn"`
 }
 
@@ -1367,7 +1367,7 @@ type GetNotificationChannelSnInput interface {
 }
 
 type GetNotificationChannelSnArgs struct {
-	// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+	// ARN of an Amazon Simple Notification Service topic.
 	TopicArn pulumi.StringInput `pulumi:"topicArn"`
 }
 
@@ -1422,7 +1422,7 @@ func (o GetNotificationChannelSnOutput) ToGetNotificationChannelSnOutputWithCont
 	return o
 }
 
-// Amazon Resource Name (ARN) of an Amazon Simple Notification Service topic.
+// ARN of an Amazon Simple Notification Service topic.
 func (o GetNotificationChannelSnOutput) TopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetNotificationChannelSn) string { return v.TopicArn }).(pulumi.StringOutput)
 }

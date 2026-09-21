@@ -37,7 +37,7 @@ class ListenerArgs:
         :param pulumi.Input[_builtins.str] name: Name of the listener. A listener name must be unique within a service. Valid characters are a-z, 0-9, and hyphens (-). You can't use a hyphen as the first or last character, or immediately after another hyphen.
         :param pulumi.Input[_builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        :param pulumi.Input[_builtins.str] service_arn: ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[_builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -121,7 +121,7 @@ class ListenerArgs:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         """
         return pulumi.get(self, "service_arn")
 
@@ -183,7 +183,7 @@ class _ListenerState:
         :param pulumi.Input[_builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        :param pulumi.Input[_builtins.str] service_arn: ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[_builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -327,7 +327,7 @@ class _ListenerState:
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         """
         return pulumi.get(self, "service_arn")
 
@@ -398,14 +398,14 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTPS",
-            service_identifier=example.id,
             default_action={
                 "fixed_response": {
                     "status_code": 404,
                 },
-            })
+            },
+            name="example",
+            protocol="HTTPS",
+            service_identifier=example.id)
         ```
 
         ### Forward action
@@ -416,24 +416,24 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example_target_group = aws.vpclattice.TargetGroup("example",
-            name="example-target-group-1",
-            type="INSTANCE",
             config={
                 "port": 80,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-1",
+            type="INSTANCE")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTP",
-            service_identifier=example.id,
             default_action={
                 "forwards": [{
                     "target_groups": [{
                         "target_group_identifier": example_target_group.id,
                     }],
                 }],
-            })
+            },
+            name="example",
+            protocol="HTTP",
+            service_identifier=example.id)
         ```
 
         ### Forward action with weighted target groups
@@ -444,25 +444,22 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example1 = aws.vpclattice.TargetGroup("example1",
-            name="example-target-group-1",
-            type="INSTANCE",
             config={
                 "port": 80,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-1",
+            type="INSTANCE")
         example2 = aws.vpclattice.TargetGroup("example2",
-            name="example-target-group-2",
-            type="INSTANCE",
             config={
                 "port": 8080,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-2",
+            type="INSTANCE")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTP",
-            service_identifier=example.id,
             default_action={
                 "forwards": [{
                     "target_groups": [
@@ -476,7 +473,10 @@ class Listener(pulumi.CustomResource):
                         },
                     ],
                 }],
-            })
+            },
+            name="example",
+            protocol="HTTP",
+            service_identifier=example.id)
         ```
 
         ## Import
@@ -495,7 +495,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        :param pulumi.Input[_builtins.str] service_arn: ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[_builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -519,14 +519,14 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTPS",
-            service_identifier=example.id,
             default_action={
                 "fixed_response": {
                     "status_code": 404,
                 },
-            })
+            },
+            name="example",
+            protocol="HTTPS",
+            service_identifier=example.id)
         ```
 
         ### Forward action
@@ -537,24 +537,24 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example_target_group = aws.vpclattice.TargetGroup("example",
-            name="example-target-group-1",
-            type="INSTANCE",
             config={
                 "port": 80,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-1",
+            type="INSTANCE")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTP",
-            service_identifier=example.id,
             default_action={
                 "forwards": [{
                     "target_groups": [{
                         "target_group_identifier": example_target_group.id,
                     }],
                 }],
-            })
+            },
+            name="example",
+            protocol="HTTP",
+            service_identifier=example.id)
         ```
 
         ### Forward action with weighted target groups
@@ -565,25 +565,22 @@ class Listener(pulumi.CustomResource):
 
         example = aws.vpclattice.Service("example", name="example")
         example1 = aws.vpclattice.TargetGroup("example1",
-            name="example-target-group-1",
-            type="INSTANCE",
             config={
                 "port": 80,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-1",
+            type="INSTANCE")
         example2 = aws.vpclattice.TargetGroup("example2",
-            name="example-target-group-2",
-            type="INSTANCE",
             config={
                 "port": 8080,
                 "protocol": "HTTP",
                 "vpc_identifier": example_aws_vpc["id"],
-            })
+            },
+            name="example-target-group-2",
+            type="INSTANCE")
         example_listener = aws.vpclattice.Listener("example",
-            name="example",
-            protocol="HTTP",
-            service_identifier=example.id,
             default_action={
                 "forwards": [{
                     "target_groups": [
@@ -597,7 +594,10 @@ class Listener(pulumi.CustomResource):
                         },
                     ],
                 }],
-            })
+            },
+            name="example",
+            protocol="HTTP",
+            service_identifier=example.id)
         ```
 
         ## Import
@@ -697,7 +697,7 @@ class Listener(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] port: Listener port. You can specify a value from 1 to 65535. If `port` is not specified and `protocol` is HTTP, the value will default to 80. If `port` is not specified and `protocol` is HTTPS, the value will default to 443.
         :param pulumi.Input[_builtins.str] protocol: Protocol for the listener. Supported values are `HTTP`, `HTTPS` or `TLS_PASSTHROUGH`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_arn: Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        :param pulumi.Input[_builtins.str] service_arn: ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         :param pulumi.Input[_builtins.str] service_identifier: ID of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
                > **NOTE:** You must specify one of the following arguments: `service_arn` or `service_identifier`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -797,7 +797,7 @@ class Listener(pulumi.CustomResource):
     @pulumi.getter(name="serviceArn")
     def service_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
+        ARN of the VPC Lattice service. You must include either the `service_arn` or `service_identifier` arguments.
         """
         return pulumi.get(self, "service_arn")
 

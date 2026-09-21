@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["cloudfront.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -50,19 +50,19 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
+ *     endpoint: {
+ *         kinesisStreamConfig: {
+ *             roleArn: exampleRole.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
+ *         },
+ *         streamType: "Kinesis",
+ *     },
  *     name: "example",
  *     samplingRate: 75,
  *     fields: [
  *         "timestamp",
  *         "c-ip",
  *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleRole.arn,
- *             streamArn: exampleAwsKinesisStream.arn,
- *         },
- *     },
  * }, {
  *     dependsOn: [exampleRolePolicy],
  * });
@@ -90,6 +90,13 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleRealtimeLogConfig = new aws.cloudfront.RealtimeLogConfig("example", {
+ *     endpoint: {
+ *         kinesisStreamConfig: {
+ *             roleArn: exampleAwsIamRole.arn,
+ *             streamArn: exampleAwsKinesisStream.arn,
+ *         },
+ *         streamType: "Kinesis",
+ *     },
  *     name: "example",
  *     samplingRate: 100,
  *     fields: [
@@ -99,13 +106,6 @@ import * as utilities from "../utilities";
  *         "viewer-request-log-data",
  *         "viewer-response-log-data",
  *     ],
- *     endpoint: {
- *         streamType: "Kinesis",
- *         kinesisStreamConfig: {
- *             roleArn: exampleAwsIamRole.arn,
- *             streamArn: exampleAwsKinesisStream.arn,
- *         },
- *     },
  * }, {
  *     dependsOn: [exampleAwsIamRolePolicy],
  * });
@@ -119,7 +119,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudFront real-time log configuration.
+ * - `arn` (String) ARN of the CloudFront real-time log configuration.
  *
  * Using `pulumi import`, import CloudFront real-time log configurations using the ARN. For example:
  *
@@ -156,7 +156,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -221,7 +221,7 @@ export class RealtimeLogConfig extends pulumi.CustomResource {
  */
 export interface RealtimeLogConfigState {
     /**
-     * The ARN (Amazon Resource Name) of the CloudFront real-time log configuration.
+     * ARN of the CloudFront real-time log configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

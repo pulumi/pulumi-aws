@@ -50,7 +50,7 @@ import (
 type HsmClientCertificate struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	// ARN of the Hsm Client Certificate.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringOutput `pulumi:"hsmClientCertificateIdentifier"`
@@ -97,7 +97,7 @@ func GetHsmClientCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HsmClientCertificate resources.
 type hsmClientCertificateState struct {
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	// ARN of the Hsm Client Certificate.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier *string `pulumi:"hsmClientCertificateIdentifier"`
@@ -112,7 +112,7 @@ type hsmClientCertificateState struct {
 }
 
 type HsmClientCertificateState struct {
-	// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+	// ARN of the Hsm Client Certificate.
 	Arn pulumi.StringPtrInput
 	// The identifier of the HSM client certificate.
 	HsmClientCertificateIdentifier pulumi.StringPtrInput
@@ -236,7 +236,7 @@ func (o HsmClientCertificateOutput) ToHsmClientCertificateOutputWithContext(ctx 
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Hsm Client Certificate.
+// ARN of the Hsm Client Certificate.
 func (o HsmClientCertificateOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HsmClientCertificate) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

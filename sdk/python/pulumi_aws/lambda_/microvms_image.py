@@ -577,8 +577,13 @@ class _MicrovmsImageState:
         pulumi.set(self, "updated_at", value)
 
 
+warnings.warn("""aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image""", DeprecationWarning)
+
+
 @pulumi.type_token("aws:lambda/microvmsImage:MicrovmsImage")
 class MicrovmsImage(pulumi.CustomResource):
+    warnings.warn("""aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -639,17 +644,17 @@ class MicrovmsImage(pulumi.CustomResource):
             bucket=example_bucket.bucket,
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
-        example_microvms_image = aws.lambda_.MicrovmsImage("example",
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn,
+        example_image = aws.lambdamicrovms.Image("example",
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            })
+            },
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn)
         ```
 
         ## Import
@@ -732,17 +737,17 @@ class MicrovmsImage(pulumi.CustomResource):
             bucket=example_bucket.bucket,
             key="code.zip",
             source=pulumi.FileAsset("code.zip"))
-        example_microvms_image = aws.lambda_.MicrovmsImage("example",
-            name="example",
-            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
-            build_role_arn=example.arn,
+        example_image = aws.lambdamicrovms.Image("example",
             code_artifact={
                 "uri": pulumi.Output.all(
                     bucket=example_bucket.bucket,
                     key=example_bucket_objectv2.key
         ).apply(lambda resolved_outputs: f"s3://{resolved_outputs['bucket']}/{resolved_outputs['key']}")
         ,
-            })
+            },
+            name="example",
+            base_image_arn=f"arn:{current.partition}:lambda:{current_get_region.region}:aws:microvm-image:al2023-1",
+            build_role_arn=example.arn)
         ```
 
         ## Import
@@ -789,6 +794,7 @@ class MicrovmsImage(pulumi.CustomResource):
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['MicrovmsImageTimeoutsArgs', 'MicrovmsImageTimeoutsArgsDict']]] = None,
                  __props__=None):
+        pulumi.log.warn("""MicrovmsImage is deprecated: aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image""")
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
             raise TypeError('Expected resource options to be a ResourceOptions instance')

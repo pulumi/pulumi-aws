@@ -40,7 +40,7 @@ class ReplicationSetRegionArgsDict(TypedDict):
     """
     kms_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+    ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
     """
     status: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -61,7 +61,7 @@ class ReplicationSetRegionArgs:
                  status_message: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: The name of the Region, such as `ap-southeast-2`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
         :param pulumi.Input[_builtins.str] status: The current status of the Region.
                * Valid Values: `ACTIVE` | `CREATING` | `UPDATING` | `DELETING` | `FAILED`
         :param pulumi.Input[_builtins.str] status_message: More information about the status of a Region.
@@ -90,7 +90,7 @@ class ReplicationSetRegionArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource name (ARN) of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
+        ARN of the customer managed key. If omitted, AWS manages the AWS KMS keys for you, using an AWS owned key, as indicated by a default value of `DefaultKey`.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -160,7 +160,7 @@ class ResponsePlanActionSsmAutomationArgsDict(TypedDict):
     """
     role_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+    The ARN of the role that the automation document assumes when it runs commands.
     """
     document_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -190,7 +190,7 @@ class ResponsePlanActionSsmAutomationArgs:
                  target_account: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] document_name: The automation document's name.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+        :param pulumi.Input[_builtins.str] role_arn: The ARN of the role that the automation document assumes when it runs commands.
         :param pulumi.Input[_builtins.str] document_version: The version of the automation document to use at runtime.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] dynamic_parameters: The key-value pair to resolve dynamic parameter values when processing a Systems Manager Automation runbook.
         :param pulumi.Input[Sequence[pulumi.Input['ResponsePlanActionSsmAutomationParameterArgs']]] parameters: The key-value pair parameters to use when the automation document runs. The following values are supported:
@@ -223,7 +223,7 @@ class ResponsePlanActionSsmAutomationArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+        The ARN of the role that the automation document assumes when it runs commands.
         """
         return pulumi.get(self, "role_arn")
 

@@ -46,7 +46,6 @@ import (
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorGroup(ctx, "group", &chime.VoiceConnectorGroupArgs{
-//				Name: pulumi.String("test-group"),
 //				Connectors: chime.VoiceConnectorGroupConnectorArray{
 //					&chime.VoiceConnectorGroupConnectorArgs{
 //						VoiceConnectorId: vc1.ID().ToIDOutput().ToStringOutput(),
@@ -57,6 +56,7 @@ import (
 //						Priority:         pulumi.Int(3),
 //					},
 //				},
+//				Name: pulumi.String("test-group"),
 //			})
 //			if err != nil {
 //				return err

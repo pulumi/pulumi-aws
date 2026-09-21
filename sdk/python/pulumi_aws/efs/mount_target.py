@@ -162,7 +162,7 @@ class _MountTargetState:
         :param pulumi.Input[_builtins.str] availability_zone_id: The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] availability_zone_name: The name of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name for the EFS file system.
-        :param pulumi.Input[_builtins.str] file_system_arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] file_system_arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
@@ -245,7 +245,7 @@ class _MountTargetState:
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "file_system_arn")
 
@@ -547,7 +547,7 @@ class MountTarget(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] availability_zone_id: The unique and consistent identifier of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] availability_zone_name: The name of the Availability Zone (AZ) that the mount target resides in.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name for the EFS file system.
-        :param pulumi.Input[_builtins.str] file_system_arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] file_system_arn: ARN of the file system.
         :param pulumi.Input[_builtins.str] file_system_id: The ID of the file system for which the mount target is intended.
         :param pulumi.Input[_builtins.str] ip_address: The address (within the address range of the specified subnet) at
                which the file system may be mounted via the mount target.
@@ -609,7 +609,7 @@ class MountTarget(pulumi.CustomResource):
     @pulumi.getter(name="fileSystemArn")
     def file_system_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "file_system_arn")
 

@@ -32,7 +32,7 @@ class EventArchiveArgs:
         :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
@@ -91,7 +91,7 @@ class EventArchiveArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -154,7 +154,7 @@ class _EventArchiveState:
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
@@ -228,7 +228,7 @@ class _EventArchiveState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -410,7 +410,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
@@ -609,7 +609,7 @@ class EventArchive(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description for the archive.
         :param pulumi.Input[_builtins.str] event_pattern: Event pattern to use to filter events sent to the archive. By default, it attempts to archive every event received in the `event_source_arn`.
         :param pulumi.Input[_builtins.str] event_source_arn: ARN of the event bus associated with the archive. Only events from this event bus are sent to the archive.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         :param pulumi.Input[_builtins.str] name: Name of the archive. The archive name cannot exceed 48 characters.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.int] retention_days: The maximum number of days to retain events in the new event archive. By default, it archives indefinitely.
@@ -664,7 +664,7 @@ class EventArchive(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key Amazon Resource Name (ARN), KeyId, key alias, or key alias ARN.
+        Identifier of the AWS KMS customer managed key for EventBridge to use, if you choose to use a customer managed key to encrypt this archive. The identifier can be the key ARN, KeyId, key alias, or key alias ARN.
         """
         return pulumi.get(self, "kms_key_identifier")
 

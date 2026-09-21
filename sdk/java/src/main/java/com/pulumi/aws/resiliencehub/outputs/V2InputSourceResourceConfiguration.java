@@ -37,8 +37,6 @@ public final class V2InputSourceResourceConfiguration {
     /**
      * @return S3 URL.
      * 
-     * Exactly one attribute must be configured.
-     * 
      */
     private @Nullable String tfStateFileUrl;
 
@@ -73,8 +71,6 @@ public final class V2InputSourceResourceConfiguration {
     }
     /**
      * @return S3 URL.
-     * 
-     * Exactly one attribute must be configured.
      * 
      */
     public Optional<String> tfStateFileUrl() {

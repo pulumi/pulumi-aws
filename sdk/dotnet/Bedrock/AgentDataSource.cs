@@ -26,16 +26,16 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
     ///     {
-    ///         KnowledgeBaseId = "EMDPPAYPZI",
-    ///         Name = "example",
     ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
     ///         {
-    ///             Type = "S3",
     ///             S3Configuration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs
     ///             {
     ///                 BucketArn = "arn:aws:s3:::example-bucket",
     ///             },
+    ///             Type = "S3",
     ///         },
+    ///         KnowledgeBaseId = "EMDPPAYPZI",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -54,13 +54,17 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
     ///     {
-    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
-    ///         Name = "example-s3-managed",
     ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
     ///         {
-    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     ///             ManagedKnowledgeBaseConnectorConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs
     ///             {
+    ///                 MediaExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs
+    ///                 {
+    ///                     ImageExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs
+    ///                     {
+    ///                         ImageExtractionStatus = "ENABLED",
+    ///                     },
+    ///                 },
     ///                 ConnectorParameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///                 {
     ///                     ["type"] = "S3",
@@ -76,14 +80,8 @@ namespace Pulumi.Aws.Bedrock
     ///                         ["maxFileSizeInMegaBytes"] = "500",
     ///                     },
     ///                 }),
-    ///                 MediaExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationArgs
-    ///                 {
-    ///                     ImageExtractionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationMediaExtractionConfigurationImageExtractionConfigurationArgs
-    ///                     {
-    ///                         ImageExtractionStatus = "ENABLED",
-    ///                     },
-    ///                 },
     ///             },
+    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     ///         },
     ///         VectorIngestionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationArgs
     ///         {
@@ -92,6 +90,8 @@ namespace Pulumi.Aws.Bedrock
     ///                 ParsingStrategy = "SMART_PARSING",
     ///             },
     ///         },
+    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
+    ///         Name = "example-s3-managed",
     ///     });
     /// 
     /// });
@@ -110,11 +110,8 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var sharepoint = new Aws.Bedrock.AgentDataSource("sharepoint", new()
     ///     {
-    ///         KnowledgeBaseId = example.Id,
-    ///         Name = "example-sharepoint",
     ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
     ///         {
-    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     ///             ManagedKnowledgeBaseConnectorConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationManagedKnowledgeBaseConnectorConfigurationArgs
     ///             {
     ///                 ConnectorParameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -144,7 +141,10 @@ namespace Pulumi.Aws.Bedrock
     ///                     },
     ///                 }),
     ///             },
+    ///             Type = "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
     ///         },
+    ///         KnowledgeBaseId = example.Id,
+    ///         Name = "example-sharepoint",
     ///     });
     /// 
     /// });
@@ -162,41 +162,41 @@ namespace Pulumi.Aws.Bedrock
     /// {
     ///     var example = new Aws.Bedrock.AgentDataSource("example", new()
     ///     {
-    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
-    ///         Name = "multimodal-example",
     ///         DataSourceConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationArgs
     ///         {
-    ///             Type = "S3",
     ///             S3Configuration = new Aws.Bedrock.Inputs.AgentDataSourceDataSourceConfigurationS3ConfigurationArgs
     ///             {
     ///                 BucketArn = exampleAwsS3Bucket.Arn,
     ///             },
+    ///             Type = "S3",
     ///         },
     ///         VectorIngestionConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationArgs
     ///         {
     ///             ChunkingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationArgs
     ///             {
-    ///                 ChunkingStrategy = "FIXED_SIZE",
     ///                 FixedSizeChunkingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationChunkingConfigurationFixedSizeChunkingConfigurationArgs
     ///                 {
     ///                     MaxTokens = 512,
     ///                     OverlapPercentage = 20,
     ///                 },
+    ///                 ChunkingStrategy = "FIXED_SIZE",
     ///             },
     ///             ParsingConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationArgs
     ///             {
-    ///                 ParsingStrategy = "BEDROCK_FOUNDATION_MODEL",
     ///                 BedrockFoundationModelConfiguration = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationArgs
     ///                 {
-    ///                     ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
-    ///                     ParsingModality = "MULTIMODAL",
     ///                     ParsingPrompt = new Aws.Bedrock.Inputs.AgentDataSourceVectorIngestionConfigurationParsingConfigurationBedrockFoundationModelConfigurationParsingPromptArgs
     ///                     {
     ///                         ParsingPromptString = "Extract and transcribe all text and visual content from the document.",
     ///                     },
+    ///                     ModelArn = "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+    ///                     ParsingModality = "MULTIMODAL",
     ///                 },
+    ///                 ParsingStrategy = "BEDROCK_FOUNDATION_MODEL",
     ///             },
     ///         },
+    ///         KnowledgeBaseId = exampleAwsBedrockagentKnowledgeBase.Id,
+    ///         Name = "multimodal-example",
     ///     });
     /// 
     /// });

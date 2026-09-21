@@ -52,10 +52,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -94,10 +94,10 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "versioning_example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Disabled"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -135,10 +135,10 @@ import (
 //				return err
 //			}
 //			exampleBucketVersioning, err := s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

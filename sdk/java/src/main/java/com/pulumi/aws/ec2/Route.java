@@ -164,14 +164,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.carrierGatewayId);
     }
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      * 
      */
     @Export(name="coreNetworkArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> coreNetworkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Output<Optional<String>> coreNetworkArn() {
@@ -322,14 +322,14 @@ public class Route extends com.pulumi.resources.CustomResource {
         return this.networkInterfaceId;
     }
     /**
-     * The Amazon Resource Name (ARN) of an ODB network.
+     * ARN of an ODB network.
      * 
      */
     @Export(name="odbNetworkArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> odbNetworkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * @return ARN of an ODB network.
      * 
      */
     public Output<Optional<String>> odbNetworkArn() {

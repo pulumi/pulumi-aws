@@ -62,18 +62,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPoint = new ObjectLambdaAccessPoint("exampleObjectLambdaAccessPoint", ObjectLambdaAccessPointArgs.builder()
- *             .name("example")
  *             .configuration(ObjectLambdaAccessPointConfigurationArgs.builder()
- *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .transformationConfigurations(ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs.builder()
- *                     .actions("GetObject")
  *                     .contentTransformation(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs.builder()
  *                         .awsLambda(ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs.builder()
  *                             .functionArn(exampleAwsLambdaFunction.arn())
  *                             .build())
  *                         .build())
+ *                     .actions("GetObject")
  *                     .build())
+ *                 .supportingAccessPoint(exampleAccessPoint.arn())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *         var exampleObjectLambdaAccessPointPolicy = new ObjectLambdaAccessPointPolicy("exampleObjectLambdaAccessPointPolicy", ObjectLambdaAccessPointPolicyArgs.builder()

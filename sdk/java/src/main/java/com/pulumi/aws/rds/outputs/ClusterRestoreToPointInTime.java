@@ -18,8 +18,7 @@ public final class ClusterRestoreToPointInTime {
      */
     private @Nullable String restoreToTime;
     /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * @return Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
      * 
      */
     private @Nullable String restoreType;
@@ -48,8 +47,7 @@ public final class ClusterRestoreToPointInTime {
         return Optional.ofNullable(this.restoreToTime);
     }
     /**
-     * @return Type of restore to be performed.
-     * Valid options are `full-copy` (default) and `copy-on-write`.
+     * @return Type of restore to be performed. Valid options are `full-copy` (default) and `copy-on-write`.
      * 
      */
     public Optional<String> restoreType() {

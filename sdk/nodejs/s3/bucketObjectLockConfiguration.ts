@@ -24,19 +24,19 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "mybucket"});
  * const exampleBucketVersioning = new aws.s3.BucketVersioning("example", {
- *     bucket: example.id,
  *     versioningConfiguration: {
  *         status: "Enabled",
  *     },
+ *     bucket: example.id,
  * });
  * const exampleBucketObjectLockConfiguration = new aws.s3.BucketObjectLockConfiguration("example", {
- *     bucket: example.id,
  *     rule: {
  *         defaultRetention: {
  *             mode: "COMPLIANCE",
  *             days: 5,
  *         },
  *     },
+ *     bucket: example.id,
  * });
  * ```
  *

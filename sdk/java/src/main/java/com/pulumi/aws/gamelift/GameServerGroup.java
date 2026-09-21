@@ -34,8 +34,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.gamelift.GameServerGroup;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -51,7 +51,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()
- *             .gameServerGroupName("example")
+ *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
+ *                 .id(exampleAwsLaunchTemplate.id())
+ *                 .build())
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
  *                     .instanceType("c5.large")
@@ -59,9 +61,7 @@ import javax.annotation.Nullable;
  *                 GameServerGroupInstanceDefinitionArgs.builder()
  *                     .instanceType("c5a.large")
  *                     .build())
- *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(exampleAwsLaunchTemplate.id())
- *                 .build())
+ *             .gameServerGroupName("example")
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(exampleAwsIamRole.arn())
@@ -87,8 +87,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.gamelift.GameServerGroupArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs;
- * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.aws.gamelift.inputs.GameServerGroupLaunchTemplateArgs;
+ * import com.pulumi.aws.gamelift.inputs.GameServerGroupInstanceDefinitionArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
@@ -105,14 +105,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new GameServerGroup("example", GameServerGroupArgs.builder()
  *             .autoScalingPolicy(GameServerGroupAutoScalingPolicyArgs.builder()
- *                 .estimatedInstanceWarmup(60)
  *                 .targetTrackingConfiguration(GameServerGroupAutoScalingPolicyTargetTrackingConfigurationArgs.builder()
  *                     .targetValue(75.0)
  *                     .build())
+ *                 .estimatedInstanceWarmup(60)
  *                 .build())
- *             .balancingStrategy("SPOT_ONLY")
- *             .gameServerGroupName("example")
- *             .gameServerProtectionPolicy("FULL_PROTECTION")
+ *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
+ *                 .id(exampleAwsLaunchTemplate.id())
+ *                 .version("1")
+ *                 .build())
  *             .instanceDefinitions(            
  *                 GameServerGroupInstanceDefinitionArgs.builder()
  *                     .instanceType("c5.large")
@@ -122,10 +123,9 @@ import javax.annotation.Nullable;
  *                     .instanceType("c5.2xlarge")
  *                     .weightedCapacity("2")
  *                     .build())
- *             .launchTemplate(GameServerGroupLaunchTemplateArgs.builder()
- *                 .id(exampleAwsLaunchTemplate.id())
- *                 .version("1")
- *                 .build())
+ *             .balancingStrategy("SPOT_ONLY")
+ *             .gameServerGroupName("example")
+ *             .gameServerProtectionPolicy("FULL_PROTECTION")
  *             .maxSize(1)
  *             .minSize(1)
  *             .roleArn(exampleAwsIamRole.arn())
@@ -179,13 +179,13 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers(                    
  *                         "autoscaling.amazonaws.com",
  *                         "gamelift.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());

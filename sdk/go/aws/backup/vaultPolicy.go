@@ -43,7 +43,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("AWS"),
@@ -52,6 +51,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.String("Allow"),
 //						Actions: pulumi.StringArray{
 //							pulumi.String("backup:DescribeBackupVault"),
 //							pulumi.String("backup:DeleteBackupVault"),

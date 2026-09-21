@@ -61,11 +61,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("sagemaker.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -78,11 +78,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Model("example", ModelArgs.builder()
- *             .name("my-model")
- *             .executionRoleArn(exampleRole.arn())
  *             .primaryContainer(ModelPrimaryContainerArgs.builder()
  *                 .image(test.registryPath())
  *                 .build())
+ *             .name("my-model")
+ *             .executionRoleArn(exampleRole.arn())
  *             .build());
  * 
  *     }
@@ -102,14 +102,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/model:Model")
 public class Model extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) assigned by AWS to this model.
+     * ARN assigned by AWS to this model.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) assigned by AWS to this model.
+     * @return ARN assigned by AWS to this model.
      * 
      */
     public Output<String> arn() {

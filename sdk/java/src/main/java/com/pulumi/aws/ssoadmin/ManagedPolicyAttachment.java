@@ -152,28 +152,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ssoadmin/managedPolicyAttachment:ManagedPolicyAttachment")
 public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Export(name="instanceArn", refs={String.class}, tree="[0]")
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Output<String> instanceArn() {
         return this.instanceArn;
     }
     /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * IAM managed policy ARN to be attached to the Permission Set.
      * 
      */
     @Export(name="managedPolicyArn", refs={String.class}, tree="[0]")
     private Output<String> managedPolicyArn;
 
     /**
-     * @return The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * @return IAM managed policy ARN to be attached to the Permission Set.
      * 
      */
     public Output<String> managedPolicyArn() {
@@ -194,14 +194,14 @@ public class ManagedPolicyAttachment extends com.pulumi.resources.CustomResource
         return this.managedPolicyName;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Export(name="permissionSetArn", refs={String.class}, tree="[0]")
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Output<String> permissionSetArn() {

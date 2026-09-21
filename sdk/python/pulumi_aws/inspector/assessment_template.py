@@ -313,6 +313,10 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
+            event_subscriptions=[{
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "topic_arn": example_aws_sns_topic["arn"],
+            }],
             name="example",
             target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
@@ -321,11 +325,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ],
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }])
+            ])
         ```
 
         ## Import
@@ -334,7 +334,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+        - `arn` (String) ARN of the Inspector assessment template.
 
         Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 
@@ -369,6 +369,10 @@ class AssessmentTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.inspector.AssessmentTemplate("example",
+            event_subscriptions=[{
+                "event": "ASSESSMENT_RUN_COMPLETED",
+                "topic_arn": example_aws_sns_topic["arn"],
+            }],
             name="example",
             target_arn=example_aws_inspector_assessment_target["arn"],
             duration=3600,
@@ -377,11 +381,7 @@ class AssessmentTemplate(pulumi.CustomResource):
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-H5hpSawc",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-JJOtZiqQ",
                 "arn:aws:inspector:us-west-2:758058086616:rulespackage/0-vg5GGHSD",
-            ],
-            event_subscriptions=[{
-                "event": "ASSESSMENT_RUN_COMPLETED",
-                "topic_arn": example_aws_sns_topic["arn"],
-            }])
+            ])
         ```
 
         ## Import
@@ -390,7 +390,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Inspector assessment template.
+        - `arn` (String) ARN of the Inspector assessment template.
 
         Using `pulumi import`, import `inspector.AssessmentTemplate` using the template assessment ARN. For example:
 

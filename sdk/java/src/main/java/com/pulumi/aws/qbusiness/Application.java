@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Application("example", ApplicationArgs.builder()
- *             .displayName("example-app")
- *             .iamServiceRoleArn(exampleAwsIamRole.arn())
- *             .identityCenterInstanceArn(exampleAwsSsoadminInstances.arns()[0])
  *             .attachmentsConfiguration(ApplicationAttachmentsConfigurationArgs.builder()
  *                 .attachmentsControlMode("ENABLED")
  *                 .build())
+ *             .displayName("example-app")
+ *             .iamServiceRoleArn(exampleAwsIamRole.arn())
+ *             .identityCenterInstanceArn(exampleAwsSsoadminInstances.arns()[0])
  *             .build());
  * 
  *     }

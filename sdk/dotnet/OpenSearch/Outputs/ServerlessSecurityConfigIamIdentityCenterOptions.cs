@@ -18,7 +18,7 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// </summary>
         public readonly string? GroupAttribute;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+        /// ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
         /// </summary>
         public readonly string InstanceArn;
         /// <summary>

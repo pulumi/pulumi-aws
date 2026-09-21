@@ -38,7 +38,7 @@ class FolderArgs:
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -113,7 +113,7 @@ class FolderArgs:
     @pulumi.getter(name="parentFolderArn")
     def parent_folder_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        ARN for the parent folder. If not set, creates a root-level folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 
@@ -187,7 +187,7 @@ class _FolderState:
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input['FolderPermissionArgs']]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -322,7 +322,7 @@ class _FolderState:
     @pulumi.getter(name="parentFolderArn")
     def parent_folder_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        ARN for the parent folder. If not set, creates a root-level folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 
@@ -417,8 +417,6 @@ class Folder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Folder("example",
-            folder_id="example-id",
-            name="example-name",
             permissions=[{
                 "actions": [
                     "quicksight:CreateFolder",
@@ -431,7 +429,9 @@ class Folder(pulumi.CustomResource):
                     "quicksight:UpdateFolderPermissions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }])
+            }],
+            folder_id="example-id",
+            name="example-name")
         ```
 
         ### With Parent Folder
@@ -466,7 +466,7 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -500,8 +500,6 @@ class Folder(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.quicksight.Folder("example",
-            folder_id="example-id",
-            name="example-name",
             permissions=[{
                 "actions": [
                     "quicksight:CreateFolder",
@@ -514,7 +512,9 @@ class Folder(pulumi.CustomResource):
                     "quicksight:UpdateFolderPermissions",
                 ],
                 "principal": example_aws_quicksight_user["arn"],
-            }])
+            }],
+            folder_id="example-id",
+            name="example-name")
         ```
 
         ### With Parent Folder
@@ -628,7 +628,7 @@ class Folder(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: Display name for the folder.
                
                The following arguments are optional:
-        :param pulumi.Input[_builtins.str] parent_folder_arn: The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        :param pulumi.Input[_builtins.str] parent_folder_arn: ARN for the parent folder. If not set, creates a root-level folder.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FolderPermissionArgs', 'FolderPermissionArgsDict']]]] permissions: A set of resource permissions on the folder. Maximum of 64 items. See permissions.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -723,7 +723,7 @@ class Folder(pulumi.CustomResource):
     @pulumi.getter(name="parentFolderArn")
     def parent_folder_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+        ARN for the parent folder. If not set, creates a root-level folder.
         """
         return pulumi.get(self, "parent_folder_arn")
 

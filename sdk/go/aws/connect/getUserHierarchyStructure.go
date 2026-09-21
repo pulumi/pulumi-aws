@@ -67,12 +67,8 @@ type LookupUserHierarchyStructureResult struct {
 }
 
 func LookupUserHierarchyStructureOutput(ctx *pulumi.Context, args LookupUserHierarchyStructureOutputArgs, opts ...pulumi.InvokeOption) LookupUserHierarchyStructureResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserHierarchyStructureResultOutput, error) {
-			args := v.(LookupUserHierarchyStructureArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args, LookupUserHierarchyStructureResultOutput{}, options).(LookupUserHierarchyStructureResultOutput), nil
-		}).(LookupUserHierarchyStructureResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:connect/getUserHierarchyStructure:getUserHierarchyStructure", args, LookupUserHierarchyStructureResultOutput{}, options).(LookupUserHierarchyStructureResultOutput)
 }
 
 // A collection of arguments for invoking getUserHierarchyStructure.

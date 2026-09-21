@@ -30,12 +30,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sfnActivity = new aws.sfn.Activity("sfn_activity", {
- *     name: "my-activity",
  *     encryptionConfiguration: {
  *         kmsKeyId: kmsKeyForSfn.arn,
  *         type: "CUSTOMER_MANAGED_KMS_KEY",
  *         kmsDataKeyReusePeriodSeconds: 900,
  *     },
+ *     name: "my-activity",
  * });
  * ```
  *
@@ -82,7 +82,7 @@ export class Activity extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -150,7 +150,7 @@ export class Activity extends pulumi.CustomResource {
  */
 export interface ActivityState {
     /**
-     * Amazon Resource Name (ARN) of the activity.
+     * ARN of the activity.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

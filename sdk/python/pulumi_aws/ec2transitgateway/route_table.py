@@ -85,7 +85,7 @@ class _RouteTableState:
         """
         Input properties used for looking up and filtering RouteTable resources.
 
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Route Table ARN.
         :param pulumi.Input[_builtins.bool] default_association_route_table: Boolean whether this is the default association route table for the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.bool] default_propagation_route_table: Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -112,7 +112,7 @@ class _RouteTableState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        EC2 Transit Gateway Route Table ARN.
         """
         return pulumi.get(self, "arn")
 
@@ -317,7 +317,7 @@ class RouteTable(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        :param pulumi.Input[_builtins.str] arn: EC2 Transit Gateway Route Table ARN.
         :param pulumi.Input[_builtins.bool] default_association_route_table: Boolean whether this is the default association route table for the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.bool] default_propagation_route_table: Boolean whether this is the default propagation route table for the EC2 Transit Gateway.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -342,7 +342,7 @@ class RouteTable(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        EC2 Transit Gateway Route Table Amazon Resource Name (ARN).
+        EC2 Transit Gateway Route Table ARN.
         """
         return pulumi.get(self, "arn")
 

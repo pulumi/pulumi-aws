@@ -166,7 +166,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  timeouts: pulumi.Input[Optional[Union['DefaultCreditSpecificationTimeoutsArgs', 'DefaultCreditSpecificationTimeoutsArgsDict']]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+        Resource for managing an AWS EC2 Default Credit Specification.
 
         ## Example Usage
 
@@ -183,7 +183,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
+        Using `pulumi import`, import EC2 Default Credit Specification using the `instance_family`. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -198,7 +198,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
                  args: DefaultCreditSpecificationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+        Resource for managing an AWS EC2 Default Credit Specification.
 
         ## Example Usage
 
@@ -215,7 +215,7 @@ class DefaultCreditSpecification(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instance_family`. For example:
+        Using `pulumi import`, import EC2 Default Credit Specification using the `instance_family`. For example:
 
         :param str resource_name: The name of the resource.
         :param DefaultCreditSpecificationArgs args: The arguments to use to populate this resource's properties.

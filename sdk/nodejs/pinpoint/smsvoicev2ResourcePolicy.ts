@@ -23,13 +23,13 @@ import * as utilities from "../utilities";
  * });
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
- *         actions: ["sms-voice:SendTextMessage"],
- *         resources: [exampleSmsvoicev2PhoneNumber.arn],
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["123456789012"],
  *         }],
+ *         effect: "Allow",
+ *         actions: ["sms-voice:SendTextMessage"],
+ *         resources: [exampleSmsvoicev2PhoneNumber.arn],
  *     }],
  * });
  * const exampleSmsvoicev2ResourcePolicy = new aws.pinpoint.Smsvoicev2ResourcePolicy("example", {

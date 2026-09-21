@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
- *     name: "example",
- *     type: "INSTANCE",
  *     config: {
  *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *     },
+ *     name: "example",
+ *     type: "INSTANCE",
  * });
  * ```
  *
@@ -36,29 +36,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
- *     name: "example",
- *     type: "IP",
  *     config: {
- *         vpcIdentifier: exampleAwsVpc.id,
- *         ipAddressType: "IPV4",
- *         port: 443,
- *         protocol: "HTTPS",
- *         protocolVersion: "HTTP1",
  *         healthCheck: {
+ *             matcher: {
+ *                 value: "200-299",
+ *             },
  *             enabled: true,
  *             healthCheckIntervalSeconds: 20,
  *             healthCheckTimeoutSeconds: 10,
  *             healthyThresholdCount: 7,
  *             unhealthyThresholdCount: 3,
- *             matcher: {
- *                 value: "200-299",
- *             },
  *             path: "/instance",
  *             port: 80,
  *             protocol: "HTTP",
  *             protocolVersion: "HTTP1",
  *         },
+ *         vpcIdentifier: exampleAwsVpc.id,
+ *         ipAddressType: "IPV4",
+ *         port: 443,
+ *         protocol: "HTTPS",
+ *         protocolVersion: "HTTP1",
  *     },
+ *     name: "example",
+ *     type: "IP",
  * });
  * ```
  *
@@ -71,14 +71,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.vpclattice.TargetGroup("example", {
- *     name: "example",
- *     type: "ALB",
  *     config: {
  *         vpcIdentifier: exampleAwsVpc.id,
  *         port: 443,
  *         protocol: "HTTPS",
  *         protocolVersion: "HTTP1",
  *     },
+ *     name: "example",
+ *     type: "ALB",
  * });
  * ```
  *

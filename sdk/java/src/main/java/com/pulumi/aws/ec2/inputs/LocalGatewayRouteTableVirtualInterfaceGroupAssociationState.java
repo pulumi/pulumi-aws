@@ -32,14 +32,14 @@ public final class LocalGatewayRouteTableVirtualInterfaceGroupAssociationState e
     }
 
     /**
-     * Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * ARN of the EC2 Local Gateway Route Table.
      * 
      */
     @Import(name="localGatewayRouteTableArn")
     private @Nullable Output<String> localGatewayRouteTableArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+     * @return ARN of the EC2 Local Gateway Route Table.
      * 
      */
     public Optional<Output<String>> localGatewayRouteTableArn() {
@@ -209,7 +209,7 @@ public final class LocalGatewayRouteTableVirtualInterfaceGroupAssociationState e
         }
 
         /**
-         * @param localGatewayRouteTableArn Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+         * @param localGatewayRouteTableArn ARN of the EC2 Local Gateway Route Table.
          * 
          * @return builder
          * 
@@ -220,7 +220,7 @@ public final class LocalGatewayRouteTableVirtualInterfaceGroupAssociationState e
         }
 
         /**
-         * @param localGatewayRouteTableArn Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+         * @param localGatewayRouteTableArn ARN of the EC2 Local Gateway Route Table.
          * 
          * @return builder
          * 

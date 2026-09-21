@@ -123,70 +123,70 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/clusterEndpoint:ClusterEndpoint")
 public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     @Export(name="clusterEndpointIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterEndpointIdentifier;
 
     /**
-     * @return The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * @return Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     public Output<String> clusterEndpointIdentifier() {
         return this.clusterEndpointIdentifier;
     }
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      * 
      */
     @Export(name="clusterIdentifier", refs={String.class}, tree="[0]")
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return Cluster identifier.
      * 
      */
     public Output<String> clusterIdentifier() {
         return this.clusterIdentifier;
     }
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      * 
      */
     @Export(name="customEndpointType", refs={String.class}, tree="[0]")
     private Output<String> customEndpointType;
 
     /**
-     * @return The type of the endpoint. One of: READER , ANY .
+     * @return Type of the endpoint. One of: READER , ANY .
      * 
      */
     public Output<String> customEndpointType() {
         return this.customEndpointType;
     }
     /**
-     * A custom endpoint for the Aurora cluster
+     * Custom endpoint for the Aurora cluster
      * 
      */
     @Export(name="endpoint", refs={String.class}, tree="[0]")
     private Output<String> endpoint;
 
     /**
-     * @return A custom endpoint for the Aurora cluster
+     * @return Custom endpoint for the Aurora cluster
      * 
      */
     public Output<String> endpoint() {
@@ -237,9 +237,6 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-     * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
@@ -247,22 +244,19 @@ public class ClusterEndpoint extends com.pulumi.resources.CustomResource {
     /**
      * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-     * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

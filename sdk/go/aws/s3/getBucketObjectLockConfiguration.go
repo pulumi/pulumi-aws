@@ -74,12 +74,8 @@ type LookupBucketObjectLockConfigurationResult struct {
 }
 
 func LookupBucketObjectLockConfigurationOutput(ctx *pulumi.Context, args LookupBucketObjectLockConfigurationOutputArgs, opts ...pulumi.InvokeOption) LookupBucketObjectLockConfigurationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupBucketObjectLockConfigurationResultOutput, error) {
-			args := v.(LookupBucketObjectLockConfigurationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:s3/getBucketObjectLockConfiguration:getBucketObjectLockConfiguration", args, LookupBucketObjectLockConfigurationResultOutput{}, options).(LookupBucketObjectLockConfigurationResultOutput), nil
-		}).(LookupBucketObjectLockConfigurationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:s3/getBucketObjectLockConfiguration:getBucketObjectLockConfiguration", args, LookupBucketObjectLockConfigurationResultOutput{}, options).(LookupBucketObjectLockConfigurationResultOutput)
 }
 
 // A collection of arguments for invoking getBucketObjectLockConfiguration.

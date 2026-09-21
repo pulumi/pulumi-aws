@@ -53,11 +53,11 @@ export class EmailIdentity extends pulumi.CustomResource {
     }
 
     /**
-     * The ARN of the email identity.
+     * ARN of the email identity.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      */
     declare public readonly email: pulumi.Output<string>;
     /**
@@ -100,11 +100,11 @@ export class EmailIdentity extends pulumi.CustomResource {
  */
 export interface EmailIdentityState {
     /**
-     * The ARN of the email identity.
+     * ARN of the email identity.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      */
     email?: pulumi.Input<string | undefined>;
     /**
@@ -118,7 +118,7 @@ export interface EmailIdentityState {
  */
 export interface EmailIdentityArgs {
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      */
     email: pulumi.Input<string>;
     /**

@@ -15,7 +15,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
+ * Resource for enabling private DNS on an AWS VPC Endpoint.
  * 
  * &gt; When using this resource, the `privateDnsEnabled` argument should be omitted on the parent `aws.ec2.VpcEndpoint` resource.
  * Setting the value both places can lead to unintended behavior and persistent differences.
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpcEndpointId`. For example:
+ * Using `pulumi import`, import a VPC Endpoint Private DNS using the `vpcEndpointId`. For example:
  * 
  * ```sh
  * $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234

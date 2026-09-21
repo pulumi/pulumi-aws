@@ -82,10 +82,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FunctionUrl("example", FunctionUrlArgs.builder()
- *             .functionName(exampleAwsLambdaFunction.functionName())
- *             .qualifier("my_alias")
- *             .authorizationType("AWS_IAM")
- *             .invokeMode("RESPONSE_STREAM")
  *             .cors(FunctionUrlCorsArgs.builder()
  *                 .allowCredentials(true)
  *                 .allowOrigins("https://example.com")
@@ -100,6 +96,10 @@ import javax.annotation.Nullable;
  *                     "date")
  *                 .maxAge(86400)
  *                 .build())
+ *             .functionName(exampleAwsLambdaFunction.functionName())
+ *             .qualifier("my_alias")
+ *             .authorizationType("AWS_IAM")
+ *             .invokeMode("RESPONSE_STREAM")
  *             .build());
  * 
  *     }

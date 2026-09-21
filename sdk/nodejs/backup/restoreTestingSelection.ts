@@ -34,16 +34,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.backup.RestoreTestingSelection("example", {
- *     name: "ec2_selection",
- *     restoreTestingPlanName: exampleAwsBackupRestoreTestingPlan.name,
- *     protectedResourceType: "EC2",
- *     iamRoleArn: exampleAwsIamRole.arn,
  *     protectedResourceConditions: {
  *         stringEquals: [{
  *             key: "aws:ResourceTag/backup",
  *             value: "true",
  *         }],
  *     },
+ *     name: "ec2_selection",
+ *     restoreTestingPlanName: exampleAwsBackupRestoreTestingPlan.name,
+ *     protectedResourceType: "EC2",
+ *     iamRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *

@@ -60,7 +60,7 @@ type LookupConnectionGroupArgs struct {
 type LookupConnectionGroupResult struct {
 	// ID of the anycast IP list associated with this connection group, if any.
 	AnycastIpListId string `pulumi:"anycastIpListId"`
-	// ARN (Amazon Resource Name) for the connection group.
+	// ARN for the connection group.
 	Arn string `pulumi:"arn"`
 	// Whether the connection group is enabled.
 	Enabled bool `pulumi:"enabled"`
@@ -84,12 +84,8 @@ type LookupConnectionGroupResult struct {
 }
 
 func LookupConnectionGroupOutput(ctx *pulumi.Context, args LookupConnectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupConnectionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupConnectionGroupResultOutput, error) {
-			args := v.(LookupConnectionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:cloudfront/getConnectionGroup:getConnectionGroup", args, LookupConnectionGroupResultOutput{}, options).(LookupConnectionGroupResultOutput), nil
-		}).(LookupConnectionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:cloudfront/getConnectionGroup:getConnectionGroup", args, LookupConnectionGroupResultOutput{}, options).(LookupConnectionGroupResultOutput)
 }
 
 // A collection of arguments for invoking getConnectionGroup.
@@ -124,7 +120,7 @@ func (o LookupConnectionGroupResultOutput) AnycastIpListId() pulumi.StringOutput
 	return o.ApplyT(func(v LookupConnectionGroupResult) string { return v.AnycastIpListId }).(pulumi.StringOutput)
 }
 
-// ARN (Amazon Resource Name) for the connection group.
+// ARN for the connection group.
 func (o LookupConnectionGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConnectionGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

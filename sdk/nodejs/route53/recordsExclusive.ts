@@ -29,11 +29,7 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * const test = new aws.route53.RecordsExclusive("test", {
- *     zoneId: testAwsRoute53Zone.zoneId,
  *     resourceRecordSets: [{
- *         name: "subdomain.example.com",
- *         type: "A",
- *         ttl: 30,
  *         resourceRecords: [
  *             {
  *                 value: "127.0.0.1",
@@ -42,7 +38,11 @@ import * as utilities from "../utilities";
  *                 value: "127.0.0.27",
  *             },
  *         ],
+ *         name: "subdomain.example.com",
+ *         type: "A",
+ *         ttl: 30,
  *     }],
+ *     zoneId: testAwsRoute53Zone.zoneId,
  * });
  * ```
  *

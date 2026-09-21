@@ -26,10 +26,8 @@ namespace Pulumi.Aws.S3Control
     /// 
     ///     var example = new Aws.S3Control.StorageLensConfiguration("example", new()
     ///     {
-    ///         ConfigId = "example-1",
     ///         StorageLensConfigurationDetail = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationArgs
     ///         {
-    ///             Enabled = true,
     ///             AccountLevel = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelArgs
     ///             {
     ///                 ActivityMetrics = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs
@@ -52,10 +50,6 @@ namespace Pulumi.Aws.S3Control
     ///                 },
     ///                 S3BucketDestination = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs
     ///                 {
-    ///                     AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
-    ///                     Arn = target.Arn,
-    ///                     Format = "CSV",
-    ///                     OutputSchemaVersion = "V_1",
     ///                     Encryption = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs
     ///                     {
     ///                         SseS3s = new[]
@@ -63,6 +57,10 @@ namespace Pulumi.Aws.S3Control
     ///                             null,
     ///                         },
     ///                     },
+    ///                     AccountId = current.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId),
+    ///                     Arn = target.Arn,
+    ///                     Format = "CSV",
+    ///                     OutputSchemaVersion = "V_1",
     ///                 },
     ///             },
     ///             Exclude = new Aws.S3Control.Inputs.StorageLensConfigurationStorageLensConfigurationExcludeArgs
@@ -77,7 +75,9 @@ namespace Pulumi.Aws.S3Control
     ///                     "us-east-2",
     ///                 },
     ///             },
+    ///             Enabled = true,
     ///         },
+    ///         ConfigId = "example-1",
     ///     });
     /// 
     /// });
@@ -101,7 +101,7 @@ namespace Pulumi.Aws.S3Control
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+        /// ARN of the S3 Storage Lens configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -233,7 +233,7 @@ namespace Pulumi.Aws.S3Control
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+        /// ARN of the S3 Storage Lens configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

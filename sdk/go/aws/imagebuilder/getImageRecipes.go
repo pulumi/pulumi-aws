@@ -28,7 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := imagebuilder.GetImageRecipes(ctx, &imagebuilder.GetImageRecipesArgs{
-//				Owner: pulumi.StringRef("Self"),
 //				Filters: []imagebuilder.GetImageRecipesFilter{
 //					{
 //						Name: "platform",
@@ -37,6 +36,7 @@ import (
 //						},
 //					},
 //				},
+//				Owner: pulumi.StringRef("Self"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -80,12 +80,8 @@ type GetImageRecipesResult struct {
 }
 
 func GetImageRecipesOutput(ctx *pulumi.Context, args GetImageRecipesOutputArgs, opts ...pulumi.InvokeOption) GetImageRecipesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetImageRecipesResultOutput, error) {
-			args := v.(GetImageRecipesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", args, GetImageRecipesResultOutput{}, options).(GetImageRecipesResultOutput), nil
-		}).(GetImageRecipesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:imagebuilder/getImageRecipes:getImageRecipes", args, GetImageRecipesResultOutput{}, options).(GetImageRecipesResultOutput)
 }
 
 // A collection of arguments for invoking getImageRecipes.

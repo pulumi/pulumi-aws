@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetDataSharesDataShare {
     /**
-     * @return ARN (Amazon Resource Name) of the data share.
+     * @return ARN of the data share.
      * 
      */
     private String dataShareArn;
@@ -21,14 +21,14 @@ public final class GetDataSharesDataShare {
      */
     private String managedBy;
     /**
-     * @return ARN (Amazon Resource Name) of the producer.
+     * @return ARN of the producer.
      * 
      */
     private String producerArn;
 
     private GetDataSharesDataShare() {}
     /**
-     * @return ARN (Amazon Resource Name) of the data share.
+     * @return ARN of the data share.
      * 
      */
     public String dataShareArn() {
@@ -42,7 +42,7 @@ public final class GetDataSharesDataShare {
         return this.managedBy;
     }
     /**
-     * @return ARN (Amazon Resource Name) of the producer.
+     * @return ARN of the producer.
      * 
      */
     public String producerArn() {

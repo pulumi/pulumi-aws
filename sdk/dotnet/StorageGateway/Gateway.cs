@@ -60,16 +60,16 @@ namespace Pulumi.Aws.StorageGateway
     /// {
     ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
-    ///         GatewayIpAddress = "1.2.3.4",
-    ///         GatewayName = "example",
-    ///         GatewayTimezone = "GMT",
-    ///         GatewayType = "FILE_FSX_SMB",
     ///         SmbActiveDirectorySettings = new Aws.StorageGateway.Inputs.GatewaySmbActiveDirectorySettingsArgs
     ///         {
     ///             DomainName = "corp.example.com",
     ///             Password = "avoid-plaintext-passwords",
     ///             Username = "Admin",
     ///         },
+    ///         GatewayIpAddress = "1.2.3.4",
+    ///         GatewayName = "example",
+    ///         GatewayTimezone = "GMT",
+    ///         GatewayType = "FILE_FSX_SMB",
     ///     });
     /// 
     /// });
@@ -163,7 +163,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.storagegateway.Gateway` using the gateway Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.storagegateway.Gateway` using the gateway ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
@@ -182,6 +182,12 @@ namespace Pulumi.Aws.StorageGateway
     ///     var example = new Aws.StorageGateway.Gateway("example", new()
     ///     {
     ///         GatewayIpAddress = sgw.PrivateIp,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "gatewayIpAddress",
+    ///         },
     ///     });
     /// 
     /// });
@@ -197,7 +203,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> ActivationKey { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -215,7 +221,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<int?> AverageUploadRateLimitInBitsPerSec { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
         [Output("cloudwatchLogGroupArn")]
         public Output<string?> CloudwatchLogGroupArn { get; private set; } = null!;
@@ -269,7 +275,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string?> GatewayType { get; private set; } = null!;
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Output("gatewayVpcEndpoint")]
         public Output<string?> GatewayVpcEndpoint { get; private set; } = null!;
@@ -411,7 +417,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<int>? AverageUploadRateLimitInBitsPerSec { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
         public Input<string>? CloudwatchLogGroupArn { get; set; }
@@ -441,7 +447,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayType { get; set; }
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }
@@ -533,7 +539,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? ActivationKey { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -551,7 +557,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<int>? AverageUploadRateLimitInBitsPerSec { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
+        /// ARN of the Amazon CloudWatch log group to use to monitor and log events in the gateway.
         /// </summary>
         [Input("cloudwatchLogGroupArn")]
         public Input<string>? CloudwatchLogGroupArn { get; set; }
@@ -611,7 +617,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? GatewayType { get; set; }
 
         /// <summary>
-        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running this provider. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a Virtual Private Cloud](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
+        /// VPC endpoint address to be used when activating your gateway. This should be used when your instance is in a private subnet. Requires HTTP access from client computer running Pulumi. More info on what ports are required by your VPC Endpoint Security group in [Activating a Gateway in a VPC](https://docs.aws.amazon.com/storagegateway/latest/userguide/gateway-private-link.html).
         /// </summary>
         [Input("gatewayVpcEndpoint")]
         public Input<string>? GatewayVpcEndpoint { get; set; }

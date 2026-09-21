@@ -80,12 +80,8 @@ type GetQuicksightAnalysisResult struct {
 }
 
 func GetQuicksightAnalysisOutput(ctx *pulumi.Context, args GetQuicksightAnalysisOutputArgs, opts ...pulumi.InvokeOption) GetQuicksightAnalysisResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetQuicksightAnalysisResultOutput, error) {
-			args := v.(GetQuicksightAnalysisArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, GetQuicksightAnalysisResultOutput{}, options).(GetQuicksightAnalysisResultOutput), nil
-		}).(GetQuicksightAnalysisResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:quicksight/getQuicksightAnalysis:getQuicksightAnalysis", args, GetQuicksightAnalysisResultOutput{}, options).(GetQuicksightAnalysisResultOutput)
 }
 
 // A collection of arguments for invoking getQuicksightAnalysis.

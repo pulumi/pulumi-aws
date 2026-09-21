@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Pipeline : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        /// ARN assigned by AWS to this Pipeline.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -243,7 +243,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class PipelineState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Pipeline.
+        /// ARN assigned by AWS to this Pipeline.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -80,12 +80,8 @@ type GetPrincipalApplicationAssignmentsResult struct {
 }
 
 func GetPrincipalApplicationAssignmentsOutput(ctx *pulumi.Context, args GetPrincipalApplicationAssignmentsOutputArgs, opts ...pulumi.InvokeOption) GetPrincipalApplicationAssignmentsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPrincipalApplicationAssignmentsResultOutput, error) {
-			args := v.(GetPrincipalApplicationAssignmentsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args, GetPrincipalApplicationAssignmentsResultOutput{}, options).(GetPrincipalApplicationAssignmentsResultOutput), nil
-		}).(GetPrincipalApplicationAssignmentsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssoadmin/getPrincipalApplicationAssignments:getPrincipalApplicationAssignments", args, GetPrincipalApplicationAssignmentsResultOutput{}, options).(GetPrincipalApplicationAssignmentsResultOutput)
 }
 
 // A collection of arguments for invoking getPrincipalApplicationAssignments.

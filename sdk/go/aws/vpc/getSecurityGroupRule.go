@@ -64,7 +64,7 @@ type GetSecurityGroupRuleArgs struct {
 
 // A collection of values returned by getSecurityGroupRule.
 type GetSecurityGroupRuleResult struct {
-	// The Amazon Resource Name (ARN) of the security group rule.
+	// ARN of the security group rule.
 	Arn string `pulumi:"arn"`
 	// The destination IPv4 CIDR range.
 	CidrIpv4 string `pulumi:"cidrIpv4"`
@@ -95,12 +95,8 @@ type GetSecurityGroupRuleResult struct {
 }
 
 func GetSecurityGroupRuleOutput(ctx *pulumi.Context, args GetSecurityGroupRuleOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupRuleResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityGroupRuleResultOutput, error) {
-			args := v.(GetSecurityGroupRuleArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args, GetSecurityGroupRuleResultOutput{}, options).(GetSecurityGroupRuleResultOutput), nil
-		}).(GetSecurityGroupRuleResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpc/getSecurityGroupRule:getSecurityGroupRule", args, GetSecurityGroupRuleResultOutput{}, options).(GetSecurityGroupRuleResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityGroupRule.
@@ -136,7 +132,7 @@ func (o GetSecurityGroupRuleResultOutput) ToGetSecurityGroupRuleResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the security group rule.
+// ARN of the security group rule.
 func (o GetSecurityGroupRuleResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecurityGroupRuleResult) string { return v.Arn }).(pulumi.StringOutput)
 }

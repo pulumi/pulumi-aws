@@ -194,12 +194,8 @@ type GetOrderableDbInstanceResult struct {
 }
 
 func GetOrderableDbInstanceOutput(ctx *pulumi.Context, args GetOrderableDbInstanceOutputArgs, opts ...pulumi.InvokeOption) GetOrderableDbInstanceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetOrderableDbInstanceResultOutput, error) {
-			args := v.(GetOrderableDbInstanceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args, GetOrderableDbInstanceResultOutput{}, options).(GetOrderableDbInstanceResultOutput), nil
-		}).(GetOrderableDbInstanceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args, GetOrderableDbInstanceResultOutput{}, options).(GetOrderableDbInstanceResultOutput)
 }
 
 // A collection of arguments for invoking getOrderableDbInstance.

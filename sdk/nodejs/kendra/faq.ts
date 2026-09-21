@@ -19,13 +19,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     roleArn: exampleAwsIamRole.arn,
  *     tags: {
  *         Name: "Example Kendra Faq",
  *     },
@@ -39,14 +39,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     fileFormat: "CSV",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     fileFormat: "CSV",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -57,14 +57,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.kendra.Faq("example", {
- *     indexId: exampleAwsKendraIndex.id,
- *     name: "Example",
- *     languageCode: "en",
- *     roleArn: exampleAwsIamRole.arn,
  *     s3Path: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *     },
+ *     indexId: exampleAwsKendraIndex.id,
+ *     name: "Example",
+ *     languageCode: "en",
+ *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -136,7 +136,7 @@ export class Faq extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -255,7 +255,7 @@ export interface FaqState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface FaqArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+     * ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
      */
     roleArn: pulumi.Input<string>;
     /**

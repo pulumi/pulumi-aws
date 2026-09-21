@@ -256,14 +256,14 @@ class TableItem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example-name",
-            read_capacity=10,
-            write_capacity=10,
-            hash_key="exampleHashKey",
             attributes=[{
                 "name": "exampleHashKey",
                 "type": "S",
-            }])
+            }],
+            name="example-name",
+            read_capacity=10,
+            write_capacity=10,
+            hash_key="exampleHashKey")
         example = aws.dynamodb.TableItem("example",
             table_name=example_table.name,
             hash_key=example_table.hash_key,
@@ -336,14 +336,14 @@ class TableItem(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example-name",
-            read_capacity=10,
-            write_capacity=10,
-            hash_key="exampleHashKey",
             attributes=[{
                 "name": "exampleHashKey",
                 "type": "S",
-            }])
+            }],
+            name="example-name",
+            read_capacity=10,
+            write_capacity=10,
+            hash_key="exampleHashKey")
         example = aws.dynamodb.TableItem("example",
             table_name=example_table.name,
             hash_key=example_table.hash_key,

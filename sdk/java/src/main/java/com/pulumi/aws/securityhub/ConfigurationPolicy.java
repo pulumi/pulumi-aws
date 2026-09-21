@@ -59,27 +59,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOrganizationConfiguration = new OrganizationConfiguration("exampleOrganizationConfiguration", OrganizationConfigurationArgs.builder()
- *             .autoEnable(false)
- *             .autoEnableStandards("NONE")
  *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
  *                 .configurationType("CENTRAL")
  *                 .build())
+ *             .autoEnable(false)
+ *             .autoEnableStandards("NONE")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
  * 
  *         var exampleConfigurationPolicy = new ConfigurationPolicy("exampleConfigurationPolicy", ConfigurationPolicyArgs.builder()
- *             .name("Example")
- *             .description("This is an example configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
+ *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
+ *                     .disabledControlIdentifiers()
+ *                     .build())
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
  *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
- *                     .disabledControlIdentifiers()
- *                     .build())
  *                 .build())
+ *             .name("Example")
+ *             .description("This is an example configuration policy")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(exampleOrganizationConfiguration)
  *                 .build());
@@ -116,11 +116,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()
- *             .name("Disabled")
- *             .description("This is an example of disabled configuration policy")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
  *                 .serviceEnabled(false)
  *                 .build())
+ *             .name("Disabled")
+ *             .description("This is an example of disabled configuration policy")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -163,48 +163,48 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var disabled = new ConfigurationPolicy("disabled", ConfigurationPolicyArgs.builder()
- *             .name("Custom Controls")
- *             .description("This is an example of configuration policy with custom control settings")
  *             .configurationPolicy(ConfigurationPolicyConfigurationPolicyArgs.builder()
+ *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
+ *                     .securityControlCustomParameters(                    
+ *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
+ *                             .parameters(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
+ *                                 .enum_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs.builder()
+ *                                     .value("INFO")
+ *                                     .build())
+ *                                 .name("loggingLevel")
+ *                                 .valueType("CUSTOM")
+ *                                 .build())
+ *                             .securityControlId("APIGateway.1")
+ *                             .build(),
+ *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
+ *                             .parameters(                            
+ *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
+ *                                     .bool(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs.builder()
+ *                                         .value(false)
+ *                                         .build())
+ *                                     .name("RequireLowercaseCharacters")
+ *                                     .valueType("CUSTOM")
+ *                                     .build(),
+ *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
+ *                                     .int_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs.builder()
+ *                                         .value(60)
+ *                                         .build())
+ *                                     .name("MaxPasswordAge")
+ *                                     .valueType("CUSTOM")
+ *                                     .build())
+ *                             .securityControlId("IAM.7")
+ *                             .build())
+ *                     .enabledControlIdentifiers(                    
+ *                         "APIGateway.1",
+ *                         "IAM.7")
+ *                     .build())
  *                 .serviceEnabled(true)
  *                 .enabledStandardArns(                
  *                     "arn:aws:securityhub:us-east-1::standards/aws-foundational-security-best-practices/v/1.0.0",
  *                     "arn:aws:securityhub:::ruleset/cis-aws-foundations-benchmark/v/1.2.0")
- *                 .securityControlsConfiguration(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs.builder()
- *                     .enabledControlIdentifiers(                    
- *                         "APIGateway.1",
- *                         "IAM.7")
- *                     .securityControlCustomParameters(                    
- *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
- *                             .securityControlId("APIGateway.1")
- *                             .parameters(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                 .name("loggingLevel")
- *                                 .valueType("CUSTOM")
- *                                 .enum_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs.builder()
- *                                     .value("INFO")
- *                                     .build())
- *                                 .build())
- *                             .build(),
- *                         ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs.builder()
- *                             .securityControlId("IAM.7")
- *                             .parameters(                            
- *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                     .name("RequireLowercaseCharacters")
- *                                     .valueType("CUSTOM")
- *                                     .bool(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs.builder()
- *                                         .value(false)
- *                                         .build())
- *                                     .build(),
- *                                 ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs.builder()
- *                                     .name("MaxPasswordAge")
- *                                     .valueType("CUSTOM")
- *                                     .int_(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs.builder()
- *                                         .value(60)
- *                                         .build())
- *                                     .build())
- *                             .build())
- *                     .build())
  *                 .build())
+ *             .name("Custom Controls")
+ *             .description("This is an example of configuration policy with custom control settings")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());

@@ -16,14 +16,14 @@ public final class ClusterConfigurationInfoArgs extends com.pulumi.resources.Res
     public static final ClusterConfigurationInfoArgs Empty = new ClusterConfigurationInfoArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * ARN of the MSK Configuration to use in the cluster.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+     * @return ARN of the MSK Configuration to use in the cluster.
      * 
      */
     public Output<String> arn() {
@@ -71,7 +71,7 @@ public final class ClusterConfigurationInfoArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+         * @param arn ARN of the MSK Configuration to use in the cluster.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ClusterConfigurationInfoArgs extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the MSK Configuration to use in the cluster.
+         * @param arn ARN of the MSK Configuration to use in the cluster.
          * 
          * @return builder
          * 

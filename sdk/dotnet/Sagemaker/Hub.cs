@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Sagemaker
     public partial class Hub : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        /// ARN assigned by AWS to this Hub.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -207,7 +207,7 @@ namespace Pulumi.Aws.Sagemaker
     public sealed class HubState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) assigned by AWS to this Hub.
+        /// ARN assigned by AWS to this Hub.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

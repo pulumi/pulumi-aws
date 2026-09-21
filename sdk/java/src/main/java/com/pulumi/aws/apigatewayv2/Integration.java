@@ -178,21 +178,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Integration("example", IntegrationArgs.builder()
- *             .apiId(exampleAwsApigatewayv2Api.id())
- *             .credentialsArn(exampleAwsIamRole.arn())
- *             .description("Example with a load balancer")
- *             .integrationType("HTTP_PROXY")
- *             .integrationUri(exampleAwsLbListener.arn())
- *             .integrationMethod("ANY")
- *             .connectionType("VPC_LINK")
- *             .connectionId(exampleAwsApigatewayv2VpcLink.id())
  *             .tlsConfig(IntegrationTlsConfigArgs.builder()
  *                 .serverNameToVerify("example.com")
  *                 .build())
- *             .requestParameters(Map.ofEntries(
- *                 Map.entry("append:header.authforintegration", "$context.authorizer.authorizerResponse"),
- *                 Map.entry("overwrite:path", "staticValueForIntegration")
- *             ))
  *             .responseParameters(            
  *                 IntegrationResponseParameterArgs.builder()
  *                     .statusCode("403")
@@ -202,6 +190,18 @@ import javax.annotation.Nullable;
  *                     .statusCode("200")
  *                     .mappings(Map.of("overwrite:statuscode", "204"))
  *                     .build())
+ *             .apiId(exampleAwsApigatewayv2Api.id())
+ *             .credentialsArn(exampleAwsIamRole.arn())
+ *             .description("Example with a load balancer")
+ *             .integrationType("HTTP_PROXY")
+ *             .integrationUri(exampleAwsLbListener.arn())
+ *             .integrationMethod("ANY")
+ *             .connectionType("VPC_LINK")
+ *             .connectionId(exampleAwsApigatewayv2VpcLink.id())
+ *             .requestParameters(Map.ofEntries(
+ *                 Map.entry("append:header.authforintegration", "$context.authorizer.authorizerResponse"),
+ *                 Map.entry("overwrite:path", "staticValueForIntegration")
+ *             ))
  *             .build());
  * 
  *     }
@@ -211,13 +211,25 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
+ * ### Identity Schema
+ * 
+ * #### Required
+ * 
+ * * `apiId` (String) API identifier.
+ * * `id` (String) Integration identifier.
+ * 
+ * #### Optional
+ * 
+ * * `accountId` (String) AWS Account where this resource is managed.
+ * * `region` (String) Region where this resource is managed.
+ * 
  * Using `pulumi import`, import `aws.apigatewayv2.Integration` using the API identifier and integration identifier. For example:
  * 
  * ```sh
  * $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
  * ```
  * 
- * &gt; **Note:** The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+ * &gt; **Note:** The API Gateway managed integration created as part of [*quick_create*](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  * 
  */
 @ResourceType(type="aws:apigatewayv2/integration:Integration")

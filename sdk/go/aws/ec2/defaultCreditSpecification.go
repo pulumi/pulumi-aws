@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Resource for managing an AWS EC2 (Elastic Compute Cloud) Default Credit Specification.
+// Resource for managing an AWS EC2 Default Credit Specification.
 //
 // ## Example Usage
 //
@@ -45,7 +45,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import EC2 (Elastic Compute Cloud) Default Credit Specification using the `instanceFamily`. For example:
+// Using `pulumi import`, import EC2 Default Credit Specification using the `instanceFamily`. For example:
 type DefaultCreditSpecification struct {
 	pulumi.CustomResourceState
 

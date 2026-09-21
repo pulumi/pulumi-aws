@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const geoMatchSet = new aws.waf.GeoMatchSet("geo_match_set", {
- *     name: "geo_match_set",
  *     geoMatchConstraints: [
  *         {
  *             type: "Country",
@@ -28,6 +27,7 @@ import * as utilities from "../utilities";
  *             value: "CA",
  *         },
  *     ],
+ *     name: "geo_match_set",
  * });
  * ```
  *
@@ -68,7 +68,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -112,7 +112,7 @@ export class GeoMatchSet extends pulumi.CustomResource {
  */
 export interface GeoMatchSetState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

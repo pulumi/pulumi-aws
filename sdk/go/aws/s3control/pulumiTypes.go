@@ -2193,7 +2193,7 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda struct {
-	// Amazon Resource Name (ARN) of the AWS Lambda function.
+	// ARN of the AWS Lambda function.
 	FunctionArn string `pulumi:"functionArn"`
 	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
 	FunctionPayload *string `pulumi:"functionPayload"`
@@ -2211,7 +2211,7 @@ type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTrans
 }
 
 type ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs struct {
-	// Amazon Resource Name (ARN) of the AWS Lambda function.
+	// ARN of the AWS Lambda function.
 	FunctionArn pulumi.StringInput `pulumi:"functionArn"`
 	// Additional JSON that provides supplemental data to the Lambda function used to transform objects.
 	FunctionPayload pulumi.StringPtrInput `pulumi:"functionPayload"`
@@ -2243,7 +2243,7 @@ func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTr
 	return o
 }
 
-// Amazon Resource Name (ARN) of the AWS Lambda function.
+// ARN of the AWS Lambda function.
 func (o ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaOutput) FunctionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambda) string {
 		return v.FunctionArn
@@ -4898,7 +4898,7 @@ func (o StorageLensConfigurationStorageLensConfigurationAccountLevelDetailedStat
 }
 
 type StorageLensConfigurationStorageLensConfigurationAwsOrg struct {
-	// Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// ARN of the Amazon Web Services organization.
 	Arn string `pulumi:"arn"`
 }
 
@@ -4914,7 +4914,7 @@ type StorageLensConfigurationStorageLensConfigurationAwsOrgInput interface {
 }
 
 type StorageLensConfigurationStorageLensConfigurationAwsOrgArgs struct {
-	// Amazon Resource Name (ARN) of the Amazon Web Services organization.
+	// ARN of the Amazon Web Services organization.
 	Arn pulumi.StringInput `pulumi:"arn"`
 }
 
@@ -4995,7 +4995,7 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) ToStorageL
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon Web Services organization.
+// ARN of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationAwsOrg) string { return v.Arn }).(pulumi.StringOutput)
 }
@@ -5024,7 +5024,7 @@ func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Elem() 
 	}).(StorageLensConfigurationStorageLensConfigurationAwsOrgOutput)
 }
 
-// Amazon Resource Name (ARN) of the Amazon Web Services organization.
+// ARN of the Amazon Web Services organization.
 func (o StorageLensConfigurationStorageLensConfigurationAwsOrgPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationAwsOrg) *string {
 		if v == nil {
@@ -5357,7 +5357,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportCloudWatchMetr
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination struct {
 	// Account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId string `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn string `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See `encryption` below for more details.
 	Encryption *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
@@ -5383,7 +5383,7 @@ type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinati
 type StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs struct {
 	// Account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See `encryption` below for more details.
 	Encryption StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
@@ -5479,7 +5479,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) string {
 		return v.Arn
@@ -5548,7 +5548,7 @@ func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestin
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestination) *string {
 		if v == nil {
@@ -6851,7 +6851,7 @@ func (o StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExpo
 type StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination struct {
 	// Account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId string `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn string `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See `encryption` below for more details.
 	Encryption *StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryption `pulumi:"encryption"`
@@ -6877,7 +6877,7 @@ type StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS
 type StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationArgs struct {
 	// Account ID of the owner of the S3 Storage Lens metrics export bucket.
 	AccountId pulumi.StringInput `pulumi:"accountId"`
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Arn pulumi.StringInput `pulumi:"arn"`
 	// Encryption of the metrics exports in this bucket. See `encryption` below for more details.
 	Encryption StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationEncryptionPtrInput `pulumi:"encryption"`
@@ -6973,7 +6973,7 @@ func (o StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExpo
 	}).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination) string {
 		return v.Arn
@@ -7042,7 +7042,7 @@ func (o StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExpo
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestinationPtrOutput) Arn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *StorageLensConfigurationStorageLensConfigurationExpandedPrefixesDataExportS3BucketDestination) *string {
 		if v == nil {

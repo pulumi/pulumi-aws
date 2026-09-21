@@ -39,7 +39,9 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
- * const example = new aws.fsx.LustreFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]});
+ * const example = new aws.fsx.LustreFileSystem("example", {securityGroupIds: [exampleAwsSecurityGroup.id]}, {
+ *     ignoreChanges: ["securityGroupIds"],
+ * });
  * ```
  */
 export class LustreFileSystem extends pulumi.CustomResource {
@@ -71,7 +73,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -208,7 +210,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
      */
     declare public readonly throughputCapacity: pulumi.Output<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     declare public /*out*/ readonly vpcId: pulumi.Output<string>;
     /**
@@ -317,7 +319,7 @@ export class LustreFileSystem extends pulumi.CustomResource {
  */
 export interface LustreFileSystemState {
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -454,7 +456,7 @@ export interface LustreFileSystemState {
      */
     throughputCapacity?: pulumi.Input<number | undefined>;
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      */
     vpcId?: pulumi.Input<string | undefined>;
     /**

@@ -116,7 +116,6 @@ namespace Pulumi.Aws.ApiGateway
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -128,6 +127,7 @@ namespace Pulumi.Aws.ApiGateway
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -331,22 +331,22 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     ///     var exampleListener = new Aws.LB.Listener("example", new()
     ///     {
-    ///         LoadBalancerArn = exampleLoadBalancer.Arn,
-    ///         Port = 80,
-    ///         Protocol = "HTTP",
     ///         DefaultActions = new[]
     ///         {
     ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
     ///             {
-    ///                 Type = "fixed-response",
     ///                 FixedResponse = new Aws.LB.Inputs.ListenerDefaultActionFixedResponseArgs
     ///                 {
     ///                     ContentType = "text/plain",
     ///                     MessageBody = "OK",
     ///                     StatusCode = "200",
     ///                 },
+    ///                 Type = "fixed-response",
     ///             },
     ///         },
+    ///         LoadBalancerArn = exampleLoadBalancer.Arn,
+    ///         Port = 80,
+    ///         Protocol = "HTTP",
     ///     });
     /// 
     ///     var exampleRestApi = new Aws.ApiGateway.RestApi("example", new()

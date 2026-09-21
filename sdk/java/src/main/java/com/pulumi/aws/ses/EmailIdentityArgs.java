@@ -17,14 +17,14 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailIdentityArgs Empty = new EmailIdentityArgs();
 
     /**
-     * The email address to assign to SES.
+     * Email address to assign to SES.
      * 
      */
     @Import(name="email", required=true)
     private Output<String> email;
 
     /**
-     * @return The email address to assign to SES.
+     * @return Email address to assign to SES.
      * 
      */
     public Output<String> email() {
@@ -72,7 +72,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address to assign to SES.
+         * @param email Email address to assign to SES.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param email The email address to assign to SES.
+         * @param email Email address to assign to SES.
          * 
          * @return builder
          * 

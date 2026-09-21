@@ -24,15 +24,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const alb = new aws.cloudfront.VpcOrigin("alb", {vpcOriginEndpointConfig: {
+ *     originSslProtocols: {
+ *         items: ["TLSv1.2"],
+ *         quantity: 1,
+ *     },
  *     name: "example-vpc-origin",
  *     arn: _this.arn,
  *     httpPort: 8080,
  *     httpsPort: 8443,
  *     originProtocolPolicy: "https-only",
- *     originSslProtocols: {
- *         items: ["TLSv1.2"],
- *         quantity: 1,
- *     },
  * }});
  * ```
  *

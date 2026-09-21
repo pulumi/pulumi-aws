@@ -47,6 +47,10 @@ __all__ = [
     'ExperimentTemplateTargetFilterArgsDict',
     'ExperimentTemplateTargetResourceTagArgs',
     'ExperimentTemplateTargetResourceTagArgsDict',
+    'SafetyLeverStateStateArgs',
+    'SafetyLeverStateStateArgsDict',
+    'SafetyLeverStateTimeoutsArgs',
+    'SafetyLeverStateTimeoutsArgsDict',
 ]
 
 class ExperimentTemplateActionArgsDict(TypedDict):
@@ -582,7 +586,7 @@ class ExperimentTemplateLogConfigurationArgs:
 class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgsDict(TypedDict):
     log_group_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+    ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
     """
 
 @pulumi.input_type
@@ -590,7 +594,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
     def __init__(__self__, *,
                  log_group_arn: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] log_group_arn: Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        :param pulumi.Input[_builtins.str] log_group_arn: ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         pulumi.set(__self__, "log_group_arn", log_group_arn)
 
@@ -598,7 +602,7 @@ class ExperimentTemplateLogConfigurationCloudwatchLogsConfigurationArgs:
     @pulumi.getter(name="logGroupArn")
     def log_group_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
+        ARN of the destination Amazon CloudWatch Logs log group. The ARN must end with `:*`
         """
         return pulumi.get(self, "log_group_arn")
 
@@ -937,5 +941,101 @@ class ExperimentTemplateTargetResourceTagArgs:
     @value.setter
     def value(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "value", value)
+
+
+class SafetyLeverStateStateArgsDict(TypedDict):
+    reason: pulumi.Input[_builtins.str]
+    """
+    Reason for the current status of the safety lever.
+    """
+    status: pulumi.Input[_builtins.str]
+    """
+    Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+    """
+
+@pulumi.input_type
+class SafetyLeverStateStateArgs:
+    def __init__(__self__, *,
+                 reason: pulumi.Input[_builtins.str],
+                 status: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] reason: Reason for the current status of the safety lever.
+        :param pulumi.Input[_builtins.str] status: Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+        """
+        pulumi.set(__self__, "reason", reason)
+        pulumi.set(__self__, "status", status)
+
+    @_builtins.property
+    @pulumi.getter
+    def reason(self) -> pulumi.Input[_builtins.str]:
+        """
+        Reason for the current status of the safety lever.
+        """
+        return pulumi.get(self, "reason")
+
+    @reason.setter
+    def reason(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "reason", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def status(self) -> pulumi.Input[_builtins.str]:
+        """
+        Status of the safety lever. Valid values: `engaged`, `disengaged`. Engaging the lever immediately stops all running experiments in the account and Region, and prevents new ones from starting.
+        """
+        return pulumi.get(self, "status")
+
+    @status.setter
+    def status(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "status", value)
+
+
+class SafetyLeverStateTimeoutsArgsDict(TypedDict):
+    create: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+    update: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+    """
+
+@pulumi.input_type
+class SafetyLeverStateTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: pulumi.Input[Optional[_builtins.str]] = None,
+                 update: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[_builtins.str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "create", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "update", value)
 
 

@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Bedrock.Outputs
     [OutputType]
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue
     {
+        /// <summary>
+        /// String value to match for. Must be specified when `ClaimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `MatchValueString` or `MatchValueStringList` must be specified.
+        /// </summary>
         public readonly string? MatchValueString;
+        /// <summary>
+        /// List of strings to check for a match. Must be specified when `ClaimMatchOperator` is `CONTAINS_ANY`. Exactly one of `MatchValueString` or `MatchValueStringList` must be specified.
+        /// </summary>
         public readonly ImmutableArray<string> MatchValueStringLists;
 
         [OutputConstructor]

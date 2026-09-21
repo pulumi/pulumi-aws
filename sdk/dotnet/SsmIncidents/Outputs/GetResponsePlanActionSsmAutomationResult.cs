@@ -30,7 +30,7 @@ namespace Pulumi.Aws.SsmIncidents.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.GetResponsePlanActionSsmAutomationParameterResult> Parameters;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the role that the automation document assumes when it runs commands.
+        /// The ARN of the role that the automation document assumes when it runs commands.
         /// </summary>
         public readonly string RoleArn;
         /// <summary>

@@ -149,13 +149,13 @@ class PrefixListAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         prefix_list = aws.ec2.ManagedPrefixList("prefix_list",
-            name="example",
-            address_family="IPv4",
-            max_entries=5,
             entries=[{
                 "cidr": "10.0.0.0/8",
                 "description": "Example CIDR",
-            }])
+            }],
+            name="example",
+            address_family="IPv4",
+            max_entries=5)
         pl_association = aws.networkmanager.PrefixListAssociation("pl_association",
             core_network_id=core_network["id"],
             prefix_list_arn=prefix_list.arn,
@@ -206,13 +206,13 @@ class PrefixListAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         prefix_list = aws.ec2.ManagedPrefixList("prefix_list",
-            name="example",
-            address_family="IPv4",
-            max_entries=5,
             entries=[{
                 "cidr": "10.0.0.0/8",
                 "description": "Example CIDR",
-            }])
+            }],
+            name="example",
+            address_family="IPv4",
+            max_entries=5)
         pl_association = aws.networkmanager.PrefixListAssociation("pl_association",
             core_network_id=core_network["id"],
             prefix_list_arn=prefix_list.arn,

@@ -39,8 +39,6 @@ import (
 //			exampleSource, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -49,6 +47,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("AllowAppFlowSourceActions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:ListBucket",
 //							"s3:GetObject",
@@ -87,8 +87,6 @@ import (
 //			exampleDestination, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -97,6 +95,8 @@ import (
 //								},
 //							},
 //						},
+//						Sid:    pulumi.StringRef("AllowAppFlowDestinationActions"),
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"s3:PutObject",
 //							"s3:AbortMultipartUpload",
@@ -123,48 +123,48 @@ import (
 //				return err
 //			}
 //			_, err = appflow.NewFlow(ctx, "example", &appflow.FlowArgs{
-//				Name: pulumi.String("example"),
 //				SourceFlowConfig: &appflow.FlowSourceFlowConfigArgs{
-//					ConnectorType: pulumi.String("S3"),
 //					SourceConnectorProperties: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesArgs{
 //						S3: &appflow.FlowSourceFlowConfigSourceConnectorPropertiesS3Args{
 //							BucketName:   exampleSourceBucketPolicy.Bucket,
 //							BucketPrefix: pulumi.String("example"),
 //						},
 //					},
+//					ConnectorType: pulumi.String("S3"),
+//				},
+//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
+//					TriggerType: pulumi.String("OnDemand"),
 //				},
 //				DestinationFlowConfigs: appflow.FlowDestinationFlowConfigArray{
 //					&appflow.FlowDestinationFlowConfigArgs{
-//						ConnectorType: pulumi.String("S3"),
 //						DestinationConnectorProperties: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesArgs{
 //							S3: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3Args{
-//								BucketName: exampleDestinationBucketPolicy.Bucket,
 //								S3OutputFormatConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigArgs{
 //									PrefixConfig: &appflow.FlowDestinationFlowConfigDestinationConnectorPropertiesS3S3OutputFormatConfigPrefixConfigArgs{
 //										PrefixType: pulumi.String("PATH"),
 //									},
 //								},
+//								BucketName: exampleDestinationBucketPolicy.Bucket,
 //							},
 //						},
+//						ConnectorType: pulumi.String("S3"),
 //					},
 //				},
 //				Tasks: appflow.FlowTaskArray{
 //					&appflow.FlowTaskArgs{
-//						SourceFields: pulumi.StringArray{
-//							pulumi.String("exampleField"),
-//						},
-//						DestinationField: pulumi.String("exampleField"),
-//						TaskType:         pulumi.String("Map"),
 //						ConnectorOperators: appflow.FlowTaskConnectorOperatorArray{
 //							&appflow.FlowTaskConnectorOperatorArgs{
 //								S3: pulumi.String("NO_OP"),
 //							},
 //						},
+//						SourceFields: pulumi.StringArray{
+//							pulumi.String("exampleField"),
+//						},
+//						DestinationField: pulumi.String("exampleField"),
+//						TaskType:         pulumi.String("Map"),
 //					},
 //				},
-//				TriggerConfig: &appflow.FlowTriggerConfigArgs{
-//					TriggerType: pulumi.String("OnDemand"),
-//				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -204,7 +204,7 @@ type Flow struct {
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayOutput `pulumi:"destinationFlowConfigs"`
 	// Current status of the flow.
 	FlowStatus pulumi.StringOutput `pulumi:"flowStatus"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringOutput `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigOutput `pulumi:"metadataCatalogConfig"`
@@ -274,7 +274,7 @@ type flowState struct {
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
 	// Current status of the flow.
 	FlowStatus *string `pulumi:"flowStatus"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
@@ -303,7 +303,7 @@ type FlowState struct {
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
 	// Current status of the flow.
 	FlowStatus pulumi.StringPtrInput
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringPtrInput
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
@@ -332,7 +332,7 @@ type flowArgs struct {
 	Description *string `pulumi:"description"`
 	// Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
 	DestinationFlowConfigs []FlowDestinationFlowConfig `pulumi:"destinationFlowConfigs"`
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn *string `pulumi:"kmsArn"`
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig *FlowMetadataCatalogConfig `pulumi:"metadataCatalogConfig"`
@@ -356,7 +356,7 @@ type FlowArgs struct {
 	Description pulumi.StringPtrInput
 	// Configuration that controls how Amazon AppFlow places data in the destination connector. See the `destinationFlowConfig` Block for details.
 	DestinationFlowConfigs FlowDestinationFlowConfigArrayInput
-	// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+	// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 	KmsArn pulumi.StringPtrInput
 	// Configuration that determines how Amazon AppFlow catalogs the data that the flow transfers. See the `metadataCatalogConfig` Block for details.
 	MetadataCatalogConfig FlowMetadataCatalogConfigPtrInput
@@ -481,7 +481,7 @@ func (o FlowOutput) FlowStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.FlowStatus }).(pulumi.StringOutput)
 }
 
-// ARN of the Key Management Service (KMS) key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
+// ARN of the KMS key you provide for encryption. Required if you do not want to use the Amazon AppFlow-managed KMS key. Uses the Amazon AppFlow-managed KMS key when not provided.
 func (o FlowOutput) KmsArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Flow) pulumi.StringOutput { return v.KmsArn }).(pulumi.StringOutput)
 }

@@ -53,10 +53,10 @@ import javax.annotation.Nullable;
  * 
  *         var exampleVpcEndpoint = new VpcEndpoint("exampleVpcEndpoint", VpcEndpointArgs.builder()
  *             .vpcId(testAlternate.id())
- *             .serviceName(testAwsVpcEndpointService.serviceName())
+ *             .serviceName(test.serviceName())
  *             .vpcEndpointType("Interface")
  *             .privateDnsEnabled(false)
- *             .securityGroupIds(test.id())
+ *             .securityGroupIds(testAwsSecurityGroup.id())
  *             .build());
  * 
  *         var exampleVpcEndpointConnectionAccepter = new VpcEndpointConnectionAccepter("exampleVpcEndpointConnectionAccepter", VpcEndpointConnectionAccepterArgs.builder()

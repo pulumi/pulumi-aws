@@ -64,7 +64,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * ARN assigned by AWS to this lifecycle configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -132,7 +132,7 @@ export class NotebookInstanceLifecycleConfiguration extends pulumi.CustomResourc
  */
 export interface NotebookInstanceLifecycleConfigurationState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this lifecycle configuration.
+     * ARN assigned by AWS to this lifecycle configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

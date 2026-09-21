@@ -35,6 +35,8 @@ import * as utilities from "../utilities";
  * ```sh
  * $ pulumi import aws:directconnect/publicVirtualInterface:PublicVirtualInterface test dxvif-33cc44dd
  * ```
+ *
+ * > **Note:** When a virtual interface uses an ASN in the `bgpAsn` range (`1` to `2147483646`), AWS returns the value in both the `asn` and `asnLong` API fields, so import always populates `bgpAsn` rather than `bgpAsnLong`. If the virtual interface was originally created with `bgpAsnLong` set to a value in that range, update your configuration to use `bgpAsn` after import to avoid a difference. Virtual interfaces using a 4-byte ASN (greater than `2147483646`) import into `bgpAsnLong` as expected.
  */
 export class PublicVirtualInterface extends pulumi.CustomResource {
     /**
@@ -82,7 +84,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly awsDevice: pulumi.Output<string>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     declare public readonly bgpAsn: pulumi.Output<number>;
     /**
@@ -101,6 +103,10 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
      * The name for the virtual interface.
      */
     declare public readonly name: pulumi.Output<string>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    declare public readonly rateLimit: pulumi.Output<string>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -145,6 +151,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["connectionId"] = state?.connectionId;
             resourceInputs["customerAddress"] = state?.customerAddress;
             resourceInputs["name"] = state?.name;
+            resourceInputs["rateLimit"] = state?.rateLimit;
             resourceInputs["region"] = state?.region;
             resourceInputs["routeFilterPrefixes"] = state?.routeFilterPrefixes;
             resourceInputs["tags"] = state?.tags;
@@ -174,6 +181,7 @@ export class PublicVirtualInterface extends pulumi.CustomResource {
             resourceInputs["connectionId"] = args?.connectionId;
             resourceInputs["customerAddress"] = args?.customerAddress;
             resourceInputs["name"] = args?.name;
+            resourceInputs["rateLimit"] = args?.rateLimit;
             resourceInputs["region"] = args?.region;
             resourceInputs["routeFilterPrefixes"] = args?.routeFilterPrefixes;
             resourceInputs["tags"] = args?.tags;
@@ -210,7 +218,7 @@ export interface PublicVirtualInterfaceState {
      */
     awsDevice?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn?: pulumi.Input<number | undefined>;
     /**
@@ -229,6 +237,10 @@ export interface PublicVirtualInterfaceState {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */
@@ -264,7 +276,7 @@ export interface PublicVirtualInterfaceArgs {
      */
     amazonAddress?: pulumi.Input<string | undefined>;
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      */
     bgpAsn: pulumi.Input<number>;
     /**
@@ -283,6 +295,10 @@ export interface PublicVirtualInterfaceArgs {
      * The name for the virtual interface.
      */
     name?: pulumi.Input<string | undefined>;
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     */
+    rateLimit?: pulumi.Input<string | undefined>;
     /**
      * Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
      */

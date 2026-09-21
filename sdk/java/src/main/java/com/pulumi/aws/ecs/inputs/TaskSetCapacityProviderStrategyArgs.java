@@ -33,14 +33,14 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
     }
 
     /**
-     * Short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * Short name or full ARN of the capacity provider.
      * 
      */
     @Import(name="capacityProvider", required=true)
     private Output<String> capacityProvider;
 
     /**
-     * @return Short name or full Amazon Resource Name (ARN) of the capacity provider.
+     * @return Short name or full ARN of the capacity provider.
      * 
      */
     public Output<String> capacityProvider() {
@@ -110,7 +110,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param capacityProvider Short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * @param capacityProvider Short name or full ARN of the capacity provider.
          * 
          * @return builder
          * 
@@ -121,7 +121,7 @@ public final class TaskSetCapacityProviderStrategyArgs extends com.pulumi.resour
         }
 
         /**
-         * @param capacityProvider Short name or full Amazon Resource Name (ARN) of the capacity provider.
+         * @param capacityProvider Short name or full ARN of the capacity provider.
          * 
          * @return builder
          * 

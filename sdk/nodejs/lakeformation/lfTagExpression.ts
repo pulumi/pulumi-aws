@@ -23,11 +23,11 @@ import * as utilities from "../utilities";
  *     values: ["value"],
  * });
  * const exampleLfTagExpression = new aws.lakeformation.LfTagExpression("example", {
- *     name: "example",
  *     expressions: [{
  *         tagKey: example.key,
  *         tagValues: example.values,
  *     }],
+ *     name: "example",
  * });
  * ```
  *

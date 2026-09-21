@@ -41,22 +41,22 @@ import (
 //				return err
 //			}
 //			_, err = s3.NewBucketVersioning(ctx, "example", &s3.BucketVersioningArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				VersioningConfiguration: &s3.BucketVersioningVersioningConfigurationArgs{
 //					Status: pulumi.String("Enabled"),
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucketObjectLockConfiguration(ctx, "example", &s3.BucketObjectLockConfigurationArgs{
-//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //				Rule: &s3.BucketObjectLockConfigurationRuleArgs{
 //					DefaultRetention: &s3.BucketObjectLockConfigurationRuleDefaultRetentionArgs{
 //						Mode: pulumi.String("COMPLIANCE"),
 //						Days: pulumi.Int(5),
 //					},
 //				},
+//				Bucket: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err

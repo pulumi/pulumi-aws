@@ -36,7 +36,7 @@ __all__ = [
 class RepositoryAssociationKmsKeyDetailsArgsDict(TypedDict):
     encryption_option: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+    Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
     """
     kms_key_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -49,7 +49,7 @@ class RepositoryAssociationKmsKeyDetailsArgs:
                  encryption_option: pulumi.Input[Optional[_builtins.str]] = None,
                  kms_key_id: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] encryption_option: The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+        :param pulumi.Input[_builtins.str] encryption_option: Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         :param pulumi.Input[_builtins.str] kms_key_id: The ID of the AWS KMS key that is associated with a repository association.
         """
         if encryption_option is not None:
@@ -61,7 +61,7 @@ class RepositoryAssociationKmsKeyDetailsArgs:
     @pulumi.getter(name="encryptionOption")
     def encryption_option(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The encryption option for a repository association. It is either owned by AWS Key Management Service (KMS) (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
+        Encryption option for a repository association. It is either owned by KMS (`AWS_OWNED_CMK`) or customer managed (`CUSTOMER_MANAGED_CMK`).
         """
         return pulumi.get(self, "encryption_option")
 
@@ -144,7 +144,7 @@ class RepositoryAssociationRepositoryArgs:
 class RepositoryAssociationRepositoryBitbucketArgsDict(TypedDict):
     connection_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+    ARN of an AWS CodeStar Connections connection.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -162,7 +162,7 @@ class RepositoryAssociationRepositoryBitbucketArgs:
                  name: pulumi.Input[_builtins.str],
                  owner: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
         :param pulumi.Input[_builtins.str] name: The name of the third party source repository.
         :param pulumi.Input[_builtins.str] owner: The username for the account that owns the repository.
         """
@@ -174,7 +174,7 @@ class RepositoryAssociationRepositoryBitbucketArgs:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 
@@ -238,7 +238,7 @@ class RepositoryAssociationRepositoryCodecommitArgs:
 class RepositoryAssociationRepositoryGithubEnterpriseServerArgsDict(TypedDict):
     connection_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+    ARN of an AWS CodeStar Connections connection.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -256,7 +256,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
                  name: pulumi.Input[_builtins.str],
                  owner: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] connection_arn: The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        :param pulumi.Input[_builtins.str] connection_arn: ARN of an AWS CodeStar Connections connection.
         :param pulumi.Input[_builtins.str] name: The name of the third party source repository.
         :param pulumi.Input[_builtins.str] owner: The username for the account that owns the repository.
         """
@@ -268,7 +268,7 @@ class RepositoryAssociationRepositoryGithubEnterpriseServerArgs:
     @pulumi.getter(name="connectionArn")
     def connection_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        ARN of an AWS CodeStar Connections connection.
         """
         return pulumi.get(self, "connection_arn")
 

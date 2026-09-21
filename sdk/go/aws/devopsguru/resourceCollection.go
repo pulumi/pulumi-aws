@@ -33,12 +33,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_SERVICE"),
 //				Cloudformation: &devopsguru.ResourceCollectionCloudformationArgs{
 //					StackNames: pulumi.StringArray{
 //						pulumi.String("*"),
 //					},
 //				},
+//				Type: pulumi.String("AWS_SERVICE"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,12 +64,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_CLOUD_FORMATION"),
 //				Cloudformation: &devopsguru.ResourceCollectionCloudformationArgs{
 //					StackNames: pulumi.StringArray{
 //						pulumi.String("ExampleStack"),
 //					},
 //				},
+//				Type: pulumi.String("AWS_CLOUD_FORMATION"),
 //			})
 //			if err != nil {
 //				return err
@@ -95,13 +95,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_TAGS"),
 //				Tags: &devopsguru.ResourceCollectionTagsArgs{
 //					AppBoundaryKey: pulumi.String("DevOps-Guru-Example"),
 //					TagValues: pulumi.StringArray{
 //						pulumi.String("Example-Value"),
 //					},
 //				},
+//				Type: pulumi.String("AWS_TAGS"),
 //			})
 //			if err != nil {
 //				return err
@@ -129,13 +129,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := devopsguru.NewResourceCollection(ctx, "example", &devopsguru.ResourceCollectionArgs{
-//				Type: pulumi.String("AWS_TAGS"),
 //				Tags: &devopsguru.ResourceCollectionTagsArgs{
 //					AppBoundaryKey: pulumi.String("DevOps-Guru-Example"),
 //					TagValues: pulumi.StringArray{
 //						pulumi.String("*"),
 //					},
 //				},
+//				Type: pulumi.String("AWS_TAGS"),
 //			})
 //			if err != nil {
 //				return err

@@ -17,13 +17,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const sqlInjectionMatchSet = new aws.wafregional.SqlInjectionMatchSet("sql_injection_match_set", {
- *     name: "tf-sql_injection_match_set",
  *     sqlInjectionMatchTuples: [{
- *         textTransformation: "URL_DECODE",
  *         fieldToMatch: {
  *             type: "QUERY_STRING",
  *         },
+ *         textTransformation: "URL_DECODE",
  *     }],
+ *     name: "tf-sql_injection_match_set",
  * });
  * ```
  *

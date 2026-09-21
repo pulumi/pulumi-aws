@@ -263,9 +263,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
     @Import(name="parameterGroupName")
@@ -273,9 +271,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
     /**
      * @return An ElastiCache Parameter Group to use for the Global Replication Group.
-     * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-     * Specifying without a major version upgrade will fail.
-     * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+     * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
      * 
      */
     public Optional<Output<String>> parameterGroupName() {
@@ -707,9 +703,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-         * Specifying without a major version upgrade will fail.
-         * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 
          * @return builder
          * 
@@ -721,9 +715,7 @@ public final class GlobalReplicationGroupState extends com.pulumi.resources.Reso
 
         /**
          * @param parameterGroupName An ElastiCache Parameter Group to use for the Global Replication Group.
-         * Required when upgrading an engine or major engine version, but will be ignored if left configured after the upgrade is complete.
-         * Specifying without a major version upgrade will fail.
-         * Note that ElastiCache creates a copy of this parameter group for each member replication group.
+         * Required when upgrading a major engine version, but will be ignored if left configured after the upgrade is complete. Specifying without a major version upgrade will fail. When a replication group joins a global datastore, AWS auto-generates a new parameter group (prefixed `global-datastore-`) derived from the primary&#39;s parameter group. Note that ElastiCache creates a copy of this parameter group for each member replication group.
          * 
          * @return builder
          * 

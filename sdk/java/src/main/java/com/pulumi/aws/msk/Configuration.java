@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:msk/configuration:Configuration")
 public class Configuration extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the configuration.
+     * ARN of the configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the configuration.
+     * @return ARN of the configuration.
      * 
      */
     public Output<String> arn() {

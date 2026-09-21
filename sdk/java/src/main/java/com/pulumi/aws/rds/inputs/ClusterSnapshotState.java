@@ -50,14 +50,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The DB Cluster Identifier from which to take the snapshot.
+     * DB Cluster Identifier from which to take the snapshot.
      * 
      */
     @Import(name="dbClusterIdentifier")
     private @Nullable Output<String> dbClusterIdentifier;
 
     /**
-     * @return The DB Cluster Identifier from which to take the snapshot.
+     * @return DB Cluster Identifier from which to take the snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterIdentifier() {
@@ -65,14 +65,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * ARN for the DB Cluster Snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+     * @return ARN for the DB Cluster Snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotArn() {
@@ -80,14 +80,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The Identifier for the snapshot.
+     * Identifier for the snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotIdentifier")
     private @Nullable Output<String> dbClusterSnapshotIdentifier;
 
     /**
-     * @return The Identifier for the snapshot.
+     * @return Identifier for the snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotIdentifier() {
@@ -199,29 +199,45 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.sharedAccounts);
     }
 
+    /**
+     * Type of the DB cluster snapshot.
+     * 
+     */
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB cluster snapshot.
+     * 
+     */
     public Optional<Output<String>> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
 
+    /**
+     * DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     @Import(name="sourceDbClusterSnapshotArn")
     private @Nullable Output<String> sourceDbClusterSnapshotArn;
 
+    /**
+     * @return DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+     * 
+     */
     public Optional<Output<String>> sourceDbClusterSnapshotArn() {
         return Optional.ofNullable(this.sourceDbClusterSnapshotArn);
     }
 
     /**
-     * The status of this DB Cluster Snapshot.
+     * Status of this DB Cluster Snapshot.
      * 
      */
     @Import(name="status")
     private @Nullable Output<String> status;
 
     /**
-     * @return The status of this DB Cluster Snapshot.
+     * @return Status of this DB Cluster Snapshot.
      * 
      */
     public Optional<Output<String>> status() {
@@ -244,14 +260,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
-     * @return A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -259,14 +275,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -274,14 +290,14 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The VPC ID associated with the DB cluster snapshot.
+     * VPC ID associated with the DB cluster snapshot.
      * 
      */
     @Import(name="vpcId")
     private @Nullable Output<String> vpcId;
 
     /**
-     * @return The VPC ID associated with the DB cluster snapshot.
+     * @return VPC ID associated with the DB cluster snapshot.
      * 
      */
     public Optional<Output<String>> vpcId() {
@@ -383,7 +399,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier DB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -394,7 +410,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterIdentifier The DB Cluster Identifier from which to take the snapshot.
+         * @param dbClusterIdentifier DB Cluster Identifier from which to take the snapshot.
          * 
          * @return builder
          * 
@@ -404,7 +420,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -415,7 +431,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB Cluster Snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -425,7 +441,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
+         * @param dbClusterSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 
@@ -436,7 +452,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param dbClusterSnapshotIdentifier The Identifier for the snapshot.
+         * @param dbClusterSnapshotIdentifier Identifier for the snapshot.
          * 
          * @return builder
          * 
@@ -602,26 +618,50 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
             return sharedAccounts(List.of(sharedAccounts));
         }
 
+        /**
+         * @param snapshotType Type of the DB cluster snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(@Nullable Output<String> snapshotType) {
             $.snapshotType = snapshotType;
             return this;
         }
 
+        /**
+         * @param snapshotType Type of the DB cluster snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(String snapshotType) {
             return snapshotType(Output.of(snapshotType));
         }
 
+        /**
+         * @param sourceDbClusterSnapshotArn DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceDbClusterSnapshotArn(@Nullable Output<String> sourceDbClusterSnapshotArn) {
             $.sourceDbClusterSnapshotArn = sourceDbClusterSnapshotArn;
             return this;
         }
 
+        /**
+         * @param sourceDbClusterSnapshotArn DB Cluster Snapshot ARN that the DB Cluster Snapshot was copied from. It only has value in case of cross customer or cross region copy.
+         * 
+         * @return builder
+         * 
+         */
         public Builder sourceDbClusterSnapshotArn(String sourceDbClusterSnapshotArn) {
             return sourceDbClusterSnapshotArn(Output.of(sourceDbClusterSnapshotArn));
         }
 
         /**
-         * @param status The status of this DB Cluster Snapshot.
+         * @param status Status of this DB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -632,7 +672,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param status The status of this DB Cluster Snapshot.
+         * @param status Status of this DB Cluster Snapshot.
          * 
          * @return builder
          * 
@@ -663,7 +703,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -674,7 +714,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tags A map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+         * @param tags Map of tags to assign to the DB cluster. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * @return builder
          * 
@@ -684,7 +724,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -695,7 +735,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -705,7 +745,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The VPC ID associated with the DB cluster snapshot.
+         * @param vpcId VPC ID associated with the DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -716,7 +756,7 @@ public final class ClusterSnapshotState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param vpcId The VPC ID associated with the DB cluster snapshot.
+         * @param vpcId VPC ID associated with the DB cluster snapshot.
          * 
          * @return builder
          * 

@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
  *     },
+ *     codeRepositoryName: "example",
  * });
  * ```
  *
@@ -41,11 +41,11 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleCodeRepository = new aws.sagemaker.CodeRepository("example", {
- *     codeRepositoryName: "example",
  *     gitConfig: {
  *         repositoryUrl: "https://github.com/github/docs.git",
  *         secretArn: example.arn,
  *     },
+ *     codeRepositoryName: "example",
  * }, {
  *     dependsOn: [exampleSecretVersion],
  * });
@@ -88,7 +88,7 @@ export class CodeRepository extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -156,7 +156,7 @@ export class CodeRepository extends pulumi.CustomResource {
  */
 export interface CodeRepositoryState {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Code Repository.
+     * ARN assigned by AWS to this Code Repository.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

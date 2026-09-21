@@ -44,20 +44,13 @@ import * as utilities from "../utilities";
  *     signingProtocol: "sigv4",
  * });
  * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
- *     origins: [{
- *         domainName: b.bucketRegionalDomainName,
- *         originAccessControlId: _default.id,
- *         originId: s3OriginId,
- *     }],
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     comment: "Some comment",
- *     defaultRootObject: "index.html",
- *     aliases: [
- *         `mysite.${myDomain}`,
- *         `yoursite.${myDomain}`,
- *     ],
  *     defaultCacheBehavior: {
+ *         forwardedValues: {
+ *             cookies: {
+ *                 forward: "none",
+ *             },
+ *             queryString: false,
+ *         },
  *         allowedMethods: [
  *             "DELETE",
  *             "GET",
@@ -72,19 +65,35 @@ import * as utilities from "../utilities";
  *             "HEAD",
  *         ],
  *         targetOriginId: s3OriginId,
- *         forwardedValues: {
- *             queryString: false,
- *             cookies: {
- *                 forward: "none",
- *             },
- *         },
  *         viewerProtocolPolicy: "allow-all",
  *         minTtl: 0,
  *         defaultTtl: 3600,
  *         maxTtl: 86400,
  *     },
+ *     restrictions: {
+ *         geoRestriction: {
+ *             restrictionType: "whitelist",
+ *             locations: [
+ *                 "US",
+ *                 "CA",
+ *                 "GB",
+ *                 "DE",
+ *             ],
+ *         },
+ *     },
+ *     viewerCertificate: {
+ *         acmCertificateArn: myDomainGetCertificate.then(myDomainGetCertificate => myDomainGetCertificate.arn),
+ *         sslSupportMethod: "sni-only",
+ *     },
  *     orderedCacheBehaviors: [
  *         {
+ *             forwardedValues: {
+ *                 cookies: {
+ *                     forward: "none",
+ *                 },
+ *                 queryString: false,
+ *                 headers: ["Origin"],
+ *             },
  *             pathPattern: "/content/immutable/*",
  *             allowedMethods: [
  *                 "GET",
@@ -97,13 +106,6 @@ import * as utilities from "../utilities";
  *                 "OPTIONS",
  *             ],
  *             targetOriginId: s3OriginId,
- *             forwardedValues: {
- *                 queryString: false,
- *                 headers: ["Origin"],
- *                 cookies: {
- *                     forward: "none",
- *                 },
- *             },
  *             minTtl: 0,
  *             defaultTtl: 86400,
  *             maxTtl: 31536000,
@@ -111,6 +113,12 @@ import * as utilities from "../utilities";
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
  *         {
+ *             forwardedValues: {
+ *                 cookies: {
+ *                     forward: "none",
+ *                 },
+ *                 queryString: false,
+ *             },
  *             pathPattern: "/content/*",
  *             allowedMethods: [
  *                 "GET",
@@ -122,12 +130,6 @@ import * as utilities from "../utilities";
  *                 "HEAD",
  *             ],
  *             targetOriginId: s3OriginId,
- *             forwardedValues: {
- *                 queryString: false,
- *                 cookies: {
- *                     forward: "none",
- *                 },
- *             },
  *             minTtl: 0,
  *             defaultTtl: 3600,
  *             maxTtl: 86400,
@@ -135,45 +137,43 @@ import * as utilities from "../utilities";
  *             viewerProtocolPolicy: "redirect-to-https",
  *         },
  *     ],
+ *     origins: [{
+ *         domainName: b.bucketRegionalDomainName,
+ *         originAccessControlId: _default.id,
+ *         originId: s3OriginId,
+ *     }],
+ *     enabled: true,
+ *     isIpv6Enabled: true,
+ *     comment: "Some comment",
+ *     defaultRootObject: "index.html",
+ *     aliases: [
+ *         `mysite.${myDomain}`,
+ *         `yoursite.${myDomain}`,
+ *     ],
  *     priceClass: "PriceClass_200",
- *     restrictions: {
- *         geoRestriction: {
- *             restrictionType: "whitelist",
- *             locations: [
- *                 "US",
- *                 "CA",
- *                 "GB",
- *                 "DE",
- *             ],
- *         },
- *     },
  *     tags: {
  *         Environment: "production",
- *     },
- *     viewerCertificate: {
- *         acmCertificateArn: myDomainGetCertificate.then(myDomainGetCertificate => myDomainGetCertificate.arn),
- *         sslSupportMethod: "sni-only",
  *     },
  * });
  * // See https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
  * const originBucketPolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         sid: "AllowCloudFrontServicePrincipalReadWrite",
- *         effect: "Allow",
- *         principals: [{
- *             type: "Service",
- *             identifiers: ["cloudfront.amazonaws.com"],
- *         }],
- *         actions: [
- *             "s3:GetObject",
- *             "s3:PutObject",
- *         ],
- *         resources: [pulumi.interpolate`${b.arn}/*`],
  *         conditions: [{
  *             test: "StringEquals",
  *             variable: "AWS:SourceArn",
  *             values: [s3Distribution.arn],
  *         }],
+ *         principals: [{
+ *             type: "Service",
+ *             identifiers: ["cloudfront.amazonaws.com"],
+ *         }],
+ *         sid: "AllowCloudFrontServicePrincipalReadWrite",
+ *         effect: "Allow",
+ *         actions: [
+ *             "s3:GetObject",
+ *             "s3:PutObject",
+ *         ],
+ *         resources: [pulumi.interpolate`${b.arn}/*`],
  *     }],
  * });
  * const bBucketPolicy = new aws.s3.BucketPolicy("b", {
@@ -188,14 +188,14 @@ import * as utilities from "../utilities";
  * s3Distribution.aliases.apply(rangeBody => {
  *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
  *         cloudfront.push(new aws.route53.Record(`cloudfront-${range.key}`, {
- *             zoneId: myDomainGetZone.then(myDomainGetZone => myDomainGetZone.zoneId),
- *             name: range.value,
- *             type: aws.route53.RecordType.A,
  *             aliases: [{
  *                 name: s3Distribution.domainName,
  *                 zoneId: s3Distribution.hostedZoneId,
  *                 evaluateTargetHealth: false,
  *             }],
+ *             zoneId: myDomainGetZone.then(myDomainGetZone => myDomainGetZone.zoneId),
+ *             name: range.value,
+ *             type: aws.route53.RecordType.A,
  *         }));
  *     }
  * });
@@ -210,8 +210,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
+ *     defaultCacheBehavior: {
+ *         targetOriginId: "groupS3",
+ *     },
  *     originGroups: [{
- *         originId: "groupS3",
  *         failoverCriteria: {
  *             statusCodes: [
  *                 403,
@@ -228,26 +230,24 @@ import * as utilities from "../utilities";
  *                 originId: "failoverS3",
  *             },
  *         ],
+ *         originId: "groupS3",
  *     }],
  *     origins: [
  *         {
+ *             s3OriginConfig: {
+ *                 originAccessIdentity: _default.cloudfrontAccessIdentityPath,
+ *             },
  *             domainName: primary.bucketRegionalDomainName,
  *             originId: "primaryS3",
- *             s3OriginConfig: {
- *                 originAccessIdentity: _default.cloudfrontAccessIdentityPath,
- *             },
  *         },
  *         {
- *             domainName: failover.bucketRegionalDomainName,
- *             originId: "failoverS3",
  *             s3OriginConfig: {
  *                 originAccessIdentity: _default.cloudfrontAccessIdentityPath,
  *             },
+ *             domainName: failover.bucketRegionalDomainName,
+ *             originId: "failoverS3",
  *         },
  *     ],
- *     defaultCacheBehavior: {
- *         targetOriginId: "groupS3",
- *     },
  * });
  * ```
  *
@@ -261,17 +261,6 @@ import * as utilities from "../utilities";
  *
  * const s3OriginId = "myS3Origin";
  * const s3Distribution = new aws.cloudfront.Distribution("s3_distribution", {
- *     origins: [{
- *         domainName: primary.bucketRegionalDomainName,
- *         originId: "myS3Origin",
- *         s3OriginConfig: {
- *             originAccessIdentity: _default.cloudfrontAccessIdentityPath,
- *         },
- *     }],
- *     enabled: true,
- *     isIpv6Enabled: true,
- *     comment: "Some comment",
- *     defaultRootObject: "index.html",
  *     defaultCacheBehavior: {
  *         cachePolicyId: "4135ea2d-6df8-44a3-9df3-4b5a84be39ad",
  *         allowedMethods: [
@@ -300,6 +289,17 @@ import * as utilities from "../utilities";
  *     viewerCertificate: {
  *         cloudfrontDefaultCertificate: true,
  *     },
+ *     origins: [{
+ *         s3OriginConfig: {
+ *             originAccessIdentity: _default.cloudfrontAccessIdentityPath,
+ *         },
+ *         domainName: primary.bucketRegionalDomainName,
+ *         originId: "myS3Origin",
+ *     }],
+ *     enabled: true,
+ *     isIpv6Enabled: true,
+ *     comment: "Some comment",
+ *     defaultRootObject: "index.html",
  * });
  * ```
  *
@@ -323,20 +323,20 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
- *     region: "us-east-1",
- *     name: "s3-destination",
- *     outputFormat: "parquet",
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: pulumi.interpolate`${exampleBucket.arn}/prefix`,
  *     },
+ *     region: "us-east-1",
+ *     name: "s3-destination",
+ *     outputFormat: "parquet",
  * });
  * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
- *     region: "us-east-1",
- *     deliverySourceName: exampleLogDeliverySource.name,
- *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
  *     s3DeliveryConfigurations: [{
  *         suffixPath: "/123456678910/{DistributionId}/{yyyy}/{MM}/{dd}/{HH}",
  *     }],
+ *     region: "us-east-1",
+ *     deliverySourceName: exampleLogDeliverySource.name,
+ *     deliveryDestinationArn: exampleLogDeliveryDestination.arn,
  * });
  * ```
  *
@@ -362,12 +362,12 @@ import * as utilities from "../utilities";
  *     resourceArn: example.arn,
  * });
  * const exampleLogDeliveryDestination = new aws.cloudwatch.LogDeliveryDestination("example", {
- *     region: "us-east-1",
- *     name: "firehose-destination",
- *     outputFormat: "json",
  *     deliveryDestinationConfiguration: {
  *         destinationResourceArn: cloudfrontLogs.arn,
  *     },
+ *     region: "us-east-1",
+ *     name: "firehose-destination",
+ *     outputFormat: "json",
  * });
  * const exampleLogDelivery = new aws.cloudwatch.LogDelivery("example", {
  *     region: "us-east-1",
@@ -391,12 +391,12 @@ import * as utilities from "../utilities";
  *         id: example.id,
  *     },
  *     viewerMtlsConfig: {
- *         mode: "verify",
  *         trustStoreConfig: {
  *             trustStoreId: exampleTrustStore.id,
  *             advertiseTrustStoreCaNames: true,
  *             ignoreCertificateExpiry: false,
  *         },
+ *         mode: "verify",
  *     },
  * });
  * ```

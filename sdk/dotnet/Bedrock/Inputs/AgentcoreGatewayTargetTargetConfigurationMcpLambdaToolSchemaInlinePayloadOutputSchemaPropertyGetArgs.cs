@@ -19,7 +19,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
         public Input<string>? Description { get; set; }
 
         /// <summary>
-        /// Items definition for array properties. See `Items` above.
+        /// Items definition for array properties. See `Items` Block above.
         /// </summary>
         [Input("items")]
         public Input<Inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaPropertyItemsGetArgs>? Items { get; set; }

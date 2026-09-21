@@ -50,15 +50,15 @@ export class Function extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * ARN identifying your CloudFront Function.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      */
     declare public readonly code: pulumi.Output<string>;
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      */
     declare public readonly comment: pulumi.Output<string | undefined>;
     /**
@@ -74,7 +74,7 @@ export class Function extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly liveStageEtag: pulumi.Output<string>;
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      */
     declare public readonly name: pulumi.Output<string>;
     /**
@@ -156,15 +156,15 @@ export class Function extends pulumi.CustomResource {
  */
 export interface FunctionState {
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * ARN identifying your CloudFront Function.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      */
     code?: pulumi.Input<string | undefined>;
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -180,7 +180,7 @@ export interface FunctionState {
      */
     liveStageEtag?: pulumi.Input<string | undefined>;
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      */
     name?: pulumi.Input<string | undefined>;
     /**
@@ -212,11 +212,11 @@ export interface FunctionState {
  */
 export interface FunctionArgs {
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      */
     code: pulumi.Input<string>;
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      */
     comment?: pulumi.Input<string | undefined>;
     /**
@@ -224,7 +224,7 @@ export interface FunctionArgs {
      */
     keyValueStoreAssociations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      */
     name?: pulumi.Input<string | undefined>;
     /**

@@ -19,14 +19,14 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
     public static final ComponentState Empty = new ComponentState();
 
     /**
-     * (Required) Amazon Resource Name (ARN) of the component.
+     * (Required) ARN of the component.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return (Required) Amazon Resource Name (ARN) of the component.
+     * @return (Required) ARN of the component.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -109,14 +109,14 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * ARN of the KMS Key used to encrypt the component.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+     * @return ARN of the KMS Key used to encrypt the component.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -338,7 +338,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the component.
+         * @param arn (Required) ARN of the component.
          * 
          * @return builder
          * 
@@ -349,7 +349,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn (Required) Amazon Resource Name (ARN) of the component.
+         * @param arn (Required) ARN of the component.
          * 
          * @return builder
          * 
@@ -464,7 +464,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the component.
          * 
          * @return builder
          * 
@@ -475,7 +475,7 @@ public final class ComponentState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kmsKeyId Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+         * @param kmsKeyId ARN of the KMS Key used to encrypt the component.
          * 
          * @return builder
          * 

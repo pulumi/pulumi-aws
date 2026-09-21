@@ -36,7 +36,7 @@ public final class GetSecretRotationResult {
      */
     private Boolean rotationEnabled;
     /**
-     * @return Amazon Resource Name (ARN) of the lambda function used for rotation.
+     * @return ARN of the lambda function used for rotation.
      * 
      */
     private String rotationLambdaArn;
@@ -80,7 +80,7 @@ public final class GetSecretRotationResult {
         return this.rotationEnabled;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the lambda function used for rotation.
+     * @return ARN of the lambda function used for rotation.
      * 
      */
     public String rotationLambdaArn() {

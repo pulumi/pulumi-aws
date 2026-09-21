@@ -26,33 +26,33 @@ namespace Pulumi.Aws.MailManager
     /// {
     ///     var example = new Aws.MailManager.TrafficPolicy("example", new()
     ///     {
-    ///         DefaultAction = "ALLOW",
-    ///         Name = "example",
     ///         PolicyStatements = new[]
     ///         {
     ///             new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementArgs
     ///             {
-    ///                 Action = "DENY",
     ///                 Conditions = new[]
     ///                 {
     ///                     new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionArgs
     ///                     {
     ///                         IpExpression = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionArgs
     ///                         {
+    ///                             Evaluate = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs
+    ///                             {
+    ///                                 Attribute = "SENDER_IP",
+    ///                             },
     ///                             Operator = "CIDR_MATCHES",
     ///                             Values = new[]
     ///                             {
     ///                                 "192.0.2.0/24",
     ///                             },
-    ///                             Evaluate = new Aws.MailManager.Inputs.TrafficPolicyPolicyStatementConditionIpExpressionEvaluateArgs
-    ///                             {
-    ///                                 Attribute = "SENDER_IP",
-    ///                             },
     ///                         },
     ///                     },
     ///                 },
+    ///                 Action = "DENY",
     ///             },
     ///         },
+    ///         DefaultAction = "ALLOW",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -112,14 +112,14 @@ namespace Pulumi.Aws.MailManager
 
         /// <summary>
         /// Name of the traffic policy.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
         /// Traffic policy statements. See `PolicyStatement` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         [Output("policyStatements")]
         public Output<ImmutableArray<Outputs.TrafficPolicyPolicyStatement>> PolicyStatements { get; private set; } = null!;
@@ -202,6 +202,8 @@ namespace Pulumi.Aws.MailManager
 
         /// <summary>
         /// Name of the traffic policy.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -211,8 +213,6 @@ namespace Pulumi.Aws.MailManager
 
         /// <summary>
         /// Traffic policy statements. See `PolicyStatement` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.TrafficPolicyPolicyStatementArgs> PolicyStatements
         {
@@ -278,6 +278,8 @@ namespace Pulumi.Aws.MailManager
 
         /// <summary>
         /// Name of the traffic policy.
+        /// 
+        /// The following arguments are optional:
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -287,8 +289,6 @@ namespace Pulumi.Aws.MailManager
 
         /// <summary>
         /// Traffic policy statements. See `PolicyStatement` Block below.
-        /// 
-        /// The following arguments are optional:
         /// </summary>
         public InputList<Inputs.TrafficPolicyPolicyStatementGetArgs> PolicyStatements
         {

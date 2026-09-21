@@ -50,14 +50,14 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     @Import(name="permissionArns")
     private @Nullable Output<List<String>> permissionArns;
 
     /**
-     * @return Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+     * @return ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
      * 
      */
     public Optional<Output<List<String>>> permissionArns() {
@@ -181,7 +181,7 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 
@@ -192,7 +192,7 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class ResourceShareArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param permissionArns Amazon Resource Names (ARNs) of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
+         * @param permissionArns ARNs of the RAM permission to associate with the resource share. If you do not specify an ARN for the permission, RAM automatically attaches the default version of the permission for each resource type. You can associate only one permission with each resource type included in the resource share.
          * 
          * @return builder
          * 

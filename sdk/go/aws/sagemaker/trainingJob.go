@@ -31,8 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
 //					TrainingInputMode: pulumi.String("File"),
 //					TrainingImage:     pulumi.Any(exampleAwsSagemakerPrebuiltEcrImage.RegistryPath),
@@ -48,6 +46,8 @@ import (
 //				StoppingCondition: &sagemaker.TrainingJobStoppingConditionArgs{
 //					MaxRuntimeInSeconds: pulumi.Int(3600),
 //				},
+//				TrainingJobName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -73,8 +73,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
 //					TrainingInputMode: pulumi.String("File"),
 //					TrainingImage:     pulumi.Any(exampleAwsSagemakerPrebuiltEcrImage.RegistryPath),
@@ -98,6 +96,8 @@ import (
 //						exampleAwsSubnet.Id,
 //					},
 //				},
+//				TrainingJobName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -123,27 +123,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
 //					TrainingInputMode:                pulumi.String("File"),
 //					TrainingImage:                    pulumi.Any(exampleAwsSagemakerPrebuiltEcrImage.RegistryPath),
 //					EnableSagemakerMetricsTimeSeries: pulumi.Bool(true),
-//				},
-//				HyperParameters: pulumi.StringMap{
-//					"mini_batch_size": pulumi.String("200"),
-//					"epochs":          pulumi.String("10"),
-//				},
-//				InputDataConfigs: sagemaker.TrainingJobInputDataConfigArray{
-//					&sagemaker.TrainingJobInputDataConfigArgs{
-//						ChannelName: pulumi.String("train"),
-//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
-//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
-//								S3DataType: pulumi.String("S3Prefix"),
-//								S3Uri:      pulumi.Sprintf("s3://%v/train/", exampleAwsS3Bucket.Bucket),
-//							},
-//						},
-//					},
 //				},
 //				OutputDataConfig: &sagemaker.TrainingJobOutputDataConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/output/", exampleAwsS3Bucket.Bucket),
@@ -155,6 +138,23 @@ import (
 //				},
 //				StoppingCondition: &sagemaker.TrainingJobStoppingConditionArgs{
 //					MaxRuntimeInSeconds: pulumi.Int(3600),
+//				},
+//				InputDataConfigs: sagemaker.TrainingJobInputDataConfigArray{
+//					&sagemaker.TrainingJobInputDataConfigArgs{
+//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
+//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
+//								S3DataType: pulumi.String("S3Prefix"),
+//								S3Uri:      pulumi.Sprintf("s3://%v/train/", exampleAwsS3Bucket.Bucket),
+//							},
+//						},
+//						ChannelName: pulumi.String("train"),
+//					},
+//				},
+//				TrainingJobName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
+//				HyperParameters: pulumi.StringMap{
+//					"mini_batch_size": pulumi.String("200"),
+//					"epochs":          pulumi.String("10"),
 //				},
 //			})
 //			if err != nil {
@@ -181,8 +181,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
 //					TrainingInputMode: pulumi.String("File"),
 //					TrainingImage:     pulumi.Any(exampleAwsSagemakerPrebuiltEcrImage.RegistryPath),
@@ -209,6 +207,8 @@ import (
 //					LocalPath:    pulumi.String("/opt/ml/output/tensorboard"),
 //					S3OutputPath: pulumi.Sprintf("s3://%v/tensorboard/", exampleAwsS3Bucket.Bucket),
 //				},
+//				TrainingJobName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -234,12 +234,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName:                       pulumi.String("example"),
-//				RoleArn:                               pulumi.Any(exampleAwsIamRole.Arn),
-//				EnableManagedSpotTraining:             pulumi.Bool(true),
-//				EnableNetworkIsolation:                pulumi.Bool(true),
-//				EnableInterContainerTrafficEncryption: pulumi.Bool(true),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
+//					MetricDefinitions: sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArray{
+//						&sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArgs{
+//							Name:  pulumi.String("train:loss"),
+//							Regex: pulumi.String("loss: ([0-9\\.]+)"),
+//						},
+//						&sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArgs{
+//							Name:  pulumi.String("validation:accuracy"),
+//							Regex: pulumi.String("accuracy: ([0-9\\.]+)"),
+//						},
+//					},
 //					TrainingInputMode: pulumi.String("File"),
 //					TrainingImage:     pulumi.Any(trainingImage),
 //					ContainerEntrypoints: pulumi.StringArray{
@@ -252,24 +257,6 @@ import (
 //						pulumi.String("--batch-size"),
 //						pulumi.String("128"),
 //					},
-//					MetricDefinitions: sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArray{
-//						&sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArgs{
-//							Name:  pulumi.String("train:loss"),
-//							Regex: pulumi.String("loss: ([0-9\\.]+)"),
-//						},
-//						&sagemaker.TrainingJobAlgorithmSpecificationMetricDefinitionArgs{
-//							Name:  pulumi.String("validation:accuracy"),
-//							Regex: pulumi.String("accuracy: ([0-9\\.]+)"),
-//						},
-//					},
-//				},
-//				Environment: pulumi.StringMap{
-//					"MODEL_DIR":    pulumi.String("/opt/ml/model"),
-//					"SM_LOG_LEVEL": pulumi.String("20"),
-//				},
-//				HyperParameters: pulumi.StringMap{
-//					"epochs":     pulumi.String("10"),
-//					"batch_size": pulumi.String("128"),
 //				},
 //				OutputDataConfig: &sagemaker.TrainingJobOutputDataConfigArgs{
 //					S3OutputPath: pulumi.Sprintf("s3://%v/output/", exampleAwsS3Bucket.Bucket),
@@ -286,6 +273,19 @@ import (
 //				StoppingCondition: &sagemaker.TrainingJobStoppingConditionArgs{
 //					MaxRuntimeInSeconds:  pulumi.Int(3600),
 //					MaxWaitTimeInSeconds: pulumi.Int(7200),
+//				},
+//				TrainingJobName:                       pulumi.String("example"),
+//				RoleArn:                               pulumi.Any(exampleAwsIamRole.Arn),
+//				EnableManagedSpotTraining:             pulumi.Bool(true),
+//				EnableNetworkIsolation:                pulumi.Bool(true),
+//				EnableInterContainerTrafficEncryption: pulumi.Bool(true),
+//				Environment: pulumi.StringMap{
+//					"MODEL_DIR":    pulumi.String("/opt/ml/model"),
+//					"SM_LOG_LEVEL": pulumi.String("20"),
+//				},
+//				HyperParameters: pulumi.StringMap{
+//					"epochs":     pulumi.String("10"),
+//					"batch_size": pulumi.String("128"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
@@ -316,37 +316,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewTrainingJob(ctx, "example", &sagemaker.TrainingJobArgs{
-//				TrainingJobName: pulumi.String("example"),
-//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //				AlgorithmSpecification: &sagemaker.TrainingJobAlgorithmSpecificationArgs{
 //					TrainingInputMode: pulumi.String("File"),
 //					TrainingImage:     pulumi.Any(exampleAwsSagemakerPrebuiltEcrImage.RegistryPath),
-//				},
-//				InputDataConfigs: sagemaker.TrainingJobInputDataConfigArray{
-//					&sagemaker.TrainingJobInputDataConfigArgs{
-//						ChannelName: pulumi.String("train"),
-//						ContentType: pulumi.String("text/csv"),
-//						InputMode:   pulumi.String("File"),
-//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
-//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
-//								S3DataDistributionType: pulumi.String("FullyReplicated"),
-//								S3DataType:             pulumi.String("S3Prefix"),
-//								S3Uri:                  pulumi.Sprintf("s3://%v/train/", exampleAwsS3Bucket.Bucket),
-//							},
-//						},
-//					},
-//					&sagemaker.TrainingJobInputDataConfigArgs{
-//						ChannelName: pulumi.String("validation"),
-//						ContentType: pulumi.String("text/csv"),
-//						InputMode:   pulumi.String("File"),
-//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
-//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
-//								S3DataDistributionType: pulumi.String("FullyReplicated"),
-//								S3DataType:             pulumi.String("S3Prefix"),
-//								S3Uri:                  pulumi.Sprintf("s3://%v/validation/", exampleAwsS3Bucket.Bucket),
-//							},
-//						},
-//					},
 //				},
 //				InfraCheckConfig: &sagemaker.TrainingJobInfraCheckConfigArgs{
 //					EnableInfraCheck: pulumi.Bool(true),
@@ -365,6 +337,34 @@ import (
 //				StoppingCondition: &sagemaker.TrainingJobStoppingConditionArgs{
 //					MaxRuntimeInSeconds: pulumi.Int(3600),
 //				},
+//				InputDataConfigs: sagemaker.TrainingJobInputDataConfigArray{
+//					&sagemaker.TrainingJobInputDataConfigArgs{
+//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
+//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
+//								S3DataDistributionType: pulumi.String("FullyReplicated"),
+//								S3DataType:             pulumi.String("S3Prefix"),
+//								S3Uri:                  pulumi.Sprintf("s3://%v/train/", exampleAwsS3Bucket.Bucket),
+//							},
+//						},
+//						ChannelName: pulumi.String("train"),
+//						ContentType: pulumi.String("text/csv"),
+//						InputMode:   pulumi.String("File"),
+//					},
+//					&sagemaker.TrainingJobInputDataConfigArgs{
+//						DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceArgs{
+//							S3DataSource: &sagemaker.TrainingJobInputDataConfigDataSourceS3DataSourceArgs{
+//								S3DataDistributionType: pulumi.String("FullyReplicated"),
+//								S3DataType:             pulumi.String("S3Prefix"),
+//								S3Uri:                  pulumi.Sprintf("s3://%v/validation/", exampleAwsS3Bucket.Bucket),
+//							},
+//						},
+//						ChannelName: pulumi.String("validation"),
+//						ContentType: pulumi.String("text/csv"),
+//						InputMode:   pulumi.String("File"),
+//					},
+//				},
+//				TrainingJobName: pulumi.String("example"),
+//				RoleArn:         pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

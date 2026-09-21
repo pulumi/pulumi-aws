@@ -56,14 +56,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()
- *             .windowId(window.id())
- *             .name("maintenance-window-target")
- *             .description("This is a maintenance window target")
- *             .resourceType("INSTANCE")
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
  *                 .key("tag:Name")
  *                 .values("acceptance_test")
  *                 .build())
+ *             .windowId(window.id())
+ *             .name("maintenance-window-target")
+ *             .description("This is a maintenance window target")
+ *             .resourceType("INSTANCE")
  *             .build());
  * 
  *     }
@@ -106,14 +106,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var target1 = new MaintenanceWindowTarget("target1", MaintenanceWindowTargetArgs.builder()
- *             .windowId(window.id())
- *             .name("maintenance-window-target")
- *             .description("This is a maintenance window target")
- *             .resourceType("RESOURCE_GROUP")
  *             .targets(MaintenanceWindowTargetTargetArgs.builder()
  *                 .key("resource-groups:ResourceTypeFilters")
  *                 .values("AWS::EC2::Instance")
  *                 .build())
+ *             .windowId(window.id())
+ *             .name("maintenance-window-target")
+ *             .description("This is a maintenance window target")
+ *             .resourceType("RESOURCE_GROUP")
  *             .build());
  * 
  *     }

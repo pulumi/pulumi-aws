@@ -62,12 +62,8 @@ type GetRolePoliciesResult struct {
 }
 
 func GetRolePoliciesOutput(ctx *pulumi.Context, args GetRolePoliciesOutputArgs, opts ...pulumi.InvokeOption) GetRolePoliciesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRolePoliciesResultOutput, error) {
-			args := v.(GetRolePoliciesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:iam/getRolePolicies:getRolePolicies", args, GetRolePoliciesResultOutput{}, options).(GetRolePoliciesResultOutput), nil
-		}).(GetRolePoliciesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:iam/getRolePolicies:getRolePolicies", args, GetRolePoliciesResultOutput{}, options).(GetRolePoliciesResultOutput)
 }
 
 // A collection of arguments for invoking getRolePolicies.

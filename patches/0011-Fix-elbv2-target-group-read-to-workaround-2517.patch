@@ -5,7 +5,7 @@ Subject: [PATCH] Fix elbv2 target group read to workaround #2517
 
 
 diff --git a/internal/service/elbv2/target_group.go b/internal/service/elbv2/target_group.go
-index be57b8e37dd..6de3c51cc5f 100644
+index be57b8e37dd9..6de3c51cc5f1 100644
 --- a/internal/service/elbv2/target_group.go
 +++ b/internal/service/elbv2/target_group.go
 @@ -660,19 +660,19 @@ func resourceTargetGroupFlatten(ctx context.Context, awsClient *conns.AWSClient,

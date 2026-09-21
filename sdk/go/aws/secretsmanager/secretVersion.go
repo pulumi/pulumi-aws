@@ -147,14 +147,14 @@ type SecretVersion struct {
 	SecretArn pulumi.StringOutput `pulumi:"secretArn"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrOutput `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringOutput `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrOutput `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 	SecretStringWo pulumi.StringPtrOutput `pulumi:"secretStringWo"`
-	// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 	SecretStringWoVersion pulumi.IntPtrOutput `pulumi:"secretStringWoVersion"`
 	// Unique identifier of the version of the secret.
 	VersionId pulumi.StringOutput `pulumi:"versionId"`
@@ -224,14 +224,14 @@ type secretVersionState struct {
 	SecretArn *string `pulumi:"secretArn"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId *string `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 	SecretStringWo *string `pulumi:"secretStringWo"`
-	// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
 	// Unique identifier of the version of the secret.
 	VersionId *string `pulumi:"versionId"`
@@ -254,14 +254,14 @@ type SecretVersionState struct {
 	SecretArn pulumi.StringPtrInput
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringPtrInput
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 	SecretStringWo pulumi.StringPtrInput
-	// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 	SecretStringWoVersion pulumi.IntPtrInput
 	// Unique identifier of the version of the secret.
 	VersionId pulumi.StringPtrInput
@@ -280,14 +280,14 @@ type secretVersionArgs struct {
 	Region *string `pulumi:"region"`
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary *string `pulumi:"secretBinary"`
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId string `pulumi:"secretId"`
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString *string `pulumi:"secretString"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 	SecretStringWo *string `pulumi:"secretStringWo"`
-	// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 	SecretStringWoVersion *int `pulumi:"secretStringWoVersion"`
 	// List of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
 	//
@@ -301,14 +301,14 @@ type SecretVersionArgs struct {
 	Region pulumi.StringPtrInput
 	// Binary data that you want to encrypt and store in this version of the secret. This is required if `secretString` or `secretStringWo` is not set. Needs to be encoded to base64.
 	SecretBinary pulumi.StringPtrInput
-	// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+	// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 	SecretId pulumi.StringInput
 	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretStringWo` is not set.
 	SecretString pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+	// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 	SecretStringWo pulumi.StringPtrInput
-	// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+	// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 	SecretStringWoVersion pulumi.IntPtrInput
 	// List of staging labels that are attached to this version of the secret. A staging label must be unique to a single version of the secret. If you specify a staging label that's already associated with a different version of the same secret then that staging label is automatically removed from the other version and attached to this version. If you do not specify a value, then AWS Secrets Manager automatically moves the staging label `AWSCURRENT` to this new version on creation.
 	//
@@ -430,7 +430,7 @@ func (o SecretVersionOutput) SecretBinary() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretBinary }).(pulumi.StringPtrOutput)
 }
 
-// Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+// Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
 func (o SecretVersionOutput) SecretId() pulumi.StringOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringOutput { return v.SecretId }).(pulumi.StringOutput)
 }
@@ -441,12 +441,12 @@ func (o SecretVersionOutput) SecretString() pulumi.StringPtrOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+// Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
 func (o SecretVersionOutput) SecretStringWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.StringPtrOutput { return v.SecretStringWo }).(pulumi.StringPtrOutput)
 }
 
-// Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+// Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
 func (o SecretVersionOutput) SecretStringWoVersion() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SecretVersion) pulumi.IntPtrOutput { return v.SecretStringWoVersion }).(pulumi.IntPtrOutput)
 }

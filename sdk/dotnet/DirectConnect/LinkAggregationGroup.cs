@@ -107,6 +107,12 @@ namespace Pulumi.Aws.DirectConnect
         public Output<string> ProviderName { get; private set; } = null!;
 
         /// <summary>
+        /// Rate limiter status for the LAG. See `RateLimiterStatus` Block below.
+        /// </summary>
+        [Output("rateLimiterStatuses")]
+        public Output<ImmutableArray<Outputs.LinkAggregationGroupRateLimiterStatus>> RateLimiterStatuses { get; private set; } = null!;
+
+        /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         /// </summary>
         [Output("region")]
@@ -291,6 +297,18 @@ namespace Pulumi.Aws.DirectConnect
         /// </summary>
         [Input("providerName")]
         public Input<string>? ProviderName { get; set; }
+
+        [Input("rateLimiterStatuses")]
+        private InputList<Inputs.LinkAggregationGroupRateLimiterStatusGetArgs>? _rateLimiterStatuses;
+
+        /// <summary>
+        /// Rate limiter status for the LAG. See `RateLimiterStatus` Block below.
+        /// </summary>
+        public InputList<Inputs.LinkAggregationGroupRateLimiterStatusGetArgs> RateLimiterStatuses
+        {
+            get => _rateLimiterStatuses ?? (_rateLimiterStatuses = new InputList<Inputs.LinkAggregationGroupRateLimiterStatusGetArgs>());
+            set => _rateLimiterStatuses = value;
+        }
 
         /// <summary>
         /// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.

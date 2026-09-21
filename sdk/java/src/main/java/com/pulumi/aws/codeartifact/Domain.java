@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeArtifact domain.
+ * - `arn` (String) ARN of the CodeArtifact domain.
  * 
  * Using `pulumi import`, import CodeArtifact Domain using the CodeArtifact Domain arn. For example:
  * 
@@ -126,14 +126,14 @@ public class Domain extends com.pulumi.resources.CustomResource {
         return this.domain;
     }
     /**
-     * The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     * Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
      * 
      */
     @Export(name="encryptionKey", refs={String.class}, tree="[0]")
     private Output<String> encryptionKey;
 
     /**
-     * @return The encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key Amazon Resource Name (ARN). The default aws/codeartifact AWS KMS master key is used if this element is absent.
+     * @return Encryption key for the domain. This is used to encrypt content stored in a domain. The KMS Key ARN. The default aws/codeartifact AWS KMS master key is used if this element is absent.
      * 
      */
     public Output<String> encryptionKey() {

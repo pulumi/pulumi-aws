@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Cfg
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.Cfg
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -68,12 +68,12 @@ namespace Pulumi.Aws.Cfg
     /// 
     ///     var r = new Aws.Cfg.Rule("r", new()
     ///     {
-    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "AWS",
     ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
     ///         },
+    ///         Name = "example",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ### Custom Rules
     /// 
-    /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
+    /// Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the ARN of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
@@ -166,17 +166,8 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var example = new Aws.Cfg.Rule("example", new()
     ///     {
-    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
-    ///             Owner = "CUSTOM_POLICY",
-    ///             SourceDetails = new[]
-    ///             {
-    ///                 new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
-    ///                 {
-    ///                     MessageType = "ConfigurationItemChangeNotification",
-    ///                 },
-    ///             },
     ///             CustomPolicyDetails = new Aws.Cfg.Inputs.RuleSourceCustomPolicyDetailsArgs
     ///             {
     ///                 PolicyRuntime = "guard-2.x.x",
@@ -192,7 +183,16 @@ namespace Pulumi.Aws.Cfg
     /// \t  }
     /// ",
     ///             },
+    ///             SourceDetails = new[]
+    ///             {
+    ///                 new Aws.Cfg.Inputs.RuleSourceSourceDetailArgs
+    ///                 {
+    ///                     MessageType = "ConfigurationItemChangeNotification",
+    ///                 },
+    ///             },
+    ///             Owner = "CUSTOM_POLICY",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });

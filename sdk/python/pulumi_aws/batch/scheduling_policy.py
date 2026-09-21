@@ -99,7 +99,7 @@ class _SchedulingPolicyState:
         """
         Input properties used for looking up and filtering SchedulingPolicy resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the scheduling policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scheduling policy.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -122,7 +122,7 @@ class _SchedulingPolicyState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name of the scheduling policy.
+        ARN of the scheduling policy.
         """
         return pulumi.get(self, "arn")
 
@@ -209,10 +209,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
-            name="example",
             fair_share_policy={
-                "compute_reservation": 1,
-                "share_decay_seconds": 3600,
                 "share_distributions": [
                     {
                         "share_identifier": "A1*",
@@ -223,7 +220,10 @@ class SchedulingPolicy(pulumi.CustomResource):
                         "weight_factor": 0.2,
                     },
                 ],
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
             },
+            name="example",
             tags={
                 "Name": "Example Batch Scheduling Policy",
             })
@@ -260,10 +260,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.batch.SchedulingPolicy("example",
-            name="example",
             fair_share_policy={
-                "compute_reservation": 1,
-                "share_decay_seconds": 3600,
                 "share_distributions": [
                     {
                         "share_identifier": "A1*",
@@ -274,7 +271,10 @@ class SchedulingPolicy(pulumi.CustomResource):
                         "weight_factor": 0.2,
                     },
                 ],
+                "compute_reservation": 1,
+                "share_decay_seconds": 3600,
             },
+            name="example",
             tags={
                 "Name": "Example Batch Scheduling Policy",
             })
@@ -346,7 +346,7 @@ class SchedulingPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name of the scheduling policy.
+        :param pulumi.Input[_builtins.str] arn: ARN of the scheduling policy.
         :param pulumi.Input[_builtins.str] name: Specifies the name of the scheduling policy.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -368,7 +368,7 @@ class SchedulingPolicy(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name of the scheduling policy.
+        ARN of the scheduling policy.
         """
         return pulumi.get(self, "arn")
 

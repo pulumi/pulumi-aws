@@ -162,17 +162,17 @@ class PackageAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_domain = aws.opensearch.Domain("my_domain",
-            domain_name="my-opensearch-domain",
-            engine_version="Elasticsearch_7.10",
             cluster_config={
                 "instance_type": "r4.large.search",
-            })
+            },
+            domain_name="my-opensearch-domain",
+            engine_version="Elasticsearch_7.10")
         example = aws.opensearch.Package("example",
-            package_name="example-txt",
             package_source={
                 "s3_bucket_name": my_opensearch_packages["bucket"],
                 "s3_key": example_aws_s3_object["key"],
             },
+            package_name="example-txt",
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",
             package_id=example.id,
@@ -212,17 +212,17 @@ class PackageAssociation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         my_domain = aws.opensearch.Domain("my_domain",
-            domain_name="my-opensearch-domain",
-            engine_version="Elasticsearch_7.10",
             cluster_config={
                 "instance_type": "r4.large.search",
-            })
+            },
+            domain_name="my-opensearch-domain",
+            engine_version="Elasticsearch_7.10")
         example = aws.opensearch.Package("example",
-            package_name="example-txt",
             package_source={
                 "s3_bucket_name": my_opensearch_packages["bucket"],
                 "s3_key": example_aws_s3_object["key"],
             },
+            package_name="example-txt",
             package_type="TXT-DICTIONARY")
         example_package_association = aws.opensearch.PackageAssociation("example",
             package_id=example.id,

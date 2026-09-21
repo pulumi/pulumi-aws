@@ -70,7 +70,7 @@ export class StreamConsumer extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the stream consumer.
+     * ARN of the stream consumer.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -86,7 +86,7 @@ export class StreamConsumer extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      */
     declare public readonly streamArn: pulumi.Output<string>;
     declare public readonly tags: pulumi.Output<{[key: string]: string} | undefined>;
@@ -135,7 +135,7 @@ export class StreamConsumer extends pulumi.CustomResource {
  */
 export interface StreamConsumerState {
     /**
-     * Amazon Resource Name (ARN) of the stream consumer.
+     * ARN of the stream consumer.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -151,7 +151,7 @@ export interface StreamConsumerState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      */
     streamArn?: pulumi.Input<string | undefined>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
@@ -171,7 +171,7 @@ export interface StreamConsumerArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the data stream the consumer is registered with.
+     * ARN of the data stream the consumer is registered with.
      */
     streamArn: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;

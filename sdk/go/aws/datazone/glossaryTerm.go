@@ -37,6 +37,25 @@ import (
 //				"Statement": []map[string]interface{}{
 //					map[string]interface{}{
 //						"Action": []string{
+//							"datazone:*",
+//							"ram:*",
+//							"sso:*",
+//							"kms:*",
+//						},
+//						"Effect":   "Allow",
+//						"Resource": "*",
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			json0 := string(tmpJSON0)
+//			tmpJSON1, err := json.Marshal(map[string]interface{}{
+//				"Version": "2012-10-17",
+//				"Statement": []map[string]interface{}{
+//					map[string]interface{}{
+//						"Action": []string{
 //							"sts:AssumeRole",
 //							"sts:TagSession",
 //						},
@@ -60,35 +79,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			json0 := string(tmpJSON0)
-//			tmpJSON1, err := json.Marshal(map[string]interface{}{
-//				"Version": "2012-10-17",
-//				"Statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"Action": []string{
-//							"datazone:*",
-//							"ram:*",
-//							"sso:*",
-//							"kms:*",
-//						},
-//						"Effect":   "Allow",
-//						"Resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
 //			json1 := string(tmpJSON1)
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				Name:             pulumi.String("example"),
-//				AssumeRolePolicy: pulumi.String(json0),
 //				InlinePolicies: iam.RoleInlinePolicyArray{
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("example"),
-//						Policy: pulumi.String(json1),
+//						Policy: pulumi.String(json0),
 //					},
 //				},
+//				Name:             pulumi.String("example"),
+//				AssumeRolePolicy: pulumi.String(json1),
 //			})
 //			if err != nil {
 //				return err

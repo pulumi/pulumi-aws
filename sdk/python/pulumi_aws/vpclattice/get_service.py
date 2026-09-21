@@ -85,7 +85,7 @@ class GetServiceResult:
     @pulumi.getter(name="certificateArn")
     def certificate_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the certificate.
+        ARN of the certificate.
         """
         return pulumi.get(self, "certificate_arn")
 
@@ -195,7 +195,7 @@ def get_service(name: Optional[_builtins.str] = None,
 
     :param _builtins.str name: Service name.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
+    :param _builtins.str service_identifier: ID or ARN of the service.
     :param Mapping[str, _builtins.str] tags: List of tags associated with the service.
     """
     __args__ = dict()
@@ -241,7 +241,7 @@ def get_service_output(name: pulumi.Input[Optional[Optional[_builtins.str]]] = N
 
     :param _builtins.str name: Service name.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str service_identifier: ID or Amazon Resource Name (ARN) of the service.
+    :param _builtins.str service_identifier: ID or ARN of the service.
     :param Mapping[str, _builtins.str] tags: List of tags associated with the service.
     """
     __args__ = dict()

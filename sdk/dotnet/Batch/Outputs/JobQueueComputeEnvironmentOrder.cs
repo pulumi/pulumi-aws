@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Batch.Outputs
     public sealed class JobQueueComputeEnvironmentOrder
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the compute environment.
+        /// ARN of the compute environment.
         /// </summary>
         public readonly string ComputeEnvironment;
         /// <summary>

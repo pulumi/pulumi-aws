@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     redactedFields: [{
  *         singleHeader: {
  *             name: "user-agent",
  *         },
  *     }],
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  * });
  * ```
  *
@@ -38,13 +38,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.wafv2.WebAclLoggingConfiguration("example", {
- *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
- *     resourceArn: exampleAwsWafv2WebAcl.arn,
  *     loggingFilter: {
- *         defaultBehavior: "KEEP",
  *         filters: [
  *             {
- *                 behavior: "DROP",
  *                 conditions: [
  *                     {
  *                         actionCondition: {
@@ -57,19 +53,23 @@ import * as utilities from "../utilities";
  *                         },
  *                     },
  *                 ],
+ *                 behavior: "DROP",
  *                 requirement: "MEETS_ALL",
  *             },
  *             {
- *                 behavior: "KEEP",
  *                 conditions: [{
  *                     actionCondition: {
  *                         action: "ALLOW",
  *                     },
  *                 }],
+ *                 behavior: "KEEP",
  *                 requirement: "MEETS_ANY",
  *             },
  *         ],
+ *         defaultBehavior: "KEEP",
  *     },
+ *     logDestinationConfigs: [exampleAwsKinesisFirehoseDeliveryStream.arn],
+ *     resourceArn: exampleAwsWafv2WebAcl.arn,
  * });
  * ```
  *
@@ -110,7 +110,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     declare public readonly logDestinationConfigs: pulumi.Output<string[]>;
     /**
@@ -126,7 +126,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * ARN of the web ACL that you want to associate with `logDestinationConfigs`.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -172,7 +172,7 @@ export class WebAclLoggingConfiguration extends pulumi.CustomResource {
  */
 export interface WebAclLoggingConfigurationState {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     logDestinationConfigs?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -188,7 +188,7 @@ export interface WebAclLoggingConfigurationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * ARN of the web ACL that you want to associate with `logDestinationConfigs`.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -198,7 +198,7 @@ export interface WebAclLoggingConfigurationState {
  */
 export interface WebAclLoggingConfigurationArgs {
     /**
-     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket Amazon Resource Names (ARNs) with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
+     * Configuration block that allows you to associate Amazon Kinesis Data Firehose, Cloudwatch Log log group, or S3 bucket ARNs with the web ACL. **Note:** data firehose, log group, or bucket name **must** be prefixed with `aws-waf-logs-`, e.g. `aws-waf-logs-example-firehose`, `aws-waf-logs-example-log-group`, or `aws-waf-logs-example-bucket`.
      */
     logDestinationConfigs: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -214,7 +214,7 @@ export interface WebAclLoggingConfigurationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the web ACL that you want to associate with `logDestinationConfigs`.
+     * ARN of the web ACL that you want to associate with `logDestinationConfigs`.
      */
     resourceArn: pulumi.Input<string>;
 }

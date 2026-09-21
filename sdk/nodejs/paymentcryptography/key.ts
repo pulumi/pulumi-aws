@@ -19,18 +19,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.paymentcryptography.Key("test", {
- *     exportable: true,
  *     keyAttributes: [{
- *         keyAlgorithm: "TDES_3KEY",
- *         keyClass: "SYMMETRIC_KEY",
- *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
  *         keyModesOfUses: [{
  *             decrypt: true,
  *             encrypt: true,
  *             wrap: true,
  *             unwrap: true,
  *         }],
+ *         keyAlgorithm: "TDES_3KEY",
+ *         keyClass: "SYMMETRIC_KEY",
+ *         keyUsage: "TR31_P0_PIN_ENCRYPTION_KEY",
  *     }],
+ *     exportable: true,
  * });
  * ```
  *
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
+ * - `arn` (String) ARN of the Payment Cryptography key.
  *
  * Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
  *

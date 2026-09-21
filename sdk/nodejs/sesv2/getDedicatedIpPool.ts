@@ -45,7 +45,7 @@ export interface GetDedicatedIpPoolArgs {
      */
     region?: string;
     /**
-     * A map of tags attached to the pool.
+     * Map of tags attached to the pool.
      */
     tags?: {[key: string]: string};
 }
@@ -59,7 +59,7 @@ export interface GetDedicatedIpPoolResult {
      */
     readonly arn: string;
     /**
-     * A list of objects describing the pool's dedicated IP's. See `dedicatedIps`.
+     * List of objects describing the pool's dedicated IP's. See `dedicatedIps`.
      */
     readonly dedicatedIps: outputs.sesv2.GetDedicatedIpPoolDedicatedIp[];
     /**
@@ -69,11 +69,11 @@ export interface GetDedicatedIpPoolResult {
     readonly poolName: string;
     readonly region: string;
     /**
-     * (Optional) IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
+     * IP pool scaling mode. Valid values: `STANDARD`, `MANAGED`.
      */
     readonly scalingMode: string;
     /**
-     * A map of tags attached to the pool.
+     * Map of tags attached to the pool.
      */
     readonly tags: {[key: string]: string};
 }
@@ -115,7 +115,7 @@ export interface GetDedicatedIpPoolOutputArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * A map of tags attached to the pool.
+     * Map of tags attached to the pool.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }

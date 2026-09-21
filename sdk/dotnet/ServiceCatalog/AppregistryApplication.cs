@@ -76,7 +76,7 @@ namespace Pulumi.Aws.ServiceCatalog
         public Output<ImmutableDictionary<string, string>> ApplicationTag { get; private set; } = null!;
 
         /// <summary>
-        /// ARN (Amazon Resource Name) of the application.
+        /// ARN of the application.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -212,7 +212,7 @@ namespace Pulumi.Aws.ServiceCatalog
         }
 
         /// <summary>
-        /// ARN (Amazon Resource Name) of the application.
+        /// ARN of the application.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

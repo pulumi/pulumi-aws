@@ -50,17 +50,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var cloudwatch = new EventDestination("cloudwatch", EventDestinationArgs.builder()
+ *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
+ *                 .defaultValue("default")
+ *                 .dimensionName("dimension")
+ *                 .valueSource("emailHeader")
+ *                 .build())
  *             .name("event-destination-cloudwatch")
  *             .configurationSetName(example.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .cloudwatchDestinations(EventDestinationCloudwatchDestinationArgs.builder()
- *                 .defaultValue("default")
- *                 .dimensionName("dimension")
- *                 .valueSource("emailHeader")
- *                 .build())
  *             .build());
  * 
  *     }
@@ -94,16 +94,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var kinesis = new EventDestination("kinesis", EventDestinationArgs.builder()
+ *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
+ *                 .streamArn(example.arn())
+ *                 .roleArn(exampleAwsIamRole.arn())
+ *                 .build())
  *             .name("event-destination-kinesis")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .kinesisDestination(EventDestinationKinesisDestinationArgs.builder()
- *                 .streamArn(exampleAwsKinesisFirehoseDeliveryStream.arn())
- *                 .roleArn(example.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -137,15 +137,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var sns = new EventDestination("sns", EventDestinationArgs.builder()
+ *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
+ *                 .topicArn(example.arn())
+ *                 .build())
  *             .name("event-destination-sns")
  *             .configurationSetName(exampleAwsSesConfigurationSet.name())
  *             .enabled(true)
  *             .matchingTypes(            
  *                 "bounce",
  *                 "send")
- *             .snsDestination(EventDestinationSnsDestinationArgs.builder()
- *                 .topicArn(example.arn())
- *                 .build())
  *             .build());
  * 
  *     }
@@ -165,14 +165,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ses/eventDestination:EventDestination")
 public class EventDestination extends com.pulumi.resources.CustomResource {
     /**
-     * The SES event destination ARN.
+     * SES event destination ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The SES event destination ARN.
+     * @return SES event destination ARN.
      * 
      */
     public Output<String> arn() {
@@ -193,14 +193,14 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.cloudwatchDestinations);
     }
     /**
-     * The name of the configuration set
+     * Name of the configuration set
      * 
      */
     @Export(name="configurationSetName", refs={String.class}, tree="[0]")
     private Output<String> configurationSetName;
 
     /**
-     * @return The name of the configuration set
+     * @return Name of the configuration set
      * 
      */
     public Output<String> configurationSetName() {
@@ -235,28 +235,28 @@ public class EventDestination extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.kinesisDestination);
     }
     /**
-     * A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     @Export(name="matchingTypes", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> matchingTypes;
 
     /**
-     * @return A list of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
+     * @return List of matching types. May be any of `&#34;send&#34;`, `&#34;reject&#34;`, `&#34;bounce&#34;`, `&#34;complaint&#34;`, `&#34;delivery&#34;`, `&#34;open&#34;`, `&#34;click&#34;`, or `&#34;renderingFailure&#34;`.
      * 
      */
     public Output<List<String>> matchingTypes() {
         return this.matchingTypes;
     }
     /**
-     * The name of the event destination
+     * Name of the event destination
      * 
      */
     @Export(name="name", refs={String.class}, tree="[0]")
     private Output<String> name;
 
     /**
-     * @return The name of the event destination
+     * @return Name of the event destination
      * 
      */
     public Output<String> name() {

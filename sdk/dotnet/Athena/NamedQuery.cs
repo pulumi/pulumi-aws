@@ -35,7 +35,6 @@ namespace Pulumi.Aws.Athena
     /// 
     ///     var testWorkgroup = new Aws.Athena.Workgroup("test", new()
     ///     {
-    ///         Name = "example",
     ///         Configuration = new Aws.Athena.Inputs.WorkgroupConfigurationArgs
     ///         {
     ///             ResultConfiguration = new Aws.Athena.Inputs.WorkgroupConfigurationResultConfigurationArgs
@@ -47,6 +46,7 @@ namespace Pulumi.Aws.Athena
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var hogeDatabase = new Aws.Athena.Database("hoge", new()

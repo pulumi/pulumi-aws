@@ -430,12 +430,12 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "sid": "new policy",
+            "effect": "Allow",
             "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
@@ -454,14 +454,14 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             ],
         }])
         example_repository_creation_template = aws.ecr.RepositoryCreationTemplate("example",
+            encryption_configurations=[{
+                "encryption_type": "AES256",
+            }],
             prefix="example",
             description="An example template",
             image_tag_mutability="IMMUTABLE",
             custom_role_arn="arn:aws:iam::123456789012:role/example",
             applied_fors=["PULL_THROUGH_CACHE"],
-            encryption_configurations=[{
-                "encryption_type": "AES256",
-            }],
             repository_policy=example.json,
             lifecycle_policy=\"\"\"{
           \\"rules\\": [
@@ -525,12 +525,12 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.iam.get_policy_document(statements=[{
-            "sid": "new policy",
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": ["123456789012"],
             }],
+            "sid": "new policy",
+            "effect": "Allow",
             "actions": [
                 "ecr:GetDownloadUrlForLayer",
                 "ecr:BatchGetImage",
@@ -549,14 +549,14 @@ class RepositoryCreationTemplate(pulumi.CustomResource):
             ],
         }])
         example_repository_creation_template = aws.ecr.RepositoryCreationTemplate("example",
+            encryption_configurations=[{
+                "encryption_type": "AES256",
+            }],
             prefix="example",
             description="An example template",
             image_tag_mutability="IMMUTABLE",
             custom_role_arn="arn:aws:iam::123456789012:role/example",
             applied_fors=["PULL_THROUGH_CACHE"],
-            encryption_configurations=[{
-                "encryption_type": "AES256",
-            }],
             repository_policy=example.json,
             lifecycle_policy=\"\"\"{
           \\"rules\\": [

@@ -86,7 +86,7 @@ type ImageVersion struct {
 
 	// A list of aliases for the image version.
 	Aliases pulumi.StringArrayOutput `pulumi:"aliases"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+	// ARN assigned by AWS to this Image Version.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringOutput `pulumi:"baseImage"`
@@ -153,7 +153,7 @@ func GetImageVersion(ctx *pulumi.Context,
 type imageVersionState struct {
 	// A list of aliases for the image version.
 	Aliases []string `pulumi:"aliases"`
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+	// ARN assigned by AWS to this Image Version.
 	Arn *string `pulumi:"arn"`
 	// The registry path of the container image on which this image version is based.
 	BaseImage *string `pulumi:"baseImage"`
@@ -185,7 +185,7 @@ type imageVersionState struct {
 type ImageVersionState struct {
 	// A list of aliases for the image version.
 	Aliases pulumi.StringArrayInput
-	// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+	// ARN assigned by AWS to this Image Version.
 	Arn pulumi.StringPtrInput
 	// The registry path of the container image on which this image version is based.
 	BaseImage pulumi.StringPtrInput
@@ -361,7 +361,7 @@ func (o ImageVersionOutput) Aliases() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringArrayOutput { return v.Aliases }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+// ARN assigned by AWS to this Image Version.
 func (o ImageVersionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ImageVersion) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -54,63 +54,95 @@ type LookupClusterArgs struct {
 	ClusterIdentifier string `pulumi:"clusterIdentifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags map[string]string `pulumi:"tags"`
 }
 
 // A collection of values returned by getCluster.
 type LookupClusterResult struct {
-	Arn                              string   `pulumi:"arn"`
-	AvailabilityZones                []string `pulumi:"availabilityZones"`
-	BacktrackWindow                  int      `pulumi:"backtrackWindow"`
-	BackupRetentionPeriod            int      `pulumi:"backupRetentionPeriod"`
-	ClusterIdentifier                string   `pulumi:"clusterIdentifier"`
-	ClusterMembers                   []string `pulumi:"clusterMembers"`
-	ClusterResourceId                string   `pulumi:"clusterResourceId"`
-	ClusterScalabilityType           string   `pulumi:"clusterScalabilityType"`
-	DatabaseInsightsMode             string   `pulumi:"databaseInsightsMode"`
-	DatabaseName                     string   `pulumi:"databaseName"`
-	DbClusterParameterGroupName      string   `pulumi:"dbClusterParameterGroupName"`
-	DbSubnetGroupName                string   `pulumi:"dbSubnetGroupName"`
-	DbSystemId                       string   `pulumi:"dbSystemId"`
-	DeletionProtection               bool     `pulumi:"deletionProtection"`
-	EnabledCloudwatchLogsExports     []string `pulumi:"enabledCloudwatchLogsExports"`
-	Endpoint                         string   `pulumi:"endpoint"`
-	Engine                           string   `pulumi:"engine"`
-	EngineMode                       string   `pulumi:"engineMode"`
-	EngineVersion                    string   `pulumi:"engineVersion"`
-	FinalSnapshotIdentifier          string   `pulumi:"finalSnapshotIdentifier"`
-	HostedZoneId                     string   `pulumi:"hostedZoneId"`
-	IamDatabaseAuthenticationEnabled bool     `pulumi:"iamDatabaseAuthenticationEnabled"`
-	IamRoles                         []string `pulumi:"iamRoles"`
+	// ARN of the cluster.
+	Arn string `pulumi:"arn"`
+	// Availability Zones of the RDS cluster.
+	AvailabilityZones []string `pulumi:"availabilityZones"`
+	// Target backtrack window, in seconds.
+	BacktrackWindow int `pulumi:"backtrackWindow"`
+	// Days to retain backups for.
+	BackupRetentionPeriod int    `pulumi:"backupRetentionPeriod"`
+	ClusterIdentifier     string `pulumi:"clusterIdentifier"`
+	// List of RDS Instances that are a part of this cluster.
+	ClusterMembers []string `pulumi:"clusterMembers"`
+	// RDS Cluster Resource ID.
+	ClusterResourceId string `pulumi:"clusterResourceId"`
+	// Scalability mode of the cluster.
+	ClusterScalabilityType string `pulumi:"clusterScalabilityType"`
+	// Mode of Database Insights that is enabled for the cluster.
+	DatabaseInsightsMode string `pulumi:"databaseInsightsMode"`
+	// Name for an automatically created database on cluster creation.
+	DatabaseName string `pulumi:"databaseName"`
+	// Cluster parameter group associated with the cluster.
+	DbClusterParameterGroupName string `pulumi:"dbClusterParameterGroupName"`
+	// DB subnet group associated with the cluster.
+	DbSubnetGroupName string `pulumi:"dbSubnetGroupName"`
+	// System ID of the cluster.
+	DbSystemId string `pulumi:"dbSystemId"`
+	// Whether the cluster has deletion protection enabled.
+	DeletionProtection bool `pulumi:"deletionProtection"`
+	// List of log types exported to CloudWatch Logs.
+	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
+	// DNS address of the RDS instance.
+	Endpoint string `pulumi:"endpoint"`
+	// Database engine.
+	Engine string `pulumi:"engine"`
+	// Database engine mode.
+	EngineMode string `pulumi:"engineMode"`
+	// Database engine version.
+	EngineVersion string `pulumi:"engineVersion"`
+	// Name of the final snapshot taken when the cluster is deleted.
+	FinalSnapshotIdentifier string `pulumi:"finalSnapshotIdentifier"`
+	// Route53 Hosted Zone ID of the endpoint.
+	HostedZoneId string `pulumi:"hostedZoneId"`
+	// Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
+	IamDatabaseAuthenticationEnabled bool `pulumi:"iamDatabaseAuthenticationEnabled"`
+	// IAM roles associated with the cluster.
+	IamRoles []string `pulumi:"iamRoles"`
 	// The provider-assigned unique ID for this managed resource.
-	Id                          string                       `pulumi:"id"`
-	KmsKeyId                    string                       `pulumi:"kmsKeyId"`
-	MasterUserSecrets           []GetClusterMasterUserSecret `pulumi:"masterUserSecrets"`
-	MasterUsername              string                       `pulumi:"masterUsername"`
-	MonitoringInterval          int                          `pulumi:"monitoringInterval"`
-	MonitoringRoleArn           string                       `pulumi:"monitoringRoleArn"`
-	NetworkType                 string                       `pulumi:"networkType"`
-	Port                        int                          `pulumi:"port"`
-	PreferredBackupWindow       string                       `pulumi:"preferredBackupWindow"`
-	PreferredMaintenanceWindow  string                       `pulumi:"preferredMaintenanceWindow"`
-	ReaderEndpoint              string                       `pulumi:"readerEndpoint"`
-	Region                      string                       `pulumi:"region"`
-	ReplicationSourceIdentifier string                       `pulumi:"replicationSourceIdentifier"`
-	StorageEncrypted            bool                         `pulumi:"storageEncrypted"`
-	// A map of tags assigned to the resource.
-	Tags                map[string]string `pulumi:"tags"`
-	UpgradeRolloutOrder string            `pulumi:"upgradeRolloutOrder"`
-	VpcSecurityGroupIds []string          `pulumi:"vpcSecurityGroupIds"`
+	Id string `pulumi:"id"`
+	// Amazon Web Services KMS key identifier that is used to encrypt the secret.
+	KmsKeyId string `pulumi:"kmsKeyId"`
+	// Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to `true`. Documented below.
+	MasterUserSecrets []GetClusterMasterUserSecret `pulumi:"masterUserSecrets"`
+	// Master username for the database.
+	MasterUsername string `pulumi:"masterUsername"`
+	// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
+	MonitoringInterval int `pulumi:"monitoringInterval"`
+	// ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
+	MonitoringRoleArn string `pulumi:"monitoringRoleArn"`
+	// Network type of the cluster.
+	NetworkType string `pulumi:"networkType"`
+	// Port on which the DB accepts connections.
+	Port int `pulumi:"port"`
+	// Daily time range during which automated backups are created.
+	PreferredBackupWindow string `pulumi:"preferredBackupWindow"`
+	// Weekly time range during which system maintenance can occur.
+	PreferredMaintenanceWindow string `pulumi:"preferredMaintenanceWindow"`
+	// Read-only endpoint for the cluster, automatically load-balanced across replicas.
+	ReaderEndpoint string `pulumi:"readerEndpoint"`
+	Region         string `pulumi:"region"`
+	// ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
+	ReplicationSourceIdentifier string `pulumi:"replicationSourceIdentifier"`
+	// Whether the DB cluster is encrypted.
+	StorageEncrypted bool `pulumi:"storageEncrypted"`
+	// Map of tags assigned to the resource.
+	Tags map[string]string `pulumi:"tags"`
+	// Order in which minor and major version upgrades are applied to the cluster.
+	UpgradeRolloutOrder string `pulumi:"upgradeRolloutOrder"`
+	// VPC security groups the cluster belongs to.
+	VpcSecurityGroupIds []string `pulumi:"vpcSecurityGroupIds"`
 }
 
 func LookupClusterOutput(ctx *pulumi.Context, args LookupClusterOutputArgs, opts ...pulumi.InvokeOption) LookupClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupClusterResultOutput, error) {
-			args := v.(LookupClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getCluster:getCluster", args, LookupClusterResultOutput{}, options).(LookupClusterResultOutput), nil
-		}).(LookupClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getCluster:getCluster", args, LookupClusterResultOutput{}, options).(LookupClusterResultOutput)
 }
 
 // A collection of arguments for invoking getCluster.
@@ -119,7 +151,7 @@ type LookupClusterOutputArgs struct {
 	ClusterIdentifier pulumi.StringInput `pulumi:"clusterIdentifier"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput `pulumi:"region"`
-	// A map of tags assigned to the resource.
+	// Map of tags assigned to the resource.
 	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
@@ -142,18 +174,22 @@ func (o LookupClusterResultOutput) ToLookupClusterResultOutputWithContext(ctx co
 	return o
 }
 
+// ARN of the cluster.
 func (o LookupClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
+// Availability Zones of the RDS cluster.
 func (o LookupClusterResultOutput) AvailabilityZones() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.AvailabilityZones }).(pulumi.StringArrayOutput)
 }
 
+// Target backtrack window, in seconds.
 func (o LookupClusterResultOutput) BacktrackWindow() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.BacktrackWindow }).(pulumi.IntOutput)
 }
 
+// Days to retain backups for.
 func (o LookupClusterResultOutput) BackupRetentionPeriod() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.BackupRetentionPeriod }).(pulumi.IntOutput)
 }
@@ -162,74 +198,92 @@ func (o LookupClusterResultOutput) ClusterIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterIdentifier }).(pulumi.StringOutput)
 }
 
+// List of RDS Instances that are a part of this cluster.
 func (o LookupClusterResultOutput) ClusterMembers() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.ClusterMembers }).(pulumi.StringArrayOutput)
 }
 
+// RDS Cluster Resource ID.
 func (o LookupClusterResultOutput) ClusterResourceId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterResourceId }).(pulumi.StringOutput)
 }
 
+// Scalability mode of the cluster.
 func (o LookupClusterResultOutput) ClusterScalabilityType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ClusterScalabilityType }).(pulumi.StringOutput)
 }
 
+// Mode of Database Insights that is enabled for the cluster.
 func (o LookupClusterResultOutput) DatabaseInsightsMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseInsightsMode }).(pulumi.StringOutput)
 }
 
+// Name for an automatically created database on cluster creation.
 func (o LookupClusterResultOutput) DatabaseName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DatabaseName }).(pulumi.StringOutput)
 }
 
+// Cluster parameter group associated with the cluster.
 func (o LookupClusterResultOutput) DbClusterParameterGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DbClusterParameterGroupName }).(pulumi.StringOutput)
 }
 
+// DB subnet group associated with the cluster.
 func (o LookupClusterResultOutput) DbSubnetGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSubnetGroupName }).(pulumi.StringOutput)
 }
 
+// System ID of the cluster.
 func (o LookupClusterResultOutput) DbSystemId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.DbSystemId }).(pulumi.StringOutput)
 }
 
+// Whether the cluster has deletion protection enabled.
 func (o LookupClusterResultOutput) DeletionProtection() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.DeletionProtection }).(pulumi.BoolOutput)
 }
 
+// List of log types exported to CloudWatch Logs.
 func (o LookupClusterResultOutput) EnabledCloudwatchLogsExports() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.EnabledCloudwatchLogsExports }).(pulumi.StringArrayOutput)
 }
 
+// DNS address of the RDS instance.
 func (o LookupClusterResultOutput) Endpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Endpoint }).(pulumi.StringOutput)
 }
 
+// Database engine.
 func (o LookupClusterResultOutput) Engine() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Engine }).(pulumi.StringOutput)
 }
 
+// Database engine mode.
 func (o LookupClusterResultOutput) EngineMode() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineMode }).(pulumi.StringOutput)
 }
 
+// Database engine version.
 func (o LookupClusterResultOutput) EngineVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.EngineVersion }).(pulumi.StringOutput)
 }
 
+// Name of the final snapshot taken when the cluster is deleted.
 func (o LookupClusterResultOutput) FinalSnapshotIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.FinalSnapshotIdentifier }).(pulumi.StringOutput)
 }
 
+// Route53 Hosted Zone ID of the endpoint.
 func (o LookupClusterResultOutput) HostedZoneId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.HostedZoneId }).(pulumi.StringOutput)
 }
 
+// Whether mapping of AWS Identity and Access Management (IAM) accounts to database accounts is enabled.
 func (o LookupClusterResultOutput) IamDatabaseAuthenticationEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.IamDatabaseAuthenticationEnabled }).(pulumi.BoolOutput)
 }
 
+// IAM roles associated with the cluster.
 func (o LookupClusterResultOutput) IamRoles() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.IamRoles }).(pulumi.StringArrayOutput)
 }
@@ -239,42 +293,52 @@ func (o LookupClusterResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// Amazon Web Services KMS key identifier that is used to encrypt the secret.
 func (o LookupClusterResultOutput) KmsKeyId() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.KmsKeyId }).(pulumi.StringOutput)
 }
 
+// Block that specifies the master user secret. Only available when `manageMasterUserPassword` is set to `true`. Documented below.
 func (o LookupClusterResultOutput) MasterUserSecrets() GetClusterMasterUserSecretArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []GetClusterMasterUserSecret { return v.MasterUserSecrets }).(GetClusterMasterUserSecretArrayOutput)
 }
 
+// Master username for the database.
 func (o LookupClusterResultOutput) MasterUsername() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MasterUsername }).(pulumi.StringOutput)
 }
 
+// Interval, in seconds, between points when Enhanced Monitoring metrics are collected for the cluster.
 func (o LookupClusterResultOutput) MonitoringInterval() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.MonitoringInterval }).(pulumi.IntOutput)
 }
 
+// ARN of the IAM role used by RDS to send Enhanced Monitoring metrics to CloudWatch Logs.
 func (o LookupClusterResultOutput) MonitoringRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.MonitoringRoleArn }).(pulumi.StringOutput)
 }
 
+// Network type of the cluster.
 func (o LookupClusterResultOutput) NetworkType() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.NetworkType }).(pulumi.StringOutput)
 }
 
+// Port on which the DB accepts connections.
 func (o LookupClusterResultOutput) Port() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupClusterResult) int { return v.Port }).(pulumi.IntOutput)
 }
 
+// Daily time range during which automated backups are created.
 func (o LookupClusterResultOutput) PreferredBackupWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredBackupWindow }).(pulumi.StringOutput)
 }
 
+// Weekly time range during which system maintenance can occur.
 func (o LookupClusterResultOutput) PreferredMaintenanceWindow() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.PreferredMaintenanceWindow }).(pulumi.StringOutput)
 }
 
+// Read-only endpoint for the cluster, automatically load-balanced across replicas.
 func (o LookupClusterResultOutput) ReaderEndpoint() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ReaderEndpoint }).(pulumi.StringOutput)
 }
@@ -283,23 +347,27 @@ func (o LookupClusterResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
+// ARN of the source DB cluster or DB instance if this DB cluster is created as a read replica.
 func (o LookupClusterResultOutput) ReplicationSourceIdentifier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.ReplicationSourceIdentifier }).(pulumi.StringOutput)
 }
 
+// Whether the DB cluster is encrypted.
 func (o LookupClusterResultOutput) StorageEncrypted() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupClusterResult) bool { return v.StorageEncrypted }).(pulumi.BoolOutput)
 }
 
-// A map of tags assigned to the resource.
+// Map of tags assigned to the resource.
 func (o LookupClusterResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupClusterResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
+// Order in which minor and major version upgrades are applied to the cluster.
 func (o LookupClusterResultOutput) UpgradeRolloutOrder() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupClusterResult) string { return v.UpgradeRolloutOrder }).(pulumi.StringOutput)
 }
 
+// VPC security groups the cluster belongs to.
 func (o LookupClusterResultOutput) VpcSecurityGroupIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupClusterResult) []string { return v.VpcSecurityGroupIds }).(pulumi.StringArrayOutput)
 }

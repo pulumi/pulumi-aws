@@ -61,7 +61,7 @@ type EmailIdentityFeedbackAttributes struct {
 
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrOutput `pulumi:"emailForwardingEnabled"`
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringOutput `pulumi:"emailIdentity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
@@ -102,7 +102,7 @@ func GetEmailIdentityFeedbackAttributes(ctx *pulumi.Context,
 type emailIdentityFeedbackAttributesState struct {
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
-	// The email identity.
+	// Email identity.
 	EmailIdentity *string `pulumi:"emailIdentity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -111,7 +111,7 @@ type emailIdentityFeedbackAttributesState struct {
 type EmailIdentityFeedbackAttributesState struct {
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -124,7 +124,7 @@ func (EmailIdentityFeedbackAttributesState) ElementType() reflect.Type {
 type emailIdentityFeedbackAttributesArgs struct {
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled *bool `pulumi:"emailForwardingEnabled"`
-	// The email identity.
+	// Email identity.
 	EmailIdentity string `pulumi:"emailIdentity"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
@@ -134,7 +134,7 @@ type emailIdentityFeedbackAttributesArgs struct {
 type EmailIdentityFeedbackAttributesArgs struct {
 	// Sets the feedback forwarding configuration for the identity.
 	EmailForwardingEnabled pulumi.BoolPtrInput
-	// The email identity.
+	// Email identity.
 	EmailIdentity pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
@@ -232,7 +232,7 @@ func (o EmailIdentityFeedbackAttributesOutput) EmailForwardingEnabled() pulumi.B
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.BoolPtrOutput { return v.EmailForwardingEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// The email identity.
+// Email identity.
 func (o EmailIdentityFeedbackAttributesOutput) EmailIdentity() pulumi.StringOutput {
 	return o.ApplyT(func(v *EmailIdentityFeedbackAttributes) pulumi.StringOutput { return v.EmailIdentity }).(pulumi.StringOutput)
 }

@@ -99,15 +99,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewQueue(ctx, "test", &connect.QueueArgs{
-//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
-//				Name:               pulumi.String("Example Name"),
-//				Description:        pulumi.String("Example Description"),
-//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				OutboundCallerConfig: &connect.QueueOutboundCallerConfigArgs{
 //					OutboundCallerIdName:     pulumi.String("example"),
 //					OutboundCallerIdNumberId: pulumi.String("12345678-abcd-1234-abcd-123456789012"),
 //					OutboundFlowId:           pulumi.String("87654321-defg-1234-defg-987654321234"),
 //				},
+//				InstanceId:         pulumi.String("aaaaaaaa-bbbb-cccc-dddd-111111111111"),
+//				Name:               pulumi.String("Example Name"),
+//				Description:        pulumi.String("Example Description"),
+//				HoursOfOperationId: pulumi.String("12345678-1234-1234-1234-123456789012"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Queue with Outbound Caller Config"),
 //				},
@@ -131,7 +131,7 @@ import (
 type Queue struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Specifies the description of the Queue.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -195,7 +195,7 @@ func GetQueue(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Queue resources.
 type queueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn *string `pulumi:"arn"`
 	// Specifies the description of the Queue.
 	Description *string `pulumi:"description"`
@@ -224,7 +224,7 @@ type queueState struct {
 }
 
 type QueueState struct {
-	// The Amazon Resource Name (ARN) of the Queue.
+	// ARN of the Queue.
 	Arn pulumi.StringPtrInput
 	// Specifies the description of the Queue.
 	Description pulumi.StringPtrInput
@@ -390,7 +390,7 @@ func (o QueueOutput) ToQueueOutputWithContext(ctx context.Context) QueueOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the Queue.
+// ARN of the Queue.
 func (o QueueOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Queue) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

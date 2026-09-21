@@ -60,7 +60,7 @@ type Ingestion struct {
 
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App pulumi.StringOutput `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringOutput `pulumi:"appBundleArn"`
 	// ARN of the Ingestion.
 	Arn pulumi.StringOutput `pulumi:"arn"`
@@ -120,7 +120,7 @@ func GetIngestion(ctx *pulumi.Context,
 type ingestionState struct {
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App *string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn *string `pulumi:"appBundleArn"`
 	// ARN of the Ingestion.
 	Arn *string `pulumi:"arn"`
@@ -139,7 +139,7 @@ type ingestionState struct {
 type IngestionState struct {
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringPtrInput
 	// ARN of the Ingestion.
 	Arn pulumi.StringPtrInput
@@ -162,7 +162,7 @@ func (IngestionState) ElementType() reflect.Type {
 type ingestionArgs struct {
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App string `pulumi:"app"`
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn string `pulumi:"appBundleArn"`
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType string `pulumi:"ingestionType"`
@@ -178,7 +178,7 @@ type ingestionArgs struct {
 type IngestionArgs struct {
 	// Name of the application. Refer to the AWS Documentation for the [list of valid values](https://docs.aws.amazon.com/appfabric/latest/api/API_CreateIngestion.html#appfabric-CreateIngestion-request-app).
 	App pulumi.StringInput
-	// Amazon Resource Name (ARN) of the app bundle to use for the request.
+	// ARN of the app bundle to use for the request.
 	AppBundleArn pulumi.StringInput
 	// Ingestion type. Valid values are `auditLog`.
 	IngestionType pulumi.StringInput
@@ -282,7 +282,7 @@ func (o IngestionOutput) App() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.App }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the app bundle to use for the request.
+// ARN of the app bundle to use for the request.
 func (o IngestionOutput) AppBundleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Ingestion) pulumi.StringOutput { return v.AppBundleArn }).(pulumi.StringOutput)
 }

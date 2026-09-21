@@ -50,11 +50,6 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
     ///     {
-    ///         Admins = new[]
-    ///         {
-    ///             test.Arn,
-    ///             testAwsIamRole.Arn,
-    ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
     ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
@@ -78,6 +73,11 @@ namespace Pulumi.Aws.LakeFormation
     ///                 },
     ///                 Principal = testAwsIamRole.Arn,
     ///             },
+    ///         },
+    ///         Admins = new[]
+    ///         {
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///     });
     /// 
@@ -96,11 +96,6 @@ namespace Pulumi.Aws.LakeFormation
     /// {
     ///     var example = new Aws.LakeFormation.DataLakeSettings("example", new()
     ///     {
-    ///         Admins = new[]
-    ///         {
-    ///             test.Arn,
-    ///             testAwsIamRole.Arn,
-    ///         },
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
     ///             new Aws.LakeFormation.Inputs.DataLakeSettingsCreateDatabaseDefaultPermissionArgs
@@ -124,6 +119,11 @@ namespace Pulumi.Aws.LakeFormation
     ///                 },
     ///                 Principal = testAwsIamRole.Arn,
     ///             },
+    ///         },
+    ///         Admins = new[]
+    ///         {
+    ///             test.Arn,
+    ///             testAwsIamRole.Arn,
     ///         },
     ///         AllowExternalDataFiltering = true,
     ///         ExternalDataFilteringAllowLists = new[]

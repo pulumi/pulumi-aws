@@ -24,10 +24,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: example.id,
  * });
  * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
  *     bucket: example.id,
@@ -48,10 +48,10 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: example.id,
  * });
  * const exampleBucketPublicAccessBlock = new aws.s3.BucketPublicAccessBlock("example", {
  *     bucket: example.id,
@@ -80,14 +80,16 @@ import * as utilities from "../utilities";
  * const current = aws.s3.getCanonicalUserId({});
  * const example = new aws.s3.Bucket("example", {bucket: "my-tf-example-bucket"});
  * const exampleBucketOwnershipControls = new aws.s3.BucketOwnershipControls("example", {
- *     bucket: example.id,
  *     rule: {
  *         objectOwnership: "BucketOwnerPreferred",
  *     },
+ *     bucket: example.id,
  * });
  * const exampleBucketAcl = new aws.s3.BucketAcl("example", {
- *     bucket: example.id,
  *     accessControlPolicy: {
+ *         owner: {
+ *             id: current.then(current => current.id),
+ *         },
  *         grants: [
  *             {
  *                 grantee: {
@@ -104,10 +106,8 @@ import * as utilities from "../utilities";
  *                 permission: "READ_ACP",
  *             },
  *         ],
- *         owner: {
- *             id: current.then(current => current.id),
- *         },
  *     },
+ *     bucket: example.id,
  * }, {
  *     dependsOn: [exampleBucketOwnershipControls],
  * });

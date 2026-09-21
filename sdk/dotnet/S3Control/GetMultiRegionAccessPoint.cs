@@ -147,7 +147,7 @@ namespace Pulumi.Aws.S3Control
         /// </summary>
         public readonly string Alias;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Multi-Region Access Point.
+        /// ARN of the Multi-Region Access Point.
         /// </summary>
         public readonly string Arn;
         /// <summary>

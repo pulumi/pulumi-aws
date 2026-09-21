@@ -39,8 +39,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.iam.IamFunctions;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementArgs;
- * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementConditionArgs;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentStatementPrincipalArgs;
  * import com.pulumi.aws.iam.Role;
  * import com.pulumi.aws.iam.RoleArgs;
  * import com.pulumi.aws.iam.RolePolicy;
@@ -73,11 +73,6 @@ import javax.annotation.Nullable;
  * 
  *         final var exampleAgentTrust = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
- *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                     .identifiers("bedrock.amazonaws.com")
- *                     .type("Service")
- *                     .build())
  *                 .conditions(                
  *                     GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
@@ -89,6 +84,11 @@ import javax.annotation.Nullable;
  *                         .values(String.format("arn:%s:bedrock:%s:%s:agent/*", currentGetPartition.partition(),currentGetRegion.region(),current.accountId()))
  *                         .variable("AWS:SourceArn")
  *                         .build())
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .identifiers("bedrock.amazonaws.com")
+ *                     .type("Service")
+ *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 

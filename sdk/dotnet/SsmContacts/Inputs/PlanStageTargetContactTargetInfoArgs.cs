@@ -13,7 +13,7 @@ namespace Pulumi.Aws.SsmContacts.Inputs
     public sealed class PlanStageTargetContactTargetInfoArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the contact.
+        /// The ARN of the contact.
         /// </summary>
         [Input("contactId")]
         public Input<string>? ContactId { get; set; }

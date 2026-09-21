@@ -69,14 +69,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/space:Space")
 public class Space extends com.pulumi.resources.CustomResource {
     /**
-     * The space&#39;s Amazon Resource Name (ARN).
+     * Space&#39;s ARN.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The space&#39;s Amazon Resource Name (ARN).
+     * @return Space&#39;s ARN.
      * 
      */
     public Output<String> arn() {

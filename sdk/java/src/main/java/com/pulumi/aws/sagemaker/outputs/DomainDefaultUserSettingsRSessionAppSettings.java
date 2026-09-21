@@ -19,7 +19,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
      */
     private @Nullable List<DomainDefaultUserSettingsRSessionAppSettingsCustomImage> customImages;
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     private @Nullable DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec defaultResourceSpec;
@@ -33,7 +33,7 @@ public final class DomainDefaultUserSettingsRSessionAppSettings {
         return this.customImages == null ? List.of() : this.customImages;
     }
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block above.
      * 
      */
     public Optional<DomainDefaultUserSettingsRSessionAppSettingsDefaultResourceSpec> defaultResourceSpec() {

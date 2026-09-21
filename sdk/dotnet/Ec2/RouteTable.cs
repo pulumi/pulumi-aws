@@ -39,7 +39,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var example = new Aws.Ec2.RouteTable("example", new()
     ///     {
-    ///         VpcId = exampleAwsVpc.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
@@ -53,6 +52,7 @@ namespace Pulumi.Aws.Ec2
     ///                 EgressOnlyGatewayId = exampleAwsEgressOnlyInternetGateway.Id,
     ///             },
     ///         },
+    ///         VpcId = exampleAwsVpc.Id,
     ///         Tags = 
     ///         {
     ///             { "Name", "example" },
@@ -106,7 +106,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
@@ -115,6 +114,7 @@ namespace Pulumi.Aws.Ec2
     ///                 GatewayId = "local",
     ///             },
     ///         },
+    ///         VpcId = test.Id,
     ///     });
     /// 
     /// });
@@ -148,7 +148,6 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var testRouteTable = new Aws.Ec2.RouteTable("test", new()
     ///     {
-    ///         VpcId = test.Id,
     ///         Routes = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.RouteTableRouteArgs
@@ -157,6 +156,7 @@ namespace Pulumi.Aws.Ec2
     ///                 NetworkInterfaceId = testNetworkInterface.Id,
     ///             },
     ///         },
+    ///         VpcId = test.Id,
     ///     });
     /// 
     /// });

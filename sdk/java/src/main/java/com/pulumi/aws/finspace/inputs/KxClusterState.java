@@ -27,14 +27,14 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
     public static final KxClusterState Empty = new KxClusterState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX cluster.
+     * ARN identifier of the KX cluster.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX cluster.
+     * @return ARN identifier of the KX cluster.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -486,7 +486,7 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX cluster.
+         * @param arn ARN identifier of the KX cluster.
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class KxClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX cluster.
+         * @param arn ARN identifier of the KX cluster.
          * 
          * @return builder
          * 

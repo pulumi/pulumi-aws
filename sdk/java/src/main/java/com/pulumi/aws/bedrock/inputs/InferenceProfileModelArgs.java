@@ -15,14 +15,14 @@ public final class InferenceProfileModelArgs extends com.pulumi.resources.Resour
     public static final InferenceProfileModelArgs Empty = new InferenceProfileModelArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the model.
+     * The ARN of the model.
      * 
      */
     @Import(name="modelArn", required=true)
     private Output<String> modelArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the model.
+     * @return The ARN of the model.
      * 
      */
     public Output<String> modelArn() {
@@ -54,7 +54,7 @@ public final class InferenceProfileModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param modelArn The Amazon Resource Name (ARN) of the model.
+         * @param modelArn The ARN of the model.
          * 
          * @return builder
          * 
@@ -65,7 +65,7 @@ public final class InferenceProfileModelArgs extends com.pulumi.resources.Resour
         }
 
         /**
-         * @param modelArn The Amazon Resource Name (ARN) of the model.
+         * @param modelArn The ARN of the model.
          * 
          * @return builder
          * 

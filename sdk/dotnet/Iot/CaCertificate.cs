@@ -30,7 +30,6 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var ca = new Tls.SelfSignedCert("ca", new()
     ///     {
-    ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.Iot
     ///                 { "organization", "ACME Examples, Inc" },
     ///             },
     ///         },
+    ///         PrivateKeyPem = caPrivateKey.PrivateKeyPem,
     ///         ValidityPeriodHours = 12,
     ///         AllowedUses = new[]
     ///         {
@@ -58,7 +58,6 @@ namespace Pulumi.Aws.Iot
     /// 
     ///     var verification = new Tls.CertRequest("verification", new()
     ///     {
-    ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
     ///         Subject = new[]
     ///         {
     ///             
@@ -66,6 +65,7 @@ namespace Pulumi.Aws.Iot
     ///                 { "commonName", example.Apply(getRegistrationCodeResult =&gt; getRegistrationCodeResult.RegistrationCode) },
     ///             },
     ///         },
+    ///         PrivateKeyPem = verificationPrivateKey.PrivateKeyPem,
     ///     });
     /// 
     ///     var verificationLocallySignedCert = new Tls.LocallySignedCert("verification", new()

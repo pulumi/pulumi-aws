@@ -246,7 +246,7 @@ class GetReceivedLicenseIssuerResult(dict):
         """
         :param _builtins.str key_fingerprint: Issuer key fingerprint.
         :param _builtins.str name: The key name.
-        :param _builtins.str sign_key: Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        :param _builtins.str sign_key: Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
         pulumi.set(__self__, "key_fingerprint", key_fingerprint)
         pulumi.set(__self__, "name", name)
@@ -272,7 +272,7 @@ class GetReceivedLicenseIssuerResult(dict):
     @pulumi.getter(name="signKey")
     def sign_key(self) -> _builtins.str:
         """
-        Asymmetric KMS key from AWS Key Management Service. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
+        Asymmetric KMS key from KMS. The KMS key must have a key usage of sign and verify, and support the RSASSA-PSS SHA-256 signing algorithm.
         """
         return pulumi.get(self, "sign_key")
 

@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreGatewayTargetPrivateEndpoint {
     /**
-     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetPrivateEndpointManagedVpcResource managedVpcResource;
     /**
-     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource selfManagedLatticeResource;
 
     private AgentcoreGatewayTargetPrivateEndpoint() {}
     /**
-     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` below.
+     * @return AWS creates and manages the VPC Lattice resource gateway and resource configuration on your behalf using a service-linked role. See `managedVpcResource` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetPrivateEndpointManagedVpcResource> managedVpcResource() {
         return Optional.ofNullable(this.managedVpcResource);
     }
     /**
-     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` below.
+     * @return Use an existing VPC Lattice resource configuration that you manage yourself. Useful for cross-account setups or advanced Lattice configurations. See `selfManagedLatticeResource` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetPrivateEndpointSelfManagedLatticeResource> selfManagedLatticeResource() {

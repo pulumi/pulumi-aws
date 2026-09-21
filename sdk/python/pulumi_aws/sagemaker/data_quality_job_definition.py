@@ -39,7 +39,7 @@ class DataQualityJobDefinitionArgs:
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: A list of inputs for the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobOutputConfigArgs'] data_quality_job_output_config: The output configuration for monitoring jobs. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionJobResourcesArgs'] job_resources: Identifies the resources to deploy for a monitoring job. Fields are documented below.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs'] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] name: The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs'] network_config: Specifies networking configuration for the monitoring job. Fields are documented below.
@@ -117,7 +117,7 @@ class DataQualityJobDefinitionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -217,7 +217,7 @@ class _DataQualityJobDefinitionState:
         """
         Input properties used for looking up and filtering DataQualityJobDefinition resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this data quality job definition.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityAppSpecificationArgs'] data_quality_app_specification: Specifies the container that runs the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityBaselineConfigArgs'] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job. Fields are documented below.
         :param pulumi.Input['DataQualityJobDefinitionDataQualityJobInputArgs'] data_quality_job_input: A list of inputs for the monitoring job. Fields are documented below.
@@ -226,7 +226,7 @@ class _DataQualityJobDefinitionState:
         :param pulumi.Input[_builtins.str] name: The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input['DataQualityJobDefinitionNetworkConfigArgs'] network_config: Specifies networking configuration for the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         :param pulumi.Input['DataQualityJobDefinitionStoppingConditionArgs'] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -262,7 +262,7 @@ class _DataQualityJobDefinitionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        ARN assigned by AWS to this data quality job definition.
         """
         return pulumi.get(self, "arn")
 
@@ -370,7 +370,7 @@ class _DataQualityJobDefinitionState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -445,7 +445,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
-            name="my-data-quality-job-definition",
             data_quality_app_specification={
                 "image_uri": monitor["registryPath"],
             },
@@ -468,6 +467,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     "volume_size_in_gb": 20,
                 },
             },
+            name="my-data-quality-job-definition",
             role_arn=my_role["arn"])
         ```
 
@@ -490,7 +490,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict']] network_config: Specifies networking configuration for the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         :param pulumi.Input[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -512,7 +512,6 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.sagemaker.DataQualityJobDefinition("test",
-            name="my-data-quality-job-definition",
             data_quality_app_specification={
                 "image_uri": monitor["registryPath"],
             },
@@ -535,6 +534,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
                     "volume_size_in_gb": 20,
                 },
             },
+            name="my-data-quality-job-definition",
             role_arn=my_role["arn"])
         ```
 
@@ -635,7 +635,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this data quality job definition.
         :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityAppSpecificationArgs', 'DataQualityJobDefinitionDataQualityAppSpecificationArgsDict']] data_quality_app_specification: Specifies the container that runs the monitoring job. Fields are documented below.
         :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityBaselineConfigArgs', 'DataQualityJobDefinitionDataQualityBaselineConfigArgsDict']] data_quality_baseline_config: Configures the constraints and baselines for the monitoring job. Fields are documented below.
         :param pulumi.Input[Union['DataQualityJobDefinitionDataQualityJobInputArgs', 'DataQualityJobDefinitionDataQualityJobInputArgsDict']] data_quality_job_input: A list of inputs for the monitoring job. Fields are documented below.
@@ -644,7 +644,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the data quality job definition. If omitted, the provider will assign a random, unique name.
         :param pulumi.Input[Union['DataQualityJobDefinitionNetworkConfigArgs', 'DataQualityJobDefinitionNetworkConfigArgsDict']] network_config: Specifies networking configuration for the monitoring job. Fields are documented below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         :param pulumi.Input[Union['DataQualityJobDefinitionStoppingConditionArgs', 'DataQualityJobDefinitionStoppingConditionArgsDict']] stopping_condition: A time limit for how long the monitoring job is allowed to run before stopping. Fields are documented below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A mapping of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -672,7 +672,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+        ARN assigned by AWS to this data quality job definition.
         """
         return pulumi.get(self, "arn")
 
@@ -744,7 +744,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+        ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 

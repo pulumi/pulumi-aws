@@ -60,7 +60,7 @@ type LookupProxyArgs struct {
 type LookupProxyResult struct {
 	// ARN of the DB Proxy.
 	Arn string `pulumi:"arn"`
-	// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+	// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
 	Auths []GetProxyAuth `pulumi:"auths"`
 	// Whether the proxy includes detailed information about SQL statements in its logs.
 	DebugLogging bool `pulumi:"debugLogging"`
@@ -78,7 +78,7 @@ type LookupProxyResult struct {
 	IdleClientTimeout int    `pulumi:"idleClientTimeout"`
 	Name              string `pulumi:"name"`
 	Region            string `pulumi:"region"`
-	// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+	// Whether TLS encryption is required for connections to the proxy.
 	RequireTls bool `pulumi:"requireTls"`
 	// ARN for the IAM role that the proxy uses to access Amazon Secrets Manager.
 	RoleArn string `pulumi:"roleArn"`
@@ -93,12 +93,8 @@ type LookupProxyResult struct {
 }
 
 func LookupProxyOutput(ctx *pulumi.Context, args LookupProxyOutputArgs, opts ...pulumi.InvokeOption) LookupProxyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupProxyResultOutput, error) {
-			args := v.(LookupProxyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:rds/getProxy:getProxy", args, LookupProxyResultOutput{}, options).(LookupProxyResultOutput), nil
-		}).(LookupProxyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:rds/getProxy:getProxy", args, LookupProxyResultOutput{}, options).(LookupProxyResultOutput)
 }
 
 // A collection of arguments for invoking getProxy.
@@ -133,7 +129,7 @@ func (o LookupProxyResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster.
+// Configuration(s) with authorization mechanisms to connect to the associated instance or cluster. See the `auth` block below.
 func (o LookupProxyResultOutput) Auths() GetProxyAuthArrayOutput {
 	return o.ApplyT(func(v LookupProxyResult) []GetProxyAuth { return v.Auths }).(GetProxyAuthArrayOutput)
 }
@@ -181,7 +177,7 @@ func (o LookupProxyResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupProxyResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// Whether Transport Layer Security (TLS) encryption is required for connections to the proxy.
+// Whether TLS encryption is required for connections to the proxy.
 func (o LookupProxyResultOutput) RequireTls() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupProxyResult) bool { return v.RequireTls }).(pulumi.BoolOutput)
 }

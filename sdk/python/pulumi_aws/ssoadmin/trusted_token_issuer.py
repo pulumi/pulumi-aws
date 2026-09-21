@@ -324,9 +324,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
                 "oidc_jwt_configuration": {
                     "claim_attribute_path": "email",
@@ -334,7 +331,10 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                     "issuer_url": "https://example.com",
                     "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
-            })
+            },
+            name="example",
+            instance_arn=example.arns[0],
+            trusted_token_issuer_type="OIDC_JWT")
         ```
 
         ## Import
@@ -387,9 +387,6 @@ class TrustedTokenIssuer(pulumi.CustomResource):
 
         example = aws.ssoadmin.get_instances()
         example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=example.arns[0],
-            trusted_token_issuer_type="OIDC_JWT",
             trusted_token_issuer_configuration={
                 "oidc_jwt_configuration": {
                     "claim_attribute_path": "email",
@@ -397,7 +394,10 @@ class TrustedTokenIssuer(pulumi.CustomResource):
                     "issuer_url": "https://example.com",
                     "jwks_retrieval_option": "OPEN_ID_DISCOVERY",
                 },
-            })
+            },
+            name="example",
+            instance_arn=example.arns[0],
+            trusted_token_issuer_type="OIDC_JWT")
         ```
 
         ## Import

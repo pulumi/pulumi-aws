@@ -19,7 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.pinpoint.App("example", {
- *     name: "test-app",
  *     limits: {
  *         maximumDuration: 600,
  *     },
@@ -27,6 +26,7 @@ import * as utilities from "../utilities";
  *         start: "00:00",
  *         end: "06:00",
  *     },
+ *     name: "test-app",
  * });
  * ```
  *
@@ -71,7 +71,7 @@ export class App extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly applicationId: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.
@@ -172,7 +172,7 @@ export interface AppState {
      */
     applicationId?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the PinPoint Application.
+     * ARN of the PinPoint Application.
      * * `campaign_hook[0].lambda_function_name` - Lambda function name or ARN to be called for delivery.
      * * `campaign_hook[0].mode` - What mode Lambda should be invoked in.
      * * `campaign_hook[0].web_url` - Web URL to call for hook.

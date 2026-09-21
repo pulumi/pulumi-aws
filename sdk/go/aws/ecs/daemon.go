@@ -62,21 +62,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ecs.NewDaemon(ctx, "example", &ecs.DaemonArgs{
-//				Name:                    pulumi.String("example-daemon"),
-//				ClusterArn:              pulumi.Any(exampleAwsEcsCluster.Arn),
-//				DaemonTaskDefinitionArn: pulumi.Any(exampleAwsEcsDaemonTaskDefinition.Arn),
-//				CapacityProviderArns: pulumi.StringArray{
-//					exampleAwsEcsCapacityProvider.Arn,
-//				},
 //				DeploymentConfiguration: &ecs.DaemonDeploymentConfigurationArgs{
-//					DrainPercent:      pulumi.Float64(50),
-//					BakeTimeInMinutes: pulumi.Int(10),
 //					Alarms: &ecs.DaemonDeploymentConfigurationAlarmsArgs{
 //						AlarmNames: pulumi.StringArray{
 //							pulumi.String("example-alarm"),
 //						},
 //						Enable: pulumi.Bool(true),
 //					},
+//					DrainPercent:      pulumi.Float64(50),
+//					BakeTimeInMinutes: pulumi.Int(10),
+//				},
+//				Name:                    pulumi.String("example-daemon"),
+//				ClusterArn:              pulumi.Any(exampleAwsEcsCluster.Arn),
+//				DaemonTaskDefinitionArn: pulumi.Any(exampleAwsEcsDaemonTaskDefinition.Arn),
+//				CapacityProviderArns: pulumi.StringArray{
+//					exampleAwsEcsCapacityProvider.Arn,
 //				},
 //			})
 //			if err != nil {

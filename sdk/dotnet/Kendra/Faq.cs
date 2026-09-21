@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Kendra Faq" },
@@ -55,15 +55,15 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         FileFormat = "CSV",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         FileFormat = "CSV",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -81,15 +81,15 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.Faq("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         LanguageCode = "en",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         S3Path = new Aws.Kendra.Inputs.FaqS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = exampleAwsS3Object.Key,
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         LanguageCode = "en",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///     });
     /// 
     /// });
@@ -158,7 +158,7 @@ namespace Pulumi.Aws.Kendra
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         [Input("roleArn", required: true)]
         public Input<string> RoleArn { get; set; } = null!;
@@ -343,7 +343,7 @@ namespace Pulumi.Aws.Kendra
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        /// ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         /// </summary>
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }

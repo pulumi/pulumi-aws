@@ -51,14 +51,14 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * ARN of the original source Amazon EFS file system in the replication configuration.
      * 
      */
     @Import(name="originalSourceFileSystemArn")
     private @Nullable Output<String> originalSourceFileSystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+     * @return ARN of the original source Amazon EFS file system in the replication configuration.
      * 
      */
     public Optional<Output<String>> originalSourceFileSystemArn() {
@@ -81,14 +81,14 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * ARN of the current source file system in the replication configuration.
      * 
      */
     @Import(name="sourceFileSystemArn")
     private @Nullable Output<String> sourceFileSystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+     * @return ARN of the current source file system in the replication configuration.
      * 
      */
     public Optional<Output<String>> sourceFileSystemArn() {
@@ -202,7 +202,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param originalSourceFileSystemArn The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+         * @param originalSourceFileSystemArn ARN of the original source Amazon EFS file system in the replication configuration.
          * 
          * @return builder
          * 
@@ -213,7 +213,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param originalSourceFileSystemArn The Amazon Resource Name (ARN) of the original source Amazon EFS file system in the replication configuration.
+         * @param originalSourceFileSystemArn ARN of the original source Amazon EFS file system in the replication configuration.
          * 
          * @return builder
          * 
@@ -244,7 +244,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sourceFileSystemArn The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+         * @param sourceFileSystemArn ARN of the current source file system in the replication configuration.
          * 
          * @return builder
          * 
@@ -255,7 +255,7 @@ public final class ReplicationConfigurationState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param sourceFileSystemArn The Amazon Resource Name (ARN) of the current source file system in the replication configuration.
+         * @param sourceFileSystemArn ARN of the current source file system in the replication configuration.
          * 
          * @return builder
          * 

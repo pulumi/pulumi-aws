@@ -82,8 +82,8 @@ class _ExportState:
         """
         Input properties used for looking up and filtering Export resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for this export.
-               * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        :param pulumi.Input[_builtins.str] arn: ARN for this export.
+               * `export[0].export_arn` - ARN for this export.
         :param pulumi.Input['ExportExportArgs'] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -102,8 +102,8 @@ class _ExportState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for this export.
-        * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        ARN for this export.
+        * `export[0].export_arn` - ARN for this export.
         """
         return pulumi.get(self, "arn")
 
@@ -178,7 +178,6 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
-            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -193,20 +192,21 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
+            "name": "testexample",
         })
         ```
 
@@ -216,7 +216,7 @@ class Export(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+        - `arn` (String) ARN of the BCM Data Exports export.
 
         Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
 
@@ -250,7 +250,6 @@ class Export(pulumi.CustomResource):
         current = aws.get_caller_identity()
         current_get_partition = aws.get_partition()
         test = aws.bcmdata.Export("test", export={
-            "name": "testexample",
             "data_queries": [{
                 "query_statement": "SELECT identity_line_item_id, identity_time_interval, line_item_product_code,line_item_unblended_cost FROM COST_AND_USAGE_REPORT",
                 "table_configurations": {
@@ -265,20 +264,21 @@ class Export(pulumi.CustomResource):
             }],
             "destination_configurations": [{
                 "s3_destinations": [{
-                    "s3_bucket": test_aws_s3_bucket["bucket"],
-                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
-                    "s3_region": test_aws_s3_bucket["region"],
                     "s3_output_configurations": [{
                         "overwrite": "OVERWRITE_REPORT",
                         "format": "TEXT_OR_CSV",
                         "compression": "GZIP",
                         "output_type": "CUSTOM",
                     }],
+                    "s3_bucket": test_aws_s3_bucket["bucket"],
+                    "s3_prefix": test_aws_s3_bucket["bucketPrefix"],
+                    "s3_region": test_aws_s3_bucket["region"],
                 }],
             }],
             "refresh_cadences": [{
                 "frequency": "SYNCHRONOUS",
             }],
+            "name": "testexample",
         })
         ```
 
@@ -288,7 +288,7 @@ class Export(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the BCM Data Exports export.
+        - `arn` (String) ARN of the BCM Data Exports export.
 
         Using `pulumi import`, import BCM Data Exports Export using the export ARN. For example:
 
@@ -351,8 +351,8 @@ class Export(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) for this export.
-               * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        :param pulumi.Input[_builtins.str] arn: ARN for this export.
+               * `export[0].export_arn` - ARN for this export.
         :param pulumi.Input[Union['ExportExportArgs', 'ExportExportArgsDict']] export: The details of the export, including data query, name, description, and destination configuration.  See the `export` argument reference below.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -371,8 +371,8 @@ class Export(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) for this export.
-        * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+        ARN for this export.
+        * `export[0].export_arn` - ARN for this export.
         """
         return pulumi.get(self, "arn")
 

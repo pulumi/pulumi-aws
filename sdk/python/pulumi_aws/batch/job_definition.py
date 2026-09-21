@@ -712,31 +712,31 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
-            name=" tf_test_batch_job_definition_eks",
-            type="container",
             eks_properties={
                 "pod_properties": {
-                    "host_network": True,
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
                     "containers": [{
-                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                        "commands": [
-                            "sleep",
-                            "60",
-                        ],
                         "resources": {
                             "limits": {
                                 "cpu": "1",
                                 "memory": "1024Mi",
                             },
                         },
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
                     }],
-                    "metadata": {
-                        "labels": {
-                            "environment": "test",
-                        },
-                    },
+                    "host_network": True,
                 },
-            })
+            },
+            name=" tf_test_batch_job_definition_eks",
+            type="container")
         ```
 
         ### Fargate Platform Capability
@@ -747,11 +747,11 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ecs-tasks.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
             name="my_test_batch_exec_role",
@@ -873,7 +873,7 @@ class JobDefinition(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+        - `arn` (String) ARN of the job definition.
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 
@@ -1011,31 +1011,31 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.batch.JobDefinition("test",
-            name=" tf_test_batch_job_definition_eks",
-            type="container",
             eks_properties={
                 "pod_properties": {
-                    "host_network": True,
+                    "metadata": {
+                        "labels": {
+                            "environment": "test",
+                        },
+                    },
                     "containers": [{
-                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
-                        "commands": [
-                            "sleep",
-                            "60",
-                        ],
                         "resources": {
                             "limits": {
                                 "cpu": "1",
                                 "memory": "1024Mi",
                             },
                         },
+                        "image": "public.ecr.aws/amazonlinux/amazonlinux:1",
+                        "commands": [
+                            "sleep",
+                            "60",
+                        ],
                     }],
-                    "metadata": {
-                        "labels": {
-                            "environment": "test",
-                        },
-                    },
+                    "host_network": True,
                 },
-            })
+            },
+            name=" tf_test_batch_job_definition_eks",
+            type="container")
         ```
 
         ### Fargate Platform Capability
@@ -1046,11 +1046,11 @@ class JobDefinition(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["ecs-tasks.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         ecs_task_execution_role = aws.iam.Role("ecs_task_execution_role",
             name="my_test_batch_exec_role",
@@ -1172,7 +1172,7 @@ class JobDefinition(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the job definition.
+        - `arn` (String) ARN of the job definition.
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 

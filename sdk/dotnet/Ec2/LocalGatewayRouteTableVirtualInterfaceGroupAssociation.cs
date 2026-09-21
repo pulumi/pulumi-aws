@@ -63,7 +63,7 @@ namespace Pulumi.Aws.Ec2
         public Output<string> LocalGatewayId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        /// ARN of the EC2 Local Gateway Route Table.
         /// </summary>
         [Output("localGatewayRouteTableArn")]
         public Output<string> LocalGatewayRouteTableArn { get; private set; } = null!;
@@ -205,7 +205,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? LocalGatewayId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        /// ARN of the EC2 Local Gateway Route Table.
         /// </summary>
         [Input("localGatewayRouteTableArn")]
         public Input<string>? LocalGatewayRouteTableArn { get; set; }

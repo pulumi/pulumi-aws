@@ -49,12 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .options(TaskOptionsArgs.builder()
  *                 .bytesPerSecond(-1)
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -88,12 +88,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .schedule(TaskScheduleArgs.builder()
  *                 .scheduleExpression("cron(0 12 ? * SUN,WED *)")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -128,9 +128,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
  *             .excludes(TaskExcludesArgs.builder()
  *                 .filterType("SIMPLE_PATTERN")
  *                 .value("/folder1|/folder2")
@@ -139,6 +136,9 @@ import javax.annotation.Nullable;
  *                 .filterType("SIMPLE_PATTERN")
  *                 .value("/folder1|/folder2")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
  *             .build());
  * 
  *     }
@@ -172,16 +172,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Task("example", TaskArgs.builder()
- *             .destinationLocationArn(destination.arn())
- *             .name("example")
- *             .sourceLocationArn(source.arn())
- *             .taskMode("ENHANCED")
  *             .options(TaskOptionsArgs.builder()
  *                 .gid("NONE")
  *                 .posixPermissions("NONE")
  *                 .uid("NONE")
  *                 .verifyMode("ONLY_FILES_TRANSFERRED")
  *                 .build())
+ *             .destinationLocationArn(destination.arn())
+ *             .name("example")
+ *             .sourceLocationArn(source.arn())
+ *             .taskMode("ENHANCED")
  *             .build());
  * 
  *     }
@@ -195,9 +195,9 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the DataSync task.
+ * - `arn` (String) ARN of the DataSync task.
  * 
- * Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.datasync.Task` using the DataSync Task ARN. For example:
  * 
  * ```sh
  * $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
@@ -207,42 +207,42 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:datasync/task:Task")
 public class Task extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the DataSync Task.
+     * ARN of the DataSync Task.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the DataSync Task.
+     * @return ARN of the DataSync Task.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
     @Export(name="cloudwatchLogGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> cloudwatchLogGroupArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the CloudWatch Log Group that is used to monitor and log events in the sync task.
+     * @return ARN of the CloudWatch Log Group that is used to monitor and log events in the sync task.
      * 
      */
     public Output<Optional<String>> cloudwatchLogGroupArn() {
         return Codegen.optional(this.cloudwatchLogGroupArn);
     }
     /**
-     * Amazon Resource Name (ARN) of destination DataSync Location.
+     * ARN of destination DataSync Location.
      * 
      */
     @Export(name="destinationLocationArn", refs={String.class}, tree="[0]")
     private Output<String> destinationLocationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of destination DataSync Location.
+     * @return ARN of destination DataSync Location.
      * 
      */
     public Output<String> destinationLocationArn() {
@@ -333,14 +333,14 @@ public class Task extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.schedule);
     }
     /**
-     * Amazon Resource Name (ARN) of source DataSync Location.
+     * ARN of source DataSync Location.
      * 
      */
     @Export(name="sourceLocationArn", refs={String.class}, tree="[0]")
     private Output<String> sourceLocationArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of source DataSync Location.
+     * @return ARN of source DataSync Location.
      * 
      */
     public Output<String> sourceLocationArn() {

@@ -351,11 +351,6 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -368,6 +363,11 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
@@ -410,13 +410,13 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             agent_id=example_collaborator.agent_id,
             description="Test Alias")
         example_agent_agent_collaborator = aws.bedrock.AgentAgentCollaborator("example",
+            agent_descriptor={
+                "alias_arn": example_agent_agent_alias.agent_alias_arn,
+            },
             agent_id=example_supervisor.agent_id,
             collaboration_instruction="tell the other agent what to do",
             collaborator_name="my-collab-example",
-            relay_conversation_history="TO_COLLABORATOR",
-            agent_descriptor={
-                "alias_arn": example_agent_agent_alias.agent_alias_arn,
-            })
+            relay_conversation_history="TO_COLLABORATOR")
         ```
 
         ## Import
@@ -460,11 +460,6 @@ class AgentAgentCollaborator(pulumi.CustomResource):
         current_get_partition = aws.get_partition()
         current_get_region = aws.get_region()
         example_agent_trust = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "principals": [{
-                "identifiers": ["bedrock.amazonaws.com"],
-                "type": "Service",
-            }],
             "conditions": [
                 {
                     "test": "StringEquals",
@@ -477,6 +472,11 @@ class AgentAgentCollaborator(pulumi.CustomResource):
                     "variable": "AWS:SourceArn",
                 },
             ],
+            "principals": [{
+                "identifiers": ["bedrock.amazonaws.com"],
+                "type": "Service",
+            }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_agent_permissions = aws.iam.get_policy_document(statements=[
             {
@@ -519,13 +519,13 @@ class AgentAgentCollaborator(pulumi.CustomResource):
             agent_id=example_collaborator.agent_id,
             description="Test Alias")
         example_agent_agent_collaborator = aws.bedrock.AgentAgentCollaborator("example",
+            agent_descriptor={
+                "alias_arn": example_agent_agent_alias.agent_alias_arn,
+            },
             agent_id=example_supervisor.agent_id,
             collaboration_instruction="tell the other agent what to do",
             collaborator_name="my-collab-example",
-            relay_conversation_history="TO_COLLABORATOR",
-            agent_descriptor={
-                "alias_arn": example_agent_agent_alias.agent_alias_arn,
-            })
+            relay_conversation_history="TO_COLLABORATOR")
         ```
 
         ## Import

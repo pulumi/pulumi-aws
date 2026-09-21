@@ -26,7 +26,6 @@ namespace Pulumi.Aws.GuardDuty
     /// {
     ///     var myDetector = new Aws.GuardDuty.Detector("MyDetector", new()
     ///     {
-    ///         Enable = true,
     ///         Datasources = new Aws.GuardDuty.Inputs.DetectorDatasourcesArgs
     ///         {
     ///             S3Logs = new Aws.GuardDuty.Inputs.DetectorDatasourcesS3LogsArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.GuardDuty
     ///                 },
     ///             },
     ///         },
+    ///         Enable = true,
     ///     });
     /// 
     /// });
@@ -76,7 +76,7 @@ namespace Pulumi.Aws.GuardDuty
         public Output<string> AccountId { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty detector
+        /// ARN of the GuardDuty detector
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -214,7 +214,7 @@ namespace Pulumi.Aws.GuardDuty
         public Input<string>? AccountId { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the GuardDuty detector
+        /// ARN of the GuardDuty detector
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

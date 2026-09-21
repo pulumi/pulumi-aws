@@ -39,11 +39,11 @@ import * as utilities from "./utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegions({
- *     allRegions: true,
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["not-opted-in"],
  *     }],
+ *     allRegions: true,
  * });
  * ```
  */
@@ -126,11 +126,11 @@ export interface GetRegionsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegions({
- *     allRegions: true,
  *     filters: [{
  *         name: "opt-in-status",
  *         values: ["not-opted-in"],
  *     }],
+ *     allRegions: true,
  * });
  * ```
  */

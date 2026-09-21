@@ -13,7 +13,7 @@ namespace Pulumi.Aws.Bedrock.Inputs
     public sealed class AgentFlowDefinitionNodeConfigurationLexArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Amazon Lex bot alias to invoke.
+        /// ARN of the Amazon Lex bot alias to invoke.
         /// </summary>
         [Input("botAliasArn", required: true)]
         public Input<string> BotAliasArn { get; set; } = null!;

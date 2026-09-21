@@ -79,12 +79,8 @@ type LookupVpcLinkResult struct {
 }
 
 func LookupVpcLinkOutput(ctx *pulumi.Context, args LookupVpcLinkOutputArgs, opts ...pulumi.InvokeOption) LookupVpcLinkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupVpcLinkResultOutput, error) {
-			args := v.(LookupVpcLinkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:apigatewayv2/getVpcLink:getVpcLink", args, LookupVpcLinkResultOutput{}, options).(LookupVpcLinkResultOutput), nil
-		}).(LookupVpcLinkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:apigatewayv2/getVpcLink:getVpcLink", args, LookupVpcLinkResultOutput{}, options).(LookupVpcLinkResultOutput)
 }
 
 // A collection of arguments for invoking getVpcLink.

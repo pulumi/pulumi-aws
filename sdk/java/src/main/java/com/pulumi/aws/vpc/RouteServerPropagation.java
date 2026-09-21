@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a resource for managing propagation between VPC (Virtual Private Cloud) route server and a route table.
+ * Provides a resource for managing propagation between VPC route server and a route table.
  * 
  * ## Example Usage
  * 
@@ -56,7 +56,7 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, to  to import VPC (Virtual Private Cloud) Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
+ * Using `pulumi import`, to  to import VPC Route Server Propagation using the associated resource ID and route table ID separated by a comma (,). For example:
  * 
  * ```sh
  * $ pulumi import aws:vpc/routeServerPropagation:RouteServerPropagation example rs-12345678,rtb-656c65616e6f72

@@ -29,18 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := ec2.NewNetworkInterface(ctx, "example", &ec2.NetworkInterfaceArgs{
+//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
+//					&ec2.NetworkInterfaceAttachmentTypeArgs{
+//						Instance:    pulumi.Any(exampleAwsInstance.Id),
+//						DeviceIndex: pulumi.Int(1),
+//					},
+//				},
 //				SubnetId: pulumi.Any(exampleAwsSubnet.Id),
 //				PrivateIps: pulumi.StringArray{
 //					pulumi.String("10.0.0.50"),
 //				},
 //				SecurityGroups: pulumi.StringArray{
 //					exampleAwsSecurityGroup.Id,
-//				},
-//				Attachments: ec2.NetworkInterfaceAttachmentTypeArray{
-//					&ec2.NetworkInterfaceAttachmentTypeArgs{
-//						Instance:    pulumi.Any(exampleAwsInstance.Id),
-//						DeviceIndex: pulumi.Int(1),
-//					},
 //				},
 //			})
 //			if err != nil {

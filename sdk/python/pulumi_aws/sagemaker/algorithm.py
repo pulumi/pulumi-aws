@@ -422,16 +422,16 @@ class Algorithm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-algorithm",
             training_specification={
-                "supported_training_instance_types": ["ml.m5.large"],
-                "training_image": "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
                 "training_channels": [{
                     "name": "train",
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "supported_training_instance_types": ["ml.m5.large"],
+                "training_image": "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
             },
+            algorithm_name="example-algorithm",
             tags={
                 "Environment": "test",
             })
@@ -446,54 +446,41 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-training-algorithm",
             training_specification={
-                "supported_training_instance_types": [
-                    "ml.m5.large",
-                    "ml.c5.xlarge",
-                ],
-                "supports_distributed_training": True,
-                "training_image": example.registry_path,
                 "metric_definitions": [{
                     "name": "train:loss",
                     "regex": "loss=(.*?);",
                 }],
                 "supported_hyper_parameters": [
                     {
-                        "default_value": "0.5",
-                        "description": "Continuous learning rate",
-                        "is_required": True,
-                        "is_tunable": True,
-                        "name": "eta",
-                        "type": "Continuous",
                         "range": {
                             "continuous_parameter_range_specification": {
                                 "min_value": "0.1",
                                 "max_value": "0.9",
                             },
                         },
+                        "default_value": "0.5",
+                        "description": "Continuous learning rate",
+                        "is_required": True,
+                        "is_tunable": True,
+                        "name": "eta",
+                        "type": "Continuous",
                     },
                     {
-                        "default_value": "5",
-                        "description": "Maximum tree depth",
-                        "is_required": False,
-                        "is_tunable": True,
-                        "name": "max_depth",
-                        "type": "Integer",
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "1",
                                 "max_value": "10",
                             },
                         },
+                        "default_value": "5",
+                        "description": "Maximum tree depth",
+                        "is_required": False,
+                        "is_tunable": True,
+                        "name": "max_depth",
+                        "type": "Integer",
                     },
                     {
-                        "default_value": "reg:squarederror",
-                        "description": "Objective function",
-                        "is_required": False,
-                        "is_tunable": False,
-                        "name": "objective",
-                        "type": "Categorical",
                         "range": {
                             "categorical_parameter_range_specification": {
                                 "values": [
@@ -502,6 +489,12 @@ class Algorithm(pulumi.CustomResource):
                                 ],
                             },
                         },
+                        "default_value": "reg:squarederror",
+                        "description": "Objective function",
+                        "is_required": False,
+                        "is_tunable": False,
+                        "name": "objective",
+                        "type": "Categorical",
                     },
                 ],
                 "supported_tuning_job_objective_metrics": [{
@@ -526,7 +519,14 @@ class Algorithm(pulumi.CustomResource):
                         "supported_input_modes": ["Pipe"],
                     },
                 ],
-            })
+                "supported_training_instance_types": [
+                    "ml.m5.large",
+                    "ml.c5.xlarge",
+                ],
+                "supports_distributed_training": True,
+                "training_image": example.registry_path,
+            },
+            algorithm_name="example-training-algorithm")
         ```
 
         ### Inference Specification
@@ -538,22 +538,25 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-inference-algorithm",
             training_specification={
-                "supported_training_instance_types": ["ml.m5.large"],
-                "training_image": example.registry_path,
                 "training_channels": [{
                     "name": "train",
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "supported_training_instance_types": ["ml.m5.large"],
+                "training_image": example.registry_path,
             },
             inference_specification={
-                "supported_content_types": ["text/csv"],
-                "supported_realtime_inference_instance_types": ["ml.m5.large"],
-                "supported_response_mime_types": ["text/csv"],
-                "supported_transform_instance_types": ["ml.m5.large"],
                 "containers": [{
+                    "base_model": {
+                        "hub_content_name": "basemodel",
+                        "hub_content_version": "1.0.0",
+                        "recipe_name": "recipe",
+                    },
+                    "model_input": {
+                        "data_input_config": "{}",
+                    },
                     "container_hostname": "test-host",
                     "environment": {
                         "TEST": "value",
@@ -563,16 +566,13 @@ class Algorithm(pulumi.CustomResource):
                     "image": example.registry_path,
                     "is_checkpoint": True,
                     "nearest_model_name": "nearest-model",
-                    "base_model": {
-                        "hub_content_name": "basemodel",
-                        "hub_content_version": "1.0.0",
-                        "recipe_name": "recipe",
-                    },
-                    "model_input": {
-                        "data_input_config": "{}",
-                    },
                 }],
-            })
+                "supported_content_types": ["text/csv"],
+                "supported_realtime_inference_instance_types": ["ml.m5.large"],
+                "supported_response_mime_types": ["text/csv"],
+                "supported_transform_instance_types": ["ml.m5.large"],
+            },
+            algorithm_name="example-inference-algorithm")
         ```
 
         ### Validation Specification
@@ -585,11 +585,11 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": [f"sagemaker.{current.dns_suffix}"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example-sagemaker-algorithm-role",
@@ -631,51 +631,48 @@ class Algorithm(pulumi.CustomResource):
         0.0,1.0
         \"\"\")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-validation-algorithm",
             training_specification={
-                "training_image": example.registry_path,
-                "supported_training_instance_types": ["ml.m5.large"],
                 "supported_hyper_parameters": [
                     {
-                        "default_value": "2",
-                        "description": "Feature dimension",
-                        "is_required": True,
-                        "is_tunable": False,
-                        "name": "feature_dim",
-                        "type": "Integer",
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "2",
                                 "max_value": "2",
                             },
                         },
-                    },
-                    {
-                        "default_value": "4",
-                        "description": "Mini batch size",
+                        "default_value": "2",
+                        "description": "Feature dimension",
                         "is_required": True,
                         "is_tunable": False,
-                        "name": "mini_batch_size",
+                        "name": "feature_dim",
                         "type": "Integer",
+                    },
+                    {
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "4",
                                 "max_value": "4",
                             },
                         },
+                        "default_value": "4",
+                        "description": "Mini batch size",
+                        "is_required": True,
+                        "is_tunable": False,
+                        "name": "mini_batch_size",
+                        "type": "Integer",
                     },
                     {
+                        "range": {
+                            "categorical_parameter_range_specification": {
+                                "values": ["binary_classifier"],
+                            },
+                        },
                         "default_value": "binary_classifier",
                         "description": "Predictor type",
                         "is_required": True,
                         "is_tunable": False,
                         "name": "predictor_type",
                         "type": "Categorical",
-                        "range": {
-                            "categorical_parameter_range_specification": {
-                                "values": ["binary_classifier"],
-                            },
-                        },
                     },
                 ],
                 "training_channels": [{
@@ -683,44 +680,20 @@ class Algorithm(pulumi.CustomResource):
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "training_image": example.registry_path,
+                "supported_training_instance_types": ["ml.m5.large"],
             },
             inference_specification={
-                "supported_content_types": ["text/csv"],
-                "supported_response_mime_types": ["text/csv"],
-                "supported_transform_instance_types": ["ml.m5.large"],
                 "containers": [{
                     "image": example.registry_path,
                 }],
+                "supported_content_types": ["text/csv"],
+                "supported_response_mime_types": ["text/csv"],
+                "supported_transform_instance_types": ["ml.m5.large"],
             },
             validation_specification={
-                "validation_role": example_role.arn,
                 "validation_profiles": {
-                    "profile_name": "validation-profile",
                     "training_job_definition": {
-                        "hyper_parameters": {
-                            "feature_dim": "2",
-                            "mini_batch_size": "4",
-                            "predictor_type": "binary_classifier",
-                        },
-                        "training_input_mode": "File",
-                        "input_data_configs": [{
-                            "channel_name": "train",
-                            "compression_type": "None",
-                            "content_type": "text/csv",
-                            "input_mode": "File",
-                            "record_wrapper_type": "None",
-                            "shuffle_config": {
-                                "seed": 1,
-                            },
-                            "data_source": {
-                                "s3_data_source": {
-                                    "attribute_names": ["label"],
-                                    "s3_data_distribution_type": "ShardedByS3Key",
-                                    "s3_data_type": "S3Prefix",
-                                    "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/training/"),
-                                },
-                            },
-                        }],
                         "output_data_config": {
                             "compression_type": "GZIP",
                             "s3_output_path": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/output"),
@@ -736,24 +709,42 @@ class Algorithm(pulumi.CustomResource):
                             "max_runtime_in_seconds": 1800,
                             "max_wait_time_in_seconds": 3600,
                         },
-                    },
-                    "transform_job_definition": {
-                        "batch_strategy": "MultiRecord",
-                        "environment": {
-                            "Te": "enabled",
-                        },
-                        "max_concurrent_transforms": 1,
-                        "max_payload_in_mb": 6,
-                        "transform_input": {
+                        "input_data_configs": [{
+                            "shuffle_config": {
+                                "seed": 1,
+                            },
+                            "data_source": {
+                                "s3_data_source": {
+                                    "attribute_names": ["label"],
+                                    "s3_data_distribution_type": "ShardedByS3Key",
+                                    "s3_data_type": "S3Prefix",
+                                    "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/training/"),
+                                },
+                            },
+                            "channel_name": "train",
                             "compression_type": "None",
                             "content_type": "text/csv",
-                            "split_type": "Line",
+                            "input_mode": "File",
+                            "record_wrapper_type": "None",
+                        }],
+                        "hyper_parameters": {
+                            "feature_dim": "2",
+                            "mini_batch_size": "4",
+                            "predictor_type": "binary_classifier",
+                        },
+                        "training_input_mode": "File",
+                    },
+                    "transform_job_definition": {
+                        "transform_input": {
                             "data_source": {
                                 "s3_data_source": {
                                     "s3_data_type": "S3Prefix",
                                     "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/transform/"),
                                 },
                             },
+                            "compression_type": "None",
+                            "content_type": "text/csv",
+                            "split_type": "Line",
                         },
                         "transform_output": {
                             "accept": "text/csv",
@@ -764,9 +755,18 @@ class Algorithm(pulumi.CustomResource):
                             "instance_count": 1,
                             "instance_type": "ml.m5.large",
                         },
+                        "batch_strategy": "MultiRecord",
+                        "environment": {
+                            "Te": "enabled",
+                        },
+                        "max_concurrent_transforms": 1,
+                        "max_payload_in_mb": 6,
                     },
+                    "profile_name": "validation-profile",
                 },
+                "validation_role": example_role.arn,
             },
+            algorithm_name="example-validation-algorithm",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_role_policy_attachment,
                     example_role_policy,
@@ -824,16 +824,16 @@ class Algorithm(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-algorithm",
             training_specification={
-                "supported_training_instance_types": ["ml.m5.large"],
-                "training_image": "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
                 "training_channels": [{
                     "name": "train",
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "supported_training_instance_types": ["ml.m5.large"],
+                "training_image": "123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest",
             },
+            algorithm_name="example-algorithm",
             tags={
                 "Environment": "test",
             })
@@ -848,54 +848,41 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-training-algorithm",
             training_specification={
-                "supported_training_instance_types": [
-                    "ml.m5.large",
-                    "ml.c5.xlarge",
-                ],
-                "supports_distributed_training": True,
-                "training_image": example.registry_path,
                 "metric_definitions": [{
                     "name": "train:loss",
                     "regex": "loss=(.*?);",
                 }],
                 "supported_hyper_parameters": [
                     {
-                        "default_value": "0.5",
-                        "description": "Continuous learning rate",
-                        "is_required": True,
-                        "is_tunable": True,
-                        "name": "eta",
-                        "type": "Continuous",
                         "range": {
                             "continuous_parameter_range_specification": {
                                 "min_value": "0.1",
                                 "max_value": "0.9",
                             },
                         },
+                        "default_value": "0.5",
+                        "description": "Continuous learning rate",
+                        "is_required": True,
+                        "is_tunable": True,
+                        "name": "eta",
+                        "type": "Continuous",
                     },
                     {
-                        "default_value": "5",
-                        "description": "Maximum tree depth",
-                        "is_required": False,
-                        "is_tunable": True,
-                        "name": "max_depth",
-                        "type": "Integer",
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "1",
                                 "max_value": "10",
                             },
                         },
+                        "default_value": "5",
+                        "description": "Maximum tree depth",
+                        "is_required": False,
+                        "is_tunable": True,
+                        "name": "max_depth",
+                        "type": "Integer",
                     },
                     {
-                        "default_value": "reg:squarederror",
-                        "description": "Objective function",
-                        "is_required": False,
-                        "is_tunable": False,
-                        "name": "objective",
-                        "type": "Categorical",
                         "range": {
                             "categorical_parameter_range_specification": {
                                 "values": [
@@ -904,6 +891,12 @@ class Algorithm(pulumi.CustomResource):
                                 ],
                             },
                         },
+                        "default_value": "reg:squarederror",
+                        "description": "Objective function",
+                        "is_required": False,
+                        "is_tunable": False,
+                        "name": "objective",
+                        "type": "Categorical",
                     },
                 ],
                 "supported_tuning_job_objective_metrics": [{
@@ -928,7 +921,14 @@ class Algorithm(pulumi.CustomResource):
                         "supported_input_modes": ["Pipe"],
                     },
                 ],
-            })
+                "supported_training_instance_types": [
+                    "ml.m5.large",
+                    "ml.c5.xlarge",
+                ],
+                "supports_distributed_training": True,
+                "training_image": example.registry_path,
+            },
+            algorithm_name="example-training-algorithm")
         ```
 
         ### Inference Specification
@@ -940,22 +940,25 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-inference-algorithm",
             training_specification={
-                "supported_training_instance_types": ["ml.m5.large"],
-                "training_image": example.registry_path,
                 "training_channels": [{
                     "name": "train",
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "supported_training_instance_types": ["ml.m5.large"],
+                "training_image": example.registry_path,
             },
             inference_specification={
-                "supported_content_types": ["text/csv"],
-                "supported_realtime_inference_instance_types": ["ml.m5.large"],
-                "supported_response_mime_types": ["text/csv"],
-                "supported_transform_instance_types": ["ml.m5.large"],
                 "containers": [{
+                    "base_model": {
+                        "hub_content_name": "basemodel",
+                        "hub_content_version": "1.0.0",
+                        "recipe_name": "recipe",
+                    },
+                    "model_input": {
+                        "data_input_config": "{}",
+                    },
                     "container_hostname": "test-host",
                     "environment": {
                         "TEST": "value",
@@ -965,16 +968,13 @@ class Algorithm(pulumi.CustomResource):
                     "image": example.registry_path,
                     "is_checkpoint": True,
                     "nearest_model_name": "nearest-model",
-                    "base_model": {
-                        "hub_content_name": "basemodel",
-                        "hub_content_version": "1.0.0",
-                        "recipe_name": "recipe",
-                    },
-                    "model_input": {
-                        "data_input_config": "{}",
-                    },
                 }],
-            })
+                "supported_content_types": ["text/csv"],
+                "supported_realtime_inference_instance_types": ["ml.m5.large"],
+                "supported_response_mime_types": ["text/csv"],
+                "supported_transform_instance_types": ["ml.m5.large"],
+            },
+            algorithm_name="example-inference-algorithm")
         ```
 
         ### Validation Specification
@@ -987,11 +987,11 @@ class Algorithm(pulumi.CustomResource):
         example = aws.sagemaker.get_prebuilt_ecr_image(repository_name="linear-learner",
             image_tag="1")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": [f"sagemaker.{current.dns_suffix}"],
             }],
+            "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
             name="example-sagemaker-algorithm-role",
@@ -1033,51 +1033,48 @@ class Algorithm(pulumi.CustomResource):
         0.0,1.0
         \"\"\")
         example_algorithm = aws.sagemaker.Algorithm("example",
-            algorithm_name="example-validation-algorithm",
             training_specification={
-                "training_image": example.registry_path,
-                "supported_training_instance_types": ["ml.m5.large"],
                 "supported_hyper_parameters": [
                     {
-                        "default_value": "2",
-                        "description": "Feature dimension",
-                        "is_required": True,
-                        "is_tunable": False,
-                        "name": "feature_dim",
-                        "type": "Integer",
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "2",
                                 "max_value": "2",
                             },
                         },
-                    },
-                    {
-                        "default_value": "4",
-                        "description": "Mini batch size",
+                        "default_value": "2",
+                        "description": "Feature dimension",
                         "is_required": True,
                         "is_tunable": False,
-                        "name": "mini_batch_size",
+                        "name": "feature_dim",
                         "type": "Integer",
+                    },
+                    {
                         "range": {
                             "integer_parameter_range_specification": {
                                 "min_value": "4",
                                 "max_value": "4",
                             },
                         },
+                        "default_value": "4",
+                        "description": "Mini batch size",
+                        "is_required": True,
+                        "is_tunable": False,
+                        "name": "mini_batch_size",
+                        "type": "Integer",
                     },
                     {
+                        "range": {
+                            "categorical_parameter_range_specification": {
+                                "values": ["binary_classifier"],
+                            },
+                        },
                         "default_value": "binary_classifier",
                         "description": "Predictor type",
                         "is_required": True,
                         "is_tunable": False,
                         "name": "predictor_type",
                         "type": "Categorical",
-                        "range": {
-                            "categorical_parameter_range_specification": {
-                                "values": ["binary_classifier"],
-                            },
-                        },
                     },
                 ],
                 "training_channels": [{
@@ -1085,44 +1082,20 @@ class Algorithm(pulumi.CustomResource):
                     "supported_content_types": ["text/csv"],
                     "supported_input_modes": ["File"],
                 }],
+                "training_image": example.registry_path,
+                "supported_training_instance_types": ["ml.m5.large"],
             },
             inference_specification={
-                "supported_content_types": ["text/csv"],
-                "supported_response_mime_types": ["text/csv"],
-                "supported_transform_instance_types": ["ml.m5.large"],
                 "containers": [{
                     "image": example.registry_path,
                 }],
+                "supported_content_types": ["text/csv"],
+                "supported_response_mime_types": ["text/csv"],
+                "supported_transform_instance_types": ["ml.m5.large"],
             },
             validation_specification={
-                "validation_role": example_role.arn,
                 "validation_profiles": {
-                    "profile_name": "validation-profile",
                     "training_job_definition": {
-                        "hyper_parameters": {
-                            "feature_dim": "2",
-                            "mini_batch_size": "4",
-                            "predictor_type": "binary_classifier",
-                        },
-                        "training_input_mode": "File",
-                        "input_data_configs": [{
-                            "channel_name": "train",
-                            "compression_type": "None",
-                            "content_type": "text/csv",
-                            "input_mode": "File",
-                            "record_wrapper_type": "None",
-                            "shuffle_config": {
-                                "seed": 1,
-                            },
-                            "data_source": {
-                                "s3_data_source": {
-                                    "attribute_names": ["label"],
-                                    "s3_data_distribution_type": "ShardedByS3Key",
-                                    "s3_data_type": "S3Prefix",
-                                    "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/training/"),
-                                },
-                            },
-                        }],
                         "output_data_config": {
                             "compression_type": "GZIP",
                             "s3_output_path": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/output"),
@@ -1138,24 +1111,42 @@ class Algorithm(pulumi.CustomResource):
                             "max_runtime_in_seconds": 1800,
                             "max_wait_time_in_seconds": 3600,
                         },
-                    },
-                    "transform_job_definition": {
-                        "batch_strategy": "MultiRecord",
-                        "environment": {
-                            "Te": "enabled",
-                        },
-                        "max_concurrent_transforms": 1,
-                        "max_payload_in_mb": 6,
-                        "transform_input": {
+                        "input_data_configs": [{
+                            "shuffle_config": {
+                                "seed": 1,
+                            },
+                            "data_source": {
+                                "s3_data_source": {
+                                    "attribute_names": ["label"],
+                                    "s3_data_distribution_type": "ShardedByS3Key",
+                                    "s3_data_type": "S3Prefix",
+                                    "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/training/"),
+                                },
+                            },
+                            "channel_name": "train",
                             "compression_type": "None",
                             "content_type": "text/csv",
-                            "split_type": "Line",
+                            "input_mode": "File",
+                            "record_wrapper_type": "None",
+                        }],
+                        "hyper_parameters": {
+                            "feature_dim": "2",
+                            "mini_batch_size": "4",
+                            "predictor_type": "binary_classifier",
+                        },
+                        "training_input_mode": "File",
+                    },
+                    "transform_job_definition": {
+                        "transform_input": {
                             "data_source": {
                                 "s3_data_source": {
                                     "s3_data_type": "S3Prefix",
                                     "s3_uri": example_bucket.bucket.apply(lambda bucket: f"s3://{bucket}/algorithm/transform/"),
                                 },
                             },
+                            "compression_type": "None",
+                            "content_type": "text/csv",
+                            "split_type": "Line",
                         },
                         "transform_output": {
                             "accept": "text/csv",
@@ -1166,9 +1157,18 @@ class Algorithm(pulumi.CustomResource):
                             "instance_count": 1,
                             "instance_type": "ml.m5.large",
                         },
+                        "batch_strategy": "MultiRecord",
+                        "environment": {
+                            "Te": "enabled",
+                        },
+                        "max_concurrent_transforms": 1,
+                        "max_payload_in_mb": 6,
                     },
+                    "profile_name": "validation-profile",
                 },
+                "validation_role": example_role.arn,
             },
+            algorithm_name="example-validation-algorithm",
             opts = pulumi.ResourceOptions(depends_on=[
                     example_role_policy_attachment,
                     example_role_policy,

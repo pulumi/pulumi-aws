@@ -46,14 +46,14 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of a core network.
+     * ARN of a core network.
      * 
      */
     @Import(name="coreNetworkArn")
     private @Nullable Output<String> coreNetworkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of a core network.
+     * @return ARN of a core network.
      * 
      */
     public Optional<Output<String>> coreNetworkArn() {
@@ -170,14 +170,14 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an ODB network.
+     * ARN of an ODB network.
      * 
      */
     @Import(name="odbNetworkArn")
     private @Nullable Output<String> odbNetworkArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an ODB network.
+     * @return ARN of an ODB network.
      * 
      */
     public Optional<Output<String>> odbNetworkArn() {
@@ -313,7 +313,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param coreNetworkArn The Amazon Resource Name (ARN) of a core network.
+         * @param coreNetworkArn ARN of a core network.
          * 
          * @return builder
          * 
@@ -485,7 +485,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * @param odbNetworkArn ARN of an ODB network.
          * 
          * @return builder
          * 
@@ -496,7 +496,7 @@ public final class RouteTableRouteArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param odbNetworkArn The Amazon Resource Name (ARN) of an ODB network.
+         * @param odbNetworkArn ARN of an ODB network.
          * 
          * @return builder
          * 

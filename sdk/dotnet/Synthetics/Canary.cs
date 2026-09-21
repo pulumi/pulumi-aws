@@ -26,16 +26,16 @@ namespace Pulumi.Aws.Synthetics
     /// {
     ///     var some = new Aws.Synthetics.Canary("some", new()
     ///     {
+    ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
+    ///         {
+    ///             Expression = "rate(0 minute)",
+    ///         },
     ///         Name = "some-canary",
     ///         ArtifactS3Location = "s3://some-bucket/",
     ///         ExecutionRoleArn = "some-role",
     ///         Handler = "exports.handler",
     ///         ZipFile = "test-fixtures/lambdatest.zip",
     ///         RuntimeVersion = "syn-1.0",
-    ///         Schedule = new Aws.Synthetics.Inputs.CanaryScheduleArgs
-    ///         {
-    ///             Expression = "rate(0 minute)",
-    ///         },
     ///     });
     /// 
     /// });
@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Synthetics
     public partial class Canary : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Canary.
+        /// ARN of the Canary.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -99,6 +99,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Output("handler")]
         public Output<string> Handler { get; private set; } = null!;
+
+        /// <summary>
+        /// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        /// </summary>
+        [Output("kmsKeyArn")]
+        public Output<string?> KmsKeyArn { get; private set; } = null!;
 
         /// <summary>
         /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
@@ -287,6 +293,12 @@ namespace Pulumi.Aws.Synthetics
         public Input<string> Handler { get; set; } = null!;
 
         /// <summary>
+        /// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
+
+        /// <summary>
         /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.
         /// </summary>
         [Input("name")]
@@ -381,7 +393,7 @@ namespace Pulumi.Aws.Synthetics
     public sealed class CanaryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Canary.
+        /// ARN of the Canary.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -427,6 +439,12 @@ namespace Pulumi.Aws.Synthetics
         /// </summary>
         [Input("handler")]
         public Input<string>? Handler { get; set; }
+
+        /// <summary>
+        /// ARN of the customer-managed KMS key used to encrypt the environment variables of the canary's Lambda function at rest. If omitted, an AWS owned key is used. Note that this is distinct from `artifact_config.s3_encryption.kms_key_arn`, which encrypts the artifacts the canary uploads to Amazon S3.
+        /// </summary>
+        [Input("kmsKeyArn")]
+        public Input<string>? KmsKeyArn { get; set; }
 
         /// <summary>
         /// Name for this canary. Has a maximum length of 255 characters. Valid characters are lowercase alphanumeric, hyphen, or underscore.

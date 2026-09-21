@@ -65,7 +65,6 @@ namespace Pulumi.Aws.CloudTrail
     ///         {
     ///             new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorArgs
     ///             {
-    ///                 Name = "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
     ///                 FieldSelectors = new[]
     ///                 {
     ///                     new Aws.CloudTrail.Inputs.EventDataStoreAdvancedEventSelectorFieldSelectorArgs
@@ -101,6 +100,7 @@ namespace Pulumi.Aws.CloudTrail
     ///                         },
     ///                     },
     ///                 },
+    ///                 Name = "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
     ///             },
     ///         },
     ///     });
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.CloudTrail
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
+    /// - `Arn` (String) ARN of the CloudTrail event data store.
     /// 
     /// Using `pulumi import`, import event data stores using their `Arn`. For example:
     /// 

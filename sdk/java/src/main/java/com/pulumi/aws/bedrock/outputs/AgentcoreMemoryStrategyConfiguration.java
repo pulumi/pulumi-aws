@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock.outputs;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationConsolidation;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationExtraction;
 import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationReflection;
+import com.pulumi.aws.bedrock.outputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
@@ -16,12 +17,12 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AgentcoreMemoryStrategyConfiguration {
     /**
-     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationConsolidation consolidation;
     /**
-     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
@@ -31,21 +32,26 @@ public final class AgentcoreMemoryStrategyConfiguration {
      */
     private @Nullable AgentcoreMemoryStrategyConfigurationReflection reflection;
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+     * @return Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+     * 
+     */
+    private @Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration selfManagedConfiguration;
+    /**
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
      * 
      */
     private String type;
 
     private AgentcoreMemoryStrategyConfiguration() {}
     /**
-     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationConsolidation> consolidation() {
         return Optional.ofNullable(this.consolidation);
     }
     /**
-     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<AgentcoreMemoryStrategyConfigurationExtraction> extraction() {
@@ -59,7 +65,14 @@ public final class AgentcoreMemoryStrategyConfiguration {
         return Optional.ofNullable(this.reflection);
     }
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+     * @return Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+     * 
+     */
+    public Optional<AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration> selfManagedConfiguration() {
+        return Optional.ofNullable(this.selfManagedConfiguration);
+    }
+    /**
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
      * 
      */
     public String type() {
@@ -78,6 +91,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
         private @Nullable AgentcoreMemoryStrategyConfigurationConsolidation consolidation;
         private @Nullable AgentcoreMemoryStrategyConfigurationExtraction extraction;
         private @Nullable AgentcoreMemoryStrategyConfigurationReflection reflection;
+        private @Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration selfManagedConfiguration;
         private String type;
         public Builder() {}
         public Builder(AgentcoreMemoryStrategyConfiguration defaults) {
@@ -85,6 +99,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
     	      this.consolidation = defaults.consolidation;
     	      this.extraction = defaults.extraction;
     	      this.reflection = defaults.reflection;
+    	      this.selfManagedConfiguration = defaults.selfManagedConfiguration;
     	      this.type = defaults.type;
         }
 
@@ -107,6 +122,12 @@ public final class AgentcoreMemoryStrategyConfiguration {
             return this;
         }
         @CustomType.Setter
+        public Builder selfManagedConfiguration(@Nullable AgentcoreMemoryStrategyConfigurationSelfManagedConfiguration selfManagedConfiguration) {
+
+            this.selfManagedConfiguration = selfManagedConfiguration;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("AgentcoreMemoryStrategyConfiguration", "type");
@@ -119,6 +140,7 @@ public final class AgentcoreMemoryStrategyConfiguration {
             _resultValue.consolidation = consolidation;
             _resultValue.extraction = extraction;
             _resultValue.reflection = reflection;
+            _resultValue.selfManagedConfiguration = selfManagedConfiguration;
             _resultValue.type = type;
             return _resultValue;
         }

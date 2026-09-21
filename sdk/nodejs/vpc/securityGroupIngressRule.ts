@@ -84,7 +84,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the security group rule.
+     * ARN of the security group rule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export class SecurityGroupIngressRule extends pulumi.CustomResource {
  */
 export interface SecurityGroupIngressRuleState {
     /**
-     * The Amazon Resource Name (ARN) of the security group rule.
+     * ARN of the security group rule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

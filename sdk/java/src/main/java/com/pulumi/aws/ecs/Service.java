@@ -49,8 +49,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Service;
  * import com.pulumi.aws.ecs.ServiceArgs;
- * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
  * import com.pulumi.aws.ecs.inputs.ServiceLoadBalancerArgs;
+ * import com.pulumi.aws.ecs.inputs.ServiceOrderedPlacementStrategyArgs;
  * import com.pulumi.aws.ecs.inputs.ServicePlacementConstraintArgs;
  * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
@@ -67,24 +67,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var mongo = new Service("mongo", ServiceArgs.builder()
- *             .name("mongodb")
- *             .cluster(fooAwsEcsCluster.id())
- *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
- *             .desiredCount(3)
- *             .iamRole(fooAwsIamRole.arn())
- *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
- *                 .type("binpack")
- *                 .field("cpu")
- *                 .build())
  *             .loadBalancers(ServiceLoadBalancerArgs.builder()
  *                 .targetGroupArn(fooAwsLbTargetGroup.arn())
  *                 .containerName("mongo")
  *                 .containerPort(8080)
  *                 .build())
+ *             .orderedPlacementStrategies(ServiceOrderedPlacementStrategyArgs.builder()
+ *                 .type("binpack")
+ *                 .field("cpu")
+ *                 .build())
  *             .placementConstraints(ServicePlacementConstraintArgs.builder()
  *                 .type("memberOf")
  *                 .expression("attribute:ecs.availability-zone in [us-west-2a, us-west-2b]")
  *                 .build())
+ *             .name("mongodb")
+ *             .cluster(fooAwsEcsCluster.id())
+ *             .taskDefinition(mongoAwsEcsTaskDefinition.arn())
+ *             .desiredCount(3)
+ *             .iamRole(fooAwsIamRole.arn())
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(foo)
  *                 .build());
@@ -107,6 +107,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.ecs.Service;
  * import com.pulumi.aws.ecs.ServiceArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -122,7 +123,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
  *             .desiredCount(2)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("desiredCount")
+ *                 .build());
  * 
  *     }
  * }
@@ -191,13 +194,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
  *             .alarms(ServiceAlarmsArgs.builder()
  *                 .enable(true)
  *                 .rollback(true)
  *                 .alarmNames(exampleAwsCloudwatchMetricAlarm.alarmName())
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .build());
  * 
  *     }
@@ -231,11 +234,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentController(ServiceDeploymentControllerArgs.builder()
  *                 .type("EXTERNAL")
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .build());
  * 
  *     }
@@ -269,11 +272,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
  *                 .strategy("BLUE_GREEN")
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .sigintRollback(true)
  *             .waitForSteadyState(true)
  *             .build());
@@ -310,16 +313,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
- *                 .strategy("LINEAR")
- *                 .bakeTimeInMinutes("10")
  *                 .linearConfiguration(ServiceDeploymentConfigurationLinearConfigurationArgs.builder()
  *                     .stepPercent(25.0)
  *                     .stepBakeTimeInMinutes("5")
  *                     .build())
+ *                 .strategy("LINEAR")
+ *                 .bakeTimeInMinutes("10")
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .build());
  * 
  *     }
@@ -354,16 +357,16 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
  *             .deploymentConfiguration(ServiceDeploymentConfigurationArgs.builder()
- *                 .strategy("CANARY")
- *                 .bakeTimeInMinutes("15")
  *                 .canaryConfiguration(ServiceDeploymentConfigurationCanaryConfigurationArgs.builder()
  *                     .canaryPercent(10.0)
  *                     .canaryBakeTimeInMinutes("5")
  *                     .build())
+ *                 .strategy("CANARY")
+ *                 .bakeTimeInMinutes("15")
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
  *             .build());
  * 
  *     }
@@ -447,13 +450,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Service("example", ServiceArgs.builder()
- *             .name("example")
- *             .cluster(exampleAwsEcsCluster.id())
- *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
- *             .desiredCount(1)
  *             .serviceConnectConfiguration(ServiceServiceConnectConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .namespace(exampleAwsServiceDiscoveryHttpNamespace.arn())
  *                 .logConfiguration(ServiceServiceConnectConfigurationLogConfigurationArgs.builder()
  *                     .logDriver("awslogs")
  *                     .options(Map.ofEntries(
@@ -467,14 +464,20 @@ import javax.annotation.Nullable;
  *                     .includeQueryParameters("ENABLED")
  *                     .build())
  *                 .services(ServiceServiceConnectConfigurationServiceArgs.builder()
- *                     .portName("http")
- *                     .discoveryName("example")
  *                     .clientAlias(com.pulumi.aws.ecs.inputs.ServiceServiceConnectConfigurationServiceClientAliasArgs.builder()
  *                         .dnsName("example")
  *                         .port(8080)
  *                         .build())
+ *                     .portName("http")
+ *                     .discoveryName("example")
  *                     .build())
+ *                 .enabled(true)
+ *                 .namespace(exampleAwsServiceDiscoveryHttpNamespace.arn())
  *                 .build())
+ *             .name("example")
+ *             .cluster(exampleAwsEcsCluster.id())
+ *             .taskDefinition(exampleAwsEcsTaskDefinition.arn())
+ *             .desiredCount(1)
  *             .build());
  * 
  *     }

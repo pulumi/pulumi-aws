@@ -256,7 +256,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the API Gateway domain name access association.
+        - `arn` (String) ARN of the API Gateway domain name access association.
 
         Using `pulumi import`, import API Gateway domain name acces associations as using their `arn`. For example:
 
@@ -300,7 +300,7 @@ class DomainNameAccessAssociation(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the API Gateway domain name access association.
+        - `arn` (String) ARN of the API Gateway domain name access association.
 
         Using `pulumi import`, import API Gateway domain name acces associations as using their `arn`. For example:
 

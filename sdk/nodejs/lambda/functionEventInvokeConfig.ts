@@ -40,9 +40,6 @@ import * as utilities from "../utilities";
  * });
  * // Complete event invoke configuration
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     maximumEventAgeInSeconds: 300,
- *     maximumRetryAttempts: 1,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: dlq.arn,
@@ -51,6 +48,9 @@ import * as utilities from "../utilities";
  *             destination: success.arn,
  *         },
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     maximumEventAgeInSeconds: 300,
+ *     maximumRetryAttempts: 1,
  * });
  * ```
  *
@@ -80,15 +80,15 @@ import * as utilities from "../utilities";
  *     functionVersion: exampleAwsLambdaFunction.version,
  * });
  * const exampleFunctionEventInvokeConfig = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: example.name,
- *     maximumEventAgeInSeconds: 1800,
- *     maximumRetryAttempts: 2,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: productionDlq.arn,
  *         },
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: example.name,
+ *     maximumEventAgeInSeconds: 1800,
+ *     maximumRetryAttempts: 2,
  * });
  * ```
  *
@@ -99,10 +99,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: exampleAwsLambdaFunction.version,
- *     maximumEventAgeInSeconds: 21600,
- *     maximumRetryAttempts: 2,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: versionDlq.arn,
@@ -111,6 +107,10 @@ import * as utilities from "../utilities";
  *             destination: versionSuccess.arn,
  *         },
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: exampleAwsLambdaFunction.version,
+ *     maximumEventAgeInSeconds: 21600,
+ *     maximumRetryAttempts: 2,
  * });
  * ```
  *
@@ -121,15 +121,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
- *     qualifier: "$LATEST",
- *     maximumEventAgeInSeconds: 120,
- *     maximumRetryAttempts: 0,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: devDlq.arn,
  *         },
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
+ *     qualifier: "$LATEST",
+ *     maximumEventAgeInSeconds: 120,
+ *     maximumRetryAttempts: 0,
  * });
  * ```
  *
@@ -144,7 +144,6 @@ import * as utilities from "../utilities";
  * // EventBridge custom bus for failed events
  * const lambdaFailures = new aws.cloudwatch.EventBus("lambda_failures", {name: "lambda-failure-events"});
  * const example = new aws.lambda.FunctionEventInvokeConfig("example", {
- *     functionName: exampleAwsLambdaFunction.functionName,
  *     destinationConfig: {
  *         onFailure: {
  *             destination: lambdaFailures.arn,
@@ -153,6 +152,7 @@ import * as utilities from "../utilities";
  *             destination: lambdaSuccessArchive.arn,
  *         },
  *     },
+ *     functionName: exampleAwsLambdaFunction.functionName,
  * });
  * ```
  *

@@ -238,10 +238,10 @@ class BucketVersioning(pulumi.CustomResource):
             bucket=example.id,
             acl="private")
         versioning_example = aws.s3.BucketVersioning("versioning_example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         ```
 
         ### With Versioning Disabled
@@ -255,10 +255,10 @@ class BucketVersioning(pulumi.CustomResource):
             bucket=example.id,
             acl="private")
         versioning_example = aws.s3.BucketVersioning("versioning_example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Disabled",
-            })
+            },
+            bucket=example.id)
         ```
 
         ### Object Dependency On Versioning
@@ -275,10 +275,10 @@ class BucketVersioning(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="yotto")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_versioning.id,
             key="droeloe",
@@ -353,10 +353,10 @@ class BucketVersioning(pulumi.CustomResource):
             bucket=example.id,
             acl="private")
         versioning_example = aws.s3.BucketVersioning("versioning_example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         ```
 
         ### With Versioning Disabled
@@ -370,10 +370,10 @@ class BucketVersioning(pulumi.CustomResource):
             bucket=example.id,
             acl="private")
         versioning_example = aws.s3.BucketVersioning("versioning_example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Disabled",
-            })
+            },
+            bucket=example.id)
         ```
 
         ### Object Dependency On Versioning
@@ -390,10 +390,10 @@ class BucketVersioning(pulumi.CustomResource):
 
         example = aws.s3.Bucket("example", bucket="yotto")
         example_bucket_versioning = aws.s3.BucketVersioning("example",
-            bucket=example.id,
             versioning_configuration={
                 "status": "Enabled",
-            })
+            },
+            bucket=example.id)
         example_bucket_objectv2 = aws.s3.BucketObjectv2("example",
             bucket=example_bucket_versioning.id,
             key="droeloe",

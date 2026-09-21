@@ -36,14 +36,14 @@ public final class NotificationConfigurationState extends com.pulumi.resources.R
     }
 
     /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * ARN of the NotificationConfiguration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * @return ARN of the NotificationConfiguration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -179,7 +179,7 @@ public final class NotificationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the NotificationConfiguration.
+         * @param arn ARN of the NotificationConfiguration.
          * 
          * @return builder
          * 
@@ -190,7 +190,7 @@ public final class NotificationConfigurationState extends com.pulumi.resources.R
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the NotificationConfiguration.
+         * @param arn ARN of the NotificationConfiguration.
          * 
          * @return builder
          * 

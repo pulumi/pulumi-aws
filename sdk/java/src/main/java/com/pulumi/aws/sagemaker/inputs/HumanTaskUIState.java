@@ -18,14 +18,14 @@ public final class HumanTaskUIState extends com.pulumi.resources.ResourceArgs {
     public static final HumanTaskUIState Empty = new HumanTaskUIState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * ARN assigned by AWS to this Human Task UI.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+     * @return ARN assigned by AWS to this Human Task UI.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class HumanTaskUIState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+         * @param arn ARN assigned by AWS to this Human Task UI.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class HumanTaskUIState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+         * @param arn ARN assigned by AWS to this Human Task UI.
          * 
          * @return builder
          * 

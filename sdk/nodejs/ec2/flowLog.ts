@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["vpc-flow-logs.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -85,14 +85,14 @@ import * as utilities from "../utilities";
  *
  * const exampleBucket = new aws.s3.Bucket("example", {bucket: "example"});
  * const example = new aws.ec2.FlowLog("example", {
- *     logDestination: exampleBucket.arn,
- *     logDestinationType: "s3",
- *     trafficType: "ALL",
- *     vpcId: exampleAwsVpc.id,
  *     destinationOptions: {
  *         fileFormat: "parquet",
  *         perHourPartition: true,
  *     },
+ *     logDestination: exampleBucket.arn,
+ *     logDestinationType: "s3",
+ *     trafficType: "ALL",
+ *     vpcId: exampleAwsVpc.id,
  * });
  * ```
  *
@@ -109,12 +109,12 @@ import * as utilities from "../utilities";
  * const src = new aws.ec2.Vpc("src", {});
  * const srcAssumeRolePolicy = aws.iam.getPolicyDocument({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["delivery.logs.amazonaws.com"],
  *         }],
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
  *     }],
  * });
  * const srcRole = new aws.iam.Role("src", {
@@ -124,12 +124,12 @@ import * as utilities from "../utilities";
  * // For destination account
  * const dstAssumeRolePolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         actions: ["sts:AssumeRole"],
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [srcRole.arn],
  *         }],
+ *         actions: ["sts:AssumeRole"],
+ *         effect: "Allow",
  *     }],
  * });
  * const dst = new aws.iam.Role("dst", {
@@ -139,9 +139,6 @@ import * as utilities from "../utilities";
  * const srcRolePolicy = aws.iam.getPolicyDocumentOutput({
  *     statements: [
  *         {
- *             effect: "Allow",
- *             actions: ["iam:PassRole"],
- *             resources: [srcRole.arn],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -154,6 +151,9 @@ import * as utilities from "../utilities";
  *                     values: [src.arn],
  *                 },
  *             ],
+ *             effect: "Allow",
+ *             actions: ["iam:PassRole"],
+ *             resources: [srcRole.arn],
  *         },
  *         {
  *             effect: "Allow",

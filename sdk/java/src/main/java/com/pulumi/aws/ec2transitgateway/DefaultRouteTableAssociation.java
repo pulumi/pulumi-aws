@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
+ * Resource for managing an AWS EC2 Transit Gateway Default Route Table Association.
  * 
  * ## Example Usage
  * 

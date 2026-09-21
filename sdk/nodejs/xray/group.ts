@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.xray.Group("example", {
- *     groupName: "example",
- *     filterExpression: "responsetime > 5",
  *     insightsConfiguration: {
  *         insightsEnabled: true,
  *         notificationsEnabled: true,
  *     },
+ *     groupName: "example",
+ *     filterExpression: "responsetime > 5",
  * });
  * ```
  *
@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the X-Ray group.
+ * - `arn` (String) ARN of the X-Ray group.
  *
  * Using `pulumi import`, import XRay Groups using the ARN. For example:
  *

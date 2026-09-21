@@ -36,14 +36,14 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      * 
      */
     @Import(name="bootMode")
     private @Nullable Output<String> bootMode;
 
     /**
-     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
      * 
      */
     public Optional<Output<String>> bootMode() {
@@ -233,14 +233,14 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      * 
      */
     @Import(name="tpmSupport")
     private @Nullable Output<String> tpmSupport;
 
     /**
-     * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+     * @return If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
      * 
      */
     public Optional<Output<String>> tpmSupport() {
@@ -345,7 +345,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param bootMode Boot mode of the AMI. For more information, see [Boot modes](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-boot.html) in the EC2 User Guide.
          * 
          * @return builder
          * 
@@ -638,7 +638,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tpmSupport If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param tpmSupport If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
          * 
          * @return builder
          * 
@@ -649,7 +649,7 @@ public final class AmiArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param tpmSupport If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the Amazon Elastic Compute Cloud User Guide.
+         * @param tpmSupport If the image is configured for NitroTPM support, the value is `v2.0`. For more information, see [NitroTPM](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitrotpm.html) in the EC2 User Guide.
          * 
          * @return builder
          * 

@@ -58,12 +58,12 @@ import javax.annotation.Nullable;
  * 
  *         final var myArchive = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .sid("add-read-only-perm")
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("*")
  *                     .identifiers("*")
  *                     .build())
+ *                 .sid("add-read-only-perm")
+ *                 .effect("Allow")
  *                 .actions(                
  *                     "glacier:InitiateJob",
  *                     "glacier:GetJobOutput")
@@ -72,13 +72,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var myArchiveVault = new Vault("myArchiveVault", VaultArgs.builder()
- *             .name("MyArchive")
  *             .notification(VaultNotificationArgs.builder()
  *                 .snsTopic(awsSnsTopic.arn())
  *                 .events(                
  *                     "ArchiveRetrievalCompleted",
  *                     "InventoryRetrievalCompleted")
  *                 .build())
+ *             .name("MyArchive")
  *             .accessPolicy(myArchive.json())
  *             .tags(Map.of("Test", "MyArchive"))
  *             .build());

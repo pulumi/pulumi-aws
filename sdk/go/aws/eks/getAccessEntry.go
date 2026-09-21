@@ -67,7 +67,7 @@ type LookupAccessEntryArgs struct {
 
 // A collection of values returned by getAccessEntry.
 type LookupAccessEntryResult struct {
-	// Amazon Resource Name (ARN) of the Access Entry.
+	// ARN of the Access Entry.
 	AccessEntryArn string `pulumi:"accessEntryArn"`
 	ClusterName    string `pulumi:"clusterName"`
 	// Date and time in [RFC3339 format](https://tools.ietf.org/html/rfc3339#section-5.8) that the EKS add-on was created.
@@ -92,12 +92,8 @@ type LookupAccessEntryResult struct {
 }
 
 func LookupAccessEntryOutput(ctx *pulumi.Context, args LookupAccessEntryOutputArgs, opts ...pulumi.InvokeOption) LookupAccessEntryResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupAccessEntryResultOutput, error) {
-			args := v.(LookupAccessEntryArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:eks/getAccessEntry:getAccessEntry", args, LookupAccessEntryResultOutput{}, options).(LookupAccessEntryResultOutput), nil
-		}).(LookupAccessEntryResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:eks/getAccessEntry:getAccessEntry", args, LookupAccessEntryResultOutput{}, options).(LookupAccessEntryResultOutput)
 }
 
 // A collection of arguments for invoking getAccessEntry.
@@ -134,7 +130,7 @@ func (o LookupAccessEntryResultOutput) ToLookupAccessEntryResultOutputWithContex
 	return o
 }
 
-// Amazon Resource Name (ARN) of the Access Entry.
+// ARN of the Access Entry.
 func (o LookupAccessEntryResultOutput) AccessEntryArn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAccessEntryResult) string { return v.AccessEntryArn }).(pulumi.StringOutput)
 }

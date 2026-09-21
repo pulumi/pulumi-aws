@@ -50,25 +50,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new FieldLevelEncryptionConfig("test", FieldLevelEncryptionConfigArgs.builder()
- *             .comment("test comment")
  *             .contentTypeProfileConfig(FieldLevelEncryptionConfigContentTypeProfileConfigArgs.builder()
- *                 .forwardWhenContentTypeIsUnknown(true)
  *                 .contentTypeProfiles(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs.builder()
  *                         .contentType("application/x-www-form-urlencoded")
  *                         .format("URLEncoded")
  *                         .build())
  *                     .build())
+ *                 .forwardWhenContentTypeIsUnknown(true)
  *                 .build())
  *             .queryArgProfileConfig(FieldLevelEncryptionConfigQueryArgProfileConfigArgs.builder()
- *                 .forwardWhenQueryArgProfileIsUnknown(true)
  *                 .queryArgProfiles(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs.builder()
  *                     .items(FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs.builder()
  *                         .profileId(testAwsCloudfrontFieldLevelEncryptionProfile.id())
  *                         .queryArg("Arg1")
  *                         .build())
  *                     .build())
+ *                 .forwardWhenQueryArgProfileIsUnknown(true)
  *                 .build())
+ *             .comment("test comment")
  *             .build());
  * 
  *     }

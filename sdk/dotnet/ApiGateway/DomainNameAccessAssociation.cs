@@ -38,7 +38,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the API Gateway domain name access association.
+    /// - `Arn` (String) ARN of the API Gateway domain name access association.
     /// 
     /// Using `pulumi import`, import API Gateway domain name acces associations as using their `Arn`. For example:
     /// 

@@ -60,7 +60,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class LogStream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log stream.
+        /// ARN specifying the log stream.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -156,7 +156,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class LogStreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the log stream.
+        /// ARN specifying the log stream.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

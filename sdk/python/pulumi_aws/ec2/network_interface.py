@@ -903,13 +903,13 @@ class NetworkInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=public_a["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[web["id"]],
             attachments=[{
                 "instance": test_aws_instance["id"],
                 "device_index": 1,
-            }])
+            }],
+            subnet_id=public_a["id"],
+            private_ips=["10.0.0.50"],
+            security_groups=[web["id"]])
         ```
 
         ### Example of Managing Multiple IPs on a Network Interface
@@ -992,13 +992,13 @@ class NetworkInterface(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.ec2.NetworkInterface("test",
-            subnet_id=public_a["id"],
-            private_ips=["10.0.0.50"],
-            security_groups=[web["id"]],
             attachments=[{
                 "instance": test_aws_instance["id"],
                 "device_index": 1,
-            }])
+            }],
+            subnet_id=public_a["id"],
+            private_ips=["10.0.0.50"],
+            security_groups=[web["id"]])
         ```
 
         ### Example of Managing Multiple IPs on a Network Interface

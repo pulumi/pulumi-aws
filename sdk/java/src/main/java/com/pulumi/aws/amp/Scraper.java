@@ -363,13 +363,13 @@ import javax.annotation.Nullable;
  *                     .workspaceArn(exampleAwsPrometheusWorkspace.arn())
  *                     .build())
  *                 .build())
- *             .scrapeConfiguration(example.configuration())
  *             .source(ScraperSourceArgs.builder()
  *                 .eks(ScraperSourceEksArgs.builder()
  *                     .clusterArn(exampleAwsEksCluster.arn())
  *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
  *                     .build())
  *                 .build())
+ *             .scrapeConfiguration(example.configuration())
  *             .build());
  * 
  *     }
@@ -429,12 +429,12 @@ import javax.annotation.Nullable;
  *                     .subnetIds(exampleAwsEksCluster.vpcConfig()[0].subnetIds())
  *                     .build())
  *                 .build())
- *             .scrapeConfiguration("...")
  *             .destination(ScraperDestinationArgs.builder()
  *                 .amp(ScraperDestinationAmpArgs.builder()
  *                     .workspaceArn(example.arn())
  *                     .build())
  *                 .build())
+ *             .scrapeConfiguration("...")
  *             .build());
  * 
  *     }

@@ -59,13 +59,13 @@ type App struct {
 	AppName pulumi.StringOutput `pulumi:"appName"`
 	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType pulumi.StringOutput `pulumi:"appType"`
-	// The Amazon Resource Name (ARN) of the app.
+	// ARN of the app.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The domain ID.
 	DomainId pulumi.StringOutput `pulumi:"domainId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+	// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 	ResourceSpec AppResourceSpecOutput `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrOutput `pulumi:"spaceName"`
@@ -120,13 +120,13 @@ type appState struct {
 	AppName *string `pulumi:"appName"`
 	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType *string `pulumi:"appType"`
-	// The Amazon Resource Name (ARN) of the app.
+	// ARN of the app.
 	Arn *string `pulumi:"arn"`
 	// The domain ID.
 	DomainId *string `pulumi:"domainId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+	// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
@@ -143,13 +143,13 @@ type AppState struct {
 	AppName pulumi.StringPtrInput
 	// The type of app. Valid values are `JupyterServer`, `KernelGateway`, `RStudioServerPro`, `RSessionGateway`, `TensorBoard`, `CodeEditor`, `JupyterLab`, `DetailedProfiler`, and `Canvas`.
 	AppType pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the app.
+	// ARN of the app.
 	Arn pulumi.StringPtrInput
 	// The domain ID.
 	DomainId pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+	// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
@@ -174,7 +174,7 @@ type appArgs struct {
 	DomainId string `pulumi:"domainId"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+	// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 	ResourceSpec *AppResourceSpec `pulumi:"resourceSpec"`
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName *string `pulumi:"spaceName"`
@@ -194,7 +194,7 @@ type AppArgs struct {
 	DomainId pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+	// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 	ResourceSpec AppResourceSpecPtrInput
 	// The name of the space. At least one of `userProfileName` or `spaceName` required.
 	SpaceName pulumi.StringPtrInput
@@ -301,7 +301,7 @@ func (o AppOutput) AppType() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.AppType }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the app.
+// ARN of the app.
 func (o AppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -316,7 +316,7 @@ func (o AppOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
 func (o AppOutput) ResourceSpec() AppResourceSpecOutput {
 	return o.ApplyT(func(v *App) AppResourceSpecOutput { return v.ResourceSpec }).(AppResourceSpecOutput)
 }

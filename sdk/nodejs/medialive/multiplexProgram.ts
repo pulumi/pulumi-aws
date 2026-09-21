@@ -22,32 +22,32 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const example = new aws.medialive.Multiplex("example", {
- *     name: "example-multiplex-changed",
- *     availabilityZones: [
- *         available.then(available => available.names?.[0]),
- *         available.then(available => available.names?.[1]),
- *     ],
  *     multiplexSettings: {
  *         transportStreamBitrate: 1000000,
  *         transportStreamId: 1,
  *         transportStreamReservedBitrate: 1,
  *         maximumVideoBufferDelayMilliseconds: 1000,
  *     },
+ *     name: "example-multiplex-changed",
+ *     availabilityZones: [
+ *         available.then(available => available.names?.[0]),
+ *         available.then(available => available.names?.[1]),
+ *     ],
  *     startMultiplex: true,
  *     tags: {
  *         tag1: "value1",
  *     },
  * });
  * const exampleMultiplexProgram = new aws.medialive.MultiplexProgram("example", {
- *     programName: "example_program",
- *     multiplexId: example.id,
  *     multiplexProgramSettings: {
- *         programNumber: 1,
- *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
  *         videoSettings: {
  *             constantBitrate: 100000,
  *         },
+ *         programNumber: 1,
+ *         preferredChannelPipeline: "CURRENTLY_ACTIVE",
  *     },
+ *     programName: "example_program",
+ *     multiplexId: example.id,
  * });
  * ```
  *

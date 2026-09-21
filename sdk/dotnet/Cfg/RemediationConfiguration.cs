@@ -28,21 +28,24 @@ namespace Pulumi.Aws.Cfg
     /// {
     ///     var @this = new Aws.Cfg.Rule("this", new()
     ///     {
-    ///         Name = "example",
     ///         Source = new Aws.Cfg.Inputs.RuleSourceArgs
     ///         {
     ///             Owner = "AWS",
     ///             SourceIdentifier = "S3_BUCKET_VERSIONING_ENABLED",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     ///     var thisRemediationConfiguration = new Aws.Cfg.RemediationConfiguration("this", new()
     ///     {
-    ///         ConfigRuleName = @this.Name,
-    ///         ResourceType = "AWS::S3::Bucket",
-    ///         TargetType = "SSM_DOCUMENT",
-    ///         TargetId = "AWS-EnableS3BucketEncryption",
-    ///         TargetVersion = "1",
+    ///         ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
+    ///         {
+    ///             SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
+    ///             {
+    ///                 ConcurrentExecutionRatePercentage = 25,
+    ///                 ErrorPercentage = 20,
+    ///             },
+    ///         },
     ///         Parameters = new[]
     ///         {
     ///             new Aws.Cfg.Inputs.RemediationConfigurationParameterArgs
@@ -61,17 +64,14 @@ namespace Pulumi.Aws.Cfg
     ///                 StaticValue = "AES256",
     ///             },
     ///         },
+    ///         ConfigRuleName = @this.Name,
+    ///         ResourceType = "AWS::S3::Bucket",
+    ///         TargetType = "SSM_DOCUMENT",
+    ///         TargetId = "AWS-EnableS3BucketEncryption",
+    ///         TargetVersion = "1",
     ///         Automatic = true,
     ///         MaximumAutomaticAttempts = 10,
     ///         RetryAttemptSeconds = 600,
-    ///         ExecutionControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsArgs
-    ///         {
-    ///             SsmControls = new Aws.Cfg.Inputs.RemediationConfigurationExecutionControlsSsmControlsArgs
-    ///             {
-    ///                 ConcurrentExecutionRatePercentage = 25,
-    ///                 ErrorPercentage = 20,
-    ///             },
-    ///         },
     ///     });
     /// 
     /// });

@@ -33,8 +33,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -43,10 +45,8 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))
@@ -74,8 +74,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitylake.NewSubscriber(ctx, "example", &securitylake.SubscriberArgs{
-//				SubscriberName: pulumi.String("example-name"),
-//				AccessType:     pulumi.String("S3"),
+//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
+//					ExternalId: pulumi.String("example"),
+//					Principal:  pulumi.String("1234567890"),
+//				},
 //				Sources: securitylake.SubscriberSourceArray{
 //					&securitylake.SubscriberSourceArgs{
 //						AwsLogSourceResource: &securitylake.SubscriberSourceAwsLogSourceResourceArgs{
@@ -90,10 +92,8 @@ import (
 //						},
 //					},
 //				},
-//				SubscriberIdentity: &securitylake.SubscriberSubscriberIdentityArgs{
-//					ExternalId: pulumi.String("example"),
-//					Principal:  pulumi.String("1234567890"),
-//				},
+//				SubscriberName: pulumi.String("example-name"),
+//				AccessType:     pulumi.String("S3"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecuritylakeDataLake,
 //			}))
@@ -122,7 +122,7 @@ type Subscriber struct {
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+	// ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringOutput `pulumi:"resourceShareArn"`
 	// The name of the resource share.
 	ResourceShareName pulumi.StringOutput `pulumi:"resourceShareName"`
@@ -191,7 +191,7 @@ type subscriberState struct {
 	Arn *string `pulumi:"arn"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+	// ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn *string `pulumi:"resourceShareArn"`
 	// The name of the resource share.
 	ResourceShareName *string `pulumi:"resourceShareName"`
@@ -225,7 +225,7 @@ type SubscriberState struct {
 	Arn pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+	// ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 	ResourceShareArn pulumi.StringPtrInput
 	// The name of the resource share.
 	ResourceShareName pulumi.StringPtrInput
@@ -395,7 +395,7 @@ func (o SubscriberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+// ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
 func (o SubscriberOutput) ResourceShareArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Subscriber) pulumi.StringOutput { return v.ResourceShareArn }).(pulumi.StringOutput)
 }

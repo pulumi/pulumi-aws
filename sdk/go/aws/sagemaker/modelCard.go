@@ -69,7 +69,7 @@ type ModelCard struct {
 
 	// Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
 	Content pulumi.StringOutput `pulumi:"content"`
-	// The Amazon Resource Name (ARN) of the model card.
+	// ARN of the model card.
 	ModelCardArn pulumi.StringOutput `pulumi:"modelCardArn"`
 	// Name of the model card.
 	ModelCardName pulumi.StringOutput `pulumi:"modelCardName"`
@@ -127,7 +127,7 @@ func GetModelCard(ctx *pulumi.Context,
 type modelCardState struct {
 	// Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
 	Content *string `pulumi:"content"`
-	// The Amazon Resource Name (ARN) of the model card.
+	// ARN of the model card.
 	ModelCardArn *string `pulumi:"modelCardArn"`
 	// Name of the model card.
 	ModelCardName *string `pulumi:"modelCardName"`
@@ -147,7 +147,7 @@ type modelCardState struct {
 type ModelCardState struct {
 	// Content of the model card in [model card JSON schema](https://docs.aws.amazon.com/sagemaker/latest/dg/model-cards.html#model-cards-json-schema).
 	Content pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) of the model card.
+	// ARN of the model card.
 	ModelCardArn pulumi.StringPtrInput
 	// Name of the model card.
 	ModelCardName pulumi.StringPtrInput
@@ -293,7 +293,7 @@ func (o ModelCardOutput) Content() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelCard) pulumi.StringOutput { return v.Content }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) of the model card.
+// ARN of the model card.
 func (o ModelCardOutput) ModelCardArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ModelCard) pulumi.StringOutput { return v.ModelCardArn }).(pulumi.StringOutput)
 }

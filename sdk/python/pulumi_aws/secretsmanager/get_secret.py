@@ -97,7 +97,7 @@ class GetSecretResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+        KMS Customer Master Key (CMK) associated with the secret.
         """
         return pulumi.get(self, "kms_key_id")
 

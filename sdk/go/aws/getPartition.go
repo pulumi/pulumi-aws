@@ -89,12 +89,8 @@ type GetPartitionResult struct {
 }
 
 func GetPartitionOutput(ctx *pulumi.Context, args GetPartitionOutputArgs, opts ...pulumi.InvokeOption) GetPartitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetPartitionResultOutput, error) {
-			args := v.(GetPartitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:index/getPartition:getPartition", args, GetPartitionResultOutput{}, options).(GetPartitionResultOutput), nil
-		}).(GetPartitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:index/getPartition:getPartition", args, GetPartitionResultOutput{}, options).(GetPartitionResultOutput)
 }
 
 // A collection of arguments for invoking getPartition.

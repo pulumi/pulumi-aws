@@ -77,12 +77,8 @@ type LookupSinkResult struct {
 }
 
 func LookupSinkOutput(ctx *pulumi.Context, args LookupSinkOutputArgs, opts ...pulumi.InvokeOption) LookupSinkResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSinkResultOutput, error) {
-			args := v.(LookupSinkArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:oam/getSink:getSink", args, LookupSinkResultOutput{}, options).(LookupSinkResultOutput), nil
-		}).(LookupSinkResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:oam/getSink:getSink", args, LookupSinkResultOutput{}, options).(LookupSinkResultOutput)
 }
 
 // A collection of arguments for invoking getSink.

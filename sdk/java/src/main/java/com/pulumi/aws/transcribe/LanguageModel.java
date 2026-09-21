@@ -64,11 +64,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("transcribe.amazonaws.com")
  *                     .build())
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -106,12 +106,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLanguageModel = new LanguageModel("exampleLanguageModel", LanguageModelArgs.builder()
- *             .modelName("example")
- *             .baseModelName("NarrowBand")
  *             .inputDataConfig(LanguageModelInputDataConfigArgs.builder()
  *                 .dataAccessRoleArn(exampleRole.arn())
  *                 .s3Uri(exampleBucket.id().applyValue(_id -> String.format("s3://%s/transcribe/", _id)))
  *                 .build())
+ *             .modelName("example")
+ *             .baseModelName("NarrowBand")
  *             .languageCode("en-US")
  *             .tags(Map.of("ENVIRONMENT", "development"))
  *             .build());

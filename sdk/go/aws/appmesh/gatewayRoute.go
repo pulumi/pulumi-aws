@@ -29,9 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appmesh.NewGatewayRoute(ctx, "example", &appmesh.GatewayRouteArgs{
-//				Name:               pulumi.String("example-gateway-route"),
-//				MeshName:           pulumi.String("example-service-mesh"),
-//				VirtualGatewayName: pulumi.Any(exampleAwsAppmeshVirtualGateway.Name),
 //				Spec: &appmesh.GatewayRouteSpecArgs{
 //					HttpRoute: &appmesh.GatewayRouteSpecHttpRouteArgs{
 //						Action: &appmesh.GatewayRouteSpecHttpRouteActionArgs{
@@ -46,6 +43,9 @@ import (
 //						},
 //					},
 //				},
+//				Name:               pulumi.String("example-gateway-route"),
+//				MeshName:           pulumi.String("example-service-mesh"),
+//				VirtualGatewayName: pulumi.Any(exampleAwsAppmeshVirtualGateway.Name),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},

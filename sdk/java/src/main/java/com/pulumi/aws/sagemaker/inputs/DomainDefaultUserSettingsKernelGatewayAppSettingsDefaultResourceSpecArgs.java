@@ -31,14 +31,14 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     @Import(name="lifecycleConfigArn")
     private @Nullable Output<String> lifecycleConfigArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+     * @return ARN of the Lifecycle Configuration attached to the Resource.
      * 
      */
     public Optional<Output<String>> lifecycleConfigArn() {
@@ -140,7 +140,7 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResou
         }
 
         /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * @param lifecycleConfigArn ARN of the Lifecycle Configuration attached to the Resource.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class DomainDefaultUserSettingsKernelGatewayAppSettingsDefaultResou
         }
 
         /**
-         * @param lifecycleConfigArn The Amazon Resource Name (ARN) of the Lifecycle Configuration attached to the Resource.
+         * @param lifecycleConfigArn ARN of the Lifecycle Configuration attached to the Resource.
          * 
          * @return builder
          * 

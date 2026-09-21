@@ -18,7 +18,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
      */
     private @Nullable Boolean bgpLogEnabled;
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * @return ARN of the CloudWatch log group to send BGP logs to.
      * 
      */
     private @Nullable String bgpLogGroupArn;
@@ -33,7 +33,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
      */
     private @Nullable Boolean logEnabled;
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * @return ARN of the CloudWatch log group to send logs to.
      * 
      */
     private @Nullable String logGroupArn;
@@ -52,7 +52,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
         return Optional.ofNullable(this.bgpLogEnabled);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send BGP logs to.
+     * @return ARN of the CloudWatch log group to send BGP logs to.
      * 
      */
     public Optional<String> bgpLogGroupArn() {
@@ -73,7 +73,7 @@ public final class VpnConnectionTunnel2LogOptionsCloudwatchLogOptions {
         return Optional.ofNullable(this.logEnabled);
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the CloudWatch log group to send logs to.
+     * @return ARN of the CloudWatch log group to send logs to.
      * 
      */
     public Optional<String> logGroupArn() {

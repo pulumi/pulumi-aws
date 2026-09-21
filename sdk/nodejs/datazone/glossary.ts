@@ -14,6 +14,22 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const domainExecutionRole = new aws.iam.Role("domain_execution_role", {
+ *     inlinePolicies: [{
+ *         name: "example_name",
+ *         policy: JSON.stringify({
+ *             Version: "2012-10-17",
+ *             Statement: [{
+ *                 Action: [
+ *                     "datazone:*",
+ *                     "ram:*",
+ *                     "sso:*",
+ *                     "kms:*",
+ *                 ],
+ *                 Effect: "Allow",
+ *                 Resource: "*",
+ *             }],
+ *         }),
+ *     }],
  *     name: "example_name",
  *     assumeRolePolicy: JSON.stringify({
  *         Version: "2012-10-17",
@@ -40,22 +56,6 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     }),
- *     inlinePolicies: [{
- *         name: "example_name",
- *         policy: JSON.stringify({
- *             Version: "2012-10-17",
- *             Statement: [{
- *                 Action: [
- *                     "datazone:*",
- *                     "ram:*",
- *                     "sso:*",
- *                     "kms:*",
- *                 ],
- *                 Effect: "Allow",
- *                 Resource: "*",
- *             }],
- *         }),
- *     }],
  * });
  * const test = new aws.datazone.Domain("test", {
  *     name: "example_name",

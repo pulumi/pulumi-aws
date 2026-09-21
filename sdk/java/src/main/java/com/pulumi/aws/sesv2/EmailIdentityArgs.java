@@ -19,14 +19,14 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     public static final EmailIdentityArgs Empty = new EmailIdentityArgs();
 
     /**
-     * The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     @Import(name="configurationSetName")
     private @Nullable Output<String> configurationSetName;
 
     /**
-     * @return The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+     * @return Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
      * 
      */
     public Optional<Output<String>> configurationSetName() {
@@ -34,14 +34,14 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The configuration of the DKIM authentication settings for an email domain identity.
+     * Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     @Import(name="dkimSigningAttributes")
     private @Nullable Output<EmailIdentityDkimSigningAttributesArgs> dkimSigningAttributes;
 
     /**
-     * @return The configuration of the DKIM authentication settings for an email domain identity.
+     * @return Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
      * 
      */
     public Optional<Output<EmailIdentityDkimSigningAttributesArgs>> dkimSigningAttributes() {
@@ -49,7 +49,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The email address or domain to verify.
+     * Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -58,7 +58,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> emailIdentity;
 
     /**
-     * @return The email address or domain to verify.
+     * @return Email address or domain to verify.
      * 
      * The following arguments are optional:
      * 
@@ -126,7 +126,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+         * @param configurationSetName Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param configurationSetName The configuration set to use by default when sending from this identity. Note that any configuration set defined in the email sending request takes precedence.
+         * @param configurationSetName Configuration set to use by default when sending from this identity. Any configuration set defined in the email sending request takes precedence.
          * 
          * @return builder
          * 
@@ -147,7 +147,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
+         * @param dkimSigningAttributes Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
          * 
          * @return builder
          * 
@@ -158,7 +158,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param dkimSigningAttributes The configuration of the DKIM authentication settings for an email domain identity.
+         * @param dkimSigningAttributes Configuration block for the DKIM authentication settings for an email domain identity. See `dkimSigningAttributes` Block below.
          * 
          * @return builder
          * 
@@ -168,7 +168,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailIdentity The email address or domain to verify.
+         * @param emailIdentity Email address or domain to verify.
          * 
          * The following arguments are optional:
          * 
@@ -181,7 +181,7 @@ public final class EmailIdentityArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param emailIdentity The email address or domain to verify.
+         * @param emailIdentity Email address or domain to verify.
          * 
          * The following arguments are optional:
          * 

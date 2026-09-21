@@ -74,7 +74,7 @@ class ClassificationExportConfigurationS3Destination(dict):
                  key_prefix: Optional[_builtins.str] = None):
         """
         :param _builtins.str bucket_name: The Amazon S3 bucket name in which Amazon Macie exports the data classification results.
-        :param _builtins.str kms_key_arn: Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        :param _builtins.str kms_key_arn: ARN of the KMS key to be used to encrypt the data.
                
                Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         :param _builtins.str key_prefix: The object key for the bucket in which Amazon Macie exports the data classification results.
@@ -96,7 +96,7 @@ class ClassificationExportConfigurationS3Destination(dict):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+        ARN of the KMS key to be used to encrypt the data.
 
         Additional information can be found in the [Storing and retaining sensitive data discovery results with Amazon Macie for AWS Macie documentation](https://docs.aws.amazon.com/macie/latest/user/discovery-results-repository-s3.html).
         """

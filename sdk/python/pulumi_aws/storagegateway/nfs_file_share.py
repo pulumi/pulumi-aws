@@ -46,17 +46,17 @@ class NfsFileShareArgs:
         The set of arguments for constructing a NfsFileShare resource.
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the AWS Identity and Access Management (IAM) role that a file gateway assumes when it accesses the underlying storage.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for audit logs.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs'] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
         :param pulumi.Input[_builtins.str] object_acl: Access Control List permission for S3 objects. Defaults to `private`.
@@ -122,7 +122,7 @@ class NfsFileShareArgs:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -158,7 +158,7 @@ class NfsFileShareArgs:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        ARN of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -242,7 +242,7 @@ class NfsFileShareArgs:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -390,18 +390,18 @@ class _NfsFileShareState:
         """
         Input properties used for looking up and filtering NfsFileShare resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NFS File Share.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the NFS File Share.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for audit logs.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input['NfsFileShareCacheAttributesArgs'] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[_builtins.str] fileshare_id: ID of the NFS File Share.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input['NfsFileShareNfsFileShareDefaultsArgs'] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
@@ -471,7 +471,7 @@ class _NfsFileShareState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the NFS File Share.
+        ARN of the NFS File Share.
         """
         return pulumi.get(self, "arn")
 
@@ -483,7 +483,7 @@ class _NfsFileShareState:
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        ARN of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -567,7 +567,7 @@ class _NfsFileShareState:
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -603,7 +603,7 @@ class _NfsFileShareState:
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 
@@ -814,7 +814,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -823,16 +823,16 @@ class NfsFileShare(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for audit logs.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
@@ -869,7 +869,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `storagegateway.NfsFileShare` using the NFS File Share ARN. For example:
 
         ```sh
         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
@@ -996,18 +996,18 @@ class NfsFileShare(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the NFS File Share.
-        :param pulumi.Input[_builtins.str] audit_destination_arn: The Amazon Resource Name (ARN) of the storage used for audit logs.
+        :param pulumi.Input[_builtins.str] arn: ARN of the NFS File Share.
+        :param pulumi.Input[_builtins.str] audit_destination_arn: ARN of the storage used for audit logs.
         :param pulumi.Input[_builtins.str] bucket_region: The region of the S3 bucket used by the file share. Required when specifying `vpc_endpoint_dns_name`.
         :param pulumi.Input[Union['NfsFileShareCacheAttributesArgs', 'NfsFileShareCacheAttributesArgsDict']] cache_attributes: Refresh cache information. see Cache Attributes for more details.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_lists: The list of clients that are allowed to access the file gateway. The list must contain either valid IP addresses or valid CIDR blocks. Set to `["0.0.0.0/0"]` to not limit access. Minimum 1 item. Maximum 100 items.
         :param pulumi.Input[_builtins.str] default_storage_class: The default [storage class](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-DefaultStorageClass) for objects put into an Amazon S3 bucket by the file gateway. Defaults to `S3_STANDARD`.
         :param pulumi.Input[_builtins.str] file_share_name: The name of the file share. Must be set if an S3 prefix name is set in `location_arn`.
         :param pulumi.Input[_builtins.str] fileshare_id: ID of the NFS File Share.
-        :param pulumi.Input[_builtins.str] gateway_arn: Amazon Resource Name (ARN) of the file gateway.
+        :param pulumi.Input[_builtins.str] gateway_arn: ARN of the file gateway.
         :param pulumi.Input[_builtins.bool] guess_mime_type_enabled: Boolean value that enables guessing of the MIME type for uploaded objects based on file extensions. Defaults to `true`.
         :param pulumi.Input[_builtins.bool] kms_encrypted: Boolean value if `true` to use Amazon S3 server side encryption with your own AWS KMS key, or `false` to use a key managed by Amazon S3. Defaults to `false`.
-        :param pulumi.Input[_builtins.str] kms_key_arn: Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        :param pulumi.Input[_builtins.str] kms_key_arn: ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         :param pulumi.Input[_builtins.str] location_arn: The ARN of the backed storage used for storing file data.
         :param pulumi.Input[Union['NfsFileShareNfsFileShareDefaultsArgs', 'NfsFileShareNfsFileShareDefaultsArgsDict']] nfs_file_share_defaults: Nested argument with file share default values. More information below. see NFS File Share Defaults for more details.
         :param pulumi.Input[_builtins.str] notification_policy: The notification policy of the file share. For more information see the [AWS Documentation](https://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CreateNFSFileShare.html#StorageGateway-CreateNFSFileShare-request-NotificationPolicy). Default value is `{}`.
@@ -1057,7 +1057,7 @@ class NfsFileShare(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the NFS File Share.
+        ARN of the NFS File Share.
         """
         return pulumi.get(self, "arn")
 
@@ -1065,7 +1065,7 @@ class NfsFileShare(pulumi.CustomResource):
     @pulumi.getter(name="auditDestinationArn")
     def audit_destination_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the storage used for audit logs.
+        ARN of the storage used for audit logs.
         """
         return pulumi.get(self, "audit_destination_arn")
 
@@ -1121,7 +1121,7 @@ class NfsFileShare(pulumi.CustomResource):
     @pulumi.getter(name="gatewayArn")
     def gateway_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the file gateway.
+        ARN of the file gateway.
         """
         return pulumi.get(self, "gateway_arn")
 
@@ -1145,7 +1145,7 @@ class NfsFileShare(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyArn")
     def kms_key_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
+        ARN for KMS key used for Amazon S3 server side encryption. This value can only be set when `kms_encrypted` is true.
         """
         return pulumi.get(self, "kms_key_arn")
 

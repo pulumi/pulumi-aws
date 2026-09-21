@@ -22,29 +22,29 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.rds.OptionGroup("example", {
- *     name: "option-group-test",
- *     optionGroupDescription: "Option Group",
- *     engineName: "sqlserver-ee",
- *     majorEngineVersion: "11.00",
  *     options: [
  *         {
- *             optionName: "Timezone",
  *             optionSettings: [{
  *                 name: "TIME_ZONE",
  *                 value: "UTC",
  *             }],
+ *             optionName: "Timezone",
  *         },
  *         {
- *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *             optionSettings: [{
  *                 name: "IAM_ROLE_ARN",
  *                 value: exampleAwsIamRole.arn,
  *             }],
+ *             optionName: "SQLSERVER_BACKUP_RESTORE",
  *         },
  *         {
  *             optionName: "TDE",
  *         },
  *     ],
+ *     name: "option-group-test",
+ *     optionGroupDescription: "Option Group",
+ *     engineName: "sqlserver-ee",
+ *     majorEngineVersion: "11.00",
  * });
  * ```
  *
@@ -99,11 +99,11 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      */
     declare public readonly engineName: pulumi.Output<string>;
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      */
     declare public readonly majorEngineVersion: pulumi.Output<string>;
     /**
@@ -119,7 +119,7 @@ export class OptionGroup extends pulumi.CustomResource {
      */
     declare public readonly optionGroupDescription: pulumi.Output<string>;
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      */
     declare public readonly options: pulumi.Output<outputs.rds.OptionGroupOption[] | undefined>;
     /**
@@ -197,11 +197,11 @@ export interface OptionGroupState {
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      */
     engineName?: pulumi.Input<string | undefined>;
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      */
     majorEngineVersion?: pulumi.Input<string | undefined>;
     /**
@@ -217,7 +217,7 @@ export interface OptionGroupState {
      */
     optionGroupDescription?: pulumi.Input<string | undefined>;
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[] | undefined>;
     /**
@@ -243,11 +243,11 @@ export interface OptionGroupState {
  */
 export interface OptionGroupArgs {
     /**
-     * Specifies the name of the engine that this option group should be associated with.
+     * Name of the engine that this option group should be associated with.
      */
     engineName: pulumi.Input<string>;
     /**
-     * Specifies the major version of the engine that this option group should be associated with.
+     * Major version of the engine that this option group should be associated with.
      */
     majorEngineVersion: pulumi.Input<string>;
     /**
@@ -263,7 +263,7 @@ export interface OptionGroupArgs {
      */
     optionGroupDescription?: pulumi.Input<string | undefined>;
     /**
-     * The options to apply. See `option` Block below for more details.
+     * Options to apply. See `option` Block below for more details.
      */
     options?: pulumi.Input<pulumi.Input<inputs.rds.OptionGroupOption>[] | undefined>;
     /**

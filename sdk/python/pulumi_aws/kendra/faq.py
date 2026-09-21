@@ -34,7 +34,7 @@ class FaqArgs:
         The set of arguments for constructing a Faq resource.
 
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
@@ -71,7 +71,7 @@ class FaqArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 
@@ -181,7 +181,7 @@ class _FaqState:
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input['FaqS3PathArgs'] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -335,7 +335,7 @@ class _FaqState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 
@@ -429,13 +429,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -448,14 +448,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            file_format="CSV",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Language Code
@@ -465,14 +465,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            language_code="en",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -489,7 +489,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         """
         ...
@@ -510,13 +510,13 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
             },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            role_arn=example_aws_iam_role["arn"],
             tags={
                 "Name": "Example Kendra Faq",
             })
@@ -529,14 +529,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            file_format="CSV",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            file_format="CSV",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ### With Language Code
@@ -546,14 +546,14 @@ class Faq(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.kendra.Faq("example",
-            index_id=example_aws_kendra_index["id"],
-            name="Example",
-            language_code="en",
-            role_arn=example_aws_iam_role["arn"],
             s3_path={
                 "bucket": example_aws_s3_bucket["id"],
                 "key": example_aws_s3_object["key"],
-            })
+            },
+            index_id=example_aws_kendra_index["id"],
+            name="Example",
+            language_code="en",
+            role_arn=example_aws_iam_role["arn"])
         ```
 
         ## Import
@@ -660,7 +660,7 @@ class Faq(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] index_id: The identifier of the index for a FAQ.
         :param pulumi.Input[_builtins.str] name: The name that should be associated with the FAQ.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the [provider configuration](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#aws-configuration-reference).
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        :param pulumi.Input[_builtins.str] role_arn: ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         :param pulumi.Input[Union['FaqS3PathArgs', 'FaqS3PathArgsDict']] s3_path: The S3 location of the FAQ input data. Detailed below.
         :param pulumi.Input[_builtins.str] status: The status of the FAQ. It is ready to use when the status is ACTIVE.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -763,7 +763,7 @@ class Faq(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
+        ARN of a role with permission to access the S3 bucket that contains the FAQs. For more information, see [IAM Roles for Amazon Kendra](https://docs.aws.amazon.com/kendra/latest/dg/iam-roles.html).
         """
         return pulumi.get(self, "role_arn")
 

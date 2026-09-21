@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Macie
     public partial class CustomDataIdentifier : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom data identifier.
+        /// ARN of the custom data identifier.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Macie
     public sealed class CustomDataIdentifierState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the custom data identifier.
+        /// ARN of the custom data identifier.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

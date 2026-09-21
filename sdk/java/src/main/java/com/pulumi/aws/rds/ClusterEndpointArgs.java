@@ -19,14 +19,14 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
     public static final ClusterEndpointArgs Empty = new ClusterEndpointArgs();
 
     /**
-     * The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     @Import(name="clusterEndpointIdentifier", required=true)
     private Output<String> clusterEndpointIdentifier;
 
     /**
-     * @return The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+     * @return Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
      * 
      */
     public Output<String> clusterEndpointIdentifier() {
@@ -34,14 +34,14 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The cluster identifier.
+     * Cluster identifier.
      * 
      */
     @Import(name="clusterIdentifier", required=true)
     private Output<String> clusterIdentifier;
 
     /**
-     * @return The cluster identifier.
+     * @return Cluster identifier.
      * 
      */
     public Output<String> clusterIdentifier() {
@@ -49,14 +49,14 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The type of the endpoint. One of: READER , ANY .
+     * Type of the endpoint. One of: READER , ANY .
      * 
      */
     @Import(name="customEndpointType", required=true)
     private Output<String> customEndpointType;
 
     /**
-     * @return The type of the endpoint. One of: READER , ANY .
+     * @return Type of the endpoint. One of: READER , ANY .
      * 
      */
     public Output<String> customEndpointType() {
@@ -111,18 +111,12 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
     /**
      * Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-     * 
      */
     @Import(name="tags")
     private @Nullable Output<Map<String,String>> tags;
 
     /**
      * @return Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-     * 
-     * For more detailed documentation about each argument, refer to
-     * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -160,7 +154,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterEndpointIdentifier The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+         * @param clusterEndpointIdentifier Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
          * 
          * @return builder
          * 
@@ -171,7 +165,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterEndpointIdentifier The identifier to use for the new endpoint. This parameter is stored as a lowercase string.
+         * @param clusterEndpointIdentifier Identifier to use for the new endpoint. This parameter is stored as a lowercase string.
          * 
          * @return builder
          * 
@@ -181,7 +175,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier Cluster identifier.
          * 
          * @return builder
          * 
@@ -192,7 +186,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param clusterIdentifier The cluster identifier.
+         * @param clusterIdentifier Cluster identifier.
          * 
          * @return builder
          * 
@@ -202,7 +196,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customEndpointType The type of the endpoint. One of: READER , ANY .
+         * @param customEndpointType Type of the endpoint. One of: READER , ANY .
          * 
          * @return builder
          * 
@@ -213,7 +207,7 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param customEndpointType The type of the endpoint. One of: READER , ANY .
+         * @param customEndpointType Type of the endpoint. One of: READER , ANY .
          * 
          * @return builder
          * 
@@ -308,9 +302,6 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
-         * 
          * @return builder
          * 
          */
@@ -321,9 +312,6 @@ public final class ClusterEndpointArgs extends com.pulumi.resources.ResourceArgs
 
         /**
          * @param tags Key-value map of resource tags. .If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-         * 
-         * For more detailed documentation about each argument, refer to
-         * the [AWS official documentation](https://docs.aws.amazon.com/cli/latest/reference/rds/create-db-cluster-endpoint.html).
          * 
          * @return builder
          * 

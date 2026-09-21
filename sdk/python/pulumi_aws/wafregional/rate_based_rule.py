@@ -313,21 +313,21 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.RateBasedRule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
-            rate_key="IP",
-            rate_limit=100,
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
+            rate_key="IP",
+            rate_limit=100,
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 
@@ -366,21 +366,21 @@ class RateBasedRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         ipset = aws.wafregional.IpSet("ipset",
-            name="tfIPSet",
             ip_set_descriptors=[{
                 "type": "IPV4",
                 "value": "192.0.7.0/24",
-            }])
+            }],
+            name="tfIPSet")
         wafrule = aws.wafregional.RateBasedRule("wafrule",
-            name="tfWAFRule",
-            metric_name="tfWAFRule",
-            rate_key="IP",
-            rate_limit=100,
             predicates=[{
                 "data_id": ipset.id,
                 "negated": False,
                 "type": "IPMatch",
             }],
+            name="tfWAFRule",
+            metric_name="tfWAFRule",
+            rate_key="IP",
+            rate_limit=100,
             opts = pulumi.ResourceOptions(depends_on=[ipset]))
         ```
 

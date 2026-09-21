@@ -29,11 +29,6 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     ///     var amazonLinux = Aws.Ec2.GetAmi.Invoke(new()
     ///     {
-    ///         MostRecent = true,
-    ///         Owners = new[]
-    ///         {
-    ///             "amazon",
-    ///         },
     ///         Filters = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.GetAmiFilterInputArgs
@@ -52,6 +47,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///                     "amazon",
     ///                 },
     ///             },
+    ///         },
+    ///         MostRecent = true,
+    ///         Owners = new[]
+    ///         {
+    ///             "amazon",
     ///         },
     ///     });
     /// 
@@ -200,7 +200,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class MulticastDomain : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Multicast Domain ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -350,7 +350,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class MulticastDomainState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// EC2 Transit Gateway Multicast Domain Amazon Resource Name (ARN).
+        /// EC2 Transit Gateway Multicast Domain ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

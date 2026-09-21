@@ -39,14 +39,14 @@ public final class ApplicationIamIdentityCenterOptionsArgs extends com.pulumi.re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+     * ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
      * 
      */
     @Import(name="iamIdentityCenterInstanceArn")
     private @Nullable Output<String> iamIdentityCenterInstanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+     * @return ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
      * 
      */
     public Optional<Output<String>> iamIdentityCenterInstanceArn() {
@@ -126,7 +126,7 @@ public final class ApplicationIamIdentityCenterOptionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+         * @param iamIdentityCenterInstanceArn ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
          * 
          * @return builder
          * 
@@ -137,7 +137,7 @@ public final class ApplicationIamIdentityCenterOptionsArgs extends com.pulumi.re
         }
 
         /**
-         * @param iamIdentityCenterInstanceArn The Amazon Resource Name (ARN) of the IAM Identity Center instance. Must be between 20 and 2048 characters.
+         * @param iamIdentityCenterInstanceArn ARN of the IAM Identity Center instance. Must be between 20 and 2048 characters.
          * 
          * @return builder
          * 

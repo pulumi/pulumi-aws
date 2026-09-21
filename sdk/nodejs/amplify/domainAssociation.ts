@@ -17,20 +17,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.amplify.App("example", {
- *     name: "app",
  *     customRules: [{
  *         source: "https://example.com",
  *         status: "302",
  *         target: "https://www.example.com",
  *     }],
+ *     name: "app",
  * });
  * const master = new aws.amplify.Branch("master", {
  *     appId: example.id,
  *     branchName: "master",
  * });
  * const exampleDomainAssociation = new aws.amplify.DomainAssociation("example", {
- *     appId: example.id,
- *     domainName: "example.com",
  *     subDomains: [
  *         {
  *             branchName: master.branchName,
@@ -41,6 +39,8 @@ import * as utilities from "../utilities";
  *             prefix: "www",
  *         },
  *     ],
+ *     appId: example.id,
+ *     domainName: "example.com",
  * });
  * ```
  *

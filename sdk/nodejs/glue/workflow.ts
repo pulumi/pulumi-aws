@@ -17,17 +17,14 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.glue.Workflow("example", {name: "example"});
  * const example_start = new aws.glue.Trigger("example-start", {
- *     name: "trigger-start",
- *     type: "ON_DEMAND",
- *     workflowName: example.name,
  *     actions: [{
  *         jobName: "example-job",
  *     }],
+ *     name: "trigger-start",
+ *     type: "ON_DEMAND",
+ *     workflowName: example.name,
  * });
  * const example_inner = new aws.glue.Trigger("example-inner", {
- *     name: "trigger-inner",
- *     type: "CONDITIONAL",
- *     workflowName: example.name,
  *     predicate: {
  *         conditions: [{
  *             jobName: "example-job",
@@ -37,6 +34,9 @@ import * as utilities from "../utilities";
  *     actions: [{
  *         jobName: "another-example-job",
  *     }],
+ *     name: "trigger-inner",
+ *     type: "CONDITIONAL",
+ *     workflowName: example.name,
  * });
  * ```
  *
@@ -77,7 +77,7 @@ export class Workflow extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of Glue Workflow
+     * ARN of Glue Workflow
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -151,7 +151,7 @@ export class Workflow extends pulumi.CustomResource {
  */
 export interface WorkflowState {
     /**
-     * Amazon Resource Name (ARN) of Glue Workflow
+     * ARN of Glue Workflow
      */
     arn?: pulumi.Input<string | undefined>;
     /**

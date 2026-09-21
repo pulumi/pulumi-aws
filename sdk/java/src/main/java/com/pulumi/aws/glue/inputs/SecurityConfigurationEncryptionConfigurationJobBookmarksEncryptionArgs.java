@@ -31,14 +31,14 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
     }
 
     /**
-     * Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * ARN of the KMS key to be used to encrypt the data.
      * 
      */
     @Import(name="kmsKeyArn")
     private @Nullable Output<String> kmsKeyArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+     * @return ARN of the KMS key to be used to encrypt the data.
      * 
      */
     public Optional<Output<String>> kmsKeyArn() {
@@ -92,7 +92,7 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * @param kmsKeyArn ARN of the KMS key to be used to encrypt the data.
          * 
          * @return builder
          * 
@@ -103,7 +103,7 @@ public final class SecurityConfigurationEncryptionConfigurationJobBookmarksEncry
         }
 
         /**
-         * @param kmsKeyArn Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+         * @param kmsKeyArn ARN of the KMS key to be used to encrypt the data.
          * 
          * @return builder
          * 

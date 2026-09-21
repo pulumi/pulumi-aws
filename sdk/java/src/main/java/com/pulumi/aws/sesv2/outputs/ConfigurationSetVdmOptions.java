@@ -13,26 +13,26 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ConfigurationSetVdmOptions {
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+     * @return Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
      * 
      */
     private @Nullable ConfigurationSetVdmOptionsDashboardOptions dashboardOptions;
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+     * @return Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
      * 
      */
     private @Nullable ConfigurationSetVdmOptionsGuardianOptions guardianOptions;
 
     private ConfigurationSetVdmOptions() {}
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
+     * @return Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboardOptions` Block for details.
      * 
      */
     public Optional<ConfigurationSetVdmOptionsDashboardOptions> dashboardOptions() {
         return Optional.ofNullable(this.dashboardOptions);
     }
     /**
-     * @return Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
+     * @return Additional settings for your VDM configuration as applicable to the Guardian. See `guardianOptions` Block for details.
      * 
      */
     public Optional<ConfigurationSetVdmOptionsGuardianOptions> guardianOptions() {

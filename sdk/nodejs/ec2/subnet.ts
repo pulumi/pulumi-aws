@@ -73,16 +73,16 @@ import * as utilities from "../utilities";
  *     dependsOn: [testVpcIpamPoolCidr],
  * });
  * const vpc = new aws.ec2.VpcIpamPool("vpc", {
- *     addressFamily: "ipv4",
- *     ipamScopeId: test.privateDefaultScopeId,
- *     locale: current.then(current => current.region),
- *     sourceIpamPoolId: testVpcIpamPool.id,
  *     sourceResource: {
  *         resourceId: testVpc.id,
  *         resourceOwner: currentAwsCallerIdentity.accountId,
  *         resourceRegion: current.then(current => current.region),
  *         resourceType: "vpc",
  *     },
+ *     addressFamily: "ipv4",
+ *     ipamScopeId: test.privateDefaultScopeId,
+ *     locale: current.then(current => current.region),
+ *     sourceIpamPoolId: testVpcIpamPool.id,
  * });
  * const vpcVpcIpamPoolCidr = new aws.ec2.VpcIpamPoolCidr("vpc", {
  *     ipamPoolId: vpc.id,
@@ -225,7 +225,7 @@ export class Subnet extends pulumi.CustomResource {
      */
     declare public readonly mapPublicIpOnLaunch: pulumi.Output<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
@@ -413,7 +413,7 @@ export interface SubnetState {
      */
     mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
@@ -518,7 +518,7 @@ export interface SubnetArgs {
      */
     mapPublicIpOnLaunch?: pulumi.Input<boolean | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**

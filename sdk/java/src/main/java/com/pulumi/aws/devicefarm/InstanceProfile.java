@@ -61,7 +61,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Device Farm instance profile.
+ * - `arn` (String) ARN of the Device Farm instance profile.
  * 
  * Using `pulumi import`, import DeviceFarm Instance Profiles using their ARN. For example:
  * 
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:devicefarm/instanceProfile:InstanceProfile")
 public class InstanceProfile extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of this instance profile.
+     * ARN of this instance profile.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this instance profile.
+     * @return ARN of this instance profile.
      * 
      */
     public Output<String> arn() {

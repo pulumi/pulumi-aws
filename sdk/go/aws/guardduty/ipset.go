@@ -90,7 +90,7 @@ type IPSet struct {
 
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate pulumi.BoolOutput `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	// ARN of the GuardDuty IPSet.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringOutput `pulumi:"detectorId"`
@@ -154,7 +154,7 @@ func GetIPSet(ctx *pulumi.Context,
 type ipsetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate *bool `pulumi:"activate"`
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	// ARN of the GuardDuty IPSet.
 	Arn *string `pulumi:"arn"`
 	// The detector ID of the GuardDuty.
 	DetectorId *string `pulumi:"detectorId"`
@@ -177,7 +177,7 @@ type ipsetState struct {
 type IPSetState struct {
 	// Specifies whether GuardDuty is to start using the uploaded IPSet.
 	Activate pulumi.BoolPtrInput
-	// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+	// ARN of the GuardDuty IPSet.
 	Arn pulumi.StringPtrInput
 	// The detector ID of the GuardDuty.
 	DetectorId pulumi.StringPtrInput
@@ -328,7 +328,7 @@ func (o IPSetOutput) Activate() pulumi.BoolOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.BoolOutput { return v.Activate }).(pulumi.BoolOutput)
 }
 
-// Amazon Resource Name (ARN) of the GuardDuty IPSet.
+// ARN of the GuardDuty IPSet.
 func (o IPSetOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *IPSet) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

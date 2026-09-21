@@ -133,7 +133,7 @@ class GetWindowsFileSystemResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -322,7 +322,7 @@ class GetWindowsFileSystemResult:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> _builtins.str:
         """
-        ID of the primary virtual private cloud (VPC) for the file system.
+        ID of the primary VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 

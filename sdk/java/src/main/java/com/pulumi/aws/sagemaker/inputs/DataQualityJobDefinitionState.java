@@ -24,14 +24,14 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
     public static final DataQualityJobDefinitionState Empty = new DataQualityJobDefinitionState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * ARN assigned by AWS to this data quality job definition.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+     * @return ARN assigned by AWS to this data quality job definition.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -159,14 +159,14 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
     }
 
     /**
-     * The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+     * @return ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -255,7 +255,7 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+         * @param arn ARN assigned by AWS to this data quality job definition.
          * 
          * @return builder
          * 
@@ -266,7 +266,7 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this data quality job definition.
+         * @param arn ARN assigned by AWS to this data quality job definition.
          * 
          * @return builder
          * 
@@ -444,7 +444,7 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
          * 
          * @return builder
          * 
@@ -455,7 +455,7 @@ public final class DataQualityJobDefinitionState extends com.pulumi.resources.Re
         }
 
         /**
-         * @param roleArn The Amazon Resource Name (ARN) of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
+         * @param roleArn ARN of an IAM role that Amazon SageMaker AI can assume to perform tasks on your behalf.
          * 
          * @return builder
          * 

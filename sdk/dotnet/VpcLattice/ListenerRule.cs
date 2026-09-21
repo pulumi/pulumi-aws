@@ -24,32 +24,28 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
-    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
-    ///         Priority = 20,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
     ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
     ///             {
+    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
+    ///                 {
+    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
+    ///                     {
+    ///                         Prefix = "/example-path",
+    ///                     },
+    ///                     CaseSensitive = true,
+    ///                 },
     ///                 HeaderMatches = new[]
     ///                 {
     ///                     new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchArgs
     ///                     {
-    ///                         Name = "example-header",
-    ///                         CaseSensitive = false,
     ///                         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchHeaderMatchMatchArgs
     ///                         {
     ///                             Exact = "example-contains",
     ///                         },
-    ///                     },
-    ///                 },
-    ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
-    ///                 {
-    ///                     CaseSensitive = true,
-    ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
-    ///                     {
-    ///                         Prefix = "/example-path",
+    ///                         Name = "example-header",
+    ///                         CaseSensitive = false,
     ///                     },
     ///                 },
     ///             },
@@ -73,6 +69,10 @@ namespace Pulumi.Aws.VpcLattice
     ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
+    ///         Priority = 20,
     ///     });
     /// 
     /// });
@@ -90,21 +90,17 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.ListenerRule("example", new()
     ///     {
-    ///         Name = "example",
-    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
-    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
-    ///         Priority = 10,
     ///         Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchArgs
     ///         {
     ///             HttpMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchArgs
     ///             {
     ///                 PathMatch = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchArgs
     ///                 {
-    ///                     CaseSensitive = false,
     ///                     Match = new Aws.VpcLattice.Inputs.ListenerRuleMatchHttpMatchPathMatchMatchArgs
     ///                     {
     ///                         Exact = "/example-path",
     ///                     },
+    ///                     CaseSensitive = false,
     ///                 },
     ///             },
     ///         },
@@ -115,6 +111,10 @@ namespace Pulumi.Aws.VpcLattice
     ///                 StatusCode = 404,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         ListenerIdentifier = exampleAwsVpclatticeListener.ListenerId,
+    ///         ServiceIdentifier = exampleAwsVpclatticeService.Id,
+    ///         Priority = 10,
     ///     });
     /// 
     /// });
@@ -144,7 +144,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Output("listenerIdentifier")]
         public Output<string> ListenerIdentifier { get; private set; } = null!;
@@ -180,7 +180,7 @@ namespace Pulumi.Aws.VpcLattice
         public Output<string> RuleId { get; private set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<Inputs.ListenerRuleActionArgs> Action { get; set; } = null!;
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Input("listenerIdentifier", required: true)]
         public Input<string> ListenerIdentifier { get; set; } = null!;
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>
@@ -322,7 +322,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the listener.
+        /// ID or ARN of the listener.
         /// </summary>
         [Input("listenerIdentifier")]
         public Input<string>? ListenerIdentifier { get; set; }
@@ -358,7 +358,7 @@ namespace Pulumi.Aws.VpcLattice
         public Input<string>? RuleId { get; set; }
 
         /// <summary>
-        /// ID or Amazon Resource Name (ARN) of the service.
+        /// ID or ARN of the service.
         /// 
         /// The following arguments are optional:
         /// </summary>

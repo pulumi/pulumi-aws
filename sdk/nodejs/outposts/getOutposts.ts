@@ -61,7 +61,7 @@ export interface GetOutpostsArgs {
  */
 export interface GetOutpostsResult {
     /**
-     * Set of Amazon Resource Names (ARNs).
+     * Set of ARNs.
      */
     readonly arns: string[];
     readonly availabilityZone: string;

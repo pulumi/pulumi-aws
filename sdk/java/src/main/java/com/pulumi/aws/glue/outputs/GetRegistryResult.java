@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class GetRegistryResult {
     /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
+     * @return ARN of Glue Registry.
      * 
      */
     private String arn;
@@ -25,7 +25,7 @@ public final class GetRegistryResult {
 
     private GetRegistryResult() {}
     /**
-     * @return Amazon Resource Name (ARN) of Glue Registry.
+     * @return ARN of Glue Registry.
      * 
      */
     public String arn() {

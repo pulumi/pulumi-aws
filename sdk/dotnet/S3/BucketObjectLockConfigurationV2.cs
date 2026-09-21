@@ -35,16 +35,15 @@ namespace Pulumi.Aws.S3
     /// 
     ///     var exampleBucketVersioning = new Aws.S3.BucketVersioning("example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         VersioningConfiguration = new Aws.S3.Inputs.BucketVersioningVersioningConfigurationArgs
     ///         {
     ///             Status = "Enabled",
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     ///     var exampleBucketObjectLockConfiguration = new Aws.S3.BucketObjectLockConfiguration("example", new()
     ///     {
-    ///         Bucket = example.Id,
     ///         Rule = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleArgs
     ///         {
     ///             DefaultRetention = new Aws.S3.Inputs.BucketObjectLockConfigurationRuleDefaultRetentionArgs
@@ -53,6 +52,7 @@ namespace Pulumi.Aws.S3
     ///                 Days = 5,
     ///             },
     ///         },
+    ///         Bucket = example.Id,
     ///     });
     /// 
     /// });

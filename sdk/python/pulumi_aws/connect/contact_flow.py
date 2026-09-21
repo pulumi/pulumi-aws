@@ -186,7 +186,7 @@ class _ContactFlowState:
         """
         Input properties used for looking up and filtering ContactFlow resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Contact Flow.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Contact Flow.
         :param pulumi.Input[_builtins.str] contact_flow_id: The identifier of the Contact Flow.
         :param pulumi.Input[_builtins.str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         :param pulumi.Input[_builtins.str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
@@ -228,7 +228,7 @@ class _ContactFlowState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Contact Flow.
+        ARN of the Contact Flow.
         """
         return pulumi.get(self, "arn")
 
@@ -657,7 +657,7 @@ class ContactFlow(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Contact Flow.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Contact Flow.
         :param pulumi.Input[_builtins.str] contact_flow_id: The identifier of the Contact Flow.
         :param pulumi.Input[_builtins.str] content: Specifies the content of the Contact Flow, provided as a JSON string, written in Amazon Connect Contact Flow Language. If defined, the `filename` argument cannot be used.
         :param pulumi.Input[_builtins.str] content_hash: Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the Contact Flow source specified with `filename`.
@@ -692,7 +692,7 @@ class ContactFlow(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Contact Flow.
+        ARN of the Contact Flow.
         """
         return pulumi.get(self, "arn")
 

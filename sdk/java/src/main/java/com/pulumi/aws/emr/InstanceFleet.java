@@ -37,10 +37,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.emr.InstanceFleet;
  * import com.pulumi.aws.emr.InstanceFleetArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
- * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsArgs;
  * import com.pulumi.aws.emr.inputs.InstanceFleetLaunchSpecificationsSpotSpecificationArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigArgs;
+ * import com.pulumi.aws.emr.inputs.InstanceFleetInstanceTypeConfigEbsConfigArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,28 +55,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var task = new InstanceFleet("task", InstanceFleetArgs.builder()
- *             .clusterId(cluster.id())
- *             .instanceTypeConfigs(            
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.xlarge")
- *                     .weightedCapacity(1)
- *                     .build(),
- *                 InstanceFleetInstanceTypeConfigArgs.builder()
- *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
- *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
- *                         .size(100)
- *                         .type("gp2")
- *                         .volumesPerInstance(1)
- *                         .build())
- *                     .instanceType("m4.2xlarge")
- *                     .weightedCapacity(2)
- *                     .build())
  *             .launchSpecifications(InstanceFleetLaunchSpecificationsArgs.builder()
  *                 .spotSpecifications(InstanceFleetLaunchSpecificationsSpotSpecificationArgs.builder()
  *                     .allocationStrategy("capacity-optimized")
@@ -85,6 +63,28 @@ import javax.annotation.Nullable;
  *                     .timeoutDurationMinutes(10)
  *                     .build())
  *                 .build())
+ *             .instanceTypeConfigs(            
+ *                 InstanceFleetInstanceTypeConfigArgs.builder()
+ *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                         .size(100)
+ *                         .type("gp2")
+ *                         .volumesPerInstance(1)
+ *                         .build())
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                     .instanceType("m4.xlarge")
+ *                     .weightedCapacity(1)
+ *                     .build(),
+ *                 InstanceFleetInstanceTypeConfigArgs.builder()
+ *                     .ebsConfigs(InstanceFleetInstanceTypeConfigEbsConfigArgs.builder()
+ *                         .size(100)
+ *                         .type("gp2")
+ *                         .volumesPerInstance(1)
+ *                         .build())
+ *                     .bidPriceAsPercentageOfOnDemandPrice(100.0)
+ *                     .instanceType("m4.2xlarge")
+ *                     .weightedCapacity(2)
+ *                     .build())
+ *             .clusterId(cluster.id())
  *             .name("task fleet")
  *             .targetOnDemandCapacity(1)
  *             .targetSpotCapacity(1)

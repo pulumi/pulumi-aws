@@ -15,15 +15,23 @@ namespace Pulumi.Aws.Eks.Outputs
     {
         /// <summary>
         /// Configuration block for the horizontal pod autoscaler controller. Detailed below.
+        /// </summary>
+        public readonly Outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig? HorizontalPodAutoscalerControllerConfig;
+        /// <summary>
+        /// Configuration block for the pod garbage collection controller. Detailed below.
         /// 
         /// &gt; **NOTE:** The `HorizontalPodAutoscalerControllerConfig` requires a Provisioned Control Plane scaling tier (e.g., `tier-xl` or higher). It cannot be configured on clusters using the `Standard` tier.
         /// </summary>
-        public readonly Outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig? HorizontalPodAutoscalerControllerConfig;
+        public readonly Outputs.ClusterKubeControllerManagerConfigPodGcControllerConfig? PodGcControllerConfig;
 
         [OutputConstructor]
-        private ClusterKubeControllerManagerConfig(Outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig? horizontalPodAutoscalerControllerConfig)
+        private ClusterKubeControllerManagerConfig(
+            Outputs.ClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfig? horizontalPodAutoscalerControllerConfig,
+
+            Outputs.ClusterKubeControllerManagerConfigPodGcControllerConfig? podGcControllerConfig)
         {
             HorizontalPodAutoscalerControllerConfig = horizontalPodAutoscalerControllerConfig;
+            PodGcControllerConfig = podGcControllerConfig;
         }
     }
 }

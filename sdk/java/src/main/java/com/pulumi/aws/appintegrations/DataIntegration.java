@@ -45,15 +45,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new DataIntegration("example", DataIntegrationArgs.builder()
- *             .name("example")
- *             .description("example")
- *             .kmsKey(test.arn())
- *             .sourceUri("Salesforce://AppFlow/example")
  *             .scheduleConfig(DataIntegrationScheduleConfigArgs.builder()
  *                 .firstExecutionFrom("1439788442681")
  *                 .object("Account")
  *                 .scheduleExpression("rate(1 hour)")
  *                 .build())
+ *             .name("example")
+ *             .description("example")
+ *             .kmsKey(test.arn())
+ *             .sourceUri("Salesforce://AppFlow/example")
  *             .tags(Map.of("Key1", "Value1"))
  *             .build());
  * 
@@ -74,14 +74,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appintegrations/dataIntegration:DataIntegration")
 public class DataIntegration extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the Data Integration.
+     * ARN of the Data Integration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Data Integration.
+     * @return ARN of the Data Integration.
      * 
      */
     public Output<String> arn() {
@@ -102,14 +102,14 @@ public class DataIntegration extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.description);
     }
     /**
-     * KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * KMS key ARN for the Data Integration.
      * 
      */
     @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output<String> kmsKey;
 
     /**
-     * @return KMS key Amazon Resource Name (ARN) for the Data Integration.
+     * @return KMS key ARN for the Data Integration.
      * 
      */
     public Output<String> kmsKey() {

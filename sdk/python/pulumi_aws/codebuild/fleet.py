@@ -43,7 +43,7 @@ class FleetArgs:
                The following arguments are optional:
         :param pulumi.Input['FleetComputeConfigurationArgs'] compute_configuration: The compute configuration of the compute fleet. This is only required if `compute_type` is set to `ATTRIBUTE_BASED_COMPUTE` or `CUSTOM_INSTANCE_TYPE`. See `compute_configuration` below.
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input[_builtins.str] image_id: AMI of the compute fleet.
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -139,7 +139,7 @@ class FleetArgs:
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Machine Image (AMI) of the compute fleet.
+        AMI of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 
@@ -252,7 +252,7 @@ class _FleetState:
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input[_builtins.str] image_id: AMI of the compute fleet.
         :param pulumi.Input[_builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
@@ -387,7 +387,7 @@ class _FleetState:
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Machine Image (AMI) of the compute fleet.
+        AMI of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 
@@ -530,19 +530,19 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codebuild.Fleet("test",
-            base_capacity=2,
-            compute_type="BUILD_GENERAL1_SMALL",
-            environment_type="LINUX_CONTAINER",
-            name="full-example-codebuild-fleet",
-            overflow_behavior="QUEUE",
             scaling_configuration={
-                "max_capacity": 5,
-                "scaling_type": "TARGET_TRACKING_SCALING",
                 "target_tracking_scaling_configs": [{
                     "metric_type": "FLEET_UTILIZATION_RATE",
                     "target_value": 97.5,
                 }],
-            })
+                "max_capacity": 5,
+                "scaling_type": "TARGET_TRACKING_SCALING",
+            },
+            base_capacity=2,
+            compute_type="BUILD_GENERAL1_SMALL",
+            environment_type="LINUX_CONTAINER",
+            name="full-example-codebuild-fleet",
+            overflow_behavior="QUEUE")
         ```
 
         ### Basic Usage
@@ -560,7 +560,7 @@ class Fleet(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+        - `arn` (String) ARN of the CodeBuild fleet.
 
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 
@@ -578,7 +578,7 @@ class Fleet(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input[_builtins.str] image_id: AMI of the compute fleet.
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -602,19 +602,19 @@ class Fleet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         test = aws.codebuild.Fleet("test",
-            base_capacity=2,
-            compute_type="BUILD_GENERAL1_SMALL",
-            environment_type="LINUX_CONTAINER",
-            name="full-example-codebuild-fleet",
-            overflow_behavior="QUEUE",
             scaling_configuration={
-                "max_capacity": 5,
-                "scaling_type": "TARGET_TRACKING_SCALING",
                 "target_tracking_scaling_configs": [{
                     "metric_type": "FLEET_UTILIZATION_RATE",
                     "target_value": 97.5,
                 }],
-            })
+                "max_capacity": 5,
+                "scaling_type": "TARGET_TRACKING_SCALING",
+            },
+            base_capacity=2,
+            compute_type="BUILD_GENERAL1_SMALL",
+            environment_type="LINUX_CONTAINER",
+            name="full-example-codebuild-fleet",
+            overflow_behavior="QUEUE")
         ```
 
         ### Basic Usage
@@ -632,7 +632,7 @@ class Fleet(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild fleet.
+        - `arn` (String) ARN of the CodeBuild fleet.
 
         Using `pulumi import`, import CodeBuild Fleet using the `name`. For example:
 
@@ -743,7 +743,7 @@ class Fleet(pulumi.CustomResource):
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] fleet_service_role: The service role associated with the compute fleet.
-        :param pulumi.Input[_builtins.str] image_id: The Amazon Machine Image (AMI) of the compute fleet.
+        :param pulumi.Input[_builtins.str] image_id: AMI of the compute fleet.
         :param pulumi.Input[_builtins.str] last_modified: Last modification time of the fleet.
         :param pulumi.Input[_builtins.str] name: Fleet name.
         :param pulumi.Input[_builtins.str] overflow_behavior: Overflow behavior for compute fleet. Valid values: `ON_DEMAND`, `QUEUE`.
@@ -838,7 +838,7 @@ class Fleet(pulumi.CustomResource):
     @pulumi.getter(name="imageId")
     def image_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Machine Image (AMI) of the compute fleet.
+        AMI of the compute fleet.
         """
         return pulumi.get(self, "image_id")
 

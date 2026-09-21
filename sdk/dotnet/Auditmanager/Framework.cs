@@ -26,12 +26,10 @@ namespace Pulumi.Aws.Auditmanager
     /// {
     ///     var test = new Aws.Auditmanager.Framework("test", new()
     ///     {
-    ///         Name = "example",
     ///         ControlSets = new[]
     ///         {
     ///             new Aws.Auditmanager.Inputs.FrameworkControlSetArgs
     ///             {
-    ///                 Name = "example",
     ///                 Controls = new[]
     ///                 {
     ///                     new Aws.Auditmanager.Inputs.FrameworkControlSetControlArgs
@@ -43,8 +41,10 @@ namespace Pulumi.Aws.Auditmanager
     ///                         Id = test2.Id,
     ///                     },
     ///                 },
+    ///                 Name = "example",
     ///             },
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.Auditmanager
     public partial class Framework : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
+        /// ARN of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Output("arn")]
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Auditmanager
     public sealed class FrameworkState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the framework.
+        /// ARN of the framework.
         /// * `control_sets[*].id` - Unique identifier for the framework control set.
         /// </summary>
         [Input("arn")]

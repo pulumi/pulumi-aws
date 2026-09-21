@@ -29,9 +29,9 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Image Builder image.
+ * - `arn` (String) ARN of the Image Builder image.
  *
- * Using `pulumi import`, import `aws.imagebuilder.Image` resources using the Amazon Resource Name (ARN). For example:
+ * Using `pulumi import`, import `aws.imagebuilder.Image` resources using the ARN. For example:
  *
  * ```sh
  * $ pulumi import aws:imagebuilder/image:Image example arn:aws:imagebuilder:us-east-1:123456789012:image/example/1.0.0/1
@@ -66,11 +66,11 @@ export class Image extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the image.
+     * ARN of the image.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     declare public readonly containerRecipeArn: pulumi.Output<string | undefined>;
     /**
@@ -78,7 +78,7 @@ export class Image extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dateCreated: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     declare public readonly distributionConfigurationArn: pulumi.Output<string | undefined>;
     /**
@@ -86,11 +86,11 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly enhancedImageMetadataEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     declare public readonly executionRole: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     declare public readonly imageRecipeArn: pulumi.Output<string | undefined>;
     /**
@@ -102,7 +102,7 @@ export class Image extends pulumi.CustomResource {
      */
     declare public readonly imageTestsConfiguration: pulumi.Output<outputs.imagebuilder.ImageImageTestsConfiguration>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      *
      * The following arguments are optional:
      */
@@ -217,11 +217,11 @@ export class Image extends pulumi.CustomResource {
  */
 export interface ImageState {
     /**
-     * Amazon Resource Name (ARN) of the image.
+     * ARN of the image.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -229,7 +229,7 @@ export interface ImageState {
      */
     dateCreated?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -237,11 +237,11 @@ export interface ImageState {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     executionRole?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -253,7 +253,7 @@ export interface ImageState {
      */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      *
      * The following arguments are optional:
      */
@@ -305,11 +305,11 @@ export interface ImageState {
  */
 export interface ImageArgs {
     /**
-     * Amazon Resource Name (ARN) of the container recipe.
+     * ARN of the container recipe.
      */
     containerRecipeArn?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Distribution Configuration.
+     * ARN of the Image Builder Distribution Configuration.
      */
     distributionConfigurationArn?: pulumi.Input<string | undefined>;
     /**
@@ -317,11 +317,11 @@ export interface ImageArgs {
      */
     enhancedImageMetadataEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
+     * ARN of the service-linked role to be used by Image Builder to [execute workflows](https://docs.aws.amazon.com/imagebuilder/latest/userguide/manage-image-workflows.html).
      */
     executionRole?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the image recipe.
+     * ARN of the image recipe.
      */
     imageRecipeArn?: pulumi.Input<string | undefined>;
     /**
@@ -333,7 +333,7 @@ export interface ImageArgs {
      */
     imageTestsConfiguration?: pulumi.Input<inputs.imagebuilder.ImageImageTestsConfiguration | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Image Builder Infrastructure Configuration.
+     * ARN of the Image Builder Infrastructure Configuration.
      *
      * The following arguments are optional:
      */

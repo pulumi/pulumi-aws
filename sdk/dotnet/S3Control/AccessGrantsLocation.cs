@@ -54,7 +54,7 @@ namespace Pulumi.Aws.S3Control
     public partial class AccessGrantsLocation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Access Grants location.
+        /// ARN of the S3 Access Grants location.
         /// </summary>
         [Output("accessGrantsLocationArn")]
         public Output<string> AccessGrantsLocationArn { get; private set; } = null!;
@@ -192,7 +192,7 @@ namespace Pulumi.Aws.S3Control
     public sealed class AccessGrantsLocationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the S3 Access Grants location.
+        /// ARN of the S3 Access Grants location.
         /// </summary>
         [Input("accessGrantsLocationArn")]
         public Input<string>? AccessGrantsLocationArn { get; set; }

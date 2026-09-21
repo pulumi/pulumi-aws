@@ -44,7 +44,7 @@ class GetInstancesResult:
     @pulumi.getter
     def arns(self) -> Sequence[_builtins.str]:
         """
-        Set of Amazon Resource Names (ARNs) of the SSO Instances.
+        Set of ARNs of the SSO Instances.
         """
         return pulumi.get(self, "arns")
 

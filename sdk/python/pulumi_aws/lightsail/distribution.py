@@ -588,8 +588,6 @@ class Distribution(pulumi.CustomResource):
             name="example-bucket",
             bundle_id="small_1_0")
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example.name,
                 "region_name": example.region,
@@ -598,11 +596,6 @@ class Distribution(pulumi.CustomResource):
                 "behavior": "cache",
             },
             cache_behavior_settings={
-                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                "cached_http_methods": "GET,HEAD",
-                "default_ttl": 86400,
-                "maximum_ttl": 31536000,
-                "minimum_ttl": 0,
                 "forwarded_cookies": {
                     "option": "none",
                 },
@@ -612,7 +605,14 @@ class Distribution(pulumi.CustomResource):
                 "forwarded_query_strings": {
                     "option": False,
                 },
-            })
+                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cached_http_methods": "GET,HEAD",
+                "default_ttl": 86400,
+                "maximum_ttl": 31536000,
+                "minimum_ttl": 0,
+            },
+            name="example-distribution",
+            bundle_id="small_1_0")
         ```
 
         ### Instance Origin
@@ -621,11 +621,11 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_static_ip = aws.lightsail.StaticIp("example", name="example-static-ip")
         example_instance = aws.lightsail.Instance("example",
             name="example-instance",
@@ -636,8 +636,6 @@ class Distribution(pulumi.CustomResource):
             static_ip_name=example_static_ip.name,
             instance_name=example_instance.name)
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example_instance.name,
                 "region_name": available.id,
@@ -645,6 +643,8 @@ class Distribution(pulumi.CustomResource):
             default_cache_behavior={
                 "behavior": "cache",
             },
+            name="example-distribution",
+            bundle_id="small_1_0",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -654,11 +654,11 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.lightsail.Lb("example",
             name="example-load-balancer",
             health_check_path="/",
@@ -675,8 +675,6 @@ class Distribution(pulumi.CustomResource):
             lb_name=example.name,
             instance_name=example_instance.name)
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example.name,
                 "region_name": available.id,
@@ -684,6 +682,8 @@ class Distribution(pulumi.CustomResource):
             default_cache_behavior={
                 "behavior": "cache",
             },
+            name="example-distribution",
+            bundle_id="small_1_0",
             opts = pulumi.ResourceOptions(depends_on=[example_lb_attachment]))
         ```
 
@@ -733,8 +733,6 @@ class Distribution(pulumi.CustomResource):
             name="example-bucket",
             bundle_id="small_1_0")
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example.name,
                 "region_name": example.region,
@@ -743,11 +741,6 @@ class Distribution(pulumi.CustomResource):
                 "behavior": "cache",
             },
             cache_behavior_settings={
-                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-                "cached_http_methods": "GET,HEAD",
-                "default_ttl": 86400,
-                "maximum_ttl": 31536000,
-                "minimum_ttl": 0,
                 "forwarded_cookies": {
                     "option": "none",
                 },
@@ -757,7 +750,14 @@ class Distribution(pulumi.CustomResource):
                 "forwarded_query_strings": {
                     "option": False,
                 },
-            })
+                "allowed_http_methods": "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
+                "cached_http_methods": "GET,HEAD",
+                "default_ttl": 86400,
+                "maximum_ttl": 31536000,
+                "minimum_ttl": 0,
+            },
+            name="example-distribution",
+            bundle_id="small_1_0")
         ```
 
         ### Instance Origin
@@ -766,11 +766,11 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example_static_ip = aws.lightsail.StaticIp("example", name="example-static-ip")
         example_instance = aws.lightsail.Instance("example",
             name="example-instance",
@@ -781,8 +781,6 @@ class Distribution(pulumi.CustomResource):
             static_ip_name=example_static_ip.name,
             instance_name=example_instance.name)
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example_instance.name,
                 "region_name": available.id,
@@ -790,6 +788,8 @@ class Distribution(pulumi.CustomResource):
             default_cache_behavior={
                 "behavior": "cache",
             },
+            name="example-distribution",
+            bundle_id="small_1_0",
             opts = pulumi.ResourceOptions(depends_on=[example]))
         ```
 
@@ -799,11 +799,11 @@ class Distribution(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        available = aws.get_availability_zones(state="available",
-            filters=[{
+        available = aws.get_availability_zones(filters=[{
                 "name": "opt-in-status",
                 "values": ["opt-in-not-required"],
-            }])
+            }],
+            state="available")
         example = aws.lightsail.Lb("example",
             name="example-load-balancer",
             health_check_path="/",
@@ -820,8 +820,6 @@ class Distribution(pulumi.CustomResource):
             lb_name=example.name,
             instance_name=example_instance.name)
         example_distribution = aws.lightsail.Distribution("example",
-            name="example-distribution",
-            bundle_id="small_1_0",
             origin={
                 "name": example.name,
                 "region_name": available.id,
@@ -829,6 +827,8 @@ class Distribution(pulumi.CustomResource):
             default_cache_behavior={
                 "behavior": "cache",
             },
+            name="example-distribution",
+            bundle_id="small_1_0",
             opts = pulumi.ResourceOptions(depends_on=[example_lb_attachment]))
         ```
 

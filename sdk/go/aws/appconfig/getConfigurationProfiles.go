@@ -46,12 +46,8 @@ type GetConfigurationProfilesResult struct {
 }
 
 func GetConfigurationProfilesOutput(ctx *pulumi.Context, args GetConfigurationProfilesOutputArgs, opts ...pulumi.InvokeOption) GetConfigurationProfilesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetConfigurationProfilesResultOutput, error) {
-			args := v.(GetConfigurationProfilesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, GetConfigurationProfilesResultOutput{}, options).(GetConfigurationProfilesResultOutput), nil
-		}).(GetConfigurationProfilesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", args, GetConfigurationProfilesResultOutput{}, options).(GetConfigurationProfilesResultOutput)
 }
 
 // A collection of arguments for invoking getConfigurationProfiles.

@@ -49,14 +49,14 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new DataCellsFilter("example", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
+ *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
+ *                     .filterExpression("my_column='example'")
+ *                     .build())
  *                 .databaseName(exampleAwsGlueCatalogDatabase.name())
  *                 .name("example")
  *                 .tableCatalogId(current.accountId())
  *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .columnNames("my_column")
- *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
- *                     .filterExpression("my_column='example'")
- *                     .build())
  *                 .build())
  *             .build());
  * 
@@ -97,10 +97,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var excludedColumns = new DataCellsFilter("excludedColumns", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
- *                 .databaseName(example.name())
- *                 .name("exclude-pii")
- *                 .tableCatalogId(current.accountId())
- *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
  *                     .excludedColumnNames(                    
  *                         "ssn",
@@ -110,6 +106,10 @@ import javax.annotation.Nullable;
  *                     .allRowsWildcard(DataCellsFilterTableDataRowFilterAllRowsWildcardArgs.builder()
  *                         .build())
  *                     .build())
+ *                 .databaseName(example.name())
+ *                 .name("exclude-pii")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .build())
  *             .build());
  * 
@@ -147,10 +147,6 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var rowAndColumn = new DataCellsFilter("rowAndColumn", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
- *                 .databaseName(example.name())
- *                 .name("marketing-filtered")
- *                 .tableCatalogId(current.accountId())
- *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
  *                     .excludedColumnNames(                    
  *                         "salary",
@@ -159,6 +155,10 @@ import javax.annotation.Nullable;
  *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
  *                     .filterExpression("department = 'Marketing'")
  *                     .build())
+ *                 .databaseName(example.name())
+ *                 .name("marketing-filtered")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .build())
  *             .build());
  * 
@@ -198,16 +198,16 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var rowOnly = new DataCellsFilter("rowOnly", DataCellsFilterArgs.builder()
  *             .tableData(DataCellsFilterTableDataArgs.builder()
- *                 .databaseName(example.name())
- *                 .name("regional-filter")
- *                 .tableCatalogId(current.accountId())
- *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .columnWildcard(DataCellsFilterTableDataColumnWildcardArgs.builder()
  *                     .excludedColumnNames()
  *                     .build())
  *                 .rowFilter(DataCellsFilterTableDataRowFilterArgs.builder()
  *                     .filterExpression("region = 'US-WEST'")
  *                     .build())
+ *                 .databaseName(example.name())
+ *                 .name("regional-filter")
+ *                 .tableCatalogId(current.accountId())
+ *                 .tableName(exampleAwsGlueCatalogTable.name())
  *                 .build())
  *             .build());
  * 

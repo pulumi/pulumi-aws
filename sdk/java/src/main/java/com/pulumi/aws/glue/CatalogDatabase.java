@@ -82,13 +82,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new CatalogDatabase("example", CatalogDatabaseArgs.builder()
- *             .name("MyCatalogDatabase")
  *             .createTableDefaultPermissions(CatalogDatabaseCreateTableDefaultPermissionArgs.builder()
- *                 .permissions("SELECT")
  *                 .principal(CatalogDatabaseCreateTableDefaultPermissionPrincipalArgs.builder()
  *                     .dataLakePrincipalIdentifier("IAM_ALLOWED_PRINCIPALS")
  *                     .build())
+ *                 .permissions("SELECT")
  *                 .build())
+ *             .name("MyCatalogDatabase")
  *             .build());
  * 
  *     }

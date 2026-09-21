@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDetector = new Detector("myDetector", DetectorArgs.builder()
- *             .enable(true)
  *             .datasources(DetectorDatasourcesArgs.builder()
  *                 .s3Logs(DetectorDatasourcesS3LogsArgs.builder()
  *                     .enable(true)
@@ -72,6 +71,7 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .enable(true)
  *             .build());
  * 
  *     }
@@ -107,14 +107,14 @@ public class Detector extends com.pulumi.resources.CustomResource {
         return this.accountId;
     }
     /**
-     * Amazon Resource Name (ARN) of the GuardDuty detector
+     * ARN of the GuardDuty detector
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the GuardDuty detector
+     * @return ARN of the GuardDuty detector
      * 
      */
     public Output<String> arn() {

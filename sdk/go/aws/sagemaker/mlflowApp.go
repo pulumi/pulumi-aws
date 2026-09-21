@@ -62,7 +62,7 @@ type MlflowApp struct {
 
 	// Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
 	AccountDefaultStatus pulumi.StringPtrOutput `pulumi:"accountDefaultStatus"`
-	// Amazon Resource Name (ARN) of the MLflow App.
+	// ARN of the MLflow App.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// S3 URI for a general purpose bucket to use as the MLflow App artifact store.
 	ArtifactStoreUri pulumi.StringOutput `pulumi:"artifactStoreUri"`
@@ -74,7 +74,7 @@ type MlflowApp struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+	// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
@@ -123,7 +123,7 @@ func GetMlflowApp(ctx *pulumi.Context,
 type mlflowAppState struct {
 	// Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
 	AccountDefaultStatus *string `pulumi:"accountDefaultStatus"`
-	// Amazon Resource Name (ARN) of the MLflow App.
+	// ARN of the MLflow App.
 	Arn *string `pulumi:"arn"`
 	// S3 URI for a general purpose bucket to use as the MLflow App artifact store.
 	ArtifactStoreUri *string `pulumi:"artifactStoreUri"`
@@ -135,7 +135,7 @@ type mlflowAppState struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+	// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 	RoleArn *string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
@@ -149,7 +149,7 @@ type mlflowAppState struct {
 type MlflowAppState struct {
 	// Indicates whether this MLflow app is the default for the entire account. Valid values are `ENABLED` and `DISABLED`.
 	AccountDefaultStatus pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the MLflow App.
+	// ARN of the MLflow App.
 	Arn pulumi.StringPtrInput
 	// S3 URI for a general purpose bucket to use as the MLflow App artifact store.
 	ArtifactStoreUri pulumi.StringPtrInput
@@ -161,7 +161,7 @@ type MlflowAppState struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+	// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 	RoleArn pulumi.StringPtrInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
@@ -189,7 +189,7 @@ type mlflowAppArgs struct {
 	Name *string `pulumi:"name"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+	// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 	RoleArn string `pulumi:"roleArn"`
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     map[string]string  `pulumi:"tags"`
@@ -212,7 +212,7 @@ type MlflowAppArgs struct {
 	Name pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+	// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 	RoleArn pulumi.StringInput
 	// A map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags     pulumi.StringMapInput
@@ -313,7 +313,7 @@ func (o MlflowAppOutput) AccountDefaultStatus() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MlflowApp) pulumi.StringPtrOutput { return v.AccountDefaultStatus }).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the MLflow App.
+// ARN of the MLflow App.
 func (o MlflowAppOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowApp) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -343,7 +343,7 @@ func (o MlflowAppOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowApp) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
+// ARN for an IAM role in your account that the MLflow App uses to access the artifact store in Amazon S3.
 func (o MlflowAppOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *MlflowApp) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

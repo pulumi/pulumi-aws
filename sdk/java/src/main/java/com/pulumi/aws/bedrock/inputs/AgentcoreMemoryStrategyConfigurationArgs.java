@@ -6,6 +6,7 @@ package com.pulumi.aws.bedrock.inputs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationConsolidationArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationExtractionArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationReflectionArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -20,14 +21,14 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     public static final AgentcoreMemoryStrategyConfigurationArgs Empty = new AgentcoreMemoryStrategyConfigurationArgs();
 
     /**
-     * Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+     * Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     @Import(name="consolidation")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs> consolidation;
 
     /**
-     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+     * @return Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationConsolidationArgs>> consolidation() {
@@ -35,14 +36,14 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     @Import(name="extraction")
     private @Nullable Output<AgentcoreMemoryStrategyConfigurationExtractionArgs> extraction;
 
     /**
-     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+     * @return Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
      * 
      */
     public Optional<Output<AgentcoreMemoryStrategyConfigurationExtractionArgs>> extraction() {
@@ -65,14 +66,29 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
     }
 
     /**
-     * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+     * Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+     * 
+     */
+    @Import(name="selfManagedConfiguration")
+    private @Nullable Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs> selfManagedConfiguration;
+
+    /**
+     * @return Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs>> selfManagedConfiguration() {
+        return Optional.ofNullable(this.selfManagedConfiguration);
+    }
+
+    /**
+     * Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+     * @return Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
      * 
      */
     public Output<String> type() {
@@ -85,6 +101,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         this.consolidation = $.consolidation;
         this.extraction = $.extraction;
         this.reflection = $.reflection;
+        this.selfManagedConfiguration = $.selfManagedConfiguration;
         this.type = $.type;
     }
 
@@ -107,7 +124,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -118,7 +135,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Once added, this block cannot be removed without recreating the resource.
+         * @param consolidation Consolidation configuration for the memory strategy. See `consolidation` Block below. Cannot be used with `type` set to `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -128,7 +145,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -139,7 +156,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE`. Once added, this block cannot be removed without recreating the resource.
+         * @param extraction Extraction configuration for the memory strategy. See `extraction` Block below. Cannot be used with `type` set to `SUMMARY_OVERRIDE` or `SELF_MANAGED`. Once added, this block cannot be removed without recreating the resource.
          * 
          * @return builder
          * 
@@ -170,7 +187,28 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+         * @param selfManagedConfiguration Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfManagedConfiguration(@Nullable Output<AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs> selfManagedConfiguration) {
+            $.selfManagedConfiguration = selfManagedConfiguration;
+            return this;
+        }
+
+        /**
+         * @param selfManagedConfiguration Self-managed processing configuration. Required when `type` is `SELF_MANAGED` and only valid for that type. See `selfManagedConfiguration` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder selfManagedConfiguration(AgentcoreMemoryStrategyConfigurationSelfManagedConfigurationArgs selfManagedConfiguration) {
+            return selfManagedConfiguration(Output.of(selfManagedConfiguration));
+        }
+
+        /**
+         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
          * 
          * @return builder
          * 
@@ -181,7 +219,7 @@ public final class AgentcoreMemoryStrategyConfigurationArgs extends com.pulumi.r
         }
 
         /**
-         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`. Changing this forces a new resource.
+         * @param type Type of custom override. Valid values: `SEMANTIC_OVERRIDE`, `SUMMARY_OVERRIDE`, `USER_PREFERENCE_OVERRIDE`, `EPISODIC_OVERRIDE`, `SELF_MANAGED`. Changing this forces a new resource.
          * 
          * @return builder
          * 

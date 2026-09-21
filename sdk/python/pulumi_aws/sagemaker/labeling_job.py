@@ -509,23 +509,19 @@ class LabelingJob(pulumi.CustomResource):
 
         # https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
         test = aws.sagemaker.LabelingJob("test",
-            label_attribute_name="label1",
-            labeling_job_name="my-labeling-job",
-            role_arn=example_aws_iam_role["arn"],
-            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}",
             human_task_config={
+                "ui_config": {
+                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+                },
+                "annotation_consolidation_config": {
+                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+                },
                 "number_of_human_workers_per_data_object": 1,
                 "task_description": "Apply the labels provided to specific words or phrases within the larger text block.",
                 "task_title": "Named entity Recognition task",
                 "task_time_limit_in_seconds": 28800,
                 "workteam_arn": example["arn"],
-                "ui_config": {
-                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
-                },
                 "pre_human_task_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
-                "annotation_consolidation_config": {
-                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
-                },
             },
             input_config={
                 "data_source": {
@@ -536,7 +532,11 @@ class LabelingJob(pulumi.CustomResource):
             },
             output_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
-            })
+            },
+            label_attribute_name="label1",
+            labeling_job_name="my-labeling-job",
+            role_arn=example_aws_iam_role["arn"],
+            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}")
         ```
 
         ## Import
@@ -581,23 +581,19 @@ class LabelingJob(pulumi.CustomResource):
 
         # https://docs.aws.amazon.com/sagemaker/latest/dg/sms-named-entity-recg.html#sms-creating-ner-api.
         test = aws.sagemaker.LabelingJob("test",
-            label_attribute_name="label1",
-            labeling_job_name="my-labeling-job",
-            role_arn=example_aws_iam_role["arn"],
-            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}",
             human_task_config={
+                "ui_config": {
+                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
+                },
+                "annotation_consolidation_config": {
+                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
+                },
                 "number_of_human_workers_per_data_object": 1,
                 "task_description": "Apply the labels provided to specific words or phrases within the larger text block.",
                 "task_title": "Named entity Recognition task",
                 "task_time_limit_in_seconds": 28800,
                 "workteam_arn": example["arn"],
-                "ui_config": {
-                    "human_task_ui_arn": "arn:aws:sagemaker:us-west-2:394669845002:human-task-ui/NamedEntityRecognition",
-                },
                 "pre_human_task_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:PRE-NamedEntityRecognition",
-                "annotation_consolidation_config": {
-                    "annotation_consolidation_lambda_arn": "arn:aws:lambda:us-west-2:081040173940:function:ACS-NamedEntityRecognition",
-                },
             },
             input_config={
                 "data_source": {
@@ -608,7 +604,11 @@ class LabelingJob(pulumi.CustomResource):
             },
             output_config={
                 "s3_output_path": f"s3://{example_aws_s3_bucket['bucket']}/",
-            })
+            },
+            label_attribute_name="label1",
+            labeling_job_name="my-labeling-job",
+            role_arn=example_aws_iam_role["arn"],
+            label_category_config_s3_uri=f"s3://{example_aws_s3_bucket['bucket']}/{example_aws_s3_object['key']}")
         ```
 
         ## Import

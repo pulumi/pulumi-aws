@@ -80,12 +80,8 @@ type GetKafkaVersionResult struct {
 }
 
 func GetKafkaVersionOutput(ctx *pulumi.Context, args GetKafkaVersionOutputArgs, opts ...pulumi.InvokeOption) GetKafkaVersionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetKafkaVersionResultOutput, error) {
-			args := v.(GetKafkaVersionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:msk/getKafkaVersion:getKafkaVersion", args, GetKafkaVersionResultOutput{}, options).(GetKafkaVersionResultOutput), nil
-		}).(GetKafkaVersionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:msk/getKafkaVersion:getKafkaVersion", args, GetKafkaVersionResultOutput{}, options).(GetKafkaVersionResultOutput)
 }
 
 // A collection of arguments for invoking getKafkaVersion.

@@ -63,7 +63,7 @@ namespace Pulumi.Aws.StorageGateway
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.storagegateway.StoredIscsiVolume` using the volume ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:storagegateway/storedIscsiVolume:StoredIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
@@ -73,7 +73,7 @@ namespace Pulumi.Aws.StorageGateway
     public partial class StoredIscsiVolume : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -91,7 +91,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<string> DiskId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Output("gatewayArn")]
         public Output<string> GatewayArn { get; private set; } = null!;
@@ -103,7 +103,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<bool?> KmsEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
+        /// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Output("kmsKey")]
         public Output<string?> KmsKey { get; private set; } = null!;
@@ -157,7 +157,7 @@ namespace Pulumi.Aws.StorageGateway
         public Output<ImmutableDictionary<string, string>> TagsAll { get; private set; } = null!;
 
         /// <summary>
-        /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        /// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Output("targetArn")]
         public Output<string> TargetArn { get; private set; } = null!;
@@ -251,7 +251,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string> DiskId { get; set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn", required: true)]
         public Input<string> GatewayArn { get; set; } = null!;
@@ -263,7 +263,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
+        /// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -319,7 +319,7 @@ namespace Pulumi.Aws.StorageGateway
     public sealed class StoredIscsiVolumeState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Volume Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
+        /// Volume ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678`.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -337,7 +337,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<string>? DiskId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the gateway.
+        /// ARN of the gateway.
         /// </summary>
         [Input("gatewayArn")]
         public Input<string>? GatewayArn { get; set; }
@@ -349,7 +349,7 @@ namespace Pulumi.Aws.StorageGateway
         public Input<bool>? KmsEncrypted { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
+        /// ARN of the AWS KMS key used for Amazon S3 server side encryption. This value can only be set when `KmsEncrypted` is `True`.
         /// </summary>
         [Input("kmsKey")]
         public Input<string>? KmsKey { get; set; }
@@ -415,7 +415,7 @@ namespace Pulumi.Aws.StorageGateway
         }
 
         /// <summary>
-        /// Target Amazon Resource Name (ARN), e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
+        /// Target ARN, e.g., `arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/target/iqn.1997-05.com.amazon:TargetName`.
         /// </summary>
         [Input("targetArn")]
         public Input<string>? TargetArn { get; set; }

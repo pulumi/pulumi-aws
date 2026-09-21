@@ -34,7 +34,6 @@ namespace Pulumi.Aws.Backup
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -46,6 +45,7 @@ namespace Pulumi.Aws.Backup
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -86,9 +86,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "my_example_backup_selection",
-    ///         PlanId = exampleAwsBackupPlan.Id,
     ///         SelectionTags = new[]
     ///         {
     ///             new Aws.Backup.Inputs.SelectionSelectionTagArgs
@@ -98,6 +95,9 @@ namespace Pulumi.Aws.Backup
     ///                 Value = "bar",
     ///             },
     ///         },
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
     ///     });
     /// 
     /// });
@@ -115,13 +115,6 @@ namespace Pulumi.Aws.Backup
     /// {
     ///     var example = new Aws.Backup.Selection("example", new()
     ///     {
-    ///         IamRoleArn = exampleAwsIamRole.Arn,
-    ///         Name = "my_example_backup_selection",
-    ///         PlanId = exampleAwsBackupPlan.Id,
-    ///         Resources = new[]
-    ///         {
-    ///             "*",
-    ///         },
     ///         Conditions = new[]
     ///         {
     ///             new Aws.Backup.Inputs.SelectionConditionArgs
@@ -159,6 +152,13 @@ namespace Pulumi.Aws.Backup
     ///                     },
     ///                 },
     ///             },
+    ///         },
+    ///         IamRoleArn = exampleAwsIamRole.Arn,
+    ///         Name = "my_example_backup_selection",
+    ///         PlanId = exampleAwsBackupPlan.Id,
+    ///         Resources = new[]
+    ///         {
+    ///             "*",
     ///         },
     ///     });
     /// 
@@ -259,7 +259,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         [Output("notResources")]
         public Output<ImmutableArray<string>> NotResources { get; private set; } = null!;
@@ -277,7 +277,7 @@ namespace Pulumi.Aws.Backup
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -362,7 +362,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _notResources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         public InputList<string> NotResources
         {
@@ -386,7 +386,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {
@@ -442,7 +442,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _notResources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to exclude from a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to exclude from a backup plan.
         /// </summary>
         public InputList<string> NotResources
         {
@@ -466,7 +466,7 @@ namespace Pulumi.Aws.Backup
         private InputList<string>? _resources;
 
         /// <summary>
-        /// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan.
+        /// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
         /// </summary>
         public InputList<string> Resources
         {

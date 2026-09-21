@@ -50,11 +50,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AgentcoreCodeInterpreter("example", AgentcoreCodeInterpreterArgs.builder()
- *             .name("example-code-interpreter")
- *             .description("Code interpreter for data analysis")
  *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
  *                 .networkMode("PUBLIC")
  *                 .build())
+ *             .name("example-code-interpreter")
+ *             .description("Code interpreter for data analysis")
  *             .build());
  * 
  *     }
@@ -95,12 +95,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
- *                 .actions("sts:AssumeRole")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers("bedrock-agentcore.amazonaws.com")
  *                     .build())
+ *                 .effect("Allow")
+ *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
  * 
@@ -110,12 +110,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAgentcoreCodeInterpreter = new AgentcoreCodeInterpreter("exampleAgentcoreCodeInterpreter", AgentcoreCodeInterpreterArgs.builder()
- *             .name("example-code-interpreter")
- *             .description("Code interpreter with custom execution role")
- *             .executionRoleArn(example.arn())
  *             .networkConfiguration(AgentcoreCodeInterpreterNetworkConfigurationArgs.builder()
  *                 .networkMode("SANDBOX")
  *                 .build())
+ *             .name("example-code-interpreter")
+ *             .description("Code interpreter with custom execution role")
+ *             .executionRoleArn(example.arn())
  *             .build());
  * 
  *     }

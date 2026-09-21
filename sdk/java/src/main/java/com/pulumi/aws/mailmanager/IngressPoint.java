@@ -85,14 +85,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IngressPoint("example", IngressPointArgs.builder()
- *             .name("example")
- *             .type("AUTH")
- *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
- *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
  *             .ingressPointConfiguration(IngressPointIngressPointConfigurationArgs.builder()
  *                 .smtpPasswordWo(smtpPassword)
  *                 .smtpPasswordWoVersion(1)
  *                 .build())
+ *             .name("example")
+ *             .type("AUTH")
+ *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
+ *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
  *             .build());
  * 
  *     }
@@ -127,15 +127,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IngressPoint("example", IngressPointArgs.builder()
- *             .name("example")
- *             .type("OPEN")
- *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
- *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
  *             .networkConfiguration(IngressPointNetworkConfigurationArgs.builder()
  *                 .privateNetworkConfiguration(IngressPointNetworkConfigurationPrivateNetworkConfigurationArgs.builder()
  *                     .vpcEndpointId(exampleAwsVpcEndpoint.id())
  *                     .build())
  *                 .build())
+ *             .name("example")
+ *             .type("OPEN")
+ *             .ruleSetId(exampleAwsMailmanagerRuleSet.id())
+ *             .trafficPolicyId(exampleAwsMailmanagerTrafficPolicy.id())
  *             .build());
  * 
  *     }
@@ -304,6 +304,20 @@ public class IngressPoint extends com.pulumi.resources.CustomResource {
      */
     public Output<String> status() {
         return this.status;
+    }
+    /**
+     * Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    @Export(name="statusToUpdate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> statusToUpdate;
+
+    /**
+     * @return Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+     * 
+     */
+    public Output<Optional<String>> statusToUpdate() {
+        return Codegen.optional(this.statusToUpdate);
     }
     /**
      * Map of tags assigned to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.

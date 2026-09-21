@@ -50,7 +50,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -59,6 +58,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -82,21 +82,18 @@ import (
 //				return err
 //			}
 //			_, err = codepipeline.NewPipeline(ctx, "codepipeline", &codepipeline.PipelineArgs{
-//				Name:    pulumi.String("tf-test-pipeline"),
-//				RoleArn: codepipelineRole.Arn,
 //				ArtifactStores: codepipeline.PipelineArtifactStoreArray{
 //					&codepipeline.PipelineArtifactStoreArgs{
-//						Location: codepipelineBucket.Bucket,
-//						Type:     pulumi.String("S3"),
 //						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
 //							Id:   pulumi.String(s3kmskey.Arn),
 //							Type: pulumi.String("KMS"),
 //						},
+//						Location: codepipelineBucket.Bucket,
+//						Type:     pulumi.String("S3"),
 //					},
 //				},
 //				Stages: codepipeline.PipelineStageArray{
 //					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Source"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Source"),
@@ -114,9 +111,9 @@ import (
 //								},
 //							},
 //						},
+//						Name: pulumi.String("Source"),
 //					},
 //					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Build"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Build"),
@@ -135,9 +132,9 @@ import (
 //								},
 //							},
 //						},
+//						Name: pulumi.String("Build"),
 //					},
 //					&codepipeline.PipelineStageArgs{
-//						Name: pulumi.String("Deploy"),
 //						Actions: codepipeline.PipelineStageActionArray{
 //							&codepipeline.PipelineStageActionArgs{
 //								Name:     pulumi.String("Deploy"),
@@ -157,8 +154,11 @@ import (
 //								},
 //							},
 //						},
+//						Name: pulumi.String("Deploy"),
 //					},
 //				},
+//				Name:    pulumi.String("tf-test-pipeline"),
+//				RoleArn: codepipelineRole.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -259,7 +259,7 @@ type Pipeline struct {
 	PipelineType pulumi.StringPtrOutput `pulumi:"pipelineType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayOutput `pulumi:"stages"`
@@ -328,7 +328,7 @@ type pipelineState struct {
 	PipelineType *string `pulumi:"pipelineType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn *string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
@@ -359,7 +359,7 @@ type PipelineState struct {
 	PipelineType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringPtrInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
@@ -392,7 +392,7 @@ type pipelineArgs struct {
 	PipelineType *string `pulumi:"pipelineType"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn string `pulumi:"roleArn"`
 	// A stage block. Stages are documented below.
 	Stages []PipelineStage `pulumi:"stages"`
@@ -418,7 +418,7 @@ type PipelineArgs struct {
 	PipelineType pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+	// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 	RoleArn pulumi.StringInput
 	// A stage block. Stages are documented below.
 	Stages PipelineStageArrayInput
@@ -549,7 +549,7 @@ func (o PipelineOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A service role Amazon Resource Name (ARN) that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
+// Service role ARN that grants AWS CodePipeline permission to make calls to AWS services on your behalf.
 func (o PipelineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Pipeline) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

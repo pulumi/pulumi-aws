@@ -53,13 +53,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .dagS3Path("dags/")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name("example")
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
@@ -94,6 +94,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
+ *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
+ *                 .securityGroupIds(exampleAwsSecurityGroup.id())
+ *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
+ *                 .build())
  *             .airflowConfigurationOptions(Map.ofEntries(
  *                 Map.entry("core.default_task_retries", "16"),
  *                 Map.entry("core.parallelism", "1")
@@ -101,10 +105,6 @@ import javax.annotation.Nullable;
  *             .dagS3Path("dags/")
  *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .name("example")
- *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
- *                 .securityGroupIds(exampleAwsSecurityGroup.id())
- *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
- *                 .build())
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
@@ -147,8 +147,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
  *             .loggingConfiguration(EnvironmentLoggingConfigurationArgs.builder()
  *                 .dagProcessingLogs(EnvironmentLoggingConfigurationDagProcessingLogsArgs.builder()
  *                     .enabled(true)
@@ -171,11 +169,13 @@ import javax.annotation.Nullable;
  *                     .logLevel("CRITICAL")
  *                     .build())
  *                 .build())
- *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .dagS3Path("dags/")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name("example")
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .build());
  * 
@@ -210,13 +210,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Environment("example", EnvironmentArgs.builder()
- *             .dagS3Path("dags/")
- *             .executionRoleArn(exampleAwsIamRole.arn())
- *             .name("example")
  *             .networkConfiguration(EnvironmentNetworkConfigurationArgs.builder()
  *                 .securityGroupIds(exampleAwsSecurityGroup.id())
  *                 .subnetIds(private_.stream().map(element -> element.id()).collect(toList()))
  *                 .build())
+ *             .dagS3Path("dags/")
+ *             .executionRoleArn(exampleAwsIamRole.arn())
+ *             .name("example")
  *             .sourceBucketArn(exampleAwsS3Bucket.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Name", "example"),
@@ -355,28 +355,28 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.environmentClass;
     }
     /**
-     * The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+     * ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      * 
      */
     @Export(name="executionRoleArn", refs={String.class}, tree="[0]")
     private Output<String> executionRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
+     * @return ARN of the task execution role that the Amazon MWAA and its environment can assume. Check the [official AWS documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/mwaa-create-role.html) for the detailed role specification.
      * 
      */
     public Output<String> executionRoleArn() {
         return this.executionRoleArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+     * ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      * 
      */
     @Export(name="kmsKey", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kmsKey;
 
     /**
-     * @return The Amazon Resource Name (ARN) of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
+     * @return ARN of your KMS key that you want to use for encryption. Will be set to the ARN of the managed KMS key `aws/airflow` by default. Please check the [Official Documentation](https://docs.aws.amazon.com/mwaa/latest/userguide/custom-keys-certs.html) for more information.
      * 
      */
     public Output<Optional<String>> kmsKey() {
@@ -585,14 +585,14 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.serviceRoleArn;
     }
     /**
-     * The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+     * ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      * 
      */
     @Export(name="sourceBucketArn", refs={String.class}, tree="[0]")
     private Output<String> sourceBucketArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
+     * @return ARN of your Amazon S3 storage bucket. For example, arn:aws:s3:::airflow-mybucketname.
      * 
      */
     public Output<String> sourceBucketArn() {

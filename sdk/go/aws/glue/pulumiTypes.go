@@ -14024,7 +14024,7 @@ func (o SecurityConfigurationEncryptionConfigurationPtrOutput) S3Encryption() Se
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryption struct {
 	// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
 	CloudwatchEncryptionMode *string `pulumi:"cloudwatchEncryptionMode"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -14042,7 +14042,7 @@ type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionInput inter
 type SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionArgs struct {
 	// Encryption mode to use for CloudWatch data. Valid values: `DISABLED`, `SSE-KMS`. Default value: `DISABLED`.
 	CloudwatchEncryptionMode pulumi.StringPtrInput `pulumi:"cloudwatchEncryptionMode"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -14130,7 +14130,7 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) 
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -14169,7 +14169,7 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationCloudwatchEncryption) *string {
 		if v == nil {
@@ -14182,7 +14182,7 @@ func (o SecurityConfigurationEncryptionConfigurationCloudwatchEncryptionPtrOutpu
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption struct {
 	// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
 	JobBookmarksEncryptionMode *string `pulumi:"jobBookmarksEncryptionMode"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 }
 
@@ -14200,7 +14200,7 @@ type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionInput int
 type SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionArgs struct {
 	// Encryption mode to use for job bookmarks data. Valid values: `CSE-KMS`, `DISABLED`. Default value: `DISABLED`.
 	JobBookmarksEncryptionMode pulumi.StringPtrInput `pulumi:"jobBookmarksEncryptionMode"`
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 }
 
@@ -14288,7 +14288,7 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -14327,7 +14327,7 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationJobBookmarksEncryption) *string {
 		if v == nil {
@@ -14338,7 +14338,7 @@ func (o SecurityConfigurationEncryptionConfigurationJobBookmarksEncryptionPtrOut
 }
 
 type SecurityConfigurationEncryptionConfigurationS3Encryption struct {
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn *string `pulumi:"kmsKeyArn"`
 	// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 	S3EncryptionMode *string `pulumi:"s3EncryptionMode"`
@@ -14356,7 +14356,7 @@ type SecurityConfigurationEncryptionConfigurationS3EncryptionInput interface {
 }
 
 type SecurityConfigurationEncryptionConfigurationS3EncryptionArgs struct {
-	// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	// ARN of the KMS key to be used to encrypt the data.
 	KmsKeyArn pulumi.StringPtrInput `pulumi:"kmsKeyArn"`
 	// Encryption mode to use for S3 data. Valid values: `DISABLED`, `SSE-KMS`, `SSE-S3`. Default value: `DISABLED`.
 	S3EncryptionMode pulumi.StringPtrInput `pulumi:"s3EncryptionMode"`
@@ -14439,7 +14439,7 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) ToSecuri
 	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SecurityConfigurationEncryptionConfigurationS3Encryption) *string { return v.KmsKeyArn }).(pulumi.StringPtrOutput)
 }
@@ -14473,7 +14473,7 @@ func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) Elem(
 	}).(SecurityConfigurationEncryptionConfigurationS3EncryptionOutput)
 }
 
-// Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+// ARN of the KMS key to be used to encrypt the data.
 func (o SecurityConfigurationEncryptionConfigurationS3EncryptionPtrOutput) KmsKeyArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SecurityConfigurationEncryptionConfigurationS3Encryption) *string {
 		if v == nil {

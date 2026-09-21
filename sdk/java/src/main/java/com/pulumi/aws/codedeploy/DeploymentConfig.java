@@ -36,10 +36,10 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentConfigMinimumHealthyHostsArgs;
  * import com.pulumi.aws.codedeploy.DeploymentGroup;
  * import com.pulumi.aws.codedeploy.DeploymentGroupArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagFilterArgs;
- * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAutoRollbackConfigurationArgs;
  * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupAlarmConfigurationArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupEc2TagFilterArgs;
+ * import com.pulumi.aws.codedeploy.inputs.DeploymentGroupTriggerConfigurationArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -54,18 +54,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
- *             .deploymentConfigName("test-deployment-config")
  *             .minimumHealthyHosts(DeploymentConfigMinimumHealthyHostsArgs.builder()
  *                 .type("HOST_COUNT")
  *                 .value(2)
  *                 .build())
+ *             .deploymentConfigName("test-deployment-config")
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(fooApp.name())
- *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
- *             .deploymentConfigName(foo.id())
+ *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
+ *                 .enabled(true)
+ *                 .events("DEPLOYMENT_FAILURE")
+ *                 .build())
+ *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
+ *                 .alarms("my-alarm-name")
+ *                 .enabled(true)
+ *                 .build())
  *             .ec2TagFilters(DeploymentGroupEc2TagFilterArgs.builder()
  *                 .key("filterkey")
  *                 .type("KEY_AND_VALUE")
@@ -76,14 +80,10 @@ import javax.annotation.Nullable;
  *                 .triggerName("foo-trigger")
  *                 .triggerTargetArn("foo-topic-arn")
  *                 .build())
- *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
- *                 .enabled(true)
- *                 .events("DEPLOYMENT_FAILURE")
- *                 .build())
- *             .alarmConfiguration(DeploymentGroupAlarmConfigurationArgs.builder()
- *                 .alarms("my-alarm-name")
- *                 .enabled(true)
- *                 .build())
+ *             .appName(fooApp.name())
+ *             .deploymentGroupName("bar")
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .build());
  * 
  *     }
@@ -122,22 +122,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new DeploymentConfig("foo", DeploymentConfigArgs.builder()
- *             .deploymentConfigName("test-deployment-config")
- *             .computePlatform("Lambda")
  *             .trafficRoutingConfig(DeploymentConfigTrafficRoutingConfigArgs.builder()
- *                 .type("TimeBasedLinear")
  *                 .timeBasedLinear(DeploymentConfigTrafficRoutingConfigTimeBasedLinearArgs.builder()
  *                     .interval(10)
  *                     .percentage(10)
  *                     .build())
+ *                 .type("TimeBasedLinear")
  *                 .build())
+ *             .deploymentConfigName("test-deployment-config")
+ *             .computePlatform("Lambda")
  *             .build());
  * 
  *         var fooDeploymentGroup = new DeploymentGroup("fooDeploymentGroup", DeploymentGroupArgs.builder()
- *             .appName(fooApp.name())
- *             .deploymentGroupName("bar")
- *             .serviceRoleArn(fooRole.arn())
- *             .deploymentConfigName(foo.id())
  *             .autoRollbackConfiguration(DeploymentGroupAutoRollbackConfigurationArgs.builder()
  *                 .enabled(true)
  *                 .events("DEPLOYMENT_STOP_ON_ALARM")
@@ -146,6 +142,10 @@ import javax.annotation.Nullable;
  *                 .alarms("my-alarm-name")
  *                 .enabled(true)
  *                 .build())
+ *             .appName(fooApp.name())
+ *             .deploymentGroupName("bar")
+ *             .serviceRoleArn(fooRole.arn())
+ *             .deploymentConfigName(foo.id())
  *             .build());
  * 
  *     }

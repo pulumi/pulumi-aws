@@ -47,7 +47,7 @@ namespace Pulumi.Aws.MskConnect
     public partial class WorkerConfiguration : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// the Amazon Resource Name (ARN) of the worker configuration.
+        /// the ARN of the worker configuration.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -189,7 +189,7 @@ namespace Pulumi.Aws.MskConnect
     public sealed class WorkerConfigurationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// the Amazon Resource Name (ARN) of the worker configuration.
+        /// the ARN of the worker configuration.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

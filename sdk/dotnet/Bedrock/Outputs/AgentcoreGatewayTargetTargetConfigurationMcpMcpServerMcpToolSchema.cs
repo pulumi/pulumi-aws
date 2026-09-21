@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Bedrock.Outputs
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaInlinePayload? InlinePayload;
         /// <summary>
-        /// S3 location of the tool schema. See `S3` below.
+        /// S3 location of the tool schema. See `S3` Block below.
         /// </summary>
         public readonly Outputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchemaS3? S3;
 

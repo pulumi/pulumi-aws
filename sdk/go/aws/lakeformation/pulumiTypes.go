@@ -3143,7 +3143,7 @@ func (o PermissionsDataCellsFilterPtrOutput) TableName() pulumi.StringPtrOutput 
 }
 
 type PermissionsDataLocation struct {
-	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// ARN that uniquely identifies the data location resource.
 	//
 	// The following argument is optional:
 	Arn string `pulumi:"arn"`
@@ -3163,7 +3163,7 @@ type PermissionsDataLocationInput interface {
 }
 
 type PermissionsDataLocationArgs struct {
-	// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+	// ARN that uniquely identifies the data location resource.
 	//
 	// The following argument is optional:
 	Arn pulumi.StringInput `pulumi:"arn"`
@@ -3248,7 +3248,7 @@ func (o PermissionsDataLocationOutput) ToPermissionsDataLocationPtrOutputWithCon
 	}).(PermissionsDataLocationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+// ARN that uniquely identifies the data location resource.
 //
 // The following argument is optional:
 func (o PermissionsDataLocationOutput) Arn() pulumi.StringOutput {
@@ -3284,7 +3284,7 @@ func (o PermissionsDataLocationPtrOutput) Elem() PermissionsDataLocationOutput {
 	}).(PermissionsDataLocationOutput)
 }
 
-// Amazon Resource Name (ARN) that uniquely identifies the data location resource.
+// ARN that uniquely identifies the data location resource.
 //
 // The following argument is optional:
 func (o PermissionsDataLocationPtrOutput) Arn() pulumi.StringPtrOutput {

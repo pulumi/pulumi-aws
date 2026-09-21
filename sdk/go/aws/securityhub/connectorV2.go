@@ -47,12 +47,12 @@ import (
 //				return err
 //			}
 //			exampleConnectorV2, err := securityhub.NewConnectorV2(ctx, "example", &securityhub.ConnectorV2Args{
-//				Name: pulumi.String("jira-connector"),
 //				ConnectorProvider: &securityhub.ConnectorV2ConnectorProviderArgs{
 //					JiraCloud: &securityhub.ConnectorV2ConnectorProviderJiraCloudArgs{
 //						ProjectKey: pulumi.String("SEC"),
 //					},
 //				},
+//				Name: pulumi.String("jira-connector"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAggregatorV2,
 //			}))
@@ -81,14 +81,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securityhub.NewConnectorV2(ctx, "example", &securityhub.ConnectorV2Args{
-//				Name:        pulumi.String("jira-connector"),
-//				Description: pulumi.String("Jira Cloud integration for security findings"),
-//				KmsKeyArn:   pulumi.Any(exampleAwsKmsKey.Arn),
 //				ConnectorProvider: &securityhub.ConnectorV2ConnectorProviderArgs{
 //					JiraCloud: &securityhub.ConnectorV2ConnectorProviderJiraCloudArgs{
 //						ProjectKey: pulumi.String("SEC"),
 //					},
 //				},
+//				Name:        pulumi.String("jira-connector"),
+//				Description: pulumi.String("Jira Cloud integration for security findings"),
+//				KmsKeyArn:   pulumi.Any(exampleAwsKmsKey.Arn),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleAwsSecurityhubAggregatorV2,
 //			}))

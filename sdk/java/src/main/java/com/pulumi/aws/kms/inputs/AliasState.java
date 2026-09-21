@@ -16,14 +16,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     public static final AliasState Empty = new AliasState();
 
     /**
-     * The Amazon Resource Name (ARN) of the key alias.
+     * ARN of the key alias.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the key alias.
+     * @return ARN of the key alias.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -78,14 +78,14 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the target key identifier.
+     * ARN of the target key identifier.
      * 
      */
     @Import(name="targetKeyArn")
     private @Nullable Output<String> targetKeyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the target key identifier.
+     * @return ARN of the target key identifier.
      * 
      */
     public Optional<Output<String>> targetKeyArn() {
@@ -137,7 +137,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the key alias.
+         * @param arn ARN of the key alias.
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the key alias.
+         * @param arn ARN of the key alias.
          * 
          * @return builder
          * 
@@ -223,7 +223,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetKeyArn The Amazon Resource Name (ARN) of the target key identifier.
+         * @param targetKeyArn ARN of the target key identifier.
          * 
          * @return builder
          * 
@@ -234,7 +234,7 @@ public final class AliasState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param targetKeyArn The Amazon Resource Name (ARN) of the target key identifier.
+         * @param targetKeyArn ARN of the target key identifier.
          * 
          * @return builder
          * 

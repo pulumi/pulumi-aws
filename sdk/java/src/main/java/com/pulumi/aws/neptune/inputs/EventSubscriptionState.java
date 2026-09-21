@@ -19,14 +19,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     public static final EventSubscriptionState Empty = new EventSubscriptionState();
 
     /**
-     * The Amazon Resource Name of the Neptune event notification subscription.
+     * ARN of the Neptune event notification subscription.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the Neptune event notification subscription.
+     * @return ARN of the Neptune event notification subscription.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -234,7 +234,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name of the Neptune event notification subscription.
+         * @param arn ARN of the Neptune event notification subscription.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn The Amazon Resource Name of the Neptune event notification subscription.
+         * @param arn ARN of the Neptune event notification subscription.
          * 
          * @return builder
          * 

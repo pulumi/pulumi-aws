@@ -43,7 +43,6 @@ import * as utilities from "../utilities";
  *     name: "not-important-dynamodb-table",
  * });
  * const example = new aws.cloudtrail.EventDataStore("example", {advancedEventSelectors: [{
- *     name: "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
  *     fieldSelectors: [
  *         {
  *             field: "eventCategory",
@@ -62,6 +61,7 @@ import * as utilities from "../utilities";
  *             equals: [table.then(table => table.arn)],
  *         },
  *     ],
+ *     name: "Log all DynamoDB PutEvent actions for a specific DynamoDB table",
  * }]});
  * ```
  *
@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CloudTrail event data store.
+ * - `arn` (String) ARN of the CloudTrail event data store.
  *
  * Using `pulumi import`, import event data stores using their `arn`. For example:
  *

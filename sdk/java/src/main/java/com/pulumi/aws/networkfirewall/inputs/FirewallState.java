@@ -23,14 +23,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     public static final FirewallState Empty = new FirewallState();
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) that identifies the firewall.
+     * @return ARN that identifies the firewall.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -128,14 +128,14 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      * 
      */
     @Import(name="firewallPolicyArn")
     private @Nullable Output<String> firewallPolicyArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * @return ARN of the VPC Firewall policy.
      * 
      */
     public Optional<Output<String>> firewallPolicyArn() {
@@ -366,7 +366,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the firewall.
+         * @param arn ARN that identifies the firewall.
          * 
          * @return builder
          * 
@@ -377,7 +377,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) that identifies the firewall.
+         * @param arn ARN that identifies the firewall.
          * 
          * @return builder
          * 
@@ -533,7 +533,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyArn The Amazon Resource Name (ARN) of the VPC Firewall policy.
+         * @param firewallPolicyArn ARN of the VPC Firewall policy.
          * 
          * @return builder
          * 
@@ -544,7 +544,7 @@ public final class FirewallState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param firewallPolicyArn The Amazon Resource Name (ARN) of the VPC Firewall policy.
+         * @param firewallPolicyArn ARN of the VPC Firewall policy.
          * 
          * @return builder
          * 

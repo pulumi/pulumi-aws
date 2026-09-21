@@ -54,7 +54,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * ARN of the Redshift Snapshot Schedule.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -138,7 +138,7 @@ export class SnapshotSchedule extends pulumi.CustomResource {
  */
 export interface SnapshotScheduleState {
     /**
-     * Amazon Resource Name (ARN) of the Redshift Snapshot Schedule.
+     * ARN of the Redshift Snapshot Schedule.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -22,7 +22,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? Cpu;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the task execution role override for the task.
+        /// ARN of the task execution role override for the task.
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ecs.Outputs
         /// </summary>
         public readonly string? Memory;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the role that containers in this task can assume.
+        /// ARN of the role that containers in this task can assume.
         /// </summary>
         public readonly string? TaskRoleArn;
 

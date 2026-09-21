@@ -69,7 +69,7 @@ import (
 type LogStream struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) specifying the log stream.
+	// ARN specifying the log stream.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName pulumi.StringOutput `pulumi:"logGroupName"`
@@ -112,7 +112,7 @@ func GetLogStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogStream resources.
 type logStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the log stream.
+	// ARN specifying the log stream.
 	Arn *string `pulumi:"arn"`
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName *string `pulumi:"logGroupName"`
@@ -123,7 +123,7 @@ type logStreamState struct {
 }
 
 type LogStreamState struct {
-	// The Amazon Resource Name (ARN) specifying the log stream.
+	// ARN specifying the log stream.
 	Arn pulumi.StringPtrInput
 	// The name of the log group under which the log stream is to be created.
 	LogGroupName pulumi.StringPtrInput
@@ -243,7 +243,7 @@ func (o LogStreamOutput) ToLogStreamOutputWithContext(ctx context.Context) LogSt
 	return o
 }
 
-// The Amazon Resource Name (ARN) specifying the log stream.
+// ARN specifying the log stream.
 func (o LogStreamOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogStream) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

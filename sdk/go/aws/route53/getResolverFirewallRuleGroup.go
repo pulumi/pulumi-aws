@@ -62,7 +62,7 @@ type LookupResolverFirewallRuleGroupArgs struct {
 
 // A collection of values returned by getResolverFirewallRuleGroup.
 type LookupResolverFirewallRuleGroupResult struct {
-	// The ARN (Amazon Resource Name) of the rule group.
+	// ARN of the rule group.
 	Arn string `pulumi:"arn"`
 	// The date and time that the rule group was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
@@ -89,12 +89,8 @@ type LookupResolverFirewallRuleGroupResult struct {
 }
 
 func LookupResolverFirewallRuleGroupOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallRuleGroupResultOutput, error) {
-			args := v.(LookupResolverFirewallRuleGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, LookupResolverFirewallRuleGroupResultOutput{}, options).(LookupResolverFirewallRuleGroupResultOutput), nil
-		}).(LookupResolverFirewallRuleGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroup:getResolverFirewallRuleGroup", args, LookupResolverFirewallRuleGroupResultOutput{}, options).(LookupResolverFirewallRuleGroupResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallRuleGroup.
@@ -124,7 +120,7 @@ func (o LookupResolverFirewallRuleGroupResultOutput) ToLookupResolverFirewallRul
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the rule group.
+// ARN of the rule group.
 func (o LookupResolverFirewallRuleGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -34,12 +34,12 @@ public final class GetReplicationTaskResult {
     private String migrationType;
     private String region;
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     private String replicationInstanceArn;
     /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
+     * @return ARN for the replication task.
      * 
      */
     private String replicationTaskArn;
@@ -50,7 +50,7 @@ public final class GetReplicationTaskResult {
      */
     private String replicationTaskSettings;
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * @return ARN string that uniquely identifies the source endpoint.
      * 
      */
     private String sourceEndpointArn;
@@ -71,7 +71,7 @@ public final class GetReplicationTaskResult {
     private String tableMappings;
     private Map<String,String> tags;
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * @return ARN string that uniquely identifies the target endpoint.
      * 
      */
     private String targetEndpointArn;
@@ -109,14 +109,14 @@ public final class GetReplicationTaskResult {
         return this.region;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the replication instance.
+     * @return ARN of the replication instance.
      * 
      */
     public String replicationInstanceArn() {
         return this.replicationInstanceArn;
     }
     /**
-     * @return The Amazon Resource Name (ARN) for the replication task.
+     * @return ARN for the replication task.
      * 
      */
     public String replicationTaskArn() {
@@ -133,7 +133,7 @@ public final class GetReplicationTaskResult {
         return this.replicationTaskSettings;
     }
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the source endpoint.
+     * @return ARN string that uniquely identifies the source endpoint.
      * 
      */
     public String sourceEndpointArn() {
@@ -164,7 +164,7 @@ public final class GetReplicationTaskResult {
         return this.tags;
     }
     /**
-     * @return The Amazon Resource Name (ARN) string that uniquely identifies the target endpoint.
+     * @return ARN string that uniquely identifies the target endpoint.
      * 
      */
     public String targetEndpointArn() {

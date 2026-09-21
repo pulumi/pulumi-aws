@@ -141,14 +141,14 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
     }
 
     /**
-     * Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      * 
      */
     @Import(name="privateDomainName")
     private @Nullable Output<String> privateDomainName;
 
     /**
-     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+     * @return Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
      * 
      */
     public Optional<Output<String>> privateDomainName() {
@@ -504,7 +504,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
          * 
          * @return builder
          * 
@@ -515,7 +515,7 @@ public final class ContainerServiceState extends com.pulumi.resources.ResourceAr
         }
 
         /**
-         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+         * @param privateDomainName Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
          * 
          * @return builder
          * 

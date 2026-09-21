@@ -242,7 +242,7 @@ namespace Pulumi.Aws.SecretsManager
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Key Management Service (KMS) Customer Master Key (CMK) associated with the secret.
+        /// KMS Customer Master Key (CMK) associated with the secret.
         /// </summary>
         public readonly string KmsKeyId;
         /// <summary>

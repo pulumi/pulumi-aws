@@ -99,7 +99,7 @@ class IdentitySourceConfigurationArgs:
 class IdentitySourceConfigurationCognitoUserPoolConfigurationArgsDict(TypedDict):
     user_pool_arn: pulumi.Input[_builtins.str]
     """
-    The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+    ARN of the Amazon Cognito user pool that contains the identities to be authorized.
     """
     client_ids: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -117,7 +117,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs:
                  client_ids: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  group_configuration: pulumi.Input[Optional['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs']] = None):
         """
-        :param pulumi.Input[_builtins.str] user_pool_arn: The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        :param pulumi.Input[_builtins.str] user_pool_arn: ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] client_ids: The unique application client IDs that are associated with the specified Amazon Cognito user pool.
         :param pulumi.Input['IdentitySourceConfigurationCognitoUserPoolConfigurationGroupConfigurationArgs'] group_configuration: The type of entity that a policy store maps to groups from an Amazon Cognito user pool identity source. See Group Configuration below.
         """
@@ -131,7 +131,7 @@ class IdentitySourceConfigurationCognitoUserPoolConfigurationArgs:
     @pulumi.getter(name="userPoolArn")
     def user_pool_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Amazon Cognito user pool that contains the identities to be authorized.
+        ARN of the Amazon Cognito user pool that contains the identities to be authorized.
         """
         return pulumi.get(self, "user_pool_arn")
 

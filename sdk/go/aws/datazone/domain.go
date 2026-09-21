@@ -132,19 +132,6 @@ import (
 //			assumeRoleDomainExecution, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//							"sts:TagSession",
-//							"sts:SetContext",
-//						},
-//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
-//							{
-//								Type: "Service",
-//								Identifiers: []string{
-//									"datazone.amazonaws.com",
-//								},
-//							},
-//						},
 //						Conditions: []iam.GetPolicyDocumentStatementCondition{
 //							{
 //								Test: "StringEquals",
@@ -160,6 +147,19 @@ import (
 //								},
 //								Variable: "aws:TagKeys",
 //							},
+//						},
+//						Principals: []iam.GetPolicyDocumentStatementPrincipal{
+//							{
+//								Type: "Service",
+//								Identifiers: []string{
+//									"datazone.amazonaws.com",
+//								},
+//							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
+//							"sts:TagSession",
+//							"sts:SetContext",
 //						},
 //					},
 //				},
@@ -191,8 +191,14 @@ import (
 //			assumeRoleDomainService, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
+//						Conditions: []iam.GetPolicyDocumentStatementCondition{
+//							{
+//								Test: "StringEquals",
+//								Values: pulumi.StringArray{
+//									current.AccountId,
+//								},
+//								Variable: "aws:SourceAccount",
+//							},
 //						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
@@ -202,14 +208,8 @@ import (
 //								},
 //							},
 //						},
-//						Conditions: []iam.GetPolicyDocumentStatementCondition{
-//							{
-//								Test: "StringEquals",
-//								Values: pulumi.StringArray{
-//									current.AccountId,
-//								},
-//								Variable: "aws:SourceAccount",
-//							},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},

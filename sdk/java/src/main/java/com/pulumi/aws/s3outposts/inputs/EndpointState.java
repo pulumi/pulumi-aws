@@ -33,14 +33,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the endpoint.
+     * ARN of the endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the endpoint.
+     * @return ARN of the endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -222,7 +222,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the endpoint.
+         * @param arn ARN of the endpoint.
          * 
          * @return builder
          * 
@@ -233,7 +233,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the endpoint.
+         * @param arn ARN of the endpoint.
          * 
          * @return builder
          * 

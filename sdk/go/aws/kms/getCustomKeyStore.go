@@ -77,12 +77,8 @@ type LookupCustomKeyStoreResult struct {
 }
 
 func LookupCustomKeyStoreOutput(ctx *pulumi.Context, args LookupCustomKeyStoreOutputArgs, opts ...pulumi.InvokeOption) LookupCustomKeyStoreResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCustomKeyStoreResultOutput, error) {
-			args := v.(LookupCustomKeyStoreArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:kms/getCustomKeyStore:getCustomKeyStore", args, LookupCustomKeyStoreResultOutput{}, options).(LookupCustomKeyStoreResultOutput), nil
-		}).(LookupCustomKeyStoreResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:kms/getCustomKeyStore:getCustomKeyStore", args, LookupCustomKeyStoreResultOutput{}, options).(LookupCustomKeyStoreResultOutput)
 }
 
 // A collection of arguments for invoking getCustomKeyStore.

@@ -74,12 +74,8 @@ type GetProvisioningArtifactsResult struct {
 }
 
 func GetProvisioningArtifactsOutput(ctx *pulumi.Context, args GetProvisioningArtifactsOutputArgs, opts ...pulumi.InvokeOption) GetProvisioningArtifactsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProvisioningArtifactsResultOutput, error) {
-			args := v.(GetProvisioningArtifactsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, GetProvisioningArtifactsResultOutput{}, options).(GetProvisioningArtifactsResultOutput), nil
-		}).(GetProvisioningArtifactsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:servicecatalog/getProvisioningArtifacts:getProvisioningArtifacts", args, GetProvisioningArtifactsResultOutput{}, options).(GetProvisioningArtifactsResultOutput)
 }
 
 // A collection of arguments for invoking getProvisioningArtifacts.

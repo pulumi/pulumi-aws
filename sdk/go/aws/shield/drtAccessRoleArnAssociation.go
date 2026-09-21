@@ -87,7 +87,7 @@ import (
 type DrtAccessRoleArnAssociation struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringOutput                          `pulumi:"roleArn"`
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrOutput `pulumi:"timeouts"`
 }
@@ -125,13 +125,13 @@ func GetDrtAccessRoleArnAssociation(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering DrtAccessRoleArnAssociation resources.
 type drtAccessRoleArnAssociationState struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  *string                              `pulumi:"roleArn"`
 	Timeouts *DrtAccessRoleArnAssociationTimeouts `pulumi:"timeouts"`
 }
 
 type DrtAccessRoleArnAssociationState struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringPtrInput
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrInput
 }
@@ -141,14 +141,14 @@ func (DrtAccessRoleArnAssociationState) ElementType() reflect.Type {
 }
 
 type drtAccessRoleArnAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  string                               `pulumi:"roleArn"`
 	Timeouts *DrtAccessRoleArnAssociationTimeouts `pulumi:"timeouts"`
 }
 
 // The set of arguments for constructing a DrtAccessRoleArnAssociation resource.
 type DrtAccessRoleArnAssociationArgs struct {
-	// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+	// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 	RoleArn  pulumi.StringInput
 	Timeouts DrtAccessRoleArnAssociationTimeoutsPtrInput
 }
@@ -240,7 +240,7 @@ func (o DrtAccessRoleArnAssociationOutput) ToDrtAccessRoleArnAssociationOutputWi
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
+// ARN of the role the SRT will use to access your AWS account. Prior to making the AssociateDRTRole request, you must attach the `AWSShieldDRTAccessPolicy` managed policy to this role.
 func (o DrtAccessRoleArnAssociationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *DrtAccessRoleArnAssociation) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }

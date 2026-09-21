@@ -119,7 +119,7 @@ type Parameter struct {
 	AllowedPattern pulumi.StringPtrOutput `pulumi:"allowedPattern"`
 	// ARN of the parameter.
 	Arn pulumi.StringOutput `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 	DataType pulumi.StringOutput `pulumi:"dataType"`
 	// Description of the parameter.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -148,9 +148,9 @@ type Parameter struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringOutput `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrOutput `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrOutput `pulumi:"valueWoVersion"`
@@ -206,7 +206,7 @@ type parameterState struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// ARN of the parameter.
 	Arn *string `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 	DataType *string `pulumi:"dataType"`
 	// Description of the parameter.
 	Description *string `pulumi:"description"`
@@ -235,9 +235,9 @@ type parameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion *int `pulumi:"valueWoVersion"`
@@ -250,7 +250,7 @@ type ParameterState struct {
 	AllowedPattern pulumi.StringPtrInput
 	// ARN of the parameter.
 	Arn pulumi.StringPtrInput
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 	DataType pulumi.StringPtrInput
 	// Description of the parameter.
 	Description pulumi.StringPtrInput
@@ -279,9 +279,9 @@ type ParameterState struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrInput
@@ -298,7 +298,7 @@ type parameterArgs struct {
 	AllowedPattern *string `pulumi:"allowedPattern"`
 	// ARN of the parameter.
 	Arn *string `pulumi:"arn"`
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 	DataType *string `pulumi:"dataType"`
 	// Description of the parameter.
 	Description *string `pulumi:"description"`
@@ -323,9 +323,9 @@ type parameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value *string `pulumi:"value"`
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo *string `pulumi:"valueWo"`
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion *int `pulumi:"valueWoVersion"`
@@ -337,7 +337,7 @@ type ParameterArgs struct {
 	AllowedPattern pulumi.StringPtrInput
 	// ARN of the parameter.
 	Arn pulumi.StringPtrInput
-	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+	// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 	DataType pulumi.StringPtrInput
 	// Description of the parameter.
 	Description pulumi.StringPtrInput
@@ -362,9 +362,9 @@ type ParameterArgs struct {
 	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type
 	Value pulumi.StringPtrInput
 	// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+	// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 	ValueWo pulumi.StringPtrInput
-	// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+	// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 	//
 	// > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 	ValueWoVersion pulumi.IntPtrInput
@@ -467,7 +467,7 @@ func (o ParameterOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
-// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for Amazon Machine Image IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
+// Data type of the parameter. Valid values: `text`, `aws:ssm:integration` and `aws:ec2:image` for AMI format, see the [Native parameter support for AMI IDs](https://docs.aws.amazon.com/systems-manager/latest/userguide/parameter-store-ec2-aliases.html).
 func (o ParameterOutput) DataType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringOutput { return v.DataType }).(pulumi.StringOutput)
 }
@@ -535,12 +535,12 @@ func (o ParameterOutput) Value() pulumi.StringOutput {
 }
 
 // **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. `valueWoVersion` can be used to trigger an update and is required with this argument.
+// Value of the parameter. This value is always marked as sensitive in the pulumi preview output, regardless of `type`. Additionally, `write-only` values are never stored to state. If set, requires `valueWoVersion`.
 func (o ParameterOutput) ValueWo() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Parameter) pulumi.StringPtrOutput { return v.ValueWo }).(pulumi.StringPtrOutput)
 }
 
-// Used together with `valueWo` to trigger an update. Increment this value when an update to the `valueWo` is required.
+// Required when `valueWo` is set. Changing this value triggers an update to `valueWo`.
 //
 // > **NOTE:** `aws:ssm:integration` dataType parameters must be of the type `SecureString` and the name must start with the prefix `/d9d01087-4a3f-49e0-b0b4-d568d7826553/ssm/integrations/webhook/`. See [here](https://docs.aws.amazon.com/systems-manager/latest/userguide/creating-integrations.html) for information on the usage of `aws:ssm:integration` parameters.
 func (o ParameterOutput) ValueWoVersion() pulumi.IntPtrOutput {

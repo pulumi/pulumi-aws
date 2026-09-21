@@ -140,12 +140,8 @@ type GetResolverRulesResult struct {
 }
 
 func GetResolverRulesOutput(ctx *pulumi.Context, args GetResolverRulesOutputArgs, opts ...pulumi.InvokeOption) GetResolverRulesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetResolverRulesResultOutput, error) {
-			args := v.(GetResolverRulesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverRules:getResolverRules", args, GetResolverRulesResultOutput{}, options).(GetResolverRulesResultOutput), nil
-		}).(GetResolverRulesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverRules:getResolverRules", args, GetResolverRulesResultOutput{}, options).(GetResolverRulesResultOutput)
 }
 
 // A collection of arguments for invoking getResolverRules.

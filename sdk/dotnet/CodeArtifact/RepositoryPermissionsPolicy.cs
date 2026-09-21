@@ -45,7 +45,6 @@ namespace Pulumi.Aws.CodeArtifact
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -57,6 +56,7 @@ namespace Pulumi.Aws.CodeArtifact
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "codeartifact:ReadFromRepository",
@@ -85,7 +85,7 @@ namespace Pulumi.Aws.CodeArtifact
     /// 
     /// #### Required
     /// 
-    /// - `ResourceArn` (String) Amazon Resource Name (ARN) of the CodeArtifact repository.
+    /// - `ResourceArn` (String) ARN of the CodeArtifact repository.
     /// 
     /// Using `pulumi import`, import CodeArtifact Repository Permissions Policies using the CodeArtifact Repository ARN. For example:
     /// 

@@ -29,12 +29,12 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.LogS3TableIntegrationSource("example", new()
     ///     {
-    ///         IntegrationArn = exampleAwsObservabilityadminS3TableIntegration.Arn,
     ///         DataSource = new Aws.CloudWatch.Inputs.LogS3TableIntegrationSourceDataSourceArgs
     ///         {
     ///             Name = "*",
     ///             Type = "*",
     ///         },
+    ///         IntegrationArn = exampleAwsObservabilityadminS3TableIntegration.Arn,
     ///     });
     /// 
     /// });
@@ -67,12 +67,12 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     ///     var exampleLogS3TableIntegrationSource = new Aws.CloudWatch.LogS3TableIntegrationSource("example", new()
     ///     {
-    ///         IntegrationArn = exampleAwsObservabilityadminS3TableIntegration.Arn,
     ///         DataSource = new Aws.CloudWatch.Inputs.LogS3TableIntegrationSourceDataSourceArgs
     ///         {
     ///             Name = "myapp",
     ///             Type = "events",
     ///         },
+    ///         IntegrationArn = exampleAwsObservabilityadminS3TableIntegration.Arn,
     ///     });
     /// 
     /// });

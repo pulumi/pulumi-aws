@@ -24,12 +24,12 @@ namespace Pulumi.Aws.Quicksight
     /// {
     ///     var example = new Aws.Quicksight.CustomPermissions("example", new()
     ///     {
-    ///         CustomPermissionsName = "example-permissions",
     ///         Capabilities = new Aws.Quicksight.Inputs.CustomPermissionsCapabilitiesArgs
     ///         {
     ///             PrintReports = "DENY",
     ///             ShareDashboards = "DENY",
     ///         },
+    ///         CustomPermissionsName = "example-permissions",
     ///     });
     /// 
     /// });

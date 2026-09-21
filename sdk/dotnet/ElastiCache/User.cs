@@ -48,14 +48,14 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
-    ///         AccessString = "on ~* +@all",
-    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "iam",
     ///         },
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///         AccessString = "on ~* +@all",
+    ///         Engine = "redis",
     ///     });
     /// 
     /// });
@@ -71,10 +71,6 @@ namespace Pulumi.Aws.ElastiCache
     /// {
     ///     var test = new Aws.ElastiCache.User("test", new()
     ///     {
-    ///         UserId = "testUserId",
-    ///         UserName = "testUserName",
-    ///         AccessString = "on ~* +@all",
-    ///         Engine = "redis",
     ///         AuthenticationMode = new Aws.ElastiCache.Inputs.UserAuthenticationModeArgs
     ///         {
     ///             Type = "password",
@@ -84,6 +80,10 @@ namespace Pulumi.Aws.ElastiCache
     ///                 "password2",
     ///             },
     ///         },
+    ///         UserId = "testUserId",
+    ///         UserName = "testUserName",
+    ///         AccessString = "on ~* +@all",
+    ///         Engine = "redis",
     ///     });
     /// 
     /// });
@@ -161,13 +161,13 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. If set, requires `PasswordsWoVersion` to be set.
         /// </summary>
         [Output("passwordsWo")]
         public Output<string?> PasswordsWo { get; private set; } = null!;
 
         /// <summary>
-        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// Required when `PasswordsWo` is set. Changing this value triggers an update to `PasswordsWo`.
         /// </summary>
         [Output("passwordsWoVersion")]
         public Output<int?> PasswordsWoVersion { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. If set, requires `PasswordsWoVersion` to be set.
         /// </summary>
         public Input<string>? PasswordsWo
         {
@@ -310,7 +310,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// Required when `PasswordsWo` is set. Changing this value triggers an update to `PasswordsWo`.
         /// </summary>
         [Input("passwordsWoVersion")]
         public Input<int>? PasswordsWoVersion { get; set; }
@@ -406,7 +406,7 @@ namespace Pulumi.Aws.ElastiCache
 
         /// <summary>
         /// **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. See Write-Only Arguments for more information. Requires Terraform 1.11+.
+        /// Write-only password for this user. This argument is not stored in state. Conflicts with `Passwords` and `AuthenticationMode`. If set, requires `PasswordsWoVersion` to be set.
         /// </summary>
         public Input<string>? PasswordsWo
         {
@@ -419,7 +419,7 @@ namespace Pulumi.Aws.ElastiCache
         }
 
         /// <summary>
-        /// Version number for `PasswordsWo`. Increment this value to trigger a password update. Required when using `PasswordsWo`.
+        /// Required when `PasswordsWo` is set. Changing this value triggers an update to `PasswordsWo`.
         /// </summary>
         [Input("passwordsWoVersion")]
         public Input<int>? PasswordsWoVersion { get; set; }

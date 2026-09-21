@@ -87,14 +87,14 @@ public class DelegatedAdministrator extends com.pulumi.resources.CustomResource 
         return this.accountId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * ARN of the delegated administrator&#39;s account.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the delegated administrator&#39;s account.
+     * @return ARN of the delegated administrator&#39;s account.
      * 
      */
     public Output<String> arn() {

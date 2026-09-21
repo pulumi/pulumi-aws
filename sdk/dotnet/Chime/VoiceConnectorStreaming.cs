@@ -65,7 +65,6 @@ namespace Pulumi.Aws.Chime
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -77,6 +76,7 @@ namespace Pulumi.Aws.Chime
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -99,42 +99,42 @@ namespace Pulumi.Aws.Chime
     /// 
     ///     var example = new Aws.ChimeSDKMediaPipelines.MediaInsightsPipelineConfiguration("example", new()
     ///     {
-    ///         Name = "ExampleConfig",
-    ///         ResourceAccessRoleArn = exampleRole.Arn,
     ///         Elements = new[]
     ///         {
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///                 AmazonTranscribeCallAnalyticsProcessorConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs
     ///                 {
     ///                     LanguageCode = "en-US",
     ///                 },
+    ///                 Type = "AmazonTranscribeCallAnalyticsProcessor",
     ///             },
     ///             new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementArgs
     ///             {
-    ///                 Type = "KinesisDataStreamSink",
     ///                 KinesisDataStreamSinkConfiguration = new Aws.ChimeSDKMediaPipelines.Inputs.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs
     ///                 {
     ///                     InsightsTarget = exampleStream.Arn,
     ///                 },
+    ///                 Type = "KinesisDataStreamSink",
     ///             },
     ///         },
+    ///         Name = "ExampleConfig",
+    ///         ResourceAccessRoleArn = exampleRole.Arn,
     ///     });
     /// 
     ///     var defaultVoiceConnectorStreaming = new Aws.Chime.VoiceConnectorStreaming("default", new()
     ///     {
+    ///         MediaInsightsConfiguration = new Aws.Chime.Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs
+    ///         {
+    ///             Disabled = false,
+    ///             ConfigurationArn = example.Arn,
+    ///         },
     ///         Disabled = false,
     ///         VoiceConnectorId = @default.Id,
     ///         DataRetention = 7,
     ///         StreamingNotificationTargets = new[]
     ///         {
     ///             "SQS",
-    ///         },
-    ///         MediaInsightsConfiguration = new Aws.Chime.Inputs.VoiceConnectorStreamingMediaInsightsConfigurationArgs
-    ///         {
-    ///             Disabled = false,
-    ///             ConfigurationArn = example.Arn,
     ///         },
     ///     });
     /// 

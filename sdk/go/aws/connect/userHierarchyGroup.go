@@ -100,7 +100,7 @@ import (
 type UserHierarchyGroup struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier for the hierarchy group.
 	HierarchyGroupId pulumi.StringOutput `pulumi:"hierarchyGroupId"`
@@ -156,7 +156,7 @@ func GetUserHierarchyGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering UserHierarchyGroup resources.
 type userHierarchyGroupState struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn *string `pulumi:"arn"`
 	// The identifier for the hierarchy group.
 	HierarchyGroupId *string `pulumi:"hierarchyGroupId"`
@@ -180,7 +180,7 @@ type userHierarchyGroupState struct {
 }
 
 type UserHierarchyGroupState struct {
-	// The Amazon Resource Name (ARN) of the hierarchy group.
+	// The ARN of the hierarchy group.
 	Arn pulumi.StringPtrInput
 	// The identifier for the hierarchy group.
 	HierarchyGroupId pulumi.StringPtrInput
@@ -323,7 +323,7 @@ func (o UserHierarchyGroupOutput) ToUserHierarchyGroupOutputWithContext(ctx cont
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the hierarchy group.
+// The ARN of the hierarchy group.
 func (o UserHierarchyGroupOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *UserHierarchyGroup) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

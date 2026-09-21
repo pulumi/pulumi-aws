@@ -33,13 +33,13 @@ import (
 //				return err
 //			}
 //			exampleGetUser, err := identitystore.LookupUser(ctx, &identitystore.LookupUserArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
 //				AlternateIdentifier: identitystore.GetUserAlternateIdentifier{
 //					UniqueAttribute: identitystore.GetUserAlternateIdentifierUniqueAttribute{
 //						AttributePath:  "UserName",
 //						AttributeValue: "ExampleUser",
 //					},
 //				},
+//				IdentityStoreId: example.IdentityStoreIds[0],
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -118,12 +118,8 @@ type LookupUserResult struct {
 }
 
 func LookupUserOutput(ctx *pulumi.Context, args LookupUserOutputArgs, opts ...pulumi.InvokeOption) LookupUserResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupUserResultOutput, error) {
-			args := v.(LookupUserArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:identitystore/getUser:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput), nil
-		}).(LookupUserResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:identitystore/getUser:getUser", args, LookupUserResultOutput{}, options).(LookupUserResultOutput)
 }
 
 // A collection of arguments for invoking getUser.

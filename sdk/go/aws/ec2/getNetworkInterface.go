@@ -106,12 +106,8 @@ type LookupNetworkInterfaceResult struct {
 }
 
 func LookupNetworkInterfaceOutput(ctx *pulumi.Context, args LookupNetworkInterfaceOutputArgs, opts ...pulumi.InvokeOption) LookupNetworkInterfaceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupNetworkInterfaceResultOutput, error) {
-			args := v.(LookupNetworkInterfaceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getNetworkInterface:getNetworkInterface", args, LookupNetworkInterfaceResultOutput{}, options).(LookupNetworkInterfaceResultOutput), nil
-		}).(LookupNetworkInterfaceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getNetworkInterface:getNetworkInterface", args, LookupNetworkInterfaceResultOutput{}, options).(LookupNetworkInterfaceResultOutput)
 }
 
 // A collection of arguments for invoking getNetworkInterface.

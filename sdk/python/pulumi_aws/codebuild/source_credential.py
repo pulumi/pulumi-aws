@@ -290,7 +290,7 @@ class SourceCredential(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
+        - `arn` (String) ARN of the CodeBuild source credential.
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
@@ -369,7 +369,7 @@ class SourceCredential(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild source credential.
+        - `arn` (String) ARN of the CodeBuild source credential.
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 

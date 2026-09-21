@@ -52,7 +52,7 @@ import (
 type HostKey struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of host key.
+	// ARN of host key.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Text description.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
@@ -119,7 +119,7 @@ func GetHostKey(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering HostKey resources.
 type hostKeyState struct {
-	// Amazon Resource Name (ARN) of host key.
+	// ARN of host key.
 	Arn *string `pulumi:"arn"`
 	// Text description.
 	Description *string `pulumi:"description"`
@@ -143,7 +143,7 @@ type hostKeyState struct {
 }
 
 type HostKeyState struct {
-	// Amazon Resource Name (ARN) of host key.
+	// ARN of host key.
 	Arn pulumi.StringPtrInput
 	// Text description.
 	Description pulumi.StringPtrInput
@@ -290,7 +290,7 @@ func (o HostKeyOutput) ToHostKeyOutputWithContext(ctx context.Context) HostKeyOu
 	return o
 }
 
-// Amazon Resource Name (ARN) of host key.
+// ARN of host key.
 func (o HostKeyOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *HostKey) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

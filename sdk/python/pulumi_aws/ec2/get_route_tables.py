@@ -118,11 +118,11 @@ def get_route_tables(filters: Optional[Sequence[Union['GetRouteTablesFilterArgs'
     from typing import Any
     import pulumi_aws as aws
 
-    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[{
+    rts = aws.ec2.get_route_tables(filters=[{
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
-        }])
+        }],
+        vpc_id=vpc_id)
     r: list[aws.ec2.Route] = []
     def create_r(range_body):
         for r_range in [{"value": i} for i in range(0, range_body)]:
@@ -175,11 +175,11 @@ def get_route_tables_output(filters: pulumi.Input[Optional[Optional[Sequence[Uni
     from typing import Any
     import pulumi_aws as aws
 
-    rts = aws.ec2.get_route_tables(vpc_id=vpc_id,
-        filters=[{
+    rts = aws.ec2.get_route_tables(filters=[{
             "name": "tag:kubernetes.io/kops/role",
             "values": ["private*"],
-        }])
+        }],
+        vpc_id=vpc_id)
     r: list[aws.ec2.Route] = []
     def create_r(range_body):
         for r_range in [{"value": i} for i in range(0, range_body)]:

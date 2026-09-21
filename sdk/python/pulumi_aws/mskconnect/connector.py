@@ -45,7 +45,7 @@ class ConnectorArgs:
         :param pulumi.Input['ConnectorKafkaClusterEncryptionInTransitArgs'] kafka_cluster_encryption_in_transit: Details of encryption in transit to the Apache Kafka cluster. See `kafka_cluster_encryption_in_transit` Block for details.
         :param pulumi.Input[_builtins.str] kafkaconnect_version: The version of Kafka Connect. It has to be compatible with both the Apache Kafka cluster's version and the plugins.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
-        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] description: A summary description of the connector.
@@ -164,7 +164,7 @@ class ConnectorArgs:
     @pulumi.getter(name="serviceExecutionRoleArn")
     def service_execution_role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 
         The following arguments are optional:
         """
@@ -270,7 +270,7 @@ class _ConnectorState:
         """
         Input properties used for looking up and filtering Connector resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the connector.
+        :param pulumi.Input[_builtins.str] arn: ARN of the connector.
         :param pulumi.Input['ConnectorCapacityArgs'] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[_builtins.str] description: A summary description of the connector.
@@ -282,7 +282,7 @@ class _ConnectorState:
         :param pulumi.Input[_builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input['ConnectorPluginArgs']]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -329,7 +329,7 @@ class _ConnectorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the connector.
+        ARN of the connector.
         """
         return pulumi.get(self, "arn")
 
@@ -473,7 +473,7 @@ class _ConnectorState:
     @pulumi.getter(name="serviceExecutionRoleArn")
     def service_execution_role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 
         The following arguments are optional:
         """
@@ -565,29 +565,21 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
-            name="example",
-            kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcu_count": 1,
-                    "min_worker_count": 1,
-                    "max_worker_count": 2,
                     "scale_in_policy": {
                         "cpu_utilization_percentage": 20,
                     },
                     "scale_out_policy": {
                         "cpu_utilization_percentage": 80,
                     },
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
                 },
-            },
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
             },
             kafka_cluster={
                 "apache_kafka_cluster": {
-                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
                         "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
@@ -596,6 +588,7 @@ class Connector(pulumi.CustomResource):
                             example3["id"],
                         ],
                     },
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                 },
             },
             kafka_cluster_client_authentication={
@@ -610,6 +603,13 @@ class Connector(pulumi.CustomResource):
                     "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
+            name="example",
+            kafkaconnect_version="2.7.1",
+            connector_configuration={
+                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+                "tasks.max": "1",
+                "topics": "example",
+            },
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
@@ -635,7 +635,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -659,29 +659,21 @@ class Connector(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mskconnect.Connector("example",
-            name="example",
-            kafkaconnect_version="2.7.1",
             capacity={
                 "autoscaling": {
-                    "mcu_count": 1,
-                    "min_worker_count": 1,
-                    "max_worker_count": 2,
                     "scale_in_policy": {
                         "cpu_utilization_percentage": 20,
                     },
                     "scale_out_policy": {
                         "cpu_utilization_percentage": 80,
                     },
+                    "mcu_count": 1,
+                    "min_worker_count": 1,
+                    "max_worker_count": 2,
                 },
-            },
-            connector_configuration={
-                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
-                "tasks.max": "1",
-                "topics": "example",
             },
             kafka_cluster={
                 "apache_kafka_cluster": {
-                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                     "vpc": {
                         "security_groups": [example_aws_security_group["id"]],
                         "subnets": [
@@ -690,6 +682,7 @@ class Connector(pulumi.CustomResource):
                             example3["id"],
                         ],
                     },
+                    "bootstrap_servers": example_aws_msk_cluster["bootstrapBrokersTls"],
                 },
             },
             kafka_cluster_client_authentication={
@@ -704,6 +697,13 @@ class Connector(pulumi.CustomResource):
                     "revision": int(example_aws_mskconnect_custom_plugin["latestRevision"]),
                 },
             }],
+            name="example",
+            kafkaconnect_version="2.7.1",
+            connector_configuration={
+                "connector.class": "com.github.jcustenborder.kafka.connect.simulator.SimulatorSinkConnector",
+                "tasks.max": "1",
+                "topics": "example",
+            },
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
 
@@ -821,7 +821,7 @@ class Connector(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the connector.
+        :param pulumi.Input[_builtins.str] arn: ARN of the connector.
         :param pulumi.Input[Union['ConnectorCapacityArgs', 'ConnectorCapacityArgsDict']] capacity: Information about the capacity allocated to the connector. See `capacity` Block for details.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] connector_configuration: A map of keys to values that represent the configuration for the connector.
         :param pulumi.Input[_builtins.str] description: A summary description of the connector.
@@ -833,7 +833,7 @@ class Connector(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] name: The name of the connector.
         :param pulumi.Input[Sequence[pulumi.Input[Union['ConnectorPluginArgs', 'ConnectorPluginArgsDict']]]] plugins: Specifies which plugins to use for the connector. See `plugin` Block for details.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] service_execution_role_arn: The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        :param pulumi.Input[_builtins.str] service_execution_role_arn: ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
                
                The following arguments are optional:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -868,7 +868,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the connector.
+        ARN of the connector.
         """
         return pulumi.get(self, "arn")
 
@@ -964,7 +964,7 @@ class Connector(pulumi.CustomResource):
     @pulumi.getter(name="serviceExecutionRoleArn")
     def service_execution_role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
+        ARN of the IAM role used by the connector to access the Amazon Web Services resources that it needs. The types of resources depends on the logic of the connector. For example, a connector that has Amazon S3 as a destination must have permissions that allow it to write to the S3 destination bucket.
 
         The following arguments are optional:
         """

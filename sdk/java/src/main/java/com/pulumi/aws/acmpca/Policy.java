@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *         final var example = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(            
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("1")
- *                     .effect("Allow")
  *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                         .type("AWS")
  *                         .identifiers(current.accountId())
  *                         .build())
+ *                     .sid("1")
+ *                     .effect("Allow")
  *                     .actions(                    
  *                         "acm-pca:DescribeCertificateAuthority",
  *                         "acm-pca:GetCertificate",
@@ -65,19 +65,19 @@ import javax.annotation.Nullable;
  *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .build(),
  *                 GetPolicyDocumentStatementArgs.builder()
- *                     .sid("2")
- *                     .effect(allow)
- *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
- *                         .type("AWS")
- *                         .identifiers(current.accountId())
- *                         .build())
- *                     .actions("acm-pca:IssueCertificate")
- *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
  *                         .test("StringEquals")
  *                         .variable("acm-pca:TemplateArn")
  *                         .values("arn:aws:acm-pca:::template/EndEntityCertificate/V1")
  *                         .build())
+ *                     .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                         .type("AWS")
+ *                         .identifiers(current.accountId())
+ *                         .build())
+ *                     .sid("2")
+ *                     .effect(allow)
+ *                     .actions("acm-pca:IssueCertificate")
+ *                     .resources(exampleAwsAcmpcaCertificateAuthority.arn())
  *                     .build())
  *             .build());
  * 
@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+ * - `resourceArn` (String) ARN of the ACM PCA certificate authority.
  * 
  * Using `pulumi import`, import `aws.acmpca.Policy` using the `resourceArn` value. For example:
  * 

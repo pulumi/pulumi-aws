@@ -49,19 +49,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var myDomain = new Domain("myDomain", DomainArgs.builder()
- *             .domainName("my-opensearch-domain")
- *             .engineVersion("Elasticsearch_7.10")
  *             .clusterConfig(DomainClusterConfigArgs.builder()
  *                 .instanceType("r4.large.search")
  *                 .build())
+ *             .domainName("my-opensearch-domain")
+ *             .engineVersion("Elasticsearch_7.10")
  *             .build());
  * 
  *         var example = new Package("example", PackageArgs.builder()
- *             .packageName("example-txt")
  *             .packageSource(PackagePackageSourceArgs.builder()
  *                 .s3BucketName(myOpensearchPackages.bucket())
  *                 .s3Key(exampleAwsS3Object.key())
  *                 .build())
+ *             .packageName("example-txt")
  *             .packageType("TXT-DICTIONARY")
  *             .build());
  * 

@@ -32,13 +32,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
-//				Name:             pulumi.String("example"),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
-//				SecurityProfileIds: pulumi.StringArray{
-//					exampleAwsConnectSecurityProfile.SecurityProfileId,
-//				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
 //					LastName:  pulumi.String("example2"),
@@ -46,6 +39,13 @@ import (
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
 //					PhoneType:                 pulumi.String("SOFT_PHONE"),
+//				},
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
+//				Password:         pulumi.String("Password123"),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
+//				SecurityProfileIds: pulumi.StringArray{
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //			})
 //			if err != nil {
@@ -72,14 +72,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
-//				Name:             pulumi.String("example"),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
-//				HierarchyGroupId: pulumi.Any(exampleAwsConnectUserHierarchyGroup.HierarchyGroupId),
-//				SecurityProfileIds: pulumi.StringArray{
-//					exampleAwsConnectSecurityProfile.SecurityProfileId,
-//				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					FirstName: pulumi.String("example"),
 //					LastName:  pulumi.String("example2"),
@@ -87,6 +79,14 @@ import (
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
 //					PhoneType:                 pulumi.String("SOFT_PHONE"),
+//				},
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
+//				Password:         pulumi.String("Password123"),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
+//				HierarchyGroupId: pulumi.Any(exampleAwsConnectUserHierarchyGroup.HierarchyGroupId),
+//				SecurityProfileIds: pulumi.StringArray{
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //			})
 //			if err != nil {
@@ -113,13 +113,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
-//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
-//				Name:             pulumi.String("example"),
-//				Password:         pulumi.String("Password123"),
-//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
-//				SecurityProfileIds: pulumi.StringArray{
-//					exampleAwsConnectSecurityProfile.SecurityProfileId,
-//				},
 //				IdentityInfo: &connect.UserIdentityInfoArgs{
 //					Email:          pulumi.String("example@example.com"),
 //					FirstName:      pulumi.String("example"),
@@ -129,6 +122,13 @@ import (
 //				PhoneConfig: &connect.UserPhoneConfigArgs{
 //					AfterContactWorkTimeLimit: pulumi.Int(0),
 //					PhoneType:                 pulumi.String("SOFT_PHONE"),
+//				},
+//				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
+//				Name:             pulumi.String("example"),
+//				Password:         pulumi.String("Password123"),
+//				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
+//				SecurityProfileIds: pulumi.StringArray{
+//					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //				},
 //			})
 //			if err != nil {
@@ -155,16 +155,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
+//				PhoneConfig: &connect.UserPhoneConfigArgs{
+//					AfterContactWorkTimeLimit: pulumi.Int(0),
+//					PhoneType:                 pulumi.String("SOFT_PHONE"),
+//				},
 //				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
 //				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
 //				RoutingProfileId: pulumi.Any(exampleAwsConnectRoutingProfile.RoutingProfileId),
 //				SecurityProfileIds: pulumi.StringArray{
 //					exampleAwsConnectSecurityProfile.SecurityProfileId,
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					PhoneType:                 pulumi.String("SOFT_PHONE"),
 //				},
 //			})
 //			if err != nil {
@@ -191,6 +191,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := connect.NewUser(ctx, "example", &connect.UserArgs{
+//				PhoneConfig: &connect.UserPhoneConfigArgs{
+//					AfterContactWorkTimeLimit: pulumi.Int(0),
+//					AutoAccept:                pulumi.Bool(false),
+//					DeskPhoneNumber:           pulumi.String("+112345678912"),
+//					PhoneType:                 pulumi.String("DESK_PHONE"),
+//				},
 //				InstanceId:       pulumi.Any(exampleAwsConnectInstance.Id),
 //				Name:             pulumi.String("example"),
 //				Password:         pulumi.String("Password123"),
@@ -198,12 +204,6 @@ import (
 //				SecurityProfileIds: pulumi.StringArray{
 //					exampleAwsConnectSecurityProfile.SecurityProfileId,
 //					example2.SecurityProfileId,
-//				},
-//				PhoneConfig: &connect.UserPhoneConfigArgs{
-//					AfterContactWorkTimeLimit: pulumi.Int(0),
-//					AutoAccept:                pulumi.Bool(false),
-//					DeskPhoneNumber:           pulumi.String("+112345678912"),
-//					PhoneType:                 pulumi.String("DESK_PHONE"),
 //				},
 //			})
 //			if err != nil {
@@ -225,7 +225,7 @@ import (
 type User struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the user.
+	// ARN of the user.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
 	DirectoryUserId pulumi.StringOutput `pulumi:"directoryUserId"`
@@ -305,7 +305,7 @@ func GetUser(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering User resources.
 type userState struct {
-	// The Amazon Resource Name (ARN) of the user.
+	// ARN of the user.
 	Arn *string `pulumi:"arn"`
 	// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
 	DirectoryUserId *string `pulumi:"directoryUserId"`
@@ -337,7 +337,7 @@ type userState struct {
 }
 
 type UserState struct {
-	// The Amazon Resource Name (ARN) of the user.
+	// ARN of the user.
 	Arn pulumi.StringPtrInput
 	// The identifier of the user account in the directory used for identity management. If Amazon Connect cannot access the directory, you can specify this identifier to authenticate users. If you include the identifier, we assume that Amazon Connect cannot access the directory. Otherwise, the identity information is used to authenticate users from your directory. This parameter is required if you are using an existing directory for identity management in Amazon Connect when Amazon Connect cannot access your directory to authenticate users. If you are using SAML for identity management and include this parameter, an error is returned.
 	DirectoryUserId pulumi.StringPtrInput
@@ -512,7 +512,7 @@ func (o UserOutput) ToUserOutputWithContext(ctx context.Context) UserOutput {
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the user.
+// ARN of the user.
 func (o UserOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *User) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

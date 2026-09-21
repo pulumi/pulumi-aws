@@ -34,7 +34,9 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := secretsmanager.NewSecret(ctx, "test", &secretsmanager.SecretArgs{
 //				Name: pulumi.String("example-secret"),
-//			})
+//			}, pulumi.IgnoreChanges([]string{
+//				"tags",
+//			}))
 //			if err != nil {
 //				return err
 //			}

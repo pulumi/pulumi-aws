@@ -33,7 +33,6 @@ import * as utilities from "../utilities";
  *     disabled: !baseline.defaultBaseline,
  * } }), {})));
  * const exampleQuicksetupConfigurationManager = new aws.ssm.QuicksetupConfigurationManager("example", {
- *     name: "example",
  *     configurationDefinition: {
  *         localDeploymentAdministrationRoleArn: Promise.all([currentGetPartition, current]).then(([currentGetPartition, current]) => `arn:${currentGetPartition.partition}:iam::${current.accountId}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole`),
  *         localDeploymentExecutionRoleName: "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
@@ -55,6 +54,7 @@ import * as utilities from "../utilities";
  *             TargetType: "*",
  *         },
  *     },
+ *     name: "example",
  * });
  * ```
  *

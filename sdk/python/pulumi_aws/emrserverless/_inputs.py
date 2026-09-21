@@ -554,7 +554,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgsDict(T
     """
     encryption_key_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+    KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
     """
     log_group_name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -579,7 +579,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs:
                  log_types: pulumi.Input[Optional[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.bool] enabled: Enables CloudWatch logging.
-        :param pulumi.Input[_builtins.str] encryption_key_arn: The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        :param pulumi.Input[_builtins.str] encryption_key_arn: KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
         :param pulumi.Input[_builtins.str] log_group_name: The name of the log group in Amazon CloudWatch Logs where you want to publish your logs.
         :param pulumi.Input[_builtins.str] log_stream_name_prefix: Prefix for the CloudWatch log stream name.
         :param pulumi.Input[Sequence[pulumi.Input['ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationLogTypeArgs']]] log_types: The types of logs that you want to publish to CloudWatch. If you don't specify any log types, driver STDOUT and STDERR logs will be published to CloudWatch Logs by default. See log_types for more details.
@@ -610,7 +610,7 @@ class ApplicationMonitoringConfigurationCloudwatchLoggingConfigurationArgs:
     @pulumi.getter(name="encryptionKeyArn")
     def encryption_key_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The AWS Key Management Service (KMS) key ARN to encrypt the logs that you store in CloudWatch Logs.
+        KMS key ARN to encrypt the logs that you store in CloudWatch Logs.
         """
         return pulumi.get(self, "encryption_key_arn")
 

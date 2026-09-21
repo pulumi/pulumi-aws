@@ -29,8 +29,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcDhcpOptionsAssociation(ctx, "dns_resolver", &ec2.VpcDhcpOptionsAssociationArgs{
-//				VpcId:         pulumi.Any(fooAwsVpc.Id),
-//				DhcpOptionsId: pulumi.Any(foo.Id),
+//				VpcId:         pulumi.Any(foo.Id),
+//				DhcpOptionsId: pulumi.Any(fooAwsVpcDhcpOptions.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.outputs;
 
+import com.pulumi.aws.workspaces.outputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfig;
 import com.pulumi.core.annotations.CustomType;
 import java.lang.String;
 import java.util.Objects;
@@ -11,6 +12,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class DirectoryWorkspaceAccessProperties {
+    /**
+     * @return Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+     * 
+     */
+    private @Nullable DirectoryWorkspaceAccessPropertiesAccessEndpointConfig accessEndpointConfig;
     /**
      * @return Indicates whether users can use Android devices to access their WorkSpaces.
      * 
@@ -53,6 +59,13 @@ public final class DirectoryWorkspaceAccessProperties {
     private @Nullable String deviceTypeZeroclient;
 
     private DirectoryWorkspaceAccessProperties() {}
+    /**
+     * @return Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+     * 
+     */
+    public Optional<DirectoryWorkspaceAccessPropertiesAccessEndpointConfig> accessEndpointConfig() {
+        return Optional.ofNullable(this.accessEndpointConfig);
+    }
     /**
      * @return Indicates whether users can use Android devices to access their WorkSpaces.
      * 
@@ -119,6 +132,7 @@ public final class DirectoryWorkspaceAccessProperties {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable DirectoryWorkspaceAccessPropertiesAccessEndpointConfig accessEndpointConfig;
         private @Nullable String deviceTypeAndroid;
         private @Nullable String deviceTypeChromeos;
         private @Nullable String deviceTypeIos;
@@ -130,6 +144,7 @@ public final class DirectoryWorkspaceAccessProperties {
         public Builder() {}
         public Builder(DirectoryWorkspaceAccessProperties defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.accessEndpointConfig = defaults.accessEndpointConfig;
     	      this.deviceTypeAndroid = defaults.deviceTypeAndroid;
     	      this.deviceTypeChromeos = defaults.deviceTypeChromeos;
     	      this.deviceTypeIos = defaults.deviceTypeIos;
@@ -140,6 +155,12 @@ public final class DirectoryWorkspaceAccessProperties {
     	      this.deviceTypeZeroclient = defaults.deviceTypeZeroclient;
         }
 
+        @CustomType.Setter
+        public Builder accessEndpointConfig(@Nullable DirectoryWorkspaceAccessPropertiesAccessEndpointConfig accessEndpointConfig) {
+
+            this.accessEndpointConfig = accessEndpointConfig;
+            return this;
+        }
         @CustomType.Setter
         public Builder deviceTypeAndroid(@Nullable String deviceTypeAndroid) {
 
@@ -190,6 +211,7 @@ public final class DirectoryWorkspaceAccessProperties {
         }
         public DirectoryWorkspaceAccessProperties build() {
             final var _resultValue = new DirectoryWorkspaceAccessProperties();
+            _resultValue.accessEndpointConfig = accessEndpointConfig;
             _resultValue.deviceTypeAndroid = deviceTypeAndroid;
             _resultValue.deviceTypeChromeos = deviceTypeChromeos;
             _resultValue.deviceTypeIos = deviceTypeIos;

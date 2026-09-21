@@ -100,18 +100,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				Name: pulumi.String("example"),
-//				ConnectionProperties: pulumi.StringMap{
-//					"JDBC_CONNECTION_URL": pulumi.Sprintf("jdbc:mysql://%v/exampledatabase", exampleAwsRdsCluster.Endpoint),
-//					"PASSWORD":            pulumi.String("examplepassword"),
-//					"USERNAME":            pulumi.String("exampleusername"),
-//				},
 //				PhysicalConnectionRequirements: &glue.ConnectionPhysicalConnectionRequirementsArgs{
 //					AvailabilityZone: pulumi.Any(exampleAwsSubnet.AvailabilityZone),
 //					SecurityGroupIdLists: pulumi.StringArray{
 //						exampleAwsSecurityGroup.Id,
 //					},
 //					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//				},
+//				Name: pulumi.String("example"),
+//				ConnectionProperties: pulumi.StringMap{
+//					"JDBC_CONNECTION_URL": pulumi.Sprintf("jdbc:mysql://%v/exampledatabase", exampleAwsRdsCluster.Endpoint),
+//					"PASSWORD":            pulumi.String("examplepassword"),
+//					"USERNAME":            pulumi.String("exampleusername"),
 //				},
 //			})
 //			if err != nil {
@@ -594,17 +594,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := glue.NewConnection(ctx, "example", &glue.ConnectionArgs{
-//				Name:           pulumi.String("athenafederatedcatalog_mysql"),
-//				ConnectionType: pulumi.String("MYSQL"),
-//				AthenaProperties: pulumi.StringMap{
-//					"lambda_function_arn": pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql"),
-//					"spill_bucket":        pulumi.Any(exampleAwsS3Bucket.Bucket),
-//				},
-//				ConnectionProperties: pulumi.StringMap{
-//					"HOST":     pulumi.Any(exampleAwsRdsCluster.Endpoint),
-//					"PORT":     pulumi.Any(exampleAwsRdsCluster.Port),
-//					"DATABASE": pulumi.Any(exampleAwsRdsCluster.DatabaseName),
-//				},
 //				AuthenticationConfiguration: &glue.ConnectionAuthenticationConfigurationArgs{
 //					AuthenticationType: pulumi.String("BASIC"),
 //					SecretArn:          pulumi.Any(exampleAwsSecretsmanagerSecret.Arn),
@@ -615,6 +604,17 @@ import (
 //						exampleAwsSecurityGroup.Id,
 //					},
 //					SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//				},
+//				Name:           pulumi.String("athenafederatedcatalog_mysql"),
+//				ConnectionType: pulumi.String("MYSQL"),
+//				AthenaProperties: pulumi.StringMap{
+//					"lambda_function_arn": pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:athenafederatedcatalog_mysql"),
+//					"spill_bucket":        pulumi.Any(exampleAwsS3Bucket.Bucket),
+//				},
+//				ConnectionProperties: pulumi.StringMap{
+//					"HOST":     pulumi.Any(exampleAwsRdsCluster.Endpoint),
+//					"PORT":     pulumi.Any(exampleAwsRdsCluster.Port),
+//					"DATABASE": pulumi.Any(exampleAwsRdsCluster.DatabaseName),
 //				},
 //			})
 //			if err != nil {

@@ -41,7 +41,7 @@ class ComponentArgs:
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.str] description: Description of the component.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key used to encrypt the component.
         :param pulumi.Input[_builtins.str] name: Name of the component.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.bool] skip_destroy: Whether to retain the old version when the resource is destroyed or replacement is necessary. Defaults to `false`.
@@ -140,7 +140,7 @@ class ComponentArgs:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        ARN of the KMS Key used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -247,13 +247,13 @@ class _ComponentState:
         """
         Input properties used for looking up and filtering Component resources.
 
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the component.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the component.
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.str] date_created: Date the component was created.
         :param pulumi.Input[_builtins.str] description: Description of the component.
         :param pulumi.Input[_builtins.bool] encrypted: Encryption status of the component.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key used to encrypt the component.
         :param pulumi.Input[_builtins.str] name: Name of the component.
         :param pulumi.Input[_builtins.str] owner: Owner of the component.
         :param pulumi.Input[_builtins.str] platform: Platform of the component.
@@ -311,7 +311,7 @@ class _ComponentState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Required) Amazon Resource Name (ARN) of the component.
+        (Required) ARN of the component.
         """
         return pulumi.get(self, "arn")
 
@@ -383,7 +383,7 @@ class _ComponentState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        ARN of the KMS Key used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -567,7 +567,7 @@ class Component(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `imagebuilder_get_components` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder_get_components` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -581,7 +581,7 @@ class Component(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.str] description: Description of the component.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key used to encrypt the component.
         :param pulumi.Input[_builtins.str] name: Name of the component.
         :param pulumi.Input[_builtins.str] platform: Platform of the component.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -621,7 +621,7 @@ class Component(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import `imagebuilder_get_components` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder_get_components` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
@@ -723,13 +723,13 @@ class Component(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the component.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the component.
         :param pulumi.Input[_builtins.str] change_description: Change description of the component.
         :param pulumi.Input[_builtins.str] data: Inline YAML string with data of the component. Exactly one of `data` and `uri` can be specified. the provider will only perform drift detection of its value when present in a configuration.
         :param pulumi.Input[_builtins.str] date_created: Date the component was created.
         :param pulumi.Input[_builtins.str] description: Description of the component.
         :param pulumi.Input[_builtins.bool] encrypted: Encryption status of the component.
-        :param pulumi.Input[_builtins.str] kms_key_id: Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN of the KMS Key used to encrypt the component.
         :param pulumi.Input[_builtins.str] name: Name of the component.
         :param pulumi.Input[_builtins.str] owner: Owner of the component.
         :param pulumi.Input[_builtins.str] platform: Platform of the component.
@@ -774,7 +774,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        (Required) Amazon Resource Name (ARN) of the component.
+        (Required) ARN of the component.
         """
         return pulumi.get(self, "arn")
 
@@ -822,7 +822,7 @@ class Component(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Key Management Service (KMS) Key used to encrypt the component.
+        ARN of the KMS Key used to encrypt the component.
         """
         return pulumi.get(self, "kms_key_id")
 

@@ -178,14 +178,14 @@ public class EndpointAuthorization extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
     @Export(name="vpcIds", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> vpcIds;
 
     /**
-     * @return The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+     * @return VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
      * 
      */
     public Output<Optional<List<String>>> vpcIds() {

@@ -17,6 +17,9 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.Firewall("example", {
+ *     subnetMappings: [{
+ *         subnetId: exampleAwsSubnet.id,
+ *     }],
  *     name: "example",
  *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
  *     vpcId: exampleAwsVpc.id,
@@ -24,12 +27,15 @@ import * as utilities from "../utilities";
  *         "TLS_SNI",
  *         "HTTP_HOST",
  *     ],
- *     subnetMappings: [{
- *         subnetId: exampleAwsSubnet.id,
- *     }],
  *     tags: {
  *         Tag1: "Value1",
  *         Tag2: "Value2",
+ *     },
+ * }, {
+ *     customTimeouts: {
+ *         create: "40m",
+ *         update: "50m",
+ *         "delete": "1h",
  *     },
  * });
  * ```
@@ -44,9 +50,6 @@ import * as utilities from "../utilities";
  *     state: "available",
  * });
  * const exampleFirewall = new aws.networkfirewall.Firewall("example", {
- *     name: "example",
- *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
- *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  *     availabilityZoneMappings: [
  *         {
  *             availabilityZoneId: example.then(example => example.zoneIds?.[0]),
@@ -55,6 +58,9 @@ import * as utilities from "../utilities";
  *             availabilityZoneId: example.then(example => example.zoneIds?.[1]),
  *         },
  *     ],
+ *     name: "example",
+ *     firewallPolicyArn: exampleAwsNetworkfirewallFirewallPolicy.arn,
+ *     transitGatewayId: exampleAwsEc2TransitGateway.id,
  * });
  * ```
  *
@@ -99,7 +105,7 @@ export class Firewall extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -127,7 +133,7 @@ export class Firewall extends pulumi.CustomResource {
      */
     declare public readonly encryptionConfiguration: pulumi.Output<outputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     declare public readonly firewallPolicyArn: pulumi.Output<string>;
     /**
@@ -248,7 +254,7 @@ export class Firewall extends pulumi.CustomResource {
  */
 export interface FirewallState {
     /**
-     * The Amazon Resource Name (ARN) that identifies the firewall.
+     * ARN that identifies the firewall.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -276,7 +282,7 @@ export interface FirewallState {
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     firewallPolicyArn?: pulumi.Input<string | undefined>;
     /**
@@ -358,7 +364,7 @@ export interface FirewallArgs {
      */
     encryptionConfiguration?: pulumi.Input<inputs.networkfirewall.FirewallEncryptionConfiguration | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the VPC Firewall policy.
+     * ARN of the VPC Firewall policy.
      */
     firewallPolicyArn: pulumi.Input<string>;
     /**

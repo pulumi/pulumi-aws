@@ -82,14 +82,14 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     }
 
     /**
-     * The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     @Import(name="defaultResourceSpec")
     private @Nullable Output<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs> defaultResourceSpec;
 
     /**
-     * @return The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+     * @return Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
      * 
      */
     public Optional<Output<DomainDefaultUserSettingsJupyterLabAppSettingsDefaultResourceSpecArgs>> defaultResourceSpec() {
@@ -112,14 +112,14 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * ARN of the Lifecycle Configurations.
      * 
      */
     @Import(name="lifecycleConfigArns")
     private @Nullable Output<List<String>> lifecycleConfigArns;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+     * @return ARN of the Lifecycle Configurations.
      * 
      */
     public Optional<Output<List<String>>> lifecycleConfigArns() {
@@ -261,7 +261,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -272,7 +272,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param defaultResourceSpec The default instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
+         * @param defaultResourceSpec Default instance type and the ARN of the SageMaker AI image created on the instance. see `defaultResourceSpec` Block below.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -314,7 +314,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 
@@ -324,7 +324,7 @@ public final class DomainDefaultUserSettingsJupyterLabAppSettingsArgs extends co
         }
 
         /**
-         * @param lifecycleConfigArns The Amazon Resource Name (ARN) of the Lifecycle Configurations.
+         * @param lifecycleConfigArns ARN of the Lifecycle Configurations.
          * 
          * @return builder
          * 

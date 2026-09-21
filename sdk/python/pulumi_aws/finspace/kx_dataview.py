@@ -242,7 +242,7 @@ class _KxDataviewState:
         """
         Input properties used for looking up and filtering KxDataview resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX dataview.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX dataview.
         :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
         :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -301,7 +301,7 @@ class _KxDataviewState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) identifier of the KX dataview.
+        ARN identifier of the KX dataview.
         """
         return pulumi.get(self, "arn")
 
@@ -535,6 +535,10 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -542,10 +546,7 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }])
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
         ```
 
         ## Import
@@ -592,6 +593,10 @@ class KxDataview(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.finspace.KxDataview("example",
+            segment_configurations=[{
+                "volume_name": example_aws_finspace_kx_volume["name"],
+                "db_paths": ["/*"],
+            }],
             name="my-tf-kx-dataview",
             environment_id=example_aws_finspace_kx_environment["id"],
             database_name=example_aws_finspace_kx_database["name"],
@@ -599,10 +604,7 @@ class KxDataview(pulumi.CustomResource):
             description="Terraform managed Kx Dataview",
             az_mode="SINGLE",
             auto_update=True,
-            segment_configurations=[{
-                "volume_name": example_aws_finspace_kx_volume["name"],
-                "db_paths": ["/*"],
-            }])
+            opts = pulumi.ResourceOptions(custom_timeouts=pulumi.CustomTimeouts(create="24h", update="24h", delete="12h")))
         ```
 
         ## Import
@@ -709,7 +711,7 @@ class KxDataview(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) identifier of the KX dataview.
+        :param pulumi.Input[_builtins.str] arn: ARN identifier of the KX dataview.
         :param pulumi.Input[_builtins.bool] auto_update: Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
         :param pulumi.Input[_builtins.str] availability_zone_id: Identifier of the availability zones. If attaching a volume, the volume must be in the same availability zone as the dataview that you are attaching to.
         :param pulumi.Input[_builtins.str] az_mode: Number of availability zones you want to assign per cluster. Valid values are `SINGLE` (assigns one availability zone per cluster) and `MULTI` (assigns all the availability zones per cluster).
@@ -756,7 +758,7 @@ class KxDataview(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) identifier of the KX dataview.
+        ARN identifier of the KX dataview.
         """
         return pulumi.get(self, "arn")
 

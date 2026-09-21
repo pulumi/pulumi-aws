@@ -1576,7 +1576,7 @@ func (o WebAclDefaultActionPtrOutput) Type() pulumi.StringPtrOutput {
 }
 
 type WebAclLoggingConfiguration struct {
-	// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+	// ARN of Kinesis Firehose Delivery Stream
 	LogDestination string `pulumi:"logDestination"`
 	// Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
 	RedactedFields *WebAclLoggingConfigurationRedactedFields `pulumi:"redactedFields"`
@@ -1594,7 +1594,7 @@ type WebAclLoggingConfigurationInput interface {
 }
 
 type WebAclLoggingConfigurationArgs struct {
-	// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+	// ARN of Kinesis Firehose Delivery Stream
 	LogDestination pulumi.StringInput `pulumi:"logDestination"`
 	// Configuration block containing parts of the request that you want redacted from the logs. Detailed below.
 	RedactedFields WebAclLoggingConfigurationRedactedFieldsPtrInput `pulumi:"redactedFields"`
@@ -1677,7 +1677,7 @@ func (o WebAclLoggingConfigurationOutput) ToWebAclLoggingConfigurationPtrOutputW
 	}).(WebAclLoggingConfigurationPtrOutput)
 }
 
-// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+// ARN of Kinesis Firehose Delivery Stream
 func (o WebAclLoggingConfigurationOutput) LogDestination() pulumi.StringOutput {
 	return o.ApplyT(func(v WebAclLoggingConfiguration) string { return v.LogDestination }).(pulumi.StringOutput)
 }
@@ -1711,7 +1711,7 @@ func (o WebAclLoggingConfigurationPtrOutput) Elem() WebAclLoggingConfigurationOu
 	}).(WebAclLoggingConfigurationOutput)
 }
 
-// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+// ARN of Kinesis Firehose Delivery Stream
 func (o WebAclLoggingConfigurationPtrOutput) LogDestination() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *WebAclLoggingConfiguration) *string {
 		if v == nil {

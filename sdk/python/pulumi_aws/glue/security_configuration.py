@@ -151,7 +151,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.SecurityConfiguration("example",
-            name="example",
             encryption_configuration={
                 "cloudwatch_encryption": {
                     "cloudwatch_encryption_mode": "DISABLED",
@@ -163,7 +162,8 @@ class SecurityConfiguration(pulumi.CustomResource):
                     "kms_key_arn": example_aws_kms_key["arn"],
                     "s3_encryption_mode": "SSE-KMS",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -197,7 +197,6 @@ class SecurityConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.glue.SecurityConfiguration("example",
-            name="example",
             encryption_configuration={
                 "cloudwatch_encryption": {
                     "cloudwatch_encryption_mode": "DISABLED",
@@ -209,7 +208,8 @@ class SecurityConfiguration(pulumi.CustomResource):
                     "kms_key_arn": example_aws_kms_key["arn"],
                     "s3_encryption_mode": "SSE-KMS",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import

@@ -18,7 +18,7 @@ namespace Pulumi.Aws.Sagemaker.Outputs
         /// </summary>
         public readonly string? CapacityReservationPreference;
         /// <summary>
-        /// The Amazon Resource Name (ARN) that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
+        /// ARN that uniquely identifies the ML capacity reservation that SageMaker AI applies when it deploys the endpoint.
         /// </summary>
         public readonly string? MlReservationArn;
 

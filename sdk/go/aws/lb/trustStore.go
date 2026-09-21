@@ -39,17 +39,17 @@ import (
 //				return err
 //			}
 //			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
-//				LoadBalancerArn: pulumi.Any(exampleAwsLb.Id),
+//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
+//					Mode:          pulumi.String("verify"),
+//					TrustStoreArn: test.Arn,
+//				},
 //				DefaultActions: lb.ListenerDefaultActionArray{
 //					&lb.ListenerDefaultActionArgs{
 //						TargetGroupArn: pulumi.Any(exampleAwsLbTargetGroup.Id),
 //						Type:           pulumi.String("forward"),
 //					},
 //				},
-//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
-//					Mode:          pulumi.String("verify"),
-//					TrustStoreArn: test.Arn,
-//				},
+//				LoadBalancerArn: pulumi.Any(exampleAwsLb.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -66,7 +66,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the trust store.
+// - `arn` (String) ARN of the trust store.
 //
 // Using `pulumi import`, import Target Groups using their ARN. For example:
 //

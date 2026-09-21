@@ -21,8 +21,6 @@ import * as utilities from "../utilities";
  *     requireEncryption: true,
  * });
  * const defaultVoiceConnectorOrigination = new aws.chime.VoiceConnectorOrigination("default", {
- *     disabled: false,
- *     voiceConnectorId: _default.id,
  *     routes: [
  *         {
  *             host: "127.0.0.1",
@@ -39,6 +37,8 @@ import * as utilities from "../utilities";
  *             weight: 10,
  *         },
  *     ],
+ *     disabled: false,
+ *     voiceConnectorId: _default.id,
  * });
  * ```
  *

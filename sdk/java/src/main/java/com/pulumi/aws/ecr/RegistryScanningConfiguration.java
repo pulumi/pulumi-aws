@@ -48,14 +48,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var configuration = new RegistryScanningConfiguration("configuration", RegistryScanningConfigurationArgs.builder()
- *             .scanType("ENHANCED")
  *             .rules(RegistryScanningConfigurationRuleArgs.builder()
- *                 .scanFrequency("CONTINUOUS_SCAN")
  *                 .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                     .filter("example")
  *                     .filterType("WILDCARD")
  *                     .build())
+ *                 .scanFrequency("CONTINUOUS_SCAN")
  *                 .build())
+ *             .scanType("ENHANCED")
  *             .build());
  * 
  *     }
@@ -90,22 +90,22 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new RegistryScanningConfiguration("test", RegistryScanningConfigurationArgs.builder()
- *             .scanType("ENHANCED")
  *             .rules(            
  *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency("SCAN_ON_PUSH")
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter("*")
  *                         .filterType("WILDCARD")
  *                         .build())
+ *                     .scanFrequency("SCAN_ON_PUSH")
  *                     .build(),
  *                 RegistryScanningConfigurationRuleArgs.builder()
- *                     .scanFrequency("CONTINUOUS_SCAN")
  *                     .repositoryFilters(RegistryScanningConfigurationRuleRepositoryFilterArgs.builder()
  *                         .filter("example")
  *                         .filterType("WILDCARD")
  *                         .build())
+ *                     .scanFrequency("CONTINUOUS_SCAN")
  *                     .build())
+ *             .scanType("ENHANCED")
  *             .build());
  * 
  *     }

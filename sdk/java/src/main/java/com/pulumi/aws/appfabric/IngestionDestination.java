@@ -54,8 +54,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new IngestionDestination("example", IngestionDestinationArgs.builder()
- *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
- *             .ingestionArn(exampleAwsAppfabricIngestion.arn())
  *             .processingConfiguration(IngestionDestinationProcessingConfigurationArgs.builder()
  *                 .auditLog(IngestionDestinationProcessingConfigurationAuditLogArgs.builder()
  *                     .format("json")
@@ -71,6 +69,8 @@ import javax.annotation.Nullable;
  *                         .build())
  *                     .build())
  *                 .build())
+ *             .appBundleArn(exampleAwsAppfabricAppBundle.arn())
+ *             .ingestionArn(exampleAwsAppfabricIngestion.arn())
  *             .build());
  * 
  *     }
@@ -82,14 +82,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:appfabric/ingestionDestination:IngestionDestination")
 public class IngestionDestination extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * ARN of the app bundle to use for the request.
      * 
      */
     @Export(name="appBundleArn", refs={String.class}, tree="[0]")
     private Output<String> appBundleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the app bundle to use for the request.
+     * @return ARN of the app bundle to use for the request.
      * 
      */
     public Output<String> appBundleArn() {
@@ -124,14 +124,14 @@ public class IngestionDestination extends com.pulumi.resources.CustomResource {
         return this.destinationConfiguration;
     }
     /**
-     * Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * ARN of the ingestion to use for the request.
      * 
      */
     @Export(name="ingestionArn", refs={String.class}, tree="[0]")
     private Output<String> ingestionArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the ingestion to use for the request.
+     * @return ARN of the ingestion to use for the request.
      * 
      */
     public Output<String> ingestionArn() {

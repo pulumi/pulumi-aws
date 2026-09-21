@@ -69,6 +69,10 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             primaryClusterInstance,
     ///         },
+    ///         IgnoreChanges =
+    ///         {
+    ///             "replicationSourceIdentifier",
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
@@ -138,6 +142,10 @@ namespace Pulumi.Aws.Rds
     ///         {
     ///             primaryClusterInstance,
     ///         },
+    ///         IgnoreChanges =
+    ///         {
+    ///             "replicationSourceIdentifier",
+    ///         },
     ///     });
     /// 
     ///     var secondaryClusterInstance = new Aws.Rds.ClusterInstance("secondary", new()
@@ -163,7 +171,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.Cluster("example");
+    ///     var example = new Aws.Rds.Cluster("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "globalClusterIdentifier",
+    ///         },
+    ///     });
     /// 
     ///     var exampleGlobalCluster = new Aws.Rds.GlobalCluster("example", new()
     ///     {
@@ -206,6 +222,12 @@ namespace Pulumi.Aws.Rds
     ///         MasterPassword = "satsukimae",
     ///         MasterUsername = "maesatsuki",
     ///         SkipFinalSnapshot = true,
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "engineVersion",
+    ///         },
     ///     });
     /// 
     ///     var primaryClusterInstance = new Aws.Rds.ClusterInstance("primary", new()
@@ -241,7 +263,15 @@ namespace Pulumi.Aws.Rds
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Aws.Rds.GlobalCluster("example");
+    ///     var example = new Aws.Rds.GlobalCluster("example", new()
+    ///     {
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "sourceDbClusterIdentifier",
+    ///         },
+    ///     });
     /// 
     /// });
     /// ```
@@ -250,7 +280,7 @@ namespace Pulumi.Aws.Rds
     public partial class GlobalCluster : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN).
+        /// RDS Global Cluster ARN.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -280,7 +310,7 @@ namespace Pulumi.Aws.Rds
         public Output<string> Engine { get; private set; } = null!;
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Output("engineLifecycleSupport")]
         public Output<string> EngineLifecycleSupport { get; private set; } = null!;
@@ -291,6 +321,9 @@ namespace Pulumi.Aws.Rds
         [Output("engineVersion")]
         public Output<string> EngineVersion { get; private set; } = null!;
 
+        /// <summary>
+        /// Running version of the database engine.
+        /// </summary>
         [Output("engineVersionActual")]
         public Output<string> EngineVersionActual { get; private set; } = null!;
 
@@ -327,19 +360,19 @@ namespace Pulumi.Aws.Rds
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
         /// </summary>
         [Output("sourceDbClusterIdentifier")]
         public Output<string> SourceDbClusterIdentifier { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Output("storageEncrypted")]
         public Output<bool> StorageEncrypted { get; private set; } = null!;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; When both `SourceDbClusterIdentifier` and `Engine`/`EngineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `Engine` and `EngineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>
@@ -417,7 +450,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
         public Input<string>? EngineLifecycleSupport { get; set; }
@@ -449,13 +482,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -464,7 +497,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; When both `SourceDbClusterIdentifier` and `Engine`/`EngineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `Engine` and `EngineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>
@@ -483,7 +516,7 @@ namespace Pulumi.Aws.Rds
     public sealed class GlobalClusterState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// RDS Global Cluster Amazon Resource Name (ARN).
+        /// RDS Global Cluster ARN.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -513,7 +546,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Engine { get; set; }
 
         /// <summary>
-        /// The life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
+        /// Life cycle type for this DB instance. This setting applies only to Aurora PostgreSQL-based global databases. Valid values are `open-source-rds-extended-support`, `open-source-rds-extended-support-disabled`. Default value is `open-source-rds-extended-support`. [Using Amazon RDS Extended Support]: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/extended-support.html
         /// </summary>
         [Input("engineLifecycleSupport")]
         public Input<string>? EngineLifecycleSupport { get; set; }
@@ -524,6 +557,9 @@ namespace Pulumi.Aws.Rds
         [Input("engineVersion")]
         public Input<string>? EngineVersion { get; set; }
 
+        /// <summary>
+        /// Running version of the database engine.
+        /// </summary>
         [Input("engineVersionActual")]
         public Input<string>? EngineVersionActual { get; set; }
 
@@ -566,13 +602,13 @@ namespace Pulumi.Aws.Rds
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) to use as the primary DB Cluster of the Global Cluster on creation. The provider cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
+        /// ARN to use as the primary DB Cluster of the Global Cluster on creation. Pulumi cannot perform drift detection of this value. **NOTE:** After initial creation, this argument can be removed and replaced with `Engine` and `EngineVersion`. This allows upgrading the engine version of the Global Cluster.
         /// </summary>
         [Input("sourceDbClusterIdentifier")]
         public Input<string>? SourceDbClusterIdentifier { get; set; }
 
         /// <summary>
-        /// Specifies whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
+        /// Whether the DB cluster is encrypted. The default is `False` unless `SourceDbClusterIdentifier` is specified and encrypted. The provider will only perform drift detection if a configuration value is provided.
         /// </summary>
         [Input("storageEncrypted")]
         public Input<bool>? StorageEncrypted { get; set; }
@@ -581,7 +617,7 @@ namespace Pulumi.Aws.Rds
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// A map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+        /// Map of tags to assign to the DB cluster. If configured with a provider `DefaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// 
         /// &gt; When both `SourceDbClusterIdentifier` and `Engine`/`EngineVersion` are set, all engine related values will be ignored during creation. The global cluster will inherit the `Engine` and `EngineVersion` values from the source cluster. After the first apply, any differences between the inherited and configured values will trigger an in-place update.
         /// </summary>

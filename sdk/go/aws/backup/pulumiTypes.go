@@ -849,7 +849,7 @@ func (o PlanRuleArrayOutput) Index(i pulumi.IntInput) PlanRuleOutput {
 }
 
 type PlanRuleCopyAction struct {
-	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+	// ARN that uniquely identifies the destination backup vault for the copied backup.
 	DestinationVaultArn string `pulumi:"destinationVaultArn"`
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle *PlanRuleCopyActionLifecycle `pulumi:"lifecycle"`
@@ -867,7 +867,7 @@ type PlanRuleCopyActionInput interface {
 }
 
 type PlanRuleCopyActionArgs struct {
-	// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+	// ARN that uniquely identifies the destination backup vault for the copied backup.
 	DestinationVaultArn pulumi.StringInput `pulumi:"destinationVaultArn"`
 	// The lifecycle defines when a protected resource is copied over to a backup vault and when it expires.  Fields documented above.
 	Lifecycle PlanRuleCopyActionLifecyclePtrInput `pulumi:"lifecycle"`
@@ -924,7 +924,7 @@ func (o PlanRuleCopyActionOutput) ToPlanRuleCopyActionOutputWithContext(ctx cont
 	return o
 }
 
-// An Amazon Resource Name (ARN) that uniquely identifies the destination backup vault for the copied backup.
+// ARN that uniquely identifies the destination backup vault for the copied backup.
 func (o PlanRuleCopyActionOutput) DestinationVaultArn() pulumi.StringOutput {
 	return o.ApplyT(func(v PlanRuleCopyAction) string { return v.DestinationVaultArn }).(pulumi.StringOutput)
 }
@@ -1703,7 +1703,7 @@ func (o ReportPlanReportDeliveryChannelPtrOutput) S3KeyPrefix() pulumi.StringPtr
 type ReportPlanReportSetting struct {
 	// List of accounts a report covers.
 	Accounts []string `pulumi:"accounts"`
-	// Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// ARNs of the frameworks a report covers.
 	FrameworkArns []string `pulumi:"frameworkArns"`
 	// Number of frameworks a report covers.
 	NumberOfFrameworks *int `pulumi:"numberOfFrameworks"`
@@ -1729,7 +1729,7 @@ type ReportPlanReportSettingInput interface {
 type ReportPlanReportSettingArgs struct {
 	// List of accounts a report covers.
 	Accounts pulumi.StringArrayInput `pulumi:"accounts"`
-	// Amazon Resource Names (ARNs) of the frameworks a report covers.
+	// ARNs of the frameworks a report covers.
 	FrameworkArns pulumi.StringArrayInput `pulumi:"frameworkArns"`
 	// Number of frameworks a report covers.
 	NumberOfFrameworks pulumi.IntPtrInput `pulumi:"numberOfFrameworks"`
@@ -1823,7 +1823,7 @@ func (o ReportPlanReportSettingOutput) Accounts() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.Accounts }).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Names (ARNs) of the frameworks a report covers.
+// ARNs of the frameworks a report covers.
 func (o ReportPlanReportSettingOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v ReportPlanReportSetting) []string { return v.FrameworkArns }).(pulumi.StringArrayOutput)
 }
@@ -1882,7 +1882,7 @@ func (o ReportPlanReportSettingPtrOutput) Accounts() pulumi.StringArrayOutput {
 	}).(pulumi.StringArrayOutput)
 }
 
-// Amazon Resource Names (ARNs) of the frameworks a report covers.
+// ARNs of the frameworks a report covers.
 func (o ReportPlanReportSettingPtrOutput) FrameworkArns() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *ReportPlanReportSetting) []string {
 		if v == nil {

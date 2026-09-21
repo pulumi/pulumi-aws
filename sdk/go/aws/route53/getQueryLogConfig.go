@@ -123,12 +123,8 @@ type GetQueryLogConfigResult struct {
 }
 
 func GetQueryLogConfigOutput(ctx *pulumi.Context, args GetQueryLogConfigOutputArgs, opts ...pulumi.InvokeOption) GetQueryLogConfigResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetQueryLogConfigResultOutput, error) {
-			args := v.(GetQueryLogConfigArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", args, GetQueryLogConfigResultOutput{}, options).(GetQueryLogConfigResultOutput), nil
-		}).(GetQueryLogConfigResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getQueryLogConfig:getQueryLogConfig", args, GetQueryLogConfigResultOutput{}, options).(GetQueryLogConfigResultOutput)
 }
 
 // A collection of arguments for invoking getQueryLogConfig.

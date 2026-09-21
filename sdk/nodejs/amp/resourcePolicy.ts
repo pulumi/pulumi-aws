@@ -28,11 +28,11 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: [current.then(current => current.accountId)],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "aps:RemoteWrite",
  *             "aps:QueryMetrics",
@@ -58,11 +58,11 @@ import * as utilities from "../utilities";
  * const example = new aws.amp.Workspace("example", {alias: "example-workspace"});
  * const crossAccount = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "AWS",
  *             identifiers: ["arn:aws:iam::123456789012:root"],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "aps:RemoteWrite",
  *             "aps:QueryMetrics",
@@ -85,11 +85,11 @@ import * as utilities from "../utilities";
  * const example = new aws.amp.Workspace("example", {alias: "example-workspace"});
  * const serviceAccess = aws.iam.getPolicyDocumentOutput({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["grafana.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "aps:QueryMetrics",
  *             "aps:GetSeries",

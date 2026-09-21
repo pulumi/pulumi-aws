@@ -169,7 +169,7 @@ class GetFunctionResult:
     @pulumi.getter(name="capacityProviderConfigs")
     def capacity_provider_configs(self) -> Sequence['outputs.GetFunctionCapacityProviderConfigResult']:
         """
-        Configuration for Lambda function's capacity provider. See below.
+        Configuration for Lambda function's capacity provider. See `capacity_provider_config` below.
         """
         return pulumi.get(self, "capacity_provider_configs")
 
@@ -193,7 +193,7 @@ class GetFunctionResult:
     @pulumi.getter(name="deadLetterConfig")
     def dead_letter_config(self) -> 'outputs.GetFunctionDeadLetterConfigResult':
         """
-        Configuration for the function's dead letter queue. See below.
+        Configuration for the function's dead letter queue. See `dead_letter_config` below.
         """
         return pulumi.get(self, "dead_letter_config")
 
@@ -209,7 +209,7 @@ class GetFunctionResult:
     @pulumi.getter(name="durableConfigs")
     def durable_configs(self) -> Sequence['outputs.GetFunctionDurableConfigResult']:
         """
-        Configuration for the function's durable settings. See below.
+        Configuration for the function's durable settings. See `durable_config` below.
         """
         return pulumi.get(self, "durable_configs")
 
@@ -217,7 +217,7 @@ class GetFunctionResult:
     @pulumi.getter
     def environment(self) -> 'outputs.GetFunctionEnvironmentResult':
         """
-        Lambda environment's configuration settings. See below.
+        Lambda environment's configuration settings. See `environment` below.
         """
         return pulumi.get(self, "environment")
 
@@ -225,7 +225,7 @@ class GetFunctionResult:
     @pulumi.getter(name="ephemeralStorages")
     def ephemeral_storages(self) -> Sequence['outputs.GetFunctionEphemeralStorageResult']:
         """
-        Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See below.
+        Amount of ephemeral storage (`/tmp`) allocated for the Lambda Function. See `ephemeral_storage` below.
         """
         return pulumi.get(self, "ephemeral_storages")
 
@@ -233,7 +233,7 @@ class GetFunctionResult:
     @pulumi.getter(name="fileSystemConfigs")
     def file_system_configs(self) -> Sequence['outputs.GetFunctionFileSystemConfigResult']:
         """
-        Connection settings for an Amazon EFS file system. See below.
+        Connection settings for an Amazon EFS file system. See `file_system_config` below.
         """
         return pulumi.get(self, "file_system_configs")
 
@@ -302,7 +302,7 @@ class GetFunctionResult:
     @pulumi.getter(name="loggingConfigs")
     def logging_configs(self) -> Sequence['outputs.GetFunctionLoggingConfigResult']:
         """
-        Advanced logging settings. See below.
+        Advanced logging settings. See `logging_config` below.
         """
         return pulumi.get(self, "logging_configs")
 
@@ -409,7 +409,7 @@ class GetFunctionResult:
     @pulumi.getter(name="sourceKmsKeyArn")
     def source_kms_key_arn(self) -> _builtins.str:
         """
-        ARN of the AWS Key Management Service key used to encrypt the function's `.zip` deployment package.
+        ARN of the KMS key used to encrypt the function's `.zip` deployment package.
         """
         return pulumi.get(self, "source_kms_key_arn")
 
@@ -425,7 +425,7 @@ class GetFunctionResult:
     @pulumi.getter(name="tenancyConfigs")
     def tenancy_configs(self) -> Sequence['outputs.GetFunctionTenancyConfigResult']:
         """
-        Tenancy settings of the function. See below.
+        Tenancy settings of the function. See `tenancy_config` below.
         """
         return pulumi.get(self, "tenancy_configs")
 
@@ -441,7 +441,7 @@ class GetFunctionResult:
     @pulumi.getter(name="tracingConfig")
     def tracing_config(self) -> 'outputs.GetFunctionTracingConfigResult':
         """
-        Tracing settings of the function. See below.
+        Tracing settings of the function. See `tracing_config` below.
         """
         return pulumi.get(self, "tracing_config")
 
@@ -457,7 +457,7 @@ class GetFunctionResult:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> 'outputs.GetFunctionVpcConfigResult':
         """
-        VPC configuration associated with your Lambda function. See below.
+        VPC configuration associated with your Lambda function. See `vpc_config` below.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -566,10 +566,17 @@ def get_function(function_name: Optional[_builtins.str] = None,
     reference = aws.lambda_.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in sorted(reference.durable_configs.items())].apply(lambda entries: [{
-            "executionTimeout": entry["value"].execution_timeout,
-            "retentionPeriod": entry["value"].retention_period,
-        } for entry in entries])),
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        },
+        durable_config=single_or_none([{
+            "executionTimeout": entry.execution_timeout,
+            "retentionPeriod": entry.retention_period,
+        } for entry in reference.durable_configs]),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -577,14 +584,7 @@ def get_function(function_name: Optional[_builtins.str] = None,
         runtime=aws.lambda_.Runtime(reference.runtime),
         memory_size=reference.memory_size,
         timeout=reference.timeout,
-        architectures=reference.architectures,
-        vpc_config={
-            "subnet_ids": reference.vpc_config.subnet_ids,
-            "security_group_ids": reference.vpc_config.security_group_ids,
-        },
-        environment={
-            "variables": reference.environment.variables,
-        })
+        architectures=reference.architectures)
     ```
 
     ### Function Version Management
@@ -733,10 +733,17 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
     reference = aws.lambda_.get_function(function_name="existing-function")
     # Create new function with similar configuration
     example = aws.lambda_.Function("example",
-        durable_config=single_or_none([{"key": k, "value": v} for k, v in sorted(reference.durable_configs.items())].apply(lambda entries: [{
-            "executionTimeout": entry["value"].execution_timeout,
-            "retentionPeriod": entry["value"].retention_period,
-        } for entry in entries])),
+        vpc_config={
+            "subnet_ids": reference.vpc_config.subnet_ids,
+            "security_group_ids": reference.vpc_config.security_group_ids,
+        },
+        environment={
+            "variables": reference.environment.variables,
+        },
+        durable_config=single_or_none([{
+            "executionTimeout": entry.execution_timeout,
+            "retentionPeriod": entry.retention_period,
+        } for entry in reference.durable_configs]),
         code=pulumi.FileArchive("new-function.zip"),
         name="new-function",
         role=reference.role,
@@ -744,14 +751,7 @@ def get_function_output(function_name: pulumi.Input[Optional[_builtins.str]] = N
         runtime=aws.lambda_.Runtime(reference.runtime),
         memory_size=reference.memory_size,
         timeout=reference.timeout,
-        architectures=reference.architectures,
-        vpc_config={
-            "subnet_ids": reference.vpc_config.subnet_ids,
-            "security_group_ids": reference.vpc_config.security_group_ids,
-        },
-        environment={
-            "variables": reference.environment.variables,
-        })
+        architectures=reference.architectures)
     ```
 
     ### Function Version Management

@@ -52,10 +52,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIpAccessSettings = new IpAccessSettings("exampleIpAccessSettings", IpAccessSettingsArgs.builder()
- *             .displayName("example")
  *             .ipRules(IpAccessSettingsIpRuleArgs.builder()
  *                 .ipRange("10.0.0.0/16")
  *                 .build())
+ *             .displayName("example")
  *             .build());
  * 
  *         var exampleIpAccessSettingsAssociation = new IpAccessSettingsAssociation("exampleIpAccessSettingsAssociation", IpAccessSettingsAssociationArgs.builder()

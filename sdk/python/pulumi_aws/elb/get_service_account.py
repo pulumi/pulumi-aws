@@ -90,11 +90,11 @@ def get_service_account(region: Optional[_builtins.str] = None,
         bucket=elb_logs.id,
         acl="private")
     allow_elb_logging = aws.iam.get_policy_document_output(statements=[{
-        "effect": "Allow",
         "principals": [{
             "type": "AWS",
             "identifiers": [main.arn],
         }],
+        "effect": "Allow",
         "actions": ["s3:PutObject"],
         "resources": [elb_logs.arn.apply(lambda arn: f"{arn}/AWSLogs/*")],
     }])
@@ -102,8 +102,6 @@ def get_service_account(region: Optional[_builtins.str] = None,
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
-        name="my-foobar-elb",
-        availability_zones=["us-west-2a"],
         access_logs={
             "bucket": elb_logs.id,
             "interval": 5,
@@ -113,7 +111,9 @@ def get_service_account(region: Optional[_builtins.str] = None,
             "instance_protocol": "http",
             "lb_port": 80,
             "lb_protocol": "http",
-        }])
+        }],
+        name="my-foobar-elb",
+        availability_zones=["us-west-2a"])
     ```
 
 
@@ -148,11 +148,11 @@ def get_service_account_output(region: pulumi.Input[Optional[Optional[_builtins.
         bucket=elb_logs.id,
         acl="private")
     allow_elb_logging = aws.iam.get_policy_document_output(statements=[{
-        "effect": "Allow",
         "principals": [{
             "type": "AWS",
             "identifiers": [main.arn],
         }],
+        "effect": "Allow",
         "actions": ["s3:PutObject"],
         "resources": [elb_logs.arn.apply(lambda arn: f"{arn}/AWSLogs/*")],
     }])
@@ -160,8 +160,6 @@ def get_service_account_output(region: pulumi.Input[Optional[Optional[_builtins.
         bucket=elb_logs.id,
         policy=allow_elb_logging.json)
     bar = aws.elb.LoadBalancer("bar",
-        name="my-foobar-elb",
-        availability_zones=["us-west-2a"],
         access_logs={
             "bucket": elb_logs.id,
             "interval": 5,
@@ -171,7 +169,9 @@ def get_service_account_output(region: pulumi.Input[Optional[Optional[_builtins.
             "instance_protocol": "http",
             "lb_port": 80,
             "lb_protocol": "http",
-        }])
+        }],
+        name="my-foobar-elb",
+        availability_zones=["us-west-2a"])
     ```
 
 

@@ -26,14 +26,14 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "INSTANCE",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             VpcIdentifier = exampleAwsVpc.Id,
     ///             Port = 443,
     ///             Protocol = "HTTPS",
     ///         },
+    ///         Name = "example",
+    ///         Type = "INSTANCE",
     ///     });
     /// 
     /// });
@@ -51,32 +51,32 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "IP",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
-    ///             VpcIdentifier = exampleAwsVpc.Id,
-    ///             IpAddressType = "IPV4",
-    ///             Port = 443,
-    ///             Protocol = "HTTPS",
-    ///             ProtocolVersion = "HTTP1",
     ///             HealthCheck = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckArgs
     ///             {
+    ///                 Matcher = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckMatcherArgs
+    ///                 {
+    ///                     Value = "200-299",
+    ///                 },
     ///                 Enabled = true,
     ///                 HealthCheckIntervalSeconds = 20,
     ///                 HealthCheckTimeoutSeconds = 10,
     ///                 HealthyThresholdCount = 7,
     ///                 UnhealthyThresholdCount = 3,
-    ///                 Matcher = new Aws.VpcLattice.Inputs.TargetGroupConfigHealthCheckMatcherArgs
-    ///                 {
-    ///                     Value = "200-299",
-    ///                 },
     ///                 Path = "/instance",
     ///                 Port = 80,
     ///                 Protocol = "HTTP",
     ///                 ProtocolVersion = "HTTP1",
     ///             },
+    ///             VpcIdentifier = exampleAwsVpc.Id,
+    ///             IpAddressType = "IPV4",
+    ///             Port = 443,
+    ///             Protocol = "HTTPS",
+    ///             ProtocolVersion = "HTTP1",
     ///         },
+    ///         Name = "example",
+    ///         Type = "IP",
     ///     });
     /// 
     /// });
@@ -96,8 +96,6 @@ namespace Pulumi.Aws.VpcLattice
     /// {
     ///     var example = new Aws.VpcLattice.TargetGroup("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Type = "ALB",
     ///         Config = new Aws.VpcLattice.Inputs.TargetGroupConfigArgs
     ///         {
     ///             VpcIdentifier = exampleAwsVpc.Id,
@@ -105,6 +103,8 @@ namespace Pulumi.Aws.VpcLattice
     ///             Protocol = "HTTPS",
     ///             ProtocolVersion = "HTTP1",
     ///         },
+    ///         Name = "example",
+    ///         Type = "ALB",
     ///     });
     /// 
     /// });

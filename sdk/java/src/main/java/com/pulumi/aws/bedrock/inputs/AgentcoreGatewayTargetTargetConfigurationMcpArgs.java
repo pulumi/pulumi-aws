@@ -4,6 +4,7 @@
 package com.pulumi.aws.bedrock.inputs;
 
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs;
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs;
 import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs;
@@ -20,14 +21,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     public static final AgentcoreGatewayTargetTargetConfigurationMcpArgs Empty = new AgentcoreGatewayTargetTargetConfigurationMcpArgs();
 
     /**
-     * API Gateway target configuration. See `apiGateway` below.
+     * API Gateway target configuration. See `apiGateway` Block below.
      * 
      */
     @Import(name="apiGateway")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs> apiGateway;
 
     /**
-     * @return API Gateway target configuration. See `apiGateway` below.
+     * @return API Gateway target configuration. See `apiGateway` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpApiGatewayArgs>> apiGateway() {
@@ -35,14 +36,29 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * Lambda function target configuration. See `lambda` below.
+     * Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * 
+     */
+    @Import(name="connector")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs> connector;
+
+    /**
+     * @return Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs>> connector() {
+        return Optional.ofNullable(this.connector);
+    }
+
+    /**
+     * Lambda function target configuration. See `lambda` Block below.
      * 
      */
     @Import(name="lambda")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs> lambda;
 
     /**
-     * @return Lambda function target configuration. See `lambda` below.
+     * @return Lambda function target configuration. See `lambda` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpLambdaArgs>> lambda() {
@@ -50,14 +66,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * MCP server target configuration. See `mcpServer` below.
+     * MCP server target configuration. See `mcpServer` Block below.
      * 
      */
     @Import(name="mcpServer")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs> mcpServer;
 
     /**
-     * @return MCP server target configuration. See `mcpServer` below.
+     * @return MCP server target configuration. See `mcpServer` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerArgs>> mcpServer() {
@@ -65,14 +81,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+     * OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     @Import(name="openApiSchema")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs> openApiSchema;
 
     /**
-     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+     * @return OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpOpenApiSchemaArgs>> openApiSchema() {
@@ -80,14 +96,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
     }
 
     /**
-     * Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+     * Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     @Import(name="smithyModel")
     private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs> smithyModel;
 
     /**
-     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+     * @return Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
      * 
      */
     public Optional<Output<AgentcoreGatewayTargetTargetConfigurationMcpSmithyModelArgs>> smithyModel() {
@@ -98,6 +114,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
 
     private AgentcoreGatewayTargetTargetConfigurationMcpArgs(AgentcoreGatewayTargetTargetConfigurationMcpArgs $) {
         this.apiGateway = $.apiGateway;
+        this.connector = $.connector;
         this.lambda = $.lambda;
         this.mcpServer = $.mcpServer;
         this.openApiSchema = $.openApiSchema;
@@ -123,7 +140,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param apiGateway API Gateway target configuration. See `apiGateway` below.
+         * @param apiGateway API Gateway target configuration. See `apiGateway` Block below.
          * 
          * @return builder
          * 
@@ -134,7 +151,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param apiGateway API Gateway target configuration. See `apiGateway` below.
+         * @param apiGateway API Gateway target configuration. See `apiGateway` Block below.
          * 
          * @return builder
          * 
@@ -144,7 +161,28 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param lambda Lambda function target configuration. See `lambda` below.
+         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connector(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs> connector) {
+            $.connector = connector;
+            return this;
+        }
+
+        /**
+         * @param connector Connector integration target configuration. Connectors provide pre-built integrations with AWS services and third-party tools. See `connector` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder connector(AgentcoreGatewayTargetTargetConfigurationMcpConnectorArgs connector) {
+            return connector(Output.of(connector));
+        }
+
+        /**
+         * @param lambda Lambda function target configuration. See `lambda` Block below.
          * 
          * @return builder
          * 
@@ -155,7 +193,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param lambda Lambda function target configuration. See `lambda` below.
+         * @param lambda Lambda function target configuration. See `lambda` Block below.
          * 
          * @return builder
          * 
@@ -165,7 +203,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param mcpServer MCP server target configuration. See `mcpServer` below.
+         * @param mcpServer MCP server target configuration. See `mcpServer` Block below.
          * 
          * @return builder
          * 
@@ -176,7 +214,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param mcpServer MCP server target configuration. See `mcpServer` below.
+         * @param mcpServer MCP server target configuration. See `mcpServer` Block below.
          * 
          * @return builder
          * 
@@ -186,7 +224,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -197,7 +235,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` below.
+         * @param openApiSchema OpenAPI schema-based target configuration. See `apiSchemaConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -207,7 +245,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
          * 
          * @return builder
          * 
@@ -218,7 +256,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpArgs extends com.
         }
 
         /**
-         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` below.
+         * @param smithyModel Smithy model-based target configuration. See `apiSchemaConfiguration` Block below.
          * 
          * @return builder
          * 

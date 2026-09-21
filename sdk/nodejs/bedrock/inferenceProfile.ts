@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  *
  * const current = aws.getCallerIdentity({});
  * const example = new aws.bedrock.InferenceProfile("example", {
- *     name: "Claude Sonnet for Project 123",
- *     description: "Profile with tag for cost allocation tracking",
  *     modelSource: {
  *         copyFrom: "arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0",
  *     },
+ *     name: "Claude Sonnet for Project 123",
+ *     description: "Profile with tag for cost allocation tracking",
  *     tags: {
  *         ProjectID: "123",
  *     },
@@ -68,7 +68,7 @@ export class InferenceProfile extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export class InferenceProfile extends pulumi.CustomResource {
  */
 export interface InferenceProfileState {
     /**
-     * The Amazon Resource Name (ARN) of the inference profile.
+     * The ARN of the inference profile.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

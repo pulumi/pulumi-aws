@@ -62,7 +62,7 @@ type LookupResolverFirewallRuleGroupAssociationArgs struct {
 
 // A collection of values returned by getResolverFirewallRuleGroupAssociation.
 type LookupResolverFirewallRuleGroupAssociationResult struct {
-	// The Amazon Resource Name (ARN) of the firewall rule group association.
+	// ARN of the firewall rule group association.
 	Arn string `pulumi:"arn"`
 	// The date and time that the association was created, in Unix time format and Coordinated Universal Time (UTC).
 	CreationTime string `pulumi:"creationTime"`
@@ -93,12 +93,8 @@ type LookupResolverFirewallRuleGroupAssociationResult struct {
 }
 
 func LookupResolverFirewallRuleGroupAssociationOutput(ctx *pulumi.Context, args LookupResolverFirewallRuleGroupAssociationOutputArgs, opts ...pulumi.InvokeOption) LookupResolverFirewallRuleGroupAssociationResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResolverFirewallRuleGroupAssociationResultOutput, error) {
-			args := v.(LookupResolverFirewallRuleGroupAssociationArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args, LookupResolverFirewallRuleGroupAssociationResultOutput{}, options).(LookupResolverFirewallRuleGroupAssociationResultOutput), nil
-		}).(LookupResolverFirewallRuleGroupAssociationResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:route53/getResolverFirewallRuleGroupAssociation:getResolverFirewallRuleGroupAssociation", args, LookupResolverFirewallRuleGroupAssociationResultOutput{}, options).(LookupResolverFirewallRuleGroupAssociationResultOutput)
 }
 
 // A collection of arguments for invoking getResolverFirewallRuleGroupAssociation.
@@ -128,7 +124,7 @@ func (o LookupResolverFirewallRuleGroupAssociationResultOutput) ToLookupResolver
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the firewall rule group association.
+// ARN of the firewall rule group association.
 func (o LookupResolverFirewallRuleGroupAssociationResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupResolverFirewallRuleGroupAssociationResult) string { return v.Arn }).(pulumi.StringOutput)
 }

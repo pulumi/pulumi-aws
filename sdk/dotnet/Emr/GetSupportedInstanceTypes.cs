@@ -57,11 +57,11 @@ namespace Pulumi.Aws.Emr
         /// 
         ///     var testCluster = new Aws.Emr.Cluster("test", new()
         ///     {
-        ///         ReleaseLabel = releaseLabel,
         ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
         ///         {
         ///             InstanceType = instanceType,
         ///         },
+        ///         ReleaseLabel = releaseLabel,
         ///     });
         /// 
         /// });
@@ -116,11 +116,11 @@ namespace Pulumi.Aws.Emr
         /// 
         ///     var testCluster = new Aws.Emr.Cluster("test", new()
         ///     {
-        ///         ReleaseLabel = releaseLabel,
         ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
         ///         {
         ///             InstanceType = instanceType,
         ///         },
+        ///         ReleaseLabel = releaseLabel,
         ///     });
         /// 
         /// });
@@ -175,11 +175,11 @@ namespace Pulumi.Aws.Emr
         /// 
         ///     var testCluster = new Aws.Emr.Cluster("test", new()
         ///     {
-        ///         ReleaseLabel = releaseLabel,
         ///         MasterInstanceGroup = new Aws.Emr.Inputs.ClusterMasterInstanceGroupArgs
         ///         {
         ///             InstanceType = instanceType,
         ///         },
+        ///         ReleaseLabel = releaseLabel,
         ///     });
         /// 
         /// });

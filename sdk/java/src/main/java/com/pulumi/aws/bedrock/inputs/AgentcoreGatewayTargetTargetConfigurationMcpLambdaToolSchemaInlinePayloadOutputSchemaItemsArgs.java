@@ -50,14 +50,14 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
     }
 
     /**
-     * Set of property definitions for arrays of objects. See `property` below.
+     * Set of property definitions for arrays of objects. See `property` Block below.
      * 
      */
     @Import(name="properties")
     private @Nullable Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs>> properties;
 
     /**
-     * @return Set of property definitions for arrays of objects. See `property` below.
+     * @return Set of property definitions for arrays of objects. See `property` Block below.
      * 
      */
     public Optional<Output<List<AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaInlinePayloadOutputSchemaItemsPropertyArgs>>> properties() {
@@ -149,7 +149,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
+         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
          * 
          * @return builder
          * 
@@ -160,7 +160,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
+         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
          * 
          * @return builder
          * 
@@ -170,7 +170,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpLambdaToolSchemaI
         }
 
         /**
-         * @param properties Set of property definitions for arrays of objects. See `property` below.
+         * @param properties Set of property definitions for arrays of objects. See `property` Block below.
          * 
          * @return builder
          * 

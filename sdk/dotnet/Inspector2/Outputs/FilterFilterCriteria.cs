@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Inspector2.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaComponentType> ComponentTypes;
         /// <summary>
-        /// (Optional) The ID of the Amazon Machine Image (AMI). Documented below.
+        /// (Optional) ID of the AMI. Documented below.
         /// </summary>
         public readonly ImmutableArray<Outputs.FilterFilterCriteriaEc2InstanceImageId> Ec2InstanceImageIds;
         /// <summary>

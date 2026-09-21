@@ -62,13 +62,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("groupId", exampleGetGroup.groupId());
@@ -116,13 +116,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("groupId", exampleGetGroup.groupId());
@@ -170,13 +170,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("groupId", exampleGetGroup.groupId());
@@ -224,13 +224,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("groupId", exampleGetGroup.groupId());
@@ -278,13 +278,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("groupId", exampleGetGroup.groupId());
@@ -335,13 +335,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
@@ -396,13 +396,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
@@ -457,13 +457,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
@@ -518,13 +518,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
@@ -579,13 +579,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetGroup = IdentitystoreFunctions.getGroup(GetGroupArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetGroupAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetGroupAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("DisplayName")
      *                     .attributeValue("ExampleGroup")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         final var exampleGetGroupMemberships = IdentitystoreFunctions.getGroupMemberships(GetGroupMembershipsArgs.builder()
@@ -872,13 +872,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
      *                     .attributeValue("ExampleUser")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("userId", exampleGetUser.userId());
@@ -926,13 +926,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
      *                     .attributeValue("ExampleUser")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("userId", exampleGetUser.userId());
@@ -980,13 +980,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
      *                     .attributeValue("ExampleUser")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("userId", exampleGetUser.userId());
@@ -1034,13 +1034,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
      *                     .attributeValue("ExampleUser")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("userId", exampleGetUser.userId());
@@ -1088,13 +1088,13 @@ public final class IdentitystoreFunctions {
      *             .build());
      * 
      *         final var exampleGetUser = IdentitystoreFunctions.getUser(GetUserArgs.builder()
-     *             .identityStoreId(example.identityStoreIds()[0])
      *             .alternateIdentifier(GetUserAlternateIdentifierArgs.builder()
      *                 .uniqueAttribute(GetUserAlternateIdentifierUniqueAttributeArgs.builder()
      *                     .attributePath("UserName")
      *                     .attributeValue("ExampleUser")
      *                     .build())
      *                 .build())
+     *             .identityStoreId(example.identityStoreIds()[0])
      *             .build());
      * 
      *         ctx.export("userId", exampleGetUser.userId());

@@ -145,7 +145,7 @@ type PhoneNumber struct {
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapOutput `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// ARN for Amazon Connect instances that phone numbers are claimed to.
 	TargetArn pulumi.StringOutput `pulumi:"targetArn"`
 	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -208,7 +208,7 @@ type phoneNumberState struct {
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll map[string]string `pulumi:"tagsAll"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// ARN for Amazon Connect instances that phone numbers are claimed to.
 	TargetArn *string `pulumi:"targetArn"`
 	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 	Type *string `pulumi:"type"`
@@ -233,7 +233,7 @@ type PhoneNumberState struct {
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	TagsAll pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// ARN for Amazon Connect instances that phone numbers are claimed to.
 	TargetArn pulumi.StringPtrInput
 	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 	Type pulumi.StringPtrInput
@@ -254,7 +254,7 @@ type phoneNumberArgs struct {
 	Region *string `pulumi:"region"`
 	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags map[string]string `pulumi:"tags"`
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// ARN for Amazon Connect instances that phone numbers are claimed to.
 	TargetArn string `pulumi:"targetArn"`
 	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 	Type string `pulumi:"type"`
@@ -272,7 +272,7 @@ type PhoneNumberArgs struct {
 	Region pulumi.StringPtrInput
 	// Tags to apply to the Phone Number. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
 	Tags pulumi.StringMapInput
-	// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+	// ARN for Amazon Connect instances that phone numbers are claimed to.
 	TargetArn pulumi.StringInput
 	// The type of phone number. Valid Values: `TOLL_FREE` | `DID`.
 	Type pulumi.StringInput
@@ -410,7 +410,7 @@ func (o PhoneNumberOutput) TagsAll() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringMapOutput { return v.TagsAll }).(pulumi.StringMapOutput)
 }
 
-// The Amazon Resource Name (ARN) for Amazon Connect instances that phone numbers are claimed to.
+// ARN for Amazon Connect instances that phone numbers are claimed to.
 func (o PhoneNumberOutput) TargetArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *PhoneNumber) pulumi.StringOutput { return v.TargetArn }).(pulumi.StringOutput)
 }

@@ -81,11 +81,11 @@ import javax.annotation.Nullable;
  * 
  *         final var assumeRole = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("Service")
  *                     .identifiers(String.format("budgets.%s", current.dnsSuffix()))
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("sts:AssumeRole")
  *                 .build())
  *             .build());
@@ -105,11 +105,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBudgetAction = new BudgetAction("exampleBudgetAction", BudgetActionArgs.builder()
- *             .budgetName(exampleBudget.name())
- *             .actionType("APPLY_IAM_POLICY")
- *             .approvalModel("AUTOMATIC")
- *             .notificationType("ACTUAL")
- *             .executionRoleArn(exampleRole.arn())
  *             .actionThreshold(BudgetActionActionThresholdArgs.builder()
  *                 .actionThresholdType("ABSOLUTE_VALUE")
  *                 .actionThresholdValue(100.0)
@@ -124,6 +119,11 @@ import javax.annotation.Nullable;
  *                 .address("example}{@literal @}{@code example.example")
  *                 .subscriptionType("EMAIL")
  *                 .build())
+ *             .budgetName(exampleBudget.name())
+ *             .actionType("APPLY_IAM_POLICY")
+ *             .approvalModel("AUTOMATIC")
+ *             .notificationType("ACTUAL")
+ *             .executionRoleArn(exampleRole.arn())
  *             .tags(Map.ofEntries(
  *                 Map.entry("Tag1", "Value1"),
  *                 Map.entry("Tag2", "Value2")

@@ -97,7 +97,7 @@ namespace Pulumi.Aws.Iam
     public partial class ServerCertificate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the server certificate.
+        /// ARN specifying the server certificate.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -297,7 +297,7 @@ namespace Pulumi.Aws.Iam
     public sealed class ServerCertificateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the server certificate.
+        /// ARN specifying the server certificate.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

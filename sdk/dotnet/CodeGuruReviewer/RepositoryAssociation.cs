@@ -27,6 +27,12 @@ namespace Pulumi.Aws.CodeGuruReviewer
     ///     var exampleRepository = new Aws.CodeCommit.Repository("example", new()
     ///     {
     ///         RepositoryName = "example-repo",
+    ///     }, new CustomResourceOptions
+    ///     {
+    ///         IgnoreChanges =
+    ///         {
+    ///             "tags[\"codeguru-reviewer\"]",
+    ///         },
     ///     });
     /// 
     ///     var exampleRepositoryAssociation = new Aws.CodeGuruReviewer.RepositoryAssociation("example", new()
@@ -52,7 +58,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     public partial class RepositoryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying the repository association.
+        /// ARN identifying the repository association.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -64,7 +70,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Output<string> AssociationId { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        /// ARN of an AWS CodeStar Connections connection.
         /// </summary>
         [Output("connectionArn")]
         public Output<string> ConnectionArn { get; private set; } = null!;
@@ -211,7 +217,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     public sealed class RepositoryAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) identifying the repository association.
+        /// ARN identifying the repository association.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -223,7 +229,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
         public Input<string>? AssociationId { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of an AWS CodeStar Connections connection.
+        /// ARN of an AWS CodeStar Connections connection.
         /// </summary>
         [Input("connectionArn")]
         public Input<string>? ConnectionArn { get; set; }

@@ -56,6 +56,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var avmcWithMinimumParameters = new CloudAutonomousVmCluster("avmcWithMinimumParameters", CloudAutonomousVmClusterArgs.builder()
+ *             .maintenanceWindow(CloudAutonomousVmClusterMaintenanceWindowArgs.builder()
+ *                 .preference("NO_PREFERENCE")
+ *                 .build())
  *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
  *             .odbNetworkId("<aws_odb_network_id>")
  *             .displayName("my_autonomous_vm_cluster")
@@ -67,27 +70,9 @@ import javax.annotation.Nullable;
  *             .dbServers("<my_db_server_id>")
  *             .scanListenerPortTls(8561)
  *             .scanListenerPortNonTls(1024)
- *             .maintenanceWindow(CloudAutonomousVmClusterMaintenanceWindowArgs.builder()
- *                 .preference("NO_PREFERENCE")
- *                 .build())
  *             .build());
  * 
  *         var avmcWithAllParams = new CloudAutonomousVmCluster("avmcWithAllParams", CloudAutonomousVmClusterArgs.builder()
- *             .description("my first avmc")
- *             .timeZone("UTC")
- *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
- *             .odbNetworkId("<aws_odb_network_id>")
- *             .displayName("my_autonomous_vm_cluster")
- *             .autonomousDataStorageSizeInTbs(5.0)
- *             .memoryPerOracleComputeUnitInGbs(2)
- *             .totalContainerDatabases(1)
- *             .cpuCoreCountPerNode(40)
- *             .licenseModel("LICENSE_INCLUDED")
- *             .dbServers(            
- *                 "<my_db_server_1>",
- *                 "<my_db_server_2>")
- *             .scanListenerPortTls(8561)
- *             .scanListenerPortNonTls(1024)
  *             .maintenanceWindow(CloudAutonomousVmClusterMaintenanceWindowArgs.builder()
  *                 .daysOfWeeks(                
  *                     CloudAutonomousVmClusterMaintenanceWindowDaysOfWeekArgs.builder()
@@ -118,6 +103,21 @@ import javax.annotation.Nullable;
  *                     2,
  *                     4)
  *                 .build())
+ *             .description("my first avmc")
+ *             .timeZone("UTC")
+ *             .cloudExadataInfrastructureId("<aws_odb_cloud_exadata_infrastructure_id>")
+ *             .odbNetworkId("<aws_odb_network_id>")
+ *             .displayName("my_autonomous_vm_cluster")
+ *             .autonomousDataStorageSizeInTbs(5.0)
+ *             .memoryPerOracleComputeUnitInGbs(2)
+ *             .totalContainerDatabases(1)
+ *             .cpuCoreCountPerNode(40)
+ *             .licenseModel("LICENSE_INCLUDED")
+ *             .dbServers(            
+ *                 "<my_db_server_1>",
+ *                 "<my_db_server_2>")
+ *             .scanListenerPortTls(8561)
+ *             .scanListenerPortNonTls(1024)
  *             .tags(Map.of("env", "dev"))
  *             .build());
  * 
@@ -138,14 +138,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:odb/cloudAutonomousVmCluster:CloudAutonomousVmCluster")
 public class CloudAutonomousVmCluster extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * ARN for the Exadata infrastructure.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for the Exadata infrastructure.
+     * @return ARN for the Exadata infrastructure.
      * 
      */
     public Output<String> arn() {

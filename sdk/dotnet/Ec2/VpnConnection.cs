@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Aws.Ec2
 {
     /// <summary>
-    /// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an Internet Protocol security (IPsec) VPN connection between a VPC and an on-premises network.
+    /// Manages a Site-to-Site VPN connection. A Site-to-Site VPN connection is an IP security (IPsec) VPN connection between a VPC and an on-premises network.
     /// Any new Site-to-Site VPN connection that you create is an [AWS VPN connection](https://docs.aws.amazon.com/vpn/latest/s2svpn/vpn-categories.html).
     /// 
     /// &gt; **Note:** The CIDR blocks in the arguments `Tunnel1InsideCidr` and `Tunnel2InsideCidr` must have a prefix of /30 and be a part of a specific range.
@@ -166,7 +166,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpnConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPN Connection.
+        /// ARN of the VPN Connection.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -1146,7 +1146,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpnConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the VPN Connection.
+        /// ARN of the VPN Connection.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

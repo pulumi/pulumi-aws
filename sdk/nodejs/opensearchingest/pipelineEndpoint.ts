@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.opensearchingest.PipelineEndpoint("example", {
- *     pipelineArn: exampleAwsOsisPipeline.pipelineArn,
  *     vpcOptions: {
  *         securityGroupIds: [exampleAwsSecurityGroup.id],
  *         subnetIds: [exampleAwsSubnet.id],
  *     },
+ *     pipelineArn: exampleAwsOsisPipeline.pipelineArn,
  * });
  * ```
  *

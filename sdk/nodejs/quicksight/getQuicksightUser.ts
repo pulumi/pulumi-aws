@@ -65,7 +65,7 @@ export interface GetQuicksightUserResult {
      */
     readonly active: boolean;
     /**
-     * The Amazon Resource Name (ARN) for the user.
+     * ARN for the user.
      */
     readonly arn: string;
     readonly awsAccountId: string;

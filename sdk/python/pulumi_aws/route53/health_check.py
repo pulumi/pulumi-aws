@@ -68,7 +68,7 @@ class HealthCheckArgs:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        :param pulumi.Input[_builtins.str] routing_control_arn: ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
@@ -343,7 +343,7 @@ class HealthCheckArgs:
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         """
         return pulumi.get(self, "routing_control_arn")
 
@@ -418,7 +418,7 @@ class _HealthCheckState:
         """
         Input properties used for looking up and filtering HealthCheck resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Health Check.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Health Check.
         :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
@@ -442,7 +442,7 @@ class _HealthCheckState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        :param pulumi.Input[_builtins.str] routing_control_arn: ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -502,7 +502,7 @@ class _HealthCheckState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the Health Check.
+        ARN of the Health Check.
         """
         return pulumi.get(self, "arn")
 
@@ -724,7 +724,7 @@ class _HealthCheckState:
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         """
         return pulumi.get(self, "routing_control_arn")
 
@@ -962,7 +962,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        :param pulumi.Input[_builtins.str] routing_control_arn: ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] triggers: Map of arbitrary keys and values that, when changed, will trigger an in-place update of the CloudWatch alarm arguments. Use this argument to synchronize the health check when an alarm is changed. See example above.
@@ -1202,7 +1202,7 @@ class HealthCheck(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the Health Check.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Health Check.
         :param pulumi.Input[_builtins.int] child_health_threshold: The minimum number of child health checks that must be healthy for Route 53 to consider the parent health check to be healthy. Valid values are integers between 0 and 256, inclusive
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] child_healthchecks: For a specified parent health check, a list of HealthCheckId values for the associated child health checks.
         :param pulumi.Input[_builtins.str] cloudwatch_alarm_name: The name of the CloudWatch alarm.
@@ -1226,7 +1226,7 @@ class HealthCheck(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] regions: List of AWS Regions from which Amazon Route 53 health checkers check the specified endpoint. Valid values are `us-east-1`, `us-west-1`, `us-west-2`, `eu-west-1`, `ap-southeast-1`, `ap-southeast-2`, `ap-northeast-1`, and `sa-east-1`. If not specified, all of the regions listed under **Valid values** are used by default. Once this argument is set, removing it has no effect.
         :param pulumi.Input[_builtins.int] request_interval: The number of seconds between the time that Amazon Route 53 gets a response from your endpoint and the time that it sends the next health-check request.
         :param pulumi.Input[_builtins.str] resource_path: The path that you want Amazon Route 53 to request when performing health checks.
-        :param pulumi.Input[_builtins.str] routing_control_arn: The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        :param pulumi.Input[_builtins.str] routing_control_arn: ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         :param pulumi.Input[_builtins.str] search_string: String searched in the first 5120 bytes of the response body for check to be considered healthy. Only valid with `HTTP_STR_MATCH` and `HTTPS_STR_MATCH`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the health check. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -1267,7 +1267,7 @@ class HealthCheck(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the Health Check.
+        ARN of the Health Check.
         """
         return pulumi.get(self, "arn")
 
@@ -1417,7 +1417,7 @@ class HealthCheck(pulumi.CustomResource):
     @pulumi.getter(name="routingControlArn")
     def routing_control_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
+        ARN for the Route 53 Application Recovery Controller routing control. This is used when health check type is `RECOVERY_CONTROL`
         """
         return pulumi.get(self, "routing_control_arn")
 

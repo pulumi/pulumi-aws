@@ -61,14 +61,14 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * ARN of the IAM Role to assume for operations.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+     * @return ARN of the IAM Role to assume for operations.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -218,7 +218,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+         * @param roleArn ARN of the IAM Role to assume for operations.
          * 
          * @return builder
          * 
@@ -229,7 +229,7 @@ public final class ResourceState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM Role to assume for operations.
+         * @param roleArn ARN of the IAM Role to assume for operations.
          * 
          * @return builder
          * 

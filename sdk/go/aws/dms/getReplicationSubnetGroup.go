@@ -77,12 +77,8 @@ type LookupReplicationSubnetGroupResult struct {
 }
 
 func LookupReplicationSubnetGroupOutput(ctx *pulumi.Context, args LookupReplicationSubnetGroupOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSubnetGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationSubnetGroupResultOutput, error) {
-			args := v.(LookupReplicationSubnetGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, LookupReplicationSubnetGroupResultOutput{}, options).(LookupReplicationSubnetGroupResultOutput), nil
-		}).(LookupReplicationSubnetGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:dms/getReplicationSubnetGroup:getReplicationSubnetGroup", args, LookupReplicationSubnetGroupResultOutput{}, options).(LookupReplicationSubnetGroupResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationSubnetGroup.

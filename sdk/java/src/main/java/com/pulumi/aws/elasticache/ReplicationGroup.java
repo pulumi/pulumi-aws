@@ -105,6 +105,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.aws.elasticache.Cluster;
  * import com.pulumi.aws.elasticache.ClusterArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -129,7 +130,9 @@ import javax.annotation.Nullable;
  *             .numCacheClusters(2)
  *             .parameterGroupName("default.redis3.2")
  *             .port(6379)
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("numCacheClusters")
+ *                 .build());
  * 
  *         for (var i = 0; i < 1; i++) {
  *             new Cluster("replica-" + i, ClusterArgs.builder()
@@ -214,13 +217,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ReplicationGroup("example", ReplicationGroupArgs.builder()
- *             .replicationGroupId("tf-redis-cluster")
- *             .description("example description")
- *             .nodeType("cache.t2.small")
- *             .port(6379)
- *             .parameterGroupName("default.redis3.2.cluster.on")
- *             .automaticFailoverEnabled(true)
- *             .numNodeGroups(2)
  *             .nodeGroupConfigurations(            
  *                 ReplicationGroupNodeGroupConfigurationArgs.builder()
  *                     .nodeGroupId("0001")
@@ -236,6 +232,13 @@ import javax.annotation.Nullable;
  *                     .replicaCount(1)
  *                     .slots("8192-16383")
  *                     .build())
+ *             .replicationGroupId("tf-redis-cluster")
+ *             .description("example description")
+ *             .nodeType("cache.t2.small")
+ *             .port(6379)
+ *             .parameterGroupName("default.redis3.2.cluster.on")
+ *             .automaticFailoverEnabled(true)
+ *             .numNodeGroups(2)
  *             .build());
  * 
  *     }
@@ -269,14 +272,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ReplicationGroup("test", ReplicationGroupArgs.builder()
- *             .replicationGroupId("myreplicaciongroup")
- *             .description("test description")
- *             .nodeType("cache.t3.small")
- *             .port(6379)
- *             .applyImmediately(true)
- *             .autoMinorVersionUpgrade(false)
- *             .maintenanceWindow("tue:06:30-tue:07:30")
- *             .snapshotWindow("01:00-02:00")
  *             .logDeliveryConfigurations(            
  *                 ReplicationGroupLogDeliveryConfigurationArgs.builder()
  *                     .destination(example.name())
@@ -290,6 +285,14 @@ import javax.annotation.Nullable;
  *                     .logFormat("json")
  *                     .logType("engine-log")
  *                     .build())
+ *             .replicationGroupId("myreplicaciongroup")
+ *             .description("test description")
+ *             .nodeType("cache.t3.small")
+ *             .port(6379)
+ *             .applyImmediately(true)
+ *             .autoMinorVersionUpgrade(false)
+ *             .maintenanceWindow("tue:06:30-tue:07:30")
+ *             .snapshotWindow("01:00-02:00")
  *             .build());
  * 
  *     }
@@ -475,23 +478,53 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.authToken);
     }
     /**
-     * Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      * 
      */
     @Export(name="authTokenUpdateStrategy", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> authTokenUpdateStrategy;
 
     /**
-     * @return Strategy used when modifying `authToken` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` must be omitted.
+     * @return Strategy used when modifying `authToken` or `authTokenWo` on an existing replication group. Not used during initial create. Valid values are `SET`, `ROTATE`, and `DELETE`. If omitted during an auth token change, AWS defaults to `ROTATE`. If value is `DELETE` then `authToken` and `authTokenWo` must be omitted.
      * 
      */
     public Output<Optional<String>> authTokenUpdateStrategy() {
         return Codegen.optional(this.authTokenUpdateStrategy);
     }
     /**
+     * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+     * 
+     */
+    @Export(name="authTokenWo", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> authTokenWo;
+
+    /**
+     * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+     * Password used to access a password protected server, whose value will not be stored in state. Can be specified only if `transitEncryptionEnabled = true`. Conflicts with `authToken`. If set, requires `authTokenWoVersion` to be set.
+     * 
+     */
+    public Output<Optional<String>> authTokenWo() {
+        return Codegen.optional(this.authTokenWo);
+    }
+    /**
+     * Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+     * 
+     */
+    @Export(name="authTokenWoVersion", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> authTokenWoVersion;
+
+    /**
+     * @return Required when `authTokenWo` is set. Changing this value triggers an update to `authTokenWo`.
+     * 
+     */
+    public Output<Optional<Integer>> authTokenWoVersion() {
+        return Codegen.optional(this.authTokenWoVersion);
+    }
+    /**
      * Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     @Export(name="autoMinorVersionUpgrade", refs={Boolean.class}, tree="[0]")
@@ -500,7 +533,7 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
     /**
      * @return Specifies whether minor version engine upgrades will be applied automatically to the underlying Cache Cluster instances during the maintenance window.
      * Only supported for engine types `&#34;redis&#34;` and `&#34;valkey&#34;` and if the engine version is 6 or higher.
-     * Defaults to `true`.
+     * If this argument is not explicitly set in the configuration, AWS will set a default value of `true` and Terraform will not detect drift on this attribute.
      * 
      */
     public Output<Boolean> autoMinorVersionUpgrade() {
@@ -1003,28 +1036,28 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         return this.replicationGroupId;
     }
     /**
-     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     @Export(name="securityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupIds;
 
     /**
-     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return IDs of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     public Output<List<String>> securityGroupIds() {
         return this.securityGroupIds;
     }
     /**
-     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     @Export(name="securityGroupNames", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> securityGroupNames;
 
     /**
-     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in an Amazon Virtual Private Cloud.
+     * @return Names of one or more Amazon VPC security groups associated with this replication group. Use this parameter only when you are creating a replication group in a VPC.
      * 
      */
     public Output<List<String>> securityGroupNames() {
@@ -1221,7 +1254,8 @@ public class ReplicationGroup extends com.pulumi.resources.CustomResource {
         var defaultOptions = com.pulumi.resources.CustomResourceOptions.builder()
             .version(Utilities.getVersion())
             .additionalSecretOutputs(List.of(
-                "authToken"
+                "authToken",
+                "authTokenWo"
             ))
             .build();
         return com.pulumi.resources.CustomResourceOptions.merge(defaultOptions, options, id);

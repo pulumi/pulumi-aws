@@ -118,9 +118,9 @@ class _ClusterSnapshotState:
         """
         Input properties used for looking up and filtering ClusterSnapshot resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         :param pulumi.Input[_builtins.str] owner_account: For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -151,7 +151,7 @@ class _ClusterSnapshotState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -175,7 +175,7 @@ class _ClusterSnapshotState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -406,9 +406,9 @@ class ClusterSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the snapshot.
+        :param pulumi.Input[_builtins.str] arn: ARN of the snapshot.
         :param pulumi.Input[_builtins.str] cluster_identifier: The cluster identifier for which you want a snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        :param pulumi.Input[_builtins.str] kms_key_id: KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         :param pulumi.Input[_builtins.int] manual_snapshot_retention_period: The number of days that a manual snapshot is retained. If the value is `-1`, the manual snapshot is retained indefinitely. Valid values are -1 and between `1` and `3653`.
         :param pulumi.Input[_builtins.str] owner_account: For manual snapshots, the Amazon Web Services account used to create or copy the snapshot. For automatic snapshots, the owner of the cluster. The owner can perform all snapshot actions, such as sharing a manual snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -435,7 +435,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the snapshot.
+        ARN of the snapshot.
         """
         return pulumi.get(self, "arn")
 
@@ -451,7 +451,7 @@ class ClusterSnapshot(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The Key Management Service (KMS) key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
+        KMS key ID of the encryption key that was used to encrypt data in the cluster from which the snapshot was taken.
         """
         return pulumi.get(self, "kms_key_id")
 

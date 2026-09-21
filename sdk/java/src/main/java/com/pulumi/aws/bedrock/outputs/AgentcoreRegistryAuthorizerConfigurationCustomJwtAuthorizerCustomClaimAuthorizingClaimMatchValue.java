@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue {
+    /**
+     * @return Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+     * 
+     */
     private String claimMatchOperator;
+    /**
+     * @return Value or values to match for. See `claimMatchValue` below.
+     * 
+     */
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue claimMatchValue;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue() {}
+    /**
+     * @return Relationship between the claim field value and the value or values to match for. Valid values are `EQUALS`, `CONTAINS`, and `CONTAINS_ANY`. `EQUALS` can be used only when `inboundTokenClaimValueType` is `STRING`. `CONTAINS` or `CONTAINS_ANY` can be used only when `inboundTokenClaimValueType` is `STRING_ARRAY`.
+     * 
+     */
     public String claimMatchOperator() {
         return this.claimMatchOperator;
     }
+    /**
+     * @return Value or values to match for. See `claimMatchValue` below.
+     * 
+     */
     public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValue claimMatchValue() {
         return this.claimMatchValue;
     }

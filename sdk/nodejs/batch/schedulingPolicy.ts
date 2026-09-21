@@ -17,10 +17,7 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.batch.SchedulingPolicy("example", {
- *     name: "example",
  *     fairSharePolicy: {
- *         computeReservation: 1,
- *         shareDecaySeconds: 3600,
  *         shareDistributions: [
  *             {
  *                 shareIdentifier: "A1*",
@@ -31,7 +28,10 @@ import * as utilities from "../utilities";
  *                 weightFactor: 0.2,
  *             },
  *         ],
+ *         computeReservation: 1,
+ *         shareDecaySeconds: 3600,
  *     },
+ *     name: "example",
  *     tags: {
  *         Name: "Example Batch Scheduling Policy",
  *     },
@@ -75,7 +75,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     declare public readonly fairSharePolicy: pulumi.Output<outputs.batch.SchedulingPolicyFairSharePolicy | undefined>;
@@ -134,7 +134,7 @@ export class SchedulingPolicy extends pulumi.CustomResource {
  */
 export interface SchedulingPolicyState {
     /**
-     * The Amazon Resource Name of the scheduling policy.
+     * ARN of the scheduling policy.
      */
     arn?: pulumi.Input<string | undefined>;
     fairSharePolicy?: pulumi.Input<inputs.batch.SchedulingPolicyFairSharePolicy | undefined>;

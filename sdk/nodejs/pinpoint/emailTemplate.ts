@@ -19,15 +19,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.pinpoint.EmailTemplate("test", {
- *     templateName: "testing",
  *     emailTemplates: [{
- *         subject: "testing",
- *         textPart: "we are testing template text part",
  *         headers: [{
  *             name: "testingname",
  *             value: "testingvalue",
  *         }],
+ *         subject: "testing",
+ *         textPart: "we are testing template text part",
  *     }],
+ *     templateName: "testing",
  * });
  * ```
  *
@@ -68,7 +68,7 @@ export class EmailTemplate extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -137,7 +137,7 @@ export class EmailTemplate extends pulumi.CustomResource {
  */
 export interface EmailTemplateState {
     /**
-     * Amazon Resource Name (ARN) of the message template.
+     * ARN of the message template.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

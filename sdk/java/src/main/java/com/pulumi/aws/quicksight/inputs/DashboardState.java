@@ -195,14 +195,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * ARN of a template that was used to create this dashboard.
      * 
      */
     @Import(name="sourceEntityArn")
     private @Nullable Output<String> sourceEntityArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+     * @return ARN of a template that was used to create this dashboard.
      * 
      */
     public Optional<Output<String>> sourceEntityArn() {
@@ -255,14 +255,14 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     @Import(name="themeArn")
     private @Nullable Output<String> themeArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+     * @return ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
      * 
      */
     public Optional<Output<String>> themeArn() {
@@ -596,7 +596,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+         * @param sourceEntityArn ARN of a template that was used to create this dashboard.
          * 
          * @return builder
          * 
@@ -607,7 +607,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param sourceEntityArn Amazon Resource Name (ARN) of a template that was used to create this dashboard.
+         * @param sourceEntityArn ARN of a template that was used to create this dashboard.
          * 
          * @return builder
          * 
@@ -680,7 +680,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeArn The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+         * @param themeArn ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
          * 
          * @return builder
          * 
@@ -691,7 +691,7 @@ public final class DashboardState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param themeArn The Amazon Resource Name (ARN) of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
+         * @param themeArn ARN of the theme that is being used for this dashboard. The theme ARN must exist in the same AWS account where you create the dashboard.
          * 
          * @return builder
          * 

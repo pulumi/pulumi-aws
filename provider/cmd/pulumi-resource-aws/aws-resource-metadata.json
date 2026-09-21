@@ -9,6 +9,13 @@
   "aws_account_alternate_contact": {
     "hasInputName": true
   },
+  "aws_accountaccess_application": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_accountaccess_entitlement": {
+    "hasUsableRegion": true
+  },
   "aws_acm_certificate": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -31,6 +38,11 @@
   },
   "aws_acmpca_policy": {
     "hasUsableRegion": true
+  },
+  "aws_agentregistry_registry": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_alb": {
     "hasInputName": true,
@@ -661,6 +673,9 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_bedrock_model_invocation_job": {
+    "hasUsableRegion": true
   },
   "aws_bedrock_model_invocation_logging_configuration": {
     "hasUsableRegion": true
@@ -1583,6 +1598,9 @@
     "hasInputName": true,
     "hasUsableRegion": true
   },
+  "aws_datazone_policy_grant": {
+    "hasUsableRegion": true
+  },
   "aws_datazone_project": {
     "hasInputName": true,
     "hasUsableRegion": true
@@ -1775,11 +1793,26 @@
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
+  "aws_dms_data_provider": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
   "aws_dms_endpoint": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
   },
   "aws_dms_event_subscription": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_instance_profile": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_dms_migration_project": {
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
@@ -2167,6 +2200,9 @@
   "aws_ec2_transit_gateway_policy_table_association": {
     "hasUsableRegion": true
   },
+  "aws_ec2_transit_gateway_policy_table_entry": {
+    "hasUsableRegion": true
+  },
   "aws_ec2_transit_gateway_prefix_list_reference": {
     "hasUsableRegion": true
   },
@@ -2540,6 +2576,9 @@
   "aws_fis_experiment_template": {
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_fis_safety_lever_state": {
+    "hasUsableRegion": true
   },
   "aws_fis_target_account_configuration": {
     "hasUsableRegion": true
@@ -3270,6 +3309,9 @@
   "aws_lambda_provisioned_concurrency_config": {
     "hasUsableRegion": true
   },
+  "aws_lambda_resource_policy": {
+    "hasUsableRegion": true
+  },
   "aws_lambda_runtime_management_config": {
     "hasUsableRegion": true
   },
@@ -3281,6 +3323,14 @@
     "hasInputName": true,
     "hasUsableRegion": true,
     "hasTagsAndTagsAll": true
+  },
+  "aws_lambdamicrovms_image_legacy": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
+  },
+  "aws_lambdamicrovms_microvm": {
+    "hasUsableRegion": true
   },
   "aws_launch_configuration": {
     "hasInputName": true,
@@ -3553,6 +3603,11 @@
   },
   "aws_macie2_organization_configuration": {
     "hasUsableRegion": true
+  },
+  "aws_mailmanager_archive": {
+    "hasInputName": true,
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_mailmanager_ingress_point": {
     "hasInputName": true,
@@ -4099,6 +4154,9 @@
     "hasTagsAndTagsAll": true
   },
   "aws_pinpointsmsvoicev2_event_destination": {
+    "hasUsableRegion": true
+  },
+  "aws_pinpointsmsvoicev2_keyword": {
     "hasUsableRegion": true
   },
   "aws_pinpointsmsvoicev2_opt_out_list": {
@@ -5394,6 +5452,10 @@
   },
   "aws_sesv2_email_identity_policy": {
     "hasUsableRegion": true
+  },
+  "aws_sesv2_multi_region_endpoint": {
+    "hasUsableRegion": true,
+    "hasTagsAndTagsAll": true
   },
   "aws_sesv2_tenant": {
     "hasUsableRegion": true,

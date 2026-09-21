@@ -3834,6 +3834,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Filter Functions by Name Pattern
+     * 
      * ### Create Function Inventory
      * 
      */
@@ -3935,6 +3937,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Filter Functions by Name Pattern
      * 
      * ### Create Function Inventory
      * 
@@ -4038,6 +4042,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Filter Functions by Name Pattern
+     * 
      * ### Create Function Inventory
      * 
      */
@@ -4139,6 +4145,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Filter Functions by Name Pattern
      * 
      * ### Create Function Inventory
      * 
@@ -4242,6 +4250,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Filter Functions by Name Pattern
+     * 
      * ### Create Function Inventory
      * 
      */
@@ -4344,6 +4354,8 @@ public final class LambdaFunctions {
      * }
      * </pre>
      * 
+     * ### Filter Functions by Name Pattern
+     * 
      * ### Create Function Inventory
      * 
      */
@@ -4445,6 +4457,8 @@ public final class LambdaFunctions {
      * }
      * }
      * </pre>
+     * 
+     * ### Filter Functions by Name Pattern
      * 
      * ### Create Function Inventory
      * 

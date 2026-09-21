@@ -104,7 +104,7 @@ class _ServiceLinkedRoleState:
         """
         Input properties used for looking up and filtering ServiceLinkedRole resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the role.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the role.
         :param pulumi.Input[_builtins.str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         :param pulumi.Input[_builtins.str] create_date: The creation date of the IAM role.
         :param pulumi.Input[_builtins.str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
@@ -140,7 +140,7 @@ class _ServiceLinkedRoleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) specifying the role.
+        ARN specifying the role.
         """
         return pulumi.get(self, "arn")
 
@@ -286,7 +286,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+        - `arn` (String) ARN of the IAM service-linked role.
 
         Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
 
@@ -326,7 +326,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the IAM service-linked role.
+        - `arn` (String) ARN of the IAM service-linked role.
 
         Using `pulumi import`, import IAM service-linked roles using role ARN. For example:
 
@@ -402,7 +402,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) specifying the role.
+        :param pulumi.Input[_builtins.str] arn: ARN specifying the role.
         :param pulumi.Input[_builtins.str] aws_service_name: The AWS service to which this role is attached. You use a string similar to a URL but without the `http://` in front. For example: `elasticbeanstalk.amazonaws.com`. To find the full list of services that support service-linked roles, check [the docs](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html).
         :param pulumi.Input[_builtins.str] create_date: The creation date of the IAM role.
         :param pulumi.Input[_builtins.str] custom_suffix: Additional string appended to the role name. Not all AWS services support custom suffixes.
@@ -433,7 +433,7 @@ class ServiceLinkedRole(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) specifying the role.
+        ARN specifying the role.
         """
         return pulumi.get(self, "arn")
 

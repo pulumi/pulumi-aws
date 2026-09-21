@@ -159,7 +159,7 @@ func (o FileSystemAssociationCacheAttributesPtrOutput) CacheStaleTimeoutInSecond
 }
 
 type GatewayGatewayNetworkInterface struct {
-	// The Internet Protocol version 4 (IPv4) address of the interface.
+	// IP version 4 (IPv4) address of the interface.
 	Ipv4Address *string `pulumi:"ipv4Address"`
 }
 
@@ -175,7 +175,7 @@ type GatewayGatewayNetworkInterfaceInput interface {
 }
 
 type GatewayGatewayNetworkInterfaceArgs struct {
-	// The Internet Protocol version 4 (IPv4) address of the interface.
+	// IP version 4 (IPv4) address of the interface.
 	Ipv4Address pulumi.StringPtrInput `pulumi:"ipv4Address"`
 }
 
@@ -230,7 +230,7 @@ func (o GatewayGatewayNetworkInterfaceOutput) ToGatewayGatewayNetworkInterfaceOu
 	return o
 }
 
-// The Internet Protocol version 4 (IPv4) address of the interface.
+// IP version 4 (IPv4) address of the interface.
 func (o GatewayGatewayNetworkInterfaceOutput) Ipv4Address() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GatewayGatewayNetworkInterface) *string { return v.Ipv4Address }).(pulumi.StringPtrOutput)
 }

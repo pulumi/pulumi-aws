@@ -160,9 +160,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewVpcEndpoint(ctx, "ec2", &ec2.VpcEndpointArgs{
-//				VpcId:           pulumi.Any(example.Id),
-//				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
-//				VpcEndpointType: pulumi.String("Interface"),
 //				SubnetConfigurations: ec2.VpcEndpointSubnetConfigurationArray{
 //					&ec2.VpcEndpointSubnetConfigurationArgs{
 //						Ipv4:     pulumi.String("10.0.1.10"),
@@ -173,6 +170,9 @@ import (
 //						SubnetId: pulumi.Any(example2.Id),
 //					},
 //				},
+//				VpcId:           pulumi.Any(example.Id),
+//				ServiceName:     pulumi.String("com.amazonaws.us-west-2.ec2"),
+//				VpcEndpointType: pulumi.String("Interface"),
 //				SubnetIds: pulumi.StringArray{
 //					example1.Id,
 //					example2.Id,
@@ -378,7 +378,7 @@ import (
 type VpcEndpoint struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrOutput `pulumi:"autoAccept"`
@@ -467,7 +467,7 @@ func GetVpcEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering VpcEndpoint resources.
 type vpcEndpointState struct {
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn *string `pulumi:"arn"`
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept *bool `pulumi:"autoAccept"`
@@ -524,7 +524,7 @@ type vpcEndpointState struct {
 }
 
 type VpcEndpointState struct {
-	// The Amazon Resource Name (ARN) of the VPC endpoint.
+	// ARN of the VPC endpoint.
 	Arn pulumi.StringPtrInput
 	// Accept the VPC endpoint (the VPC endpoint and service need to be in the same AWS account).
 	AutoAccept pulumi.BoolPtrInput
@@ -750,7 +750,7 @@ func (o VpcEndpointOutput) ToVpcEndpointOutputWithContext(ctx context.Context) V
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the VPC endpoint.
+// ARN of the VPC endpoint.
 func (o VpcEndpointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VpcEndpoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

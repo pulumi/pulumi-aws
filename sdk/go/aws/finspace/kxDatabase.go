@@ -69,7 +69,7 @@ import (
 type KxDatabase struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX database.
+	// ARN identifier of the KX database.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp pulumi.StringOutput `pulumi:"createdTimestamp"`
@@ -124,7 +124,7 @@ func GetKxDatabase(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxDatabase resources.
 type kxDatabaseState struct {
-	// Amazon Resource Name (ARN) identifier of the KX database.
+	// ARN identifier of the KX database.
 	Arn *string `pulumi:"arn"`
 	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp *string `pulumi:"createdTimestamp"`
@@ -147,7 +147,7 @@ type kxDatabaseState struct {
 }
 
 type KxDatabaseState struct {
-	// Amazon Resource Name (ARN) identifier of the KX database.
+	// ARN identifier of the KX database.
 	Arn pulumi.StringPtrInput
 	// Timestamp at which the databse is created in FinSpace. Value determined as epoch time in seconds. For example, the value for Monday, November 1, 2021 12:00:00 PM UTC is specified as 1635768000.
 	CreatedTimestamp pulumi.StringPtrInput
@@ -291,7 +291,7 @@ func (o KxDatabaseOutput) ToKxDatabaseOutputWithContext(ctx context.Context) KxD
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX database.
+// ARN identifier of the KX database.
 func (o KxDatabaseOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDatabase) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -34,7 +34,7 @@ class OrganizationCustomRuleArgs:
         """
         The set of arguments for constructing a OrganizationCustomRule resource.
 
-        :param pulumi.Input[_builtins.str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
+        :param pulumi.Input[_builtins.str] lambda_function_arn: ARN of the rule Lambda Function
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] trigger_types: List of notification types that trigger AWS Config to run an evaluation for the rule. Valid values: `ConfigurationItemChangeNotification`, `OversizedConfigurationItemChangeNotification`, and `ScheduledNotification`
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
@@ -74,7 +74,7 @@ class OrganizationCustomRuleArgs:
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the rule Lambda Function
+        ARN of the rule Lambda Function
         """
         return pulumi.get(self, "lambda_function_arn")
 
@@ -234,11 +234,11 @@ class _OrganizationCustomRuleState:
         """
         Input properties used for looking up and filtering OrganizationCustomRule resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[_builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
-        :param pulumi.Input[_builtins.str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
+        :param pulumi.Input[_builtins.str] lambda_function_arn: ARN of the rule Lambda Function
         :param pulumi.Input[_builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[_builtins.str] name: The name of the rule
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -279,7 +279,7 @@ class _OrganizationCustomRuleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the rule
+        ARN of the rule
         """
         return pulumi.get(self, "arn")
 
@@ -327,7 +327,7 @@ class _OrganizationCustomRuleState:
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the rule Lambda Function
+        ARN of the rule Lambda Function
         """
         return pulumi.get(self, "lambda_function_arn")
 
@@ -507,7 +507,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[_builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
-        :param pulumi.Input[_builtins.str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
+        :param pulumi.Input[_builtins.str] lambda_function_arn: ARN of the rule Lambda Function
         :param pulumi.Input[_builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[_builtins.str] name: The name of the rule
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -657,11 +657,11 @@ class OrganizationCustomRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the rule
+        :param pulumi.Input[_builtins.str] arn: ARN of the rule
         :param pulumi.Input[_builtins.str] description: Description of the rule
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] excluded_accounts: List of AWS account identifiers to exclude from the rule
         :param pulumi.Input[_builtins.str] input_parameters: A string in JSON format that is passed to the AWS Config Rule Lambda Function
-        :param pulumi.Input[_builtins.str] lambda_function_arn: Amazon Resource Name (ARN) of the rule Lambda Function
+        :param pulumi.Input[_builtins.str] lambda_function_arn: ARN of the rule Lambda Function
         :param pulumi.Input[_builtins.str] maximum_execution_frequency: The maximum frequency with which AWS Config runs evaluations for a rule, if the rule is triggered at a periodic frequency. Defaults to `TwentyFour_Hours` for periodic frequency triggered rules. Valid values: `One_Hour`, `Three_Hours`, `Six_Hours`, `Twelve_Hours`, or `TwentyFour_Hours`.
         :param pulumi.Input[_builtins.str] name: The name of the rule
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -694,7 +694,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the rule
+        ARN of the rule
         """
         return pulumi.get(self, "arn")
 
@@ -726,7 +726,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
     @pulumi.getter(name="lambdaFunctionArn")
     def lambda_function_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the rule Lambda Function
+        ARN of the rule Lambda Function
         """
         return pulumi.get(self, "lambda_function_arn")
 

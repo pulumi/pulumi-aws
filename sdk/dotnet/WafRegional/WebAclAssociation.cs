@@ -28,7 +28,6 @@ namespace Pulumi.Aws.WafRegional
     /// {
     ///     var ipset = new Aws.WafRegional.IpSet("ipset", new()
     ///     {
-    ///         Name = "tfIPSet",
     ///         IpSetDescriptors = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.IpSetIpSetDescriptorArgs
@@ -37,12 +36,11 @@ namespace Pulumi.Aws.WafRegional
     ///                 Value = "192.0.7.0/24",
     ///             },
     ///         },
+    ///         Name = "tfIPSet",
     ///     });
     /// 
     ///     var foo = new Aws.WafRegional.Rule("foo", new()
     ///     {
-    ///         Name = "tfWAFRule",
-    ///         MetricName = "tfWAFRule",
     ///         Predicates = new[]
     ///         {
     ///             new Aws.WafRegional.Inputs.RulePredicateArgs
@@ -52,12 +50,12 @@ namespace Pulumi.Aws.WafRegional
     ///                 Type = "IPMatch",
     ///             },
     ///         },
+    ///         Name = "tfWAFRule",
+    ///         MetricName = "tfWAFRule",
     ///     });
     /// 
     ///     var fooWebAcl = new Aws.WafRegional.WebAcl("foo", new()
     ///     {
-    ///         Name = "foo",
-    ///         MetricName = "foo",
     ///         DefaultAction = new Aws.WafRegional.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Type = "ALLOW",
@@ -74,6 +72,8 @@ namespace Pulumi.Aws.WafRegional
     ///                 RuleId = foo.Id,
     ///             },
     ///         },
+    ///         Name = "foo",
+    ///         MetricName = "foo",
     ///     });
     /// 
     ///     var fooVpc = new Aws.Ec2.Vpc("foo", new()

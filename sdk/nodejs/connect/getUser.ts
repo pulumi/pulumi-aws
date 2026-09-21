@@ -80,7 +80,7 @@ export interface GetUserArgs {
  */
 export interface GetUserResult {
     /**
-     * The Amazon Resource Name (ARN) of the User.
+     * ARN of the User.
      */
     readonly arn: string;
     /**

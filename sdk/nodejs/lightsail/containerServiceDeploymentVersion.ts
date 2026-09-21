@@ -23,6 +23,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lightsail.ContainerServiceDeploymentVersion("example", {
+ *     publicEndpoint: {
+ *         healthCheck: {
+ *             healthyThreshold: 2,
+ *             unhealthyThreshold: 2,
+ *             timeoutSeconds: 2,
+ *             intervalSeconds: 5,
+ *             path: "/",
+ *             successCodes: "200-499",
+ *         },
+ *         containerName: "hello-world",
+ *         containerPort: 80,
+ *     },
  *     containers: [{
  *         containerName: "hello-world",
  *         image: "amazon/amazon-lightsail:hello-world",
@@ -34,18 +46,6 @@ import * as utilities from "../utilities";
  *             "80": "HTTP",
  *         },
  *     }],
- *     publicEndpoint: {
- *         containerName: "hello-world",
- *         containerPort: 80,
- *         healthCheck: {
- *             healthyThreshold: 2,
- *             unhealthyThreshold: 2,
- *             timeoutSeconds: 2,
- *             intervalSeconds: 5,
- *             path: "/",
- *             successCodes: "200-499",
- *         },
- *     },
  *     serviceName: exampleAwsLightsailContainerService.name,
  * });
  * ```

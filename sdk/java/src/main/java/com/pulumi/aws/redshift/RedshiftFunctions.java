@@ -66,16 +66,7 @@ public final class RedshiftFunctions {
      *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
      *                     .roleArn(firehoseRole.arn())
      *                     .bucketArn(bucket.arn())
@@ -83,7 +74,16 @@ public final class RedshiftFunctions {
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
+     *                 .roleArn(firehoseRole.arn())
+     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
+     *                 .username("exampleuser")
+     *                 .password("Exampl3Pass")
+     *                 .dataTableName("example-table")
+     *                 .copyOptions("delimiter '|'")
+     *                 .dataTableColumns("example-col")
      *                 .build())
+     *             .name("kinesis-firehose-example-stream")
+     *             .destination("redshift")
      *             .build());
      * 
      *     }
@@ -131,16 +131,7 @@ public final class RedshiftFunctions {
      *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
      *                     .roleArn(firehoseRole.arn())
      *                     .bucketArn(bucket.arn())
@@ -148,7 +139,16 @@ public final class RedshiftFunctions {
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
+     *                 .roleArn(firehoseRole.arn())
+     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
+     *                 .username("exampleuser")
+     *                 .password("Exampl3Pass")
+     *                 .dataTableName("example-table")
+     *                 .copyOptions("delimiter '|'")
+     *                 .dataTableColumns("example-col")
      *                 .build())
+     *             .name("kinesis-firehose-example-stream")
+     *             .destination("redshift")
      *             .build());
      * 
      *     }
@@ -196,16 +196,7 @@ public final class RedshiftFunctions {
      *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
      *                     .roleArn(firehoseRole.arn())
      *                     .bucketArn(bucket.arn())
@@ -213,7 +204,16 @@ public final class RedshiftFunctions {
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
+     *                 .roleArn(firehoseRole.arn())
+     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
+     *                 .username("exampleuser")
+     *                 .password("Exampl3Pass")
+     *                 .dataTableName("example-table")
+     *                 .copyOptions("delimiter '|'")
+     *                 .dataTableColumns("example-col")
      *                 .build())
+     *             .name("kinesis-firehose-example-stream")
+     *             .destination("redshift")
      *             .build());
      * 
      *     }
@@ -261,16 +261,7 @@ public final class RedshiftFunctions {
      *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
      *                     .roleArn(firehoseRole.arn())
      *                     .bucketArn(bucket.arn())
@@ -278,7 +269,16 @@ public final class RedshiftFunctions {
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
+     *                 .roleArn(firehoseRole.arn())
+     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
+     *                 .username("exampleuser")
+     *                 .password("Exampl3Pass")
+     *                 .dataTableName("example-table")
+     *                 .copyOptions("delimiter '|'")
+     *                 .dataTableColumns("example-col")
      *                 .build())
+     *             .name("kinesis-firehose-example-stream")
+     *             .destination("redshift")
      *             .build());
      * 
      *     }
@@ -326,16 +326,7 @@ public final class RedshiftFunctions {
      *             .build());
      * 
      *         var exampleStream = new FirehoseDeliveryStream("exampleStream", FirehoseDeliveryStreamArgs.builder()
-     *             .name("kinesis-firehose-example-stream")
-     *             .destination("redshift")
      *             .redshiftConfiguration(FirehoseDeliveryStreamRedshiftConfigurationArgs.builder()
-     *                 .roleArn(firehoseRole.arn())
-     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
-     *                 .username("exampleuser")
-     *                 .password("Exampl3Pass")
-     *                 .dataTableName("example-table")
-     *                 .copyOptions("delimiter '|'")
-     *                 .dataTableColumns("example-col")
      *                 .s3Configuration(FirehoseDeliveryStreamRedshiftConfigurationS3ConfigurationArgs.builder()
      *                     .roleArn(firehoseRole.arn())
      *                     .bucketArn(bucket.arn())
@@ -343,7 +334,16 @@ public final class RedshiftFunctions {
      *                     .bufferInterval(400)
      *                     .compressionFormat("GZIP")
      *                     .build())
+     *                 .roleArn(firehoseRole.arn())
+     *                 .clusterJdbcurl(String.format("jdbc:redshift://%s/%s", example.endpoint(),example.databaseName()))
+     *                 .username("exampleuser")
+     *                 .password("Exampl3Pass")
+     *                 .dataTableName("example-table")
+     *                 .copyOptions("delimiter '|'")
+     *                 .dataTableColumns("example-col")
      *                 .build())
+     *             .name("kinesis-firehose-example-stream")
+     *             .destination("redshift")
      *             .build());
      * 
      *     }

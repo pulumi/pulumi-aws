@@ -40,7 +40,7 @@ public final class GetVpcConnectionResult {
      */
     private Map<String,String> tags;
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     private String targetClusterArn;
@@ -93,7 +93,7 @@ public final class GetVpcConnectionResult {
         return this.tags;
     }
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster.
+     * @return ARN of the cluster.
      * 
      */
     public String targetClusterArn() {

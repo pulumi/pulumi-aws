@@ -12,7 +12,7 @@ import (
 
 // Builds an ARN from its constituent parts.
 //
-// See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on Amazon Resource Names.
+// See the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) for additional information on ARNs.
 //
 // ## Signature
 func ArnBuild(ctx *pulumi.Context, partition string, service string, region string, accountId string, resource string, opts ...pulumi.InvokeOption) (string, error) {
@@ -58,19 +58,15 @@ func ArnBuildOutput(ctx *pulumi.Context, partition pulumi.StringInput, service p
 		AccountId: accountId,
 		Resource:  resource,
 	}
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (pulumi.StringOutput, error) {
-			args := v.(arnBuildArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			rv := ctx.InvokeOutput("aws:index/arnBuild:arnBuild", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
-			return rv.ApplyT(func(rv map[string]string) string {
-				var result string
-				for _, v := range rv {
-					result = v
-				}
-				return result
-			}).(pulumi.StringOutput), nil
-		}).(pulumi.StringOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	rv := ctx.InvokeOutput("aws:index/arnBuild:arnBuild", args, pulumi.StringMapOutput{}, options).(pulumi.StringMapOutput)
+	return rv.ApplyT(func(rv map[string]string) string {
+		var result string
+		for _, v := range rv {
+			result = v
+		}
+		return result
+	}).(pulumi.StringOutput)
 }
 
 type arnBuildOutputArgs struct {

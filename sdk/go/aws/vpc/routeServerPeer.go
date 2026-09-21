@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a resource for managing a VPC (Virtual Private Cloud) Route Server Peer.
+// Provides a resource for managing a VPC Route Server Peer.
 //
 // ## Example Usage
 //
@@ -31,11 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := vpc.NewRouteServerPeer(ctx, "test", &vpc.RouteServerPeerArgs{
-//				RouteServerEndpointId: pulumi.Any(example.RouteServerEndpointId),
-//				PeerAddress:           pulumi.String("10.0.1.250"),
 //				BgpOptions: &vpc.RouteServerPeerBgpOptionsArgs{
 //					PeerAsn: pulumi.Int(65200),
 //				},
+//				RouteServerEndpointId: pulumi.Any(example.RouteServerEndpointId),
+//				PeerAddress:           pulumi.String("10.0.1.250"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Appliance 1"),
 //				},
@@ -101,12 +101,12 @@ import (
 //				return err
 //			}
 //			_, err = vpc.NewRouteServerPeer(ctx, "test", &vpc.RouteServerPeerArgs{
-//				RouteServerEndpointId: testRouteServerEndpoint.RouteServerEndpointId,
-//				PeerAddress:           pulumi.String("10.0.1.250"),
 //				BgpOptions: &vpc.RouteServerPeerBgpOptionsArgs{
 //					PeerAsn:               pulumi.Int(65000),
 //					PeerLivenessDetection: pulumi.String("bgp-keepalive"),
 //				},
+//				RouteServerEndpointId: testRouteServerEndpoint.RouteServerEndpointId,
+//				PeerAddress:           pulumi.String("10.0.1.250"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Test Appliance"),
 //				},
@@ -122,7 +122,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import VPC (Virtual Private Cloud) Route Server using the `routeServerPeerId`. For example:
+// Using `pulumi import`, import VPC Route Server using the `routeServerPeerId`. For example:
 //
 // ```sh
 // $ pulumi import aws:vpc/routeServerPeer:RouteServerPeer example rsp-12345678

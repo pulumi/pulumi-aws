@@ -59,7 +59,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> AppType { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app.
+        /// ARN of the app.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.Aws.Sagemaker
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        /// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         /// </summary>
         [Output("resourceSpec")]
         public Output<Outputs.AppResourceSpec> ResourceSpec { get; private set; } = null!;
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        /// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecArgs>? ResourceSpec { get; set; }
@@ -227,7 +227,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? AppType { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the app.
+        /// ARN of the app.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -245,7 +245,7 @@ namespace Pulumi.Aws.Sagemaker
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The instance type and the Amazon Resource Name (ARN) of the SageMaker AI image created on the instance.See Resource Spec below.
+        /// Instance type and the ARN of the SageMaker AI image created on the instance. See Resource Spec below.
         /// </summary>
         [Input("resourceSpec")]
         public Input<Inputs.AppResourceSpecGetArgs>? ResourceSpec { get; set; }

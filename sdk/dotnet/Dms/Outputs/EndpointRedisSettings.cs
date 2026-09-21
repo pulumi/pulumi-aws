@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string? AuthUserName;
         /// <summary>
-        /// Transmission Control Protocol (TCP) port for the endpoint.
+        /// TCP port for the endpoint.
         /// </summary>
         public readonly int Port;
         /// <summary>
@@ -34,11 +34,11 @@ namespace Pulumi.Aws.Dms.Outputs
         /// </summary>
         public readonly string ServerName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
+        /// ARN for the certificate authority (CA) that DMS uses to connect to your Redis target endpoint.
         /// </summary>
         public readonly string? SslCaCertificateArn;
         /// <summary>
-        /// The plaintext option doesn't provide Transport Layer Security (TLS) encryption for traffic between endpoint and database. Options include `Plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
+        /// The plaintext option doesn't provide TLS encryption for traffic between endpoint and database. Options include `Plaintext`, `ssl-encryption`. The default is `ssl-encryption`.
         /// </summary>
         public readonly string? SslSecurityProtocol;
 

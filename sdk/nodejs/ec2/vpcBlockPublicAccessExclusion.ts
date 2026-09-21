@@ -8,7 +8,7 @@ import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 /**
- * Resource for managing an AWS EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion.
+ * Resource for managing an AWS EC2 VPC Block Public Access Exclusion.
  *
  * ## Example Usage
  *
@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * ## Import
  *
- * Using `pulumi import`, import EC2 (Elastic Compute Cloud) VPC Block Public Access Exclusion using the `id`. For example:
+ * Using `pulumi import`, import EC2 VPC Block Public Access Exclusion using the `id`. For example:
  *
  * ```sh
  * $ pulumi import aws:ec2/vpcBlockPublicAccessExclusion:VpcBlockPublicAccessExclusion example vpcbpa-exclude-1234abcd
@@ -89,7 +89,7 @@ export class VpcBlockPublicAccessExclusion extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) the excluded resource.
+     * ARN the excluded resource.
      */
     declare public /*out*/ readonly resourceArn: pulumi.Output<string>;
     /**
@@ -165,7 +165,7 @@ export interface VpcBlockPublicAccessExclusionState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) the excluded resource.
+     * ARN the excluded resource.
      */
     resourceArn?: pulumi.Input<string | undefined>;
     /**

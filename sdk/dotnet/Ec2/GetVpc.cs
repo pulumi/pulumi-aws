@@ -157,14 +157,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cidr block of the desired VPC.
+        /// CIDR block of the desired VPC.
         /// </summary>
         [Input("cidrBlock")]
         public string? CidrBlock { get; set; }
 
         /// <summary>
-        /// Boolean constraint on whether the desired VPC is
-        /// the default VPC for the region.
+        /// Boolean constraint on whether the desired VPC is the default VPC for the region.
         /// </summary>
         [Input("default")]
         public bool? Default { get; set; }
@@ -179,7 +178,7 @@ namespace Pulumi.Aws.Ec2
         private List<Inputs.GetVpcFilterArgs>? _filters;
 
         /// <summary>
-        /// Custom filter block as described below.
+        /// Custom filter block as described below. See `Filter` Block below.
         /// </summary>
         public List<Inputs.GetVpcFilterArgs> Filters
         {
@@ -200,8 +199,7 @@ namespace Pulumi.Aws.Ec2
         public string? Region { get; set; }
 
         /// <summary>
-        /// Current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
+        /// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
         public string? State { get; set; }
@@ -210,11 +208,7 @@ namespace Pulumi.Aws.Ec2
         private Dictionary<string, string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC.
         /// </summary>
         public Dictionary<string, string> Tags
         {
@@ -231,14 +225,13 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Cidr block of the desired VPC.
+        /// CIDR block of the desired VPC.
         /// </summary>
         [Input("cidrBlock")]
         public Input<string>? CidrBlock { get; set; }
 
         /// <summary>
-        /// Boolean constraint on whether the desired VPC is
-        /// the default VPC for the region.
+        /// Boolean constraint on whether the desired VPC is the default VPC for the region.
         /// </summary>
         [Input("default")]
         public Input<bool>? Default { get; set; }
@@ -253,7 +246,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<Inputs.GetVpcFilterInputArgs>? _filters;
 
         /// <summary>
-        /// Custom filter block as described below.
+        /// Custom filter block as described below. See `Filter` Block below.
         /// </summary>
         public InputList<Inputs.GetVpcFilterInputArgs> Filters
         {
@@ -274,8 +267,7 @@ namespace Pulumi.Aws.Ec2
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Current state of the desired VPC.
-        /// Can be either `"pending"` or `"available"`.
+        /// Current state of the desired VPC. Can be either `"pending"` or `"available"`.
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }
@@ -284,11 +276,7 @@ namespace Pulumi.Aws.Ec2
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Map of tags, each pair of which must exactly match
-        /// a pair on the desired VPC.
-        /// 
-        /// More complex filters can be expressed using one or more `Filter` sub-blocks,
-        /// which take the following arguments:
+        /// Map of tags, each pair of which must exactly match a pair on the desired VPC.
         /// </summary>
         public InputMap<string> Tags
         {
@@ -307,33 +295,35 @@ namespace Pulumi.Aws.Ec2
     public sealed class GetVpcResult
     {
         /// <summary>
-        /// ARN of VPC
+        /// ARN of VPC.
         /// </summary>
         public readonly string Arn;
         /// <summary>
         /// CIDR block for the association.
         /// </summary>
         public readonly string CidrBlock;
+        /// <summary>
+        /// Information about the IPv4 CIDR blocks associated with the VPC. See `CidrBlockAssociations` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcCidrBlockAssociationResult> CidrBlockAssociations;
         public readonly bool Default;
         public readonly string DhcpOptionsId;
         /// <summary>
-        /// Whether or not the VPC has DNS hostname support
+        /// Whether the VPC has DNS hostname support.
         /// </summary>
         public readonly bool EnableDnsHostnames;
         /// <summary>
-        /// Whether or not the VPC has DNS support
+        /// Whether the VPC has DNS support.
         /// </summary>
         public readonly bool EnableDnsSupport;
         /// <summary>
-        /// Whether Network Address Usage metrics are enabled for your VPC
+        /// Whether Network Address Usage metrics are enabled for your VPC.
         /// </summary>
         public readonly bool EnableNetworkAddressUsageMetrics;
         public readonly ImmutableArray<Outputs.GetVpcFilterResult> Filters;
         public readonly string Id;
         /// <summary>
-        /// Allowed tenancy of instances launched into the
-        /// selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
+        /// Allowed tenancy of instances launched into the selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         /// </summary>
         public readonly string InstanceTenancy;
         /// <summary>
@@ -344,6 +334,9 @@ namespace Pulumi.Aws.Ec2
         /// IPv6 CIDR block for the association.
         /// </summary>
         public readonly string Ipv6CidrBlock;
+        /// <summary>
+        /// Information about the IPv6 CIDR blocks associated with the VPC. See `Ipv6CidrBlockAssociations` Block below.
+        /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcIpv6CidrBlockAssociationResult> Ipv6CidrBlockAssociations;
         /// <summary>
         /// ID of the main route table associated with this VPC.

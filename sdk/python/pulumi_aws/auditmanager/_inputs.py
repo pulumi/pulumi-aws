@@ -87,7 +87,7 @@ class AssessmentAssessmentReportsDestinationArgs:
 class AssessmentRoleArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the IAM role.
+    ARN of the IAM role.
     """
     role_type: pulumi.Input[_builtins.str]
     """
@@ -100,7 +100,7 @@ class AssessmentRoleArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  role_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role.
         :param pulumi.Input[_builtins.str] role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -110,7 +110,7 @@ class AssessmentRoleArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 
@@ -134,7 +134,7 @@ class AssessmentRoleArgs:
 class AssessmentRolesAllArgsDict(TypedDict):
     role_arn: pulumi.Input[_builtins.str]
     """
-    Amazon Resource Name (ARN) of the IAM role.
+    ARN of the IAM role.
     """
     role_type: pulumi.Input[_builtins.str]
     """
@@ -147,7 +147,7 @@ class AssessmentRolesAllArgs:
                  role_arn: pulumi.Input[_builtins.str],
                  role_type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of the IAM role.
         :param pulumi.Input[_builtins.str] role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -157,7 +157,7 @@ class AssessmentRolesAllArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 

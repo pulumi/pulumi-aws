@@ -158,7 +158,7 @@ class _ResolverRuleState:
         """
         Input properties used for looking up and filtering ResolverRule resources.
 
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) for the resolver rule.
+        :param pulumi.Input[_builtins.str] arn: ARN for the resolver rule.
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[_builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -200,7 +200,7 @@ class _ResolverRuleState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ARN (Amazon Resource Name) for the resolver rule.
+        ARN for the resolver rule.
         """
         return pulumi.get(self, "arn")
 
@@ -369,13 +369,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -388,13 +388,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -461,13 +461,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ip": "123.45.67.89",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ip": "123.45.67.89",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -480,13 +480,13 @@ class ResolverRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         fwd = aws.route53.ResolverRule("fwd",
+            target_ips=[{
+                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
+            }],
             domain_name="example.com",
             name="example",
             rule_type="FORWARD",
             resolver_endpoint_id=foo["id"],
-            target_ips=[{
-                "ipv6": "2600:1f18:1686:2000:4e60:6e3e:258:da36",
-            }],
             tags={
                 "Environment": "Prod",
             })
@@ -586,7 +586,7 @@ class ResolverRule(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: ARN (Amazon Resource Name) for the resolver rule.
+        :param pulumi.Input[_builtins.str] arn: ARN for the resolver rule.
         :param pulumi.Input[_builtins.str] domain_name: DNS queries for this domain name are forwarded to the IP addresses that are specified using `target_ip`.
         :param pulumi.Input[_builtins.str] name: Friendly name that lets you easily find a rule in the Resolver dashboard in the Route 53 console.
         :param pulumi.Input[_builtins.str] owner_id: When a rule is shared with another AWS account, the account ID of the account that the rule is shared with.
@@ -622,7 +622,7 @@ class ResolverRule(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        ARN (Amazon Resource Name) for the resolver rule.
+        ARN for the resolver rule.
         """
         return pulumi.get(self, "arn")
 

@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.neptune.ParameterGroup("example", {
- *     family: "neptune1",
- *     name: "example",
  *     parameters: [{
  *         name: "neptune_query_timeout",
  *         value: "25",
  *     }],
+ *     family: "neptune1",
+ *     name: "example",
  * });
  * ```
  *
@@ -63,7 +63,7 @@ export class ParameterGroup extends pulumi.CustomResource {
     }
 
     /**
-     * The Neptune parameter group Amazon Resource Name (ARN).
+     * Neptune parameter group ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export class ParameterGroup extends pulumi.CustomResource {
  */
 export interface ParameterGroupState {
     /**
-     * The Neptune parameter group Amazon Resource Name (ARN).
+     * Neptune parameter group ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

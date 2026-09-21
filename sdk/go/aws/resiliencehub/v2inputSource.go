@@ -35,10 +35,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2InputSource(ctx, "example", &resiliencehub.V2InputSourceArgs{
-//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //				ResourceConfiguration: &resiliencehub.V2InputSourceResourceConfigurationArgs{
 //					CfnStackArn: pulumi.String("arn:aws:cloudformation:us-west-2:123456789012:stack/my-stack/abc123"),
 //				},
+//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -64,10 +64,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2InputSource(ctx, "example", &resiliencehub.V2InputSourceArgs{
-//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //				ResourceConfiguration: &resiliencehub.V2InputSourceResourceConfigurationArgs{
 //					TfStateFileUrl: pulumi.String("s3://my-bucket/terraform.tfstate"),
 //				},
+//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := resiliencehub.NewV2InputSource(ctx, "example", &resiliencehub.V2InputSourceArgs{
-//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //				ResourceConfiguration: &resiliencehub.V2InputSourceResourceConfigurationArgs{
 //					Eks: &resiliencehub.V2InputSourceResourceConfigurationEksArgs{
 //						ClusterArn: pulumi.String("arn:aws:eks:us-west-2:123456789012:cluster/my-cluster"),
@@ -103,6 +102,7 @@ import (
 //						},
 //					},
 //				},
+//				ServiceArn: pulumi.Any(exampleAwsResiliencehubv2Service.Arn),
 //			})
 //			if err != nil {
 //				return err

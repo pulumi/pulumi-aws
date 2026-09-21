@@ -11,13 +11,29 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride {
+    /**
+     * @return Domain the override applies to.
+     * 
+     */
     private String domain;
+    /**
+     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * 
+     */
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint privateEndpoint;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverride() {}
+    /**
+     * @return Domain the override applies to.
+     * 
+     */
     public String domain() {
         return this.domain;
     }
+    /**
+     * @return Private endpoint configuration. See `privateEndpoint` below.
+     * 
+     */
     public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpoint privateEndpoint() {
         return this.privateEndpoint;
     }

@@ -57,26 +57,26 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName: pulumi.String("example"),
-//				Description: pulumi.String("Example data protection settings"),
 //				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
-//					GlobalConfidenceLevel: pulumi.Int(2),
-//					GlobalEnforcedUrls: pulumi.StringArray{
-//						pulumi.String("https://example.com"),
-//					},
 //					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
 //						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
-//							BuiltInPatternId: pulumi.String("ssn"),
-//							ConfidenceLevel:  pulumi.Int(3),
 //							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
 //								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
 //									RedactionPlaceHolderType: pulumi.String("CustomText"),
 //									RedactionPlaceHolderText: pulumi.String("REDACTED"),
 //								},
 //							},
+//							BuiltInPatternId: pulumi.String("ssn"),
+//							ConfidenceLevel:  pulumi.Int(3),
 //						},
 //					},
+//					GlobalConfidenceLevel: pulumi.Int(2),
+//					GlobalEnforcedUrls: pulumi.StringArray{
+//						pulumi.String("https://example.com"),
+//					},
 //				},
+//				DisplayName: pulumi.String("example"),
+//				Description: pulumi.String("Example data protection settings"),
 //			})
 //			if err != nil {
 //				return err
@@ -110,23 +110,15 @@ import (
 //				return err
 //			}
 //			_, err = workspacesweb.NewDataProtectionSettings(ctx, "example", &workspacesweb.DataProtectionSettingsArgs{
-//				DisplayName:        pulumi.String("example-complete"),
-//				Description:        pulumi.String("Complete example data protection settings"),
-//				CustomerManagedKey: example.Arn,
-//				AdditionalEncryptionContext: pulumi.StringMap{
-//					"Environment": pulumi.String("Production"),
-//				},
 //				InlineRedactionConfiguration: &workspacesweb.DataProtectionSettingsInlineRedactionConfigurationArgs{
-//					GlobalConfidenceLevel: pulumi.Int(2),
-//					GlobalEnforcedUrls: pulumi.StringArray{
-//						pulumi.String("https://example.com"),
-//						pulumi.String("https://test.example.com"),
-//					},
-//					GlobalExemptUrls: pulumi.StringArray{
-//						pulumi.String("https://exempt.example.com"),
-//					},
 //					InlineRedactionPatterns: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArray{
 //						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
+//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
+//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
+//									RedactionPlaceHolderType: pulumi.String("CustomText"),
+//									RedactionPlaceHolderText: pulumi.String("REDACTED-SSN"),
+//								},
+//							},
 //							BuiltInPatternId: pulumi.String("ssn"),
 //							ConfidenceLevel:  pulumi.Int(3),
 //							EnforcedUrls: pulumi.StringArray{
@@ -134,12 +126,6 @@ import (
 //							},
 //							ExemptUrls: pulumi.StringArray{
 //								pulumi.String("https://exempt-pattern1.example.com"),
-//							},
-//							RedactionPlaceHolders: workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArray{
-//								&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternRedactionPlaceHolderArgs{
-//									RedactionPlaceHolderType: pulumi.String("CustomText"),
-//									RedactionPlaceHolderText: pulumi.String("REDACTED-SSN"),
-//								},
 //							},
 //						},
 //						&workspacesweb.DataProtectionSettingsInlineRedactionConfigurationInlineRedactionPatternArgs{
@@ -157,6 +143,20 @@ import (
 //							},
 //						},
 //					},
+//					GlobalConfidenceLevel: pulumi.Int(2),
+//					GlobalEnforcedUrls: pulumi.StringArray{
+//						pulumi.String("https://example.com"),
+//						pulumi.String("https://test.example.com"),
+//					},
+//					GlobalExemptUrls: pulumi.StringArray{
+//						pulumi.String("https://exempt.example.com"),
+//					},
+//				},
+//				DisplayName:        pulumi.String("example-complete"),
+//				Description:        pulumi.String("Complete example data protection settings"),
+//				CustomerManagedKey: example.Arn,
+//				AdditionalEncryptionContext: pulumi.StringMap{
+//					"Environment": pulumi.String("Production"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-data-protection-settings"),

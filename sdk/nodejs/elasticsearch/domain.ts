@@ -19,11 +19,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.elasticsearch.Domain("example", {
- *     domainName: "example",
- *     elasticsearchVersion: "7.10",
  *     clusterConfig: {
  *         instanceType: "r4.large.elasticsearch",
  *     },
+ *     domainName: "example",
+ *     elasticsearchVersion: "7.10",
  *     tags: {
  *         Domain: "TestDomain",
  *     },
@@ -71,11 +71,11 @@ import * as utilities from "../utilities";
  * const exampleLogGroup = new aws.cloudwatch.LogGroup("example", {name: "example"});
  * const example = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["es.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: [
  *             "logs:PutLogEvents",
  *             "logs:PutLogEventsBatch",
@@ -120,20 +120,18 @@ import * as utilities from "../utilities";
  * const current = aws.getRegion({});
  * const currentGetCallerIdentity = aws.getCallerIdentity({});
  * const es = new aws.ec2.SecurityGroup("es", {
- *     name: `${vpc}-elasticsearch-${domain}`,
- *     description: "Managed by Pulumi",
- *     vpcId: selected.then(selected => selected.id),
  *     ingress: [{
  *         fromPort: 443,
  *         toPort: 443,
  *         protocol: "tcp",
  *         cidrBlocks: [selected.then(selected => selected.cidrBlock)],
  *     }],
+ *     name: `${vpc}-elasticsearch-${domain}`,
+ *     description: "Managed by Pulumi",
+ *     vpcId: selected.then(selected => selected.id),
  * });
  * const esServiceLinkedRole = new aws.iam.ServiceLinkedRole("es", {awsServiceName: "opensearchservice.amazonaws.com"});
  * const esDomain = new aws.elasticsearch.Domain("es", {
- *     domainName: domain,
- *     elasticsearchVersion: "6.3",
  *     clusterConfig: {
  *         instanceType: "m4.large.elasticsearch",
  *         zoneAwarenessEnabled: true,
@@ -145,6 +143,8 @@ import * as utilities from "../utilities";
  *         ],
  *         securityGroupIds: [es.id],
  *     },
+ *     domainName: domain,
+ *     elasticsearchVersion: "6.3",
  *     advancedOptions: {
  *         "rest.action.multi.allow_explicit_index": "true",
  *     },

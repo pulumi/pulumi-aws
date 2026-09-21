@@ -38,9 +38,9 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersion;
  * import com.pulumi.aws.lightsail.ContainerServiceDeploymentVersionArgs;
- * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionContainerArgs;
  * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointArgs;
  * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs;
+ * import com.pulumi.aws.lightsail.inputs.ContainerServiceDeploymentVersionContainerArgs;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -55,16 +55,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ContainerServiceDeploymentVersion("example", ContainerServiceDeploymentVersionArgs.builder()
- *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
- *                 .containerName("hello-world")
- *                 .image("amazon/amazon-lightsail:hello-world")
- *                 .commands()
- *                 .environment(Map.of("MY_ENVIRONMENT_VARIABLE", "my_value"))
- *                 .ports(Map.of("80", "HTTP"))
- *                 .build())
  *             .publicEndpoint(ContainerServiceDeploymentVersionPublicEndpointArgs.builder()
- *                 .containerName("hello-world")
- *                 .containerPort(80)
  *                 .healthCheck(ContainerServiceDeploymentVersionPublicEndpointHealthCheckArgs.builder()
  *                     .healthyThreshold(2)
  *                     .unhealthyThreshold(2)
@@ -73,6 +64,15 @@ import javax.annotation.Nullable;
  *                     .path("/")
  *                     .successCodes("200-499")
  *                     .build())
+ *                 .containerName("hello-world")
+ *                 .containerPort(80)
+ *                 .build())
+ *             .containers(ContainerServiceDeploymentVersionContainerArgs.builder()
+ *                 .containerName("hello-world")
+ *                 .image("amazon/amazon-lightsail:hello-world")
+ *                 .commands()
+ *                 .environment(Map.of("MY_ENVIRONMENT_VARIABLE", "my_value"))
+ *                 .ports(Map.of("80", "HTTP"))
  *                 .build())
  *             .serviceName(exampleAwsLightsailContainerService.name())
  *             .build());

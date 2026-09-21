@@ -19,14 +19,14 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
     public static final S3TableIntegrationState Empty = new S3TableIntegrationState();
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Table integration.
+     * ARN of the S3 Table integration.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Table integration.
+     * @return ARN of the S3 Table integration.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -79,14 +79,14 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      * 
      */
     @Import(name="roleArn")
     private @Nullable Output<String> roleArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * @return ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      * 
      */
     public Optional<Output<String>> roleArn() {
@@ -162,7 +162,7 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Table integration.
+         * @param arn ARN of the S3 Table integration.
          * 
          * @return builder
          * 
@@ -173,7 +173,7 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the S3 Table integration.
+         * @param arn ARN of the S3 Table integration.
          * 
          * @return builder
          * 
@@ -246,7 +246,7 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+         * @param roleArn ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
          * 
          * @return builder
          * 
@@ -257,7 +257,7 @@ public final class S3TableIntegrationState extends com.pulumi.resources.Resource
         }
 
         /**
-         * @param roleArn Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+         * @param roleArn ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
          * 
          * @return builder
          * 

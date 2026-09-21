@@ -32,14 +32,14 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Optional<Output<String>> instanceArn() {
@@ -47,14 +47,14 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Optional<Output<String>> permissionSetArn() {
@@ -125,7 +125,7 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class CustomerManagedPolicyAttachmentState extends com.pulumi.resou
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 

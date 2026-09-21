@@ -18,14 +18,14 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
     public static final EndpointState Empty = new EndpointState();
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * ARN assigned by AWS to this endpoint.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+     * @return ARN assigned by AWS to this endpoint.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -153,7 +153,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+         * @param arn ARN assigned by AWS to this endpoint.
          * 
          * @return builder
          * 
@@ -164,7 +164,7 @@ public final class EndpointState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this endpoint.
+         * @param arn ARN assigned by AWS to this endpoint.
          * 
          * @return builder
          * 

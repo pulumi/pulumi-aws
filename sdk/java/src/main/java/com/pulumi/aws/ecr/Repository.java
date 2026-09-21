@@ -49,11 +49,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new Repository("foo", RepositoryArgs.builder()
- *             .name("bar")
- *             .imageTagMutability("MUTABLE")
  *             .imageScanningConfiguration(RepositoryImageScanningConfigurationArgs.builder()
  *                 .scanOnPush(true)
  *                 .build())
+ *             .name("bar")
+ *             .imageTagMutability("MUTABLE")
  *             .build());
  * 
  *     }
@@ -87,8 +87,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Repository("example", RepositoryArgs.builder()
- *             .name("example-repo")
- *             .imageTagMutability("IMMUTABLE_WITH_EXCLUSION")
  *             .imageTagMutabilityExclusionFilters(            
  *                 RepositoryImageTagMutabilityExclusionFilterArgs.builder()
  *                     .filter("latest*")
@@ -98,6 +96,8 @@ import javax.annotation.Nullable;
  *                     .filter("dev-*")
  *                     .filterType("WILDCARD")
  *                     .build())
+ *             .name("example-repo")
+ *             .imageTagMutability("IMMUTABLE_WITH_EXCLUSION")
  *             .build());
  * 
  *     }

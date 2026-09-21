@@ -82,7 +82,7 @@ export class InternetMonitor extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * Resources to include in a monitor, which you provide as a set of ARNs.
      */
     declare public readonly resources: pulumi.Output<string[] | undefined>;
     /**
@@ -179,7 +179,7 @@ export interface InternetMonitorState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * Resources to include in a monitor, which you provide as a set of ARNs.
      */
     resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
@@ -227,7 +227,7 @@ export interface InternetMonitorArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+     * Resources to include in a monitor, which you provide as a set of ARNs.
      */
     resources?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**

@@ -79,7 +79,7 @@ class GetInferenceProfileResult:
     @pulumi.getter(name="inferenceProfileArn")
     def inference_profile_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the inference profile.
+        The ARN of the inference profile.
         """
         return pulumi.get(self, "inference_profile_arn")
 

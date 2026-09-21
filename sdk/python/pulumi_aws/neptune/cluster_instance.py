@@ -368,7 +368,7 @@ class _ClusterInstanceState:
         :param pulumi.Input[_builtins.str] address: The hostname of the instance. See also `endpoint` and `port`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of neptune instance
+        :param pulumi.Input[_builtins.str] arn: ARN of neptune instance
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
@@ -482,7 +482,7 @@ class _ClusterInstanceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of neptune instance
+        ARN of neptune instance
         """
         return pulumi.get(self, "arn")
 
@@ -1053,7 +1053,7 @@ class ClusterInstance(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] address: The hostname of the instance. See also `endpoint` and `port`.
         :param pulumi.Input[_builtins.bool] apply_immediately: Specifies whether any instance modifications
                are applied immediately, or during the next maintenance window. Default is`false`.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of neptune instance
+        :param pulumi.Input[_builtins.str] arn: ARN of neptune instance
         :param pulumi.Input[_builtins.bool] auto_minor_version_upgrade: Indicates that minor engine upgrades will be applied automatically to the instance during the maintenance window. Default is `true`.
         :param pulumi.Input[_builtins.str] availability_zone: The EC2 Availability Zone that the neptune instance is created in.
         :param pulumi.Input[_builtins.str] cluster_identifier: The identifier of the `neptune.Cluster` in which to launch this instance.
@@ -1136,7 +1136,7 @@ class ClusterInstance(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of neptune instance
+        ARN of neptune instance
         """
         return pulumi.get(self, "arn")
 

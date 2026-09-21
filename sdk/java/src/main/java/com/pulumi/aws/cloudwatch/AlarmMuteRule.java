@@ -49,13 +49,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AlarmMuteRule("example", AlarmMuteRuleArgs.builder()
- *             .name("example")
  *             .rule(AlarmMuteRuleRuleArgs.builder()
  *                 .schedule(AlarmMuteRuleRuleScheduleArgs.builder()
  *                     .duration("PT4H")
  *                     .expression("cron(0 2 * * *)")
  *                     .build())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }
@@ -104,10 +104,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAlarmMuteRule = new AlarmMuteRule("exampleAlarmMuteRule", AlarmMuteRuleArgs.builder()
- *             .name("example")
- *             .description("Mute alarms during maintenance window")
- *             .startDate("2026-01-01T00:00:00Z")
- *             .expireDate("2026-12-31T23:59:00Z")
  *             .rule(AlarmMuteRuleRuleArgs.builder()
  *                 .schedule(AlarmMuteRuleRuleScheduleArgs.builder()
  *                     .duration("PT4H")
@@ -118,6 +114,10 @@ import javax.annotation.Nullable;
  *             .muteTargets(AlarmMuteRuleMuteTargetsArgs.builder()
  *                 .alarmNames(example.name())
  *                 .build())
+ *             .name("example")
+ *             .description("Mute alarms during maintenance window")
+ *             .startDate("2026-01-01T00:00:00Z")
+ *             .expireDate("2026-12-31T23:59:00Z")
  *             .tags(Map.of("Environment", "production"))
  *             .build());
  * 
@@ -155,13 +155,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AlarmMuteRule("example", AlarmMuteRuleArgs.builder()
- *             .name("example")
  *             .rule(AlarmMuteRuleRuleArgs.builder()
  *                 .schedule(AlarmMuteRuleRuleScheduleArgs.builder()
  *                     .duration("PT4H")
  *                     .expression("at(2026-12-31T23:59:59)")
  *                     .build())
  *                 .build())
+ *             .name("example")
  *             .build());
  * 
  *     }

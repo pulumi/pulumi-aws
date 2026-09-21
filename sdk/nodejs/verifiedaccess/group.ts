@@ -29,10 +29,10 @@ import * as utilities from "../utilities";
  *
  * const testKey = new aws.kms.Key("test_key", {description: "KMS key for Verified Access Group test"});
  * const test = new aws.verifiedaccess.Group("test", {
- *     verifiedaccessInstanceId: testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId,
  *     sseConfiguration: {
  *         kmsKeyArn: testKey.arn,
  *     },
+ *     verifiedaccessInstanceId: testAwsVerifiedaccessInstanceTrustProviderAttachment.verifiedaccessInstanceId,
  * });
  * ```
  */

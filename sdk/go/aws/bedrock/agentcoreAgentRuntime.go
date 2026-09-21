@@ -34,10 +34,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -45,6 +41,10 @@ import (
 //									"bedrock-agentcore.amazonaws.com",
 //								},
 //							},
+//						},
+//						Effect: pulumi.StringRef("Allow"),
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -93,8 +93,6 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
-//				RoleArn:          example.Arn,
 //				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
 //					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
 //						ContainerUri: pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
@@ -103,6 +101,8 @@ import (
 //				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
+//				RoleArn:          example.Arn,
 //			})
 //			if err != nil {
 //				return err
@@ -128,17 +128,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
-//				Description:      pulumi.String("Agent runtime with JWT authorization"),
-//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
 //					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
 //						ContainerUri: pulumi.Sprintf("%v:v1.0", exampleAwsEcrRepository.RepositoryUrl),
 //					},
-//				},
-//				EnvironmentVariables: pulumi.StringMap{
-//					"LOG_LEVEL": pulumi.String("INFO"),
-//					"ENV":       pulumi.String("production"),
 //				},
 //				AuthorizerConfiguration: &bedrock.AgentcoreAgentRuntimeAuthorizerConfigurationArgs{
 //					CustomJwtAuthorizer: &bedrock.AgentcoreAgentRuntimeAuthorizerConfigurationCustomJwtAuthorizerArgs{
@@ -162,6 +155,13 @@ import (
 //				},
 //				ProtocolConfiguration: &bedrock.AgentcoreAgentRuntimeProtocolConfigurationArgs{
 //					ServerProtocol: pulumi.String("MCP"),
+//				},
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
+//				Description:      pulumi.String("Agent runtime with JWT authorization"),
+//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
+//				EnvironmentVariables: pulumi.StringMap{
+//					"LOG_LEVEL": pulumi.String("INFO"),
+//					"ENV":       pulumi.String("production"),
 //				},
 //			})
 //			if err != nil {
@@ -188,9 +188,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example_agui_runtime"),
-//				Description:      pulumi.String("Agent runtime with AG-UI protocol"),
-//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
 //					ContainerConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactContainerConfigurationArgs{
 //						ContainerUri: pulumi.Sprintf("%v:latest", exampleAwsEcrRepository.RepositoryUrl),
@@ -202,6 +199,9 @@ import (
 //				ProtocolConfiguration: &bedrock.AgentcoreAgentRuntimeProtocolConfigurationArgs{
 //					ServerProtocol: pulumi.String("AGUI"),
 //				},
+//				AgentRuntimeName: pulumi.String("example_agui_runtime"),
+//				Description:      pulumi.String("Agent runtime with AG-UI protocol"),
+//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err
@@ -227,25 +227,25 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := bedrock.NewAgentcoreAgentRuntime(ctx, "example", &bedrock.AgentcoreAgentRuntimeArgs{
-//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
-//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //				AgentRuntimeArtifact: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactArgs{
 //					CodeConfiguration: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationArgs{
-//						EntryPoints: pulumi.StringArray{
-//							pulumi.String("main.py"),
-//						},
-//						Runtime: pulumi.String("PYTHON_3_13"),
 //						Code: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeArgs{
 //							S3: &bedrock.AgentcoreAgentRuntimeAgentRuntimeArtifactCodeConfigurationCodeS3Args{
 //								Bucket: pulumi.String("example-bucket"),
 //								Prefix: pulumi.String("example-agent-runtime-code.zip"),
 //							},
 //						},
+//						EntryPoints: pulumi.StringArray{
+//							pulumi.String("main.py"),
+//						},
+//						Runtime: pulumi.String("PYTHON_3_13"),
 //					},
 //				},
 //				NetworkConfiguration: &bedrock.AgentcoreAgentRuntimeNetworkConfigurationArgs{
 //					NetworkMode: pulumi.String("PUBLIC"),
 //				},
+//				AgentRuntimeName: pulumi.String("example_agent_runtime"),
+//				RoleArn:          pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

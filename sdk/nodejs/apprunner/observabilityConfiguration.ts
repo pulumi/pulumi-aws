@@ -17,10 +17,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.apprunner.ObservabilityConfiguration("example", {
- *     observabilityConfigurationName: "example",
  *     traceConfiguration: {
  *         vendor: "AWSXRAY",
  *     },
+ *     observabilityConfigurationName: "example",
  *     tags: {
  *         Name: "example-apprunner-observability-configuration",
  *     },
@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
+ * - `arn` (String) ARN of the App Runner observability configuration.
  *
  * Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
  *

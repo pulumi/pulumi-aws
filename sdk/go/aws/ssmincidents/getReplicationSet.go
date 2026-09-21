@@ -58,7 +58,7 @@ type LookupReplicationSetArgs struct {
 
 // A collection of values returned by getReplicationSet.
 type LookupReplicationSetResult struct {
-	// The Amazon Resource Name (ARN) of the replication set.
+	// ARN of the replication set.
 	Arn string `pulumi:"arn"`
 	// The ARN of the user who created the replication set.
 	CreatedBy string `pulumi:"createdBy"`
@@ -82,12 +82,8 @@ type LookupReplicationSetResult struct {
 }
 
 func LookupReplicationSetOutput(ctx *pulumi.Context, args LookupReplicationSetOutputArgs, opts ...pulumi.InvokeOption) LookupReplicationSetResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupReplicationSetResultOutput, error) {
-			args := v.(LookupReplicationSetArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", args, LookupReplicationSetResultOutput{}, options).(LookupReplicationSetResultOutput), nil
-		}).(LookupReplicationSetResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssmincidents/getReplicationSet:getReplicationSet", args, LookupReplicationSetResultOutput{}, options).(LookupReplicationSetResultOutput)
 }
 
 // A collection of arguments for invoking getReplicationSet.
@@ -115,7 +111,7 @@ func (o LookupReplicationSetResultOutput) ToLookupReplicationSetResultOutputWith
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the replication set.
+// ARN of the replication set.
 func (o LookupReplicationSetResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupReplicationSetResult) string { return v.Arn }).(pulumi.StringOutput)
 }

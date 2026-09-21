@@ -14,6 +14,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
     {
         [Input("allowedAudiences")]
         private InputList<string>? _allowedAudiences;
+
+        /// <summary>
+        /// Set of allowed audience values for JWT token validation.
+        /// </summary>
         public InputList<string> AllowedAudiences
         {
             get => _allowedAudiences ?? (_allowedAudiences = new InputList<string>());
@@ -22,6 +26,10 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("allowedClients")]
         private InputList<string>? _allowedClients;
+
+        /// <summary>
+        /// Set of allowed client IDs for JWT token validation.
+        /// </summary>
         public InputList<string> AllowedClients
         {
             get => _allowedClients ?? (_allowedClients = new InputList<string>());
@@ -30,31 +38,52 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
         [Input("allowedScopes")]
         private InputList<string>? _allowedScopes;
+
+        /// <summary>
+        /// Set of scopes that are allowed to access the token.
+        /// </summary>
         public InputList<string> AllowedScopes
         {
             get => _allowedScopes ?? (_allowedScopes = new InputList<string>());
             set => _allowedScopes = value;
         }
 
+        /// <summary>
+        /// Configuration restricting which workloads may use this authorizer. See `AllowedWorkloadConfiguration` below.
+        /// </summary>
         [Input("allowedWorkloadConfiguration")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerAllowedWorkloadConfigurationArgs>? AllowedWorkloadConfiguration { get; set; }
 
         [Input("customClaims")]
         private InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>? _customClaims;
+
+        /// <summary>
+        /// Repeatable block to define a custom claim validation name, value, and operation. See `CustomClaim` below.
+        /// </summary>
         public InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs> CustomClaims
         {
             get => _customClaims ?? (_customClaims = new InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs>());
             set => _customClaims = value;
         }
 
+        /// <summary>
+        /// URL used to fetch OpenID Connect configuration or authorization server metadata. Must end with `.well-known/openid-configuration`.
+        /// </summary>
         [Input("discoveryUrl", required: true)]
         public Input<string> DiscoveryUrl { get; set; } = null!;
 
+        /// <summary>
+        /// Private endpoint used to reach the authorization server. See `PrivateEndpoint` below.
+        /// </summary>
         [Input("privateEndpoint")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointArgs>? PrivateEndpoint { get; set; }
 
         [Input("privateEndpointOverrides")]
         private InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>? _privateEndpointOverrides;
+
+        /// <summary>
+        /// Overrides for the private endpoints used to reach the authorization server. See `PrivateEndpointOverrides` below.
+        /// </summary>
         public InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs> PrivateEndpointOverrides
         {
             get => _privateEndpointOverrides ?? (_privateEndpointOverrides = new InputList<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverrideArgs>());

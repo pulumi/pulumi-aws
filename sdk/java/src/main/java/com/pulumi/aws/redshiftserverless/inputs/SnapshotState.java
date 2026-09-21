@@ -63,14 +63,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -93,14 +93,14 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * ARN of the namespace the snapshot was created from.
      * 
      */
     @Import(name="namespaceArn")
     private @Nullable Output<String> namespaceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * @return ARN of the namespace the snapshot was created from.
      * 
      */
     public Optional<Output<String>> namespaceArn() {
@@ -300,7 +300,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 
@@ -311,7 +311,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the snapshot.
+         * @param arn ARN of the snapshot.
          * 
          * @return builder
          * 
@@ -342,7 +342,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceArn The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+         * @param namespaceArn ARN of the namespace the snapshot was created from.
          * 
          * @return builder
          * 
@@ -353,7 +353,7 @@ public final class SnapshotState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param namespaceArn The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+         * @param namespaceArn ARN of the namespace the snapshot was created from.
          * 
          * @return builder
          * 

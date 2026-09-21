@@ -35,8 +35,6 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewAnomalyDetector(ctx, "example", &amp.AnomalyDetectorArgs{
-//				Alias:       pulumi.String("example"),
-//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //				Configuration: &amp.AnomalyDetectorConfigurationArgs{
 //					RandomCutForest: &amp.AnomalyDetectorConfigurationRandomCutForestArgs{
 //						Query: pulumi.String("avg(up)"),
@@ -45,6 +43,8 @@ import (
 //				MissingDataAction: &amp.AnomalyDetectorMissingDataActionArgs{
 //					Skip: pulumi.Bool(true),
 //				},
+//				Alias:       pulumi.String("example"),
+//				WorkspaceId: example.ID().ToIDOutput().ToStringOutput(),
 //			})
 //			if err != nil {
 //				return err
@@ -74,28 +74,28 @@ import (
 //				return err
 //			}
 //			_, err = amp.NewAnomalyDetector(ctx, "example", &amp.AnomalyDetectorArgs{
-//				Alias:                       pulumi.String("example"),
-//				WorkspaceId:                 example.ID().ToIDOutput().ToStringOutput(),
-//				EvaluationIntervalInSeconds: pulumi.Int(120),
-//				Labels: pulumi.StringMap{
-//					"env":  pulumi.String("production"),
-//					"team": pulumi.String("platform"),
-//				},
 //				Configuration: &amp.AnomalyDetectorConfigurationArgs{
 //					RandomCutForest: &amp.AnomalyDetectorConfigurationRandomCutForestArgs{
-//						Query:       pulumi.String("avg(up)"),
-//						SampleSize:  pulumi.Int(256),
-//						ShingleSize: pulumi.Int(4),
 //						IgnoreNearExpectedFromAbove: &amp.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromAboveArgs{
 //							Ratio: pulumi.Float64(1.5),
 //						},
 //						IgnoreNearExpectedFromBelow: &amp.AnomalyDetectorConfigurationRandomCutForestIgnoreNearExpectedFromBelowArgs{
 //							Amount: pulumi.Float64(2),
 //						},
+//						Query:       pulumi.String("avg(up)"),
+//						SampleSize:  pulumi.Int(256),
+//						ShingleSize: pulumi.Int(4),
 //					},
 //				},
 //				MissingDataAction: &amp.AnomalyDetectorMissingDataActionArgs{
 //					MarkAsAnomaly: pulumi.Bool(true),
+//				},
+//				Alias:                       pulumi.String("example"),
+//				WorkspaceId:                 example.ID().ToIDOutput().ToStringOutput(),
+//				EvaluationIntervalInSeconds: pulumi.Int(120),
+//				Labels: pulumi.StringMap{
+//					"env":  pulumi.String("production"),
+//					"team": pulumi.String("platform"),
 //				},
 //			})
 //			if err != nil {

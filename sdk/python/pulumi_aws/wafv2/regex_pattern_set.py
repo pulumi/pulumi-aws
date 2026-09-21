@@ -154,7 +154,7 @@ class _RegexPatternSetState:
         """
         Input properties used for looking up and filtering RegexPatternSet resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the cluster.
         :param pulumi.Input[_builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[_builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -189,7 +189,7 @@ class _RegexPatternSetState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) that identifies the cluster.
+        ARN that identifies the cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -327,9 +327,6 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
-            name="example",
-            description="Example regex pattern set",
-            scope="REGIONAL",
             regular_expressions=[
                 {
                     "regex_string": "one",
@@ -338,6 +335,9 @@ class RegexPatternSet(pulumi.CustomResource):
                     "regex_string": "two",
                 },
             ],
+            name="example",
+            description="Example regex pattern set",
+            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -379,9 +379,6 @@ class RegexPatternSet(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.RegexPatternSet("example",
-            name="example",
-            description="Example regex pattern set",
-            scope="REGIONAL",
             regular_expressions=[
                 {
                     "regex_string": "one",
@@ -390,6 +387,9 @@ class RegexPatternSet(pulumi.CustomResource):
                     "regex_string": "two",
                 },
             ],
+            name="example",
+            description="Example regex pattern set",
+            scope="REGIONAL",
             tags={
                 "Tag1": "Value1",
                 "Tag2": "Value2",
@@ -475,7 +475,7 @@ class RegexPatternSet(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) that identifies the cluster.
+        :param pulumi.Input[_builtins.str] arn: ARN that identifies the cluster.
         :param pulumi.Input[_builtins.str] description: A friendly description of the regular expression pattern set.
         :param pulumi.Input[_builtins.str] name: A friendly name of the regular expression pattern set. If omitted, the provider will assign a random, unique name. Conflicts with `name_prefix`.
         :param pulumi.Input[_builtins.str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
@@ -505,7 +505,7 @@ class RegexPatternSet(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) that identifies the cluster.
+        ARN that identifies the cluster.
         """
         return pulumi.get(self, "arn")
 

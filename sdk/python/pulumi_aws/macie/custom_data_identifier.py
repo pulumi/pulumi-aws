@@ -187,7 +187,7 @@ class _CustomDataIdentifierState:
         """
         Input properties used for looking up and filtering CustomDataIdentifier resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom data identifier.
+        :param pulumi.Input[_builtins.str] arn: ARN of the custom data identifier.
         :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         :param pulumi.Input[_builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
@@ -229,7 +229,7 @@ class _CustomDataIdentifierState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the custom data identifier.
+        ARN of the custom data identifier.
         """
         return pulumi.get(self, "arn")
 
@@ -536,7 +536,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the custom data identifier.
+        :param pulumi.Input[_builtins.str] arn: ARN of the custom data identifier.
         :param pulumi.Input[_builtins.str] created_at: The date and time, in UTC and extended RFC 3339 format, when the Amazon Macie account was created.
         :param pulumi.Input[_builtins.str] description: A custom description of the custom data identifier. The description can contain as many as 512 characters.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_words: An array that lists specific character sequences (ignore words) to exclude from the results. If the text matched by the regular expression is the same as any string in this array, Amazon Macie ignores it. The array can contain as many as 10 ignore words. Each ignore word can contain 4 - 90 characters. Ignore words are case sensitive.
@@ -571,7 +571,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the custom data identifier.
+        ARN of the custom data identifier.
         """
         return pulumi.get(self, "arn")
 

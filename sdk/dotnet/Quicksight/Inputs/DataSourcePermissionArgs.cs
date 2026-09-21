@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Quicksight.Inputs
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the principal.
+        /// ARN of the principal.
         /// </summary>
         [Input("principal", required: true)]
         public Input<string> Principal { get; set; } = null!;

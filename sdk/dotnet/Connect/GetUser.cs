@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetUserResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the User.
+        /// ARN of the User.
         /// </summary>
         public readonly string Arn;
         /// <summary>

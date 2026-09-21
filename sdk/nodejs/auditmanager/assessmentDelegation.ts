@@ -80,7 +80,7 @@ export class AssessmentDelegation extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -168,7 +168,7 @@ export interface AssessmentDelegationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +204,7 @@ export interface AssessmentDelegationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role.
+     * ARN of the IAM role.
      */
     roleArn: pulumi.Input<string>;
     /**

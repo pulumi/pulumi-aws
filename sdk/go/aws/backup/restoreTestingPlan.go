@@ -31,7 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := backup.NewRestoreTestingPlan(ctx, "example", &backup.RestoreTestingPlanArgs{
-//				Name: pulumi.String("example_restore_testing_plan"),
 //				RecoveryPointSelection: &backup.RestoreTestingPlanRecoveryPointSelectionArgs{
 //					Algorithm: pulumi.String("LATEST_WITHIN_WINDOW"),
 //					IncludeVaults: pulumi.StringArray{
@@ -41,6 +40,7 @@ import (
 //						pulumi.String("CONTINUOUS"),
 //					},
 //				},
+//				Name:               pulumi.String("example_restore_testing_plan"),
 //				ScheduleExpression: pulumi.String("cron(0 12 ? * * *)"),
 //			})
 //			if err != nil {

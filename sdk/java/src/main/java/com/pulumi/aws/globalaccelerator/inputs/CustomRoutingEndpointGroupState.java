@@ -19,14 +19,14 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
     public static final CustomRoutingEndpointGroupState Empty = new CustomRoutingEndpointGroupState();
 
     /**
-     * The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * ARN of the custom routing endpoint group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom routing endpoint group.
+     * @return ARN of the custom routing endpoint group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -79,14 +79,14 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the custom routing listener.
+     * ARN of the custom routing listener.
      * 
      */
     @Import(name="listenerArn")
     private @Nullable Output<String> listenerArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the custom routing listener.
+     * @return ARN of the custom routing listener.
      * 
      */
     public Optional<Output<String>> listenerArn() {
@@ -122,7 +122,7 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom routing endpoint group.
+         * @param arn ARN of the custom routing endpoint group.
          * 
          * @return builder
          * 
@@ -133,7 +133,7 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the custom routing endpoint group.
+         * @param arn ARN of the custom routing endpoint group.
          * 
          * @return builder
          * 
@@ -226,7 +226,7 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
+         * @param listenerArn ARN of the custom routing listener.
          * 
          * @return builder
          * 
@@ -237,7 +237,7 @@ public final class CustomRoutingEndpointGroupState extends com.pulumi.resources.
         }
 
         /**
-         * @param listenerArn The Amazon Resource Name (ARN) of the custom routing listener.
+         * @param listenerArn ARN of the custom routing listener.
          * 
          * @return builder
          * 

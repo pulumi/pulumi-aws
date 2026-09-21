@@ -35,6 +35,16 @@ func resourceOverrides(p shim.Provider) map[string]*tfbridge.ResourceInfo {
 		},
 		// Account
 		"aws_account_alternate_contact": {Tok: awsResource(accountMod, "AlternativeContact")},
+		// Account Access
+		"aws_accountaccess_entitlement": {
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// The `entitlement` property name collides with the enclosing
+				// `Entitlement` resource type name, which is illegal in C#.
+				"entitlement": {
+					CSharpName: "EntitlementDetails",
+				},
+			},
+		},
 		// AppSync
 		"aws_appsync_api_key": {
 			Fields: map[string]*tfbridge.SchemaInfo{
@@ -1490,6 +1500,16 @@ func resourceOverrides(p shim.Provider) map[string]*tfbridge.ResourceInfo {
 		// Macie
 		"aws_macie2_custom_data_identifier": {Tok: awsResource(macieMod, "CustomDataIdentifier")},
 		"aws_macie2_findings_filter":        {Tok: awsResource(macieMod, "FindingsFilter")},
+		// Mail Manager
+		"aws_mailmanager_archive": {
+			Fields: map[string]*tfbridge.SchemaInfo{
+				// Avoid a CS0542 conflict with the generated ArchiveState class.
+				"archive_state": {
+					Name: "state",
+				},
+			},
+		},
+
 		// Elemental MediaPackage
 		"aws_media_package_channel": {
 			Fields: map[string]*tfbridge.SchemaInfo{

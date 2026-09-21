@@ -17,11 +17,19 @@ namespace Pulumi.Aws.Eks.Outputs
         /// Configuration for the horizontal pod autoscaler controller.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> HorizontalPodAutoscalerControllerConfigs;
+        /// <summary>
+        /// Configuration for the pod garbage collection controller.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigPodGcControllerConfigResult> PodGcControllerConfigs;
 
         [OutputConstructor]
-        private GetClusterKubeControllerManagerConfigResult(ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> horizontalPodAutoscalerControllerConfigs)
+        private GetClusterKubeControllerManagerConfigResult(
+            ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigHorizontalPodAutoscalerControllerConfigResult> horizontalPodAutoscalerControllerConfigs,
+
+            ImmutableArray<Outputs.GetClusterKubeControllerManagerConfigPodGcControllerConfigResult> podGcControllerConfigs)
         {
             HorizontalPodAutoscalerControllerConfigs = horizontalPodAutoscalerControllerConfigs;
+            PodGcControllerConfigs = podGcControllerConfigs;
         }
     }
 }

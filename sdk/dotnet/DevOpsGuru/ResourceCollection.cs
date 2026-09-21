@@ -28,7 +28,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// {
     ///     var example = new Aws.DevOpsGuru.ResourceCollection("example", new()
     ///     {
-    ///         Type = "AWS_SERVICE",
     ///         Cloudformation = new Aws.DevOpsGuru.Inputs.ResourceCollectionCloudformationArgs
     ///         {
     ///             StackNames = new[]
@@ -36,6 +35,7 @@ namespace Pulumi.Aws.DevOpsGuru
     ///                 "*",
     ///             },
     ///         },
+    ///         Type = "AWS_SERVICE",
     ///     });
     /// 
     /// });
@@ -53,7 +53,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// {
     ///     var example = new Aws.DevOpsGuru.ResourceCollection("example", new()
     ///     {
-    ///         Type = "AWS_CLOUD_FORMATION",
     ///         Cloudformation = new Aws.DevOpsGuru.Inputs.ResourceCollectionCloudformationArgs
     ///         {
     ///             StackNames = new[]
@@ -61,6 +60,7 @@ namespace Pulumi.Aws.DevOpsGuru
     ///                 "ExampleStack",
     ///             },
     ///         },
+    ///         Type = "AWS_CLOUD_FORMATION",
     ///     });
     /// 
     /// });
@@ -78,7 +78,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// {
     ///     var example = new Aws.DevOpsGuru.ResourceCollection("example", new()
     ///     {
-    ///         Type = "AWS_TAGS",
     ///         Tags = new Aws.DevOpsGuru.Inputs.ResourceCollectionTagsArgs
     ///         {
     ///             AppBoundaryKey = "DevOps-Guru-Example",
@@ -87,6 +86,7 @@ namespace Pulumi.Aws.DevOpsGuru
     ///                 "Example-Value",
     ///             },
     ///         },
+    ///         Type = "AWS_TAGS",
     ///     });
     /// 
     /// });
@@ -106,7 +106,6 @@ namespace Pulumi.Aws.DevOpsGuru
     /// {
     ///     var example = new Aws.DevOpsGuru.ResourceCollection("example", new()
     ///     {
-    ///         Type = "AWS_TAGS",
     ///         Tags = new Aws.DevOpsGuru.Inputs.ResourceCollectionTagsArgs
     ///         {
     ///             AppBoundaryKey = "DevOps-Guru-Example",
@@ -115,6 +114,7 @@ namespace Pulumi.Aws.DevOpsGuru
     ///                 "*",
     ///             },
     ///         },
+    ///         Type = "AWS_TAGS",
     ///     });
     /// 
     /// });

@@ -60,12 +60,8 @@ type GetHostedZoneResult struct {
 }
 
 func GetHostedZoneOutput(ctx *pulumi.Context, args GetHostedZoneOutputArgs, opts ...pulumi.InvokeOption) GetHostedZoneResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetHostedZoneResultOutput, error) {
-			args := v.(GetHostedZoneArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, GetHostedZoneResultOutput{}, options).(GetHostedZoneResultOutput), nil
-		}).(GetHostedZoneResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:elasticbeanstalk/getHostedZone:getHostedZone", args, GetHostedZoneResultOutput{}, options).(GetHostedZoneResultOutput)
 }
 
 // A collection of arguments for invoking getHostedZone.

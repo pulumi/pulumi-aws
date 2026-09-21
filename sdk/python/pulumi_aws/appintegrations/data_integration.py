@@ -31,7 +31,7 @@ class DataIntegrationArgs:
         """
         The set of arguments for constructing a DataIntegration resource.
 
-        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key ARN for the Data Integration.
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
         :param pulumi.Input[_builtins.str] source_uri: URI of the data source. Create an AppFlow Connector Profile and reference the name of the profile in the URL. An example of this value for Salesforce is `Salesforce://AppFlow/example` where `example` is the name of the AppFlow Connector Profile.
         :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
@@ -55,7 +55,7 @@ class DataIntegrationArgs:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[_builtins.str]:
         """
-        KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key ARN for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 
@@ -151,9 +151,9 @@ class _DataIntegrationState:
         """
         Input properties used for looking up and filtering DataIntegration resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Data Integration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Data Integration.
         :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key ARN for the Data Integration.
         :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input['DataIntegrationScheduleConfigArgs'] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
@@ -184,7 +184,7 @@ class _DataIntegrationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the Data Integration.
+        ARN of the Data Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -208,7 +208,7 @@ class _DataIntegrationState:
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key ARN for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 
@@ -313,15 +313,15 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
-            name="example",
-            description="example",
-            kms_key=test["arn"],
-            source_uri="Salesforce://AppFlow/example",
             schedule_config={
                 "first_execution_from": "1439788442681",
                 "object": "Account",
                 "schedule_expression": "rate(1 hour)",
             },
+            name="example",
+            description="example",
+            kms_key=test["arn"],
+            source_uri="Salesforce://AppFlow/example",
             tags={
                 "Key1": "Value1",
             })
@@ -339,7 +339,7 @@ class DataIntegration(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key ARN for the Data Integration.
         :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
@@ -362,15 +362,15 @@ class DataIntegration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appintegrations.DataIntegration("example",
-            name="example",
-            description="example",
-            kms_key=test["arn"],
-            source_uri="Salesforce://AppFlow/example",
             schedule_config={
                 "first_execution_from": "1439788442681",
                 "object": "Account",
                 "schedule_expression": "rate(1 hour)",
             },
+            name="example",
+            description="example",
+            kms_key=test["arn"],
+            source_uri="Salesforce://AppFlow/example",
             tags={
                 "Key1": "Value1",
             })
@@ -457,9 +457,9 @@ class DataIntegration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the Data Integration.
+        :param pulumi.Input[_builtins.str] arn: ARN of the Data Integration.
         :param pulumi.Input[_builtins.str] description: Description of the Data Integration.
-        :param pulumi.Input[_builtins.str] kms_key: KMS key Amazon Resource Name (ARN) for the Data Integration.
+        :param pulumi.Input[_builtins.str] kms_key: KMS key ARN for the Data Integration.
         :param pulumi.Input[_builtins.str] name: Name of the Data Integration.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Union['DataIntegrationScheduleConfigArgs', 'DataIntegrationScheduleConfigArgsDict']] schedule_config: Configuration block that defines the name of the data and how often it should be pulled from the source. See `schedule_config` Block for details.
@@ -486,7 +486,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the Data Integration.
+        ARN of the Data Integration.
         """
         return pulumi.get(self, "arn")
 
@@ -502,7 +502,7 @@ class DataIntegration(pulumi.CustomResource):
     @pulumi.getter(name="kmsKey")
     def kms_key(self) -> pulumi.Output[_builtins.str]:
         """
-        KMS key Amazon Resource Name (ARN) for the Data Integration.
+        KMS key ARN for the Data Integration.
         """
         return pulumi.get(self, "kms_key")
 

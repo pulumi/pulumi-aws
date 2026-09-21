@@ -213,13 +213,13 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
+ *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
+ *                 .enableUnhealthyConnectionTermination(false)
+ *                 .build())
  *             .name("tf-example-lb-nlb-tg")
  *             .port(25)
  *             .protocol("TCP")
  *             .vpcId(main.id())
- *             .targetHealthStates(TargetGroupTargetHealthStateArgs.builder()
- *                 .enableUnhealthyConnectionTermination(false)
- *                 .build())
  *             .build());
  * 
  *     }
@@ -255,10 +255,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var tcp_example = new TargetGroup("tcp-example", TargetGroupArgs.builder()
- *             .name("tf-example-lb-nlb-tg")
- *             .port(80)
- *             .protocol("TCP")
- *             .vpcId(main.id())
  *             .targetGroupHealth(TargetGroupTargetGroupHealthArgs.builder()
  *                 .dnsFailover(TargetGroupTargetGroupHealthDnsFailoverArgs.builder()
  *                     .minimumHealthyTargetsCount("1")
@@ -269,6 +265,10 @@ import javax.annotation.Nullable;
  *                     .minimumHealthyTargetsPercentage("off")
  *                     .build())
  *                 .build())
+ *             .name("tf-example-lb-nlb-tg")
+ *             .port(80)
+ *             .protocol("TCP")
+ *             .vpcId(main.id())
  *             .build());
  * 
  *     }
@@ -282,7 +282,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the target group.
+ * - `arn` (String) ARN of the target group.
  * 
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  * 
@@ -684,7 +684,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
      * 
      * Network Load Balancers do not support the `lambda` target type.
      * 
@@ -701,7 +701,7 @@ public class TargetGroup extends com.pulumi.resources.CustomResource {
      * 
      * Note that you can&#39;t specify targets for a target group using both instance IDs and IP addresses.
      * 
-     * If the target type is `ip`, specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
+     * If the target type is `ip`, specify IP addresses from the subnets of the VPC for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can&#39;t specify publicly routable IP addresses.
      * 
      * Network Load Balancers do not support the `lambda` target type.
      * 

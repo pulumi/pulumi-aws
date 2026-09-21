@@ -104,8 +104,8 @@ class _VpcIpamResourceDiscoveryAssociationState:
         """
         Input properties used for looking up and filtering VpcIpamResourceDiscoveryAssociation resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
-        :param pulumi.Input[_builtins.str] ipam_arn: The Amazon Resource Name (ARN) of the IPAM.
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery Association.
+        :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM.
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
         :param pulumi.Input[_builtins.str] ipam_region: The home region of the IPAM.
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
@@ -143,7 +143,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+        ARN of IPAM Resource Discovery Association.
         """
         return pulumi.get(self, "arn")
 
@@ -155,7 +155,7 @@ class _VpcIpamResourceDiscoveryAssociationState:
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the IPAM.
+        ARN of the IPAM.
         """
         return pulumi.get(self, "ipam_arn")
 
@@ -427,8 +427,8 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
-        :param pulumi.Input[_builtins.str] ipam_arn: The Amazon Resource Name (ARN) of the IPAM.
+        :param pulumi.Input[_builtins.str] arn: ARN of IPAM Resource Discovery Association.
+        :param pulumi.Input[_builtins.str] ipam_arn: ARN of the IPAM.
         :param pulumi.Input[_builtins.str] ipam_id: The ID of the IPAM to associate.
         :param pulumi.Input[_builtins.str] ipam_region: The home region of the IPAM.
         :param pulumi.Input[_builtins.str] ipam_resource_discovery_id: The ID of the Resource Discovery to associate.
@@ -460,7 +460,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of IPAM Resource Discovery Association.
+        ARN of IPAM Resource Discovery Association.
         """
         return pulumi.get(self, "arn")
 
@@ -468,7 +468,7 @@ class VpcIpamResourceDiscoveryAssociation(pulumi.CustomResource):
     @pulumi.getter(name="ipamArn")
     def ipam_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the IPAM.
+        ARN of the IPAM.
         """
         return pulumi.get(self, "ipam_arn")
 

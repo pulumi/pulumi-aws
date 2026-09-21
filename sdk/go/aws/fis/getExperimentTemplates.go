@@ -116,12 +116,8 @@ type GetExperimentTemplatesResult struct {
 }
 
 func GetExperimentTemplatesOutput(ctx *pulumi.Context, args GetExperimentTemplatesOutputArgs, opts ...pulumi.InvokeOption) GetExperimentTemplatesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetExperimentTemplatesResultOutput, error) {
-			args := v.(GetExperimentTemplatesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:fis/getExperimentTemplates:getExperimentTemplates", args, GetExperimentTemplatesResultOutput{}, options).(GetExperimentTemplatesResultOutput), nil
-		}).(GetExperimentTemplatesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:fis/getExperimentTemplates:getExperimentTemplates", args, GetExperimentTemplatesResultOutput{}, options).(GetExperimentTemplatesResultOutput)
 }
 
 // A collection of arguments for invoking getExperimentTemplates.

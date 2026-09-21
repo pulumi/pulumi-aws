@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "aws:fis/experimentTemplate:ExperimentTemplate":
 		r = &ExperimentTemplate{}
+	case "aws:fis/safetyLeverState:SafetyLeverState":
+		r = &SafetyLeverState{}
 	case "aws:fis/targetAccountConfiguration:TargetAccountConfiguration":
 		r = &TargetAccountConfiguration{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"fis/experimentTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"fis/safetyLeverState",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

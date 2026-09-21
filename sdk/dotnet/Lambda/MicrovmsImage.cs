@@ -84,17 +84,9 @@ namespace Pulumi.Aws.Lambda
     ///         Source = new FileAsset("code.zip"),
     ///     });
     /// 
-    ///     var exampleMicrovmsImage = new Aws.Lambda.MicrovmsImage("example", new()
+    ///     var exampleImage = new Aws.LambdaMicroVMs.Image("example", new()
     ///     {
-    ///         Name = "example",
-    ///         BaseImageArn = Output.Tuple(current, currentGetRegion).Apply(values =&gt;
-    ///         {
-    ///             var current = values.Item1;
-    ///             var currentGetRegion = values.Item2;
-    ///             return $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:lambda:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws:microvm-image:al2023-1";
-    ///         }),
-    ///         BuildRoleArn = example.Arn,
-    ///         CodeArtifact = new Aws.Lambda.Inputs.MicrovmsImageCodeArtifactArgs
+    ///         CodeArtifact = new Aws.LambdaMicroVMs.Inputs.ImageCodeArtifactArgs
     ///         {
     ///             Uri = Output.Tuple(exampleBucket.BucketName, exampleBucketObjectv2.Key).Apply(values =&gt;
     ///             {
@@ -103,6 +95,14 @@ namespace Pulumi.Aws.Lambda
     ///                 return $"s3://{bucket}/{key}";
     ///             }),
     ///         },
+    ///         Name = "example",
+    ///         BaseImageArn = Output.Tuple(current, currentGetRegion).Apply(values =&gt;
+    ///         {
+    ///             var current = values.Item1;
+    ///             var currentGetRegion = values.Item2;
+    ///             return $"arn:{current.Apply(getPartitionResult =&gt; getPartitionResult.Partition)}:lambda:{currentGetRegion.Apply(getRegionResult =&gt; getRegionResult.Region)}:aws:microvm-image:al2023-1";
+    ///         }),
+    ///         BuildRoleArn = example.Arn,
     ///     });
     /// 
     /// });
@@ -122,6 +122,7 @@ namespace Pulumi.Aws.Lambda
     /// $ pulumi import aws:lambda/microvmsImage:MicrovmsImage example arn:aws:lambda:us-east-1:123456789012:microvm-image:example
     /// ```
     /// </summary>
+    [Obsolete(@"aws.lambda/microvmsimage.MicrovmsImage has been deprecated in favor of aws.lambdamicrovms/image.Image")]
     [AwsResourceType("aws:lambda/microvmsImage:MicrovmsImage")]
     public partial class MicrovmsImage : global::Pulumi.CustomResource
     {

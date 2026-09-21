@@ -50,7 +50,7 @@ import (
 type Revision struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrOutput `pulumi:"comment"`
@@ -99,7 +99,7 @@ func GetRevision(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Revision resources.
 type revisionState struct {
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn *string `pulumi:"arn"`
 	// An optional comment about the revision.
 	Comment *string `pulumi:"comment"`
@@ -116,7 +116,7 @@ type revisionState struct {
 }
 
 type RevisionState struct {
-	// The Amazon Resource Name of this data set.
+	// ARN of this data set.
 	Arn pulumi.StringPtrInput
 	// An optional comment about the revision.
 	Comment pulumi.StringPtrInput
@@ -246,7 +246,7 @@ func (o RevisionOutput) ToRevisionOutputWithContext(ctx context.Context) Revisio
 	return o
 }
 
-// The Amazon Resource Name of this data set.
+// ARN of this data set.
 func (o RevisionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Revision) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

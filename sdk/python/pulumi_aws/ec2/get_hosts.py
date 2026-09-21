@@ -123,11 +123,11 @@ def get_hosts(filters: Optional[Sequence[Union['GetHostsFilterArgs', 'GetHostsFi
     import pulumi
     import pulumi_aws as aws
 
-    outpost = aws.ec2.get_hosts(outpost_arn=example["arn"],
-        filters=[{
+    outpost = aws.ec2.get_hosts(filters=[{
             "name": "state",
             "values": ["available"],
-        }])
+        }],
+        outpost_arn=example["arn"])
     ```
 
 
@@ -186,11 +186,11 @@ def get_hosts_output(filters: pulumi.Input[Optional[Optional[Sequence[Union['Get
     import pulumi
     import pulumi_aws as aws
 
-    outpost = aws.ec2.get_hosts(outpost_arn=example["arn"],
-        filters=[{
+    outpost = aws.ec2.get_hosts(filters=[{
             "name": "state",
             "values": ["available"],
-        }])
+        }],
+        outpost_arn=example["arn"])
     ```
 
 

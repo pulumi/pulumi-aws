@@ -50,12 +50,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testTrigger = new Trigger("testTrigger", TriggerArgs.builder()
- *             .repositoryName(test.repositoryName())
  *             .triggers(TriggerTriggerArgs.builder()
  *                 .name("all")
  *                 .events("all")
  *                 .destinationArn(testAwsSnsTopic.arn())
  *                 .build())
+ *             .repositoryName(test.repositoryName())
  *             .build());
  * 
  *     }

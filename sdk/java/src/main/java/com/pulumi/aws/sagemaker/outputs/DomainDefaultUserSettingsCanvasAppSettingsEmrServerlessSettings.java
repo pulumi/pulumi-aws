@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings {
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * @return ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     private @Nullable String executionRoleArn;
@@ -24,7 +24,7 @@ public final class DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettin
 
     private DomainDefaultUserSettingsCanvasAppSettingsEmrServerlessSettings() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
+     * @return ARN of the AWS IAM role that is assumed for running Amazon EMR Serverless jobs in SageMaker AI Canvas. This role should have the necessary permissions to read and write data attached and a trust relationship with EMR Serverless.
      * 
      */
     public Optional<String> executionRoleArn() {

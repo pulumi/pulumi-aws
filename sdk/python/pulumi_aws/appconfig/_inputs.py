@@ -207,7 +207,7 @@ class ExtensionActionPointActionArgsDict(TypedDict):
     """
     uri: pulumi.Input[_builtins.str]
     """
-    Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+    Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
     """
     description: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -215,7 +215,7 @@ class ExtensionActionPointActionArgsDict(TypedDict):
     """
     role_arn: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
-    Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+    ARN for an Identity and Access Management assume role.
     """
 
 @pulumi.input_type
@@ -227,9 +227,9 @@ class ExtensionActionPointActionArgs:
                  role_arn: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] name: Action name.
-        :param pulumi.Input[_builtins.str] uri: Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        :param pulumi.Input[_builtins.str] uri: Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         :param pulumi.Input[_builtins.str] description: Information about the action.
-        :param pulumi.Input[_builtins.str] role_arn: Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        :param pulumi.Input[_builtins.str] role_arn: ARN for an Identity and Access Management assume role.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "uri", uri)
@@ -254,7 +254,7 @@ class ExtensionActionPointActionArgs:
     @pulumi.getter
     def uri(self) -> pulumi.Input[_builtins.str]:
         """
-        Extension URI associated to the action point in the extension definition. The URI can be an Amazon Resource Name (ARN) for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
+        Extension URI associated to the action point in the extension definition. The URI can be an ARN for one of the following: an Lambda function, an Amazon Simple Queue Service queue, an Amazon Simple Notification Service topic, or the Amazon EventBridge default event bus.
         """
         return pulumi.get(self, "uri")
 
@@ -278,7 +278,7 @@ class ExtensionActionPointActionArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) for an Identity and Access Management assume role.
+        ARN for an Identity and Access Management assume role.
         """
         return pulumi.get(self, "role_arn")
 

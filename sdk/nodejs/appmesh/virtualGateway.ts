@@ -19,8 +19,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appmesh.VirtualGateway("example", {
- *     name: "example-virtual-gateway",
- *     meshName: "example-service-mesh",
  *     spec: {
  *         listeners: [{
  *             portMapping: {
@@ -29,6 +27,8 @@ import * as utilities from "../utilities";
  *             },
  *         }],
  *     },
+ *     name: "example-virtual-gateway",
+ *     meshName: "example-service-mesh",
  *     tags: {
  *         Environment: "test",
  *     },
@@ -42,9 +42,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.appmesh.VirtualGateway("example", {
- *     name: "example-virtual-gateway",
- *     meshName: "example-service-mesh",
  *     spec: {
+ *         logging: {
+ *             accessLog: {
+ *                 file: {
+ *                     path: "/var/log/access.log",
+ *                 },
+ *             },
+ *         },
  *         listeners: [{
  *             portMapping: {
  *                 port: 8080,
@@ -59,14 +64,9 @@ import * as utilities from "../utilities";
  *                 mode: "STRICT",
  *             },
  *         }],
- *         logging: {
- *             accessLog: {
- *                 file: {
- *                     path: "/var/log/access.log",
- *                 },
- *             },
- *         },
  *     },
+ *     name: "example-virtual-gateway",
+ *     meshName: "example-service-mesh",
  * });
  * ```
  *

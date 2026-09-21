@@ -69,12 +69,8 @@ type LookupResourcePolicyResult struct {
 }
 
 func LookupResourcePolicyOutput(ctx *pulumi.Context, args LookupResourcePolicyOutputArgs, opts ...pulumi.InvokeOption) LookupResourcePolicyResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupResourcePolicyResultOutput, error) {
-			args := v.(LookupResourcePolicyArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:vpclattice/getResourcePolicy:getResourcePolicy", args, LookupResourcePolicyResultOutput{}, options).(LookupResourcePolicyResultOutput), nil
-		}).(LookupResourcePolicyResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:vpclattice/getResourcePolicy:getResourcePolicy", args, LookupResourcePolicyResultOutput{}, options).(LookupResourcePolicyResultOutput)
 }
 
 // A collection of arguments for invoking getResourcePolicy.

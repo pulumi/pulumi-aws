@@ -17,14 +17,14 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
     public static final VocabularyState Empty = new VocabularyState();
 
     /**
-     * The Amazon Resource Name (ARN) of the vocabulary.
+     * ARN of the vocabulary.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the vocabulary.
+     * @return ARN of the vocabulary.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -234,7 +234,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the vocabulary.
+         * @param arn ARN of the vocabulary.
          * 
          * @return builder
          * 
@@ -245,7 +245,7 @@ public final class VocabularyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the vocabulary.
+         * @param arn ARN of the vocabulary.
          * 
          * @return builder
          * 

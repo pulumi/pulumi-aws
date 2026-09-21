@@ -19,14 +19,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lakeformation.DataCellsFilter("example", {tableData: {
+ *     rowFilter: {
+ *         filterExpression: "my_column='example'",
+ *     },
  *     databaseName: exampleAwsGlueCatalogDatabase.name,
  *     name: "example",
  *     tableCatalogId: current.accountId,
  *     tableName: exampleAwsGlueCatalogTable.name,
  *     columnNames: ["my_column"],
- *     rowFilter: {
- *         filterExpression: "my_column='example'",
- *     },
  * }});
  * ```
  *
@@ -39,10 +39,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const excludedColumns = new aws.lakeformation.DataCellsFilter("excluded_columns", {tableData: {
- *     databaseName: example.name,
- *     name: "exclude-pii",
- *     tableCatalogId: current.accountId,
- *     tableName: exampleAwsGlueCatalogTable.name,
  *     columnWildcard: {
  *         excludedColumnNames: [
  *             "ssn",
@@ -52,6 +48,10 @@ import * as utilities from "../utilities";
  *     rowFilter: {
  *         allRowsWildcard: {},
  *     },
+ *     databaseName: example.name,
+ *     name: "exclude-pii",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
  * }});
  * ```
  *
@@ -62,10 +62,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const rowAndColumn = new aws.lakeformation.DataCellsFilter("row_and_column", {tableData: {
- *     databaseName: example.name,
- *     name: "marketing-filtered",
- *     tableCatalogId: current.accountId,
- *     tableName: exampleAwsGlueCatalogTable.name,
  *     columnWildcard: {
  *         excludedColumnNames: [
  *             "salary",
@@ -75,6 +71,10 @@ import * as utilities from "../utilities";
  *     rowFilter: {
  *         filterExpression: "department = 'Marketing'",
  *     },
+ *     databaseName: example.name,
+ *     name: "marketing-filtered",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
  * }});
  * ```
  *
@@ -87,16 +87,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const rowOnly = new aws.lakeformation.DataCellsFilter("row_only", {tableData: {
- *     databaseName: example.name,
- *     name: "regional-filter",
- *     tableCatalogId: current.accountId,
- *     tableName: exampleAwsGlueCatalogTable.name,
  *     columnWildcard: {
  *         excludedColumnNames: [],
  *     },
  *     rowFilter: {
  *         filterExpression: "region = 'US-WEST'",
  *     },
+ *     databaseName: example.name,
+ *     name: "regional-filter",
+ *     tableCatalogId: current.accountId,
+ *     tableName: exampleAwsGlueCatalogTable.name,
  * }});
  * ```
  *

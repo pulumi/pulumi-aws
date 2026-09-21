@@ -68,14 +68,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:transfer/hostKey:HostKey")
 public class HostKey extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of host key.
+     * ARN of host key.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of host key.
+     * @return ARN of host key.
      * 
      */
     public Output<String> arn() {

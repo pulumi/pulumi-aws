@@ -135,7 +135,6 @@ class ProactiveEngagement(pulumi.CustomResource):
             }))
         example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
         example = aws.shield.ProactiveEngagement("example",
-            enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
@@ -148,6 +147,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "phone_number": "+12358132134",
                 },
             ],
+            enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,
@@ -206,7 +206,6 @@ class ProactiveEngagement(pulumi.CustomResource):
             }))
         example_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("example", role_arn=example_role.arn)
         example = aws.shield.ProactiveEngagement("example",
-            enabled=True,
             emergency_contacts=[
                 {
                     "contact_notes": "Notes",
@@ -219,6 +218,7 @@ class ProactiveEngagement(pulumi.CustomResource):
                     "phone_number": "+12358132134",
                 },
             ],
+            enabled=True,
             opts = pulumi.ResourceOptions(depends_on=[example_drt_access_role_arn_association]))
         example_role_policy_attachment = aws.iam.RolePolicyAttachment("example",
             role=example_role.name,

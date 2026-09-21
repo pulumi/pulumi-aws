@@ -104,14 +104,14 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
     @Export(name="serviceRole", refs={String.class}, tree="[0]")
     private Output<String> serviceRole;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
+     * @return ARN of the service-linked role that allows Macie to monitor and analyze data in AWS resources for the account.
      * 
      */
     public Output<String> serviceRole() {

@@ -69,20 +69,20 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Catalog("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Example Glue Catalog with data lake access",
     ///         CatalogProperties = new Aws.Glue.Inputs.CatalogCatalogPropertiesArgs
     ///         {
-    ///             CustomProperties = 
-    ///             {
-    ///                 { "property1", "value1" },
-    ///             },
     ///             DataLakeAccessProperties = new Aws.Glue.Inputs.CatalogCatalogPropertiesDataLakeAccessPropertiesArgs
     ///             {
     ///                 DataLakeAccess = true,
     ///                 CatalogType = "aws:glue:datacatalog",
     ///             },
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "property1", "value1" },
+    ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Example Glue Catalog with data lake access",
     ///     });
     /// 
     /// });
@@ -100,12 +100,12 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Catalog("example", new()
     ///     {
-    ///         Name = "example",
     ///         FederatedCatalog = new Aws.Glue.Inputs.CatalogFederatedCatalogArgs
     ///         {
     ///             ConnectionName = exampleAwsGlueConnection.Name,
     ///             Identifier = "arn:aws:glue:us-east-1:123456789012:catalog",
     ///         },
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -123,19 +123,17 @@ namespace Pulumi.Aws.Glue
     /// {
     ///     var example = new Aws.Glue.Catalog("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Example Glue Catalog",
     ///         CreateDatabaseDefaultPermissions = new[]
     ///         {
     ///             new Aws.Glue.Inputs.CatalogCreateDatabaseDefaultPermissionArgs
     ///             {
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "ALL",
-    ///                 },
     ///                 Principal = new Aws.Glue.Inputs.CatalogCreateDatabaseDefaultPermissionPrincipalArgs
     ///                 {
     ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
+    ///                 },
+    ///                 Permissions = new[]
+    ///                 {
+    ///                     "ALL",
     ///                 },
     ///             },
     ///         },
@@ -143,16 +141,18 @@ namespace Pulumi.Aws.Glue
     ///         {
     ///             new Aws.Glue.Inputs.CatalogCreateTableDefaultPermissionArgs
     ///             {
-    ///                 Permissions = new[]
-    ///                 {
-    ///                     "ALL",
-    ///                 },
     ///                 Principal = new Aws.Glue.Inputs.CatalogCreateTableDefaultPermissionPrincipalArgs
     ///                 {
     ///                     DataLakePrincipalIdentifier = "IAM_ALLOWED_PRINCIPALS",
     ///                 },
+    ///                 Permissions = new[]
+    ///                 {
+    ///                     "ALL",
+    ///                 },
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Example Glue Catalog",
     ///     });
     /// 
     /// });

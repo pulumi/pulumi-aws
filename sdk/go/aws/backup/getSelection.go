@@ -69,18 +69,14 @@ type LookupSelectionResult struct {
 	Name   string `pulumi:"name"`
 	PlanId string `pulumi:"planId"`
 	Region string `pulumi:"region"`
-	// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+	// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 	Resources   []string `pulumi:"resources"`
 	SelectionId string   `pulumi:"selectionId"`
 }
 
 func LookupSelectionOutput(ctx *pulumi.Context, args LookupSelectionOutputArgs, opts ...pulumi.InvokeOption) LookupSelectionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupSelectionResultOutput, error) {
-			args := v.(LookupSelectionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:backup/getSelection:getSelection", args, LookupSelectionResultOutput{}, options).(LookupSelectionResultOutput), nil
-		}).(LookupSelectionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:backup/getSelection:getSelection", args, LookupSelectionResultOutput{}, options).(LookupSelectionResultOutput)
 }
 
 // A collection of arguments for invoking getSelection.
@@ -135,7 +131,7 @@ func (o LookupSelectionResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSelectionResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
-// An array of strings that either contain Amazon Resource Names (ARNs) or match patterns of resources to assign to a backup plan..
+// Array of strings that either contain ARNs or match patterns of resources to assign to a backup plan.
 func (o LookupSelectionResultOutput) Resources() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v LookupSelectionResult) []string { return v.Resources }).(pulumi.StringArrayOutput)
 }

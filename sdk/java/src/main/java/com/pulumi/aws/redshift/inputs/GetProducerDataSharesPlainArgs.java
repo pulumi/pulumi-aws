@@ -16,7 +16,7 @@ public final class GetProducerDataSharesPlainArgs extends com.pulumi.resources.I
     public static final GetProducerDataSharesPlainArgs Empty = new GetProducerDataSharesPlainArgs();
 
     /**
-     * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+     * ARN of the producer namespace that returns in the list of datashares.
      * 
      * The following arguments are optional:
      * 
@@ -25,7 +25,7 @@ public final class GetProducerDataSharesPlainArgs extends com.pulumi.resources.I
     private String producerArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+     * @return ARN of the producer namespace that returns in the list of datashares.
      * 
      * The following arguments are optional:
      * 
@@ -91,7 +91,7 @@ public final class GetProducerDataSharesPlainArgs extends com.pulumi.resources.I
         }
 
         /**
-         * @param producerArn Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+         * @param producerArn ARN of the producer namespace that returns in the list of datashares.
          * 
          * The following arguments are optional:
          * 

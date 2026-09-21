@@ -64,7 +64,7 @@ type LookupServerlessCollectionGroupArgs struct {
 
 // A collection of values returned by getServerlessCollectionGroup.
 type LookupServerlessCollectionGroupResult struct {
-	// Amazon Resource Name (ARN) of the collection group.
+	// ARN of the collection group.
 	Arn string `pulumi:"arn"`
 	// Capacity limits configured for the collection group. See `capacityLimits` below for details.
 	CapacityLimits []GetServerlessCollectionGroupCapacityLimit `pulumi:"capacityLimits"`
@@ -84,12 +84,8 @@ type LookupServerlessCollectionGroupResult struct {
 }
 
 func LookupServerlessCollectionGroupOutput(ctx *pulumi.Context, args LookupServerlessCollectionGroupOutputArgs, opts ...pulumi.InvokeOption) LookupServerlessCollectionGroupResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupServerlessCollectionGroupResultOutput, error) {
-			args := v.(LookupServerlessCollectionGroupArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:opensearch/getServerlessCollectionGroup:getServerlessCollectionGroup", args, LookupServerlessCollectionGroupResultOutput{}, options).(LookupServerlessCollectionGroupResultOutput), nil
-		}).(LookupServerlessCollectionGroupResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:opensearch/getServerlessCollectionGroup:getServerlessCollectionGroup", args, LookupServerlessCollectionGroupResultOutput{}, options).(LookupServerlessCollectionGroupResultOutput)
 }
 
 // A collection of arguments for invoking getServerlessCollectionGroup.
@@ -123,7 +119,7 @@ func (o LookupServerlessCollectionGroupResultOutput) ToLookupServerlessCollectio
 	return o
 }
 
-// Amazon Resource Name (ARN) of the collection group.
+// ARN of the collection group.
 func (o LookupServerlessCollectionGroupResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupServerlessCollectionGroupResult) string { return v.Arn }).(pulumi.StringOutput)
 }

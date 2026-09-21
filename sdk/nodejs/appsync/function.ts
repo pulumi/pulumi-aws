@@ -39,12 +39,12 @@ import * as utilities from "../utilities";
  * `,
  * });
  * const exampleDataSource = new aws.appsync.DataSource("example", {
- *     apiId: example.id,
- *     name: "example",
- *     type: "HTTP",
  *     httpConfig: {
  *         endpoint: "http://example.com",
  *     },
+ *     apiId: example.id,
+ *     name: "example",
+ *     type: "HTTP",
  * });
  * const exampleFunction = new aws.appsync.Function("example", {
  *     apiId: example.id,
@@ -76,16 +76,16 @@ import * as utilities from "../utilities";
  * import * as std from "@pulumi/std";
  *
  * const example = new aws.appsync.Function("example", {
+ *     runtime: {
+ *         name: "APPSYNC_JS",
+ *         runtimeVersion: "1.0.0",
+ *     },
  *     apiId: exampleAwsAppsyncGraphqlApi.id,
  *     dataSource: exampleAwsAppsyncDatasource.name,
  *     name: "example",
  *     code: std.file({
  *         input: "some-code-dir",
  *     }).then(invoke => invoke.result),
- *     runtime: {
- *         name: "APPSYNC_JS",
- *         runtimeVersion: "1.0.0",
- *     },
  * });
  * ```
  *

@@ -16,7 +16,7 @@ import java.util.Objects;
 @CustomType
 public final class GetServerlessCacheResult {
     /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
+     * @return ARN of the serverless cache.
      * 
      */
     private String arn;
@@ -100,7 +100,7 @@ public final class GetServerlessCacheResult {
 
     private GetServerlessCacheResult() {}
     /**
-     * @return The Amazon Resource Name (ARN) of the serverless cache.
+     * @return ARN of the serverless cache.
      * 
      */
     public String arn() {

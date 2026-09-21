@@ -25,7 +25,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
      */
     private @Nullable String listingMode;
     /**
-     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
      * 
      */
     private @Nullable AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema mcpToolSchema;
@@ -51,7 +51,7 @@ public final class AgentcoreGatewayTargetTargetConfigurationMcpMcpServer {
         return Optional.ofNullable(this.listingMode);
     }
     /**
-     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` below.
+     * @return Tool schema configuration for the MCP server target. Supported only when the credential provider is configured with an authorization code grant type. When set, dynamic tool discovery and synchronization are disabled. See `mcpToolSchema` Block below.
      * 
      */
     public Optional<AgentcoreGatewayTargetTargetConfigurationMcpMcpServerMcpToolSchema> mcpToolSchema() {

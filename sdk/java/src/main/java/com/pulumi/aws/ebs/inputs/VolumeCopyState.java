@@ -19,14 +19,14 @@ public final class VolumeCopyState extends com.pulumi.resources.ResourceArgs {
     public static final VolumeCopyState Empty = new VolumeCopyState();
 
     /**
-     * Amazon Resource Name (ARN) of the copied EBS volume.
+     * ARN of the copied EBS volume.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the copied EBS volume.
+     * @return ARN of the copied EBS volume.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -214,7 +214,7 @@ public final class VolumeCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the copied EBS volume.
+         * @param arn ARN of the copied EBS volume.
          * 
          * @return builder
          * 
@@ -225,7 +225,7 @@ public final class VolumeCopyState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the copied EBS volume.
+         * @param arn ARN of the copied EBS volume.
          * 
          * @return builder
          * 

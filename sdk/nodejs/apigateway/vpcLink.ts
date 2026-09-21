@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.lb.LoadBalancer("example", {
- *     name: "example",
- *     internal: true,
- *     loadBalancerType: "network",
  *     subnetMappings: [{
  *         subnetId: "12345",
  *     }],
+ *     name: "example",
+ *     internal: true,
+ *     loadBalancerType: "network",
  * });
  * const exampleVpcLink = new aws.apigateway.VpcLink("example", {
  *     name: "example",

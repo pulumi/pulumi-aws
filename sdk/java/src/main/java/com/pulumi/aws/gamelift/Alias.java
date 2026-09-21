@@ -45,12 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Alias("example", AliasArgs.builder()
- *             .name("example-alias")
- *             .description("Example Description")
  *             .routingStrategy(AliasRoutingStrategyArgs.builder()
  *                 .message("Example Message")
  *                 .type("TERMINAL")
  *                 .build())
+ *             .name("example-alias")
+ *             .description("Example Description")
  *             .build());
  * 
  *     }

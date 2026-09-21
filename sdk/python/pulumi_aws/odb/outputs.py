@@ -1537,7 +1537,7 @@ class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult(dict):
                  ocid: _builtins.str,
                  odb_network_id: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) for the Exadata infrastructure.
+        :param _builtins.str arn: ARN for the Exadata infrastructure.
         :param _builtins.str cloud_exadata_infrastructure_id: Cloud exadata infrastructure id associated with this cloud autonomous VM cluster.
         :param _builtins.str display_name: Display name of the Autonomous VM cluster.
         :param _builtins.str id: Unique identifier of the cloud autonomous vm cluster.
@@ -1559,7 +1559,7 @@ class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the Exadata infrastructure.
+        ARN for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -1734,7 +1734,7 @@ class GetCloudExadataInfrastructuresCloudExadataInfrastructureResult(dict):
                  oci_url: _builtins.str,
                  ocid: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) for the Exadata infrastructure.
+        :param _builtins.str arn: ARN for the Exadata infrastructure.
         :param _builtins.str display_name: Display name of the Exadata infrastructure.
         :param _builtins.str id: Unique identifier of the Exadata infrastructure.
         :param _builtins.str oci_resource_anchor_name: Name of the OCI resource anchor for the Exadata infrastructure.
@@ -1752,7 +1752,7 @@ class GetCloudExadataInfrastructuresCloudExadataInfrastructureResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the Exadata infrastructure.
+        ARN for the Exadata infrastructure.
         """
         return pulumi.get(self, "arn")
 
@@ -1894,7 +1894,7 @@ class GetCloudVmClustersCloudVmClusterResult(dict):
                  ocid: _builtins.str,
                  odb_network_id: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) for the cloud vm cluster.
+        :param _builtins.str arn: ARN for the cloud vm cluster.
         :param _builtins.str cloud_exadata_infrastructure_id: ID of the Cloud Exadata Infrastructure.
         :param _builtins.str display_name: Display name of the VM cluster.
         :param _builtins.str id: Unique identifier of the cloud vm cluster.
@@ -1916,7 +1916,7 @@ class GetCloudVmClustersCloudVmClusterResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the cloud vm cluster.
+        ARN for the cloud vm cluster.
         """
         return pulumi.get(self, "arn")
 
@@ -2008,7 +2008,7 @@ class GetDbNodesDbNodeResult(dict):
                  vnic_id: _builtins.str):
         """
         :param _builtins.str additional_details: Additional information about the planned maintenance.
-        :param _builtins.str arn: Amazon Resource Name (ARN) of the DB node.
+        :param _builtins.str arn: ARN of the DB node.
         :param _builtins.str backup_ip_id: Oracle Cloud ID (OCID) of the backup IP address that's associated with the DB node.
         :param _builtins.str backup_vnic2_id: OCID of the second backup virtual network interface card (VNIC) for the DB node.
         :param _builtins.str backup_vnic_id: OCID of the backup VNIC for the DB node.
@@ -2073,7 +2073,7 @@ class GetDbNodesDbNodeResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the DB node.
+        ARN of the DB node.
         """
         return pulumi.get(self, "arn")
 
@@ -3191,7 +3191,7 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionResult(dict):
                  odb_network_arn: _builtins.str,
                  peer_network_arn: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) for the ODB network peering connection.
+        :param _builtins.str arn: ARN for the ODB network peering connection.
         :param _builtins.str display_name: Display name of the ODB network peering connection.
         :param _builtins.str id: Unique identifier of the ODB network peering connection.
         :param _builtins.str odb_network_arn: ARN of the ODB network peering connection.
@@ -3207,7 +3207,7 @@ class GetNetworkPeeringConnectionsOdbPeeringConnectionResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) for the ODB network peering connection.
+        ARN for the ODB network peering connection.
         """
         return pulumi.get(self, "arn")
 
@@ -3254,7 +3254,7 @@ class GetNetworksOdbNetworkResult(dict):
                  oci_vcn_id: _builtins.str,
                  oci_vcn_url: _builtins.str):
         """
-        :param _builtins.str arn: Amazon Resource Name (ARN) of the odb network resource.
+        :param _builtins.str arn: ARN of the odb network resource.
         :param _builtins.str display_name: Display name for the network resource.
         :param _builtins.str id: Unique identifier of the odb network resource.
         :param _builtins.str oci_network_anchor_id: Unique identifier of the OCI network anchor for the ODB network.
@@ -3272,7 +3272,7 @@ class GetNetworksOdbNetworkResult(dict):
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the odb network resource.
+        ARN of the odb network resource.
         """
         return pulumi.get(self, "arn")
 

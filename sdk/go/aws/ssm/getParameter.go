@@ -109,12 +109,8 @@ type LookupParameterResult struct {
 }
 
 func LookupParameterOutput(ctx *pulumi.Context, args LookupParameterOutputArgs, opts ...pulumi.InvokeOption) LookupParameterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupParameterResultOutput, error) {
-			args := v.(LookupParameterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ssm/getParameter:getParameter", args, LookupParameterResultOutput{}, options).(LookupParameterResultOutput), nil
-		}).(LookupParameterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ssm/getParameter:getParameter", args, LookupParameterResultOutput{}, options).(LookupParameterResultOutput)
 }
 
 // A collection of arguments for invoking getParameter.

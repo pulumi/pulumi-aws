@@ -141,10 +141,10 @@ class _AcceleratorState:
         """
         Input properties used for looking up and filtering Accelerator resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the accelerator.
+        :param pulumi.Input[_builtins.str] arn: ARN of the accelerator.
         :param pulumi.Input['AcceleratorAttributesArgs'] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
                   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -185,7 +185,7 @@ class _AcceleratorState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the accelerator.
+        ARN of the accelerator.
         """
         return pulumi.get(self, "arn")
 
@@ -221,7 +221,7 @@ class _AcceleratorState:
     @pulumi.getter(name="dualStackDnsName")
     def dual_stack_dns_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dual_stack_dns_name")
 
@@ -351,15 +351,15 @@ class Accelerator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
-            name="Example",
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            })
+            },
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True)
         ```
 
         ## Import
@@ -368,7 +368,7 @@ class Accelerator(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+        - `arn` (String) ARN of the Global Accelerator accelerator.
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
@@ -402,15 +402,15 @@ class Accelerator(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.globalaccelerator.Accelerator("example",
-            name="Example",
-            ip_address_type="IPV4",
-            ip_addresses=["1.2.3.4"],
-            enabled=True,
             attributes={
                 "flow_logs_enabled": True,
                 "flow_logs_s3_bucket": "example-bucket",
                 "flow_logs_s3_prefix": "flow-logs/",
-            })
+            },
+            name="Example",
+            ip_address_type="IPV4",
+            ip_addresses=["1.2.3.4"],
+            enabled=True)
         ```
 
         ## Import
@@ -419,7 +419,7 @@ class Accelerator(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator accelerator.
+        - `arn` (String) ARN of the Global Accelerator accelerator.
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
@@ -499,10 +499,10 @@ class Accelerator(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) of the accelerator.
+        :param pulumi.Input[_builtins.str] arn: ARN of the accelerator.
         :param pulumi.Input[Union['AcceleratorAttributesArgs', 'AcceleratorAttributesArgsDict']] attributes: The attributes of the accelerator. Fields documented below.
         :param pulumi.Input[_builtins.str] dns_name: The DNS name of the accelerator. For example, `a5d53ff5ee6bca4ce.awsglobalaccelerator.com`.
-        :param pulumi.Input[_builtins.str] dual_stack_dns_name: The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        :param pulumi.Input[_builtins.str] dual_stack_dns_name: DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         :param pulumi.Input[_builtins.bool] enabled: Indicates whether the accelerator is enabled. Defaults to `true`. Valid values: `true`, `false`.
         :param pulumi.Input[_builtins.str] hosted_zone_id: -  The Global Accelerator Route 53 zone ID that can be used to
                   route an [Alias Resource Record Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API_AliasTarget.html) to the Global Accelerator. This attribute
@@ -536,7 +536,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the accelerator.
+        ARN of the accelerator.
         """
         return pulumi.get(self, "arn")
 
@@ -560,7 +560,7 @@ class Accelerator(pulumi.CustomResource):
     @pulumi.getter(name="dualStackDnsName")
     def dual_stack_dns_name(self) -> pulumi.Output[_builtins.str]:
         """
-        The Domain Name System (DNS) name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
+        DNS name that Global Accelerator creates that points to a dual-stack accelerator's four static IP addresses: two IPv4 addresses and two IPv6 addresses. For example, `a1234567890abcdef.dualstack.awsglobalaccelerator.com`.
         """
         return pulumi.get(self, "dual_stack_dns_name")
 

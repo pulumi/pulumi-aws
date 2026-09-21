@@ -19,18 +19,26 @@ namespace Pulumi.Aws.Msk.Outputs
         public readonly ImmutableArray<Outputs.ReplicatorReplicationInfoListConsumerGroupReplication> ConsumerGroupReplications;
         public readonly string? SourceKafkaClusterAlias;
         /// <summary>
-        /// The ARN of the source Kafka cluster.
+        /// The ARN of the source Kafka cluster. Use for an Amazon MSK source. Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
         /// </summary>
-        public readonly string SourceKafkaClusterArn;
+        public readonly string? SourceKafkaClusterArn;
+        /// <summary>
+        /// The identifier of the source Kafka cluster. Use for a self-managed / on-premises Apache Kafka source (matches `ApacheKafkaClusterId`). Exactly one of `SourceKafkaClusterArn` or `SourceKafkaClusterId` must be specified.
+        /// </summary>
+        public readonly string? SourceKafkaClusterId;
         /// <summary>
         /// The type of compression to use writing records to target Kafka cluster.
         /// </summary>
         public readonly string TargetCompressionType;
         public readonly string? TargetKafkaClusterAlias;
         /// <summary>
-        /// The ARN of the target Kafka cluster.
+        /// The ARN of the target Kafka cluster. Use for an Amazon MSK target. Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
         /// </summary>
-        public readonly string TargetKafkaClusterArn;
+        public readonly string? TargetKafkaClusterArn;
+        /// <summary>
+        /// The identifier of the target Kafka cluster. Use for a self-managed / on-premises Apache Kafka target (matches `ApacheKafkaClusterId`). Exactly one of `TargetKafkaClusterArn` or `TargetKafkaClusterId` must be specified.
+        /// </summary>
+        public readonly string? TargetKafkaClusterId;
         /// <summary>
         /// Configuration relating to topic replication.
         /// </summary>
@@ -42,22 +50,28 @@ namespace Pulumi.Aws.Msk.Outputs
 
             string? sourceKafkaClusterAlias,
 
-            string sourceKafkaClusterArn,
+            string? sourceKafkaClusterArn,
+
+            string? sourceKafkaClusterId,
 
             string targetCompressionType,
 
             string? targetKafkaClusterAlias,
 
-            string targetKafkaClusterArn,
+            string? targetKafkaClusterArn,
+
+            string? targetKafkaClusterId,
 
             ImmutableArray<Outputs.ReplicatorReplicationInfoListTopicReplication> topicReplications)
         {
             ConsumerGroupReplications = consumerGroupReplications;
             SourceKafkaClusterAlias = sourceKafkaClusterAlias;
             SourceKafkaClusterArn = sourceKafkaClusterArn;
+            SourceKafkaClusterId = sourceKafkaClusterId;
             TargetCompressionType = targetCompressionType;
             TargetKafkaClusterAlias = targetKafkaClusterAlias;
             TargetKafkaClusterArn = targetKafkaClusterArn;
+            TargetKafkaClusterId = targetKafkaClusterId;
             TopicReplications = topicReplications;
         }
     }

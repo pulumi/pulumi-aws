@@ -122,7 +122,7 @@ class _WorkspaceState:
         Input properties used for looking up and filtering Workspace resources.
 
         :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input[_builtins.str] arn: ARN of the workspace.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input['WorkspaceLoggingConfigurationArgs'] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] prometheus_endpoint: Prometheus endpoint available for this workspace.
@@ -163,7 +163,7 @@ class _WorkspaceState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the workspace.
+        ARN of the workspace.
         """
         return pulumi.get(self, "arn")
 
@@ -435,7 +435,7 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] alias: The alias of the prometheus workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/AMP-onboard-create-workspace.html).
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the workspace.
+        :param pulumi.Input[_builtins.str] arn: ARN of the workspace.
         :param pulumi.Input[_builtins.str] kms_key_arn: The ARN for the KMS encryption key. If this argument is not provided, then the AWS owned encryption key will be used to encrypt the data in the workspace. See more [in AWS Docs](https://docs.aws.amazon.com/prometheus/latest/userguide/encryption-at-rest-Amazon-Service-Prometheus.html)
         :param pulumi.Input[Union['WorkspaceLoggingConfigurationArgs', 'WorkspaceLoggingConfigurationArgsDict']] logging_configuration: Logging configuration for the workspace. See Logging Configuration below for details.
         :param pulumi.Input[_builtins.str] prometheus_endpoint: Prometheus endpoint available for this workspace.
@@ -469,7 +469,7 @@ class Workspace(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the workspace.
+        ARN of the workspace.
         """
         return pulumi.get(self, "arn")
 

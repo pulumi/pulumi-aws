@@ -19,17 +19,17 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Analysis("example", {
- *     analysisId: "example-id",
- *     name: "example-name",
  *     sourceEntity: {
  *         sourceTemplate: {
- *             arn: source.arn,
  *             dataSetReferences: [{
  *                 dataSetArn: dataset.arn,
  *                 dataSetPlaceholder: "1",
  *             }],
+ *             arn: source.arn,
  *         },
  *     },
+ *     analysisId: "example-id",
+ *     name: "example-name",
  * });
  * ```
  *
@@ -40,19 +40,14 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Analysis("example", {
- *     analysisId: "example-id",
- *     name: "example-name",
  *     definition: {
  *         dataSetIdentifiersDeclarations: [{
  *             dataSetArn: dataset.arn,
  *             identifier: "1",
  *         }],
  *         sheets: [{
- *             title: "Example",
- *             sheetId: "Example1",
  *             visuals: [{
  *                 lineChartVisual: {
- *                     visualId: "LineChart",
  *                     title: {
  *                         formatText: {
  *                             plainText: "Line Chart Example",
@@ -63,30 +58,35 @@ import * as utilities from "../utilities";
  *                             lineChartAggregatedFieldWells: {
  *                                 categories: [{
  *                                     categoricalDimensionField: {
- *                                         fieldId: "1",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "1",
  *                                     },
  *                                 }],
  *                                 values: [{
  *                                     categoricalMeasureField: {
- *                                         fieldId: "2",
  *                                         column: {
  *                                             dataSetIdentifier: "1",
  *                                             columnName: "Column1",
  *                                         },
+ *                                         fieldId: "2",
  *                                         aggregationFunction: "COUNT",
  *                                     },
  *                                 }],
  *                             },
  *                         },
  *                     },
+ *                     visualId: "LineChart",
  *                 },
  *             }],
+ *             title: "Example",
+ *             sheetId: "Example1",
  *         }],
  *     },
+ *     analysisId: "example-id",
+ *     name: "example-name",
  * });
  * ```
  *
@@ -186,7 +186,7 @@ export class Analysis extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly tagsAll: pulumi.Output<{[key: string]: string}>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     declare public readonly themeArn: pulumi.Output<string | undefined>;
 
@@ -310,7 +310,7 @@ export interface AnalysisState {
      */
     tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     themeArn?: pulumi.Input<string | undefined>;
 }
@@ -358,7 +358,7 @@ export interface AnalysisArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
+     * ARN of the theme that is being used for this analysis. The theme ARN must exist in the same AWS account where you create the analysis.
      */
     themeArn?: pulumi.Input<string | undefined>;
 }

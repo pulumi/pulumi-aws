@@ -10,9 +10,9 @@ import * as utilities from "../utilities";
 /**
  * Provides an AWS Savings Plan resource.
  *
- * > **WARNING:** Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
+ * > Savings Plans represent a financial commitment. Once a Savings Plan becomes active, it **cannot be cancelled or deleted**. Only Savings Plans in the `queued` state (scheduled for future purchase) can be deleted. Use this resource with caution.
  *
- * > **Note:** Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
+ * > Importing an active Savings Plan will add it to your Terraform state, but destroying it will only remove it from state - the actual Savings Plan will continue until its term ends.
  *
  * ## Example Usage
  *
@@ -122,9 +122,9 @@ export class SavingsPlan extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly productTypes: pulumi.Output<string[]>;
     /**
-     * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      */
-    declare public readonly purchaseTime: pulumi.Output<string | undefined>;
+    declare public readonly purchaseTime: pulumi.Output<string>;
     /**
      * The recurring payment amount.
      */
@@ -175,9 +175,9 @@ export class SavingsPlan extends pulumi.CustomResource {
     declare public /*out*/ readonly termDurationInSeconds: pulumi.Output<number>;
     declare public readonly timeouts: pulumi.Output<outputs.savingsplans.SavingsPlanTimeouts | undefined>;
     /**
-     * The up-front payment amount.
+     * The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      */
-    declare public readonly upfrontPaymentAmount: pulumi.Output<string | undefined>;
+    declare public readonly upfrontPaymentAmount: pulumi.Output<string>;
 
     /**
      * Create a SavingsPlan resource with the given unique name, arguments, and options.
@@ -293,7 +293,7 @@ export interface SavingsPlanState {
      */
     productTypes?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      */
     purchaseTime?: pulumi.Input<string | undefined>;
     /**
@@ -346,7 +346,7 @@ export interface SavingsPlanState {
     termDurationInSeconds?: pulumi.Input<number | undefined>;
     timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts | undefined>;
     /**
-     * The up-front payment amount.
+     * The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      */
     upfrontPaymentAmount?: pulumi.Input<string | undefined>;
 }
@@ -362,7 +362,7 @@ export interface SavingsPlanArgs {
      */
     commitment: pulumi.Input<string>;
     /**
-     * The time at which to purchase the Savings Plan, in UTC format (YYYY-MM-DDTHH:MM:SSZ). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
+     * The time at which to purchase the Savings Plan, in UTC format (`YYYY-MM-DDTHH:MM:SSZ`). If not specified, the plan is purchased immediately. Plans with a future purchase time are placed in `queued` state and can be deleted before they become active.
      */
     purchaseTime?: pulumi.Input<string | undefined>;
     /**
@@ -375,7 +375,7 @@ export interface SavingsPlanArgs {
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
     timeouts?: pulumi.Input<inputs.savingsplans.SavingsPlanTimeouts | undefined>;
     /**
-     * The up-front payment amount.
+     * The up-front payment amount. Required for offerings with an `All Upfront` or `Partial Upfront` payment option. Must be omitted for `No Upfront` offerings.
      */
     upfrontPaymentAmount?: pulumi.Input<string | undefined>;
 }

@@ -30,14 +30,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     public static final FirehoseDeliveryStreamArgs Empty = new FirehoseDeliveryStreamArgs();
 
     /**
-     * The Amazon Resource Name (ARN) specifying the Stream
+     * ARN specifying the Stream
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) specifying the Stream
+     * @return ARN specifying the Stream
      * 
      */
     public Optional<Output<String>> arn() {
@@ -127,14 +127,14 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      * 
      */
     @Import(name="kinesisSourceConfiguration")
     private @Nullable Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs> kinesisSourceConfiguration;
 
     /**
-     * @return The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+     * @return Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
      * 
      */
     public Optional<Output<FirehoseDeliveryStreamKinesisSourceConfigurationArgs>> kinesisSourceConfiguration() {
@@ -345,7 +345,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream
+         * @param arn ARN specifying the Stream
          * 
          * @return builder
          * 
@@ -356,7 +356,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) specifying the Stream
+         * @param arn ARN specifying the Stream
          * 
          * @return builder
          * 
@@ -480,7 +480,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+         * @param kinesisSourceConfiguration Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
          * 
          * @return builder
          * 
@@ -491,7 +491,7 @@ public final class FirehoseDeliveryStreamArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param kinesisSourceConfiguration The stream and role Amazon Resource Names (ARNs) for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
+         * @param kinesisSourceConfiguration Stream and role ARNs for a Kinesis data stream used as the source for a delivery stream. See `kinesisSourceConfiguration` block below for details.
          * 
          * @return builder
          * 

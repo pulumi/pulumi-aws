@@ -86,12 +86,8 @@ type GetContainerDefinitionResult struct {
 }
 
 func GetContainerDefinitionOutput(ctx *pulumi.Context, args GetContainerDefinitionOutputArgs, opts ...pulumi.InvokeOption) GetContainerDefinitionResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetContainerDefinitionResultOutput, error) {
-			args := v.(GetContainerDefinitionArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ecs/getContainerDefinition:getContainerDefinition", args, GetContainerDefinitionResultOutput{}, options).(GetContainerDefinitionResultOutput), nil
-		}).(GetContainerDefinitionResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ecs/getContainerDefinition:getContainerDefinition", args, GetContainerDefinitionResultOutput{}, options).(GetContainerDefinitionResultOutput)
 }
 
 // A collection of arguments for invoking getContainerDefinition.

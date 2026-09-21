@@ -155,19 +155,19 @@ class ContainerPolicy(pulumi.CustomResource):
         current_get_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "MediaStoreFullAccess",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            }],
-            "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",
                 "values": ["true"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
+            }],
+            "sid": "MediaStoreFullAccess",
+            "effect": "Allow",
+            "actions": ["mediastore:*"],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
         }])
         example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,
@@ -212,19 +212,19 @@ class ContainerPolicy(pulumi.CustomResource):
         current_get_caller_identity = aws.get_caller_identity()
         example_container = aws.mediastore.Container("example", name="example")
         example = aws.iam.get_policy_document_output(statements=[{
-            "sid": "MediaStoreFullAccess",
-            "effect": "Allow",
-            "principals": [{
-                "type": "AWS",
-                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
-            }],
-            "actions": ["mediastore:*"],
-            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
             "conditions": [{
                 "test": "Bool",
                 "variable": "aws:SecureTransport",
                 "values": ["true"],
             }],
+            "principals": [{
+                "type": "AWS",
+                "identifiers": [f"arn:aws:iam::{current_get_caller_identity.account_id}:root"],
+            }],
+            "sid": "MediaStoreFullAccess",
+            "effect": "Allow",
+            "actions": ["mediastore:*"],
+            "resources": [example_container.name.apply(lambda name: f"arn:aws:mediastore:{current.region}:{current_get_caller_identity.account_id}:container/{name}/*")],
         }])
         example_container_policy = aws.mediastore.ContainerPolicy("example",
             container_name=example_container.name,

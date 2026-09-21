@@ -97,7 +97,7 @@ namespace Pulumi.Aws.CloudWatch
     public partial class Dashboard : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the dashboard.
+        /// ARN of the dashboard.
         /// </summary>
         [Output("dashboardArn")]
         public Output<string> DashboardArn { get; private set; } = null!;
@@ -193,7 +193,7 @@ namespace Pulumi.Aws.CloudWatch
     public sealed class DashboardState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the dashboard.
+        /// ARN of the dashboard.
         /// </summary>
         [Input("dashboardArn")]
         public Input<string>? DashboardArn { get; set; }

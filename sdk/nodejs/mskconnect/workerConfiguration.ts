@@ -60,7 +60,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
     }
 
     /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
+     * the ARN of the worker configuration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -139,7 +139,7 @@ export class WorkerConfiguration extends pulumi.CustomResource {
  */
 export interface WorkerConfigurationState {
     /**
-     * the Amazon Resource Name (ARN) of the worker configuration.
+     * the ARN of the worker configuration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

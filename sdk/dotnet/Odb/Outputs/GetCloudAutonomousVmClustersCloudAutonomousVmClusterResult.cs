@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Odb.Outputs
     public sealed class GetCloudAutonomousVmClustersCloudAutonomousVmClusterResult
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) for the Exadata infrastructure.
+        /// ARN for the Exadata infrastructure.
         /// </summary>
         public readonly string Arn;
         /// <summary>

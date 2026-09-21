@@ -63,7 +63,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -72,6 +71,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -100,11 +100,6 @@ import (
 //				return err
 //			}
 //			_, err = budgets.NewBudgetAction(ctx, "example", &budgets.BudgetActionArgs{
-//				BudgetName:       exampleBudget.Name,
-//				ActionType:       pulumi.String("APPLY_IAM_POLICY"),
-//				ApprovalModel:    pulumi.String("AUTOMATIC"),
-//				NotificationType: pulumi.String("ACTUAL"),
-//				ExecutionRoleArn: exampleRole.Arn,
 //				ActionThreshold: &budgets.BudgetActionActionThresholdArgs{
 //					ActionThresholdType:  pulumi.String("ABSOLUTE_VALUE"),
 //					ActionThresholdValue: pulumi.Float64(100),
@@ -123,6 +118,11 @@ import (
 //						SubscriptionType: pulumi.String("EMAIL"),
 //					},
 //				},
+//				BudgetName:       exampleBudget.Name,
+//				ActionType:       pulumi.String("APPLY_IAM_POLICY"),
+//				ApprovalModel:    pulumi.String("AUTOMATIC"),
+//				NotificationType: pulumi.String("ACTUAL"),
+//				ExecutionRoleArn: exampleRole.Arn,
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),

@@ -49,15 +49,15 @@ namespace Pulumi.Aws.Transfer
     /// {
     ///     var test = new Aws.Transfer.Access("test", new()
     ///     {
-    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
-    ///         ServerId = testAwsTransferServer.Id,
-    ///         Role = testAwsIamRole.Arn,
-    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///         PosixProfile = new Aws.Transfer.Inputs.AccessPosixProfileArgs
     ///         {
     ///             Gid = 1000,
     ///             Uid = 1000,
     ///         },
+    ///         ExternalId = "S-1-1-12-1234567890-123456789-1234567890-1234",
+    ///         ServerId = testAwsTransferServer.Id,
+    ///         Role = testAwsIamRole.Arn,
+    ///         HomeDirectory = $"/{testAwsEfsFileSystem.Id}/",
     ///     });
     /// 
     /// });
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Transfer
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Output("role")]
         public Output<string?> Role { get; private set; } = null!;
@@ -223,7 +223,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }
@@ -291,7 +291,7 @@ namespace Pulumi.Aws.Transfer
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
+        /// ARN of an IAM role that allows the service to controls your user’s access to your Amazon S3 bucket.
         /// </summary>
         [Input("role")]
         public Input<string>? Role { get; set; }

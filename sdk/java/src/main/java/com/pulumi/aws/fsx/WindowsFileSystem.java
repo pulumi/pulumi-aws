@@ -95,10 +95,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
- *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
- *             .throughputCapacity(32)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
  *                     "10.0.0.111",
@@ -107,6 +103,10 @@ import javax.annotation.Nullable;
  *                 .password("avoid-plaintext-passwords")
  *                 .username("Admin")
  *                 .build())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .storageCapacity(32)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .throughputCapacity(32)
  *             .build());
  * 
  *     }
@@ -140,10 +140,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
- *             .kmsKeyId(exampleAwsKmsKey.arn())
- *             .storageCapacity(32)
- *             .subnetIds(exampleAwsSubnet.id())
- *             .throughputCapacity(32)
  *             .selfManagedActiveDirectory(WindowsFileSystemSelfManagedActiveDirectoryArgs.builder()
  *                 .dnsIps(                
  *                     "10.0.0.111",
@@ -151,6 +147,10 @@ import javax.annotation.Nullable;
  *                 .domainName("corp.example.com")
  *                 .domainJoinServiceAccountSecret(exampleAwsSecretsmanagerSecret.arn())
  *                 .build())
+ *             .kmsKeyId(exampleAwsKmsKey.arn())
+ *             .storageCapacity(32)
+ *             .subnetIds(exampleAwsSubnet.id())
+ *             .throughputCapacity(32)
  *             .build());
  * 
  *     }
@@ -177,6 +177,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.aws.fsx.WindowsFileSystem;
  * import com.pulumi.aws.fsx.WindowsFileSystemArgs;
+ * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.ArrayList;
  * import java.util.Arrays;
  * import java.util.Map;
@@ -192,7 +193,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new WindowsFileSystem("example", WindowsFileSystemArgs.builder()
  *             .securityGroupIds(exampleAwsSecurityGroup.id())
- *             .build());
+ *             .build(), CustomResourceOptions.builder()
+ *                 .ignoreChanges("securityGroupIds")
+ *                 .build());
  * 
  *     }
  * }
@@ -231,14 +234,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.aliases);
     }
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the file system.
+     * @return ARN of the file system.
      * 
      */
     public Output<String> arn() {
@@ -613,14 +616,14 @@ public class WindowsFileSystem extends com.pulumi.resources.CustomResource {
         return this.throughputCapacity;
     }
     /**
-     * Identifier of the Virtual Private Cloud for the file system.
+     * Identifier of the VPC for the file system.
      * 
      */
     @Export(name="vpcId", refs={String.class}, tree="[0]")
     private Output<String> vpcId;
 
     /**
-     * @return Identifier of the Virtual Private Cloud for the file system.
+     * @return Identifier of the VPC for the file system.
      * 
      */
     public Output<String> vpcId() {

@@ -30,14 +30,14 @@ public final class GetServerlessSecurityConfigIamIdentityCenterOptionArgs extend
     }
 
     /**
-     * Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+     * ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
      * 
      */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+     * @return ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
      * 
      */
     public Output<String> instanceArn() {
@@ -107,7 +107,7 @@ public final class GetServerlessSecurityConfigIamIdentityCenterOptionArgs extend
         }
 
         /**
-         * @param instanceArn Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+         * @param instanceArn ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class GetServerlessSecurityConfigIamIdentityCenterOptionArgs extend
         }
 
         /**
-         * @param instanceArn Amazon Resource Name (ARN) of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
+         * @param instanceArn ARN of the IAM Identity Center instance used to integrate with OpenSearch Serverless.
          * 
          * @return builder
          * 

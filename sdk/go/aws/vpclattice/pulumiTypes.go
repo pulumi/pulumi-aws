@@ -412,7 +412,7 @@ func (o ListenerDefaultActionForwardArrayOutput) Index(i pulumi.IntInput) Listen
 }
 
 type ListenerDefaultActionForwardTargetGroup struct {
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier *string `pulumi:"targetGroupIdentifier"`
 	// Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 	Weight *int `pulumi:"weight"`
@@ -430,7 +430,7 @@ type ListenerDefaultActionForwardTargetGroupInput interface {
 }
 
 type ListenerDefaultActionForwardTargetGroupArgs struct {
-	// ID or Amazon Resource Name (ARN) of the target group.
+	// ID or ARN of the target group.
 	TargetGroupIdentifier pulumi.StringPtrInput `pulumi:"targetGroupIdentifier"`
 	// Weight that controls how requests are distributed to the target group. Only required if you specify multiple target groups for a forward action. For example, if you specify two target groups, one with a weight of 10 and the other with a weight of 20, the target group with a weight of 20 receives twice as many requests as the other target group. See [Listener rules](https://docs.aws.amazon.com/vpc-lattice/latest/ug/listeners.html#listener-rules) in the AWS documentation for additional examples. Default: `100`.
 	Weight pulumi.IntPtrInput `pulumi:"weight"`
@@ -487,7 +487,7 @@ func (o ListenerDefaultActionForwardTargetGroupOutput) ToListenerDefaultActionFo
 	return o
 }
 
-// ID or Amazon Resource Name (ARN) of the target group.
+// ID or ARN of the target group.
 func (o ListenerDefaultActionForwardTargetGroupOutput) TargetGroupIdentifier() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ListenerDefaultActionForwardTargetGroup) *string { return v.TargetGroupIdentifier }).(pulumi.StringPtrOutput)
 }

@@ -34,14 +34,14 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the FSx for Windows file system.
+     * ARN for the FSx for Windows file system.
      * 
      */
     @Import(name="fsxFilesystemArn", required=true)
     private Output<String> fsxFilesystemArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the FSx for Windows file system.
+     * @return ARN for the FSx for Windows file system.
      * 
      */
     public Output<String> fsxFilesystemArn() {
@@ -79,14 +79,14 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+     * ARNs of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
     @Import(name="securityGroupArns", required=true)
     private Output<List<String>> securityGroupArns;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+     * @return ARNs of the security groups that are to use to configure the FSx for Windows file system.
      * 
      */
     public Output<List<String>> securityGroupArns() {
@@ -191,7 +191,7 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for Windows file system.
+         * @param fsxFilesystemArn ARN for the FSx for Windows file system.
          * 
          * @return builder
          * 
@@ -202,7 +202,7 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param fsxFilesystemArn The Amazon Resource Name (ARN) for the FSx for Windows file system.
+         * @param fsxFilesystemArn ARN for the FSx for Windows file system.
          * 
          * @return builder
          * 
@@ -254,7 +254,7 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Windows file system.
          * 
          * @return builder
          * 
@@ -265,7 +265,7 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Windows file system.
          * 
          * @return builder
          * 
@@ -275,7 +275,7 @@ public final class LocationFsxWindowsArgs extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param securityGroupArns The Amazon Resource Names (ARNs) of the security groups that are to use to configure the FSx for Windows file system.
+         * @param securityGroupArns ARNs of the security groups that are to use to configure the FSx for Windows file system.
          * 
          * @return builder
          * 

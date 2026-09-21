@@ -74,7 +74,7 @@ export class MountTarget extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly dnsName: pulumi.Output<string>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     declare public /*out*/ readonly fileSystemArn: pulumi.Output<string>;
     /**
@@ -192,7 +192,7 @@ export interface MountTargetState {
      */
     dnsName?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name of the file system.
+     * ARN of the file system.
      */
     fileSystemArn?: pulumi.Input<string | undefined>;
     /**

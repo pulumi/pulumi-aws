@@ -16,14 +16,14 @@ public final class UserHierarchyGroupHierarchyPathLevelTwoArgs extends com.pulum
     public static final UserHierarchyGroupHierarchyPathLevelTwoArgs Empty = new UserHierarchyGroupHierarchyPathLevelTwoArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the hierarchy group.
+     * The ARN of the hierarchy group.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the hierarchy group.
+     * @return The ARN of the hierarchy group.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -87,7 +87,7 @@ public final class UserHierarchyGroupHierarchyPathLevelTwoArgs extends com.pulum
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy group.
+         * @param arn The ARN of the hierarchy group.
          * 
          * @return builder
          * 
@@ -98,7 +98,7 @@ public final class UserHierarchyGroupHierarchyPathLevelTwoArgs extends com.pulum
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the hierarchy group.
+         * @param arn The ARN of the hierarchy group.
          * 
          * @return builder
          * 

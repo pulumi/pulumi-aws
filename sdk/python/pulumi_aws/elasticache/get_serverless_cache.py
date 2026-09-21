@@ -87,7 +87,7 @@ class GetServerlessCacheResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the serverless cache.
+        ARN of the serverless cache.
         """
         return pulumi.get(self, "arn")
 

@@ -181,14 +181,14 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
         return this.aggregation;
     }
     /**
-     * The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     @Export(name="members", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> members;
 
     /**
-     * @return The Amazon Resource Names (ARNs) of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
+     * @return ARNs of the resources to include in the protection group. You must set this when you set `pattern` to ARBITRARY and you must not set it for any other `pattern` setting.
      * 
      */
     public Output<Optional<List<String>>> members() {
@@ -209,14 +209,14 @@ public class ProtectionGroup extends com.pulumi.resources.CustomResource {
         return this.pattern;
     }
     /**
-     * The ARN (Amazon Resource Name) of the protection group.
+     * ARN of the protection group.
      * 
      */
     @Export(name="protectionGroupArn", refs={String.class}, tree="[0]")
     private Output<String> protectionGroupArn;
 
     /**
-     * @return The ARN (Amazon Resource Name) of the protection group.
+     * @return ARN of the protection group.
      * 
      */
     public Output<String> protectionGroupArn() {

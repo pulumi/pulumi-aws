@@ -90,12 +90,8 @@ type LookupGatewayRouteResult struct {
 }
 
 func LookupGatewayRouteOutput(ctx *pulumi.Context, args LookupGatewayRouteOutputArgs, opts ...pulumi.InvokeOption) LookupGatewayRouteResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupGatewayRouteResultOutput, error) {
-			args := v.(LookupGatewayRouteArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:appmesh/getGatewayRoute:getGatewayRoute", args, LookupGatewayRouteResultOutput{}, options).(LookupGatewayRouteResultOutput), nil
-		}).(LookupGatewayRouteResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:appmesh/getGatewayRoute:getGatewayRoute", args, LookupGatewayRouteResultOutput{}, options).(LookupGatewayRouteResultOutput)
 }
 
 // A collection of arguments for invoking getGatewayRoute.

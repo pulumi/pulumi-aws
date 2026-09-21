@@ -38,19 +38,19 @@ class CustomModelArgs:
         """
         The set of arguments for constructing a CustomModel resource.
 
-        :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
+        :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] hyperparameters: [Parameters](https://docs.aws.amazon.com/bedrock/latest/userguide/custom-models-hp.html) related to tuning the model.
         :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
         :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         pulumi.set(__self__, "base_model_identifier", base_model_identifier)
         pulumi.set(__self__, "custom_model_name", custom_model_name)
@@ -78,7 +78,7 @@ class CustomModelArgs:
     @pulumi.getter(name="baseModelIdentifier")
     def base_model_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the base model.
+        ARN of the base model.
         """
         return pulumi.get(self, "base_model_identifier")
 
@@ -138,7 +138,7 @@ class CustomModelArgs:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -231,7 +231,7 @@ class CustomModelArgs:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
-        Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -266,7 +266,7 @@ class _CustomModelState:
         """
         Input properties used for looking up and filtering CustomModel resources.
 
-        :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
+        :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
         :param pulumi.Input[_builtins.str] custom_model_arn: The ARN of the output model.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
@@ -277,14 +277,14 @@ class _CustomModelState:
         :param pulumi.Input[_builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         :param pulumi.Input['CustomModelOutputDataConfigArgs'] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input['CustomModelTrainingDataConfigArgs'] training_data_config: Information about the training dataset.
         :param pulumi.Input[Sequence[pulumi.Input['CustomModelTrainingMetricArgs']]] training_metrics: Metrics associated with the customization job.
         :param pulumi.Input['CustomModelValidationDataConfigArgs'] validation_data_config: Information about the validation dataset.
         :param pulumi.Input[Sequence[pulumi.Input['CustomModelValidationMetricArgs']]] validation_metrics: The loss metric for each validator that you provided.
-        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        :param pulumi.Input['CustomModelVpcConfigArgs'] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         if base_model_identifier is not None:
             pulumi.set(__self__, "base_model_identifier", base_model_identifier)
@@ -331,7 +331,7 @@ class _CustomModelState:
     @pulumi.getter(name="baseModelIdentifier")
     def base_model_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the base model.
+        ARN of the base model.
         """
         return pulumi.get(self, "base_model_identifier")
 
@@ -463,7 +463,7 @@ class _CustomModelState:
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -556,7 +556,7 @@ class _CustomModelState:
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Input[Optional['CustomModelVpcConfigArgs']]:
         """
-        Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         return pulumi.get(self, "vpc_config")
 
@@ -610,6 +610,12 @@ class CustomModel(pulumi.CustomResource):
 
         example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
         example_custom_model = aws.bedrock.CustomModel("example",
+            output_data_config={
+                "s3_uri": f"s3://{output['id']}/data/",
+            },
+            training_data_config={
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
+            },
             custom_model_name="example-model",
             job_name="example-job-1",
             base_model_identifier=example.model_arn,
@@ -619,12 +625,6 @@ class CustomModel(pulumi.CustomResource):
                 "batchSize": "1",
                 "learningRate": "0.005",
                 "learningRateWarmupSteps": "0",
-            },
-            output_data_config={
-                "s3_uri": f"s3://{output['id']}/data/",
-            },
-            training_data_config={
-                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 
@@ -634,7 +634,7 @@ class CustomModel(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+        - `job_arn` (String) ARN of the Bedrock custom model job.
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
@@ -645,7 +645,7 @@ class CustomModel(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
+        :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
         :param pulumi.Input[_builtins.str] customization_type: The customization type. Valid values: `FINE_TUNING`, `CONTINUED_PRE_TRAINING`.
@@ -653,11 +653,11 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] job_name: A name for the customization job.
         :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']] training_data_config: Information about the training dataset.
         :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']] validation_data_config: Information about the validation dataset.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         ...
     @overload
@@ -689,6 +689,12 @@ class CustomModel(pulumi.CustomResource):
 
         example = aws.bedrockfoundation.get_model(model_id="amazon.titan-text-express-v1")
         example_custom_model = aws.bedrock.CustomModel("example",
+            output_data_config={
+                "s3_uri": f"s3://{output['id']}/data/",
+            },
+            training_data_config={
+                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
+            },
             custom_model_name="example-model",
             job_name="example-job-1",
             base_model_identifier=example.model_arn,
@@ -698,12 +704,6 @@ class CustomModel(pulumi.CustomResource):
                 "batchSize": "1",
                 "learningRate": "0.005",
                 "learningRateWarmupSteps": "0",
-            },
-            output_data_config={
-                "s3_uri": f"s3://{output['id']}/data/",
-            },
-            training_data_config={
-                "s3_uri": f"s3://{training['id']}/data/train.jsonl",
             })
         ```
 
@@ -713,7 +713,7 @@ class CustomModel(pulumi.CustomResource):
 
         #### Required
 
-        - `job_arn` (String) Amazon Resource Name (ARN) of the Bedrock custom model job.
+        - `job_arn` (String) ARN of the Bedrock custom model job.
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
@@ -831,7 +831,7 @@ class CustomModel(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] base_model_identifier: The Amazon Resource Name (ARN) of the base model.
+        :param pulumi.Input[_builtins.str] base_model_identifier: ARN of the base model.
         :param pulumi.Input[_builtins.str] custom_model_arn: The ARN of the output model.
         :param pulumi.Input[_builtins.str] custom_model_kms_key_id: The custom model is encrypted at rest using this key. Specify the key ARN.
         :param pulumi.Input[_builtins.str] custom_model_name: Name for the custom model.
@@ -842,14 +842,14 @@ class CustomModel(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] job_status: The status of the customization job. A successful job transitions from `InProgress` to `Completed` when the output model is ready to use.
         :param pulumi.Input[Union['CustomModelOutputDataConfigArgs', 'CustomModelOutputDataConfigArgsDict']] output_data_config: S3 location for the output data.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] role_arn: The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        :param pulumi.Input[_builtins.str] role_arn: ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the customization job and custom model. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[Union['CustomModelTrainingDataConfigArgs', 'CustomModelTrainingDataConfigArgsDict']] training_data_config: Information about the training dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelTrainingMetricArgs', 'CustomModelTrainingMetricArgsDict']]]] training_metrics: Metrics associated with the customization job.
         :param pulumi.Input[Union['CustomModelValidationDataConfigArgs', 'CustomModelValidationDataConfigArgsDict']] validation_data_config: Information about the validation dataset.
         :param pulumi.Input[Sequence[pulumi.Input[Union['CustomModelValidationMetricArgs', 'CustomModelValidationMetricArgsDict']]]] validation_metrics: The loss metric for each validator that you provided.
-        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        :param pulumi.Input[Union['CustomModelVpcConfigArgs', 'CustomModelVpcConfigArgsDict']] vpc_config: Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -881,7 +881,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="baseModelIdentifier")
     def base_model_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of the base model.
+        ARN of the base model.
         """
         return pulumi.get(self, "base_model_identifier")
 
@@ -969,7 +969,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) of an IAM role that Bedrock can assume to perform tasks on your behalf.
+        ARN of an IAM role that Bedrock can assume to perform tasks on your behalf.
         """
         return pulumi.get(self, "role_arn")
 
@@ -1030,7 +1030,7 @@ class CustomModel(pulumi.CustomResource):
     @pulumi.getter(name="vpcConfig")
     def vpc_config(self) -> pulumi.Output[Optional['outputs.CustomModelVpcConfig']]:
         """
-        Configuration parameters for the private Virtual Private Cloud (VPC) that contains the resources you are using for this job.
+        Configuration parameters for the private VPC that contains the resources you are using for this job.
         """
         return pulumi.get(self, "vpc_config")
 

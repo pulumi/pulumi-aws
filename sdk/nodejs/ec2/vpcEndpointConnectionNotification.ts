@@ -16,11 +16,11 @@ import * as utilities from "../utilities";
  *
  * const topic = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["vpce.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["SNS:Publish"],
  *         resources: ["arn:aws:sns:*:*:vpce-notification-topic"],
  *     }],

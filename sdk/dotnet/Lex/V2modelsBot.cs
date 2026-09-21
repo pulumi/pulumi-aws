@@ -53,8 +53,6 @@ namespace Pulumi.Aws.Lex
     /// 
     ///     var example = new Aws.Lex.V2modelsBot("example", new()
     ///     {
-    ///         Name = "example",
-    ///         Description = "Example description",
     ///         DataPrivacies = new[]
     ///         {
     ///             new Aws.Lex.Inputs.V2modelsBotDataPrivacyArgs
@@ -62,6 +60,8 @@ namespace Pulumi.Aws.Lex
     ///                 ChildDirected = false,
     ///             },
     ///         },
+    ///         Name = "example",
+    ///         Description = "Example description",
     ///         IdleSessionTtlInSeconds = 60,
     ///         RoleArn = exampleRole.Arn,
     ///         Type = "Bot",

@@ -415,12 +415,12 @@ class StackInstances(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": [a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 "type": "AWS",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,
@@ -532,12 +532,12 @@ class StackInstances(pulumi.CustomResource):
         import pulumi_aws as aws
 
         a_ws_cloud_formation_stack_set_execution_role_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "identifiers": [a_ws_cloud_formation_stack_set_administration_role["arn"]],
                 "type": "AWS",
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         a_ws_cloud_formation_stack_set_execution_role = aws.iam.Role("AWSCloudFormationStackSetExecutionRole",
             assume_role_policy=a_ws_cloud_formation_stack_set_execution_role_assume_role_policy.json,

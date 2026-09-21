@@ -14,7 +14,7 @@ namespace Pulumi.Aws.Ecs.Outputs
     public sealed class ClusterConfigurationExecuteCommandConfiguration
     {
         /// <summary>
-        /// AWS Key Management Service key ID to encrypt the data between the local client and the container.
+        /// KMS key ID to encrypt the data between the local client and the container.
         /// </summary>
         public readonly string? KmsKeyId;
         /// <summary>

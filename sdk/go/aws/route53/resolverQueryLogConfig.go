@@ -54,7 +54,7 @@ import (
 type ResolverQueryLogConfig struct {
 	pulumi.CustomResourceState
 
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+	// ARN of the Route 53 Resolver query logging configuration.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The ARN of the resource that you want Route 53 Resolver to send query logs.
 	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
@@ -108,7 +108,7 @@ func GetResolverQueryLogConfig(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ResolverQueryLogConfig resources.
 type resolverQueryLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+	// ARN of the Route 53 Resolver query logging configuration.
 	Arn *string `pulumi:"arn"`
 	// The ARN of the resource that you want Route 53 Resolver to send query logs.
 	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
@@ -130,7 +130,7 @@ type resolverQueryLogConfigState struct {
 }
 
 type ResolverQueryLogConfigState struct {
-	// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+	// ARN of the Route 53 Resolver query logging configuration.
 	Arn pulumi.StringPtrInput
 	// The ARN of the resource that you want Route 53 Resolver to send query logs.
 	// You can send query logs to an S3 bucket, a CloudWatch Logs log group, or a Kinesis Data Firehose delivery stream.
@@ -267,7 +267,7 @@ func (o ResolverQueryLogConfigOutput) ToResolverQueryLogConfigOutputWithContext(
 	return o
 }
 
-// The ARN (Amazon Resource Name) of the Route 53 Resolver query logging configuration.
+// ARN of the Route 53 Resolver query logging configuration.
 func (o ResolverQueryLogConfigOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ResolverQueryLogConfig) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

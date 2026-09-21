@@ -31,32 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := medialive.NewChannel(ctx, "example", &medialive.ChannelArgs{
-//				Name:         pulumi.String("example-channel"),
-//				ChannelClass: pulumi.String("STANDARD"),
-//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //				InputSpecification: &medialive.ChannelInputSpecificationArgs{
 //					Codec:           pulumi.String("AVC"),
 //					InputResolution: pulumi.String("HD"),
 //					MaximumBitrate:  pulumi.String("MAX_20_MBPS"),
-//				},
-//				InputAttachments: medialive.ChannelInputAttachmentArray{
-//					&medialive.ChannelInputAttachmentArgs{
-//						InputAttachmentName: pulumi.String("example-input"),
-//						InputId:             pulumi.Any(exampleAwsMedialiveInput.Id),
-//					},
-//				},
-//				Destinations: medialive.ChannelDestinationArray{
-//					&medialive.ChannelDestinationArgs{
-//						Id: pulumi.String("destination"),
-//						Settings: medialive.ChannelDestinationSettingArray{
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.Sprintf("s3://%v/test1", main.Id),
-//							},
-//							&medialive.ChannelDestinationSettingArgs{
-//								Url: pulumi.Sprintf("s3://%v/test2", main2.Id),
-//							},
-//						},
-//					},
 //				},
 //				EncoderSettings: &medialive.ChannelEncoderSettingsArgs{
 //					TimecodeConfig: &medialive.ChannelEncoderSettingsTimecodeConfigArgs{
@@ -66,11 +44,6 @@ import (
 //						&medialive.ChannelEncoderSettingsAudioDescriptionArgs{
 //							AudioSelectorName: pulumi.String("example audio selector"),
 //							Name:              pulumi.String("audio-selector"),
-//						},
-//					},
-//					VideoDescriptions: medialive.ChannelEncoderSettingsVideoDescriptionArray{
-//						&medialive.ChannelEncoderSettingsVideoDescriptionArgs{
-//							Name: pulumi.String("example-video"),
 //						},
 //					},
 //					OutputGroups: medialive.ChannelEncoderSettingsOutputGroupArray{
@@ -86,15 +59,8 @@ import (
 //							},
 //							Outputs: medialive.ChannelEncoderSettingsOutputGroupOutputTypeArray{
 //								&medialive.ChannelEncoderSettingsOutputGroupOutputTypeArgs{
-//									OutputName:           pulumi.String("example-name"),
-//									VideoDescriptionName: pulumi.String("example-video"),
-//									AudioDescriptionNames: pulumi.StringArray{
-//										pulumi.String("audio-selector"),
-//									},
 //									OutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArgs{
 //										ArchiveOutputSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsArgs{
-//											NameModifier: pulumi.String("_1"),
-//											Extension:    pulumi.String("m2ts"),
 //											ContainerSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsArgs{
 //												M2tsSettings: &medialive.ChannelEncoderSettingsOutputGroupOutputOutputSettingsArchiveOutputSettingsContainerSettingsM2tsSettingsArgs{
 //													AudioBufferModel: pulumi.String("ATSC"),
@@ -102,13 +68,47 @@ import (
 //													RateMode:         pulumi.String("CBR"),
 //												},
 //											},
+//											NameModifier: pulumi.String("_1"),
+//											Extension:    pulumi.String("m2ts"),
 //										},
+//									},
+//									OutputName:           pulumi.String("example-name"),
+//									VideoDescriptionName: pulumi.String("example-video"),
+//									AudioDescriptionNames: pulumi.StringArray{
+//										pulumi.String("audio-selector"),
 //									},
 //								},
 //							},
 //						},
 //					},
+//					VideoDescriptions: medialive.ChannelEncoderSettingsVideoDescriptionArray{
+//						&medialive.ChannelEncoderSettingsVideoDescriptionArgs{
+//							Name: pulumi.String("example-video"),
+//						},
+//					},
 //				},
+//				Destinations: medialive.ChannelDestinationArray{
+//					&medialive.ChannelDestinationArgs{
+//						Settings: medialive.ChannelDestinationSettingArray{
+//							&medialive.ChannelDestinationSettingArgs{
+//								Url: pulumi.Sprintf("s3://%v/test1", main.Id),
+//							},
+//							&medialive.ChannelDestinationSettingArgs{
+//								Url: pulumi.Sprintf("s3://%v/test2", main2.Id),
+//							},
+//						},
+//						Id: pulumi.String("destination"),
+//					},
+//				},
+//				InputAttachments: medialive.ChannelInputAttachmentArray{
+//					&medialive.ChannelInputAttachmentArgs{
+//						InputAttachmentName: pulumi.String("example-input"),
+//						InputId:             pulumi.Any(exampleAwsMedialiveInput.Id),
+//					},
+//				},
+//				Name:         pulumi.String("example-channel"),
+//				ChannelClass: pulumi.String("STANDARD"),
+//				RoleArn:      pulumi.Any(exampleAwsIamRole.Arn),
 //			})
 //			if err != nil {
 //				return err

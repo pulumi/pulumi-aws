@@ -55,11 +55,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
  *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
  *                 .image("nginx:latest")
  *                 .build())
+ *             .executionRoleArn(execution.arn())
+ *             .infrastructureRoleArn(infrastructure.arn())
  *             .build());
  * 
  *     }
@@ -96,13 +96,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
- *             .healthCheckPath("/health")
  *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
- *                 .image("my-app:latest")
- *                 .containerPort(8080)
- *                 .commands("./start.sh")
  *                 .awsLogsConfigurations(ExpressGatewayServicePrimaryContainerAwsLogsConfigurationArgs.builder()
  *                     .logGroup(app.name())
  *                     .build())
@@ -119,7 +113,13 @@ import javax.annotation.Nullable;
  *                     .name("DB_PASSWORD")
  *                     .valueFrom(dbPassword.arn())
  *                     .build())
+ *                 .image("my-app:latest")
+ *                 .containerPort(8080)
+ *                 .commands("./start.sh")
  *                 .build())
+ *             .executionRoleArn(execution.arn())
+ *             .infrastructureRoleArn(infrastructure.arn())
+ *             .healthCheckPath("/health")
  *             .build());
  * 
  *     }
@@ -154,12 +154,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ExpressGatewayService("example", ExpressGatewayServiceArgs.builder()
- *             .serviceName("my-express-service")
- *             .cluster(main.name())
- *             .executionRoleArn(execution.arn())
- *             .infrastructureRoleArn(infrastructure.arn())
- *             .cpu("256")
- *             .memory("512")
  *             .primaryContainer(ExpressGatewayServicePrimaryContainerArgs.builder()
  *                 .image("nginx:latest")
  *                 .containerPort(80)
@@ -170,6 +164,12 @@ import javax.annotation.Nullable;
  *                     privateB.id())
  *                 .securityGroups(app.id())
  *                 .build())
+ *             .serviceName("my-express-service")
+ *             .cluster(main.name())
+ *             .executionRoleArn(execution.arn())
+ *             .infrastructureRoleArn(infrastructure.arn())
+ *             .cpu("256")
+ *             .memory("512")
  *             .build());
  * 
  *     }

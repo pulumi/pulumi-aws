@@ -17,15 +17,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.globalaccelerator.CustomRoutingAccelerator("example", {
- *     name: "Example",
- *     ipAddressType: "IPV4",
- *     ipAddresses: ["1.2.3.4"],
- *     enabled: true,
  *     attributes: {
  *         flowLogsEnabled: true,
  *         flowLogsS3Bucket: "example-bucket",
  *         flowLogsS3Prefix: "flow-logs/",
  *     },
+ *     name: "Example",
+ *     ipAddressType: "IPV4",
+ *     ipAddresses: ["1.2.3.4"],
+ *     enabled: true,
  * });
  * ```
  *
@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the Global Accelerator custom routing accelerator.
+ * - `arn` (String) ARN of the Global Accelerator custom routing accelerator.
  *
  * Using `pulumi import`, import Global Accelerator custom routing accelerators using the `arn`. For example:
  *
@@ -72,7 +72,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the custom accelerator.
+     * ARN of the custom accelerator.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export class CustomRoutingAccelerator extends pulumi.CustomResource {
  */
 export interface CustomRoutingAcceleratorState {
     /**
-     * The Amazon Resource Name (ARN) of the custom accelerator.
+     * ARN of the custom accelerator.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

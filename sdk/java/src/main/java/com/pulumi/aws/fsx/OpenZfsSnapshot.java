@@ -126,14 +126,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/openZfsSnapshot:OpenZfsSnapshot")
 public class OpenZfsSnapshot extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the snapshot.
+     * ARN of the snapshot.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the snapshot.
+     * @return ARN of the snapshot.
      * 
      */
     public Output<String> arn() {

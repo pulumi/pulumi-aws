@@ -29,9 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cloudfront.NewFieldLevelEncryptionConfig(ctx, "test", &cloudfront.FieldLevelEncryptionConfigArgs{
-//				Comment: pulumi.String("test comment"),
 //				ContentTypeProfileConfig: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigArgs{
-//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
 //					ContentTypeProfiles: &cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesArgs{
 //						Items: cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArray{
 //							&cloudfront.FieldLevelEncryptionConfigContentTypeProfileConfigContentTypeProfilesItemArgs{
@@ -40,9 +38,9 @@ import (
 //							},
 //						},
 //					},
+//					ForwardWhenContentTypeIsUnknown: pulumi.Bool(true),
 //				},
 //				QueryArgProfileConfig: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigArgs{
-//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
 //					QueryArgProfiles: &cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesArgs{
 //						Items: cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArray{
 //							&cloudfront.FieldLevelEncryptionConfigQueryArgProfileConfigQueryArgProfilesItemArgs{
@@ -51,7 +49,9 @@ import (
 //							},
 //						},
 //					},
+//					ForwardWhenQueryArgProfileIsUnknown: pulumi.Bool(true),
 //				},
+//				Comment: pulumi.String("test comment"),
 //			})
 //			if err != nil {
 //				return err

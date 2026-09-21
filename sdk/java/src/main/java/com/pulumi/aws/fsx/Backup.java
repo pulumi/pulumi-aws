@@ -202,14 +202,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:fsx/backup:Backup")
 public class Backup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name of the backup.
+     * ARN of the backup.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name of the backup.
+     * @return ARN of the backup.
      * 
      */
     public Output<String> arn() {
@@ -230,14 +230,14 @@ public class Backup extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.fileSystemId);
     }
     /**
-     * ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
+     * ID of the KMS key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return ID of the AWS Key Management Service (AWS KMS) key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
+     * @return ID of the KMS key used to encrypt the backup of the Amazon FSx file system&#39;s data at rest.
      * 
      */
     public Output<String> kmsKeyId() {

@@ -14,7 +14,7 @@ namespace Pulumi.Aws.WafRegional.Outputs
     public sealed class WebAclLoggingConfiguration
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of Kinesis Firehose Delivery Stream
+        /// ARN of Kinesis Firehose Delivery Stream
         /// </summary>
         public readonly string LogDestination;
         /// <summary>

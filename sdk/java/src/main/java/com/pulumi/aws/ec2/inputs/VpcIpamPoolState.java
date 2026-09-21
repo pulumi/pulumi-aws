@@ -95,14 +95,14 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of IPAM
+     * ARN of IPAM
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of IPAM
+     * @return ARN of IPAM
      * 
      */
     public Optional<Output<String>> arn() {
@@ -486,7 +486,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM
+         * @param arn ARN of IPAM
          * 
          * @return builder
          * 
@@ -497,7 +497,7 @@ public final class VpcIpamPoolState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of IPAM
+         * @param arn ARN of IPAM
          * 
          * @return builder
          * 

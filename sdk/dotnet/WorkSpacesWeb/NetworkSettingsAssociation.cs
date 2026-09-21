@@ -27,7 +27,6 @@ namespace Pulumi.Aws.WorkSpacesWeb
     /// {
     ///     var available = Aws.GetAvailabilityZones.Invoke(new()
     ///     {
-    ///         State = "available",
     ///         Filters = new[]
     ///         {
     ///             new Aws.Inputs.GetAvailabilityZonesFilterInputArgs
@@ -39,6 +38,7 @@ namespace Pulumi.Aws.WorkSpacesWeb
     ///                 },
     ///             },
     ///         },
+    ///         State = "available",
     ///     });
     /// 
     ///     var example = new Aws.Ec2.Vpc("example", new()

@@ -35,11 +35,11 @@ import (
 //				return err
 //			}
 //			_, err = bedrock.NewInferenceProfile(ctx, "example", &bedrock.InferenceProfileArgs{
-//				Name:        pulumi.String("Claude Sonnet for Project 123"),
-//				Description: pulumi.String("Profile with tag for cost allocation tracking"),
 //				ModelSource: &bedrock.InferenceProfileModelSourceArgs{
 //					CopyFrom: pulumi.String("arn:aws:bedrock:us-west-2::foundation-model/anthropic.claude-3-5-sonnet-20241022-v2:0"),
 //				},
+//				Name:        pulumi.String("Claude Sonnet for Project 123"),
+//				Description: pulumi.String("Profile with tag for cost allocation tracking"),
 //				Tags: pulumi.StringMap{
 //					"ProjectID": pulumi.String("123"),
 //				},
@@ -63,7 +63,7 @@ import (
 type InferenceProfile struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The time at which the inference profile was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -121,7 +121,7 @@ func GetInferenceProfile(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering InferenceProfile resources.
 type inferenceProfileState struct {
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn *string `pulumi:"arn"`
 	// The time at which the inference profile was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -150,7 +150,7 @@ type inferenceProfileState struct {
 }
 
 type InferenceProfileState struct {
-	// The Amazon Resource Name (ARN) of the inference profile.
+	// The ARN of the inference profile.
 	Arn pulumi.StringPtrInput
 	// The time at which the inference profile was created.
 	CreatedAt pulumi.StringPtrInput
@@ -302,7 +302,7 @@ func (o InferenceProfileOutput) ToInferenceProfileOutputWithContext(ctx context.
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the inference profile.
+// The ARN of the inference profile.
 func (o InferenceProfileOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *InferenceProfile) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

@@ -12,12 +12,21 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Configuration block to define the value or values to match for and the relationship of the match. See `AuthorizingClaimMatchValue` below.
+        /// </summary>
         [Input("authorizingClaimMatchValue", required: true)]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueArgs> AuthorizingClaimMatchValue { get; set; } = null!;
 
+        /// <summary>
+        /// Name of the custom claim field to check.
+        /// </summary>
         [Input("inboundTokenClaimName", required: true)]
         public Input<string> InboundTokenClaimName { get; set; } = null!;
 
+        /// <summary>
+        /// Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+        /// </summary>
         [Input("inboundTokenClaimValueType", required: true)]
         public Input<string> InboundTokenClaimValueType { get; set; } = null!;
 

@@ -80,7 +80,7 @@ export class VolumeCopy extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the copied EBS volume.
+     * ARN of the copied EBS volume.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -174,7 +174,7 @@ export class VolumeCopy extends pulumi.CustomResource {
  */
 export interface VolumeCopyState {
     /**
-     * Amazon Resource Name (ARN) of the copied EBS volume.
+     * ARN of the copied EBS volume.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

@@ -103,7 +103,7 @@ namespace Pulumi.Aws.Amp
         public Output<string?> Alias { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workspace.
+        /// ARN of the workspace.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -241,7 +241,7 @@ namespace Pulumi.Aws.Amp
         public Input<string>? Alias { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the workspace.
+        /// ARN of the workspace.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

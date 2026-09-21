@@ -16,14 +16,14 @@ public final class AgentcoreMemoryStreamDeliveryResourcesArgs extends com.pulumi
     public static final AgentcoreMemoryStreamDeliveryResourcesArgs Empty = new AgentcoreMemoryStreamDeliveryResourcesArgs();
 
     /**
-     * List of stream delivery resource configurations. See `resource` below.
+     * List of stream delivery resource configurations. See `resource` Block below.
      * 
      */
     @Import(name="resource")
     private @Nullable Output<AgentcoreMemoryStreamDeliveryResourcesResourceArgs> resource;
 
     /**
-     * @return List of stream delivery resource configurations. See `resource` below.
+     * @return List of stream delivery resource configurations. See `resource` Block below.
      * 
      */
     public Optional<Output<AgentcoreMemoryStreamDeliveryResourcesResourceArgs>> resource() {
@@ -55,7 +55,7 @@ public final class AgentcoreMemoryStreamDeliveryResourcesArgs extends com.pulumi
         }
 
         /**
-         * @param resource List of stream delivery resource configurations. See `resource` below.
+         * @param resource List of stream delivery resource configurations. See `resource` Block below.
          * 
          * @return builder
          * 
@@ -66,7 +66,7 @@ public final class AgentcoreMemoryStreamDeliveryResourcesArgs extends com.pulumi
         }
 
         /**
-         * @param resource List of stream delivery resource configurations. See `resource` below.
+         * @param resource List of stream delivery resource configurations. See `resource` Block below.
          * 
          * @return builder
          * 

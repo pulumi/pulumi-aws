@@ -208,14 +208,14 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
         return this.instanceType;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * ARN of the Outpost on which to create the Capacity Reservation.
      * 
      */
     @Export(name="outpostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> outpostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Outpost on which to create the Capacity Reservation.
+     * @return ARN of the Outpost on which to create the Capacity Reservation.
      * 
      */
     public Output<Optional<String>> outpostArn() {
@@ -236,14 +236,14 @@ public class CapacityReservation extends com.pulumi.resources.CustomResource {
         return this.ownerId;
     }
     /**
-     * The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * ARN of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
     @Export(name="placementGroupArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> placementGroupArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the cluster placement group in which to create the Capacity Reservation.
+     * @return ARN of the cluster placement group in which to create the Capacity Reservation.
      * 
      */
     public Output<Optional<String>> placementGroupArn() {

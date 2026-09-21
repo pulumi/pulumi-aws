@@ -88,7 +88,7 @@ import (
 type Schema struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// The schema specification. Must be a valid Open API 3.0 spec.
 	Content pulumi.StringOutput `pulumi:"content"`
@@ -153,7 +153,7 @@ func GetSchema(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Schema resources.
 type schemaState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn *string `pulumi:"arn"`
 	// The schema specification. Must be a valid Open API 3.0 spec.
 	Content *string `pulumi:"content"`
@@ -180,7 +180,7 @@ type schemaState struct {
 }
 
 type SchemaState struct {
-	// The Amazon Resource Name (ARN) of the discoverer.
+	// ARN of the discoverer.
 	Arn pulumi.StringPtrInput
 	// The schema specification. Must be a valid Open API 3.0 spec.
 	Content pulumi.StringPtrInput
@@ -332,7 +332,7 @@ func (o SchemaOutput) ToSchemaOutputWithContext(ctx context.Context) SchemaOutpu
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the discoverer.
+// ARN of the discoverer.
 func (o SchemaOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Schema) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

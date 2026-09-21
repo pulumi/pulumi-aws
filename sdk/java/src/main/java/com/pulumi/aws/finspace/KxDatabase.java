@@ -81,14 +81,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:finspace/kxDatabase:KxDatabase")
 public class KxDatabase extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) identifier of the KX database.
+     * ARN identifier of the KX database.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX database.
+     * @return ARN identifier of the KX database.
      * 
      */
     public Output<String> arn() {

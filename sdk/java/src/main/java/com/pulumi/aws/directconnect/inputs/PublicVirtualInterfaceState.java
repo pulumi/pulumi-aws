@@ -86,14 +86,14 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
     }
 
     /**
-     * The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     @Import(name="bgpAsn")
     private @Nullable Output<Integer> bgpAsn;
 
     /**
-     * @return The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+     * @return BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
      * 
      */
     public Optional<Output<Integer>> bgpAsn() {
@@ -158,6 +158,21 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
      */
     public Optional<Output<String>> name() {
         return Optional.ofNullable(this.name);
+    }
+
+    /**
+     * Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    @Import(name="rateLimit")
+    private @Nullable Output<String> rateLimit;
+
+    /**
+     * @return Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+     * 
+     */
+    public Optional<Output<String>> rateLimit() {
+        return Optional.ofNullable(this.rateLimit);
     }
 
     /**
@@ -248,6 +263,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         this.connectionId = $.connectionId;
         this.customerAddress = $.customerAddress;
         this.name = $.name;
+        this.rateLimit = $.rateLimit;
         this.region = $.region;
         this.routeFilterPrefixes = $.routeFilterPrefixes;
         this.tags = $.tags;
@@ -367,7 +383,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
@@ -378,7 +394,7 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param bgpAsn The autonomous system (AS) number for Border Gateway Protocol (BGP) configuration.
+         * @param bgpAsn BGP autonomous system number as an integer between `1` and `2147483646`. For larger values, use `bgpAsnLong`. Exactly one of `bgpAsn` or `bgpAsnLong` must be specified.
          * 
          * @return builder
          * 
@@ -469,6 +485,27 @@ public final class PublicVirtualInterfaceState extends com.pulumi.resources.Reso
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(@Nullable Output<String> rateLimit) {
+            $.rateLimit = rateLimit;
+            return this;
+        }
+
+        /**
+         * @param rateLimit Maximum bandwidth allocation for the virtual interface, restricting the bandwidth it can use on the parent connection. Specify a supported bandwidth value without a space (for example, `50Mbps`, `1Gbps`, or `10Gbps`); the value cannot exceed the bandwidth of the parent connection or link aggregation group (LAG), and supported values range up to `1.6Tbps`. See the [VIF Rate Limiters documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/vif-rate-limiters.html) for the full list of supported values. Rate Limiters are supported only on Direct Connect dedicated connections (including LAGs); they are not supported on hosted connections.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rateLimit(String rateLimit) {
+            return rateLimit(Output.of(rateLimit));
         }
 
         /**

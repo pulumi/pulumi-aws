@@ -457,8 +457,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -466,12 +464,12 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "example",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         # Separate rule resource with identical configuration
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -487,7 +485,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="block-countries",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         Apply the configuration:
@@ -505,8 +506,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -514,11 +513,11 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "example",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -534,7 +533,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="block-countries",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         ### IP Set Reference (Solves Deletion Ordering)
@@ -554,8 +556,6 @@ class WebAclRule(pulumi.CustomResource):
                 "5.6.7.8/32",
             ])
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -563,11 +563,11 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "example",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         block_ips = aws.wafv2.WebAclRule("block_ips",
-            name="block-bad-ips",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -580,7 +580,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-bad-ips",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-bad-ips",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         ### Rate-Based Rule
@@ -590,9 +593,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         rate_limit = aws.wafv2.WebAclRule("rate_limit",
-            name="rate-limit",
-            priority=2,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -606,7 +606,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "rate-limit",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="rate-limit",
+            priority=2,
+            web_acl_arn=example["arn"])
         ```
 
         ### Managed Rule Group with Override Action
@@ -616,9 +619,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_managed_rules = aws.wafv2.WebAclRule("aws_managed_rules",
-            name="aws-managed-rules",
-            priority=3,
-            web_acl_arn=example["arn"],
             override_action={
                 "none": {},
             },
@@ -632,7 +632,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "aws-managed-rules",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="aws-managed-rules",
+            priority=3,
+            web_acl_arn=example["arn"])
         ```
 
         ### Custom Request Handling
@@ -642,9 +645,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         captcha_with_headers = aws.wafv2.WebAclRule("captcha_with_headers",
-            name="captcha-with-headers",
-            priority=4,
-            web_acl_arn=example["arn"],
             action={
                 "captcha": {
                     "custom_request_handling": {
@@ -664,7 +664,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "captcha-with-headers",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="captcha-with-headers",
+            priority=4,
+            web_acl_arn=example["arn"])
         ```
 
         ### IP Set Reference
@@ -674,9 +677,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         blocked_ips = aws.wafv2.WebAclRule("blocked_ips",
-            name="blocked-ips",
-            priority=1,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -689,7 +689,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-bad-ips",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="blocked-ips",
+            priority=1,
+            web_acl_arn=example["arn"])
         ```
 
         With this configuration, when you remove both the `wafv2.WebAclRule` and `wafv2.IpSet` resources, Terraform will:
@@ -708,9 +711,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         block_suspicious = aws.wafv2.WebAclRule("block_suspicious",
-            name="block-suspicious",
-            priority=1,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -724,8 +724,6 @@ class WebAclRule(pulumi.CustomResource):
                         },
                         {
                             "byte_match_statement": {
-                                "search_string": "admin",
-                                "positional_constraint": "CONTAINS",
                                 "field_to_match": {
                                     "uri_path": {},
                                 },
@@ -733,6 +731,8 @@ class WebAclRule(pulumi.CustomResource):
                                     "priority": 0,
                                     "type": "LOWERCASE",
                                 }],
+                                "search_string": "admin",
+                                "positional_constraint": "CONTAINS",
                             },
                         },
                     ],
@@ -742,7 +742,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-suspicious",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-suspicious",
+            priority=1,
+            web_acl_arn=example["arn"])
         ```
 
         ### Logical OR Statement
@@ -754,9 +757,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=2,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -780,7 +780,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-countries",
+            priority=2,
+            web_acl_arn=example["arn"])
         ```
 
         ### Logical NOT Statement
@@ -792,9 +795,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         allow_only_us = aws.wafv2.WebAclRule("allow_only_us",
-            name="allow-only-us",
-            priority=3,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -814,7 +814,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "allow-only-us",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="allow-only-us",
+            priority=3,
+            web_acl_arn=example["arn"])
         ```
 
         ## Import
@@ -880,8 +883,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -889,12 +890,12 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "example",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         # Separate rule resource with identical configuration
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -910,7 +911,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="block-countries",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         Apply the configuration:
@@ -928,8 +932,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -937,11 +939,11 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "example",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -957,7 +959,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": False,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": False,
-            })
+            },
+            name="block-countries",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         ### IP Set Reference (Solves Deletion Ordering)
@@ -977,8 +982,6 @@ class WebAclRule(pulumi.CustomResource):
                 "5.6.7.8/32",
             ])
         example = aws.wafv2.WebAcl("example",
-            name="example",
-            scope="REGIONAL",
             default_action={
                 "allow": {},
             },
@@ -986,11 +989,11 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "example",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="example",
+            scope="REGIONAL",
+            opts = pulumi.ResourceOptions(ignore_changes=["rules"]))
         block_ips = aws.wafv2.WebAclRule("block_ips",
-            name="block-bad-ips",
-            priority=1,
-            web_acl_arn=example.arn,
             action={
                 "block": {},
             },
@@ -1003,7 +1006,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-bad-ips",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-bad-ips",
+            priority=1,
+            web_acl_arn=example.arn)
         ```
 
         ### Rate-Based Rule
@@ -1013,9 +1019,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         rate_limit = aws.wafv2.WebAclRule("rate_limit",
-            name="rate-limit",
-            priority=2,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -1029,7 +1032,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "rate-limit",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="rate-limit",
+            priority=2,
+            web_acl_arn=example["arn"])
         ```
 
         ### Managed Rule Group with Override Action
@@ -1039,9 +1045,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         aws_managed_rules = aws.wafv2.WebAclRule("aws_managed_rules",
-            name="aws-managed-rules",
-            priority=3,
-            web_acl_arn=example["arn"],
             override_action={
                 "none": {},
             },
@@ -1055,7 +1058,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "aws-managed-rules",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="aws-managed-rules",
+            priority=3,
+            web_acl_arn=example["arn"])
         ```
 
         ### Custom Request Handling
@@ -1065,9 +1071,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         captcha_with_headers = aws.wafv2.WebAclRule("captcha_with_headers",
-            name="captcha-with-headers",
-            priority=4,
-            web_acl_arn=example["arn"],
             action={
                 "captcha": {
                     "custom_request_handling": {
@@ -1087,7 +1090,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "captcha-with-headers",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="captcha-with-headers",
+            priority=4,
+            web_acl_arn=example["arn"])
         ```
 
         ### IP Set Reference
@@ -1097,9 +1103,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         blocked_ips = aws.wafv2.WebAclRule("blocked_ips",
-            name="blocked-ips",
-            priority=1,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -1112,7 +1115,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-bad-ips",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="blocked-ips",
+            priority=1,
+            web_acl_arn=example["arn"])
         ```
 
         With this configuration, when you remove both the `wafv2.WebAclRule` and `wafv2.IpSet` resources, Terraform will:
@@ -1131,9 +1137,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         block_suspicious = aws.wafv2.WebAclRule("block_suspicious",
-            name="block-suspicious",
-            priority=1,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -1147,8 +1150,6 @@ class WebAclRule(pulumi.CustomResource):
                         },
                         {
                             "byte_match_statement": {
-                                "search_string": "admin",
-                                "positional_constraint": "CONTAINS",
                                 "field_to_match": {
                                     "uri_path": {},
                                 },
@@ -1156,6 +1157,8 @@ class WebAclRule(pulumi.CustomResource):
                                     "priority": 0,
                                     "type": "LOWERCASE",
                                 }],
+                                "search_string": "admin",
+                                "positional_constraint": "CONTAINS",
                             },
                         },
                     ],
@@ -1165,7 +1168,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-suspicious",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-suspicious",
+            priority=1,
+            web_acl_arn=example["arn"])
         ```
 
         ### Logical OR Statement
@@ -1177,9 +1183,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         block_countries = aws.wafv2.WebAclRule("block_countries",
-            name="block-countries",
-            priority=2,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -1203,7 +1206,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "block-countries",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="block-countries",
+            priority=2,
+            web_acl_arn=example["arn"])
         ```
 
         ### Logical NOT Statement
@@ -1215,9 +1221,6 @@ class WebAclRule(pulumi.CustomResource):
         import pulumi_aws as aws
 
         allow_only_us = aws.wafv2.WebAclRule("allow_only_us",
-            name="allow-only-us",
-            priority=3,
-            web_acl_arn=example["arn"],
             action={
                 "block": {},
             },
@@ -1237,7 +1240,10 @@ class WebAclRule(pulumi.CustomResource):
                 "cloudwatch_metrics_enabled": True,
                 "metric_name": "allow-only-us",
                 "sampled_requests_enabled": True,
-            })
+            },
+            name="allow-only-us",
+            priority=3,
+            web_acl_arn=example["arn"])
         ```
 
         ## Import

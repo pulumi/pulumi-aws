@@ -44,12 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new MonitoringSubscription("example", MonitoringSubscriptionArgs.builder()
- *             .distributionId(exampleAwsCloudfrontDistribution.id())
  *             .monitoringSubscription(MonitoringSubscriptionMonitoringSubscriptionArgs.builder()
  *                 .realtimeMetricsSubscriptionConfig(MonitoringSubscriptionMonitoringSubscriptionRealtimeMetricsSubscriptionConfigArgs.builder()
  *                     .realtimeMetricsSubscriptionStatus("Enabled")
  *                     .build())
  *                 .build())
+ *             .distributionId(exampleAwsCloudfrontDistribution.id())
  *             .build());
  * 
  *     }

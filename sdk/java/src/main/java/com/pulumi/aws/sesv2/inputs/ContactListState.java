@@ -18,9 +18,17 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
 
     public static final ContactListState Empty = new ContactListState();
 
+    /**
+     * ARN of the contact list.
+     * 
+     */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
+    /**
+     * @return ARN of the contact list.
+     * 
+     */
     public Optional<Output<String>> arn() {
         return Optional.ofNullable(this.arn);
     }
@@ -173,11 +181,23 @@ public final class ContactListState extends com.pulumi.resources.ResourceArgs {
             $ = new ContactListState(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param arn ARN of the contact list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(@Nullable Output<String> arn) {
             $.arn = arn;
             return this;
         }
 
+        /**
+         * @param arn ARN of the contact list.
+         * 
+         * @return builder
+         * 
+         */
         public Builder arn(String arn) {
             return arn(Output.of(arn));
         }

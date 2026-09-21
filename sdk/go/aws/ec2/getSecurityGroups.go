@@ -114,12 +114,8 @@ type GetSecurityGroupsResult struct {
 }
 
 func GetSecurityGroupsOutput(ctx *pulumi.Context, args GetSecurityGroupsOutputArgs, opts ...pulumi.InvokeOption) GetSecurityGroupsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSecurityGroupsResultOutput, error) {
-			args := v.(GetSecurityGroupsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSecurityGroups:getSecurityGroups", args, GetSecurityGroupsResultOutput{}, options).(GetSecurityGroupsResultOutput), nil
-		}).(GetSecurityGroupsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSecurityGroups:getSecurityGroups", args, GetSecurityGroupsResultOutput{}, options).(GetSecurityGroupsResultOutput)
 }
 
 // A collection of arguments for invoking getSecurityGroups.

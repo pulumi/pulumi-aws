@@ -60,9 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new StorageLensConfiguration("example", StorageLensConfigurationArgs.builder()
- *             .configId("example-1")
  *             .storageLensConfiguration(StorageLensConfigurationStorageLensConfigurationArgs.builder()
- *                 .enabled(true)
  *                 .accountLevel(StorageLensConfigurationStorageLensConfigurationAccountLevelArgs.builder()
  *                     .activityMetrics(StorageLensConfigurationStorageLensConfigurationAccountLevelActivityMetricsArgs.builder()
  *                         .enabled(true)
@@ -78,14 +76,14 @@ import javax.annotation.Nullable;
  *                         .enabled(true)
  *                         .build())
  *                     .s3BucketDestination(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationArgs.builder()
- *                         .accountId(current.accountId())
- *                         .arn(target.arn())
- *                         .format("CSV")
- *                         .outputSchemaVersion("V_1")
  *                         .encryption(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionArgs.builder()
  *                             .sseS3s(StorageLensConfigurationStorageLensConfigurationDataExportS3BucketDestinationEncryptionSseS3Args.builder()
  *                                 .build())
  *                             .build())
+ *                         .accountId(current.accountId())
+ *                         .arn(target.arn())
+ *                         .format("CSV")
+ *                         .outputSchemaVersion("V_1")
  *                         .build())
  *                     .build())
  *                 .exclude(StorageLensConfigurationStorageLensConfigurationExcludeArgs.builder()
@@ -94,7 +92,9 @@ import javax.annotation.Nullable;
  *                         b2.arn())
  *                     .regions("us-east-2")
  *                     .build())
+ *                 .enabled(true)
  *                 .build())
+ *             .configId("example-1")
  *             .build());
  * 
  *     }
@@ -128,14 +128,14 @@ public class StorageLensConfiguration extends com.pulumi.resources.CustomResourc
         return this.accountId;
     }
     /**
-     * Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * ARN of the S3 Storage Lens configuration.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Storage Lens configuration.
+     * @return ARN of the S3 Storage Lens configuration.
      * 
      */
     public Output<String> arn() {

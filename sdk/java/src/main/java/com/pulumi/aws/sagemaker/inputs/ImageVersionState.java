@@ -34,14 +34,14 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * ARN assigned by AWS to this Image Version.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+     * @return ARN assigned by AWS to this Image Version.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -305,7 +305,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+         * @param arn ARN assigned by AWS to this Image Version.
          * 
          * @return builder
          * 
@@ -316,7 +316,7 @@ public final class ImageVersionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) assigned by AWS to this Image Version.
+         * @param arn ARN assigned by AWS to this Image Version.
          * 
          * @return builder
          * 

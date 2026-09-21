@@ -33,7 +33,7 @@ public final class ServerEndpointDetails {
      */
     private @Nullable String vpcEndpointId;
     /**
-     * @return VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+     * @return VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     private @Nullable String vpcId;
@@ -68,7 +68,7 @@ public final class ServerEndpointDetails {
         return Optional.ofNullable(this.vpcEndpointId);
     }
     /**
-     * @return VPC ID of the virtual private cloud in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
+     * @return VPC ID of the VPC in which the SFTP server&#39;s endpoint will be hosted. This property can only be used when `endpointType` is set to `VPC`.
      * 
      */
     public Optional<String> vpcId() {

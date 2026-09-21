@@ -18,7 +18,7 @@ public final class ConnectorSftpConfig {
      */
     private @Nullable List<String> trustedHostKeys;
     /**
-     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
      * 
      */
     private @Nullable String userSecretId;
@@ -32,7 +32,7 @@ public final class ConnectorSftpConfig {
         return this.trustedHostKeys == null ? List.of() : this.trustedHostKeys;
     }
     /**
-     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the Amazon Resource Name (ARN) or the name of the secret.
+     * @return Identifier for the secret (in AWS Secrets Manager) that contains the SFTP user&#39;s private key, password, or both. The identifier can be either the ARN or the name of the secret.
      * 
      */
     public Optional<String> userSecretId() {

@@ -64,6 +64,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var domainExecutionRole = new Role("domainExecutionRole", RoleArgs.builder()
+ *             .inlinePolicies(RoleInlinePolicyArgs.builder()
+ *                 .name("example-name")
+ *                 .policy(serializeJson(
+ *                     jsonObject(
+ *                         jsonProperty("Version", "2012-10-17"),
+ *                         jsonProperty("Statement", jsonArray(jsonObject(
+ *                             jsonProperty("Action", jsonArray(
+ *                                 "datazone:*", 
+ *                                 "ram:*", 
+ *                                 "sso:*", 
+ *                                 "kms:*"
+ *                             )),
+ *                             jsonProperty("Effect", "Allow"),
+ *                             jsonProperty("Resource", "*")
+ *                         )))
+ *                     )))
+ *                 .build())
  *             .name("example-name")
  *             .assumeRolePolicy(serializeJson(
  *                 jsonObject(
@@ -91,23 +108,6 @@ import javax.annotation.Nullable;
  *                         )
  *                     ))
  *                 )))
- *             .inlinePolicies(RoleInlinePolicyArgs.builder()
- *                 .name("example-name")
- *                 .policy(serializeJson(
- *                     jsonObject(
- *                         jsonProperty("Version", "2012-10-17"),
- *                         jsonProperty("Statement", jsonArray(jsonObject(
- *                             jsonProperty("Action", jsonArray(
- *                                 "datazone:*", 
- *                                 "ram:*", 
- *                                 "sso:*", 
- *                                 "kms:*"
- *                             )),
- *                             jsonProperty("Effect", "Allow"),
- *                             jsonProperty("Resource", "*")
- *                         )))
- *                     )))
- *                 .build())
  *             .build());
  * 
  *         var testDomain = new Domain("testDomain", DomainArgs.builder()
@@ -147,6 +147,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testEnvironmentProfile = new EnvironmentProfile("testEnvironmentProfile", EnvironmentProfileArgs.builder()
+ *             .userParameters(EnvironmentProfileUserParameterArgs.builder()
+ *                 .name("consumerGlueDbName")
+ *                 .value("value")
+ *                 .build())
  *             .awsAccountId(test.accountId())
  *             .awsAccountRegion(testGetRegion.region())
  *             .description("description")
@@ -154,10 +158,6 @@ import javax.annotation.Nullable;
  *             .name("example-name")
  *             .projectIdentifier(testProject.id())
  *             .domainIdentifier(testDomain.id())
- *             .userParameters(EnvironmentProfileUserParameterArgs.builder()
- *                 .name("consumerGlueDbName")
- *                 .value("value")
- *                 .build())
  *             .build());
  * 
  *     }

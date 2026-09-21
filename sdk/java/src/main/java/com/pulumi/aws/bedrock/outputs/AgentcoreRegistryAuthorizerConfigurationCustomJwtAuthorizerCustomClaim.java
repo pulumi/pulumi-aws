@@ -11,17 +11,41 @@ import java.util.Objects;
 
 @CustomType
 public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim {
+    /**
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * 
+     */
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue authorizingClaimMatchValue;
+    /**
+     * @return Name of the custom claim field to check.
+     * 
+     */
     private String inboundTokenClaimName;
+    /**
+     * @return Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+     * 
+     */
     private String inboundTokenClaimValueType;
 
     private AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaim() {}
+    /**
+     * @return Configuration block to define the value or values to match for and the relationship of the match. See `authorizingClaimMatchValue` below.
+     * 
+     */
     public AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValue authorizingClaimMatchValue() {
         return this.authorizingClaimMatchValue;
     }
+    /**
+     * @return Name of the custom claim field to check.
+     * 
+     */
     public String inboundTokenClaimName() {
         return this.inboundTokenClaimName;
     }
+    /**
+     * @return Data type of the claim value to check for. Valid values are `STRING` and `STRING_ARRAY`.
+     * 
+     */
     public String inboundTokenClaimValueType() {
         return this.inboundTokenClaimValueType;
     }

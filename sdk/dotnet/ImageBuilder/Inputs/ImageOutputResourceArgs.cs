@@ -16,7 +16,7 @@ namespace Pulumi.Aws.ImageBuilder.Inputs
         private InputList<Inputs.ImageOutputResourceAmiArgs>? _amis;
 
         /// <summary>
-        /// Set of objects with each Amazon Machine Image (AMI) created.
+        /// Set of objects with each AMI created.
         /// </summary>
         public InputList<Inputs.ImageOutputResourceAmiArgs> Amis
         {

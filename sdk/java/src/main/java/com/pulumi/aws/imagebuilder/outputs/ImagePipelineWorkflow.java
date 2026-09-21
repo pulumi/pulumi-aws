@@ -30,7 +30,7 @@ public final class ImagePipelineWorkflow {
      */
     private @Nullable List<ImagePipelineWorkflowParameter> parameters;
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
+     * @return ARN of the Image Builder Workflow.
      * 
      * The following arguments are optional:
      * 
@@ -60,7 +60,7 @@ public final class ImagePipelineWorkflow {
         return this.parameters == null ? List.of() : this.parameters;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the Image Builder Workflow.
+     * @return ARN of the Image Builder Workflow.
      * 
      * The following arguments are optional:
      * 

@@ -52,18 +52,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new Key("test", KeyArgs.builder()
- *             .exportable(true)
  *             .keyAttributes(KeyKeyAttributeArgs.builder()
- *                 .keyAlgorithm("TDES_3KEY")
- *                 .keyClass("SYMMETRIC_KEY")
- *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
  *                 .keyModesOfUses(KeyKeyAttributeKeyModesOfUseArgs.builder()
  *                     .decrypt(true)
  *                     .encrypt(true)
  *                     .wrap(true)
  *                     .unwrap(true)
  *                     .build())
+ *                 .keyAlgorithm("TDES_3KEY")
+ *                 .keyClass("SYMMETRIC_KEY")
+ *                 .keyUsage("TR31_P0_PIN_ENCRYPTION_KEY")
  *                 .build())
+ *             .exportable(true)
  *             .build());
  * 
  *     }
@@ -77,7 +77,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the Payment Cryptography key.
+ * - `arn` (String) ARN of the Payment Cryptography key.
  * 
  * Using `pulumi import`, import Payment Cryptography Control Plane Key using the `arn:aws:payment-cryptography:us-east-1:123456789012:key/qtbojf64yshyvyzf`. For example:
  * 

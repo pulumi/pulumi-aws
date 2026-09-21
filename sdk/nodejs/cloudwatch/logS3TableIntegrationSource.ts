@@ -22,11 +22,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cloudwatch.LogS3TableIntegrationSource("example", {
- *     integrationArn: exampleAwsObservabilityadminS3TableIntegration.arn,
  *     dataSource: {
  *         name: "*",
  *         type: "*",
  *     },
+ *     integrationArn: exampleAwsObservabilityadminS3TableIntegration.arn,
  * });
  * ```
  *
@@ -49,11 +49,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const exampleLogS3TableIntegrationSource = new aws.cloudwatch.LogS3TableIntegrationSource("example", {
- *     integrationArn: exampleAwsObservabilityadminS3TableIntegration.arn,
  *     dataSource: {
  *         name: "myapp",
  *         type: "events",
  *     },
+ *     integrationArn: exampleAwsObservabilityadminS3TableIntegration.arn,
  * });
  * ```
  *

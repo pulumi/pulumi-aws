@@ -34,7 +34,7 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the IVS Chat room.
+    /// - `Arn` (String) ARN of the IVS Chat room.
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
     /// 

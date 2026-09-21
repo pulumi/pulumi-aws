@@ -25,7 +25,7 @@ public final class VirtualGatewaySpecListenerTls {
      */
     private String mode;
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     private @Nullable VirtualGatewaySpecListenerTlsValidation validation;
@@ -46,7 +46,7 @@ public final class VirtualGatewaySpecListenerTls {
         return this.mode;
     }
     /**
-     * @return Listener&#39;s Transport Layer Security (TLS) validation context.
+     * @return Listener&#39;s TLS validation context.
      * 
      */
     public Optional<VirtualGatewaySpecListenerTlsValidation> validation() {

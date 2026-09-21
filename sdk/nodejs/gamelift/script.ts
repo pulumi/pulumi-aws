@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.gamelift.Script("example", {
- *     name: "example-script",
  *     storageLocation: {
  *         bucket: exampleAwsS3Bucket.id,
  *         key: exampleAwsS3Object.key,
  *         roleArn: exampleAwsIamRole.arn,
  *     },
+ *     name: "example-script",
  * });
  * ```
  *

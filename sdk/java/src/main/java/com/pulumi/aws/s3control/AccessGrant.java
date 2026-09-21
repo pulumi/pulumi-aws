@@ -62,8 +62,6 @@ import javax.annotation.Nullable;
  *                 .build());
  * 
  *         var exampleAccessGrant = new AccessGrant("exampleAccessGrant", AccessGrantArgs.builder()
- *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
- *             .permission("READ")
  *             .accessGrantsLocationConfiguration(AccessGrantAccessGrantsLocationConfigurationArgs.builder()
  *                 .s3SubPrefix("prefixB*")
  *                 .build())
@@ -71,6 +69,8 @@ import javax.annotation.Nullable;
  *                 .granteeType("IAM")
  *                 .granteeIdentifier(exampleAwsIamUser.arn())
  *                 .build())
+ *             .accessGrantsLocationId(exampleAccessGrantsLocation.accessGrantsLocationId())
+ *             .permission("READ")
  *             .build());
  * 
  *     }
@@ -90,14 +90,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:s3control/accessGrant:AccessGrant")
 public class AccessGrant extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the S3 Access Grant.
+     * ARN of the S3 Access Grant.
      * 
      */
     @Export(name="accessGrantArn", refs={String.class}, tree="[0]")
     private Output<String> accessGrantArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the S3 Access Grant.
+     * @return ARN of the S3 Access Grant.
      * 
      */
     public Output<String> accessGrantArn() {

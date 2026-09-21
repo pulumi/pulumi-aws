@@ -26,13 +26,10 @@ namespace Pulumi.Aws.Pinpoint
     /// {
     ///     var test = new Aws.Pinpoint.EmailTemplate("test", new()
     ///     {
-    ///         TemplateName = "testing",
     ///         EmailTemplates = new[]
     ///         {
     ///             new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateArgs
     ///             {
-    ///                 Subject = "testing",
-    ///                 TextPart = "we are testing template text part",
     ///                 Headers = new[]
     ///                 {
     ///                     new Aws.Pinpoint.Inputs.EmailTemplateEmailTemplateHeaderArgs
@@ -41,8 +38,11 @@ namespace Pulumi.Aws.Pinpoint
     ///                         Value = "testingvalue",
     ///                     },
     ///                 },
+    ///                 Subject = "testing",
+    ///                 TextPart = "we are testing template text part",
     ///             },
     ///         },
+    ///         TemplateName = "testing",
     ///     });
     /// 
     /// });
@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Pinpoint
     public partial class EmailTemplate : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
+        /// ARN of the message template.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Pinpoint
     public sealed class EmailTemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the message template.
+        /// ARN of the message template.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

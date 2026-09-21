@@ -189,7 +189,7 @@ class _ContainerServiceState:
         :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         :param pulumi.Input[_builtins.str] power_id: Power ID of the container service.
         :param pulumi.Input[_builtins.str] principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         :param pulumi.Input['ContainerServicePrivateRegistryAccessArgs'] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
         :param pulumi.Input['ContainerServicePublicDomainNamesArgs'] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -339,7 +339,7 @@ class _ContainerServiceState:
     @pulumi.getter(name="privateDomainName")
     def private_domain_name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         """
         return pulumi.get(self, "private_domain_name")
 
@@ -525,11 +525,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
@@ -620,11 +620,11 @@ class ContainerService(pulumi.CustomResource):
             },
         })
         example = aws.iam.get_policy_document_output(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [example_container_service.private_registry_access.ecr_image_puller_role.principal_arn],
             }],
+            "effect": "Allow",
             "actions": [
                 "ecr:BatchGetImage",
                 "ecr:GetDownloadUrlForLayer",
@@ -741,7 +741,7 @@ class ContainerService(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] power: Power specification for the container service. The power specifies the amount of memory, the number of vCPUs, and the monthly price of each node of the container service. Possible values: `nano`, `micro`, `small`, `medium`, `large`, `xlarge`.
         :param pulumi.Input[_builtins.str] power_id: Power ID of the container service.
         :param pulumi.Input[_builtins.str] principal_arn: Principal ARN of the container service. The principal ARN can be used to create a trust relationship between your standard AWS account and your Lightsail container service.
-        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        :param pulumi.Input[_builtins.str] private_domain_name: Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         :param pulumi.Input[Union['ContainerServicePrivateRegistryAccessArgs', 'ContainerServicePrivateRegistryAccessArgsDict']] private_registry_access: Configuration for the container service to access private container image repositories, such as Amazon Elastic Container Registry (Amazon ECR) private repositories. See below.
         :param pulumi.Input[Union['ContainerServicePublicDomainNamesArgs', 'ContainerServicePublicDomainNamesArgsDict']] public_domain_names: Public domain names to use with the container service, such as example.com and www.example.com. You can specify up to four public domain names for a container service. The domain names that you specify are used when you create a deployment with a container configured as the public endpoint of your container service. If you don't specify public domain names, then you can use the default domain of the container service. See below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -846,7 +846,7 @@ class ContainerService(pulumi.CustomResource):
     @pulumi.getter(name="privateDomainName")
     def private_domain_name(self) -> pulumi.Output[_builtins.str]:
         """
-        Private domain name of the container service. The private domain name is accessible only by other resources within the default virtual private cloud (VPC) of your Lightsail account.
+        Private domain name of the container service. The private domain name is accessible only by other resources within the default VPC of your Lightsail account.
         """
         return pulumi.get(self, "private_domain_name")
 

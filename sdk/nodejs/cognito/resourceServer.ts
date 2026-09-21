@@ -34,12 +34,12 @@ import * as utilities from "../utilities";
  *
  * const pool = new aws.cognito.UserPool("pool", {name: "pool"});
  * const resource = new aws.cognito.ResourceServer("resource", {
- *     identifier: "https://example.com",
- *     name: "example",
  *     scopes: [{
  *         scopeName: "sample-scope",
  *         scopeDescription: "a Sample Scope Description",
  *     }],
+ *     identifier: "https://example.com",
+ *     name: "example",
  *     userPoolId: pool.id,
  * });
  * ```

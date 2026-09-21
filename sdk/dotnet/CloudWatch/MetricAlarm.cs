@@ -96,12 +96,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var foobar = new Aws.CloudWatch.MetricAlarm("foobar", new()
     ///     {
-    ///         Name = "test-foobar",
-    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
-    ///         EvaluationPeriods = 2,
-    ///         Threshold = 10,
-    ///         AlarmDescription = "Request error rate has exceeded 10%",
-    ///         InsufficientDataActions =  {},
     ///         MetricQueries = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
@@ -113,7 +107,6 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
-    ///                 Id = "m1",
     ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
     ///                 {
     ///                     MetricName = "RequestCount",
@@ -126,10 +119,10 @@ namespace Pulumi.Aws.CloudWatch
     ///                         { "LoadBalancer", "app/web" },
     ///                     },
     ///                 },
+    ///                 Id = "m1",
     ///             },
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
-    ///                 Id = "m2",
     ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
     ///                 {
     ///                     MetricName = "HTTPCode_ELB_5XX_Count",
@@ -142,8 +135,15 @@ namespace Pulumi.Aws.CloudWatch
     ///                         { "LoadBalancer", "app/web" },
     ///                     },
     ///                 },
+    ///                 Id = "m2",
     ///             },
     ///         },
+    ///         Name = "test-foobar",
+    ///         ComparisonOperator = "GreaterThanOrEqualToThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         Threshold = 10,
+    ///         AlarmDescription = "Request error rate has exceeded 10%",
+    ///         InsufficientDataActions =  {},
     ///     });
     /// 
     /// });
@@ -161,8 +161,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var promqlAlarm = new Aws.CloudWatch.MetricAlarm("promql_alarm", new()
     ///     {
-    ///         Name = "high-cpu-promql",
-    ///         AlarmDescription = "Alarm when average CPU exceeds 80% using PromQL",
     ///         EvaluationCriteria = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationCriteriaArgs
     ///         {
     ///             PromqlCriteria = new Aws.CloudWatch.Inputs.MetricAlarmEvaluationCriteriaPromqlCriteriaArgs
@@ -172,6 +170,8 @@ namespace Pulumi.Aws.CloudWatch
     ///                 RecoveryPeriod = 120,
     ///             },
     ///         },
+    ///         Name = "high-cpu-promql",
+    ///         AlarmDescription = "Alarm when average CPU exceeds 80% using PromQL",
     ///         EvaluationInterval = 30,
     ///         AlarmActions = 
     ///         {
@@ -192,12 +192,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var xxAnomalyDetection = new Aws.CloudWatch.MetricAlarm("xx_anomaly_detection", new()
     ///     {
-    ///         Name = "test-foobar",
-    ///         ComparisonOperator = "GreaterThanUpperThreshold",
-    ///         EvaluationPeriods = 2,
-    ///         ThresholdMetricId = "e1",
-    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
-    ///         InsufficientDataActions =  {},
     ///         MetricQueries = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
@@ -209,8 +203,6 @@ namespace Pulumi.Aws.CloudWatch
     ///             },
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
     ///             {
-    ///                 Id = "m1",
-    ///                 ReturnData = true,
     ///                 Metric = new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryMetricArgs
     ///                 {
     ///                     MetricName = "CPUUtilization",
@@ -223,8 +215,16 @@ namespace Pulumi.Aws.CloudWatch
     ///                         { "InstanceId", "i-abc123" },
     ///                     },
     ///                 },
+    ///                 Id = "m1",
+    ///                 ReturnData = true,
     ///             },
     ///         },
+    ///         Name = "test-foobar",
+    ///         ComparisonOperator = "GreaterThanUpperThreshold",
+    ///         EvaluationPeriods = 2,
+    ///         ThresholdMetricId = "e1",
+    ///         AlarmDescription = "This metric monitors ec2 cpu utilization",
+    ///         InsufficientDataActions =  {},
     ///     });
     /// 
     /// });
@@ -242,12 +242,6 @@ namespace Pulumi.Aws.CloudWatch
     /// {
     ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
     ///     {
-    ///         Name = "example-alarm",
-    ///         AlarmDescription = "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
-    ///         ComparisonOperator = "GreaterThanThreshold",
-    ///         EvaluationPeriods = 1,
-    ///         Threshold = 0.6,
-    ///         TreatMissingData = "notBreaching",
     ///         MetricQueries = new[]
     ///         {
     ///             new Aws.CloudWatch.Inputs.MetricAlarmMetricQueryArgs
@@ -266,6 +260,12 @@ namespace Pulumi.Aws.CloudWatch
     ///                 Label = "Max DB Load of the Least-Loaded RDS Instance",
     ///             },
     ///         },
+    ///         Name = "example-alarm",
+    ///         AlarmDescription = "Triggers if the smallest per-instance maximum load during the evaluation period exceeds the threshold",
+    ///         ComparisonOperator = "GreaterThanThreshold",
+    ///         EvaluationPeriods = 1,
+    ///         Threshold = 0.6,
+    ///         TreatMissingData = "notBreaching",
     ///     });
     /// 
     /// });
@@ -311,6 +311,40 @@ namespace Pulumi.Aws.CloudWatch
     /// });
     /// ```
     /// 
+    /// ### With a Warm-Up Period
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.CloudWatch.MetricAlarm("example", new()
+    ///     {
+    ///         WarmUpConfiguration = new Aws.CloudWatch.Inputs.MetricAlarmWarmUpConfigurationArgs
+    ///         {
+    ///             WarmUpPeriodDurationInMinutes = 30,
+    ///         },
+    ///         Name = "example-service-errors",
+    ///         ComparisonOperator = "GreaterThanThreshold",
+    ///         EvaluationPeriods = 3,
+    ///         MetricName = "Errors",
+    ///         Namespace = "ExampleApp",
+    ///         Period = 60,
+    ///         Statistic = "Sum",
+    ///         Threshold = 0,
+    ///         TreatMissingData = "breaching",
+    ///         AlarmActions = 
+    ///         {
+    ///             exampleAwsSnsTopic.Arn,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// &gt; **NOTE:**  You cannot create a metric alarm consisting of both `Statistic` and `ExtendedStatistic` parameters.
     /// You must choose one or the other.
     /// 
@@ -343,7 +377,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<bool?> ActionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         /// </summary>
         [Output("alarmActions")]
         public Output<ImmutableArray<string>> AlarmActions { get; private set; } = null!;
@@ -412,7 +446,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> ExtendedStatistic { get; private set; } = null!;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         /// </summary>
         [Output("insufficientDataActions")]
         public Output<ImmutableArray<string>> InsufficientDataActions { get; private set; } = null!;
@@ -444,7 +478,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string?> Namespace { get; private set; } = null!;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         /// </summary>
         [Output("okActions")]
         public Output<ImmutableArray<string>> OkActions { get; private set; } = null!;
@@ -510,6 +544,12 @@ namespace Pulumi.Aws.CloudWatch
         [Output("unit")]
         public Output<string?> Unit { get; private set; } = null!;
 
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Output("warmUpConfiguration")]
+        public Output<Outputs.MetricAlarmWarmUpConfiguration?> WarmUpConfiguration { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a MetricAlarm resource with the given unique name, arguments, and options.
@@ -566,7 +606,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _alarmActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> AlarmActions
         {
@@ -641,7 +681,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _insufficientDataActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> InsufficientDataActions
         {
@@ -685,7 +725,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _okActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> OkActions
         {
@@ -754,6 +794,12 @@ namespace Pulumi.Aws.CloudWatch
         [Input("unit")]
         public Input<string>? Unit { get; set; }
 
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.MetricAlarmWarmUpConfigurationArgs>? WarmUpConfiguration { get; set; }
+
         public MetricAlarmArgs()
         {
         }
@@ -772,7 +818,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _alarmActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an ALARM state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> AlarmActions
         {
@@ -853,7 +899,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _insufficientDataActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an INSUFFICIENT_DATA state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> InsufficientDataActions
         {
@@ -897,7 +943,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _okActions;
 
         /// <summary>
-        /// The list of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an Amazon Resource Name (ARN).
+        /// List of actions to execute when this alarm transitions into an OK state from any other state. Each action is specified as an ARN.
         /// </summary>
         public InputList<string> OkActions
         {
@@ -977,6 +1023,12 @@ namespace Pulumi.Aws.CloudWatch
         /// </summary>
         [Input("unit")]
         public Input<string>? Unit { get; set; }
+
+        /// <summary>
+        /// Warm-up period that delays alarm evaluation after the alarm is created. During the warm-up period the alarm stays in `INSUFFICIENT_DATA` and does not perform alarm actions. See `WarmUpConfiguration` below.
+        /// </summary>
+        [Input("warmUpConfiguration")]
+        public Input<Inputs.MetricAlarmWarmUpConfigurationGetArgs>? WarmUpConfiguration { get; set; }
 
         public MetricAlarmState()
         {

@@ -28,19 +28,19 @@ import * as utilities from "../utilities";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultSecurityGroup("default", {
- *     vpcId: mainvpc.id,
- *     ingress: [{
- *         protocol: "-1",
- *         self: true,
- *         fromPort: 0,
- *         toPort: 0,
- *     }],
  *     egress: [{
  *         fromPort: 0,
  *         toPort: 0,
  *         protocol: "-1",
  *         cidrBlocks: ["0.0.0.0/0"],
  *     }],
+ *     ingress: [{
+ *         protocol: "-1",
+ *         self: true,
+ *         fromPort: 0,
+ *         toPort: 0,
+ *     }],
+ *     vpcId: mainvpc.id,
  * });
  * ```
  *
@@ -54,13 +54,13 @@ import * as utilities from "../utilities";
  *
  * const mainvpc = new aws.ec2.Vpc("mainvpc", {cidrBlock: "10.1.0.0/16"});
  * const _default = new aws.ec2.DefaultSecurityGroup("default", {
- *     vpcId: mainvpc.id,
  *     ingress: [{
  *         protocol: "-1",
  *         self: true,
  *         fromPort: 0,
  *         toPort: 0,
  *     }],
+ *     vpcId: mainvpc.id,
  * });
  * ```
  *

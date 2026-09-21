@@ -27,7 +27,7 @@ class AuthPolicyArgs:
         The set of arguments for constructing a AuthPolicy resource.
 
         :param pulumi.Input[_builtins.str] policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
-        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or ARN of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] state: State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
@@ -54,7 +54,7 @@ class AuthPolicyArgs:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_identifier")
 
@@ -99,7 +99,7 @@ class _AuthPolicyState:
 
         :param pulumi.Input[_builtins.str] policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or ARN of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] state: State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         if policy is not None:
@@ -139,7 +139,7 @@ class _AuthPolicyState:
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_identifier")
 
@@ -218,7 +218,7 @@ class AuthPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or ARN of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] state: State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         ...
@@ -329,7 +329,7 @@ class AuthPolicy(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] policy: Auth policy. The policy string in JSON must not contain newlines or blank lines.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        :param pulumi.Input[_builtins.str] resource_identifier: ID or ARN of the service network or service for which the policy is created.
         :param pulumi.Input[_builtins.str] state: State of the auth policy. The auth policy is only active when the auth type is set to `AWS_IAM`. If you provide a policy, then authentication and authorization decisions are made based on this policy and the client's IAM policy. If the Auth type is `NONE`, then, any auth policy you provide will remain inactive.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -362,7 +362,7 @@ class AuthPolicy(pulumi.CustomResource):
     @pulumi.getter(name="resourceIdentifier")
     def resource_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        ID or Amazon Resource Name (ARN) of the service network or service for which the policy is created.
+        ID or ARN of the service network or service for which the policy is created.
         """
         return pulumi.get(self, "resource_identifier")
 

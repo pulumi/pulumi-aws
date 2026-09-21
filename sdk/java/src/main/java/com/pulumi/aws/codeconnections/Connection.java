@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * 
  * #### Required
  * 
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeConnections connection.
+ * - `arn` (String) ARN of the CodeConnections connection.
  * 
  * Using `pulumi import`, import CodeConnections connection using the ARN. For example:
  * 
@@ -103,14 +103,14 @@ public class Connection extends com.pulumi.resources.CustomResource {
         return this.connectionStatus;
     }
     /**
-     * The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     @Export(name="hostArn", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> hostArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `providerType`
+     * @return ARN of the host associated with the connection. Conflicts with `providerType`
      * 
      */
     public Output<Optional<String>> hostArn() {

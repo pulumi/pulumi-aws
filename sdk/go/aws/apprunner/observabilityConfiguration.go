@@ -29,10 +29,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := apprunner.NewObservabilityConfiguration(ctx, "example", &apprunner.ObservabilityConfigurationArgs{
-//				ObservabilityConfigurationName: pulumi.String("example"),
 //				TraceConfiguration: &apprunner.ObservabilityConfigurationTraceConfigurationArgs{
 //					Vendor: pulumi.String("AWSXRAY"),
 //				},
+//				ObservabilityConfigurationName: pulumi.String("example"),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("example-apprunner-observability-configuration"),
 //				},
@@ -52,7 +52,7 @@ import (
 //
 // #### Required
 //
-// - `arn` (String) Amazon Resource Name (ARN) of the App Runner observability configuration.
+// - `arn` (String) ARN of the App Runner observability configuration.
 //
 // Using `pulumi import`, import App Runner Observability Configuration using the `arn`. For example:
 //

@@ -2524,8 +2524,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -2534,6 +2532,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -2584,10 +2584,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -2606,6 +2602,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -2646,7 +2646,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -2662,6 +2661,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -2709,7 +2709,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -2717,6 +2716,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -2760,7 +2760,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -2773,6 +2772,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -2962,16 +2962,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -3030,8 +3030,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -3040,6 +3038,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -3090,10 +3090,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -3112,6 +3108,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -3152,7 +3152,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -3168,6 +3167,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -3215,7 +3215,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -3223,6 +3222,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -3266,7 +3266,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -3279,6 +3278,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -3468,16 +3468,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -3536,8 +3536,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -3546,6 +3544,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -3596,10 +3596,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -3618,6 +3614,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -3658,7 +3658,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -3674,6 +3673,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -3721,7 +3721,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -3729,6 +3728,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -3772,7 +3772,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -3785,6 +3784,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -3974,16 +3974,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -4042,8 +4042,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -4052,6 +4050,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -4102,10 +4102,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -4124,6 +4120,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -4164,7 +4164,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -4180,6 +4179,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -4227,7 +4227,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -4235,6 +4234,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -4278,7 +4278,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -4291,6 +4290,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -4480,16 +4480,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -4548,8 +4548,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -4558,6 +4556,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -4608,10 +4608,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -4630,6 +4626,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -4670,7 +4670,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -4686,6 +4685,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -4733,7 +4733,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -4741,6 +4740,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -4784,7 +4784,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -4797,6 +4796,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -4986,16 +4986,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -5054,8 +5054,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -5064,6 +5062,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -5114,10 +5114,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -5136,6 +5132,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -5176,7 +5176,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -5192,6 +5191,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -5239,7 +5239,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -5247,6 +5246,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -5290,7 +5290,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -5303,6 +5302,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -5492,16 +5492,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -5560,8 +5560,6 @@ public final class IamFunctions {
      *                     .resources("arn:aws:s3:::*")
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
-     *                     .actions("s3:ListBucket")
-     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .conditions(GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("StringLike")
      *                         .variable("s3:prefix")
@@ -5570,6 +5568,8 @@ public final class IamFunctions {
      *                             "home/",
      *                             "home/&{aws:username}/")
      *                         .build())
+     *                     .actions("s3:ListBucket")
+     *                     .resources(String.format("arn:aws:s3:::%s", s3BucketName))
      *                     .build(),
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("s3:*")
@@ -5620,10 +5620,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var exampleMultipleConditionKeysAndValues = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions(                
-     *                     "kms:Decrypt",
-     *                     "kms:GenerateDataKey")
-     *                 .resources("*")
      *                 .conditions(                
      *                     GetPolicyDocumentStatementConditionArgs.builder()
      *                         .test("ForAnyValue:StringEquals")
@@ -5642,6 +5638,10 @@ public final class IamFunctions {
      *                             "db-AAAAABBBBBCCCCCDDDDDEEEEE",
      *                             "db-EEEEEDDDDDCCCCCBBBBBAAAAA")
      *                         .build())
+     *                 .actions(                
+     *                     "kms:Decrypt",
+     *                     "kms:GenerateDataKey")
+     *                 .resources("*")
      *                 .build())
      *             .build());
      * 
@@ -5682,7 +5682,6 @@ public final class IamFunctions {
      *     public static void stack(Context ctx) {
      *         final var eventStreamBucketRoleAssumeRolePolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
      *             .statements(GetPolicyDocumentStatementArgs.builder()
-     *                 .actions("sts:AssumeRole")
      *                 .principals(                
      *                     GetPolicyDocumentStatementPrincipalArgs.builder()
      *                         .type("Service")
@@ -5698,6 +5697,7 @@ public final class IamFunctions {
      *                             String.format("arn:aws:iam::%s:saml-provider/%s", accountId,providerName),
      *                             "cognito-identity.amazonaws.com")
      *                         .build())
+     *                 .actions("sts:AssumeRole")
      *                 .build())
      *             .build());
      * 
@@ -5745,7 +5745,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var sourceDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .sourcePolicyDocuments(source.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("SidToOverride")
      *                 .actions("s3:*")
@@ -5753,6 +5752,7 @@ public final class IamFunctions {
      *                     "arn:aws:s3:::somebucket",
      *                     "arn:aws:s3:::somebucket/*")
      *                 .build())
+     *             .sourcePolicyDocuments(source.json())
      *             .build());
      * 
      *     }
@@ -5796,7 +5796,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var overridePolicyDocumentExample = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(override.json())
      *             .statements(            
      *                 GetPolicyDocumentStatementArgs.builder()
      *                     .actions("ec2:*")
@@ -5809,6 +5808,7 @@ public final class IamFunctions {
      *                         "arn:aws:s3:::somebucket",
      *                         "arn:aws:s3:::somebucket/*")
      *                     .build())
+     *             .overridePolicyDocuments(override.json())
      *             .build());
      * 
      *     }
@@ -5998,16 +5998,16 @@ public final class IamFunctions {
      *             .build());
      * 
      *         final var combined = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
-     *             .overridePolicyDocuments(            
-     *                 policyOne.json(),
-     *                 policyTwo.json(),
-     *                 policyThree.json())
      *             .statements(GetPolicyDocumentStatementArgs.builder()
      *                 .sid("OverridePlaceHolderTwo")
      *                 .effect("Deny")
      *                 .actions("*")
      *                 .resources("*")
      *                 .build())
+     *             .overridePolicyDocuments(            
+     *                 policyOne.json(),
+     *                 policyTwo.json(),
+     *                 policyThree.json())
      *             .build());
      * 
      *     }
@@ -9083,7 +9083,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9091,6 +9090,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9138,7 +9138,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9146,6 +9145,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9193,7 +9193,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9201,6 +9200,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9248,7 +9248,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9256,6 +9255,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9303,7 +9303,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9311,6 +9310,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9358,7 +9358,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9366,6 +9365,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }
@@ -9413,7 +9413,6 @@ public final class IamFunctions {
      *             .build());
      * 
      *         var elb = new LoadBalancer("elb", LoadBalancerArgs.builder()
-     *             .name("my-domain-elb")
      *             .listeners(LoadBalancerListenerArgs.builder()
      *                 .instancePort(8000)
      *                 .instanceProtocol("https")
@@ -9421,6 +9420,7 @@ public final class IamFunctions {
      *                 .lbProtocol("https")
      *                 .sslCertificateId(my_domain.arn())
      *                 .build())
+     *             .name("my-domain-elb")
      *             .build());
      * 
      *     }

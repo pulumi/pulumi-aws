@@ -35,6 +35,10 @@ __all__ = [
     'ConfigurationSetVdmOptionsGuardianOptions',
     'ContactListTopic',
     'EmailIdentityDkimSigningAttributes',
+    'MultiRegionEndpointDetails',
+    'MultiRegionEndpointDetailsRoutesDetails',
+    'MultiRegionEndpointRoute',
+    'MultiRegionEndpointTimeouts',
     'GetConfigurationSetDeliveryOptionResult',
     'GetConfigurationSetReputationOptionResult',
     'GetConfigurationSetSendingOptionResult',
@@ -69,7 +73,7 @@ class AccountVdmAttributesDashboardAttributes(dict):
     def __init__(__self__, *,
                  engagement_metrics: Optional[_builtins.str] = None):
         """
-        :param _builtins.str engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str engagement_metrics: Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         """
         if engagement_metrics is not None:
             pulumi.set(__self__, "engagement_metrics", engagement_metrics)
@@ -78,7 +82,7 @@ class AccountVdmAttributesDashboardAttributes(dict):
     @pulumi.getter(name="engagementMetrics")
     def engagement_metrics(self) -> Optional[_builtins.str]:
         """
-        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "engagement_metrics")
 
@@ -105,7 +109,7 @@ class AccountVdmAttributesGuardianAttributes(dict):
     def __init__(__self__, *,
                  optimized_shared_delivery: Optional[_builtins.str] = None):
         """
-        :param _builtins.str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str optimized_shared_delivery: Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         """
         if optimized_shared_delivery is not None:
             pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
@@ -114,7 +118,7 @@ class AccountVdmAttributesGuardianAttributes(dict):
     @pulumi.getter(name="optimizedSharedDelivery")
     def optimized_shared_delivery(self) -> Optional[_builtins.str]:
         """
-        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "optimized_shared_delivery")
 
@@ -147,9 +151,9 @@ class ConfigurationSetDeliveryOptions(dict):
                  sending_pool_name: Optional[_builtins.str] = None,
                  tls_policy: Optional[_builtins.str] = None):
         """
-        :param _builtins.int max_delivery_seconds: The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-        :param _builtins.str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
-        :param _builtins.str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+        :param _builtins.int max_delivery_seconds: Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        :param _builtins.str sending_pool_name: Name of the dedicated IP pool to associate with the configuration set.
+        :param _builtins.str tls_policy: Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
         """
         if max_delivery_seconds is not None:
             pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
@@ -162,7 +166,7 @@ class ConfigurationSetDeliveryOptions(dict):
     @pulumi.getter(name="maxDeliverySeconds")
     def max_delivery_seconds(self) -> Optional[_builtins.int]:
         """
-        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        Maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         """
         return pulumi.get(self, "max_delivery_seconds")
 
@@ -170,7 +174,7 @@ class ConfigurationSetDeliveryOptions(dict):
     @pulumi.getter(name="sendingPoolName")
     def sending_pool_name(self) -> Optional[_builtins.str]:
         """
-        The name of the dedicated IP pool to associate with the configuration set.
+        Name of the dedicated IP pool to associate with the configuration set.
         """
         return pulumi.get(self, "sending_pool_name")
 
@@ -178,7 +182,7 @@ class ConfigurationSetDeliveryOptions(dict):
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> Optional[_builtins.str]:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). Valid values: `REQUIRE`, `OPTIONAL`.
+        Whether messages that use the configuration set are required to use TLS. Valid values: `REQUIRE`, `OPTIONAL`.
         """
         return pulumi.get(self, "tls_policy")
 
@@ -222,12 +226,12 @@ class ConfigurationSetEventDestinationEventDestination(dict):
                  sns_destination: Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination'] = None):
         """
         :param Sequence[_builtins.str] matching_event_types: An array that specifies which events the Amazon SES API v2 should send to the destinations. Valid values: `SEND`, `REJECT`, `BOUNCE`, `COMPLAINT`, `DELIVERY`, `OPEN`, `CLICK`, `RENDERING_FAILURE`, `DELIVERY_DELAY`, `SUBSCRIPTION`.
-        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationArgs' cloud_watch_destination: Object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         :param _builtins.bool enabled: When the event destination is enabled, the specified event types are sent to the destinations. Default: `false`.
-        :param 'ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs' event_bridge_destination: An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
-        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
-        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
-        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationEventBridgeDestinationArgs' event_bridge_destination: Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestinationArgs' kinesis_firehose_destination: Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationPinpointDestinationArgs' pinpoint_destination: Object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
+        :param 'ConfigurationSetEventDestinationEventDestinationSnsDestinationArgs' sns_destination: Object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         pulumi.set(__self__, "matching_event_types", matching_event_types)
         if cloud_watch_destination is not None:
@@ -255,7 +259,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="cloudWatchDestination")
     def cloud_watch_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestination']:
         """
-        An object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
+        Object that defines an Amazon CloudWatch destination for email events. See `cloud_watch_destination` Block for details.
         """
         return pulumi.get(self, "cloud_watch_destination")
 
@@ -271,7 +275,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="eventBridgeDestination")
     def event_bridge_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationEventBridgeDestination']:
         """
-        An object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
+        Object that defines an Amazon EventBridge destination for email events. You can use Amazon EventBridge to send notifications when certain email events occur. See `event_bridge_destination` Block for details.
         """
         return pulumi.get(self, "event_bridge_destination")
 
@@ -279,7 +283,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="kinesisFirehoseDestination")
     def kinesis_firehose_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination']:
         """
-        An object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
+        Object that defines an Amazon Kinesis Data Firehose destination for email events. See `kinesis_firehose_destination` Block for details.
         """
         return pulumi.get(self, "kinesis_firehose_destination")
 
@@ -287,7 +291,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="pinpointDestination")
     def pinpoint_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationPinpointDestination']:
         """
-        An object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
+        Object that defines an AWS End User Messaging project destination for email events. See `pinpoint_destination` Block for details.
         """
         return pulumi.get(self, "pinpoint_destination")
 
@@ -295,7 +299,7 @@ class ConfigurationSetEventDestinationEventDestination(dict):
     @pulumi.getter(name="snsDestination")
     def sns_destination(self) -> Optional['outputs.ConfigurationSetEventDestinationEventDestinationSnsDestination']:
         """
-        An object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
+        Object that defines an Amazon SNS destination for email events. See `sns_destination` Block for details.
         """
         return pulumi.get(self, "sns_destination")
 
@@ -322,7 +326,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
     def __init__(__self__, *,
                  dimension_configurations: Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']):
         """
-        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
+        :param Sequence['ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfigurationArgs'] dimension_configurations: Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
         """
         pulumi.set(__self__, "dimension_configurations", dimension_configurations)
 
@@ -330,7 +334,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestination(dict
     @pulumi.getter(name="dimensionConfigurations")
     def dimension_configurations(self) -> Sequence['outputs.ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimensionConfiguration']:
         """
-        An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
+        Array of objects that define the dimensions to use when you send email events to Amazon CloudWatch. See `dimension_configuration` Block for details.
         """
         return pulumi.get(self, "dimension_configurations")
 
@@ -363,9 +367,9 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
                  dimension_name: _builtins.str,
                  dimension_value_source: _builtins.str):
         """
-        :param _builtins.str default_dimension_value: The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
-        :param _builtins.str dimension_name: The name of an Amazon CloudWatch dimension associated with an email sending metric.
-        :param _builtins.str dimension_value_source: The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        :param _builtins.str default_dimension_value: Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+        :param _builtins.str dimension_name: Name of an Amazon CloudWatch dimension associated with an email sending metric.
+        :param _builtins.str dimension_value_source: Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
         pulumi.set(__self__, "default_dimension_value", default_dimension_value)
         pulumi.set(__self__, "dimension_name", dimension_name)
@@ -375,7 +379,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
     @pulumi.getter(name="defaultDimensionValue")
     def default_dimension_value(self) -> _builtins.str:
         """
-        The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
+        Default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email.
         """
         return pulumi.get(self, "default_dimension_value")
 
@@ -383,7 +387,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
     @pulumi.getter(name="dimensionName")
     def dimension_name(self) -> _builtins.str:
         """
-        The name of an Amazon CloudWatch dimension associated with an email sending metric.
+        Name of an Amazon CloudWatch dimension associated with an email sending metric.
         """
         return pulumi.get(self, "dimension_name")
 
@@ -391,7 +395,7 @@ class ConfigurationSetEventDestinationEventDestinationCloudWatchDestinationDimen
     @pulumi.getter(name="dimensionValueSource")
     def dimension_value_source(self) -> _builtins.str:
         """
-        The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
+        Location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. Valid values: `MESSAGE_TAG`, `EMAIL_HEADER`, `LINK_TAG`.
         """
         return pulumi.get(self, "dimension_value_source")
 
@@ -418,7 +422,7 @@ class ConfigurationSetEventDestinationEventDestinationEventBridgeDestination(dic
     def __init__(__self__, *,
                  event_bus_arn: _builtins.str):
         """
-        :param _builtins.str event_bus_arn: The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        :param _builtins.str event_bus_arn: ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
         """
         pulumi.set(__self__, "event_bus_arn", event_bus_arn)
 
@@ -426,7 +430,7 @@ class ConfigurationSetEventDestinationEventDestinationEventBridgeDestination(dic
     @pulumi.getter(name="eventBusArn")
     def event_bus_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
+        ARN of the Amazon EventBridge bus to publish email events to. Only the default bus is supported.
         """
         return pulumi.get(self, "event_bus_arn")
 
@@ -456,8 +460,8 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
                  delivery_stream_arn: _builtins.str,
                  iam_role_arn: _builtins.str):
         """
-        :param _builtins.str delivery_stream_arn: The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
-        :param _builtins.str iam_role_arn: The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        :param _builtins.str delivery_stream_arn: ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        :param _builtins.str iam_role_arn: ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
         """
         pulumi.set(__self__, "delivery_stream_arn", delivery_stream_arn)
         pulumi.set(__self__, "iam_role_arn", iam_role_arn)
@@ -466,7 +470,7 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
     @pulumi.getter(name="deliveryStreamArn")
     def delivery_stream_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
+        ARN of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.
         """
         return pulumi.get(self, "delivery_stream_arn")
 
@@ -474,7 +478,7 @@ class ConfigurationSetEventDestinationEventDestinationKinesisFirehoseDestination
     @pulumi.getter(name="iamRoleArn")
     def iam_role_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
+        ARN of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.
         """
         return pulumi.get(self, "iam_role_arn")
 
@@ -500,11 +504,17 @@ class ConfigurationSetEventDestinationEventDestinationPinpointDestination(dict):
 
     def __init__(__self__, *,
                  application_arn: _builtins.str):
+        """
+        :param _builtins.str application_arn: ARN of the AWS End User Messaging project to send email events to.
+        """
         pulumi.set(__self__, "application_arn", application_arn)
 
     @_builtins.property
     @pulumi.getter(name="applicationArn")
     def application_arn(self) -> _builtins.str:
+        """
+        ARN of the AWS End User Messaging project to send email events to.
+        """
         return pulumi.get(self, "application_arn")
 
 
@@ -530,7 +540,7 @@ class ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
     def __init__(__self__, *,
                  topic_arn: _builtins.str):
         """
-        :param _builtins.str topic_arn: The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        :param _builtins.str topic_arn: ARN of the Amazon SNS topic to publish email events to.
         """
         pulumi.set(__self__, "topic_arn", topic_arn)
 
@@ -538,7 +548,7 @@ class ConfigurationSetEventDestinationEventDestinationSnsDestination(dict):
     @pulumi.getter(name="topicArn")
     def topic_arn(self) -> _builtins.str:
         """
-        The Amazon Resource Name (ARN) of the Amazon SNS topic to publish email events to.
+        ARN of the Amazon SNS topic to publish email events to.
         """
         return pulumi.get(self, "topic_arn")
 
@@ -568,7 +578,7 @@ class ConfigurationSetReputationOptions(dict):
                  last_fresh_start: Optional[_builtins.str] = None,
                  reputation_metrics_enabled: Optional[_builtins.bool] = None):
         """
-        :param _builtins.str last_fresh_start: The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+        :param _builtins.str last_fresh_start: Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
         :param _builtins.bool reputation_metrics_enabled: If `true`, tracking of reputation metrics is enabled for the configuration set. If `false`, tracking of reputation metrics is disabled for the configuration set.
         """
         if last_fresh_start is not None:
@@ -580,7 +590,7 @@ class ConfigurationSetReputationOptions(dict):
     @pulumi.getter(name="lastFreshStart")
     def last_fresh_start(self) -> Optional[_builtins.str]:
         """
-        The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
+        Date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.
         """
         return pulumi.get(self, "last_fresh_start")
 
@@ -651,7 +661,7 @@ class ConfigurationSetSuppressionOptions(dict):
     def __init__(__self__, *,
                  suppressed_reasons: Optional[Sequence[_builtins.str]] = None):
         """
-        :param Sequence[_builtins.str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+        :param Sequence[_builtins.str] suppressed_reasons: List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         if suppressed_reasons is not None:
             pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
@@ -660,7 +670,7 @@ class ConfigurationSetSuppressionOptions(dict):
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> Optional[Sequence[_builtins.str]]:
         """
-        A list that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
+        List that contains the reasons that email addresses are automatically added to the suppression list for your account. Valid values: `BOUNCE`, `COMPLAINT`.
         """
         return pulumi.get(self, "suppressed_reasons")
 
@@ -690,8 +700,8 @@ class ConfigurationSetTrackingOptions(dict):
                  custom_redirect_domain: _builtins.str,
                  https_policy: Optional[_builtins.str] = None):
         """
-        :param _builtins.str custom_redirect_domain: The domain to use for tracking open and click events.
-        :param _builtins.str https_policy: The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        :param _builtins.str custom_redirect_domain: Domain to use for tracking open and click events.
+        :param _builtins.str https_policy: HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         """
         pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
         if https_policy is not None:
@@ -701,7 +711,7 @@ class ConfigurationSetTrackingOptions(dict):
     @pulumi.getter(name="customRedirectDomain")
     def custom_redirect_domain(self) -> _builtins.str:
         """
-        The domain to use for tracking open and click events.
+        Domain to use for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
@@ -709,7 +719,7 @@ class ConfigurationSetTrackingOptions(dict):
     @pulumi.getter(name="httpsPolicy")
     def https_policy(self) -> Optional[_builtins.str]:
         """
-        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        HTTPS policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
         """
         return pulumi.get(self, "https_policy")
 
@@ -739,8 +749,8 @@ class ConfigurationSetVdmOptions(dict):
                  dashboard_options: Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions'] = None,
                  guardian_options: Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions'] = None):
         """
-        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
-        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+        :param 'ConfigurationSetVdmOptionsDashboardOptionsArgs' dashboard_options: Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+        :param 'ConfigurationSetVdmOptionsGuardianOptionsArgs' guardian_options: Additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         if dashboard_options is not None:
             pulumi.set(__self__, "dashboard_options", dashboard_options)
@@ -751,7 +761,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsDashboardOptions']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
+        Additional settings for your VDM configuration as applicable to the Dashboard. See `dashboard_options` Block for details.
         """
         return pulumi.get(self, "dashboard_options")
 
@@ -759,7 +769,7 @@ class ConfigurationSetVdmOptions(dict):
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Optional['outputs.ConfigurationSetVdmOptionsGuardianOptions']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
+        Additional settings for your VDM configuration as applicable to the Guardian. See `guardian_options` Block for details.
         """
         return pulumi.get(self, "guardian_options")
 
@@ -786,7 +796,7 @@ class ConfigurationSetVdmOptionsDashboardOptions(dict):
     def __init__(__self__, *,
                  engagement_metrics: Optional[_builtins.str] = None):
         """
-        :param _builtins.str engagement_metrics: Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str engagement_metrics: Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         """
         if engagement_metrics is not None:
             pulumi.set(__self__, "engagement_metrics", engagement_metrics)
@@ -795,7 +805,7 @@ class ConfigurationSetVdmOptionsDashboardOptions(dict):
     @pulumi.getter(name="engagementMetrics")
     def engagement_metrics(self) -> Optional[_builtins.str]:
         """
-        Specifies the status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM engagement metrics collection. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "engagement_metrics")
 
@@ -822,7 +832,7 @@ class ConfigurationSetVdmOptionsGuardianOptions(dict):
     def __init__(__self__, *,
                  optimized_shared_delivery: Optional[_builtins.str] = None):
         """
-        :param _builtins.str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        :param _builtins.str optimized_shared_delivery: Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         """
         if optimized_shared_delivery is not None:
             pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
@@ -831,7 +841,7 @@ class ConfigurationSetVdmOptionsGuardianOptions(dict):
     @pulumi.getter(name="optimizedSharedDelivery")
     def optimized_shared_delivery(self) -> Optional[_builtins.str]:
         """
-        Specifies the status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
+        Status of your VDM optimized shared delivery. Valid values: `ENABLED`, `DISABLED`.
         """
         return pulumi.get(self, "optimized_shared_delivery")
 
@@ -952,15 +962,15 @@ class EmailIdentityDkimSigningAttributes(dict):
                  status: Optional[_builtins.str] = None,
                  tokens: Optional[Sequence[_builtins.str]] = None):
         """
-        :param _builtins.str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
-        :param _builtins.str domain_signing_private_key: [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        :param _builtins.str current_signing_key_length: [Easy DKIM] Key length of the DKIM key pair in use.
+        :param _builtins.str domain_signing_private_key: [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
                
                > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
-        :param _builtins.str domain_signing_selector: [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
-        :param _builtins.str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
-        :param _builtins.str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
-        :param _builtins.str signing_attributes_origin: A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
-        :param _builtins.str status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        :param _builtins.str domain_signing_selector: [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
+        :param _builtins.str last_key_generation_timestamp: [Easy DKIM] Last time a key pair was generated for this identity.
+        :param _builtins.str next_signing_key_length: [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+        :param _builtins.str signing_attributes_origin: How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        :param _builtins.str status: Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         :param Sequence[_builtins.str] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """
         if current_signing_key_length is not None:
@@ -984,7 +994,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="currentSigningKeyLength")
     def current_signing_key_length(self) -> Optional[_builtins.str]:
         """
-        [Easy DKIM] The key length of the DKIM key pair in use.
+        [Easy DKIM] Key length of the DKIM key pair in use.
         """
         return pulumi.get(self, "current_signing_key_length")
 
@@ -992,7 +1002,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="domainSigningPrivateKey")
     def domain_signing_private_key(self) -> Optional[_builtins.str]:
         """
-        [Bring Your Own DKIM] A private key that's used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
+        [Bring Your Own DKIM] Private key used to generate a DKIM signature. The private key must use 1024 or 2048-bit RSA encryption, and must be encoded using base64 encoding.
 
         > **NOTE:** You have to delete the first and last lines ('-----BEGIN PRIVATE KEY-----' and '-----END PRIVATE KEY-----', respectively) of the generated private key. Additionally, you have to remove the line breaks in the generated private key. The resulting value is a string of characters with no spaces or line breaks.
         """
@@ -1002,7 +1012,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="domainSigningSelector")
     def domain_signing_selector(self) -> Optional[_builtins.str]:
         """
-        [Bring Your Own DKIM] A string that's used to identify a public key in the DNS configuration for a domain.
+        [Bring Your Own DKIM] String used to identify a public key in the DNS configuration for a domain.
         """
         return pulumi.get(self, "domain_signing_selector")
 
@@ -1010,7 +1020,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="lastKeyGenerationTimestamp")
     def last_key_generation_timestamp(self) -> Optional[_builtins.str]:
         """
-        [Easy DKIM] The last time a key pair was generated for this identity.
+        [Easy DKIM] Last time a key pair was generated for this identity.
         """
         return pulumi.get(self, "last_key_generation_timestamp")
 
@@ -1018,7 +1028,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="nextSigningKeyLength")
     def next_signing_key_length(self) -> Optional[_builtins.str]:
         """
-        [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
+        [Easy DKIM] Key length of the future DKIM key pair to be generated. This can be changed at most once per day. Valid values: `RSA_1024_BIT`, `RSA_2048_BIT`.
         """
         return pulumi.get(self, "next_signing_key_length")
 
@@ -1026,7 +1036,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter(name="signingAttributesOrigin")
     def signing_attributes_origin(self) -> Optional[_builtins.str]:
         """
-        A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        How DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         """
         return pulumi.get(self, "signing_attributes_origin")
 
@@ -1034,7 +1044,7 @@ class EmailIdentityDkimSigningAttributes(dict):
     @pulumi.getter
     def status(self) -> Optional[_builtins.str]:
         """
-        Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        Whether Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         """
         return pulumi.get(self, "status")
 
@@ -1048,15 +1058,118 @@ class EmailIdentityDkimSigningAttributes(dict):
 
 
 @pulumi.output_type
+class MultiRegionEndpointDetails(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "routesDetails":
+            suggest = "routes_details"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in MultiRegionEndpointDetails. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        MultiRegionEndpointDetails.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        MultiRegionEndpointDetails.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 routes_details: Optional['outputs.MultiRegionEndpointDetailsRoutesDetails'] = None):
+        """
+        :param 'MultiRegionEndpointDetailsRoutesDetailsArgs' routes_details: Secondary region route configuration. See `routes_details` Block below.
+        """
+        if routes_details is not None:
+            pulumi.set(__self__, "routes_details", routes_details)
+
+    @_builtins.property
+    @pulumi.getter(name="routesDetails")
+    def routes_details(self) -> Optional['outputs.MultiRegionEndpointDetailsRoutesDetails']:
+        """
+        Secondary region route configuration. See `routes_details` Block below.
+        """
+        return pulumi.get(self, "routes_details")
+
+
+@pulumi.output_type
+class MultiRegionEndpointDetailsRoutesDetails(dict):
+    def __init__(__self__, *,
+                 region: _builtins.str):
+        """
+        :param _builtins.str region: Name of the secondary AWS region.
+        """
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Name of the secondary AWS region.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class MultiRegionEndpointRoute(dict):
+    def __init__(__self__, *,
+                 region: _builtins.str):
+        """
+        :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> _builtins.str:
+        """
+        Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
+        """
+        return pulumi.get(self, "region")
+
+
+@pulumi.output_type
+class MultiRegionEndpointTimeouts(dict):
+    def __init__(__self__, *,
+                 create: Optional[_builtins.str] = None,
+                 delete: Optional[_builtins.str] = None):
+        """
+        :param _builtins.str create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param _builtins.str delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+
+    @_builtins.property
+    @pulumi.getter
+    def create(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @_builtins.property
+    @pulumi.getter
+    def delete(self) -> Optional[_builtins.str]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+
+@pulumi.output_type
 class GetConfigurationSetDeliveryOptionResult(dict):
     def __init__(__self__, *,
                  max_delivery_seconds: _builtins.int,
                  sending_pool_name: _builtins.str,
                  tls_policy: _builtins.str):
         """
-        :param _builtins.int max_delivery_seconds: The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
-        :param _builtins.str sending_pool_name: The name of the dedicated IP pool to associate with the configuration set.
-        :param _builtins.str tls_policy: Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        :param _builtins.int max_delivery_seconds: Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        :param _builtins.str sending_pool_name: Name of the dedicated IP pool to associate with the configuration set.
+        :param _builtins.str tls_policy: Whether messages that use the configuration set are required to use TLS.
         """
         pulumi.set(__self__, "max_delivery_seconds", max_delivery_seconds)
         pulumi.set(__self__, "sending_pool_name", sending_pool_name)
@@ -1066,7 +1179,7 @@ class GetConfigurationSetDeliveryOptionResult(dict):
     @pulumi.getter(name="maxDeliverySeconds")
     def max_delivery_seconds(self) -> _builtins.int:
         """
-        The maximum amount of time, in seconds, that Amazon SES API v2 will attempt delivery of email. If specified, the value must greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
+        Maximum amount of time, in seconds, that Amazon SES API v2 attempts delivery of email. If specified, the value must be greater than or equal to 300 seconds (5 minutes) and less than or equal to 50400 seconds (840 minutes).
         """
         return pulumi.get(self, "max_delivery_seconds")
 
@@ -1074,7 +1187,7 @@ class GetConfigurationSetDeliveryOptionResult(dict):
     @pulumi.getter(name="sendingPoolName")
     def sending_pool_name(self) -> _builtins.str:
         """
-        The name of the dedicated IP pool to associate with the configuration set.
+        Name of the dedicated IP pool to associate with the configuration set.
         """
         return pulumi.get(self, "sending_pool_name")
 
@@ -1082,7 +1195,7 @@ class GetConfigurationSetDeliveryOptionResult(dict):
     @pulumi.getter(name="tlsPolicy")
     def tls_policy(self) -> _builtins.str:
         """
-        Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).
+        Whether messages that use the configuration set are required to use TLS.
         """
         return pulumi.get(self, "tls_policy")
 
@@ -1093,8 +1206,8 @@ class GetConfigurationSetReputationOptionResult(dict):
                  last_fresh_start: _builtins.str,
                  reputation_metrics_enabled: _builtins.bool):
         """
-        :param _builtins.str last_fresh_start: The date and time (in Unix time) when the reputation metrics were last given a fresh start.
-        :param _builtins.bool reputation_metrics_enabled: Specifies whether tracking of reputation metrics is enabled.
+        :param _builtins.str last_fresh_start: Date and time (in Unix time) when the reputation metrics were last given a fresh start.
+        :param _builtins.bool reputation_metrics_enabled: Whether tracking of reputation metrics is enabled.
         """
         pulumi.set(__self__, "last_fresh_start", last_fresh_start)
         pulumi.set(__self__, "reputation_metrics_enabled", reputation_metrics_enabled)
@@ -1103,7 +1216,7 @@ class GetConfigurationSetReputationOptionResult(dict):
     @pulumi.getter(name="lastFreshStart")
     def last_fresh_start(self) -> _builtins.str:
         """
-        The date and time (in Unix time) when the reputation metrics were last given a fresh start.
+        Date and time (in Unix time) when the reputation metrics were last given a fresh start.
         """
         return pulumi.get(self, "last_fresh_start")
 
@@ -1111,7 +1224,7 @@ class GetConfigurationSetReputationOptionResult(dict):
     @pulumi.getter(name="reputationMetricsEnabled")
     def reputation_metrics_enabled(self) -> _builtins.bool:
         """
-        Specifies whether tracking of reputation metrics is enabled.
+        Whether tracking of reputation metrics is enabled.
         """
         return pulumi.get(self, "reputation_metrics_enabled")
 
@@ -1121,7 +1234,7 @@ class GetConfigurationSetSendingOptionResult(dict):
     def __init__(__self__, *,
                  sending_enabled: _builtins.bool):
         """
-        :param _builtins.bool sending_enabled: Specifies whether email sending is enabled.
+        :param _builtins.bool sending_enabled: Whether email sending is enabled.
         """
         pulumi.set(__self__, "sending_enabled", sending_enabled)
 
@@ -1129,7 +1242,7 @@ class GetConfigurationSetSendingOptionResult(dict):
     @pulumi.getter(name="sendingEnabled")
     def sending_enabled(self) -> _builtins.bool:
         """
-        Specifies whether email sending is enabled.
+        Whether email sending is enabled.
         """
         return pulumi.get(self, "sending_enabled")
 
@@ -1139,7 +1252,7 @@ class GetConfigurationSetSuppressionOptionResult(dict):
     def __init__(__self__, *,
                  suppressed_reasons: Sequence[_builtins.str]):
         """
-        :param Sequence[_builtins.str] suppressed_reasons: A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        :param Sequence[_builtins.str] suppressed_reasons: List that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
         pulumi.set(__self__, "suppressed_reasons", suppressed_reasons)
 
@@ -1147,7 +1260,7 @@ class GetConfigurationSetSuppressionOptionResult(dict):
     @pulumi.getter(name="suppressedReasons")
     def suppressed_reasons(self) -> Sequence[_builtins.str]:
         """
-        A list that contains the reasons that email addresses are automatically added to the suppression list for your account.
+        List that contains the reasons that email addresses are automatically added to the suppression list for your account.
         """
         return pulumi.get(self, "suppressed_reasons")
 
@@ -1158,8 +1271,8 @@ class GetConfigurationSetTrackingOptionResult(dict):
                  custom_redirect_domain: _builtins.str,
                  https_policy: _builtins.str):
         """
-        :param _builtins.str custom_redirect_domain: The domain to use for tracking open and click events.
-        :param _builtins.str https_policy: The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        :param _builtins.str custom_redirect_domain: Domain used for tracking open and click events.
+        :param _builtins.str https_policy: HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
         """
         pulumi.set(__self__, "custom_redirect_domain", custom_redirect_domain)
         pulumi.set(__self__, "https_policy", https_policy)
@@ -1168,7 +1281,7 @@ class GetConfigurationSetTrackingOptionResult(dict):
     @pulumi.getter(name="customRedirectDomain")
     def custom_redirect_domain(self) -> _builtins.str:
         """
-        The domain to use for tracking open and click events.
+        Domain used for tracking open and click events.
         """
         return pulumi.get(self, "custom_redirect_domain")
 
@@ -1176,7 +1289,7 @@ class GetConfigurationSetTrackingOptionResult(dict):
     @pulumi.getter(name="httpsPolicy")
     def https_policy(self) -> _builtins.str:
         """
-        The https policy to use for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY` or `OPTIONAL`.
+        HTTPS policy used for tracking open and click events. Valid values are `REQUIRE`, `REQUIRE_OPEN_ONLY`, or `OPTIONAL`.
         """
         return pulumi.get(self, "https_policy")
 
@@ -1187,8 +1300,8 @@ class GetConfigurationSetVdmOptionResult(dict):
                  dashboard_options: Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult'],
                  guardian_options: Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']):
         """
-        :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArgs'] dashboard_options: Specifies additional settings for your VDM configuration as applicable to the Dashboard.
-        :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArgs'] guardian_options: Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        :param Sequence['GetConfigurationSetVdmOptionDashboardOptionArgs'] dashboard_options: Additional settings for your VDM configuration as applicable to the Dashboard.
+        :param Sequence['GetConfigurationSetVdmOptionGuardianOptionArgs'] guardian_options: Additional settings for your VDM configuration as applicable to the Guardian.
         """
         pulumi.set(__self__, "dashboard_options", dashboard_options)
         pulumi.set(__self__, "guardian_options", guardian_options)
@@ -1197,7 +1310,7 @@ class GetConfigurationSetVdmOptionResult(dict):
     @pulumi.getter(name="dashboardOptions")
     def dashboard_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionDashboardOptionResult']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Dashboard.
+        Additional settings for your VDM configuration as applicable to the Dashboard.
         """
         return pulumi.get(self, "dashboard_options")
 
@@ -1205,7 +1318,7 @@ class GetConfigurationSetVdmOptionResult(dict):
     @pulumi.getter(name="guardianOptions")
     def guardian_options(self) -> Sequence['outputs.GetConfigurationSetVdmOptionGuardianOptionResult']:
         """
-        Specifies additional settings for your VDM configuration as applicable to the Guardian.
+        Additional settings for your VDM configuration as applicable to the Guardian.
         """
         return pulumi.get(self, "guardian_options")
 
@@ -1215,7 +1328,7 @@ class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
     def __init__(__self__, *,
                  engagement_metrics: _builtins.str):
         """
-        :param _builtins.str engagement_metrics: Specifies the status of your VDM engagement metrics collection.
+        :param _builtins.str engagement_metrics: Status of your VDM engagement metrics collection.
         """
         pulumi.set(__self__, "engagement_metrics", engagement_metrics)
 
@@ -1223,7 +1336,7 @@ class GetConfigurationSetVdmOptionDashboardOptionResult(dict):
     @pulumi.getter(name="engagementMetrics")
     def engagement_metrics(self) -> _builtins.str:
         """
-        Specifies the status of your VDM engagement metrics collection.
+        Status of your VDM engagement metrics collection.
         """
         return pulumi.get(self, "engagement_metrics")
 
@@ -1233,7 +1346,7 @@ class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
     def __init__(__self__, *,
                  optimized_shared_delivery: _builtins.str):
         """
-        :param _builtins.str optimized_shared_delivery: Specifies the status of your VDM optimized shared delivery.
+        :param _builtins.str optimized_shared_delivery: Status of your VDM optimized shared delivery.
         """
         pulumi.set(__self__, "optimized_shared_delivery", optimized_shared_delivery)
 
@@ -1241,7 +1354,7 @@ class GetConfigurationSetVdmOptionGuardianOptionResult(dict):
     @pulumi.getter(name="optimizedSharedDelivery")
     def optimized_shared_delivery(self) -> _builtins.str:
         """
-        Specifies the status of your VDM optimized shared delivery.
+        Status of your VDM optimized shared delivery.
         """
         return pulumi.get(self, "optimized_shared_delivery")
 
@@ -1254,8 +1367,8 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
                  warmup_status: _builtins.str):
         """
         :param _builtins.str ip: IPv4 address.
-        :param _builtins.int warmup_percentage: Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
-        :param _builtins.str warmup_status: The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+        :param _builtins.int warmup_percentage: How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+        :param _builtins.str warmup_status: Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         """
         pulumi.set(__self__, "ip", ip)
         pulumi.set(__self__, "warmup_percentage", warmup_percentage)
@@ -1273,7 +1386,7 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
     @pulumi.getter(name="warmupPercentage")
     def warmup_percentage(self) -> _builtins.int:
         """
-        Indicates how complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
+        How complete the dedicated IP warm-up process is. When this value equals `1`, the address has completed the warm-up process and is ready for use.
         """
         return pulumi.get(self, "warmup_percentage")
 
@@ -1281,7 +1394,7 @@ class GetDedicatedIpPoolDedicatedIpResult(dict):
     @pulumi.getter(name="warmupStatus")
     def warmup_status(self) -> _builtins.str:
         """
-        The warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
+        Warm-up status of a dedicated IP address. Valid values: `IN_PROGRESS`, `DONE`.
         """
         return pulumi.get(self, "warmup_status")
 
@@ -1299,10 +1412,12 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
                  tokens: Sequence[_builtins.str]):
         """
         :param _builtins.str current_signing_key_length: [Easy DKIM] The key length of the DKIM key pair in use.
+        :param _builtins.str domain_signing_private_key: [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+        :param _builtins.str domain_signing_selector: [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
         :param _builtins.str last_key_generation_timestamp: [Easy DKIM] The last time a key pair was generated for this identity.
         :param _builtins.str next_signing_key_length: [Easy DKIM] The key length of the future DKIM key pair to be generated. This can be changed at most once per day.
-        :param _builtins.str signing_attributes_origin: A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
-        :param _builtins.str status: Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        :param _builtins.str signing_attributes_origin: String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        :param _builtins.str status: Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         :param Sequence[_builtins.str] tokens: If you used Easy DKIM to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete. If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.
         """
         pulumi.set(__self__, "current_signing_key_length", current_signing_key_length)
@@ -1325,11 +1440,17 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
     @_builtins.property
     @pulumi.getter(name="domainSigningPrivateKey")
     def domain_signing_private_key(self) -> _builtins.str:
+        """
+        [Bring Your Own DKIM] Private key used to generate DKIM signatures.
+        """
         return pulumi.get(self, "domain_signing_private_key")
 
     @_builtins.property
     @pulumi.getter(name="domainSigningSelector")
     def domain_signing_selector(self) -> _builtins.str:
+        """
+        [Bring Your Own DKIM] Selector added to the DNS configuration for the domain.
+        """
         return pulumi.get(self, "domain_signing_selector")
 
     @_builtins.property
@@ -1352,7 +1473,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
     @pulumi.getter(name="signingAttributesOrigin")
     def signing_attributes_origin(self) -> _builtins.str:
         """
-        A string that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
+        String that indicates how DKIM was configured for the identity. `AWS_SES` indicates that DKIM was configured for the identity by using Easy DKIM. `EXTERNAL` indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).
         """
         return pulumi.get(self, "signing_attributes_origin")
 
@@ -1360,7 +1481,7 @@ class GetEmailIdentityDkimSigningAttributeResult(dict):
     @pulumi.getter
     def status(self) -> _builtins.str:
         """
-        Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
+        Whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. See the [AWS SES API v2 Reference](https://docs.aws.amazon.com/ses/latest/APIReference-V2/API_DkimAttributes.html#SES-Type-DkimAttributes-Status) for supported statuses.
         """
         return pulumi.get(self, "status")
 

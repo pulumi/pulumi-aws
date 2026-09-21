@@ -18,14 +18,14 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
     public static final ProjectState Empty = new ProjectState();
 
     /**
-     * The Amazon Resource Name of this project
+     * ARN of this project
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of this project
+     * @return ARN of this project
      * 
      */
     public Optional<Output<String>> arn() {
@@ -137,7 +137,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this project
+         * @param arn ARN of this project
          * 
          * @return builder
          * 
@@ -148,7 +148,7 @@ public final class ProjectState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn The Amazon Resource Name of this project
+         * @param arn ARN of this project
          * 
          * @return builder
          * 

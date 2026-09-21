@@ -17,10 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const myFilter = new aws.guardduty.Filter("MyFilter", {
- *     name: "MyFilter",
- *     action: "ARCHIVE",
- *     detectorId: example.id,
- *     rank: 1,
  *     findingCriteria: {
  *         criterions: [
  *             {
@@ -45,6 +41,10 @@ import * as utilities from "../utilities";
  *             },
  *         ],
  *     },
+ *     name: "MyFilter",
+ *     action: "ARCHIVE",
+ *     detectorId: example.id,
+ *     rank: 1,
  * });
  * ```
  *

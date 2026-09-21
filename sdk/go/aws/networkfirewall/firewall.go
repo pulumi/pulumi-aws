@@ -29,6 +29,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
+//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
+//					&networkfirewall.FirewallSubnetMappingArgs{
+//						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
+//					},
+//				},
 //				Name:              pulumi.String("example"),
 //				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
 //				VpcId:             pulumi.Any(exampleAwsVpc.Id),
@@ -36,16 +41,11 @@ import (
 //					pulumi.String("TLS_SNI"),
 //					pulumi.String("HTTP_HOST"),
 //				},
-//				SubnetMappings: networkfirewall.FirewallSubnetMappingArray{
-//					&networkfirewall.FirewallSubnetMappingArgs{
-//						SubnetId: pulumi.Any(exampleAwsSubnet.Id),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"Tag1": pulumi.String("Value1"),
 //					"Tag2": pulumi.String("Value2"),
 //				},
-//			})
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "40m", Update: "50m", Delete: "1h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -77,9 +77,6 @@ import (
 //				return err
 //			}
 //			_, err = networkfirewall.NewFirewall(ctx, "example", &networkfirewall.FirewallArgs{
-//				Name:              pulumi.String("example"),
-//				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
-//				TransitGatewayId:  pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //				AvailabilityZoneMappings: networkfirewall.FirewallAvailabilityZoneMappingArray{
 //					&networkfirewall.FirewallAvailabilityZoneMappingArgs{
 //						AvailabilityZoneId: pulumi.String(example.ZoneIds[0]),
@@ -88,6 +85,9 @@ import (
 //						AvailabilityZoneId: pulumi.String(example.ZoneIds[1]),
 //					},
 //				},
+//				Name:              pulumi.String("example"),
+//				FirewallPolicyArn: pulumi.Any(exampleAwsNetworkfirewallFirewallPolicy.Arn),
+//				TransitGatewayId:  pulumi.Any(exampleAwsEc2TransitGateway.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -112,7 +112,7 @@ import (
 type Firewall struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// ARN that identifies the firewall.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection pulumi.BoolPtrOutput `pulumi:"availabilityZoneChangeProtection"`
@@ -126,7 +126,7 @@ type Firewall struct {
 	EnabledAnalysisTypes pulumi.StringArrayOutput `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrOutput `pulumi:"encryptionConfiguration"`
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringOutput `pulumi:"firewallPolicyArn"`
 	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrOutput `pulumi:"firewallPolicyChangeProtection"`
@@ -187,7 +187,7 @@ func GetFirewall(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Firewall resources.
 type firewallState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// ARN that identifies the firewall.
 	Arn *string `pulumi:"arn"`
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection *bool `pulumi:"availabilityZoneChangeProtection"`
@@ -201,7 +201,7 @@ type firewallState struct {
 	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn *string `pulumi:"firewallPolicyArn"`
 	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
@@ -230,7 +230,7 @@ type firewallState struct {
 }
 
 type FirewallState struct {
-	// The Amazon Resource Name (ARN) that identifies the firewall.
+	// ARN that identifies the firewall.
 	Arn pulumi.StringPtrInput
 	// A setting indicating whether the firewall is protected against changes to its Availability Zone configuration. When set to `true`, you must first disable this protection before adding or removing Availability Zones.
 	AvailabilityZoneChangeProtection pulumi.BoolPtrInput
@@ -244,7 +244,7 @@ type FirewallState struct {
 	EnabledAnalysisTypes pulumi.StringArrayInput
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringPtrInput
 	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
@@ -289,7 +289,7 @@ type firewallArgs struct {
 	EnabledAnalysisTypes []string `pulumi:"enabledAnalysisTypes"`
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration *FirewallEncryptionConfiguration `pulumi:"encryptionConfiguration"`
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn string `pulumi:"firewallPolicyArn"`
 	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection *bool `pulumi:"firewallPolicyChangeProtection"`
@@ -323,7 +323,7 @@ type FirewallArgs struct {
 	EnabledAnalysisTypes pulumi.StringArrayInput
 	// KMS encryption configuration settings. See Encryption Configuration below for details.
 	EncryptionConfiguration FirewallEncryptionConfigurationPtrInput
-	// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+	// ARN of the VPC Firewall policy.
 	FirewallPolicyArn pulumi.StringInput
 	// A flag indicating whether the firewall is protected against a change to the firewall policy association. Use this setting to protect against accidentally modifying the firewall policy for a firewall that is in use. Defaults to `false`.
 	FirewallPolicyChangeProtection pulumi.BoolPtrInput
@@ -430,7 +430,7 @@ func (o FirewallOutput) ToFirewallOutputWithContext(ctx context.Context) Firewal
 	return o
 }
 
-// The Amazon Resource Name (ARN) that identifies the firewall.
+// ARN that identifies the firewall.
 func (o FirewallOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
@@ -465,7 +465,7 @@ func (o FirewallOutput) EncryptionConfiguration() FirewallEncryptionConfiguratio
 	return o.ApplyT(func(v *Firewall) FirewallEncryptionConfigurationPtrOutput { return v.EncryptionConfiguration }).(FirewallEncryptionConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the VPC Firewall policy.
+// ARN of the VPC Firewall policy.
 func (o FirewallOutput) FirewallPolicyArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Firewall) pulumi.StringOutput { return v.FirewallPolicyArn }).(pulumi.StringOutput)
 }

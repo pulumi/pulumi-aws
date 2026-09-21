@@ -18,7 +18,7 @@ namespace Pulumi.Aws.CloudFormation.Outputs
         /// </summary>
         public readonly string LogGroupName;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
+        /// ARN of the IAM Role CloudFormation assumes when sending error logging information to CloudWatch Logs.
         /// </summary>
         public readonly string LogRoleArn;
 

@@ -64,7 +64,7 @@ type LookupCloudVmClusterArgs struct {
 
 // A collection of values returned by getCloudVmCluster.
 type LookupCloudVmClusterResult struct {
-	// Amazon Resource Name (ARN) for the cloud vm cluster.
+	// ARN for the cloud vm cluster.
 	Arn string `pulumi:"arn"`
 	// ARN of the Cloud Exadata Infrastructure.
 	CloudExadataInfrastructureArn string `pulumi:"cloudExadataInfrastructureArn"`
@@ -153,12 +153,8 @@ type LookupCloudVmClusterResult struct {
 }
 
 func LookupCloudVmClusterOutput(ctx *pulumi.Context, args LookupCloudVmClusterOutputArgs, opts ...pulumi.InvokeOption) LookupCloudVmClusterResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (LookupCloudVmClusterResultOutput, error) {
-			args := v.(LookupCloudVmClusterArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:odb/getCloudVmCluster:getCloudVmCluster", args, LookupCloudVmClusterResultOutput{}, options).(LookupCloudVmClusterResultOutput), nil
-		}).(LookupCloudVmClusterResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:odb/getCloudVmCluster:getCloudVmCluster", args, LookupCloudVmClusterResultOutput{}, options).(LookupCloudVmClusterResultOutput)
 }
 
 // A collection of arguments for invoking getCloudVmCluster.
@@ -190,7 +186,7 @@ func (o LookupCloudVmClusterResultOutput) ToLookupCloudVmClusterResultOutputWith
 	return o
 }
 
-// Amazon Resource Name (ARN) for the cloud vm cluster.
+// ARN for the cloud vm cluster.
 func (o LookupCloudVmClusterResultOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupCloudVmClusterResult) string { return v.Arn }).(pulumi.StringOutput)
 }

@@ -85,7 +85,7 @@ export class NotificationConfiguration extends pulumi.CustomResource {
      */
     declare public readonly aggregationDuration: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * ARN of the NotificationConfiguration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -159,7 +159,7 @@ export interface NotificationConfigurationState {
      */
     aggregationDuration?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the NotificationConfiguration.
+     * ARN of the NotificationConfiguration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

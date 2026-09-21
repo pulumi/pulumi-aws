@@ -125,7 +125,7 @@ class _DistributionConfigurationState:
         """
         Input properties used for looking up and filtering DistributionConfiguration resources.
 
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the distribution configuration.
         :param pulumi.Input[_builtins.str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[_builtins.str] description: Description of the distribution configuration.
@@ -160,7 +160,7 @@ class _DistributionConfigurationState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        (Required) ARN of the distribution configuration.
         """
         return pulumi.get(self, "arn")
 
@@ -289,22 +289,22 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.DistributionConfiguration("example",
-            name="example",
             distributions=[{
                 "ami_distribution_configuration": {
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
+                    },
                     "ami_tags": {
                         "CostCenter": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launch_permission": {
-                        "user_ids": ["123456789012"],
-                    },
                 },
                 "launch_template_configurations": [{
                     "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -313,9 +313,9 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+        - `arn` (String) ARN of the Image Builder distribution configuration.
 
-        Using `pulumi import`, import `imagebuilder_get_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder_get_distribution_configurations` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -348,22 +348,22 @@ class DistributionConfiguration(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.imagebuilder.DistributionConfiguration("example",
-            name="example",
             distributions=[{
                 "ami_distribution_configuration": {
+                    "launch_permission": {
+                        "user_ids": ["123456789012"],
+                    },
                     "ami_tags": {
                         "CostCenter": "IT",
                     },
                     "name": "example-{{ imagebuilder:buildDate }}",
-                    "launch_permission": {
-                        "user_ids": ["123456789012"],
-                    },
                 },
                 "launch_template_configurations": [{
                     "launch_template_id": "lt-0aaa1bcde2ff3456",
                 }],
                 "region": "us-east-1",
-            }])
+            }],
+            name="example")
         ```
 
         ## Import
@@ -372,9 +372,9 @@ class DistributionConfiguration(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Image Builder distribution configuration.
+        - `arn` (String) ARN of the Image Builder distribution configuration.
 
-        Using `pulumi import`, import `imagebuilder_get_distribution_configurations` resources using the Amazon Resource Name (ARN). For example:
+        Using `pulumi import`, import `imagebuilder_get_distribution_configurations` resources using the ARN. For example:
 
         ```sh
         $ pulumi import aws:imagebuilder/distributionConfiguration:DistributionConfiguration example arn:aws:imagebuilder:us-east-1:123456789012:distribution-configuration/example
@@ -447,7 +447,7 @@ class DistributionConfiguration(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        :param pulumi.Input[_builtins.str] arn: (Required) ARN of the distribution configuration.
         :param pulumi.Input[_builtins.str] date_created: Date the distribution configuration was created.
         :param pulumi.Input[_builtins.str] date_updated: Date the distribution configuration was updated.
         :param pulumi.Input[_builtins.str] description: Description of the distribution configuration.
@@ -478,7 +478,7 @@ class DistributionConfiguration(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        (Required) Amazon Resource Name (ARN) of the distribution configuration.
+        (Required) ARN of the distribution configuration.
         """
         return pulumi.get(self, "arn")
 

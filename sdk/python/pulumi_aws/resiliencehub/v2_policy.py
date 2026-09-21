@@ -394,10 +394,10 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         ```
 
         ### Multi-AZ with Data Recovery
@@ -407,8 +407,6 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
-            description="Policy with multi-AZ and data recovery targets",
             availability_slo={
                 "target": 99.99,
             },
@@ -420,6 +418,8 @@ class V2Policy(pulumi.CustomResource):
                 "rpo_in_minutes": 5,
                 "rto_in_minutes": 10,
             },
+            name="example-policy",
+            description="Policy with multi-AZ and data recovery targets",
             tags={
                 "Environment": "production",
             })
@@ -432,7 +432,6 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-multi-region-policy",
             availability_slo={
                 "target": 99.95,
             },
@@ -440,7 +439,8 @@ class V2Policy(pulumi.CustomResource):
                 "disaster_recovery_approach": "ACTIVE_PASSIVE",
                 "rpo_in_minutes": 15,
                 "rto_in_minutes": 30,
-            })
+            },
+            name="example-multi-region-policy")
         ```
 
         ## Import
@@ -449,7 +449,7 @@ class V2Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 Policy.
+        - `arn` (String) ARN of the Resilience Hub V2 Policy.
 
         Using `pulumi import`, import Resilience Hub V2 Policy using the `arn`. For example:
 
@@ -492,10 +492,10 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
             availability_slo={
                 "target": 99.9,
-            })
+            },
+            name="example-policy")
         ```
 
         ### Multi-AZ with Data Recovery
@@ -505,8 +505,6 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-policy",
-            description="Policy with multi-AZ and data recovery targets",
             availability_slo={
                 "target": 99.99,
             },
@@ -518,6 +516,8 @@ class V2Policy(pulumi.CustomResource):
                 "rpo_in_minutes": 5,
                 "rto_in_minutes": 10,
             },
+            name="example-policy",
+            description="Policy with multi-AZ and data recovery targets",
             tags={
                 "Environment": "production",
             })
@@ -530,7 +530,6 @@ class V2Policy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.resiliencehub.V2Policy("example",
-            name="example-multi-region-policy",
             availability_slo={
                 "target": 99.95,
             },
@@ -538,7 +537,8 @@ class V2Policy(pulumi.CustomResource):
                 "disaster_recovery_approach": "ACTIVE_PASSIVE",
                 "rpo_in_minutes": 15,
                 "rto_in_minutes": 30,
-            })
+            },
+            name="example-multi-region-policy")
         ```
 
         ## Import
@@ -547,7 +547,7 @@ class V2Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the Resilience Hub V2 Policy.
+        - `arn` (String) ARN of the Resilience Hub V2 Policy.
 
         Using `pulumi import`, import Resilience Hub V2 Policy using the `arn`. For example:
 

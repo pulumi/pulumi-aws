@@ -40,7 +40,7 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
      * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
@@ -51,7 +51,7 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
     private Output<String> destinationStreamArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+     * @return ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
      * 
      * @deprecated
      * destination_stream_arn is deprecated. AWS End User Messaging event streams are being discontinued on October 30, 2026.
@@ -157,7 +157,7 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationStreamArn Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+         * @param destinationStreamArn ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
          * 
          * @return builder
          * 
@@ -172,7 +172,7 @@ public final class EventStreamArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param destinationStreamArn Amazon Resource Name (ARN) of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
+         * @param destinationStreamArn ARN of the Amazon Kinesis stream or Firehose delivery stream to which you want to publish events.
          * 
          * @return builder
          * 

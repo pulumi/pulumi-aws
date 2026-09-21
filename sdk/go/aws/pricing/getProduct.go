@@ -29,7 +29,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
-//				ServiceCode: "AmazonEC2",
 //				Filters: []pricing.GetProductFilter{
 //					{
 //						Field: "instanceType",
@@ -60,6 +59,7 @@ import (
 //						Value: "Used",
 //					},
 //				},
+//				ServiceCode: "AmazonEC2",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -83,7 +83,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := pricing.GetProduct(ctx, &pricing.GetProductArgs{
-//				ServiceCode: "AmazonRedshift",
 //				Filters: []pricing.GetProductFilter{
 //					{
 //						Field: "instanceType",
@@ -94,6 +93,7 @@ import (
 //						Value: "US East (N. Virginia)",
 //					},
 //				},
+//				ServiceCode: "AmazonRedshift",
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -132,12 +132,8 @@ type GetProductResult struct {
 }
 
 func GetProductOutput(ctx *pulumi.Context, args GetProductOutputArgs, opts ...pulumi.InvokeOption) GetProductResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetProductResultOutput, error) {
-			args := v.(GetProductArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:pricing/getProduct:getProduct", args, GetProductResultOutput{}, options).(GetProductResultOutput), nil
-		}).(GetProductResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:pricing/getProduct:getProduct", args, GetProductResultOutput{}, options).(GetProductResultOutput)
 }
 
 // A collection of arguments for invoking getProduct.

@@ -29,12 +29,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			prodSp, err := signer.NewSigningProfile(ctx, "prod_sp", &signer.SigningProfileArgs{
-//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
-//				NamePrefix: pulumi.String("prod_sp_"),
 //				SignatureValidityPeriod: &signer.SigningProfileSignatureValidityPeriodArgs{
 //					Value: pulumi.Int(5),
 //					Type:  pulumi.String("YEARS"),
 //				},
+//				PlatformId: pulumi.String("AWSLambda-SHA384-ECDSA"),
+//				NamePrefix: pulumi.String("prod_sp_"),
 //				Tags: pulumi.StringMap{
 //					"tag1": pulumi.String("value1"),
 //					"tag2": pulumi.String("value2"),

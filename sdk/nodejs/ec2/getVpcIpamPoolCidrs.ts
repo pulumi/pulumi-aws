@@ -44,18 +44,18 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const c = aws.ec2.getVpcIpamPoolCidrs({
- *     ipamPoolId: "ipam-pool-123",
  *     filters: [{
  *         name: "cidr",
  *         values: ["10.*"],
  *     }],
+ *     ipamPoolId: "ipam-pool-123",
  * });
  * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
  * const pls = new aws.ec2.ManagedPrefixList("pls", {
- *     entries: mycidrs.map((v, k) => ({key: k, value: v})).apply(entries => entries.map(entry => ({
- *         cidr: entry.value,
- *         description: entry.value,
- *     }))),
+ *     entries: mycidrs.map(entry => ({
+ *         cidr: entry,
+ *         description: entry,
+ *     })),
  *     name: `IPAM Pool (${test.id}) Cidrs`,
  *     addressFamily: "IPv4",
  *     maxEntries: mycidrs.length,
@@ -142,18 +142,18 @@ export interface GetVpcIpamPoolCidrsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const c = aws.ec2.getVpcIpamPoolCidrs({
- *     ipamPoolId: "ipam-pool-123",
  *     filters: [{
  *         name: "cidr",
  *         values: ["10.*"],
  *     }],
+ *     ipamPoolId: "ipam-pool-123",
  * });
  * const mycidrs = c.then(c => .filter(cidr => cidr.state == "provisioned").map(cidr => (cidr.cidr)));
  * const pls = new aws.ec2.ManagedPrefixList("pls", {
- *     entries: mycidrs.map((v, k) => ({key: k, value: v})).apply(entries => entries.map(entry => ({
- *         cidr: entry.value,
- *         description: entry.value,
- *     }))),
+ *     entries: mycidrs.map(entry => ({
+ *         cidr: entry,
+ *         description: entry,
+ *     })),
  *     name: `IPAM Pool (${test.id}) Cidrs`,
  *     addressFamily: "IPv4",
  *     maxEntries: mycidrs.length,

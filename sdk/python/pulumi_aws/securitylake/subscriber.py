@@ -174,7 +174,7 @@ class _SubscriberState:
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[_builtins.str] arn: The ARN of the subscriber.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[_builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: The ARN for the Amazon Security Lake Amazon S3 bucket.
@@ -260,7 +260,7 @@ class _SubscriberState:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+        ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -439,18 +439,18 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
             }],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -461,8 +461,10 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[
                 {
                     "aws_log_source_resource": {
@@ -477,10 +479,8 @@ class Subscriber(pulumi.CustomResource):
                     },
                 },
             ],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -523,18 +523,18 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[{
                 "aws_log_source_resource": {
                     "source_name": "ROUTE53",
                     "source_version": "1.0",
                 },
             }],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -545,8 +545,10 @@ class Subscriber(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.securitylake.Subscriber("example",
-            subscriber_name="example-name",
-            access_type="S3",
+            subscriber_identity={
+                "external_id": "example",
+                "principal": "1234567890",
+            },
             sources=[
                 {
                     "aws_log_source_resource": {
@@ -561,10 +563,8 @@ class Subscriber(pulumi.CustomResource):
                     },
                 },
             ],
-            subscriber_identity={
-                "external_id": "example",
-                "principal": "1234567890",
-            },
+            subscriber_name="example-name",
+            access_type="S3",
             opts = pulumi.ResourceOptions(depends_on=[example_aws_securitylake_data_lake]))
         ```
 
@@ -665,7 +665,7 @@ class Subscriber(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] access_type: The Amazon S3 or Lake Formation access type.
         :param pulumi.Input[_builtins.str] arn: The ARN of the subscriber.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_share_arn: The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         :param pulumi.Input[_builtins.str] resource_share_name: The name of the resource share.
         :param pulumi.Input[_builtins.str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
         :param pulumi.Input[_builtins.str] s3_bucket_arn: The ARN for the Amazon Security Lake Amazon S3 bucket.
@@ -728,7 +728,7 @@ class Subscriber(pulumi.CustomResource):
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
+        ARN which uniquely defines the AWS RAM resource share. Before accepting the RAM resource share invitation, you can view details related to the RAM resource share.
         """
         return pulumi.get(self, "resource_share_arn")
 

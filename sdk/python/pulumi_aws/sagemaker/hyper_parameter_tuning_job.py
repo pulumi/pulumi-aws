@@ -417,9 +417,7 @@ class HyperParameterTuningJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.HyperParameterTuningJob("example",
-            name="example",
             config={
-                "strategy": "Bayesian",
                 "objective": {
                     "metric_name": "test:msd",
                     "type": "Minimize",
@@ -457,41 +455,13 @@ class HyperParameterTuningJob(pulumi.CustomResource):
                     "max_number_of_training_jobs": 2,
                     "max_parallel_training_jobs": 1,
                 },
+                "strategy": "Bayesian",
             },
             training_job_definition={
-                "role_arn": "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
                 "algorithm_specification": {
                     "training_image": "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
                     "training_input_mode": "File",
                 },
-                "static_hyper_parameters": {
-                    "feature_dim": "3",
-                    "k": "2",
-                },
-                "input_data_configs": [
-                    {
-                        "channel_name": "train",
-                        "content_type": "text/csv",
-                        "input_mode": "File",
-                        "data_source": {
-                            "s3_data_source": {
-                                "s3_data_type": "S3Prefix",
-                                "s3_uri": "s3://example-bucket/input/",
-                            },
-                        },
-                    },
-                    {
-                        "channel_name": "test",
-                        "content_type": "text/csv",
-                        "input_mode": "File",
-                        "data_source": {
-                            "s3_data_source": {
-                                "s3_data_type": "S3Prefix",
-                                "s3_uri": "s3://example-bucket/input/",
-                            },
-                        },
-                    },
-                ],
                 "output_data_config": {
                     "s3_output_path": "s3://example-bucket/output/",
                 },
@@ -503,7 +473,37 @@ class HyperParameterTuningJob(pulumi.CustomResource):
                 "stopping_condition": {
                     "max_runtime_in_seconds": 3600,
                 },
-            })
+                "input_data_configs": [
+                    {
+                        "data_source": {
+                            "s3_data_source": {
+                                "s3_data_type": "S3Prefix",
+                                "s3_uri": "s3://example-bucket/input/",
+                            },
+                        },
+                        "channel_name": "train",
+                        "content_type": "text/csv",
+                        "input_mode": "File",
+                    },
+                    {
+                        "data_source": {
+                            "s3_data_source": {
+                                "s3_data_type": "S3Prefix",
+                                "s3_uri": "s3://example-bucket/input/",
+                            },
+                        },
+                        "channel_name": "test",
+                        "content_type": "text/csv",
+                        "input_mode": "File",
+                    },
+                ],
+                "role_arn": "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
+                "static_hyper_parameters": {
+                    "feature_dim": "3",
+                    "k": "2",
+                },
+            },
+            name="example")
         ```
 
         ## Import
@@ -559,9 +559,7 @@ class HyperParameterTuningJob(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.sagemaker.HyperParameterTuningJob("example",
-            name="example",
             config={
-                "strategy": "Bayesian",
                 "objective": {
                     "metric_name": "test:msd",
                     "type": "Minimize",
@@ -599,41 +597,13 @@ class HyperParameterTuningJob(pulumi.CustomResource):
                     "max_number_of_training_jobs": 2,
                     "max_parallel_training_jobs": 1,
                 },
+                "strategy": "Bayesian",
             },
             training_job_definition={
-                "role_arn": "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
                 "algorithm_specification": {
                     "training_image": "174872318107.dkr.ecr.us-west-2.amazonaws.com/kmeans:1",
                     "training_input_mode": "File",
                 },
-                "static_hyper_parameters": {
-                    "feature_dim": "3",
-                    "k": "2",
-                },
-                "input_data_configs": [
-                    {
-                        "channel_name": "train",
-                        "content_type": "text/csv",
-                        "input_mode": "File",
-                        "data_source": {
-                            "s3_data_source": {
-                                "s3_data_type": "S3Prefix",
-                                "s3_uri": "s3://example-bucket/input/",
-                            },
-                        },
-                    },
-                    {
-                        "channel_name": "test",
-                        "content_type": "text/csv",
-                        "input_mode": "File",
-                        "data_source": {
-                            "s3_data_source": {
-                                "s3_data_type": "S3Prefix",
-                                "s3_uri": "s3://example-bucket/input/",
-                            },
-                        },
-                    },
-                ],
                 "output_data_config": {
                     "s3_output_path": "s3://example-bucket/output/",
                 },
@@ -645,7 +615,37 @@ class HyperParameterTuningJob(pulumi.CustomResource):
                 "stopping_condition": {
                     "max_runtime_in_seconds": 3600,
                 },
-            })
+                "input_data_configs": [
+                    {
+                        "data_source": {
+                            "s3_data_source": {
+                                "s3_data_type": "S3Prefix",
+                                "s3_uri": "s3://example-bucket/input/",
+                            },
+                        },
+                        "channel_name": "train",
+                        "content_type": "text/csv",
+                        "input_mode": "File",
+                    },
+                    {
+                        "data_source": {
+                            "s3_data_source": {
+                                "s3_data_type": "S3Prefix",
+                                "s3_uri": "s3://example-bucket/input/",
+                            },
+                        },
+                        "channel_name": "test",
+                        "content_type": "text/csv",
+                        "input_mode": "File",
+                    },
+                ],
+                "role_arn": "arn:aws:iam::123456789012:role/example-sagemaker-execution-role",
+                "static_hyper_parameters": {
+                    "feature_dim": "3",
+                    "k": "2",
+                },
+            },
+            name="example")
         ```
 
         ## Import

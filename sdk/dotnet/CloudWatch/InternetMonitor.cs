@@ -80,7 +80,7 @@ namespace Pulumi.Aws.CloudWatch
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+        /// Resources to include in a monitor, which you provide as a set of ARNs.
         /// </summary>
         [Output("resources")]
         public Output<ImmutableArray<string>> Resources { get; private set; } = null!;
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _resources;
 
         /// <summary>
-        /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+        /// Resources to include in a monitor, which you provide as a set of ARNs.
         /// </summary>
         public InputList<string> Resources
         {
@@ -273,7 +273,7 @@ namespace Pulumi.Aws.CloudWatch
         private InputList<string>? _resources;
 
         /// <summary>
-        /// The resources to include in a monitor, which you provide as a set of Amazon Resource Names (ARNs).
+        /// Resources to include in a monitor, which you provide as a set of ARNs.
         /// </summary>
         public InputList<string> Resources
         {

@@ -19,14 +19,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     public static final FunctionState Empty = new FunctionState();
 
     /**
-     * Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * ARN identifying your CloudFront Function.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifying your CloudFront Function.
+     * @return ARN identifying your CloudFront Function.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -34,14 +34,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Source code of the function
+     * Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     @Import(name="code")
     private @Nullable Output<String> code;
 
     /**
-     * @return Source code of the function
+     * @return Source code of the function. Must be between 1 and 40960 bytes.
      * 
      */
     public Optional<Output<String>> code() {
@@ -49,14 +49,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Comment.
+     * Comment. Must not exceed 128 characters.
      * 
      */
     @Import(name="comment")
     private @Nullable Output<String> comment;
 
     /**
-     * @return Comment.
+     * @return Comment. Must not exceed 128 characters.
      * 
      */
     public Optional<Output<String>> comment() {
@@ -109,14 +109,14 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Unique name for your CloudFront Function.
+     * Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return Unique name for your CloudFront Function.
+     * @return Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
      * 
      */
     public Optional<Output<String>> name() {
@@ -238,7 +238,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront Function.
+         * @param arn ARN identifying your CloudFront Function.
          * 
          * @return builder
          * 
@@ -249,7 +249,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifying your CloudFront Function.
+         * @param arn ARN identifying your CloudFront Function.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Source code of the function
+         * @param code Source code of the function. Must be between 1 and 40960 bytes.
          * 
          * @return builder
          * 
@@ -270,7 +270,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param code Source code of the function
+         * @param code Source code of the function. Must be between 1 and 40960 bytes.
          * 
          * @return builder
          * 
@@ -280,7 +280,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Comment.
+         * @param comment Comment. Must not exceed 128 characters.
          * 
          * @return builder
          * 
@@ -291,7 +291,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param comment Comment.
+         * @param comment Comment. Must not exceed 128 characters.
          * 
          * @return builder
          * 
@@ -374,7 +374,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for your CloudFront Function.
+         * @param name Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
          * 
          * @return builder
          * 
@@ -385,7 +385,7 @@ public final class FunctionState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param name Unique name for your CloudFront Function.
+         * @param name Unique name for your CloudFront Function. Valid names contain only alphanumeric characters, hyphens, and underscores, and must be between 1 and 64 characters.
          * 
          * @return builder
          * 

@@ -21,14 +21,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     public static final ClusterSnapshotCopyState Empty = new ClusterSnapshotCopyState();
 
     /**
-     * Specifies the allocated storage size in gigabytes (GB).
+     * Allocated storage size in gigabytes (GB).
      * 
      */
     @Import(name="allocatedStorage")
     private @Nullable Output<Integer> allocatedStorage;
 
     /**
-     * @return Specifies the allocated storage size in gigabytes (GB).
+     * @return Allocated storage size in gigabytes (GB).
      * 
      */
     public Optional<Output<Integer>> allocatedStorage() {
@@ -51,14 +51,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * ARN for the DB cluster snapshot.
      * 
      */
     @Import(name="dbClusterSnapshotArn")
     private @Nullable Output<String> dbClusterSnapshotArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the DB cluster snapshot.
+     * @return ARN for the DB cluster snapshot.
      * 
      */
     public Optional<Output<String>> dbClusterSnapshotArn() {
@@ -66,14 +66,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The Destination region to place snapshot copy.
+     * Destination region to place the snapshot copy.
      * 
      */
     @Import(name="destinationRegion")
     private @Nullable Output<String> destinationRegion;
 
     /**
-     * @return The Destination region to place snapshot copy.
+     * @return Destination region to place the snapshot copy.
      * 
      */
     public Optional<Output<String>> destinationRegion() {
@@ -81,14 +81,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the name of the database engine.
+     * Name of the database engine.
      * 
      */
     @Import(name="engine")
     private @Nullable Output<String> engine;
 
     /**
-     * @return Specifies the name of the database engine.
+     * @return Name of the database engine.
      * 
      */
     public Optional<Output<String>> engine() {
@@ -96,14 +96,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Import(name="engineVersion")
     private @Nullable Output<String> engineVersion;
 
     /**
-     * @return Specifies the version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Optional<Output<String>> engineVersion() {
@@ -185,9 +185,17 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         return Optional.ofNullable(this.sharedAccounts);
     }
 
+    /**
+     * Type of the DB cluster snapshot.
+     * 
+     */
     @Import(name="snapshotType")
     private @Nullable Output<String> snapshotType;
 
+    /**
+     * @return Type of the DB cluster snapshot.
+     * 
+     */
     public Optional<Output<String>> snapshotType() {
         return Optional.ofNullable(this.snapshotType);
     }
@@ -208,14 +216,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies whether the DB cluster snapshot is encrypted.
+     * Whether the DB cluster snapshot is encrypted.
      * 
      */
     @Import(name="storageEncrypted")
     private @Nullable Output<Boolean> storageEncrypted;
 
     /**
-     * @return Specifies whether the DB cluster snapshot is encrypted.
+     * @return Whether the DB cluster snapshot is encrypted.
      * 
      */
     public Optional<Output<Boolean>> storageEncrypted() {
@@ -223,14 +231,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Specifies the storage type associated with DB cluster snapshot.
+     * Storage type associated with DB cluster snapshot.
      * 
      */
     @Import(name="storageType")
     private @Nullable Output<String> storageType;
 
     /**
-     * @return Specifies the storage type associated with DB cluster snapshot.
+     * @return Storage type associated with DB cluster snapshot.
      * 
      */
     public Optional<Output<String>> storageType() {
@@ -253,14 +261,14 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
     }
 
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Import(name="tagsAll")
     private @Nullable Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Optional<Output<Map<String,String>>> tagsAll() {
@@ -352,7 +360,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -363,7 +371,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param allocatedStorage Specifies the allocated storage size in gigabytes (GB).
+         * @param allocatedStorage Allocated storage size in gigabytes (GB).
          * 
          * @return builder
          * 
@@ -394,7 +402,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB cluster snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -405,7 +413,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param dbClusterSnapshotArn The Amazon Resource Name (ARN) for the DB cluster snapshot.
+         * @param dbClusterSnapshotArn ARN for the DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -415,7 +423,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination region to place the snapshot copy.
          * 
          * @return builder
          * 
@@ -426,7 +434,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param destinationRegion The Destination region to place snapshot copy.
+         * @param destinationRegion Destination region to place the snapshot copy.
          * 
          * @return builder
          * 
@@ -436,7 +444,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -447,7 +455,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param engine Specifies the name of the database engine.
+         * @param engine Name of the database engine.
          * 
          * @return builder
          * 
@@ -457,7 +465,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param engineVersion Specifies the version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -468,7 +476,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param engineVersion Specifies the version of the database engine.
+         * @param engineVersion Version of the database engine.
          * 
          * @return builder
          * 
@@ -592,11 +600,23 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
             return sharedAccounts(List.of(sharedAccounts));
         }
 
+        /**
+         * @param snapshotType Type of the DB cluster snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(@Nullable Output<String> snapshotType) {
             $.snapshotType = snapshotType;
             return this;
         }
 
+        /**
+         * @param snapshotType Type of the DB cluster snapshot.
+         * 
+         * @return builder
+         * 
+         */
         public Builder snapshotType(String snapshotType) {
             return snapshotType(Output.of(snapshotType));
         }
@@ -623,7 +643,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster snapshot is encrypted.
+         * @param storageEncrypted Whether the DB cluster snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -634,7 +654,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageEncrypted Specifies whether the DB cluster snapshot is encrypted.
+         * @param storageEncrypted Whether the DB cluster snapshot is encrypted.
          * 
          * @return builder
          * 
@@ -644,7 +664,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageType Specifies the storage type associated with DB cluster snapshot.
+         * @param storageType Storage type associated with DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -655,7 +675,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param storageType Specifies the storage type associated with DB cluster snapshot.
+         * @param storageType Storage type associated with DB cluster snapshot.
          * 
          * @return builder
          * 
@@ -686,7 +706,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 
@@ -697,7 +717,7 @@ public final class ClusterSnapshotCopyState extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param tagsAll A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+         * @param tagsAll Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
          * 
          * @return builder
          * 

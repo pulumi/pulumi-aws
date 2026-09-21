@@ -46,19 +46,19 @@ namespace Pulumi.Aws.Ses
     public partial class Template : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the SES template
+        /// ARN of the SES template
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        /// HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Output("html")]
         public Output<string?> Html { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        /// Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -70,13 +70,13 @@ namespace Pulumi.Aws.Ses
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The subject line of the email.
+        /// Subject line of the email.
         /// </summary>
         [Output("subject")]
         public Output<string?> Subject { get; private set; } = null!;
 
         /// <summary>
-        /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        /// Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Output("text")]
         public Output<string?> Text { get; private set; } = null!;
@@ -128,13 +128,13 @@ namespace Pulumi.Aws.Ses
     public sealed class TemplateArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        /// HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("html")]
         public Input<string>? Html { get; set; }
 
         /// <summary>
-        /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        /// Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -146,13 +146,13 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The subject line of the email.
+        /// Subject line of the email.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
 
         /// <summary>
-        /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        /// Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }
@@ -166,19 +166,19 @@ namespace Pulumi.Aws.Ses
     public sealed class TemplateState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the SES template
+        /// ARN of the SES template
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
+        /// HTML body of the email. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("html")]
         public Input<string>? Html { get; set; }
 
         /// <summary>
-        /// The name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
+        /// Name of the template. Cannot exceed 64 characters. You will refer to this name when you send email.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -190,13 +190,13 @@ namespace Pulumi.Aws.Ses
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The subject line of the email.
+        /// Subject line of the email.
         /// </summary>
         [Input("subject")]
         public Input<string>? Subject { get; set; }
 
         /// <summary>
-        /// The email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
+        /// Email body that will be visible to recipients whose email clients do not display HTML. Must be less than 500KB in size, including both the text and HTML parts.
         /// </summary>
         [Input("text")]
         public Input<string>? Text { get; set; }

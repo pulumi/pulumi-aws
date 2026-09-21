@@ -13,7 +13,7 @@ import javax.annotation.Nullable;
 @CustomType
 public final class ImageOutputResource {
     /**
-     * @return Set of objects with each Amazon Machine Image (AMI) created.
+     * @return Set of objects with each AMI created.
      * 
      */
     private @Nullable List<ImageOutputResourceAmi> amis;
@@ -25,7 +25,7 @@ public final class ImageOutputResource {
 
     private ImageOutputResource() {}
     /**
-     * @return Set of objects with each Amazon Machine Image (AMI) created.
+     * @return Set of objects with each AMI created.
      * 
      */
     public List<ImageOutputResourceAmi> amis() {

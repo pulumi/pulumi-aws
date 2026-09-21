@@ -31,6 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cleanrooms.NewConfiguredTable(ctx, "test_configured_table", &cleanrooms.ConfiguredTableArgs{
+//				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
+//					DatabaseName: pulumi.String("example_database"),
+//					TableName:    pulumi.String("example_table"),
+//				},
 //				Name:           pulumi.String("pulumi-example-table"),
 //				Description:    pulumi.String("I made this table with Pulumi!"),
 //				AnalysisMethod: pulumi.String("DIRECT_QUERY"),
@@ -38,10 +42,6 @@ import (
 //					pulumi.String("column1"),
 //					pulumi.String("column2"),
 //					pulumi.String("column3"),
-//				},
-//				TableReference: &cleanrooms.ConfiguredTableTableReferenceArgs{
-//					DatabaseName: pulumi.String("example_database"),
-//					TableName:    pulumi.String("example_table"),
 //				},
 //				Tags: pulumi.StringMap{
 //					"Project": pulumi.String("Pulumi"),

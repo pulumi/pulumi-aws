@@ -366,11 +366,11 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter for data analysis",
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            name="example-code-interpreter",
+            description="Code interpreter for data analysis")
         ```
 
         ### Code Interpreter with Execution Role
@@ -380,23 +380,23 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-code-interpreter-role",
             assume_role_policy=assume_role.json)
         example_agentcore_code_interpreter = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter with custom execution role",
-            execution_role_arn=example.arn,
             network_configuration={
                 "network_mode": "SANDBOX",
-            })
+            },
+            name="example-code-interpreter",
+            description="Code interpreter with custom execution role",
+            execution_role_arn=example.arn)
         ```
 
         ## Import
@@ -438,11 +438,11 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter for data analysis",
             network_configuration={
                 "network_mode": "PUBLIC",
-            })
+            },
+            name="example-code-interpreter",
+            description="Code interpreter for data analysis")
         ```
 
         ### Code Interpreter with Execution Role
@@ -452,23 +452,23 @@ class AgentcoreCodeInterpreter(pulumi.CustomResource):
         import pulumi_aws as aws
 
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
-            "actions": ["sts:AssumeRole"],
             "principals": [{
                 "type": "Service",
                 "identifiers": ["bedrock-agentcore.amazonaws.com"],
             }],
+            "effect": "Allow",
+            "actions": ["sts:AssumeRole"],
         }])
         example = aws.iam.Role("example",
             name="bedrock-agentcore-code-interpreter-role",
             assume_role_policy=assume_role.json)
         example_agentcore_code_interpreter = aws.bedrock.AgentcoreCodeInterpreter("example",
-            name="example-code-interpreter",
-            description="Code interpreter with custom execution role",
-            execution_role_arn=example.arn,
             network_configuration={
                 "network_mode": "SANDBOX",
-            })
+            },
+            name="example-code-interpreter",
+            description="Code interpreter with custom execution role",
+            execution_role_arn=example.arn)
         ```
 
         ## Import

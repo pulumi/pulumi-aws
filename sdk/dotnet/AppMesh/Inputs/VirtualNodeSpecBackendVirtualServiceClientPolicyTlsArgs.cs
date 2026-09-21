@@ -37,7 +37,7 @@ namespace Pulumi.Aws.AppMesh.Inputs
         }
 
         /// <summary>
-        /// Listener's Transport Layer Security (TLS) validation context. See `spec.listener.tls.validation` Block for details.
+        /// Listener's TLS validation context. See `spec.listener.tls.validation` Block for details.
         /// </summary>
         [Input("validation", required: true)]
         public Input<Inputs.VirtualNodeSpecBackendVirtualServiceClientPolicyTlsValidationArgs> Validation { get; set; } = null!;

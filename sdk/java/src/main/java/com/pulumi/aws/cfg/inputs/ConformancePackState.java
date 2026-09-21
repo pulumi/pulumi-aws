@@ -18,14 +18,14 @@ public final class ConformancePackState extends com.pulumi.resources.ResourceArg
     public static final ConformancePackState Empty = new ConformancePackState();
 
     /**
-     * Amazon Resource Name (ARN) of the conformance pack.
+     * ARN of the conformance pack.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the conformance pack.
+     * @return ARN of the conformance pack.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -173,7 +173,7 @@ public final class ConformancePackState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the conformance pack.
+         * @param arn ARN of the conformance pack.
          * 
          * @return builder
          * 
@@ -184,7 +184,7 @@ public final class ConformancePackState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the conformance pack.
+         * @param arn ARN of the conformance pack.
          * 
          * @return builder
          * 

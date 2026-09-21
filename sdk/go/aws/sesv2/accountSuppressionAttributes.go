@@ -54,7 +54,7 @@ type AccountSuppressionAttributes struct {
 
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayOutput `pulumi:"suppressedReasons"`
 }
 
@@ -93,14 +93,14 @@ func GetAccountSuppressionAttributes(ctx *pulumi.Context,
 type accountSuppressionAttributesState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
 type AccountSuppressionAttributesState struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
 
@@ -111,7 +111,7 @@ func (AccountSuppressionAttributesState) ElementType() reflect.Type {
 type accountSuppressionAttributesArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons []string `pulumi:"suppressedReasons"`
 }
 
@@ -119,7 +119,7 @@ type accountSuppressionAttributesArgs struct {
 type AccountSuppressionAttributesArgs struct {
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+	// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 	SuppressedReasons pulumi.StringArrayInput
 }
 
@@ -215,7 +215,7 @@ func (o AccountSuppressionAttributesOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
+// Reasons that email addresses are automatically added to the suppression list for your account. Valid values: `COMPLAINT`, `BOUNCE`.
 func (o AccountSuppressionAttributesOutput) SuppressedReasons() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AccountSuppressionAttributes) pulumi.StringArrayOutput { return v.SuppressedReasons }).(pulumi.StringArrayOutput)
 }

@@ -31,11 +31,11 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			exampleCertificateAuthority, err := acmpca.NewCertificateAuthority(ctx, "example", &acmpca.CertificateAuthorityArgs{
 //				CertificateAuthorityConfiguration: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationArgs{
-//					KeyAlgorithm:     pulumi.String("RSA_4096"),
-//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //					Subject: &acmpca.CertificateAuthorityCertificateAuthorityConfigurationSubjectArgs{
 //						CommonName: pulumi.String("example.com"),
 //					},
+//					KeyAlgorithm:     pulumi.String("RSA_4096"),
+//					SigningAlgorithm: pulumi.String("SHA512WITHRSA"),
 //				},
 //			})
 //			if err != nil {

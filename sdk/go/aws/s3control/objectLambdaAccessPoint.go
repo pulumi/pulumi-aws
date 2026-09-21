@@ -44,22 +44,22 @@ import (
 //				return err
 //			}
 //			_, err = s3control.NewObjectLambdaAccessPoint(ctx, "example", &s3control.ObjectLambdaAccessPointArgs{
-//				Name: pulumi.String("example"),
 //				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-//					SupportingAccessPoint: exampleAccessPoint.Arn,
 //					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
 //						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("GetObject"),
-//							},
 //							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
 //								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
 //									FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								},
 //							},
+//							Actions: pulumi.StringArray{
+//								pulumi.String("GetObject"),
+//							},
 //						},
 //					},
+//					SupportingAccessPoint: exampleAccessPoint.Arn,
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -84,7 +84,7 @@ type ObjectLambdaAccessPoint struct {
 	AccountId pulumi.StringOutput `pulumi:"accountId"`
 	// Alias for the S3 Object Lambda Access Point.
 	Alias pulumi.StringOutput `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+	// ARN of the Object Lambda Access Point.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
 	Configuration ObjectLambdaAccessPointConfigurationOutput `pulumi:"configuration"`
@@ -131,7 +131,7 @@ type objectLambdaAccessPointState struct {
 	AccountId *string `pulumi:"accountId"`
 	// Alias for the S3 Object Lambda Access Point.
 	Alias *string `pulumi:"alias"`
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+	// ARN of the Object Lambda Access Point.
 	Arn *string `pulumi:"arn"`
 	// Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
 	Configuration *ObjectLambdaAccessPointConfiguration `pulumi:"configuration"`
@@ -146,7 +146,7 @@ type ObjectLambdaAccessPointState struct {
 	AccountId pulumi.StringPtrInput
 	// Alias for the S3 Object Lambda Access Point.
 	Alias pulumi.StringPtrInput
-	// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+	// ARN of the Object Lambda Access Point.
 	Arn pulumi.StringPtrInput
 	// Configuration block containing details about the Object Lambda Access Point. See `configuration` Block below for more details.
 	Configuration ObjectLambdaAccessPointConfigurationPtrInput
@@ -280,7 +280,7 @@ func (o ObjectLambdaAccessPointOutput) Alias() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Alias }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the Object Lambda Access Point.
+// ARN of the Object Lambda Access Point.
 func (o ObjectLambdaAccessPointOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectLambdaAccessPoint) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

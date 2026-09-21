@@ -1915,8 +1915,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
@@ -1926,6 +1925,7 @@ class Instance(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         example = aws.ec2.Instance("example",
             ami=ubuntu.id,
@@ -1955,9 +1955,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        example = aws.ec2.get_ami(filters=[
                 {
                     "name": "architecture",
                     "values": ["arm64"],
@@ -1966,15 +1964,17 @@ class Instance(pulumi.CustomResource):
                     "name": "name",
                     "values": ["al2023-ami-2023*"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
-            ami=example.id,
             instance_market_options={
-                "market_type": "spot",
                 "spot_options": {
                     "max_price": "0.0031",
                 },
+                "market_type": "spot",
             },
+            ami=example.id,
             instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
@@ -2006,14 +2006,14 @@ class Instance(pulumi.CustomResource):
                 "Name": "primary_network_interface",
             })
         example_instance = aws.ec2.Instance("example",
-            ami="ami-005e54dee72cc1d00",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
             primary_network_interface={
                 "network_interface_id": example.id,
             },
             credit_specification={
                 "cpu_credits": "unlimited",
-            })
+            },
+            ami="ami-005e54dee72cc1d00",
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
         ```
 
         ### CPU options example
@@ -2034,20 +2034,20 @@ class Instance(pulumi.CustomResource):
             tags={
                 "Name": "tf-example",
             })
-        amzn_linux_2023_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
+        amzn_linux_2023_ami = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["al2023-ami-2023.*-x86_64"],
-            }])
+            }],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
-            ami=amzn_linux_2023_ami.id,
-            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
-            subnet_id=example_subnet.id,
             cpu_options={
                 "core_count": 2,
                 "threads_per_core": 2,
             },
+            ami=amzn_linux_2023_ami.id,
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
+            subnet_id=example_subnet.id,
             tags={
                 "Name": "tf-example",
             })
@@ -2168,8 +2168,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        ubuntu = aws.ec2.get_ami(most_recent=True,
-            filters=[
+        ubuntu = aws.ec2.get_ami(filters=[
                 {
                     "name": "name",
                     "values": ["ubuntu/images/hvm-ssd/ubuntu-jammy-22.04-amd64-server-*"],
@@ -2179,6 +2178,7 @@ class Instance(pulumi.CustomResource):
                     "values": ["hvm"],
                 },
             ],
+            most_recent=True,
             owners=["099720109477"])
         example = aws.ec2.Instance("example",
             ami=ubuntu.id,
@@ -2208,9 +2208,7 @@ class Instance(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[
+        example = aws.ec2.get_ami(filters=[
                 {
                     "name": "architecture",
                     "values": ["arm64"],
@@ -2219,15 +2217,17 @@ class Instance(pulumi.CustomResource):
                     "name": "name",
                     "values": ["al2023-ami-2023*"],
                 },
-            ])
+            ],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
-            ami=example.id,
             instance_market_options={
-                "market_type": "spot",
                 "spot_options": {
                     "max_price": "0.0031",
                 },
+                "market_type": "spot",
             },
+            ami=example.id,
             instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
@@ -2259,14 +2259,14 @@ class Instance(pulumi.CustomResource):
                 "Name": "primary_network_interface",
             })
         example_instance = aws.ec2.Instance("example",
-            ami="ami-005e54dee72cc1d00",
-            instance_type=aws.ec2.InstanceType.T2_MICRO,
             primary_network_interface={
                 "network_interface_id": example.id,
             },
             credit_specification={
                 "cpu_credits": "unlimited",
-            })
+            },
+            ami="ami-005e54dee72cc1d00",
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
         ```
 
         ### CPU options example
@@ -2287,20 +2287,20 @@ class Instance(pulumi.CustomResource):
             tags={
                 "Name": "tf-example",
             })
-        amzn_linux_2023_ami = aws.ec2.get_ami(most_recent=True,
-            owners=["amazon"],
-            filters=[{
+        amzn_linux_2023_ami = aws.ec2.get_ami(filters=[{
                 "name": "name",
                 "values": ["al2023-ami-2023.*-x86_64"],
-            }])
+            }],
+            most_recent=True,
+            owners=["amazon"])
         example_instance = aws.ec2.Instance("example",
-            ami=amzn_linux_2023_ami.id,
-            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
-            subnet_id=example_subnet.id,
             cpu_options={
                 "core_count": 2,
                 "threads_per_core": 2,
             },
+            ami=amzn_linux_2023_ami.id,
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
+            subnet_id=example_subnet.id,
             tags={
                 "Name": "tf-example",
             })

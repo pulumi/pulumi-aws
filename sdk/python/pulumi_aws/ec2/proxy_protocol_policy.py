@@ -156,8 +156,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
-            name="test-lb",
-            availability_zones=["us-east-1a"],
             listeners=[
                 {
                     "instance_port": 25,
@@ -171,7 +169,9 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                     "lb_port": 587,
                     "lb_protocol": "tcp",
                 },
-            ])
+            ],
+            name="test-lb",
+            availability_zones=["us-east-1a"])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,
             instance_ports=[
@@ -205,8 +205,6 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
         import pulumi_aws as aws
 
         lb = aws.elb.LoadBalancer("lb",
-            name="test-lb",
-            availability_zones=["us-east-1a"],
             listeners=[
                 {
                     "instance_port": 25,
@@ -220,7 +218,9 @@ class ProxyProtocolPolicy(pulumi.CustomResource):
                     "lb_port": 587,
                     "lb_protocol": "tcp",
                 },
-            ])
+            ],
+            name="test-lb",
+            availability_zones=["us-east-1a"])
         smtp = aws.ec2.ProxyProtocolPolicy("smtp",
             load_balancer=lb.name,
             instance_ports=[

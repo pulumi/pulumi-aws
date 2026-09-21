@@ -110,14 +110,14 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      * 
      */
     @Import(name="outpostArn")
     private @Nullable Output<String> outpostArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Outpost.
+     * @return ARN of the Outpost.
      * 
      */
     public Optional<Output<String>> outpostArn() {
@@ -401,7 +401,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn ARN of the Outpost.
          * 
          * @return builder
          * 
@@ -412,7 +412,7 @@ public final class VolumeArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param outpostArn Amazon Resource Name (ARN) of the Outpost.
+         * @param outpostArn ARN of the Outpost.
          * 
          * @return builder
          * 

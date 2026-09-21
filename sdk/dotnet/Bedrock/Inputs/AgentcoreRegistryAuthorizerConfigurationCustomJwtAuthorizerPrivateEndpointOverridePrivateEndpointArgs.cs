@@ -12,9 +12,15 @@ namespace Pulumi.Aws.Bedrock.Inputs
 
     public sealed class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Managed VPC resource configuration. See `ManagedVpcResource` below.
+        /// </summary>
         [Input("managedVpcResource")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointManagedVpcResourceArgs>? ManagedVpcResource { get; set; }
 
+        /// <summary>
+        /// Self-managed VPC Lattice resource configuration. See `SelfManagedLatticeResource` below.
+        /// </summary>
         [Input("selfManagedLatticeResource")]
         public Input<Inputs.AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerPrivateEndpointOverridePrivateEndpointSelfManagedLatticeResourceArgs>? SelfManagedLatticeResource { get; set; }
 

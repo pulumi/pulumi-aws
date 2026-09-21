@@ -17,14 +17,14 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
     public static final RefreshScheduleState Empty = new RefreshScheduleState();
 
     /**
-     * Amazon Resource Name (ARN) of the refresh schedule.
+     * ARN of the refresh schedule.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the refresh schedule.
+     * @return ARN of the refresh schedule.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -140,7 +140,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the refresh schedule.
+         * @param arn ARN of the refresh schedule.
          * 
          * @return builder
          * 
@@ -151,7 +151,7 @@ public final class RefreshScheduleState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the refresh schedule.
+         * @param arn ARN of the refresh schedule.
          * 
          * @return builder
          * 

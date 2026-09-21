@@ -37,13 +37,8 @@ import (
 //				return err
 //			}
 //			test := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
-//				PolicyId: pulumi.String("__default_policy_ID"),
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("SNS:Publish"),
-//						},
-//						Effect: pulumi.String("Allow"),
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -52,12 +47,17 @@ import (
 //								},
 //							},
 //						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("SNS:Publish"),
+//						},
+//						Effect: pulumi.String("Allow"),
 //						Resources: pulumi.StringArray{
 //							testTopic.Arn,
 //						},
 //						Sid: pulumi.String("__default_statement_ID"),
 //					},
 //				},
+//				PolicyId: pulumi.String("__default_policy_ID"),
 //			}, nil)
 //			_, err = sns.NewTopicPolicy(ctx, "test", &sns.TopicPolicyArgs{
 //				Arn:    testTopic.Arn,
@@ -101,7 +101,7 @@ type VaultNotifications struct {
 	BackupVaultName pulumi.StringOutput `pulumi:"backupVaultName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringOutput `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+	// ARN that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringOutput `pulumi:"snsTopicArn"`
 }
 
@@ -152,7 +152,7 @@ type vaultNotificationsState struct {
 	BackupVaultName *string `pulumi:"backupVaultName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+	// ARN that specifies the topic for a backup vault’s events
 	SnsTopicArn *string `pulumi:"snsTopicArn"`
 }
 
@@ -165,7 +165,7 @@ type VaultNotificationsState struct {
 	BackupVaultName pulumi.StringPtrInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+	// ARN that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringPtrInput
 }
 
@@ -180,7 +180,7 @@ type vaultNotificationsArgs struct {
 	BackupVaultName string `pulumi:"backupVaultName"`
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region *string `pulumi:"region"`
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+	// ARN that specifies the topic for a backup vault’s events
 	SnsTopicArn string `pulumi:"snsTopicArn"`
 }
 
@@ -192,7 +192,7 @@ type VaultNotificationsArgs struct {
 	BackupVaultName pulumi.StringInput
 	// Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
 	Region pulumi.StringPtrInput
-	// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+	// ARN that specifies the topic for a backup vault’s events
 	SnsTopicArn pulumi.StringInput
 }
 
@@ -303,7 +303,7 @@ func (o VaultNotificationsOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The Amazon Resource Name (ARN) that specifies the topic for a backup vault’s events
+// ARN that specifies the topic for a backup vault’s events
 func (o VaultNotificationsOutput) SnsTopicArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *VaultNotifications) pulumi.StringOutput { return v.SnsTopicArn }).(pulumi.StringOutput)
 }

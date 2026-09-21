@@ -94,7 +94,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class GetContactChannelArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the contact channel.
+        /// ARN of the contact channel.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.SsmContacts
     public sealed class GetContactChannelInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the contact channel.
+        /// ARN of the contact channel.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -141,7 +141,7 @@ namespace Pulumi.Aws.SsmContacts
         public readonly string ActivationStatus;
         public readonly string Arn;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the AWS SSM Contact that the contact channel belongs to.
+        /// ARN of the AWS SSM Contact that the contact channel belongs to.
         /// </summary>
         public readonly string ContactId;
         /// <summary>

@@ -31,13 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kendra.NewQuerySuggestionsBlockList(ctx, "example", &kendra.QuerySuggestionsBlockListArgs{
-//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
-//				Name:    pulumi.String("Example"),
-//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				SourceS3Path: &kendra.QuerySuggestionsBlockListSourceS3PathArgs{
 //					Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
 //					Key:    pulumi.String("example/suggestions.txt"),
 //				},
+//				IndexId: pulumi.Any(exampleAwsKendraIndex.Id),
+//				Name:    pulumi.String("Example"),
+//				RoleArn: pulumi.Any(exampleAwsIamRole.Arn),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("Example Kendra Index"),
 //				},

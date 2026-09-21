@@ -27,6 +27,10 @@ namespace Pulumi.Aws.Kinesis
     /// {
     ///     var testStream = new Aws.Kinesis.Stream("test_stream", new()
     ///     {
+    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
+    ///         {
+    ///             StreamMode = "PROVISIONED",
+    ///         },
     ///         Name = "kinesis-test",
     ///         ShardCount = 1,
     ///         RetentionPeriod = 48,
@@ -34,10 +38,6 @@ namespace Pulumi.Aws.Kinesis
     ///         {
     ///             "IncomingBytes",
     ///             "OutgoingBytes",
-    ///         },
-    ///         StreamModeDetails = new Aws.Kinesis.Inputs.StreamStreamModeDetailsArgs
-    ///         {
-    ///             StreamMode = "PROVISIONED",
     ///         },
     ///         Tags = 
     ///         {
@@ -71,7 +71,7 @@ namespace Pulumi.Aws.Kinesis
     public partial class Stream : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
+        /// ARN specifying the stream (same as `Id`).
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -201,7 +201,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
+        /// ARN specifying the stream (same as `Id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -299,7 +299,7 @@ namespace Pulumi.Aws.Kinesis
     public sealed class StreamState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the stream (same as `Id`).
+        /// ARN specifying the stream (same as `Id`).
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

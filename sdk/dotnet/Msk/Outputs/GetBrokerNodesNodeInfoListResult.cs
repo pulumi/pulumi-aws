@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Msk.Outputs
         /// </summary>
         public readonly string ClientSubnet;
         /// <summary>
-        /// The client virtual private cloud (VPC) IP address
+        /// Client VPC IP address
         /// </summary>
         public readonly string ClientVpcIpAddress;
         /// <summary>

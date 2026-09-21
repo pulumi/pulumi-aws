@@ -45,22 +45,22 @@ import (
 //				return err
 //			}
 //			exampleObjectLambdaAccessPoint, err := s3control.NewObjectLambdaAccessPoint(ctx, "example", &s3control.ObjectLambdaAccessPointArgs{
-//				Name: pulumi.String("example"),
 //				Configuration: &s3control.ObjectLambdaAccessPointConfigurationArgs{
-//					SupportingAccessPoint: exampleAccessPoint.Arn,
 //					TransformationConfigurations: s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArray{
 //						&s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationArgs{
-//							Actions: pulumi.StringArray{
-//								pulumi.String("GetObject"),
-//							},
 //							ContentTransformation: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationArgs{
 //								AwsLambda: &s3control.ObjectLambdaAccessPointConfigurationTransformationConfigurationContentTransformationAwsLambdaArgs{
 //									FunctionArn: pulumi.Any(exampleAwsLambdaFunction.Arn),
 //								},
 //							},
+//							Actions: pulumi.StringArray{
+//								pulumi.String("GetObject"),
+//							},
 //						},
 //					},
+//					SupportingAccessPoint: exampleAccessPoint.Arn,
 //				},
+//				Name: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

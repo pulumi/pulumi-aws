@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Bedrock.Outputs
     public sealed class AgentcoreGatewayTargetCredentialProviderConfigurationCallerIamCredentials
     {
         /// <summary>
-        /// The AWS region for the credentials.
+        /// AWS region for the credentials.
         /// </summary>
         public readonly string? Region;
         /// <summary>
-        /// The service name for the credentials.
+        /// Service name for the credentials.
         /// </summary>
         public readonly string Service;
 

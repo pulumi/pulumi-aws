@@ -104,7 +104,7 @@ class _ActivityState:
         """
         Input properties used for looking up and filtering Activity resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the activity.
+        :param pulumi.Input[_builtins.str] arn: ARN of the activity.
         :param pulumi.Input[_builtins.str] creation_date: Date the activity was created.
         :param pulumi.Input['ActivityEncryptionConfigurationArgs'] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[_builtins.str] name: The name of the activity to create.
@@ -131,7 +131,7 @@ class _ActivityState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the activity.
+        ARN of the activity.
         """
         return pulumi.get(self, "arn")
 
@@ -246,12 +246,12 @@ class Activity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity",
-            name="my-activity",
             encryption_configuration={
                 "kms_key_id": kms_key_for_sfn["arn"],
                 "type": "CUSTOMER_MANAGED_KMS_KEY",
                 "kms_data_key_reuse_period_seconds": 900,
-            })
+            },
+            name="my-activity")
         ```
 
         ## Import
@@ -305,12 +305,12 @@ class Activity(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity",
-            name="my-activity",
             encryption_configuration={
                 "kms_key_id": kms_key_for_sfn["arn"],
                 "type": "CUSTOMER_MANAGED_KMS_KEY",
                 "kms_data_key_reuse_period_seconds": 900,
-            })
+            },
+            name="my-activity")
         ```
 
         ## Import
@@ -387,7 +387,7 @@ class Activity(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the activity.
+        :param pulumi.Input[_builtins.str] arn: ARN of the activity.
         :param pulumi.Input[_builtins.str] creation_date: Date the activity was created.
         :param pulumi.Input[Union['ActivityEncryptionConfigurationArgs', 'ActivityEncryptionConfigurationArgsDict']] encryption_configuration: Defines what encryption configuration is used to encrypt data in the Activity. For more information see the section [Data at rest encyption](https://docs.aws.amazon.com/step-functions/latest/dg/encryption-at-rest.html) in the AWS Step Functions User Guide.
         :param pulumi.Input[_builtins.str] name: The name of the activity to create.
@@ -412,7 +412,7 @@ class Activity(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the activity.
+        ARN of the activity.
         """
         return pulumi.get(self, "arn")
 

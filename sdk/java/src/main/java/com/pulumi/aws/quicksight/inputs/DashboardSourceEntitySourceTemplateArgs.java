@@ -17,14 +17,14 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
     public static final DashboardSourceEntitySourceTemplateArgs Empty = new DashboardSourceEntitySourceTemplateArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the resource.
+     * ARN of the resource.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the resource.
+     * @return ARN of the resource.
      * 
      */
     public Output<String> arn() {
@@ -72,7 +72,7 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class DashboardSourceEntitySourceTemplateArgs extends com.pulumi.re
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the resource.
+         * @param arn ARN of the resource.
          * 
          * @return builder
          * 

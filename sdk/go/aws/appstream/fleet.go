@@ -29,10 +29,15 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appstream.NewFleet(ctx, "test_fleet", &appstream.FleetArgs{
-//				Name: pulumi.String("test-fleet"),
 //				ComputeCapacity: &appstream.FleetComputeCapacityArgs{
 //					DesiredInstances: pulumi.Int(1),
 //				},
+//				VpcConfig: &appstream.FleetVpcConfigArgs{
+//					SubnetIds: pulumi.StringArray{
+//						pulumi.String("subnet-06e9b13400c225127"),
+//					},
+//				},
+//				Name:                           pulumi.String("test-fleet"),
 //				Description:                    pulumi.String("test fleet"),
 //				IdleDisconnectTimeoutInSeconds: pulumi.Int(60),
 //				DisplayName:                    pulumi.String("test-fleet"),
@@ -41,11 +46,6 @@ import (
 //				ImageName:                      pulumi.String("Amazon-AppStream2-Sample-Image-03-11-2023"),
 //				InstanceType:                   pulumi.String("stream.standard.large"),
 //				MaxUserDurationInSeconds:       pulumi.Int(600),
-//				VpcConfig: &appstream.FleetVpcConfigArgs{
-//					SubnetIds: pulumi.StringArray{
-//						pulumi.String("subnet-06e9b13400c225127"),
-//					},
-//				},
 //				Tags: pulumi.StringMap{
 //					"TagName": pulumi.String("tag-value"),
 //				},

@@ -124,7 +124,7 @@ export class SecretVersion extends pulumi.CustomResource {
      */
     declare public readonly secretBinary: pulumi.Output<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     declare public readonly secretId: pulumi.Output<string>;
     /**
@@ -133,11 +133,11 @@ export class SecretVersion extends pulumi.CustomResource {
     declare public readonly secretString: pulumi.Output<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
      */
     declare public readonly secretStringWo: pulumi.Output<string | undefined>;
     /**
-     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
      */
     declare public readonly secretStringWoVersion: pulumi.Output<number | undefined>;
     /**
@@ -226,7 +226,7 @@ export interface SecretVersionState {
      */
     secretBinary?: pulumi.Input<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId?: pulumi.Input<string | undefined>;
     /**
@@ -235,11 +235,11 @@ export interface SecretVersionState {
     secretString?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
      */
     secretStringWo?: pulumi.Input<string | undefined>;
     /**
-     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
      */
     secretStringWoVersion?: pulumi.Input<number | undefined>;
     /**
@@ -267,7 +267,7 @@ export interface SecretVersionArgs {
      */
     secretBinary?: pulumi.Input<string | undefined>;
     /**
-     * Secret to which you want to add a new version. You can specify either the Amazon Resource Name (ARN) or the friendly name of the secret. The secret must already exist.
+     * Secret to which you want to add a new version. You can specify either the ARN or the friendly name of the secret. The secret must already exist.
      */
     secretId: pulumi.Input<string>;
     /**
@@ -276,11 +276,11 @@ export interface SecretVersionArgs {
     secretString?: pulumi.Input<string | undefined>;
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set.
+     * Text data that you want to encrypt and store in this version of the secret. This is required if `secretBinary` or `secretString` is not set. If set, requires `secretStringWoVersion` to be set.
      */
     secretStringWo?: pulumi.Input<string | undefined>;
     /**
-     * Version identifier that works together with `secretStringWo` to trigger an update. Increment this value when an update to `secretStringWo` is required.
+     * Required when `secretStringWo` is set. Changing this value triggers an update to `secretStringWo`.
      */
     secretStringWoVersion?: pulumi.Input<number | undefined>;
     /**

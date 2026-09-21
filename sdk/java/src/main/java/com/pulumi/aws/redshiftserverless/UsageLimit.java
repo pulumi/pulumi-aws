@@ -86,14 +86,14 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
         return this.amount;
     }
     /**
-     * Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * ARN of the Redshift Serverless Usage Limit.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift Serverless Usage Limit.
+     * @return ARN of the Redshift Serverless Usage Limit.
      * 
      */
     public Output<String> arn() {
@@ -142,14 +142,14 @@ public class UsageLimit extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
     @Export(name="resourceArn", refs={String.class}, tree="[0]")
     private Output<String> resourceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Amazon Redshift Serverless resource to create the usage limit for.
+     * @return ARN of the Amazon Redshift Serverless resource to create the usage limit for.
      * 
      */
     public Output<String> resourceArn() {

@@ -28,6 +28,7 @@ class IngressPointArgs:
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  network_configuration: pulumi.Input[Optional['IngressPointNetworkConfigurationArgs']] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['IngressPointTimeoutsArgs']] = None,
                  tls_policy: pulumi.Input[Optional[_builtins.str]] = None):
@@ -43,6 +44,7 @@ class IngressPointArgs:
         :param pulumi.Input[_builtins.str] name: Name of the ingress point.
         :param pulumi.Input['IngressPointNetworkConfigurationArgs'] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
+        :param pulumi.Input[_builtins.str] status_to_update: Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] tls_policy: TLS policy for the ingress point. Valid values are `REQUIRED`, `OPTIONAL`, and `FIPS`.
         """
@@ -57,6 +59,8 @@ class IngressPointArgs:
             pulumi.set(__self__, "network_configuration", network_configuration)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if status_to_update is not None:
+            pulumi.set(__self__, "status_to_update", status_to_update)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if timeouts is not None:
@@ -151,6 +155,18 @@ class IngressPointArgs:
         pulumi.set(self, "region", value)
 
     @_builtins.property
+    @pulumi.getter(name="statusToUpdate")
+    def status_to_update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        """
+        return pulumi.get(self, "status_to_update")
+
+    @status_to_update.setter
+    def status_to_update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status_to_update", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -197,6 +213,7 @@ class _IngressPointState:
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
                  status: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional['IngressPointTimeoutsArgs']] = None,
@@ -216,6 +233,7 @@ class _IngressPointState:
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
         :param pulumi.Input[_builtins.str] rule_set_id: Identifier of the rule set applied to the ingress point.
         :param pulumi.Input[_builtins.str] status: Status of the ingress point.
+        :param pulumi.Input[_builtins.str] status_to_update: Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] tls_policy: TLS policy for the ingress point. Valid values are `REQUIRED`, `OPTIONAL`, and `FIPS`.
@@ -244,6 +262,8 @@ class _IngressPointState:
             pulumi.set(__self__, "rule_set_id", rule_set_id)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if status_to_update is not None:
+            pulumi.set(__self__, "status_to_update", status_to_update)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if tags_all is not None:
@@ -378,6 +398,18 @@ class _IngressPointState:
         pulumi.set(self, "status", value)
 
     @_builtins.property
+    @pulumi.getter(name="statusToUpdate")
+    def status_to_update(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        """
+        return pulumi.get(self, "status_to_update")
+
+    @status_to_update.setter
+    def status_to_update(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "status_to_update", value)
+
+    @_builtins.property
     @pulumi.getter
     def tags(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
@@ -460,6 +492,7 @@ class IngressPoint(pulumi.CustomResource):
                  network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
                  tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -491,14 +524,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="AUTH",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             ingress_point_configuration={
                 "smtp_password_wo": smtp_password,
                 "smtp_password_wo_version": 1,
-            })
+            },
+            name="example",
+            type="AUTH",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ### Private Network Configuration
@@ -508,15 +541,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            })
+            },
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ## Import
@@ -546,6 +579,7 @@ class IngressPoint(pulumi.CustomResource):
         :param pulumi.Input[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']] network_configuration: Network configuration for the ingress point. See `network_configuration` Block for details. Changing this value forces a new resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
         :param pulumi.Input[_builtins.str] rule_set_id: Identifier of the rule set applied to the ingress point.
+        :param pulumi.Input[_builtins.str] status_to_update: Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[_builtins.str] tls_policy: TLS policy for the ingress point. Valid values are `REQUIRED`, `OPTIONAL`, and `FIPS`.
         :param pulumi.Input[_builtins.str] traffic_policy_id: Identifier of the traffic policy applied to the ingress point.
@@ -584,14 +618,14 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="AUTH",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             ingress_point_configuration={
                 "smtp_password_wo": smtp_password,
                 "smtp_password_wo_version": 1,
-            })
+            },
+            name="example",
+            type="AUTH",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ### Private Network Configuration
@@ -601,15 +635,15 @@ class IngressPoint(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.mailmanager.IngressPoint("example",
-            name="example",
-            type="OPEN",
-            rule_set_id=example_aws_mailmanager_rule_set["id"],
-            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"],
             network_configuration={
                 "private_network_configuration": {
                     "vpc_endpoint_id": example_aws_vpc_endpoint["id"],
                 },
-            })
+            },
+            name="example",
+            type="OPEN",
+            rule_set_id=example_aws_mailmanager_rule_set["id"],
+            traffic_policy_id=example_aws_mailmanager_traffic_policy["id"])
         ```
 
         ## Import
@@ -652,6 +686,7 @@ class IngressPoint(pulumi.CustomResource):
                  network_configuration: pulumi.Input[Optional[Union['IngressPointNetworkConfigurationArgs', 'IngressPointNetworkConfigurationArgsDict']]] = None,
                  region: pulumi.Input[Optional[_builtins.str]] = None,
                  rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
                  tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
                  timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
                  tls_policy: pulumi.Input[Optional[_builtins.str]] = None,
@@ -673,6 +708,7 @@ class IngressPoint(pulumi.CustomResource):
             if rule_set_id is None and not opts.urn:
                 raise TypeError("Missing required property 'rule_set_id'")
             __props__.__dict__["rule_set_id"] = rule_set_id
+            __props__.__dict__["status_to_update"] = status_to_update
             __props__.__dict__["tags"] = tags
             __props__.__dict__["timeouts"] = timeouts
             __props__.__dict__["tls_policy"] = tls_policy
@@ -708,6 +744,7 @@ class IngressPoint(pulumi.CustomResource):
             region: pulumi.Input[Optional[_builtins.str]] = None,
             rule_set_id: pulumi.Input[Optional[_builtins.str]] = None,
             status: pulumi.Input[Optional[_builtins.str]] = None,
+            status_to_update: pulumi.Input[Optional[_builtins.str]] = None,
             tags: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             tags_all: pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]] = None,
             timeouts: pulumi.Input[Optional[Union['IngressPointTimeoutsArgs', 'IngressPointTimeoutsArgsDict']]] = None,
@@ -731,6 +768,7 @@ class IngressPoint(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] region: Region where this resource is managed.
         :param pulumi.Input[_builtins.str] rule_set_id: Identifier of the rule set applied to the ingress point.
         :param pulumi.Input[_builtins.str] status: Status of the ingress point.
+        :param pulumi.Input[_builtins.str] status_to_update: Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Map of tags assigned to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] tls_policy: TLS policy for the ingress point. Valid values are `REQUIRED`, `OPTIONAL`, and `FIPS`.
@@ -753,6 +791,7 @@ class IngressPoint(pulumi.CustomResource):
         __props__.__dict__["region"] = region
         __props__.__dict__["rule_set_id"] = rule_set_id
         __props__.__dict__["status"] = status
+        __props__.__dict__["status_to_update"] = status_to_update
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tags_all"] = tags_all
         __props__.__dict__["timeouts"] = timeouts
@@ -840,6 +879,14 @@ class IngressPoint(pulumi.CustomResource):
         Status of the ingress point.
         """
         return pulumi.get(self, "status")
+
+    @_builtins.property
+    @pulumi.getter(name="statusToUpdate")
+    def status_to_update(self) -> pulumi.Output[Optional[_builtins.str]]:
+        """
+        Status to apply to the ingress point. Valid values are `ACTIVE` and `CLOSED`.
+        """
+        return pulumi.get(self, "status_to_update")
 
     @_builtins.property
     @pulumi.getter

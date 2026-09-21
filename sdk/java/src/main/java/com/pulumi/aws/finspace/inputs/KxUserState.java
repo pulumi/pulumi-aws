@@ -17,14 +17,14 @@ public final class KxUserState extends com.pulumi.resources.ResourceArgs {
     public static final KxUserState Empty = new KxUserState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX user.
+     * ARN identifier of the KX user.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX user.
+     * @return ARN identifier of the KX user.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -156,7 +156,7 @@ public final class KxUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX user.
+         * @param arn ARN identifier of the KX user.
          * 
          * @return builder
          * 
@@ -167,7 +167,7 @@ public final class KxUserState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX user.
+         * @param arn ARN identifier of the KX user.
          * 
          * @return builder
          * 

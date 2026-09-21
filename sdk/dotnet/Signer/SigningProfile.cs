@@ -29,13 +29,13 @@ namespace Pulumi.Aws.Signer
     /// 
     ///     var prodSp = new Aws.Signer.SigningProfile("prod_sp", new()
     ///     {
-    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
-    ///         NamePrefix = "prod_sp_",
     ///         SignatureValidityPeriod = new Aws.Signer.Inputs.SigningProfileSignatureValidityPeriodArgs
     ///         {
     ///             Value = 5,
     ///             Type = "YEARS",
     ///         },
+    ///         PlatformId = "AWSLambda-SHA384-ECDSA",
+    ///         NamePrefix = "prod_sp_",
     ///         Tags = 
     ///         {
     ///             { "tag1", "value1" },
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Signer
     public partial class SigningProfile : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the signing profile.
+        /// ARN for the signing profile.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -262,7 +262,7 @@ namespace Pulumi.Aws.Signer
     public sealed class SigningProfileState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the signing profile.
+        /// ARN for the signing profile.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

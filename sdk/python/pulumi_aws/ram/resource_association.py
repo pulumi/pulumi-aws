@@ -25,8 +25,8 @@ class ResourceAssociationArgs:
         """
         The set of arguments for constructing a ResourceAssociation resource.
 
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to associate with the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the RAM Resource Share.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         """
         pulumi.set(__self__, "resource_arn", resource_arn)
@@ -38,7 +38,7 @@ class ResourceAssociationArgs:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        ARN of the resource to associate with the RAM Resource Share.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -50,7 +50,7 @@ class ResourceAssociationArgs:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
+        ARN of the RAM Resource Share.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -81,8 +81,8 @@ class _ResourceAssociationState:
         Input properties used for looking up and filtering ResourceAssociation resources.
 
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to associate with the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the RAM Resource Share.
         """
         if region is not None:
             pulumi.set(__self__, "region", region)
@@ -107,7 +107,7 @@ class _ResourceAssociationState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        ARN of the resource to associate with the RAM Resource Share.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -119,7 +119,7 @@ class _ResourceAssociationState:
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
+        ARN of the RAM Resource Share.
         """
         return pulumi.get(self, "resource_share_arn")
 
@@ -166,8 +166,8 @@ class ResourceAssociation(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to associate with the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the RAM Resource Share.
         """
         ...
     @overload
@@ -255,8 +255,8 @@ class ResourceAssociation(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
-        :param pulumi.Input[_builtins.str] resource_share_arn: Amazon Resource Name (ARN) of the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the resource to associate with the RAM Resource Share.
+        :param pulumi.Input[_builtins.str] resource_share_arn: ARN of the RAM Resource Share.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -279,7 +279,7 @@ class ResourceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the resource to associate with the RAM Resource Share.
+        ARN of the resource to associate with the RAM Resource Share.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -287,7 +287,7 @@ class ResourceAssociation(pulumi.CustomResource):
     @pulumi.getter(name="resourceShareArn")
     def resource_share_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the RAM Resource Share.
+        ARN of the RAM Resource Share.
         """
         return pulumi.get(self, "resource_share_arn")
 

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.bedrock.inputs;
 
+import com.pulumi.aws.bedrock.inputs.AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -46,11 +47,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
         return Optional.ofNullable(this.qualifier);
     }
 
+    /**
+     * API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+     * 
+     */
+    @Import(name="schema")
+    private @Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs> schema;
+
+    /**
+     * @return API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+     * 
+     */
+    public Optional<Output<AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs>> schema() {
+        return Optional.ofNullable(this.schema);
+    }
+
     private AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs() {}
 
     private AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs $) {
         this.arn = $.arn;
         this.qualifier = $.qualifier;
+        this.schema = $.schema;
     }
 
     public static Builder builder() {
@@ -111,6 +128,27 @@ public final class AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntime
          */
         public Builder qualifier(String qualifier) {
             return qualifier(Output.of(qualifier));
+        }
+
+        /**
+         * @param schema API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schema(@Nullable Output<AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs> schema) {
+            $.schema = schema;
+            return this;
+        }
+
+        /**
+         * @param schema API schema configuration that defines the structure of the runtime target&#39;s API. See `schema` Block below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder schema(AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeSchemaArgs schema) {
+            return schema(Output.of(schema));
         }
 
         public AgentcoreGatewayTargetTargetConfigurationHttpAgentcoreRuntimeArgs build() {

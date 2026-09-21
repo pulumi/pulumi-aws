@@ -107,7 +107,7 @@ class _LocalGatewayRouteTableVirtualInterfaceGroupAssociationState:
         Input properties used for looking up and filtering LocalGatewayRouteTableVirtualInterfaceGroupAssociation resources.
 
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of the EC2 Local Gateway.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_arn: Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        :param pulumi.Input[_builtins.str] local_gateway_route_table_arn: ARN of the EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
                
@@ -153,7 +153,7 @@ class _LocalGatewayRouteTableVirtualInterfaceGroupAssociationState:
     @pulumi.getter(name="localGatewayRouteTableArn")
     def local_gateway_route_table_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        ARN of the EC2 Local Gateway Route Table.
         """
         return pulumi.get(self, "local_gateway_route_table_arn")
 
@@ -398,7 +398,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] local_gateway_id: Identifier of the EC2 Local Gateway.
-        :param pulumi.Input[_builtins.str] local_gateway_route_table_arn: Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        :param pulumi.Input[_builtins.str] local_gateway_route_table_arn: ARN of the EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] local_gateway_route_table_id: Identifier of EC2 Local Gateway Route Table.
         :param pulumi.Input[_builtins.str] local_gateway_virtual_interface_group_id: Identifier of EC2 Local Gateway Virtual Interface Group.
                
@@ -436,7 +436,7 @@ class LocalGatewayRouteTableVirtualInterfaceGroupAssociation(pulumi.CustomResour
     @pulumi.getter(name="localGatewayRouteTableArn")
     def local_gateway_route_table_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the EC2 Local Gateway Route Table.
+        ARN of the EC2 Local Gateway Route Table.
         """
         return pulumi.get(self, "local_gateway_route_table_arn")
 

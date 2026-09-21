@@ -90,7 +90,7 @@ class GetLaunchConfigurationResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        Amazon Resource Name of the launch configuration.
+        ARN of the launch configuration.
         """
         return pulumi.get(self, "arn")
 

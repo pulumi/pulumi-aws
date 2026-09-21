@@ -66,7 +66,7 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import S3 Control Bucket Policies using the Amazon Resource Name (ARN). For example:
+// Using `pulumi import`, import S3 Control Bucket Policies using the ARN. For example:
 //
 // ```sh
 // $ pulumi import aws:s3control/bucketPolicy:BucketPolicy example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
@@ -74,7 +74,7 @@ import (
 type BucketPolicy struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// JSON string of the resource policy.
 	Policy pulumi.StringOutput `pulumi:"policy"`
@@ -118,7 +118,7 @@ func GetBucketPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering BucketPolicy resources.
 type bucketPolicyState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket *string `pulumi:"bucket"`
 	// JSON string of the resource policy.
 	Policy *string `pulumi:"policy"`
@@ -127,7 +127,7 @@ type bucketPolicyState struct {
 }
 
 type BucketPolicyState struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringPtrInput
 	// JSON string of the resource policy.
 	Policy pulumi.StringPtrInput
@@ -140,7 +140,7 @@ func (BucketPolicyState) ElementType() reflect.Type {
 }
 
 type bucketPolicyArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket string `pulumi:"bucket"`
 	// JSON string of the resource policy.
 	Policy string `pulumi:"policy"`
@@ -150,7 +150,7 @@ type bucketPolicyArgs struct {
 
 // The set of arguments for constructing a BucketPolicy resource.
 type BucketPolicyArgs struct {
-	// Amazon Resource Name (ARN) of the bucket.
+	// ARN of the bucket.
 	Bucket pulumi.StringInput
 	// JSON string of the resource policy.
 	Policy pulumi.StringInput
@@ -245,7 +245,7 @@ func (o BucketPolicyOutput) ToBucketPolicyOutputWithContext(ctx context.Context)
 	return o
 }
 
-// Amazon Resource Name (ARN) of the bucket.
+// ARN of the bucket.
 func (o BucketPolicyOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketPolicy) pulumi.StringOutput { return v.Bucket }).(pulumi.StringOutput)
 }

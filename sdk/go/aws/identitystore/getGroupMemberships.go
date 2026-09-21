@@ -35,13 +35,13 @@ import (
 //				return err
 //			}
 //			exampleGetGroup, err := identitystore.LookupGroup(ctx, &identitystore.LookupGroupArgs{
-//				IdentityStoreId: example.IdentityStoreIds[0],
 //				AlternateIdentifier: identitystore.GetGroupAlternateIdentifier{
 //					UniqueAttribute: identitystore.GetGroupAlternateIdentifierUniqueAttribute{
 //						AttributePath:  "DisplayName",
 //						AttributeValue: "ExampleGroup",
 //					},
 //				},
+//				IdentityStoreId: example.IdentityStoreIds[0],
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -90,12 +90,8 @@ type GetGroupMembershipsResult struct {
 }
 
 func GetGroupMembershipsOutput(ctx *pulumi.Context, args GetGroupMembershipsOutputArgs, opts ...pulumi.InvokeOption) GetGroupMembershipsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetGroupMembershipsResultOutput, error) {
-			args := v.(GetGroupMembershipsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:identitystore/getGroupMemberships:getGroupMemberships", args, GetGroupMembershipsResultOutput{}, options).(GetGroupMembershipsResultOutput), nil
-		}).(GetGroupMembershipsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:identitystore/getGroupMemberships:getGroupMemberships", args, GetGroupMembershipsResultOutput{}, options).(GetGroupMembershipsResultOutput)
 }
 
 // A collection of arguments for invoking getGroupMemberships.

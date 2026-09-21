@@ -89,7 +89,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> AllowedPrincipals { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// ARN of the VPC endpoint service.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Ec2
         public Output<ImmutableArray<string>> BaseEndpointDnsNames { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// ARNs of one or more Gateway Load Balancers for the endpoint service.
         /// </summary>
         [Output("gatewayLoadBalancerArns")]
         public Output<ImmutableArray<string>> GatewayLoadBalancerArns { get; private set; } = null!;
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
         public Output<bool> ManagesVpcEndpoints { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        /// ARNs of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         [Output("networkLoadBalancerArns")]
         public Output<ImmutableArray<string>> NetworkLoadBalancerArns { get; private set; } = null!;
@@ -252,7 +252,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _gatewayLoadBalancerArns;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// ARNs of one or more Gateway Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> GatewayLoadBalancerArns
         {
@@ -264,7 +264,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _networkLoadBalancerArns;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        /// ARNs of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> NetworkLoadBalancerArns
         {
@@ -347,7 +347,7 @@ namespace Pulumi.Aws.Ec2
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint service.
+        /// ARN of the VPC endpoint service.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
@@ -380,7 +380,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _gatewayLoadBalancerArns;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Gateway Load Balancers for the endpoint service.
+        /// ARNs of one or more Gateway Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> GatewayLoadBalancerArns
         {
@@ -398,7 +398,7 @@ namespace Pulumi.Aws.Ec2
         private InputList<string>? _networkLoadBalancerArns;
 
         /// <summary>
-        /// Amazon Resource Names (ARNs) of one or more Network Load Balancers for the endpoint service.
+        /// ARNs of one or more Network Load Balancers for the endpoint service.
         /// </summary>
         public InputList<string> NetworkLoadBalancerArns
         {

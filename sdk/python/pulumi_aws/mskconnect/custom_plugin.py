@@ -137,7 +137,7 @@ class _CustomPluginState:
         """
         Input properties used for looking up and filtering CustomPlugin resources.
 
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the custom plugin.
+        :param pulumi.Input[_builtins.str] arn: the ARN of the custom plugin.
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
@@ -173,7 +173,7 @@ class _CustomPluginState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        the Amazon Resource Name (ARN) of the custom plugin.
+        the ARN of the custom plugin.
         """
         return pulumi.get(self, "arn")
 
@@ -320,14 +320,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            })
+            },
+            name="debezium-example",
+            content_type="ZIP")
         ```
 
         ## Import
@@ -371,14 +371,14 @@ class CustomPlugin(pulumi.CustomResource):
             key="debezium.zip",
             source=pulumi.FileAsset("debezium.zip"))
         example_custom_plugin = aws.mskconnect.CustomPlugin("example",
-            name="debezium-example",
-            content_type="ZIP",
             location={
                 "s3": {
                     "bucket_arn": example.arn,
                     "file_key": example_bucket_objectv2.key,
                 },
-            })
+            },
+            name="debezium-example",
+            content_type="ZIP")
         ```
 
         ## Import
@@ -461,7 +461,7 @@ class CustomPlugin(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: the Amazon Resource Name (ARN) of the custom plugin.
+        :param pulumi.Input[_builtins.str] arn: the ARN of the custom plugin.
         :param pulumi.Input[_builtins.str] content_type: The type of the plugin file. Allowed values are `ZIP` and `JAR`.
         :param pulumi.Input[_builtins.str] description: A summary description of the custom plugin.
         :param pulumi.Input[_builtins.int] latest_revision: an ID of the latest successfully created revision of the custom plugin.
@@ -492,7 +492,7 @@ class CustomPlugin(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        the Amazon Resource Name (ARN) of the custom plugin.
+        the ARN of the custom plugin.
         """
         return pulumi.get(self, "arn")
 

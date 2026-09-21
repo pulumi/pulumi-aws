@@ -26,7 +26,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly Outputs.PipeTargetParametersEcsTaskParametersOverridesEphemeralStorage? EphemeralStorage;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the task execution IAM role override for the task.
+        /// ARN of the task execution IAM role override for the task.
         /// </summary>
         public readonly string? ExecutionRoleArn;
         /// <summary>
@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Pipes.Outputs
         /// </summary>
         public readonly string? Memory;
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
+        /// ARN of the IAM role that containers in this task can assume. All containers in this task are granted the permissions that are specified in this role.
         /// </summary>
         public readonly string? TaskRoleArn;
 

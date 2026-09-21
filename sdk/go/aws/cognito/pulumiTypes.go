@@ -2528,7 +2528,7 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration struct
 	NoActionEmail *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmail `pulumi:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
 	ReplyTo *string `pulumi:"replyTo"`
-	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+	// ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
 	SourceArn string `pulumi:"sourceArn"`
 }
 
@@ -2554,7 +2554,7 @@ type RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationArgs st
 	NoActionEmail RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationNoActionEmailPtrInput `pulumi:"noActionEmail"`
 	// The destination to which the receiver of an email should reply to.
 	ReplyTo pulumi.StringPtrInput `pulumi:"replyTo"`
-	// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+	// ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
 	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
 }
 
@@ -2666,7 +2666,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutp
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string { return v.ReplyTo }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+// ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) string {
 		return v.SourceArn
@@ -2747,7 +2747,7 @@ func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
+// ARN of the identity that is associated with the sending authorization policy. This identity permits Amazon Cognito to send for the email address specified in the From parameter.
 func (o RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfigurationPtrOutput) SourceArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RiskConfigurationAccountTakeoverRiskConfigurationNotifyConfiguration) *string {
 		if v == nil {
@@ -5425,7 +5425,7 @@ type UserPoolLambdaConfig struct {
 	CustomSmsSender *UserPoolLambdaConfigCustomSmsSender `pulumi:"customSmsSender"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge *string `pulumi:"defineAuthChallenge"`
-	// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+	// ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
 	KmsKeyId *string `pulumi:"kmsKeyId"`
 	// Post-authentication AWS Lambda trigger.
 	PostAuthentication *string `pulumi:"postAuthentication"`
@@ -5467,7 +5467,7 @@ type UserPoolLambdaConfigArgs struct {
 	CustomSmsSender UserPoolLambdaConfigCustomSmsSenderPtrInput `pulumi:"customSmsSender"`
 	// Defines the authentication challenge.
 	DefineAuthChallenge pulumi.StringPtrInput `pulumi:"defineAuthChallenge"`
-	// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+	// ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
 	KmsKeyId pulumi.StringPtrInput `pulumi:"kmsKeyId"`
 	// Post-authentication AWS Lambda trigger.
 	PostAuthentication pulumi.StringPtrInput `pulumi:"postAuthentication"`
@@ -5589,7 +5589,7 @@ func (o UserPoolLambdaConfigOutput) DefineAuthChallenge() pulumi.StringPtrOutput
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.DefineAuthChallenge }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+// ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
 func (o UserPoolLambdaConfigOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.KmsKeyId }).(pulumi.StringPtrOutput)
 }
@@ -5710,7 +5710,7 @@ func (o UserPoolLambdaConfigPtrOutput) DefineAuthChallenge() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name of Key Management Service Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
+// ARN of KMS Customer master keys. Amazon Cognito uses the key to encrypt codes and temporary passwords sent to CustomEmailSender and CustomSMSSender.
 func (o UserPoolLambdaConfigPtrOutput) KmsKeyId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -5801,7 +5801,7 @@ func (o UserPoolLambdaConfigPtrOutput) VerifyAuthChallengeResponse() pulumi.Stri
 }
 
 type UserPoolLambdaConfigCustomEmailSender struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+	// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 	LambdaVersion string `pulumi:"lambdaVersion"`
@@ -5819,7 +5819,7 @@ type UserPoolLambdaConfigCustomEmailSenderInput interface {
 }
 
 type UserPoolLambdaConfigCustomEmailSenderArgs struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+	// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
@@ -5902,7 +5902,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderOutput) ToUserPoolLambdaConfigCusto
 	}).(UserPoolLambdaConfigCustomEmailSenderPtrOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomEmailSender) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -5936,7 +5936,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) Elem() UserPoolLambdaCon
 	}).(UserPoolLambdaConfigCustomEmailSenderOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+// Lambda ARN of the Lambda function that Amazon Cognito triggers to send email notifications to users.
 func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomEmailSender) *string {
 		if v == nil {
@@ -5957,7 +5957,7 @@ func (o UserPoolLambdaConfigCustomEmailSenderPtrOutput) LambdaVersion() pulumi.S
 }
 
 type UserPoolLambdaConfigCustomSmsSender struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn string `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion string `pulumi:"lambdaVersion"`
@@ -5975,7 +5975,7 @@ type UserPoolLambdaConfigCustomSmsSenderInput interface {
 }
 
 type UserPoolLambdaConfigCustomSmsSenderArgs struct {
-	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+	// Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
 	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
@@ -6058,7 +6058,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderOutput) ToUserPoolLambdaConfigCustomS
 	}).(UserPoolLambdaConfigCustomSmsSenderPtrOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomSmsSenderOutput) LambdaArn() pulumi.StringOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfigCustomSmsSender) string { return v.LambdaArn }).(pulumi.StringOutput)
 }
@@ -6092,7 +6092,7 @@ func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) Elem() UserPoolLambdaConfi
 	}).(UserPoolLambdaConfigCustomSmsSenderOutput)
 }
 
-// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
+// Lambda ARN of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.
 func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) *string {
 		if v == nil {
@@ -9523,7 +9523,7 @@ type GetUserPoolEmailConfiguration struct {
 	From string `pulumi:"from"`
 	// - Reply-to email address.
 	ReplyToEmailAddress string `pulumi:"replyToEmailAddress"`
-	// - Source Amazon Resource Name (ARN) for emails.
+	// - Source ARN for emails.
 	SourceArn string `pulumi:"sourceArn"`
 }
 
@@ -9547,7 +9547,7 @@ type GetUserPoolEmailConfigurationArgs struct {
 	From pulumi.StringInput `pulumi:"from"`
 	// - Reply-to email address.
 	ReplyToEmailAddress pulumi.StringInput `pulumi:"replyToEmailAddress"`
-	// - Source Amazon Resource Name (ARN) for emails.
+	// - Source ARN for emails.
 	SourceArn pulumi.StringInput `pulumi:"sourceArn"`
 }
 
@@ -9622,7 +9622,7 @@ func (o GetUserPoolEmailConfigurationOutput) ReplyToEmailAddress() pulumi.String
 	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.ReplyToEmailAddress }).(pulumi.StringOutput)
 }
 
-// - Source Amazon Resource Name (ARN) for emails.
+// - Source ARN for emails.
 func (o GetUserPoolEmailConfigurationOutput) SourceArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetUserPoolEmailConfiguration) string { return v.SourceArn }).(pulumi.StringOutput)
 }

@@ -31,12 +31,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := xray.NewIndexingRule(ctx, "example", &xray.IndexingRuleArgs{
-//				Name: pulumi.String("Default"),
 //				Rule: &xray.IndexingRuleRuleArgs{
 //					Probabilistic: &xray.IndexingRuleRuleProbabilisticArgs{
 //						DesiredSamplingPercentage: pulumi.Float64(0.66),
 //					},
 //				},
+//				Name: pulumi.String("Default"),
 //			})
 //			if err != nil {
 //				return err

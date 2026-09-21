@@ -70,14 +70,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:iam/virtualMfaDevice:VirtualMfaDevice")
 public class VirtualMfaDevice extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * ARN, which is also the serial number, of the virtual MFA device.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN), which is also the serial number, of the virtual MFA device.
+     * @return ARN, which is also the serial number, of the virtual MFA device.
      * 
      */
     public Output<String> arn() {

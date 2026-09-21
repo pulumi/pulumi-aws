@@ -45,9 +45,6 @@ namespace Pulumi.Aws.Fsx
     /// 
     ///     var exampleDataRepositoryAssociation = new Aws.Fsx.DataRepositoryAssociation("example", new()
     ///     {
-    ///         FileSystemId = exampleLustreFileSystem.Id,
-    ///         DataRepositoryPath = example.Id.Apply(id =&gt; $"s3://{id}"),
-    ///         FileSystemPath = "/my-bucket",
     ///         S3 = new Aws.Fsx.Inputs.DataRepositoryAssociationS3Args
     ///         {
     ///             AutoExportPolicy = new Aws.Fsx.Inputs.DataRepositoryAssociationS3AutoExportPolicyArgs
@@ -69,6 +66,9 @@ namespace Pulumi.Aws.Fsx
     ///                 },
     ///             },
     ///         },
+    ///         FileSystemId = exampleLustreFileSystem.Id,
+    ///         DataRepositoryPath = example.Id.Apply(id =&gt; $"s3://{id}"),
+    ///         FileSystemPath = "/my-bucket",
     ///     });
     /// 
     /// });
@@ -86,7 +86,7 @@ namespace Pulumi.Aws.Fsx
     public partial class DataRepositoryAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -272,7 +272,7 @@ namespace Pulumi.Aws.Fsx
     public sealed class DataRepositoryAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name of the file system.
+        /// ARN of the file system.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

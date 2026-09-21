@@ -313,7 +313,6 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             "disabled": not baseline.default_baseline,
         } for baseline in example.baseline_identities})
         example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
-            name="example",
             configuration_definition={
                 "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
                 "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
@@ -334,7 +333,8 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import
@@ -387,7 +387,6 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
             "disabled": not baseline.default_baseline,
         } for baseline in example.baseline_identities})
         example_quicksetup_configuration_manager = aws.ssm.QuicksetupConfigurationManager("example",
-            name="example",
             configuration_definition={
                 "local_deployment_administration_role_arn": f"arn:{current_get_partition.partition}:iam::{current.account_id}:role/AWS-QuickSetup-PatchPolicy-LocalAdministrationRole",
                 "local_deployment_execution_role_name": "AWS-QuickSetup-PatchPolicy-LocalExecutionRole",
@@ -408,7 +407,8 @@ class QuicksetupConfigurationManager(pulumi.CustomResource):
                     "TargetRegions": current_get_region.region,
                     "TargetType": "*",
                 },
-            })
+            },
+            name="example")
         ```
 
         ## Import

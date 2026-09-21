@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `resourceArn` (String) Amazon Resource Name (ARN) of the Kinesis stream.
+ * - `resourceArn` (String) ARN of the Kinesis stream.
  *
  * Using `pulumi import`, import Kinesis resource policies using the `resourceArn`. For example:
  *
@@ -89,7 +89,7 @@ export class ResourcePolicy extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
+     * ARN of the data stream or consumer.
      */
     declare public readonly resourceArn: pulumi.Output<string>;
 
@@ -139,7 +139,7 @@ export interface ResourcePolicyState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
+     * ARN of the data stream or consumer.
      */
     resourceArn?: pulumi.Input<string | undefined>;
 }
@@ -157,7 +157,7 @@ export interface ResourcePolicyArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the data stream or consumer.
+     * ARN of the data stream or consumer.
      */
     resourceArn: pulumi.Input<string>;
 }

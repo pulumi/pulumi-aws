@@ -57,7 +57,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
     }
 
     /**
-     * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * Neptune Cluster Endpoint ARN.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -152,7 +152,7 @@ export class ClusterEndpoint extends pulumi.CustomResource {
  */
 export interface ClusterEndpointState {
     /**
-     * The Neptune Cluster Endpoint Amazon Resource Name (ARN).
+     * Neptune Cluster Endpoint ARN.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

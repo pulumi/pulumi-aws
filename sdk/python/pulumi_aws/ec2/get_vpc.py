@@ -91,7 +91,7 @@ class GetVpcResult:
     @pulumi.getter
     def arn(self) -> _builtins.str:
         """
-        ARN of VPC
+        ARN of VPC.
         """
         return pulumi.get(self, "arn")
 
@@ -106,6 +106,9 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter(name="cidrBlockAssociations")
     def cidr_block_associations(self) -> Sequence['outputs.GetVpcCidrBlockAssociationResult']:
+        """
+        Information about the IPv4 CIDR blocks associated with the VPC. See `cidr_block_associations` Block below.
+        """
         return pulumi.get(self, "cidr_block_associations")
 
     @_builtins.property
@@ -122,7 +125,7 @@ class GetVpcResult:
     @pulumi.getter(name="enableDnsHostnames")
     def enable_dns_hostnames(self) -> _builtins.bool:
         """
-        Whether or not the VPC has DNS hostname support
+        Whether the VPC has DNS hostname support.
         """
         return pulumi.get(self, "enable_dns_hostnames")
 
@@ -130,7 +133,7 @@ class GetVpcResult:
     @pulumi.getter(name="enableDnsSupport")
     def enable_dns_support(self) -> _builtins.bool:
         """
-        Whether or not the VPC has DNS support
+        Whether the VPC has DNS support.
         """
         return pulumi.get(self, "enable_dns_support")
 
@@ -138,7 +141,7 @@ class GetVpcResult:
     @pulumi.getter(name="enableNetworkAddressUsageMetrics")
     def enable_network_address_usage_metrics(self) -> _builtins.bool:
         """
-        Whether Network Address Usage metrics are enabled for your VPC
+        Whether Network Address Usage metrics are enabled for your VPC.
         """
         return pulumi.get(self, "enable_network_address_usage_metrics")
 
@@ -156,8 +159,7 @@ class GetVpcResult:
     @pulumi.getter(name="instanceTenancy")
     def instance_tenancy(self) -> _builtins.str:
         """
-        Allowed tenancy of instances launched into the
-        selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
+        Allowed tenancy of instances launched into the selected VPC. May be any of `"default"`, `"dedicated"`, or `"host"`.
         """
         return pulumi.get(self, "instance_tenancy")
 
@@ -182,6 +184,9 @@ class GetVpcResult:
     @_builtins.property
     @pulumi.getter(name="ipv6CidrBlockAssociations")
     def ipv6_cidr_block_associations(self) -> Sequence['outputs.GetVpcIpv6CidrBlockAssociationResult']:
+        """
+        Information about the IPv6 CIDR blocks associated with the VPC. See `ipv6_cidr_block_associations` Block below.
+        """
         return pulumi.get(self, "ipv6_cidr_block_associations")
 
     @_builtins.property
@@ -285,20 +290,14 @@ def get_vpc(cidr_block: Optional[_builtins.str] = None,
     ```
 
 
-    :param _builtins.str cidr_block: Cidr block of the desired VPC.
-    :param _builtins.bool default: Boolean constraint on whether the desired VPC is
-           the default VPC for the region.
+    :param _builtins.str cidr_block: CIDR block of the desired VPC.
+    :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
     :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired VPC.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block
@@ -371,20 +370,14 @@ def get_vpc_output(cidr_block: pulumi.Input[Optional[Optional[_builtins.str]]] =
     ```
 
 
-    :param _builtins.str cidr_block: Cidr block of the desired VPC.
-    :param _builtins.bool default: Boolean constraint on whether the desired VPC is
-           the default VPC for the region.
+    :param _builtins.str cidr_block: CIDR block of the desired VPC.
+    :param _builtins.bool default: Boolean constraint on whether the desired VPC is the default VPC for the region.
     :param _builtins.str dhcp_options_id: DHCP options id of the desired VPC.
-    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below.
+    :param Sequence[Union['GetVpcFilterArgs', 'GetVpcFilterArgsDict']] filters: Custom filter block as described below. See `filter` Block below.
     :param _builtins.str id: ID of the specific VPC to retrieve.
     :param _builtins.str region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-    :param _builtins.str state: Current state of the desired VPC.
-           Can be either `"pending"` or `"available"`.
-    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match
-           a pair on the desired VPC.
-           
-           More complex filters can be expressed using one or more `filter` sub-blocks,
-           which take the following arguments:
+    :param _builtins.str state: Current state of the desired VPC. Can be either `"pending"` or `"available"`.
+    :param Mapping[str, _builtins.str] tags: Map of tags, each pair of which must exactly match a pair on the desired VPC.
     """
     __args__ = dict()
     __args__['cidrBlock'] = cidr_block

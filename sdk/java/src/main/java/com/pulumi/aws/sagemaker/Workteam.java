@@ -51,9 +51,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workteam("example", WorkteamArgs.builder()
- *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description("example")
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .cognitoMemberDefinition(WorkteamMemberDefinitionCognitoMemberDefinitionArgs.builder()
  *                     .clientId(exampleAwsCognitoUserPoolClient.id())
@@ -61,6 +58,9 @@ import javax.annotation.Nullable;
  *                     .userGroup(exampleAwsCognitoUserGroup.name())
  *                     .build())
  *                 .build())
+ *             .workteamName("example")
+ *             .workforceName(exampleAwsSagemakerWorkforce.id())
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -95,14 +95,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Workteam("example", WorkteamArgs.builder()
- *             .workteamName("example")
- *             .workforceName(exampleAwsSagemakerWorkforce.id())
- *             .description("example")
  *             .memberDefinitions(WorkteamMemberDefinitionArgs.builder()
  *                 .oidcMemberDefinition(WorkteamMemberDefinitionOidcMemberDefinitionArgs.builder()
  *                     .groups("example")
  *                     .build())
  *                 .build())
+ *             .workteamName("example")
+ *             .workforceName(exampleAwsSagemakerWorkforce.id())
+ *             .description("example")
  *             .build());
  * 
  *     }
@@ -122,14 +122,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:sagemaker/workteam:Workteam")
 public class Workteam extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * ARN assigned by AWS to this Workteam.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) assigned by AWS to this Workteam.
+     * @return ARN assigned by AWS to this Workteam.
      * 
      */
     public Output<String> arn() {

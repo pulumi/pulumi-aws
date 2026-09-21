@@ -83,14 +83,14 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
         return this.arn;
     }
     /**
-     * The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * Owner account ID of the VPC for a configuration for DNSSEC validation.
      * 
      */
     @Export(name="ownerId", refs={String.class}, tree="[0]")
     private Output<String> ownerId;
 
     /**
-     * @return The owner account ID of the virtual private cloud (VPC) for a configuration for DNSSEC validation.
+     * @return Owner account ID of the VPC for a configuration for DNSSEC validation.
      * 
      */
     public Output<String> ownerId() {
@@ -111,14 +111,14 @@ public class ResolverDnsSecConfig extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+     * ID of the VPC that you&#39;re updating the DNSSEC validation status for.
      * 
      */
     @Export(name="resourceId", refs={String.class}, tree="[0]")
     private Output<String> resourceId;
 
     /**
-     * @return The ID of the virtual private cloud (VPC) that you&#39;re updating the DNSSEC validation status for.
+     * @return ID of the VPC that you&#39;re updating the DNSSEC validation status for.
      * 
      */
     public Output<String> resourceId() {

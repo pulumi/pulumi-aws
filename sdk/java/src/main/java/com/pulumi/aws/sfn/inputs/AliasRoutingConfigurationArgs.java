@@ -16,14 +16,14 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
     public static final AliasRoutingConfigurationArgs Empty = new AliasRoutingConfigurationArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the state machine version.
+     * ARN of the state machine version.
      * 
      */
     @Import(name="stateMachineVersionArn", required=true)
     private Output<String> stateMachineVersionArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the state machine version.
+     * @return ARN of the state machine version.
      * 
      */
     public Output<String> stateMachineVersionArn() {
@@ -71,7 +71,7 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
+         * @param stateMachineVersionArn ARN of the state machine version.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class AliasRoutingConfigurationArgs extends com.pulumi.resources.Re
         }
 
         /**
-         * @param stateMachineVersionArn The Amazon Resource Name (ARN) of the state machine version.
+         * @param stateMachineVersionArn ARN of the state machine version.
          * 
          * @return builder
          * 

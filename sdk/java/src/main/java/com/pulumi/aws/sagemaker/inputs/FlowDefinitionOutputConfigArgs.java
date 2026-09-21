@@ -17,14 +17,14 @@ public final class FlowDefinitionOutputConfigArgs extends com.pulumi.resources.R
     public static final FlowDefinitionOutputConfigArgs Empty = new FlowDefinitionOutputConfigArgs();
 
     /**
-     * The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+     * KMS key ARN for server-side encryption.
      * 
      */
     @Import(name="kmsKeyId")
     private @Nullable Output<String> kmsKeyId;
 
     /**
-     * @return The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+     * @return KMS key ARN for server-side encryption.
      * 
      */
     public Optional<Output<String>> kmsKeyId() {
@@ -72,7 +72,7 @@ public final class FlowDefinitionOutputConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kmsKeyId The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+         * @param kmsKeyId KMS key ARN for server-side encryption.
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class FlowDefinitionOutputConfigArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param kmsKeyId The Amazon Key Management Service (KMS) key ARN for server-side encryption.
+         * @param kmsKeyId KMS key ARN for server-side encryption.
          * 
          * @return builder
          * 

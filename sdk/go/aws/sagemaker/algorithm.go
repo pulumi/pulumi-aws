@@ -31,12 +31,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := sagemaker.NewAlgorithm(ctx, "example", &sagemaker.AlgorithmArgs{
-//				AlgorithmName: pulumi.String("example-algorithm"),
 //				TrainingSpecification: &sagemaker.AlgorithmTrainingSpecificationArgs{
-//					SupportedTrainingInstanceTypes: pulumi.StringArray{
-//						pulumi.String("ml.m5.large"),
-//					},
-//					TrainingImage: pulumi.String("123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest"),
 //					TrainingChannels: sagemaker.AlgorithmTrainingSpecificationTrainingChannelArray{
 //						&sagemaker.AlgorithmTrainingSpecificationTrainingChannelArgs{
 //							Name: pulumi.String("train"),
@@ -48,7 +43,12 @@ import (
 //							},
 //						},
 //					},
+//					SupportedTrainingInstanceTypes: pulumi.StringArray{
+//						pulumi.String("ml.m5.large"),
+//					},
+//					TrainingImage: pulumi.String("123456789012.dkr.ecr.us-west-2.amazonaws.com/example-training:latest"),
 //				},
+//				AlgorithmName: pulumi.String("example-algorithm"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("test"),
 //				},
@@ -84,14 +84,7 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewAlgorithm(ctx, "example", &sagemaker.AlgorithmArgs{
-//				AlgorithmName: pulumi.String("example-training-algorithm"),
 //				TrainingSpecification: &sagemaker.AlgorithmTrainingSpecificationArgs{
-//					SupportedTrainingInstanceTypes: pulumi.StringArray{
-//						pulumi.String("ml.m5.large"),
-//						pulumi.String("ml.c5.xlarge"),
-//					},
-//					SupportsDistributedTraining: pulumi.Bool(true),
-//					TrainingImage:               pulumi.String(example.RegistryPath),
 //					MetricDefinitions: sagemaker.AlgorithmTrainingSpecificationMetricDefinitionArray{
 //						&sagemaker.AlgorithmTrainingSpecificationMetricDefinitionArgs{
 //							Name:  pulumi.String("train:loss"),
@@ -100,40 +93,34 @@ import (
 //					},
 //					SupportedHyperParameters: sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArray{
 //						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("0.5"),
-//							Description:  pulumi.String("Continuous learning rate"),
-//							IsRequired:   pulumi.Bool(true),
-//							IsTunable:    pulumi.Bool(true),
-//							Name:         pulumi.String("eta"),
-//							Type:         pulumi.String("Continuous"),
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								ContinuousParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeContinuousParameterRangeSpecificationArgs{
 //									MinValue: pulumi.String("0.1"),
 //									MaxValue: pulumi.String("0.9"),
 //								},
 //							},
+//							DefaultValue: pulumi.String("0.5"),
+//							Description:  pulumi.String("Continuous learning rate"),
+//							IsRequired:   pulumi.Bool(true),
+//							IsTunable:    pulumi.Bool(true),
+//							Name:         pulumi.String("eta"),
+//							Type:         pulumi.String("Continuous"),
 //						},
 //						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("5"),
-//							Description:  pulumi.String("Maximum tree depth"),
-//							IsRequired:   pulumi.Bool(false),
-//							IsTunable:    pulumi.Bool(true),
-//							Name:         pulumi.String("max_depth"),
-//							Type:         pulumi.String("Integer"),
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								IntegerParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{
 //									MinValue: pulumi.String("1"),
 //									MaxValue: pulumi.String("10"),
 //								},
 //							},
+//							DefaultValue: pulumi.String("5"),
+//							Description:  pulumi.String("Maximum tree depth"),
+//							IsRequired:   pulumi.Bool(false),
+//							IsTunable:    pulumi.Bool(true),
+//							Name:         pulumi.String("max_depth"),
+//							Type:         pulumi.String("Integer"),
 //						},
 //						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("reg:squarederror"),
-//							Description:  pulumi.String("Objective function"),
-//							IsRequired:   pulumi.Bool(false),
-//							IsTunable:    pulumi.Bool(false),
-//							Name:         pulumi.String("objective"),
-//							Type:         pulumi.String("Categorical"),
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								CategoricalParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{
 //									Values: pulumi.StringArray{
@@ -142,6 +129,12 @@ import (
 //									},
 //								},
 //							},
+//							DefaultValue: pulumi.String("reg:squarederror"),
+//							Description:  pulumi.String("Objective function"),
+//							IsRequired:   pulumi.Bool(false),
+//							IsTunable:    pulumi.Bool(false),
+//							Name:         pulumi.String("objective"),
+//							Type:         pulumi.String("Categorical"),
 //						},
 //					},
 //					SupportedTuningJobObjectiveMetrics: sagemaker.AlgorithmTrainingSpecificationSupportedTuningJobObjectiveMetricArray{
@@ -176,7 +169,14 @@ import (
 //							},
 //						},
 //					},
+//					SupportedTrainingInstanceTypes: pulumi.StringArray{
+//						pulumi.String("ml.m5.large"),
+//						pulumi.String("ml.c5.xlarge"),
+//					},
+//					SupportsDistributedTraining: pulumi.Bool(true),
+//					TrainingImage:               pulumi.String(example.RegistryPath),
 //				},
+//				AlgorithmName: pulumi.String("example-training-algorithm"),
 //			})
 //			if err != nil {
 //				return err
@@ -209,12 +209,7 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewAlgorithm(ctx, "example", &sagemaker.AlgorithmArgs{
-//				AlgorithmName: pulumi.String("example-inference-algorithm"),
 //				TrainingSpecification: &sagemaker.AlgorithmTrainingSpecificationArgs{
-//					SupportedTrainingInstanceTypes: pulumi.StringArray{
-//						pulumi.String("ml.m5.large"),
-//					},
-//					TrainingImage: pulumi.String(example.RegistryPath),
 //					TrainingChannels: sagemaker.AlgorithmTrainingSpecificationTrainingChannelArray{
 //						&sagemaker.AlgorithmTrainingSpecificationTrainingChannelArgs{
 //							Name: pulumi.String("train"),
@@ -226,8 +221,33 @@ import (
 //							},
 //						},
 //					},
+//					SupportedTrainingInstanceTypes: pulumi.StringArray{
+//						pulumi.String("ml.m5.large"),
+//					},
+//					TrainingImage: pulumi.String(example.RegistryPath),
 //				},
 //				InferenceSpecification: &sagemaker.AlgorithmInferenceSpecificationArgs{
+//					Containers: sagemaker.AlgorithmInferenceSpecificationContainerArray{
+//						&sagemaker.AlgorithmInferenceSpecificationContainerArgs{
+//							BaseModel: &sagemaker.AlgorithmInferenceSpecificationContainerBaseModelArgs{
+//								HubContentName:    pulumi.String("basemodel"),
+//								HubContentVersion: pulumi.String("1.0.0"),
+//								RecipeName:        pulumi.String("recipe"),
+//							},
+//							ModelInput: &sagemaker.AlgorithmInferenceSpecificationContainerModelInputArgs{
+//								DataInputConfig: pulumi.String("{}"),
+//							},
+//							ContainerHostname: pulumi.String("test-host"),
+//							Environment: pulumi.StringMap{
+//								"TEST": pulumi.String("value"),
+//							},
+//							Framework:        pulumi.String("XGBOOST"),
+//							FrameworkVersion: pulumi.String("1.5-1"),
+//							Image:            pulumi.String(example.RegistryPath),
+//							IsCheckpoint:     pulumi.Bool(true),
+//							NearestModelName: pulumi.String("nearest-model"),
+//						},
+//					},
 //					SupportedContentTypes: pulumi.StringArray{
 //						pulumi.String("text/csv"),
 //					},
@@ -240,28 +260,8 @@ import (
 //					SupportedTransformInstanceTypes: pulumi.StringArray{
 //						pulumi.String("ml.m5.large"),
 //					},
-//					Containers: sagemaker.AlgorithmInferenceSpecificationContainerArray{
-//						&sagemaker.AlgorithmInferenceSpecificationContainerArgs{
-//							ContainerHostname: pulumi.String("test-host"),
-//							Environment: pulumi.StringMap{
-//								"TEST": pulumi.String("value"),
-//							},
-//							Framework:        pulumi.String("XGBOOST"),
-//							FrameworkVersion: pulumi.String("1.5-1"),
-//							Image:            pulumi.String(example.RegistryPath),
-//							IsCheckpoint:     pulumi.Bool(true),
-//							NearestModelName: pulumi.String("nearest-model"),
-//							BaseModel: &sagemaker.AlgorithmInferenceSpecificationContainerBaseModelArgs{
-//								HubContentName:    pulumi.String("basemodel"),
-//								HubContentVersion: pulumi.String("1.0.0"),
-//								RecipeName:        pulumi.String("recipe"),
-//							},
-//							ModelInput: &sagemaker.AlgorithmInferenceSpecificationContainerModelInputArgs{
-//								DataInputConfig: pulumi.String("{}"),
-//							},
-//						},
-//					},
 //				},
+//				AlgorithmName: pulumi.String("example-inference-algorithm"),
 //			})
 //			if err != nil {
 //				return err
@@ -305,9 +305,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Actions: []string{
-//							"sts:AssumeRole",
-//						},
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -315,6 +312,9 @@ import (
 //									fmt.Sprintf("sagemaker.%v", current.DnsSuffix),
 //								},
 //							},
+//						},
+//						Actions: []string{
+//							"sts:AssumeRole",
 //						},
 //					},
 //				},
@@ -386,48 +386,37 @@ import (
 //				return err
 //			}
 //			_, err = sagemaker.NewAlgorithm(ctx, "example", &sagemaker.AlgorithmArgs{
-//				AlgorithmName: pulumi.String("example-validation-algorithm"),
 //				TrainingSpecification: &sagemaker.AlgorithmTrainingSpecificationArgs{
-//					TrainingImage: pulumi.String(example.RegistryPath),
-//					SupportedTrainingInstanceTypes: pulumi.StringArray{
-//						pulumi.String("ml.m5.large"),
-//					},
 //					SupportedHyperParameters: sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArray{
 //						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("2"),
-//							Description:  pulumi.String("Feature dimension"),
-//							IsRequired:   pulumi.Bool(true),
-//							IsTunable:    pulumi.Bool(false),
-//							Name:         pulumi.String("feature_dim"),
-//							Type:         pulumi.String("Integer"),
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								IntegerParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{
 //									MinValue: pulumi.String("2"),
 //									MaxValue: pulumi.String("2"),
 //								},
 //							},
-//						},
-//						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("4"),
-//							Description:  pulumi.String("Mini batch size"),
+//							DefaultValue: pulumi.String("2"),
+//							Description:  pulumi.String("Feature dimension"),
 //							IsRequired:   pulumi.Bool(true),
 //							IsTunable:    pulumi.Bool(false),
-//							Name:         pulumi.String("mini_batch_size"),
+//							Name:         pulumi.String("feature_dim"),
 //							Type:         pulumi.String("Integer"),
+//						},
+//						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								IntegerParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeIntegerParameterRangeSpecificationArgs{
 //									MinValue: pulumi.String("4"),
 //									MaxValue: pulumi.String("4"),
 //								},
 //							},
-//						},
-//						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
-//							DefaultValue: pulumi.String("binary_classifier"),
-//							Description:  pulumi.String("Predictor type"),
+//							DefaultValue: pulumi.String("4"),
+//							Description:  pulumi.String("Mini batch size"),
 //							IsRequired:   pulumi.Bool(true),
 //							IsTunable:    pulumi.Bool(false),
-//							Name:         pulumi.String("predictor_type"),
-//							Type:         pulumi.String("Categorical"),
+//							Name:         pulumi.String("mini_batch_size"),
+//							Type:         pulumi.String("Integer"),
+//						},
+//						&sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterArgs{
 //							Range: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeArgs{
 //								CategoricalParameterRangeSpecification: &sagemaker.AlgorithmTrainingSpecificationSupportedHyperParameterRangeCategoricalParameterRangeSpecificationArgs{
 //									Values: pulumi.StringArray{
@@ -435,6 +424,12 @@ import (
 //									},
 //								},
 //							},
+//							DefaultValue: pulumi.String("binary_classifier"),
+//							Description:  pulumi.String("Predictor type"),
+//							IsRequired:   pulumi.Bool(true),
+//							IsTunable:    pulumi.Bool(false),
+//							Name:         pulumi.String("predictor_type"),
+//							Type:         pulumi.String("Categorical"),
 //						},
 //					},
 //					TrainingChannels: sagemaker.AlgorithmTrainingSpecificationTrainingChannelArray{
@@ -448,8 +443,17 @@ import (
 //							},
 //						},
 //					},
+//					TrainingImage: pulumi.String(example.RegistryPath),
+//					SupportedTrainingInstanceTypes: pulumi.StringArray{
+//						pulumi.String("ml.m5.large"),
+//					},
 //				},
 //				InferenceSpecification: &sagemaker.AlgorithmInferenceSpecificationArgs{
+//					Containers: sagemaker.AlgorithmInferenceSpecificationContainerArray{
+//						&sagemaker.AlgorithmInferenceSpecificationContainerArgs{
+//							Image: pulumi.String(example.RegistryPath),
+//						},
+//					},
 //					SupportedContentTypes: pulumi.StringArray{
 //						pulumi.String("text/csv"),
 //					},
@@ -459,47 +463,10 @@ import (
 //					SupportedTransformInstanceTypes: pulumi.StringArray{
 //						pulumi.String("ml.m5.large"),
 //					},
-//					Containers: sagemaker.AlgorithmInferenceSpecificationContainerArray{
-//						&sagemaker.AlgorithmInferenceSpecificationContainerArgs{
-//							Image: pulumi.String(example.RegistryPath),
-//						},
-//					},
 //				},
 //				ValidationSpecification: &sagemaker.AlgorithmValidationSpecificationArgs{
-//					ValidationRole: exampleRole.Arn,
 //					ValidationProfiles: &sagemaker.AlgorithmValidationSpecificationValidationProfilesArgs{
-//						ProfileName: pulumi.String("validation-profile"),
 //						TrainingJobDefinition: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionArgs{
-//							HyperParameters: pulumi.StringMap{
-//								"feature_dim":     pulumi.String("2"),
-//								"mini_batch_size": pulumi.String("4"),
-//								"predictor_type":  pulumi.String("binary_classifier"),
-//							},
-//							TrainingInputMode: pulumi.String("File"),
-//							InputDataConfigs: sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray{
-//								&sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs{
-//									ChannelName:       pulumi.String("train"),
-//									CompressionType:   pulumi.String("None"),
-//									ContentType:       pulumi.String("text/csv"),
-//									InputMode:         pulumi.String("File"),
-//									RecordWrapperType: pulumi.String("None"),
-//									ShuffleConfig: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{
-//										Seed: pulumi.Int(1),
-//									},
-//									DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs{
-//										S3DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
-//											AttributeNames: pulumi.StringArray{
-//												pulumi.String("label"),
-//											},
-//											S3DataDistributionType: pulumi.String("ShardedByS3Key"),
-//											S3DataType:             pulumi.String("S3Prefix"),
-//											S3Uri: exampleBucket.Bucket.ApplyT(func(bucket string) (string, error) {
-//												return fmt.Sprintf("s3://%v/algorithm/training/", bucket), nil
-//											}).(pulumi.StringOutput),
-//										},
-//									},
-//								},
-//							},
 //							OutputDataConfig: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionOutputDataConfigArgs{
 //								CompressionType: pulumi.String("GZIP"),
 //								S3OutputPath: exampleBucket.Bucket.ApplyT(func(bucket string) (string, error) {
@@ -517,18 +484,39 @@ import (
 //								MaxRuntimeInSeconds:     pulumi.Int(1800),
 //								MaxWaitTimeInSeconds:    pulumi.Int(3600),
 //							},
+//							InputDataConfigs: sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArray{
+//								&sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigArgs{
+//									ShuffleConfig: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigShuffleConfigArgs{
+//										Seed: pulumi.Int(1),
+//									},
+//									DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceArgs{
+//										S3DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTrainingJobDefinitionInputDataConfigDataSourceS3DataSourceArgs{
+//											AttributeNames: pulumi.StringArray{
+//												pulumi.String("label"),
+//											},
+//											S3DataDistributionType: pulumi.String("ShardedByS3Key"),
+//											S3DataType:             pulumi.String("S3Prefix"),
+//											S3Uri: exampleBucket.Bucket.ApplyT(func(bucket string) (string, error) {
+//												return fmt.Sprintf("s3://%v/algorithm/training/", bucket), nil
+//											}).(pulumi.StringOutput),
+//										},
+//									},
+//									ChannelName:       pulumi.String("train"),
+//									CompressionType:   pulumi.String("None"),
+//									ContentType:       pulumi.String("text/csv"),
+//									InputMode:         pulumi.String("File"),
+//									RecordWrapperType: pulumi.String("None"),
+//								},
+//							},
+//							HyperParameters: pulumi.StringMap{
+//								"feature_dim":     pulumi.String("2"),
+//								"mini_batch_size": pulumi.String("4"),
+//								"predictor_type":  pulumi.String("binary_classifier"),
+//							},
+//							TrainingInputMode: pulumi.String("File"),
 //						},
 //						TransformJobDefinition: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionArgs{
-//							BatchStrategy: pulumi.String("MultiRecord"),
-//							Environment: pulumi.StringMap{
-//								"Te": pulumi.String("enabled"),
-//							},
-//							MaxConcurrentTransforms: pulumi.Int(1),
-//							MaxPayloadInMb:          pulumi.Int(6),
 //							TransformInput: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputArgs{
-//								CompressionType: pulumi.String("None"),
-//								ContentType:     pulumi.String("text/csv"),
-//								SplitType:       pulumi.String("Line"),
 //								DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceArgs{
 //									S3DataSource: &sagemaker.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformInputDataSourceS3DataSourceArgs{
 //										S3DataType: pulumi.String("S3Prefix"),
@@ -537,6 +525,9 @@ import (
 //										}).(pulumi.StringOutput),
 //									},
 //								},
+//								CompressionType: pulumi.String("None"),
+//								ContentType:     pulumi.String("text/csv"),
+//								SplitType:       pulumi.String("Line"),
 //							},
 //							TransformOutput: sagemaker.AlgorithmValidationSpecificationValidationProfilesTransformJobDefinitionTransformOutputArgs{
 //								Accept:       pulumi.String("text/csv"),
@@ -549,9 +540,18 @@ import (
 //								InstanceCount: pulumi.Int(1),
 //								InstanceType:  pulumi.String("ml.m5.large"),
 //							},
+//							BatchStrategy: pulumi.String("MultiRecord"),
+//							Environment: pulumi.StringMap{
+//								"Te": pulumi.String("enabled"),
+//							},
+//							MaxConcurrentTransforms: pulumi.Int(1),
+//							MaxPayloadInMb:          pulumi.Int(6),
 //						},
+//						ProfileName: pulumi.String("validation-profile"),
 //					},
+//					ValidationRole: exampleRole.Arn,
 //				},
+//				AlgorithmName: pulumi.String("example-validation-algorithm"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleRolePolicyAttachment,
 //				exampleRolePolicy,

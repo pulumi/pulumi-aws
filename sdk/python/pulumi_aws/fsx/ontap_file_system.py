@@ -45,7 +45,7 @@ class OntapFileSystemArgs:
         The set of arguments for constructing a OntapFileSystem resource.
 
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your VPC.
         :param pulumi.Input[_builtins.int] storage_capacity: Storage capacity (GiB) of the file system. Valid values between `1024` and `196608` for file systems with deployment_type `SINGLE_AZ_1` and `MULTI_AZ_1`. Valid values are between `1024` and `524288` for `MULTI_AZ_2`. Valid values between `1024` (`1024` per ha pair) and `1048576` for file systems with deployment_type `SINGLE_AZ_2`. For `SINGLE_AZ_2`, the `1048576` (1PB) maximum is only supported when using 2 or more ha_pairs, the maximum is `524288` (512TB) when using 1 ha_pair.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] subnet_ids: List of IDs for the subnets that the file system will be accessible from. Up to 2 subnets can be provided.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
@@ -118,7 +118,7 @@ class OntapFileSystemArgs:
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[_builtins.str]:
         """
-        ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        ID for a subnet. A subnet is a range of IP addresses in your VPC.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -376,7 +376,7 @@ class _OntapFileSystemState:
         """
         Input properties used for looking up and filtering OntapFileSystem resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
@@ -390,7 +390,7 @@ class _OntapFileSystemState:
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -401,7 +401,7 @@ class _OntapFileSystemState:
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[_builtins.int] throughput_capacity_per_ha_pair: Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         if arn is not None:
@@ -463,7 +463,7 @@ class _OntapFileSystemState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -631,7 +631,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        ID for a subnet. A subnet is a range of IP addresses in your VPC.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -763,7 +763,7 @@ class _OntapFileSystemState:
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 
@@ -888,7 +888,8 @@ class OntapFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -903,7 +904,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[_builtins.int] ha_pairs: Number of ha_pairs to deploy for the file system. Valid value is 1 for `SINGLE_AZ_1` or `MULTI_AZ_1` and `MULTI_AZ_2`. Valid values are 1 through 12 for `SINGLE_AZ_2`.
         :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS Key to encrypt the file system at rest, Defaults to an AWS managed KMS Key.
         :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -998,7 +999,8 @@ class OntapFileSystem(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]])
+        example = aws.fsx.OntapFileSystem("example", security_group_ids=[example_aws_security_group["id"]],
+        opts = pulumi.ResourceOptions(ignore_changes=["securityGroupIds"]))
         ```
 
 
@@ -1127,7 +1129,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name of the file system.
+        :param pulumi.Input[_builtins.str] arn: ARN of the file system.
         :param pulumi.Input[_builtins.int] automatic_backup_retention_days: Number of days to retain automatic backups. Setting this to 0 disables automatic backups. You can retain automatic backups for a maximum of 90 days.
         :param pulumi.Input[_builtins.str] daily_automatic_backup_start_time: Recurring daily time, in the format HH:MM. HH is the zero-padded hour of the day (0-23), and MM is the zero-padded minute of the hour. For example, 05:00 specifies 5 AM daily. Requires `automatic_backup_retention_days` to be set.
         :param pulumi.Input[_builtins.str] deployment_type: Filesystem deployment type. Supports `MULTI_AZ_1`, `MULTI_AZ_2`, `SINGLE_AZ_1`, and `SINGLE_AZ_2`.
@@ -1141,7 +1143,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] network_interface_ids: Set of Elastic Network Interface identifiers from which the file system is accessible The first network interface returned is the primary network interface.
         :param pulumi.Input[_builtins.str] network_type: Network type. Valid values are `IPV4` and `DUAL`. Default value is `IPV4`.
         :param pulumi.Input[_builtins.str] owner_id: AWS account identifier that created the file system.
-        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        :param pulumi.Input[_builtins.str] preferred_subnet_id: ID for a subnet. A subnet is a range of IP addresses in your VPC.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] route_table_ids: VPC route tables in which your file system's endpoints will be created. You should specify all VPC route tables associated with the subnets in which your clients are located. By default, Amazon FSx selects your VPC's default route table.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] security_group_ids: List of IDs for the security groups that apply to the specified network interfaces created for file system access. These security groups will apply to all network interfaces.
@@ -1152,7 +1154,7 @@ class OntapFileSystem(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.int] throughput_capacity: Sets the throughput capacity (in MBps) for the file system that you're creating. Valid values are `128`, `256`, `512`, `1024`, `2048`, and `4096`. This parameter is only supported when not using the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
         :param pulumi.Input[_builtins.int] throughput_capacity_per_ha_pair: Sets the per-HA-pair throughput capacity (in MBps) for the file system that you're creating, as opposed to `throughput_capacity` which specifies the total throughput capacity for the file system. Valid value for `MULTI_AZ_1` and `SINGLE_AZ_1` are `128`, `256`, `512`, `1024`, `2048`, and `4096`. Valid values for deployment type `MULTI_AZ_2` and `SINGLE_AZ_2` are `384`,`768`,`1536`,`3072`,`6144` where `ha_pairs` is `1`. Valid values for deployment type `SINGLE_AZ_2` are `1536`, `3072`, and `6144` where `ha_pairs` is greater than 1. This parameter is only supported when specifying the ha_pairs parameter. Either throughput_capacity or throughput_capacity_per_ha_pair must be specified.
-        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the Virtual Private Cloud for the file system.
+        :param pulumi.Input[_builtins.str] vpc_id: Identifier of the VPC for the file system.
         :param pulumi.Input[_builtins.str] weekly_maintenance_start_time: Preferred start time (in `d:HH:MM` format) to perform weekly maintenance, in the UTC time zone.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -1192,7 +1194,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name of the file system.
+        ARN of the file system.
         """
         return pulumi.get(self, "arn")
 
@@ -1304,7 +1306,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="preferredSubnetId")
     def preferred_subnet_id(self) -> pulumi.Output[_builtins.str]:
         """
-        ID for a subnet. A subnet is a range of IP addresses in your virtual private cloud (VPC).
+        ID for a subnet. A subnet is a range of IP addresses in your VPC.
         """
         return pulumi.get(self, "preferred_subnet_id")
 
@@ -1392,7 +1394,7 @@ class OntapFileSystem(pulumi.CustomResource):
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> pulumi.Output[_builtins.str]:
         """
-        Identifier of the Virtual Private Cloud for the file system.
+        Identifier of the VPC for the file system.
         """
         return pulumi.get(self, "vpc_id")
 

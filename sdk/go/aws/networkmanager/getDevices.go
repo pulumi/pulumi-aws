@@ -73,12 +73,8 @@ type GetDevicesResult struct {
 }
 
 func GetDevicesOutput(ctx *pulumi.Context, args GetDevicesOutputArgs, opts ...pulumi.InvokeOption) GetDevicesResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetDevicesResultOutput, error) {
-			args := v.(GetDevicesArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:networkmanager/getDevices:getDevices", args, GetDevicesResultOutput{}, options).(GetDevicesResultOutput), nil
-		}).(GetDevicesResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:networkmanager/getDevices:getDevices", args, GetDevicesResultOutput{}, options).(GetDevicesResultOutput)
 }
 
 // A collection of arguments for invoking getDevices.

@@ -17,14 +17,14 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
     public static final PermissionsBoundaryAttachmentState Empty = new PermissionsBoundaryAttachmentState();
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Import(name="instanceArn")
     private @Nullable Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Optional<Output<String>> instanceArn() {
@@ -32,14 +32,14 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Import(name="permissionSetArn")
     private @Nullable Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Optional<Output<String>> permissionSetArn() {
@@ -104,7 +104,7 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class PermissionsBoundaryAttachmentState extends com.pulumi.resourc
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 

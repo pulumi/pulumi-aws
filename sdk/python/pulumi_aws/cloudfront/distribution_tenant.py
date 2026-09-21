@@ -477,12 +477,12 @@ class DistributionTenant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=True,
             domains=[{
                 "domain": "tenant.example.com",
             }],
+            name="example-tenant",
+            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
+            enabled=True,
             tags={
                 "Environment": "production",
             })
@@ -495,12 +495,6 @@ class DistributionTenant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=False,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
             customizations={
                 "geo_restriction": {
                     "restriction_type": "whitelist",
@@ -517,6 +511,12 @@ class DistributionTenant(pulumi.CustomResource):
                     "arn": tenant_waf["arn"],
                 },
             },
+            domains=[{
+                "domain": "tenant.example.com",
+            }],
+            name="example-tenant",
+            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
+            enabled=False,
             tags={
                 "Environment": "production",
                 "Tenant": "example",
@@ -567,12 +567,12 @@ class DistributionTenant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=True,
             domains=[{
                 "domain": "tenant.example.com",
             }],
+            name="example-tenant",
+            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
+            enabled=True,
             tags={
                 "Environment": "production",
             })
@@ -585,12 +585,6 @@ class DistributionTenant(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.cloudfront.DistributionTenant("example",
-            name="example-tenant",
-            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
-            enabled=False,
-            domains=[{
-                "domain": "tenant.example.com",
-            }],
             customizations={
                 "geo_restriction": {
                     "restriction_type": "whitelist",
@@ -607,6 +601,12 @@ class DistributionTenant(pulumi.CustomResource):
                     "arn": tenant_waf["arn"],
                 },
             },
+            domains=[{
+                "domain": "tenant.example.com",
+            }],
+            name="example-tenant",
+            distribution_id=example_aws_cloudfront_multitenant_distribution["id"],
+            enabled=False,
             tags={
                 "Environment": "production",
                 "Tenant": "example",

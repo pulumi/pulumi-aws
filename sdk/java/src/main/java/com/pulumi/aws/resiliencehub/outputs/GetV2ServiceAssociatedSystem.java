@@ -6,6 +6,7 @@ package com.pulumi.aws.resiliencehub.outputs;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
+import java.util.List;
 import java.util.Objects;
 
 @CustomType
@@ -15,6 +16,11 @@ public final class GetV2ServiceAssociatedSystem {
      * 
      */
     private String systemArn;
+    /**
+     * @return List of user journey identifiers that associate the system with the service.
+     * 
+     */
+    private List<String> userJourneyIds;
 
     private GetV2ServiceAssociatedSystem() {}
     /**
@@ -23,6 +29,13 @@ public final class GetV2ServiceAssociatedSystem {
      */
     public String systemArn() {
         return this.systemArn;
+    }
+    /**
+     * @return List of user journey identifiers that associate the system with the service.
+     * 
+     */
+    public List<String> userJourneyIds() {
+        return this.userJourneyIds;
     }
 
     public static Builder builder() {
@@ -35,10 +48,12 @@ public final class GetV2ServiceAssociatedSystem {
     @CustomType.Builder
     public static final class Builder {
         private String systemArn;
+        private List<String> userJourneyIds;
         public Builder() {}
         public Builder(GetV2ServiceAssociatedSystem defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.systemArn = defaults.systemArn;
+    	      this.userJourneyIds = defaults.userJourneyIds;
         }
 
         @CustomType.Setter
@@ -49,9 +64,21 @@ public final class GetV2ServiceAssociatedSystem {
             this.systemArn = systemArn;
             return this;
         }
+        @CustomType.Setter
+        public Builder userJourneyIds(List<String> userJourneyIds) {
+            if (userJourneyIds == null) {
+              throw new MissingRequiredPropertyException("GetV2ServiceAssociatedSystem", "userJourneyIds");
+            }
+            this.userJourneyIds = userJourneyIds;
+            return this;
+        }
+        public Builder userJourneyIds(String... userJourneyIds) {
+            return userJourneyIds(List.of(userJourneyIds));
+        }
         public GetV2ServiceAssociatedSystem build() {
             final var _resultValue = new GetV2ServiceAssociatedSystem();
             _resultValue.systemArn = systemArn;
+            _resultValue.userJourneyIds = userJourneyIds;
             return _resultValue;
         }
     }

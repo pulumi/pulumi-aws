@@ -57,10 +57,10 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * const exampleS3TableIntegration = new aws.observabilityadmin.S3TableIntegration("example", {
- *     roleArn: example.arn,
  *     encryption: {
  *         sseAlgorithm: "AES256",
  *     },
+ *     roleArn: example.arn,
  * });
  * ```
  *
@@ -88,11 +88,11 @@ import * as utilities from "../utilities";
  *     deletionWindowInDays: 7,
  * });
  * const exampleS3TableIntegration = new aws.observabilityadmin.S3TableIntegration("example", {
- *     roleArn: example.arn,
  *     encryption: {
  *         sseAlgorithm: "aws:kms",
  *         kmsKeyArn: exampleKey.arn,
  *     },
+ *     roleArn: example.arn,
  * });
  * ```
  *
@@ -139,7 +139,7 @@ export class S3TableIntegration extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the S3 Table integration.
+     * ARN of the S3 Table integration.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -155,7 +155,7 @@ export class S3TableIntegration extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      */
     declare public readonly roleArn: pulumi.Output<string>;
     /**
@@ -216,7 +216,7 @@ export class S3TableIntegration extends pulumi.CustomResource {
  */
 export interface S3TableIntegrationState {
     /**
-     * Amazon Resource Name (ARN) of the S3 Table integration.
+     * ARN of the S3 Table integration.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -232,7 +232,7 @@ export interface S3TableIntegrationState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      */
     roleArn?: pulumi.Input<string | undefined>;
     /**
@@ -259,7 +259,7 @@ export interface S3TableIntegrationArgs {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the IAM role that grants the S3 Table integration permissions to access necessary resources.
+     * ARN of the IAM role that grants the S3 Table integration permissions to access necessary resources.
      */
     roleArn: pulumi.Input<string>;
     /**

@@ -142,8 +142,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewDocument(ctx, "test", &ssm.DocumentArgs{
-//				Name:         pulumi.String("test_document"),
-//				DocumentType: pulumi.String("Package"),
 //				AttachmentsSources: ssm.DocumentAttachmentsSourceArray{
 //					&ssm.DocumentAttachmentsSourceArgs{
 //						Key: pulumi.String("SourceUrl"),
@@ -152,7 +150,11 @@ import (
 //						},
 //					},
 //				},
-//			})
+//				Name:         pulumi.String("test_document"),
+//				DocumentType: pulumi.String("Package"),
+//			}, pulumi.IgnoreChanges([]string{
+//				"attachmentsSources",
+//			}))
 //			if err != nil {
 //				return err
 //			}
@@ -164,7 +166,7 @@ import (
 type Document struct {
 	pulumi.CustomResourceState
 
-	// The Amazon Resource Name (ARN) of the document.
+	// ARN of the document.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources DocumentAttachmentsSourceArrayOutput `pulumi:"attachmentsSources"`
@@ -250,7 +252,7 @@ func GetDocument(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Document resources.
 type documentState struct {
-	// The Amazon Resource Name (ARN) of the document.
+	// ARN of the document.
 	Arn *string `pulumi:"arn"`
 	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources []DocumentAttachmentsSource `pulumi:"attachmentsSources"`
@@ -301,7 +303,7 @@ type documentState struct {
 }
 
 type DocumentState struct {
-	// The Amazon Resource Name (ARN) of the document.
+	// ARN of the document.
 	Arn pulumi.StringPtrInput
 	// One or more configuration blocks describing attachments sources to a version of a document. See `attachmentsSource` block below for details.
 	AttachmentsSources DocumentAttachmentsSourceArrayInput
@@ -489,7 +491,7 @@ func (o DocumentOutput) ToDocumentOutputWithContext(ctx context.Context) Documen
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the document.
+// ARN of the document.
 func (o DocumentOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *Document) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

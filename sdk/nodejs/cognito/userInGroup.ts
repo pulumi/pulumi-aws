@@ -14,7 +14,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cognito.UserPool("example", {
- *     name: "example",
  *     passwordPolicy: {
  *         temporaryPasswordValidityDays: 7,
  *         minimumLength: 6,
@@ -22,6 +21,7 @@ import * as utilities from "../utilities";
  *         requireSymbols: false,
  *         requireNumbers: false,
  *     },
+ *     name: "example",
  * });
  * const exampleUser = new aws.cognito.User("example", {
  *     userPoolId: example.id,

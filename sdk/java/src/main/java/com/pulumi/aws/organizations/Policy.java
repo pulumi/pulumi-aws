@@ -86,14 +86,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:organizations/policy:Policy")
 public class Policy extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the policy.
+     * ARN of the policy.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the policy.
+     * @return ARN of the policy.
      * 
      */
     public Output<String> arn() {

@@ -79,7 +79,7 @@ namespace Pulumi.Aws.Shield
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the resource to be protected.
+        /// ARN of the resource to be protected.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -149,7 +149,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the resource to be protected.
+        /// ARN of the resource to be protected.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -187,7 +187,7 @@ namespace Pulumi.Aws.Shield
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The ARN (Amazon Resource Name) of the resource to be protected.
+        /// ARN of the resource to be protected.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

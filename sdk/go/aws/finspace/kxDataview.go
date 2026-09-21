@@ -31,13 +31,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := finspace.NewKxDataview(ctx, "example", &finspace.KxDataviewArgs{
-//				Name:               pulumi.String("my-tf-kx-dataview"),
-//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
-//				DatabaseName:       pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
-//				AvailabilityZoneId: pulumi.String("use1-az2"),
-//				Description:        pulumi.String("Terraform managed Kx Dataview"),
-//				AzMode:             pulumi.String("SINGLE"),
-//				AutoUpdate:         pulumi.Bool(true),
 //				SegmentConfigurations: finspace.KxDataviewSegmentConfigurationArray{
 //					&finspace.KxDataviewSegmentConfigurationArgs{
 //						VolumeName: pulumi.Any(exampleAwsFinspaceKxVolume.Name),
@@ -46,7 +39,14 @@ import (
 //						},
 //					},
 //				},
-//			})
+//				Name:               pulumi.String("my-tf-kx-dataview"),
+//				EnvironmentId:      pulumi.Any(exampleAwsFinspaceKxEnvironment.Id),
+//				DatabaseName:       pulumi.Any(exampleAwsFinspaceKxDatabase.Name),
+//				AvailabilityZoneId: pulumi.String("use1-az2"),
+//				Description:        pulumi.String("Terraform managed Kx Dataview"),
+//				AzMode:             pulumi.String("SINGLE"),
+//				AutoUpdate:         pulumi.Bool(true),
+//			}, pulumi.Timeouts(&pulumi.CustomTimeouts{Create: "24h", Update: "24h", Delete: "12h"}))
 //			if err != nil {
 //				return err
 //			}
@@ -66,7 +66,7 @@ import (
 type KxDataview struct {
 	pulumi.CustomResourceState
 
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate pulumi.BoolOutput `pulumi:"autoUpdate"`
@@ -146,7 +146,7 @@ func GetKxDataview(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering KxDataview resources.
 type kxDataviewState struct {
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn *string `pulumi:"arn"`
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate *bool `pulumi:"autoUpdate"`
@@ -185,7 +185,7 @@ type kxDataviewState struct {
 }
 
 type KxDataviewState struct {
-	// Amazon Resource Name (ARN) identifier of the KX dataview.
+	// ARN identifier of the KX dataview.
 	Arn pulumi.StringPtrInput
 	// Whether to apply all the future additions and corrections automatically to the dataview when you ingest new changesets. Defaults to `false`.
 	AutoUpdate pulumi.BoolPtrInput
@@ -373,7 +373,7 @@ func (o KxDataviewOutput) ToKxDataviewOutputWithContext(ctx context.Context) KxD
 	return o
 }
 
-// Amazon Resource Name (ARN) identifier of the KX dataview.
+// ARN identifier of the KX dataview.
 func (o KxDataviewOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

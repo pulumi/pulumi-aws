@@ -54,12 +54,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User("exampleUser", UserArgs.builder()
- *             .userName("my-user")
- *             .accessString("on ~* &* +}{@literal @}{@code all")
  *             .authenticationMode(UserAuthenticationModeArgs.builder()
  *                 .type("password")
  *                 .passwords(example.result())
  *                 .build())
+ *             .userName("my-user")
+ *             .accessString("on ~* &* +}{@literal @}{@code all")
  *             .build());
  * 
  *     }}{@code

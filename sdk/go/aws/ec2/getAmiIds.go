@@ -28,9 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetAmiIds(ctx, &ec2.GetAmiIdsArgs{
-//				Owners: []string{
-//					"099720109477",
-//				},
 //				Filters: []ec2.GetAmiIdsFilter{
 //					{
 //						Name: "name",
@@ -38,6 +35,9 @@ import (
 //							"ubuntu/images/ubuntu-*-*-amd64-server-*",
 //						},
 //					},
+//				},
+//				Owners: []string{
+//					"099720109477",
 //				},
 //			}, nil)
 //			if err != nil {
@@ -92,12 +92,8 @@ type GetAmiIdsResult struct {
 }
 
 func GetAmiIdsOutput(ctx *pulumi.Context, args GetAmiIdsOutputArgs, opts ...pulumi.InvokeOption) GetAmiIdsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetAmiIdsResultOutput, error) {
-			args := v.(GetAmiIdsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getAmiIds:getAmiIds", args, GetAmiIdsResultOutput{}, options).(GetAmiIdsResultOutput), nil
-		}).(GetAmiIdsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getAmiIds:getAmiIds", args, GetAmiIdsResultOutput{}, options).(GetAmiIdsResultOutput)
 }
 
 // A collection of arguments for invoking getAmiIds.

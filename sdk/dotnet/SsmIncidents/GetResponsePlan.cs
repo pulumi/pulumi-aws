@@ -94,7 +94,7 @@ namespace Pulumi.Aws.SsmIncidents
     public sealed class GetResponsePlanArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the response plan.
+        /// ARN of the response plan.
         /// </summary>
         [Input("arn", required: true)]
         public string Arn { get; set; } = null!;
@@ -126,7 +126,7 @@ namespace Pulumi.Aws.SsmIncidents
     public sealed class GetResponsePlanInvokeArgs : global::Pulumi.InvokeArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the response plan.
+        /// ARN of the response plan.
         /// </summary>
         [Input("arn", required: true)]
         public Input<string> Arn { get; set; } = null!;
@@ -173,7 +173,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// </summary>
         public readonly string DisplayName;
         /// <summary>
-        /// The Amazon Resource Name (ARN) for the contacts and escalation plans that the response plan engages during an incident.
+        /// ARN for the contacts and escalation plans that the response plan engages during an incident.
         /// </summary>
         public readonly ImmutableArray<string> Engagements;
         /// <summary>

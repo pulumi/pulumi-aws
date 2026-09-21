@@ -65,14 +65,14 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
     @Import(name="securityGroupIds")
     private @Nullable Output<List<String>> securityGroupIds;
 
     /**
-     * @return The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+     * @return Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
      * 
      */
     public Optional<Output<List<String>>> securityGroupIds() {
@@ -186,7 +186,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * @param securityGroupIds Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
          * 
          * @return builder
          * 
@@ -197,7 +197,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * @param securityGroupIds Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class DomainDomainSettingsArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param securityGroupIds The security groups for the Amazon Virtual Private Cloud that the Domain uses for communication between Domain-level apps and user apps.
+         * @param securityGroupIds Security groups for the VPC that the Domain uses for communication between Domain-level apps and user apps.
          * 
          * @return builder
          * 

@@ -248,7 +248,7 @@ namespace Pulumi.Aws.Connect
     public sealed class GetVocabularyResult
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the Vocabulary.
+        /// ARN of the Vocabulary.
         /// </summary>
         public readonly string Arn;
         /// <summary>

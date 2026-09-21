@@ -291,11 +291,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecs.Cluster("foo",
-            name="white-hart",
             settings=[{
                 "name": "containerInsights",
                 "value": "enabled",
-            }])
+            }],
+            name="white-hart")
         ```
 
         ### Execute Command Configuration with Override Logging
@@ -309,17 +309,17 @@ class Cluster(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         test = aws.ecs.Cluster("test",
-            name="example",
             configuration={
                 "execute_command_configuration": {
-                    "kms_key_id": example.arn,
-                    "logging": "OVERRIDE",
                     "log_configuration": {
                         "cloud_watch_encryption_enabled": True,
                         "cloud_watch_log_group_name": example_log_group.name,
                     },
+                    "kms_key_id": example.arn,
+                    "logging": "OVERRIDE",
                 },
-            })
+            },
+            name="example")
         ```
 
         ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
@@ -384,16 +384,27 @@ class Cluster(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         test = aws.ecs.Cluster("test",
-            name="example",
             configuration={
                 "managed_storage_configuration": {
                     "fargate_ephemeral_storage_kms_key_id": example.arn,
                 },
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECS clusters using the cluster name. For example:
 
@@ -429,11 +440,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi_aws as aws
 
         foo = aws.ecs.Cluster("foo",
-            name="white-hart",
             settings=[{
                 "name": "containerInsights",
                 "value": "enabled",
-            }])
+            }],
+            name="white-hart")
         ```
 
         ### Execute Command Configuration with Override Logging
@@ -447,17 +458,17 @@ class Cluster(pulumi.CustomResource):
             deletion_window_in_days=7)
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         test = aws.ecs.Cluster("test",
-            name="example",
             configuration={
                 "execute_command_configuration": {
-                    "kms_key_id": example.arn,
-                    "logging": "OVERRIDE",
                     "log_configuration": {
                         "cloud_watch_encryption_enabled": True,
                         "cloud_watch_log_group_name": example_log_group.name,
                     },
+                    "kms_key_id": example.arn,
+                    "logging": "OVERRIDE",
                 },
-            })
+            },
+            name="example")
         ```
 
         ### Fargate Ephemeral Storage Encryption with Customer-Managed KMS Key
@@ -522,16 +533,27 @@ class Cluster(pulumi.CustomResource):
                 "Version": "2012-10-17",
             }))
         test = aws.ecs.Cluster("test",
-            name="example",
             configuration={
                 "managed_storage_configuration": {
                     "fargate_ephemeral_storage_kms_key_id": example.arn,
                 },
             },
+            name="example",
             opts = pulumi.ResourceOptions(depends_on=[example_key_policy]))
         ```
 
         ## Import
+
+        ### Identity Schema
+
+        #### Required
+
+        * `name` (String) Name of the cluster.
+
+        #### Optional
+
+        * `account_id` (String) AWS Account where this resource is managed.
+        * `region` (String) Region where this resource is managed.
 
         Using `pulumi import`, import ECS clusters using the cluster name. For example:
 

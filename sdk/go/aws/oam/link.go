@@ -78,12 +78,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
 //				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
 //					LogGroupConfiguration: &oam.LinkLinkConfigurationLogGroupConfigurationArgs{
 //						Filter: pulumi.String("LogGroupName LIKE 'aws/lambda/%' OR LogGroupName LIKE 'AWSLogs%'"),
 //					},
 //				},
+//				LabelTemplate: pulumi.String("$AccountName"),
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::Logs::LogGroup"),
 //				},
@@ -115,12 +115,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := oam.NewLink(ctx, "example", &oam.LinkArgs{
-//				LabelTemplate: pulumi.String("$AccountName"),
 //				LinkConfiguration: &oam.LinkLinkConfigurationArgs{
 //					MetricConfiguration: &oam.LinkLinkConfigurationMetricConfigurationArgs{
 //						Filter: pulumi.String("Namespace IN ('AWS/EC2', 'AWS/ELB', 'AWS/S3')"),
 //					},
 //				},
+//				LabelTemplate: pulumi.String("$AccountName"),
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("AWS::CloudWatch::Metric"),
 //				},

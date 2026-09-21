@@ -75,12 +75,8 @@ type GetRouteTablePropagationsResult struct {
 }
 
 func GetRouteTablePropagationsOutput(ctx *pulumi.Context, args GetRouteTablePropagationsOutputArgs, opts ...pulumi.InvokeOption) GetRouteTablePropagationsResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetRouteTablePropagationsResultOutput, error) {
-			args := v.(GetRouteTablePropagationsArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args, GetRouteTablePropagationsResultOutput{}, options).(GetRouteTablePropagationsResultOutput), nil
-		}).(GetRouteTablePropagationsResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2transitgateway/getRouteTablePropagations:getRouteTablePropagations", args, GetRouteTablePropagationsResultOutput{}, options).(GetRouteTablePropagationsResultOutput)
 }
 
 // A collection of arguments for invoking getRouteTablePropagations.

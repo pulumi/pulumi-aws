@@ -139,7 +139,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
                  vpc_endpoint_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
+        Resource for enabling private DNS on an AWS VPC Endpoint.
 
         > When using this resource, the `private_dns_enabled` argument should be omitted on the parent `ec2.VpcEndpoint` resource.
         Setting the value both places can lead to unintended behavior and persistent differences.
@@ -159,7 +159,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
+        Using `pulumi import`, import a VPC Endpoint Private DNS using the `vpc_endpoint_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234
@@ -179,7 +179,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
                  args: EndpointPrivateDnsArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for enabling private DNS on an AWS VPC (Virtual Private Cloud) Endpoint.
+        Resource for enabling private DNS on an AWS VPC Endpoint.
 
         > When using this resource, the `private_dns_enabled` argument should be omitted on the parent `ec2.VpcEndpoint` resource.
         Setting the value both places can lead to unintended behavior and persistent differences.
@@ -199,7 +199,7 @@ class EndpointPrivateDns(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import a VPC (Virtual Private Cloud) Endpoint Private DNS using the `vpc_endpoint_id`. For example:
+        Using `pulumi import`, import a VPC Endpoint Private DNS using the `vpc_endpoint_id`. For example:
 
         ```sh
         $ pulumi import aws:vpc/endpointPrivateDns:EndpointPrivateDns example vpce-abcd-1234

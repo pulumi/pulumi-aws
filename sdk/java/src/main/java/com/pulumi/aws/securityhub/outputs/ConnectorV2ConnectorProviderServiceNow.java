@@ -23,7 +23,7 @@ public final class ConnectorV2ConnectorProviderServiceNow {
      */
     private String instanceName;
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+     * @return ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
      * 
      */
     private String secretArn;
@@ -44,7 +44,7 @@ public final class ConnectorV2ConnectorProviderServiceNow {
         return this.instanceName;
     }
     /**
-     * @return Amazon Resource Name (ARN) of the AWS Secrets Manager secret that contains the ServiceNow credentials.
+     * @return ARN of the AWS Secrets Manager secret that contains the ServiceNow credentials.
      * 
      */
     public String secretArn() {

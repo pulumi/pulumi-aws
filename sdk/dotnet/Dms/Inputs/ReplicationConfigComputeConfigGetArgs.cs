@@ -25,7 +25,7 @@ namespace Pulumi.Aws.Dms.Inputs
         public Input<string>? DnsNameServers { get; set; }
 
         /// <summary>
-        /// An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+        /// KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don't specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
         /// </summary>
         [Input("kmsKeyId")]
         public Input<string>? KmsKeyId { get; set; }
@@ -69,7 +69,7 @@ namespace Pulumi.Aws.Dms.Inputs
         private InputList<string>? _vpcSecurityGroupIds;
 
         /// <summary>
-        /// Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+        /// VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
         /// </summary>
         public InputList<string> VpcSecurityGroupIds
         {

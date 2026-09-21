@@ -146,9 +146,6 @@ import (
 //			example := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
 //				Statements: iam.GetPolicyDocumentStatementArray{
 //					&iam.GetPolicyDocumentStatementArgs{
-//						Actions: pulumi.StringArray{
-//							pulumi.String("s3:PutObject"),
-//						},
 //						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
 //							&iam.GetPolicyDocumentStatementPrincipalArgs{
 //								Type: pulumi.String("Service"),
@@ -156,6 +153,9 @@ import (
 //									pulumi.String("timestream-influxdb.amazonaws.com"),
 //								},
 //							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("s3:PutObject"),
 //						},
 //						Resources: pulumi.StringArray{
 //							exampleBucket.Arn.ApplyT(func(arn string) (string, error) {
@@ -173,6 +173,12 @@ import (
 //				return err
 //			}
 //			_, err = timestreaminfluxdb.NewDbInstance(ctx, "example", &timestreaminfluxdb.DbInstanceArgs{
+//				LogDeliveryConfiguration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationArgs{
+//					S3Configuration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs{
+//						BucketName: exampleBucket.Bucket,
+//						Enabled:    pulumi.Bool(true),
+//					},
+//				},
 //				AllocatedStorage: pulumi.Int(20),
 //				Bucket:           pulumi.String("example-bucket-name"),
 //				DbInstanceType:   pulumi.String("db.influx.medium"),
@@ -186,12 +192,6 @@ import (
 //					exampleAwsSecurityGroup.Id,
 //				},
 //				Name: pulumi.String("example-db-instance"),
-//				LogDeliveryConfiguration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationArgs{
-//					S3Configuration: &timestreaminfluxdb.DbInstanceLogDeliveryConfigurationS3ConfigurationArgs{
-//						BucketName: exampleBucket.Bucket,
-//						Enabled:    pulumi.Bool(true),
-//					},
-//				},
 //			})
 //			if err != nil {
 //				return err

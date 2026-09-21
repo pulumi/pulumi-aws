@@ -26,11 +26,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
  * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
- *     ruleName: "example-org-telemetry-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *     },
+ *     ruleName: "example-org-telemetry-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -44,23 +44,23 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
  * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
- *     ruleName: "org-vpc-flow-logs-rule",
  *     rule: {
+ *         destinationConfiguration: {
+ *             vpcFlowLogParameters: {
+ *                 trafficType: "ALL",
+ *                 maxAggregationInterval: 60,
+ *             },
+ *             destinationType: "cloud-watch-logs",
+ *             destinationPattern: "/aws/vpcflowlogs/<resourceId>",
+ *             retentionInDays: 30,
+ *         },
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *         telemetrySourceTypes: ["VPC_FLOW_LOGS"],
  *         allRegions: true,
  *         allowFieldUpdates: true,
- *         destinationConfiguration: {
- *             destinationType: "cloud-watch-logs",
- *             destinationPattern: "/aws/vpcflowlogs/<resourceId>",
- *             retentionInDays: 30,
- *             vpcFlowLogParameters: {
- *                 trafficType: "ALL",
- *                 maxAggregationInterval: 60,
- *             },
- *         },
  *     },
+ *     ruleName: "org-vpc-flow-logs-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -75,7 +75,6 @@ import * as utilities from "../utilities";
  * const current = aws.organizations.getOrganization({});
  * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
  * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
- *     ruleName: "org-scoped-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EKS::Cluster",
@@ -86,6 +85,7 @@ import * as utilities from "../utilities";
  *             "us-west-2",
  *         ],
  *     },
+ *     ruleName: "org-scoped-rule",
  * }, {
  *     dependsOn: [example],
  * });
@@ -99,11 +99,11 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.observabilityadmin.TelemetryEvaluationForOrganization("example", {});
  * const exampleTelemetryRuleForOrganization = new aws.observabilityadmin.TelemetryRuleForOrganization("example", {
- *     ruleName: "org-tagged-rule",
  *     rule: {
  *         telemetryType: "Logs",
  *         resourceType: "AWS::EC2::VPC",
  *     },
+ *     ruleName: "org-tagged-rule",
  *     tags: {
  *         Environment: "production",
  *         Purpose: "organization-monitoring",

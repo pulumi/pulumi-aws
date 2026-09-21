@@ -21,13 +21,13 @@ import * as utilities from "../utilities";
  * const current = aws.getCallerIdentity({});
  * const example = new aws.networkflowmonitor.Scope("example", {
  *     targets: [{
- *         region: "us-east-1",
  *         targetIdentifier: {
- *             targetType: "ACCOUNT",
  *             targetId: {
  *                 accountId: current.then(current => current.accountId),
  *             },
+ *             targetType: "ACCOUNT",
  *         },
+ *         region: "us-east-1",
  *     }],
  *     tags: {
  *         Name: "example",
@@ -76,7 +76,7 @@ export class Scope extends pulumi.CustomResource {
      */
     declare public readonly region: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     declare public /*out*/ readonly scopeArn: pulumi.Output<string>;
     /**
@@ -146,7 +146,7 @@ export interface ScopeState {
      */
     region?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the scope.
+     * ARN of the scope.
      */
     scopeArn?: pulumi.Input<string | undefined>;
     /**

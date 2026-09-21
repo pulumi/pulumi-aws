@@ -115,7 +115,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the SNS topic.
+    /// - `Arn` (String) ARN of the SNS topic.
     /// 
     /// Using `pulumi import`, import SNS Topics using the topic `Arn`. For example:
     /// 

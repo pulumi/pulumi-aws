@@ -658,11 +658,11 @@ class FlowLog(pulumi.CustomResource):
 
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["vpc-flow-logs.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -714,14 +714,14 @@ class FlowLog(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"],
             destination_options={
                 "file_format": "parquet",
                 "per_hour_partition": True,
-            })
+            },
+            log_destination=example_bucket.arn,
+            log_destination_type="s3",
+            traffic_type="ALL",
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ### Cross-Account Amazon Data Firehose Logging
@@ -736,33 +736,30 @@ class FlowLog(pulumi.CustomResource):
         # For source account
         src = aws.ec2.Vpc("src")
         src_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["delivery.logs.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         src_role = aws.iam.Role("src",
             name="tf-example-mySourceRole",
             assume_role_policy=src_assume_role_policy.json)
         # For destination account
         dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [src_role.arn],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         dst = aws.iam.Role("dst",
             name="AWSLogDeliveryFirehoseCrossAccountRole",
             assume_role_policy=dst_assume_role_policy.json)
         src_role_policy = aws.iam.get_policy_document_output(statements=[
             {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": [src_role.arn],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -775,6 +772,9 @@ class FlowLog(pulumi.CustomResource):
                         "values": [src.arn],
                     },
                 ],
+                "effect": "Allow",
+                "actions": ["iam:PassRole"],
+                "resources": [src_role.arn],
             },
             {
                 "effect": "Allow",
@@ -882,11 +882,11 @@ class FlowLog(pulumi.CustomResource):
 
         example_log_group = aws.cloudwatch.LogGroup("example", name="example")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["vpc-flow-logs.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -938,14 +938,14 @@ class FlowLog(pulumi.CustomResource):
 
         example_bucket = aws.s3.Bucket("example", bucket="example")
         example = aws.ec2.FlowLog("example",
-            log_destination=example_bucket.arn,
-            log_destination_type="s3",
-            traffic_type="ALL",
-            vpc_id=example_aws_vpc["id"],
             destination_options={
                 "file_format": "parquet",
                 "per_hour_partition": True,
-            })
+            },
+            log_destination=example_bucket.arn,
+            log_destination_type="s3",
+            traffic_type="ALL",
+            vpc_id=example_aws_vpc["id"])
         ```
 
         ### Cross-Account Amazon Data Firehose Logging
@@ -960,33 +960,30 @@ class FlowLog(pulumi.CustomResource):
         # For source account
         src = aws.ec2.Vpc("src")
         src_assume_role_policy = aws.iam.get_policy_document(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["delivery.logs.amazonaws.com"],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         src_role = aws.iam.Role("src",
             name="tf-example-mySourceRole",
             assume_role_policy=src_assume_role_policy.json)
         # For destination account
         dst_assume_role_policy = aws.iam.get_policy_document_output(statements=[{
-            "actions": ["sts:AssumeRole"],
-            "effect": "Allow",
             "principals": [{
                 "type": "AWS",
                 "identifiers": [src_role.arn],
             }],
+            "actions": ["sts:AssumeRole"],
+            "effect": "Allow",
         }])
         dst = aws.iam.Role("dst",
             name="AWSLogDeliveryFirehoseCrossAccountRole",
             assume_role_policy=dst_assume_role_policy.json)
         src_role_policy = aws.iam.get_policy_document_output(statements=[
             {
-                "effect": "Allow",
-                "actions": ["iam:PassRole"],
-                "resources": [src_role.arn],
                 "conditions": [
                     {
                         "test": "StringEquals",
@@ -999,6 +996,9 @@ class FlowLog(pulumi.CustomResource):
                         "values": [src.arn],
                     },
                 ],
+                "effect": "Allow",
+                "actions": ["iam:PassRole"],
+                "resources": [src_role.arn],
             },
             {
                 "effect": "Allow",

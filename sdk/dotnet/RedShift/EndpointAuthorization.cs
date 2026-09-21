@@ -91,7 +91,7 @@ namespace Pulumi.Aws.RedShift
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
         [Output("vpcIds")]
         public Output<ImmutableArray<string>> VpcIds { get; private set; } = null!;
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcIds;
 
         /// <summary>
-        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
         public InputList<string> VpcIds
         {
@@ -238,7 +238,7 @@ namespace Pulumi.Aws.RedShift
         private InputList<string>? _vpcIds;
 
         /// <summary>
-        /// The virtual private cloud (VPC) identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
+        /// VPC identifiers to grant access to. If none are specified all VPCs in shared account are allowed.
         /// </summary>
         public InputList<string> VpcIds
         {

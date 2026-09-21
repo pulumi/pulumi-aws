@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Connect
     public partial class LambdaFunctionAssociation : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// ARN of the Lambda Function, omitting any version or alias qualifier.
         /// </summary>
         [Output("functionArn")]
         public Output<string> FunctionArn { get; private set; } = null!;
@@ -108,7 +108,7 @@ namespace Pulumi.Aws.Connect
     public sealed class LambdaFunctionAssociationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// ARN of the Lambda Function, omitting any version or alias qualifier.
         /// </summary>
         [Input("functionArn", required: true)]
         public Input<string> FunctionArn { get; set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.Aws.Connect
     public sealed class LambdaFunctionAssociationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Lambda Function, omitting any version or alias qualifier.
+        /// ARN of the Lambda Function, omitting any version or alias qualifier.
         /// </summary>
         [Input("functionArn")]
         public Input<string>? FunctionArn { get; set; }

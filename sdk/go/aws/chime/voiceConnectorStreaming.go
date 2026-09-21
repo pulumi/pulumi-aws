@@ -80,7 +80,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -89,6 +88,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -113,36 +113,36 @@ import (
 //				return err
 //			}
 //			example, err := chimesdkmediapipelines.NewMediaInsightsPipelineConfiguration(ctx, "example", &chimesdkmediapipelines.MediaInsightsPipelineConfigurationArgs{
-//				Name:                  pulumi.String("ExampleConfig"),
-//				ResourceAccessRoleArn: exampleRole.Arn,
 //				Elements: chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArray{
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
 //						AmazonTranscribeCallAnalyticsProcessorConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementAmazonTranscribeCallAnalyticsProcessorConfigurationArgs{
 //							LanguageCode: pulumi.String("en-US"),
 //						},
+//						Type: pulumi.String("AmazonTranscribeCallAnalyticsProcessor"),
 //					},
 //					&chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementArgs{
-//						Type: pulumi.String("KinesisDataStreamSink"),
 //						KinesisDataStreamSinkConfiguration: &chimesdkmediapipelines.MediaInsightsPipelineConfigurationElementKinesisDataStreamSinkConfigurationArgs{
 //							InsightsTarget: exampleStream.Arn,
 //						},
+//						Type: pulumi.String("KinesisDataStreamSink"),
 //					},
 //				},
+//				Name:                  pulumi.String("ExampleConfig"),
+//				ResourceAccessRoleArn: exampleRole.Arn,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = chime.NewVoiceConnectorStreaming(ctx, "default", &chime.VoiceConnectorStreamingArgs{
+//				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
+//					Disabled:         pulumi.Bool(false),
+//					ConfigurationArn: example.Arn,
+//				},
 //				Disabled:         pulumi.Bool(false),
 //				VoiceConnectorId: _default.ID().ToIDOutput().ToStringOutput(),
 //				DataRetention:    pulumi.Int(7),
 //				StreamingNotificationTargets: pulumi.StringArray{
 //					pulumi.String("SQS"),
-//				},
-//				MediaInsightsConfiguration: &chime.VoiceConnectorStreamingMediaInsightsConfigurationArgs{
-//					Disabled:         pulumi.Bool(false),
-//					ConfigurationArn: example.Arn,
 //				},
 //			})
 //			if err != nil {

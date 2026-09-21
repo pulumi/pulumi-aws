@@ -26,14 +26,14 @@ namespace Pulumi.Aws.Kendra
     /// {
     ///     var example = new Aws.Kendra.QuerySuggestionsBlockList("example", new()
     ///     {
-    ///         IndexId = exampleAwsKendraIndex.Id,
-    ///         Name = "Example",
-    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         SourceS3Path = new Aws.Kendra.Inputs.QuerySuggestionsBlockListSourceS3PathArgs
     ///         {
     ///             Bucket = exampleAwsS3Bucket.Id,
     ///             Key = "example/suggestions.txt",
     ///         },
+    ///         IndexId = exampleAwsKendraIndex.Id,
+    ///         Name = "Example",
+    ///         RoleArn = exampleAwsIamRole.Arn,
     ///         Tags = 
     ///         {
     ///             { "Name", "Example Kendra Index" },

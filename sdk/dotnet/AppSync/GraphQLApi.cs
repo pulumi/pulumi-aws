@@ -64,14 +64,14 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
-    ///         Name = "example",
     ///         UserPoolConfig = new Aws.AppSync.Inputs.GraphQLApiUserPoolConfigArgs
     ///         {
     ///             AwsRegion = current.Region,
     ///             DefaultAction = "DENY",
     ///             UserPoolId = exampleAwsCognitoUserPool.Id,
     ///         },
+    ///         AuthenticationType = "AMAZON_COGNITO_USER_POOLS",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -89,12 +89,12 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         AuthenticationType = "OPENID_CONNECT",
-    ///         Name = "example",
     ///         OpenidConnectConfig = new Aws.AppSync.Inputs.GraphQLApiOpenidConnectConfigArgs
     ///         {
     ///             Issuer = "https://example.com",
     ///         },
+    ///         AuthenticationType = "OPENID_CONNECT",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -112,12 +112,12 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         AuthenticationType = "AWS_LAMBDA",
-    ///         Name = "example",
     ///         LambdaAuthorizerConfig = new Aws.AppSync.Inputs.GraphQLApiLambdaAuthorizerConfigArgs
     ///         {
     ///             AuthorizerUri = "arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer",
     ///         },
+    ///         AuthenticationType = "AWS_LAMBDA",
+    ///         Name = "example",
     ///     });
     /// 
     ///     var appsyncLambdaAuthorizer = new Aws.Lambda.Permission("appsync_lambda_authorizer", new()
@@ -144,8 +144,6 @@ namespace Pulumi.Aws.AppSync
     /// {
     ///     var example = new Aws.AppSync.GraphQLApi("example", new()
     ///     {
-    ///         AuthenticationType = "API_KEY",
-    ///         Name = "example",
     ///         AdditionalAuthenticationProviders = new[]
     ///         {
     ///             new Aws.AppSync.Inputs.GraphQLApiAdditionalAuthenticationProviderArgs
@@ -153,6 +151,8 @@ namespace Pulumi.Aws.AppSync
     ///                 AuthenticationType = "AWS_IAM",
     ///             },
     ///         },
+    ///         AuthenticationType = "API_KEY",
+    ///         Name = "example",
     ///     });
     /// 
     /// });
@@ -200,7 +200,6 @@ namespace Pulumi.Aws.AppSync
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -212,6 +211,7 @@ namespace Pulumi.Aws.AppSync
     ///                         },
     ///                     },
     ///                 },
+    ///                 Effect = "Allow",
     ///                 Actions = new[]
     ///                 {
     ///                     "sts:AssumeRole",
@@ -262,19 +262,20 @@ namespace Pulumi.Aws.AppSync
     /// 
     ///     var exampleWebAcl = new Aws.WafV2.WebAcl("example", new()
     ///     {
-    ///         Name = "managed-rule-example",
-    ///         Description = "Example of a managed rule.",
-    ///         Scope = "REGIONAL",
     ///         DefaultAction = new Aws.WafV2.Inputs.WebAclDefaultActionArgs
     ///         {
     ///             Allow = null,
+    ///         },
+    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
+    ///         {
+    ///             CloudwatchMetricsEnabled = false,
+    ///             MetricName = "friendly-metric-name",
+    ///             SampledRequestsEnabled = false,
     ///         },
     ///         Rules = 
     ///         {
     ///             new Aws.WafV2.Inputs.WebAclRuleArgs
     ///             {
-    ///                 Name = "rule-1",
-    ///                 Priority = 1,
     ///                 OverrideAction = new Aws.WafV2.Inputs.WebAclRuleOverrideActionArgs
     ///                 {
     ///                     Block = new[]
@@ -296,14 +297,13 @@ namespace Pulumi.Aws.AppSync
     ///                     MetricName = "friendly-rule-metric-name",
     ///                     SampledRequestsEnabled = false,
     ///                 },
+    ///                 Name = "rule-1",
+    ///                 Priority = 1,
     ///             },
     ///         },
-    ///         VisibilityConfig = new Aws.WafV2.Inputs.WebAclVisibilityConfigArgs
-    ///         {
-    ///             CloudwatchMetricsEnabled = false,
-    ///             MetricName = "friendly-metric-name",
-    ///             SampledRequestsEnabled = false,
-    ///         },
+    ///         Name = "managed-rule-example",
+    ///         Description = "Example of a managed rule.",
+    ///         Scope = "REGIONAL",
     ///     });
     /// 
     ///     var exampleWebAclAssociation = new Aws.WafV2.WebAclAssociation("example", new()

@@ -20,11 +20,11 @@ type ComputeEnvironmentComputeResources struct {
 	BidPercentage *int `pulumi:"bidPercentage"`
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus *int `pulumi:"desiredVcpus"`
-	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 	Ec2Configurations []ComputeEnvironmentComputeResourcesEc2Configuration `pulumi:"ec2Configurations"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair *string `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+	// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId *string `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole *string `pulumi:"instanceRole"`
@@ -40,7 +40,7 @@ type ComputeEnvironmentComputeResources struct {
 	PlacementGroup *string `pulumi:"placementGroup"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds []string `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole *string `pulumi:"spotIamFleetRole"`
 	// A list of VPC subnets into which the compute resources are launched.
 	Subnets []string `pulumi:"subnets"`
@@ -68,11 +68,11 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	BidPercentage pulumi.IntPtrInput `pulumi:"bidPercentage"`
 	// The desired number of EC2 vCPUS in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	DesiredVcpus pulumi.IntPtrInput `pulumi:"desiredVcpus"`
-	// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+	// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 	Ec2Configurations ComputeEnvironmentComputeResourcesEc2ConfigurationArrayInput `pulumi:"ec2Configurations"`
 	// The EC2 key pair that is used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	Ec2KeyPair pulumi.StringPtrInput `pulumi:"ec2KeyPair"`
-	// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+	// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 	ImageId pulumi.StringPtrInput `pulumi:"imageId"`
 	// The Amazon ECS instance role applied to Amazon EC2 instances in a compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	InstanceRole pulumi.StringPtrInput `pulumi:"instanceRole"`
@@ -88,7 +88,7 @@ type ComputeEnvironmentComputeResourcesArgs struct {
 	PlacementGroup pulumi.StringPtrInput `pulumi:"placementGroup"`
 	// A list of EC2 security group that are associated with instances launched in the compute environment. This parameter is required for Fargate compute environments.
 	SecurityGroupIds pulumi.StringArrayInput `pulumi:"securityGroupIds"`
-	// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+	// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 	SpotIamFleetRole pulumi.StringPtrInput `pulumi:"spotIamFleetRole"`
 	// A list of VPC subnets into which the compute resources are launched.
 	Subnets pulumi.StringArrayInput `pulumi:"subnets"`
@@ -190,7 +190,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) DesiredVcpus() pulumi.IntPtrOu
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *int { return v.DesiredVcpus }).(pulumi.IntPtrOutput)
 }
 
-// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
 		return v.Ec2Configurations
@@ -202,7 +202,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) Ec2KeyPair() pulumi.StringPtrO
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.Ec2KeyPair }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.ImageId }).(pulumi.StringPtrOutput)
 }
@@ -244,7 +244,7 @@ func (o ComputeEnvironmentComputeResourcesOutput) SecurityGroupIds() pulumi.Stri
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) []string { return v.SecurityGroupIds }).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ComputeEnvironmentComputeResources) *string { return v.SpotIamFleetRole }).(pulumi.StringPtrOutput)
 }
@@ -318,7 +318,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) DesiredVcpus() pulumi.IntPt
 	}).(pulumi.IntPtrOutput)
 }
 
-// Provides information used to select Amazon Machine Images (AMIs) for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
+// Provides information used to select AMIs for EC2 instances in the compute environment. If Ec2Configuration isn't specified, the default is ECS_AL2. This parameter isn't applicable to jobs that are running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2Configurations() ComputeEnvironmentComputeResourcesEc2ConfigurationArrayOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) []ComputeEnvironmentComputeResourcesEc2Configuration {
 		if v == nil {
@@ -338,7 +338,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) Ec2KeyPair() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Machine Image (AMI) ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
+// AMI ID used for instances launched in the compute environment. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified. (Deprecated, use `ec2Configuration` `imageIdOverride` instead)
 func (o ComputeEnvironmentComputeResourcesPtrOutput) ImageId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -418,7 +418,7 @@ func (o ComputeEnvironmentComputeResourcesPtrOutput) SecurityGroupIds() pulumi.S
 	}).(pulumi.StringArrayOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
+// ARN of the Amazon EC2 Spot Fleet IAM role applied to a SPOT compute environment. This parameter is required for SPOT compute environments. This parameter isn't applicable to jobs running on Fargate resources, and shouldn't be specified.
 func (o ComputeEnvironmentComputeResourcesPtrOutput) SpotIamFleetRole() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentComputeResources) *string {
 		if v == nil {
@@ -749,7 +749,7 @@ func (o ComputeEnvironmentComputeResourcesLaunchTemplatePtrOutput) Version() pul
 }
 
 type ComputeEnvironmentEksConfiguration struct {
-	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+	// ARN of the Amazon EKS cluster.
 	EksClusterArn string `pulumi:"eksClusterArn"`
 	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 	KubernetesNamespace string `pulumi:"kubernetesNamespace"`
@@ -767,7 +767,7 @@ type ComputeEnvironmentEksConfigurationInput interface {
 }
 
 type ComputeEnvironmentEksConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+	// ARN of the Amazon EKS cluster.
 	EksClusterArn pulumi.StringInput `pulumi:"eksClusterArn"`
 	// The namespace of the Amazon EKS cluster. AWS Batch manages pods in this namespace.
 	KubernetesNamespace pulumi.StringInput `pulumi:"kubernetesNamespace"`
@@ -850,7 +850,7 @@ func (o ComputeEnvironmentEksConfigurationOutput) ToComputeEnvironmentEksConfigu
 	}).(ComputeEnvironmentEksConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+// ARN of the Amazon EKS cluster.
 func (o ComputeEnvironmentEksConfigurationOutput) EksClusterArn() pulumi.StringOutput {
 	return o.ApplyT(func(v ComputeEnvironmentEksConfiguration) string { return v.EksClusterArn }).(pulumi.StringOutput)
 }
@@ -884,7 +884,7 @@ func (o ComputeEnvironmentEksConfigurationPtrOutput) Elem() ComputeEnvironmentEk
 	}).(ComputeEnvironmentEksConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the Amazon EKS cluster.
+// ARN of the Amazon EKS cluster.
 func (o ComputeEnvironmentEksConfigurationPtrOutput) EksClusterArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ComputeEnvironmentEksConfiguration) *string {
 		if v == nil {
@@ -4315,7 +4315,7 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 }
 
 type JobQueueComputeEnvironmentOrder struct {
-	// The Amazon Resource Name (ARN) of the compute environment.
+	// ARN of the compute environment.
 	ComputeEnvironment string `pulumi:"computeEnvironment"`
 	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 	Order int `pulumi:"order"`
@@ -4333,7 +4333,7 @@ type JobQueueComputeEnvironmentOrderInput interface {
 }
 
 type JobQueueComputeEnvironmentOrderArgs struct {
-	// The Amazon Resource Name (ARN) of the compute environment.
+	// ARN of the compute environment.
 	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
 	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
 	Order pulumi.IntInput `pulumi:"order"`
@@ -4390,7 +4390,7 @@ func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrder
 	return o
 }
 
-// The Amazon Resource Name (ARN) of the compute environment.
+// ARN of the compute environment.
 func (o JobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
 	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
 }
@@ -7541,7 +7541,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainer struct {
 	Environments []GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironment `pulumi:"environments"`
 	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` below.
 	EphemeralStorages []GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorage `pulumi:"ephemeralStorages"`
-	// Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+	// ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
 	ExecutionRoleArn string `pulumi:"executionRoleArn"`
 	// Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter. See `fargatePlatformConfiguration` below.
 	FargatePlatformConfigurations []GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfiguration `pulumi:"fargatePlatformConfigurations"`
@@ -7549,7 +7549,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainer struct {
 	Image string `pulumi:"image"`
 	// Instance type to use for a multi-node parallel job.
 	InstanceType string `pulumi:"instanceType"`
-	// Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+	// ARN of the IAM role that the container can assume for AWS permissions.
 	JobRoleArn string `pulumi:"jobRoleArn"`
 	// Linux-specific modifications that are applied to the container. See `linuxParameters` below.
 	LinuxParameters []GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameter `pulumi:"linuxParameters"`
@@ -7595,7 +7595,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs struct {
 	Environments GetJobDefinitionNodePropertyNodeRangePropertyContainerEnvironmentArrayInput `pulumi:"environments"`
 	// Amount of ephemeral storage to allocate for the task. This parameter is used to expand the total amount of ephemeral storage available, beyond the default amount, for tasks hosted on AWS Fargate. See `ephemeralStorage` below.
 	EphemeralStorages GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayInput `pulumi:"ephemeralStorages"`
-	// Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+	// ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
 	ExecutionRoleArn pulumi.StringInput `pulumi:"executionRoleArn"`
 	// Platform configuration for jobs that are running on Fargate resources. Jobs that are running on EC2 resources must not specify this parameter. See `fargatePlatformConfiguration` below.
 	FargatePlatformConfigurations GetJobDefinitionNodePropertyNodeRangePropertyContainerFargatePlatformConfigurationArrayInput `pulumi:"fargatePlatformConfigurations"`
@@ -7603,7 +7603,7 @@ type GetJobDefinitionNodePropertyNodeRangePropertyContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// Instance type to use for a multi-node parallel job.
 	InstanceType pulumi.StringInput `pulumi:"instanceType"`
-	// Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+	// ARN of the IAM role that the container can assume for AWS permissions.
 	JobRoleArn pulumi.StringInput `pulumi:"jobRoleArn"`
 	// Linux-specific modifications that are applied to the container. See `linuxParameters` below.
 	LinuxParameters GetJobDefinitionNodePropertyNodeRangePropertyContainerLinuxParameterArrayInput `pulumi:"linuxParameters"`
@@ -7701,7 +7701,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) EphemeralS
 	}).(GetJobDefinitionNodePropertyNodeRangePropertyContainerEphemeralStorageArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
+// ARN of the execution role that AWS Batch can assume. For jobs that run on Fargate resources, you must provide an execution role.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) ExecutionRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.ExecutionRoleArn }).(pulumi.StringOutput)
 }
@@ -7723,7 +7723,7 @@ func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) InstanceTy
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.InstanceType }).(pulumi.StringOutput)
 }
 
-// Amazon Resource Name (ARN) of the IAM role that the container can assume for AWS permissions.
+// ARN of the IAM role that the container can assume for AWS permissions.
 func (o GetJobDefinitionNodePropertyNodeRangePropertyContainerOutput) JobRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetJobDefinitionNodePropertyNodeRangePropertyContainer) string { return v.JobRoleArn }).(pulumi.StringOutput)
 }

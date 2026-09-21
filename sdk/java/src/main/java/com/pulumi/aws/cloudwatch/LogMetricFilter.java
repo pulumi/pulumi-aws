@@ -50,14 +50,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var yada = new LogMetricFilter("yada", LogMetricFilterArgs.builder()
- *             .name("MyAppAccessCount")
- *             .pattern("")
- *             .logGroupName(dada.name())
  *             .metricTransformation(LogMetricFilterMetricTransformationArgs.builder()
  *                 .name("EventCount")
  *                 .namespace("YourNamespace")
  *                 .value("1")
  *                 .build())
+ *             .name("MyAppAccessCount")
+ *             .pattern("")
+ *             .logGroupName(dada.name())
  *             .build());
  * 
  *     }

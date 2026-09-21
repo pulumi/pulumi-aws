@@ -56,11 +56,11 @@ import javax.annotation.Nullable;
  * 
  *         final var testDestinationPolicy = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
  *             .statements(GetPolicyDocumentStatementArgs.builder()
- *                 .effect("Allow")
  *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
  *                     .type("AWS")
  *                     .identifiers("123456789012")
  *                     .build())
+ *                 .effect("Allow")
  *                 .actions("logs:PutSubscriptionFilter")
  *                 .resources(testDestination.arn())
  *                 .build())

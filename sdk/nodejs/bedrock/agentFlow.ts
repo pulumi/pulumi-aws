@@ -31,39 +31,35 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.bedrock.AgentFlow("example", {
- *     name: "example",
- *     executionRoleArn: exampleAwsIamRole.arn,
  *     definition: {
  *         connections: [
  *             {
- *                 name: "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
- *                 source: "FlowInputNode",
- *                 target: "Prompt_1",
- *                 type: "Data",
  *                 configuration: {
  *                     data: {
  *                         sourceOutput: "document",
  *                         targetInput: "topic",
  *                     },
  *                 },
+ *                 name: "FlowInputNodeFlowInputNode0ToPrompt_1PromptsNode0",
+ *                 source: "FlowInputNode",
+ *                 target: "Prompt_1",
+ *                 type: "Data",
  *             },
  *             {
- *                 name: "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
- *                 source: "Prompt_1",
- *                 target: "FlowOutputNode",
- *                 type: "Data",
  *                 configuration: {
  *                     data: {
  *                         sourceOutput: "modelCompletion",
  *                         targetInput: "document",
  *                     },
  *                 },
+ *                 name: "Prompt_1PromptsNode0ToFlowOutputNodeFlowOutputNode0",
+ *                 source: "Prompt_1",
+ *                 target: "FlowOutputNode",
+ *                 type: "Data",
  *             },
  *         ],
  *         nodes: [
  *             {
- *                 name: "FlowInputNode",
- *                 type: "Input",
  *                 configuration: {
  *                     input: {},
  *                 },
@@ -71,16 +67,14 @@ import * as utilities from "../utilities";
  *                     name: "document",
  *                     type: "String",
  *                 }],
+ *                 name: "FlowInputNode",
+ *                 type: "Input",
  *             },
  *             {
- *                 name: "Prompt_1",
- *                 type: "Prompt",
  *                 configuration: {
  *                     prompt: {
  *                         sourceConfiguration: {
  *                             inline: {
- *                                 modelId: "amazon.titan-text-express-v1",
- *                                 templateType: "TEXT",
  *                                 inferenceConfiguration: {
  *                                     text: {
  *                                         maxTokens: 2048,
@@ -91,12 +85,14 @@ import * as utilities from "../utilities";
  *                                 },
  *                                 templateConfiguration: {
  *                                     text: {
- *                                         text: "Write a paragraph about {{topic}}.",
  *                                         inputVariables: [{
  *                                             name: "topic",
  *                                         }],
+ *                                         text: "Write a paragraph about {{topic}}.",
  *                                     },
  *                                 },
+ *                                 modelId: "amazon.titan-text-express-v1",
+ *                                 templateType: "TEXT",
  *                             },
  *                         },
  *                     },
@@ -110,10 +106,10 @@ import * as utilities from "../utilities";
  *                     name: "modelCompletion",
  *                     type: "String",
  *                 }],
+ *                 name: "Prompt_1",
+ *                 type: "Prompt",
  *             },
  *             {
- *                 name: "FlowOutputNode",
- *                 type: "Output",
  *                 configuration: {
  *                     output: {},
  *                 },
@@ -122,9 +118,13 @@ import * as utilities from "../utilities";
  *                     name: "document",
  *                     type: "String",
  *                 }],
+ *                 name: "FlowOutputNode",
+ *                 type: "Output",
  *             },
  *         ],
  *     },
+ *     name: "example",
+ *     executionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
  *
@@ -165,7 +165,7 @@ export class AgentFlow extends pulumi.CustomResource {
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the flow.
+     * ARN of the flow.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -173,7 +173,7 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly createdAt: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * ARN of the KMS key to encrypt the flow.
      */
     declare public readonly customerEncryptionKeyArn: pulumi.Output<string | undefined>;
     /**
@@ -185,7 +185,7 @@ export class AgentFlow extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
      * The following arguments are optional:
      */
@@ -277,7 +277,7 @@ export class AgentFlow extends pulumi.CustomResource {
  */
 export interface AgentFlowState {
     /**
-     * The Amazon Resource Name (ARN) of the flow.
+     * ARN of the flow.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -285,7 +285,7 @@ export interface AgentFlowState {
      */
     createdAt?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * ARN of the KMS key to encrypt the flow.
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -297,7 +297,7 @@ export interface AgentFlowState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
      * The following arguments are optional:
      */
@@ -338,7 +338,7 @@ export interface AgentFlowState {
  */
 export interface AgentFlowArgs {
     /**
-     * The Amazon Resource Name (ARN) of the KMS key to encrypt the flow.
+     * ARN of the KMS key to encrypt the flow.
      */
     customerEncryptionKeyArn?: pulumi.Input<string | undefined>;
     /**
@@ -350,7 +350,7 @@ export interface AgentFlowArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
+     * ARN of the service role with permissions to create and manage a flow. For more information, see [Create a service role for flows in Amazon Bedrock](https://docs.aws.amazon.com/bedrock/latest/userguide/flows-permissions.html) in the Amazon Bedrock User Guide.
      *
      * The following arguments are optional:
      */

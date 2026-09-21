@@ -61,7 +61,7 @@ namespace Pulumi.Aws.Eks
     public partial class AccessEntry : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Access Entry.
+        /// ARN of the Access Entry.
         /// </summary>
         [Output("accessEntryArn")]
         public Output<string> AccessEntryArn { get; private set; } = null!;
@@ -239,7 +239,7 @@ namespace Pulumi.Aws.Eks
     public sealed class AccessEntryState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN) of the Access Entry.
+        /// ARN of the Access Entry.
         /// </summary>
         [Input("accessEntryArn")]
         public Input<string>? AccessEntryArn { get; set; }

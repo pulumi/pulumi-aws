@@ -151,12 +151,12 @@ class Policy(pulumi.CustomResource):
 
         example = aws.iam.get_policy_document(statements=[
             {
-                "sid": "1",
-                "effect": "Allow",
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [current["accountId"]],
                 }],
+                "sid": "1",
+                "effect": "Allow",
                 "actions": [
                     "acm-pca:DescribeCertificateAuthority",
                     "acm-pca:GetCertificate",
@@ -167,19 +167,19 @@ class Policy(pulumi.CustomResource):
                 "resources": [example_aws_acmpca_certificate_authority["arn"]],
             },
             {
-                "sid": "2",
-                "effect": allow,
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": ["acm-pca:IssueCertificate"],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "acm-pca:TemplateArn",
                     "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
                 }],
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "sid": "2",
+                "effect": allow,
+                "actions": ["acm-pca:IssueCertificate"],
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
             },
         ])
         example_policy = aws.acmpca.Policy("example",
@@ -193,7 +193,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `resource_arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.Policy` using the `resource_arn` value. For example:
 
@@ -227,12 +227,12 @@ class Policy(pulumi.CustomResource):
 
         example = aws.iam.get_policy_document(statements=[
             {
-                "sid": "1",
-                "effect": "Allow",
                 "principals": [{
                     "type": "AWS",
                     "identifiers": [current["accountId"]],
                 }],
+                "sid": "1",
+                "effect": "Allow",
                 "actions": [
                     "acm-pca:DescribeCertificateAuthority",
                     "acm-pca:GetCertificate",
@@ -243,19 +243,19 @@ class Policy(pulumi.CustomResource):
                 "resources": [example_aws_acmpca_certificate_authority["arn"]],
             },
             {
-                "sid": "2",
-                "effect": allow,
-                "principals": [{
-                    "type": "AWS",
-                    "identifiers": [current["accountId"]],
-                }],
-                "actions": ["acm-pca:IssueCertificate"],
-                "resources": [example_aws_acmpca_certificate_authority["arn"]],
                 "conditions": [{
                     "test": "StringEquals",
                     "variable": "acm-pca:TemplateArn",
                     "values": ["arn:aws:acm-pca:::template/EndEntityCertificate/V1"],
                 }],
+                "principals": [{
+                    "type": "AWS",
+                    "identifiers": [current["accountId"]],
+                }],
+                "sid": "2",
+                "effect": allow,
+                "actions": ["acm-pca:IssueCertificate"],
+                "resources": [example_aws_acmpca_certificate_authority["arn"]],
             },
         ])
         example_policy = aws.acmpca.Policy("example",
@@ -269,7 +269,7 @@ class Policy(pulumi.CustomResource):
 
         #### Required
 
-        - `resource_arn` (String) Amazon Resource Name (ARN) of the ACM PCA certificate authority.
+        - `resource_arn` (String) ARN of the ACM PCA certificate authority.
 
         Using `pulumi import`, import `acmpca.Policy` using the `resource_arn` value. For example:
 

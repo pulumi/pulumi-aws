@@ -125,12 +125,12 @@ import (
 //				return err
 //			}
 //			_, err = route53domains.NewDelegationSignerRecord(ctx, "example", &route53domains.DelegationSignerRecordArgs{
-//				DomainName: pulumi.String("example.com"),
 //				SigningAttributes: &route53domains.DelegationSignerRecordSigningAttributesArgs{
 //					Algorithm: exampleKeySigningKey.SigningAlgorithmType,
 //					Flags:     exampleKeySigningKey.Flag,
 //					PublicKey: exampleKeySigningKey.PublicKey,
 //				},
+//				DomainName: pulumi.String("example.com"),
 //			})
 //			if err != nil {
 //				return err

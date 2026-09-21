@@ -43,10 +43,10 @@ import (
 //			}
 //			json0 := string(tmpJSON0)
 //			_, err = verifiedpermissions.NewSchema(ctx, "example", &verifiedpermissions.SchemaArgs{
-//				PolicyStoreId: pulumi.Any(exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId),
 //				Definition: &verifiedpermissions.SchemaDefinitionArgs{
 //					Value: pulumi.String(json0),
 //				},
+//				PolicyStoreId: pulumi.Any(exampleAwsVerifiedpermissionsPolicyStore.PolicyStoreId),
 //			})
 //			if err != nil {
 //				return err

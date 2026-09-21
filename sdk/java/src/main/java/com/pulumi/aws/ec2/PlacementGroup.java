@@ -66,14 +66,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:ec2/placementGroup:PlacementGroup")
 public class PlacementGroup extends com.pulumi.resources.CustomResource {
     /**
-     * Amazon Resource Name (ARN) of the placement group.
+     * ARN of the placement group.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the placement group.
+     * @return ARN of the placement group.
      * 
      */
     public Output<String> arn() {

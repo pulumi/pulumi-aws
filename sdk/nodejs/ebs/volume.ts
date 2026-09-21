@@ -102,7 +102,7 @@ export class Volume extends pulumi.CustomResource {
      */
     declare public readonly multiAttachEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     declare public readonly outpostArn: pulumi.Output<string | undefined>;
     /**
@@ -237,7 +237,7 @@ export interface VolumeState {
      */
     multiAttachEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**
@@ -307,7 +307,7 @@ export interface VolumeArgs {
      */
     multiAttachEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the Outpost.
+     * ARN of the Outpost.
      */
     outpostArn?: pulumi.Input<string | undefined>;
     /**

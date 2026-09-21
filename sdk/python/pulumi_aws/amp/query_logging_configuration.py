@@ -185,7 +185,6 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
         example = aws.amp.Workspace("example", alias="example")
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/prometheus/query-logs/example")
         example_query_logging_configuration = aws.amp.QueryLoggingConfiguration("example",
-            workspace_id=example.id,
             destinations=[{
                 "cloudwatch_logs": {
                     "log_group_arn": example_log_group.arn.apply(lambda arn: f"{arn}:*"),
@@ -193,7 +192,8 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
                 "filters": {
                     "qsp_threshold": 1000,
                 },
-            }])
+            }],
+            workspace_id=example.id)
         ```
 
 
@@ -223,7 +223,6 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
         example = aws.amp.Workspace("example", alias="example")
         example_log_group = aws.cloudwatch.LogGroup("example", name="/aws/prometheus/query-logs/example")
         example_query_logging_configuration = aws.amp.QueryLoggingConfiguration("example",
-            workspace_id=example.id,
             destinations=[{
                 "cloudwatch_logs": {
                     "log_group_arn": example_log_group.arn.apply(lambda arn: f"{arn}:*"),
@@ -231,7 +230,8 @@ class QueryLoggingConfiguration(pulumi.CustomResource):
                 "filters": {
                     "qsp_threshold": 1000,
                 },
-            }])
+            }],
+            workspace_id=example.id)
         ```
 
 

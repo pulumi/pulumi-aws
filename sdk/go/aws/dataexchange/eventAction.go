@@ -69,7 +69,7 @@ type EventAction struct {
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
 	Action EventActionActionOutput `pulumi:"action"`
-	// Amazon Resource Name (ARN) of the event action.
+	// ARN of the event action.
 	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Date and time when the resource was created.
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
@@ -121,7 +121,7 @@ type eventActionState struct {
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
 	Action *EventActionAction `pulumi:"action"`
-	// Amazon Resource Name (ARN) of the event action.
+	// ARN of the event action.
 	Arn *string `pulumi:"arn"`
 	// Date and time when the resource was created.
 	CreatedAt *string `pulumi:"createdAt"`
@@ -138,7 +138,7 @@ type EventActionState struct {
 	// Describes the action to take.
 	// Described in `action` Configuration Block below.
 	Action EventActionActionPtrInput
-	// Amazon Resource Name (ARN) of the event action.
+	// ARN of the event action.
 	Arn pulumi.StringPtrInput
 	// Date and time when the resource was created.
 	CreatedAt pulumi.StringPtrInput
@@ -271,7 +271,7 @@ func (o EventActionOutput) Action() EventActionActionOutput {
 	return o.ApplyT(func(v *EventAction) EventActionActionOutput { return v.Action }).(EventActionActionOutput)
 }
 
-// Amazon Resource Name (ARN) of the event action.
+// ARN of the event action.
 func (o EventActionOutput) Arn() pulumi.StringOutput {
 	return o.ApplyT(func(v *EventAction) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }

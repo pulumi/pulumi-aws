@@ -35,11 +35,6 @@ namespace Pulumi.Aws.CloudFormation
     ///         {
     ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
     ///             {
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "sts:AssumeRole",
-    ///                 },
-    ///                 Effect = "Allow",
     ///                 Principals = new[]
     ///                 {
     ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
@@ -51,6 +46,11 @@ namespace Pulumi.Aws.CloudFormation
     ///                         Type = "Service",
     ///                     },
     ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sts:AssumeRole",
+    ///                 },
+    ///                 Effect = "Allow",
     ///             },
     ///         },
     ///     });
@@ -160,7 +160,7 @@ namespace Pulumi.Aws.CloudFormation
         public Output<string?> AdministrationRoleArn { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the StackSet.
+        /// ARN of the StackSet.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -430,7 +430,7 @@ namespace Pulumi.Aws.CloudFormation
         public Input<string>? AdministrationRoleArn { get; set; }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the StackSet.
+        /// ARN of the StackSet.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

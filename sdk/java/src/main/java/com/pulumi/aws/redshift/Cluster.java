@@ -166,14 +166,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.aquaConfigurationStatus;
     }
     /**
-     * Amazon Resource Name (ARN) of cluster
+     * ARN of cluster
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of cluster
+     * @return ARN of cluster
      * 
      */
     public Output<String> arn() {
@@ -236,14 +236,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterIdentifier;
     }
     /**
-     * The namespace Amazon Resource Name (ARN) of the cluster
+     * Namespace ARN of the cluster
      * 
      */
     @Export(name="clusterNamespaceArn", refs={String.class}, tree="[0]")
     private Output<String> clusterNamespaceArn;
 
     /**
-     * @return The namespace Amazon Resource Name (ARN) of the cluster
+     * @return Namespace ARN of the cluster
      * 
      */
     public Output<String> clusterNamespaceArn() {
@@ -306,14 +306,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.clusterRevisionNumber;
     }
     /**
-     * The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     @Export(name="clusterSubnetGroupName", refs={String.class}, tree="[0]")
     private Output<String> clusterSubnetGroupName;
 
     /**
-     * @return The name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside virtual private cloud (VPC).
+     * @return Name of a cluster subnet group to be associated with this cluster. If this parameter is not provided the resulting cluster will be deployed outside VPC.
      * 
      */
     public Output<String> clusterSubnetGroupName() {
@@ -366,14 +366,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.databaseName;
     }
     /**
-     * The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     @Export(name="defaultIamRoleArn", refs={String.class}, tree="[0]")
     private Output<String> defaultIamRoleArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the IAM role that was set as default for the cluster when the cluster was created.
+     * @return ARN for the IAM role that was set as default for the cluster when the cluster was created.
      * 
      */
     public Output<String> defaultIamRoleArn() {
@@ -508,18 +508,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.maintenanceTrackName);
     }
     /**
-     * Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     @Export(name="manageMasterPassword", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> manageMasterPassword;
 
     /**
-     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials.
-     * Conflicts with `masterPassword` and `masterPasswordWo`.
-     * One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
+     * @return Whether to use AWS SecretsManager to manage the cluster admin credentials. Conflicts with `masterPassword` and `masterPasswordWo`. One of `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
      * 
      */
     public Output<Optional<Boolean>> manageMasterPassword() {
@@ -540,22 +536,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.manualSnapshotRetentionPeriod);
     }
     /**
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     @Export(name="masterPassword", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> masterPassword;
 
     /**
-     * @return Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPasswordWo`.
-     * One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs, and it will be stored in the state file.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * @return Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPasswordWo`. One of `masterPassword`, `masterPasswordWo` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this will show up in logs, and it will be stored in the state file. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
      * 
      */
     public Output<Optional<String>> masterPassword() {
@@ -591,11 +579,7 @@ public class Cluster extends com.pulumi.resources.CustomResource {
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     @Export(name="masterPasswordWo", refs={String.class}, tree="[0]")
@@ -603,25 +587,21 @@ public class Cluster extends com.pulumi.resources.CustomResource {
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Password for the master DB user.
-     * Conflicts with `manageMasterPassword` and `masterPassword`.
-     * One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided.
-     * Note that this may show up in logs.
-     * Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number.
+     * Password for the master DB user. Conflicts with `manageMasterPassword` and `masterPassword`. One of `masterPasswordWo`, `masterPassword` or `manageMasterPassword` is required unless `snapshotIdentifier` is provided. Note that this may show up in logs. Password must contain at least 8 characters and contain at least one uppercase letter, one lowercase letter, and one number. If set, requires `masterPasswordWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> masterPasswordWo() {
         return Codegen.optional(this.masterPasswordWo);
     }
     /**
-     * Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     @Export(name="masterPasswordWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> masterPasswordWoVersion;
 
     /**
-     * @return Used together with `masterPasswordWo` to trigger an update. Increment this value when an update to the `masterPasswordWo` is required.
+     * @return Required when `masterPasswordWo` is set. Changing this value triggers an update to `masterPasswordWo`.
      * 
      */
     public Output<Optional<Integer>> masterPasswordWoVersion() {
@@ -852,14 +832,14 @@ public class Cluster extends com.pulumi.resources.CustomResource {
         return this.tagsAll;
     }
     /**
-     * A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * List of VPC security groups to be associated with the cluster.
      * 
      */
     @Export(name="vpcSecurityGroupIds", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> vpcSecurityGroupIds;
 
     /**
-     * @return A list of Virtual Private Cloud (VPC) security groups to be associated with the cluster.
+     * @return List of VPC security groups to be associated with the cluster.
      * 
      */
     public Output<List<String>> vpcSecurityGroupIds() {

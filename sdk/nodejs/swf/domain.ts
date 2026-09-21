@@ -59,7 +59,7 @@ export class Domain extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -136,7 +136,7 @@ export class Domain extends pulumi.CustomResource {
  */
 export interface DomainState {
     /**
-     * Amazon Resource Name (ARN)
+     * ARN
      */
     arn?: pulumi.Input<string | undefined>;
     /**

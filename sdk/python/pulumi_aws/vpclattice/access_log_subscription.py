@@ -27,7 +27,7 @@ class AccessLogSubscriptionArgs:
         """
         The set of arguments for constructing a AccessLogSubscription resource.
 
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[_builtins.str] destination_arn: ARN of the log destination.
         :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
@@ -48,7 +48,7 @@ class AccessLogSubscriptionArgs:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the log destination.
+        ARN of the log destination.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -121,10 +121,10 @@ class _AccessLogSubscriptionState:
         """
         Input properties used for looking up and filtering AccessLogSubscription resources.
 
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[_builtins.str] arn: ARN of the access log subscription.
+        :param pulumi.Input[_builtins.str] destination_arn: ARN of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the service network or service.
         :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
@@ -152,7 +152,7 @@ class _AccessLogSubscriptionState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the access log subscription.
+        ARN of the access log subscription.
         """
         return pulumi.get(self, "arn")
 
@@ -164,7 +164,7 @@ class _AccessLogSubscriptionState:
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the log destination.
+        ARN of the log destination.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -188,7 +188,7 @@ class _AccessLogSubscriptionState:
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Amazon Resource Name (ARN) of the service network or service.
+        ARN of the service network or service.
         """
         return pulumi.get(self, "resource_arn")
 
@@ -283,7 +283,7 @@ class AccessLogSubscription(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[_builtins.str] destination_arn: ARN of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
@@ -388,10 +388,10 @@ class AccessLogSubscription(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: Amazon Resource Name (ARN) of the access log subscription.
-        :param pulumi.Input[_builtins.str] destination_arn: Amazon Resource Name (ARN) of the log destination.
+        :param pulumi.Input[_builtins.str] arn: ARN of the access log subscription.
+        :param pulumi.Input[_builtins.str] destination_arn: ARN of the log destination.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
-        :param pulumi.Input[_builtins.str] resource_arn: Amazon Resource Name (ARN) of the service network or service.
+        :param pulumi.Input[_builtins.str] resource_arn: ARN of the service network or service.
         :param pulumi.Input[_builtins.str] resource_identifier: ID or Amazon Resource Identifier (ARN) of the service network or service. You must use the ARN if the resources specified in the operation are in different accounts.
                
                The following arguments are optional:
@@ -416,7 +416,7 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the access log subscription.
+        ARN of the access log subscription.
         """
         return pulumi.get(self, "arn")
 
@@ -424,7 +424,7 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter(name="destinationArn")
     def destination_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the log destination.
+        ARN of the log destination.
         """
         return pulumi.get(self, "destination_arn")
 
@@ -440,7 +440,7 @@ class AccessLogSubscription(pulumi.CustomResource):
     @pulumi.getter(name="resourceArn")
     def resource_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        Amazon Resource Name (ARN) of the service network or service.
+        ARN of the service network or service.
         """
         return pulumi.get(self, "resource_arn")
 

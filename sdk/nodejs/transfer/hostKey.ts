@@ -57,7 +57,7 @@ export class HostKey extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of host key.
+     * ARN of host key.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -149,7 +149,7 @@ export class HostKey extends pulumi.CustomResource {
  */
 export interface HostKeyState {
     /**
-     * Amazon Resource Name (ARN) of host key.
+     * ARN of host key.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

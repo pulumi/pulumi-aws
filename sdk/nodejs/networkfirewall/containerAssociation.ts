@@ -19,16 +19,16 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ContainerAssociation("example", {
- *     containerAssociationName: "example-eks-association",
- *     type: "EKS",
- *     description: "Association for production EKS cluster",
  *     containerMonitoringConfigurations: [{
- *         clusterArn: exampleAwsEksCluster.arn,
  *         attributeFilters: [{
  *             key: "app",
  *             value: "backend",
  *         }],
+ *         clusterArn: exampleAwsEksCluster.arn,
  *     }],
+ *     containerAssociationName: "example-eks-association",
+ *     type: "EKS",
+ *     description: "Association for production EKS cluster",
  *     tags: {
  *         Name: "example",
  *         Environment: "production",
@@ -43,11 +43,11 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkfirewall.ContainerAssociation("example", {
- *     containerAssociationName: "example-ecs-association",
- *     type: "ECS",
  *     containerMonitoringConfigurations: [{
  *         clusterArn: exampleAwsEcsCluster.arn,
  *     }],
+ *     containerAssociationName: "example-ecs-association",
+ *     type: "ECS",
  * });
  * ```
  *

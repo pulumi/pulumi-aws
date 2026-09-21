@@ -50,7 +50,7 @@ namespace Pulumi.Aws.Fsx.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.FileCacheDataRepositoryAssociationNf> Nfs;
         /// <summary>
-        /// Amazon Resource Name (ARN) of the data repository association.
+        /// ARN of the data repository association.
         /// </summary>
         public readonly string? ResourceArn;
         /// <summary>

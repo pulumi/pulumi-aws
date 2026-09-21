@@ -20,14 +20,14 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
     public static final KxVolumeState Empty = new KxVolumeState();
 
     /**
-     * Amazon Resource Name (ARN) identifier of the KX volume.
+     * ARN identifier of the KX volume.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) identifier of the KX volume.
+     * @return ARN identifier of the KX volume.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -295,7 +295,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX volume.
+         * @param arn ARN identifier of the KX volume.
          * 
          * @return builder
          * 
@@ -306,7 +306,7 @@ public final class KxVolumeState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) identifier of the KX volume.
+         * @param arn ARN identifier of the KX volume.
          * 
          * @return builder
          * 

@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ngws = Aws.Ec2.GetNatGateways.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNatGatewaysFilterInputArgs
@@ -40,6 +39,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var ngw = ;
@@ -67,7 +67,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ngws = Aws.Ec2.GetNatGateways.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNatGatewaysFilterInputArgs
@@ -79,6 +78,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var ngw = ;
@@ -106,7 +106,6 @@ namespace Pulumi.Aws.Ec2
         /// {
         ///     var ngws = Aws.Ec2.GetNatGateways.Invoke(new()
         ///     {
-        ///         VpcId = vpcId,
         ///         Filters = new[]
         ///         {
         ///             new Aws.Ec2.Inputs.GetNatGatewaysFilterInputArgs
@@ -118,6 +117,7 @@ namespace Pulumi.Aws.Ec2
         ///                 },
         ///             },
         ///         },
+        ///         VpcId = vpcId,
         ///     });
         /// 
         ///     var ngw = ;

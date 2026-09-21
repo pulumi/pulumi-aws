@@ -27,8 +27,8 @@ class SnapshotArgs:
         """
         The set of arguments for constructing a Snapshot resource.
 
-        :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -46,7 +46,7 @@ class SnapshotArgs:
     @pulumi.getter(name="dbInstanceIdentifier")
     def db_instance_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The DB Instance Identifier from which to take the snapshot.
+        DB instance identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_instance_identifier")
 
@@ -58,7 +58,7 @@ class SnapshotArgs:
     @pulumi.getter(name="dbSnapshotIdentifier")
     def db_snapshot_identifier(self) -> pulumi.Input[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_snapshot_identifier")
 
@@ -132,26 +132,28 @@ class _SnapshotState:
         """
         Input properties used for looking up and filtering Snapshot resources.
 
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-        :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_arn: The Amazon Resource Name (ARN) for the DB snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
-        :param pulumi.Input[_builtins.int] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key.
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_identifier: Identifier for the snapshot.
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the DB snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
+        :param pulumi.Input[_builtins.int] iops: Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[_builtins.str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[_builtins.int] port: Port that the DB snapshot listens on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-        :param pulumi.Input[_builtins.str] source_region: The region that the DB snapshot was created in or copied from.
-        :param pulumi.Input[_builtins.str] status: Specifies the status of this DB snapshot.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB snapshot.
+        :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        :param pulumi.Input[_builtins.str] source_region: Region that the DB snapshot was created in or copied from.
+        :param pulumi.Input[_builtins.str] status: Status of this DB snapshot.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         if allocated_storage is not None:
@@ -205,7 +207,7 @@ class _SnapshotState:
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -217,7 +219,7 @@ class _SnapshotState:
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -229,7 +231,7 @@ class _SnapshotState:
     @pulumi.getter(name="dbInstanceIdentifier")
     def db_instance_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DB Instance Identifier from which to take the snapshot.
+        DB instance identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_instance_identifier")
 
@@ -241,7 +243,7 @@ class _SnapshotState:
     @pulumi.getter(name="dbSnapshotArn")
     def db_snapshot_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) for the DB snapshot.
+        ARN for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 
@@ -253,7 +255,7 @@ class _SnapshotState:
     @pulumi.getter(name="dbSnapshotIdentifier")
     def db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_snapshot_identifier")
 
@@ -265,7 +267,7 @@ class _SnapshotState:
     @pulumi.getter
     def encrypted(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
-        Specifies whether the DB snapshot is encrypted.
+        Whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -277,7 +279,7 @@ class _SnapshotState:
     @pulumi.getter
     def engine(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -289,7 +291,7 @@ class _SnapshotState:
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -301,7 +303,7 @@ class _SnapshotState:
     @pulumi.getter
     def iops(self) -> pulumi.Input[Optional[_builtins.int]]:
         """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
@@ -313,7 +315,7 @@ class _SnapshotState:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -348,6 +350,9 @@ class _SnapshotState:
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Port that the DB snapshot listens on.
+        """
         return pulumi.get(self, "port")
 
     @port.setter
@@ -381,6 +386,9 @@ class _SnapshotState:
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Type of the DB snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @snapshot_type.setter
@@ -391,7 +399,7 @@ class _SnapshotState:
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
     def source_db_snapshot_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         """
         return pulumi.get(self, "source_db_snapshot_identifier")
 
@@ -403,7 +411,7 @@ class _SnapshotState:
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The region that the DB snapshot was created in or copied from.
+        Region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
@@ -415,7 +423,7 @@ class _SnapshotState:
     @pulumi.getter
     def status(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the status of this DB snapshot.
+        Status of this DB snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -427,7 +435,7 @@ class _SnapshotState:
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -451,7 +459,7 @@ class _SnapshotState:
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Input[Optional[Mapping[str, pulumi.Input[_builtins.str]]]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 
@@ -520,8 +528,8 @@ class Snapshot(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
+        :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_identifier: Identifier for the snapshot.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -662,26 +670,28 @@ class Snapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.int] allocated_storage: Specifies the allocated storage size in gigabytes (GB).
-        :param pulumi.Input[_builtins.str] availability_zone: Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
-        :param pulumi.Input[_builtins.str] db_instance_identifier: The DB Instance Identifier from which to take the snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_arn: The Amazon Resource Name (ARN) for the DB snapshot.
-        :param pulumi.Input[_builtins.str] db_snapshot_identifier: The Identifier for the snapshot.
-        :param pulumi.Input[_builtins.bool] encrypted: Specifies whether the DB snapshot is encrypted.
-        :param pulumi.Input[_builtins.str] engine: Specifies the name of the database engine.
-        :param pulumi.Input[_builtins.str] engine_version: Specifies the version of the database engine.
-        :param pulumi.Input[_builtins.int] iops: Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
-        :param pulumi.Input[_builtins.str] kms_key_id: The ARN for the KMS encryption key.
+        :param pulumi.Input[_builtins.int] allocated_storage: Allocated storage size in gigabytes (GB).
+        :param pulumi.Input[_builtins.str] availability_zone: Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_instance_identifier: DB instance identifier from which to take the snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_arn: ARN for the DB snapshot.
+        :param pulumi.Input[_builtins.str] db_snapshot_identifier: Identifier for the snapshot.
+        :param pulumi.Input[_builtins.bool] encrypted: Whether the DB snapshot is encrypted.
+        :param pulumi.Input[_builtins.str] engine: Name of the database engine.
+        :param pulumi.Input[_builtins.str] engine_version: Version of the database engine.
+        :param pulumi.Input[_builtins.int] iops: Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        :param pulumi.Input[_builtins.str] kms_key_id: ARN for the KMS encryption key.
         :param pulumi.Input[_builtins.str] license_model: License model information for the restored DB instance.
         :param pulumi.Input[_builtins.str] option_group_name: Provides the option group name for the DB snapshot.
+        :param pulumi.Input[_builtins.int] port: Port that the DB snapshot listens on.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] shared_accounts: List of AWS Account IDs to share the snapshot with. Use `all` to make the snapshot public.
-        :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
-        :param pulumi.Input[_builtins.str] source_region: The region that the DB snapshot was created in or copied from.
-        :param pulumi.Input[_builtins.str] status: Specifies the status of this DB snapshot.
-        :param pulumi.Input[_builtins.str] storage_type: Specifies the storage type associated with DB snapshot.
+        :param pulumi.Input[_builtins.str] snapshot_type: Type of the DB snapshot.
+        :param pulumi.Input[_builtins.str] source_db_snapshot_identifier: DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        :param pulumi.Input[_builtins.str] source_region: Region that the DB snapshot was created in or copied from.
+        :param pulumi.Input[_builtins.str] status: Status of this DB snapshot.
+        :param pulumi.Input[_builtins.str] storage_type: Storage type associated with DB snapshot.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
-        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         :param pulumi.Input[_builtins.str] vpc_id: Provides the VPC ID associated with the DB snapshot.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -717,7 +727,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="allocatedStorage")
     def allocated_storage(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the allocated storage size in gigabytes (GB).
+        Allocated storage size in gigabytes (GB).
         """
         return pulumi.get(self, "allocated_storage")
 
@@ -725,7 +735,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="availabilityZone")
     def availability_zone(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
+        Name of the Availability Zone the DB instance was located in at the time of the DB snapshot.
         """
         return pulumi.get(self, "availability_zone")
 
@@ -733,7 +743,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbInstanceIdentifier")
     def db_instance_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The DB Instance Identifier from which to take the snapshot.
+        DB instance identifier from which to take the snapshot.
         """
         return pulumi.get(self, "db_instance_identifier")
 
@@ -741,7 +751,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbSnapshotArn")
     def db_snapshot_arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) for the DB snapshot.
+        ARN for the DB snapshot.
         """
         return pulumi.get(self, "db_snapshot_arn")
 
@@ -749,7 +759,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="dbSnapshotIdentifier")
     def db_snapshot_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The Identifier for the snapshot.
+        Identifier for the snapshot.
         """
         return pulumi.get(self, "db_snapshot_identifier")
 
@@ -757,7 +767,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def encrypted(self) -> pulumi.Output[_builtins.bool]:
         """
-        Specifies whether the DB snapshot is encrypted.
+        Whether the DB snapshot is encrypted.
         """
         return pulumi.get(self, "encrypted")
 
@@ -765,7 +775,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def engine(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the name of the database engine.
+        Name of the database engine.
         """
         return pulumi.get(self, "engine")
 
@@ -773,7 +783,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="engineVersion")
     def engine_version(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the version of the database engine.
+        Version of the database engine.
         """
         return pulumi.get(self, "engine_version")
 
@@ -781,7 +791,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def iops(self) -> pulumi.Output[_builtins.int]:
         """
-        Specifies the Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
+        Provisioned IOPS (I/O operations per second) value of the DB instance at the time of the snapshot.
         """
         return pulumi.get(self, "iops")
 
@@ -789,7 +799,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> pulumi.Output[_builtins.str]:
         """
-        The ARN for the KMS encryption key.
+        ARN for the KMS encryption key.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -812,6 +822,9 @@ class Snapshot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter
     def port(self) -> pulumi.Output[_builtins.int]:
+        """
+        Port that the DB snapshot listens on.
+        """
         return pulumi.get(self, "port")
 
     @_builtins.property
@@ -833,13 +846,16 @@ class Snapshot(pulumi.CustomResource):
     @_builtins.property
     @pulumi.getter(name="snapshotType")
     def snapshot_type(self) -> pulumi.Output[_builtins.str]:
+        """
+        Type of the DB snapshot.
+        """
         return pulumi.get(self, "snapshot_type")
 
     @_builtins.property
     @pulumi.getter(name="sourceDbSnapshotIdentifier")
     def source_db_snapshot_identifier(self) -> pulumi.Output[_builtins.str]:
         """
-        The DB snapshot Arn that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
+        DB snapshot ARN that the DB snapshot was copied from. It only has value in case of cross customer or cross region copy.
         """
         return pulumi.get(self, "source_db_snapshot_identifier")
 
@@ -847,7 +863,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="sourceRegion")
     def source_region(self) -> pulumi.Output[_builtins.str]:
         """
-        The region that the DB snapshot was created in or copied from.
+        Region that the DB snapshot was created in or copied from.
         """
         return pulumi.get(self, "source_region")
 
@@ -855,7 +871,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the status of this DB snapshot.
+        Status of this DB snapshot.
         """
         return pulumi.get(self, "status")
 
@@ -863,7 +879,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="storageType")
     def storage_type(self) -> pulumi.Output[_builtins.str]:
         """
-        Specifies the storage type associated with DB snapshot.
+        Storage type associated with DB snapshot.
         """
         return pulumi.get(self, "storage_type")
 
@@ -879,7 +895,7 @@ class Snapshot(pulumi.CustomResource):
     @pulumi.getter(name="tagsAll")
     def tags_all(self) -> pulumi.Output[Mapping[str, _builtins.str]]:
         """
-        A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
+        Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
         """
         return pulumi.get(self, "tags_all")
 

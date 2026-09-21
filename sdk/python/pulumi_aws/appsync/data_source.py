@@ -496,20 +496,20 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="UserId",
             attributes=[{
                 "name": "UserId",
                 "type": "S",
-            }])
+            }],
+            name="example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="UserId")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appsync.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -528,13 +528,13 @@ class DataSource(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="my_appsync_example")
         example_data_source = aws.appsync.DataSource("example",
+            dynamodb_config={
+                "table_name": example_table.name,
+            },
             api_id=example_graph_ql_api.id,
             name="my_appsync_example",
             service_role_arn=example_role.arn,
-            type="AMAZON_DYNAMODB",
-            dynamodb_config={
-                "table_name": example_table.name,
-            })
+            type="AMAZON_DYNAMODB")
         ```
 
         ## Import
@@ -578,20 +578,20 @@ class DataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example_table = aws.dynamodb.Table("example",
-            name="example",
-            read_capacity=1,
-            write_capacity=1,
-            hash_key="UserId",
             attributes=[{
                 "name": "UserId",
                 "type": "S",
-            }])
+            }],
+            name="example",
+            read_capacity=1,
+            write_capacity=1,
+            hash_key="UserId")
         assume_role = aws.iam.get_policy_document(statements=[{
-            "effect": "Allow",
             "principals": [{
                 "type": "Service",
                 "identifiers": ["appsync.amazonaws.com"],
             }],
+            "effect": "Allow",
             "actions": ["sts:AssumeRole"],
         }])
         example_role = aws.iam.Role("example",
@@ -610,13 +610,13 @@ class DataSource(pulumi.CustomResource):
             authentication_type="API_KEY",
             name="my_appsync_example")
         example_data_source = aws.appsync.DataSource("example",
+            dynamodb_config={
+                "table_name": example_table.name,
+            },
             api_id=example_graph_ql_api.id,
             name="my_appsync_example",
             service_role_arn=example_role.arn,
-            type="AMAZON_DYNAMODB",
-            dynamodb_config={
-                "table_name": example_table.name,
-            })
+            type="AMAZON_DYNAMODB")
         ```
 
         ## Import

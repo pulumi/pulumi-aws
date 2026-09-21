@@ -16,16 +16,32 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
 
     public static final AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs Empty = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs();
 
+    /**
+     * String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     @Import(name="matchValueString")
     private @Nullable Output<String> matchValueString;
 
+    /**
+     * @return String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     public Optional<Output<String>> matchValueString() {
         return Optional.ofNullable(this.matchValueString);
     }
 
+    /**
+     * List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     @Import(name="matchValueStringLists")
     private @Nullable Output<List<String>> matchValueStringLists;
 
+    /**
+     * @return List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+     * 
+     */
     public Optional<Output<List<String>>> matchValueStringLists() {
         return Optional.ofNullable(this.matchValueStringLists);
     }
@@ -55,24 +71,54 @@ public final class AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCu
             $ = new AgentcoreRegistryAuthorizerConfigurationCustomJwtAuthorizerCustomClaimAuthorizingClaimMatchValueClaimMatchValueArgs(Objects.requireNonNull(defaults));
         }
 
+        /**
+         * @param matchValueString String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchValueString(@Nullable Output<String> matchValueString) {
             $.matchValueString = matchValueString;
             return this;
         }
 
+        /**
+         * @param matchValueString String value to match for. Must be specified when `claimMatchOperator` is `EQUALS` or `CONTAINS`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchValueString(String matchValueString) {
             return matchValueString(Output.of(matchValueString));
         }
 
+        /**
+         * @param matchValueStringLists List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchValueStringLists(@Nullable Output<List<String>> matchValueStringLists) {
             $.matchValueStringLists = matchValueStringLists;
             return this;
         }
 
+        /**
+         * @param matchValueStringLists List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchValueStringLists(List<String> matchValueStringLists) {
             return matchValueStringLists(Output.of(matchValueStringLists));
         }
 
+        /**
+         * @param matchValueStringLists List of strings to check for a match. Must be specified when `claimMatchOperator` is `CONTAINS_ANY`. Exactly one of `matchValueString` or `matchValueStringList` must be specified.
+         * 
+         * @return builder
+         * 
+         */
         public Builder matchValueStringLists(String... matchValueStringLists) {
             return matchValueStringLists(List.of(matchValueStringLists));
         }

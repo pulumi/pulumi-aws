@@ -366,14 +366,14 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id="EMDPPAYPZI",
-            name="example",
             data_source_configuration={
-                "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": "arn:aws:s3:::example-bucket",
                 },
-            })
+                "type": "S3",
+            },
+            knowledge_base_id="EMDPPAYPZI",
+            name="example")
         ```
 
         ### Managed Knowledge Base Connector - S3
@@ -384,11 +384,13 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
-            name="example-s3-managed",
             data_source_configuration={
-                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
                 "managed_knowledge_base_connector_configuration": {
+                    "media_extraction_configuration": {
+                        "image_extraction_configuration": {
+                            "image_extraction_status": "ENABLED",
+                        },
+                    },
                     "connector_parameters": json.dumps({
                         "type": "S3",
                         "version": "1",
@@ -401,18 +403,16 @@ class AgentDataSource(pulumi.CustomResource):
                             "maxFileSizeInMegaBytes": "500",
                         },
                     }),
-                    "media_extraction_configuration": {
-                        "image_extraction_configuration": {
-                            "image_extraction_status": "ENABLED",
-                        },
-                    },
                 },
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
             },
             vector_ingestion_configuration={
                 "parsing_configuration": {
                     "parsing_strategy": "SMART_PARSING",
                 },
-            })
+            },
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="example-s3-managed")
         ```
 
         ### Managed Knowledge Base Connector - SharePoint
@@ -423,10 +423,7 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sharepoint = aws.bedrock.AgentDataSource("sharepoint",
-            knowledge_base_id=example["id"],
-            name="example-sharepoint",
             data_source_configuration={
-                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
                 "managed_knowledge_base_connector_configuration": {
                     "connector_parameters": json.dumps({
                         "type": "SHAREPOINT",
@@ -448,7 +445,10 @@ class AgentDataSource(pulumi.CustomResource):
                         },
                     }),
                 },
-            })
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+            },
+            knowledge_base_id=example["id"],
+            name="example-sharepoint")
         ```
 
         ### Multimodal Parsing
@@ -458,33 +458,33 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
-            name="multimodal-example",
             data_source_configuration={
-                "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": example_aws_s3_bucket["arn"],
                 },
+                "type": "S3",
             },
             vector_ingestion_configuration={
                 "chunking_configuration": {
-                    "chunking_strategy": "FIXED_SIZE",
                     "fixed_size_chunking_configuration": {
                         "max_tokens": 512,
                         "overlap_percentage": 20,
                     },
+                    "chunking_strategy": "FIXED_SIZE",
                 },
                 "parsing_configuration": {
-                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
                     "bedrock_foundation_model_configuration": {
-                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
-                        "parsing_modality": "MULTIMODAL",
                         "parsing_prompt": {
                             "parsing_prompt_string": "Extract and transcribe all text and visual content from the document.",
                         },
+                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+                        "parsing_modality": "MULTIMODAL",
                     },
+                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
                 },
-            })
+            },
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="multimodal-example")
         ```
 
         ## Import
@@ -527,14 +527,14 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id="EMDPPAYPZI",
-            name="example",
             data_source_configuration={
-                "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": "arn:aws:s3:::example-bucket",
                 },
-            })
+                "type": "S3",
+            },
+            knowledge_base_id="EMDPPAYPZI",
+            name="example")
         ```
 
         ### Managed Knowledge Base Connector - S3
@@ -545,11 +545,13 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
-            name="example-s3-managed",
             data_source_configuration={
-                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
                 "managed_knowledge_base_connector_configuration": {
+                    "media_extraction_configuration": {
+                        "image_extraction_configuration": {
+                            "image_extraction_status": "ENABLED",
+                        },
+                    },
                     "connector_parameters": json.dumps({
                         "type": "S3",
                         "version": "1",
@@ -562,18 +564,16 @@ class AgentDataSource(pulumi.CustomResource):
                             "maxFileSizeInMegaBytes": "500",
                         },
                     }),
-                    "media_extraction_configuration": {
-                        "image_extraction_configuration": {
-                            "image_extraction_status": "ENABLED",
-                        },
-                    },
                 },
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
             },
             vector_ingestion_configuration={
                 "parsing_configuration": {
                     "parsing_strategy": "SMART_PARSING",
                 },
-            })
+            },
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="example-s3-managed")
         ```
 
         ### Managed Knowledge Base Connector - SharePoint
@@ -584,10 +584,7 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         sharepoint = aws.bedrock.AgentDataSource("sharepoint",
-            knowledge_base_id=example["id"],
-            name="example-sharepoint",
             data_source_configuration={
-                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
                 "managed_knowledge_base_connector_configuration": {
                     "connector_parameters": json.dumps({
                         "type": "SHAREPOINT",
@@ -609,7 +606,10 @@ class AgentDataSource(pulumi.CustomResource):
                         },
                     }),
                 },
-            })
+                "type": "MANAGED_KNOWLEDGE_BASE_CONNECTOR",
+            },
+            knowledge_base_id=example["id"],
+            name="example-sharepoint")
         ```
 
         ### Multimodal Parsing
@@ -619,33 +619,33 @@ class AgentDataSource(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.bedrock.AgentDataSource("example",
-            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
-            name="multimodal-example",
             data_source_configuration={
-                "type": "S3",
                 "s3_configuration": {
                     "bucket_arn": example_aws_s3_bucket["arn"],
                 },
+                "type": "S3",
             },
             vector_ingestion_configuration={
                 "chunking_configuration": {
-                    "chunking_strategy": "FIXED_SIZE",
                     "fixed_size_chunking_configuration": {
                         "max_tokens": 512,
                         "overlap_percentage": 20,
                     },
+                    "chunking_strategy": "FIXED_SIZE",
                 },
                 "parsing_configuration": {
-                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
                     "bedrock_foundation_model_configuration": {
-                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
-                        "parsing_modality": "MULTIMODAL",
                         "parsing_prompt": {
                             "parsing_prompt_string": "Extract and transcribe all text and visual content from the document.",
                         },
+                        "model_arn": "arn:aws:bedrock:us-east-1::foundation-model/anthropic.claude-3-sonnet-20240229-v1:0",
+                        "parsing_modality": "MULTIMODAL",
                     },
+                    "parsing_strategy": "BEDROCK_FOUNDATION_MODEL",
                 },
-            })
+            },
+            knowledge_base_id=example_aws_bedrockagent_knowledge_base["id"],
+            name="multimodal-example")
         ```
 
         ## Import

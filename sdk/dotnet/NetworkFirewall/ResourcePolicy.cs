@@ -120,7 +120,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+        /// ARN of the rule group or firewall policy.
         /// </summary>
         [Output("resourceArn")]
         public Output<string> ResourceArn { get; private set; } = null!;
@@ -184,7 +184,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+        /// ARN of the rule group or firewall policy.
         /// </summary>
         [Input("resourceArn", required: true)]
         public Input<string> ResourceArn { get; set; } = null!;
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.NetworkFirewall
         public Input<string>? Region { get; set; }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the rule group or firewall policy.
+        /// ARN of the rule group or firewall policy.
         /// </summary>
         [Input("resourceArn")]
         public Input<string>? ResourceArn { get; set; }

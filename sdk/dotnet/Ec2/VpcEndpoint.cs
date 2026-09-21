@@ -126,9 +126,6 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var ec2 = new Aws.Ec2.VpcEndpoint("ec2", new()
     ///     {
-    ///         VpcId = example.Id,
-    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
-    ///         VpcEndpointType = "Interface",
     ///         SubnetConfigurations = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.VpcEndpointSubnetConfigurationArgs
@@ -142,6 +139,9 @@ namespace Pulumi.Aws.Ec2
     ///                 SubnetId = example2.Id,
     ///             },
     ///         },
+    ///         VpcId = example.Id,
+    ///         ServiceName = "com.amazonaws.us-west-2.ec2",
+    ///         VpcEndpointType = "Interface",
     ///         SubnetIds = new[]
     ///         {
     ///             example1.Id,
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Ec2
     public partial class VpcEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// ARN of the VPC endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -658,7 +658,7 @@ namespace Pulumi.Aws.Ec2
     public sealed class VpcEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the VPC endpoint.
+        /// ARN of the VPC endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -43,7 +43,6 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     ///     var exampleConnectorV2 = new Aws.SecurityHub.ConnectorV2("example", new()
     ///     {
-    ///         Name = "jira-connector",
     ///         ConnectorProvider = new Aws.SecurityHub.Inputs.ConnectorV2ConnectorProviderArgs
     ///         {
     ///             JiraCloud = new Aws.SecurityHub.Inputs.ConnectorV2ConnectorProviderJiraCloudArgs
@@ -51,6 +50,7 @@ namespace Pulumi.Aws.SecurityHub
     ///                 ProjectKey = "SEC",
     ///             },
     ///         },
+    ///         Name = "jira-connector",
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =
@@ -78,9 +78,6 @@ namespace Pulumi.Aws.SecurityHub
     /// {
     ///     var example = new Aws.SecurityHub.ConnectorV2("example", new()
     ///     {
-    ///         Name = "jira-connector",
-    ///         Description = "Jira Cloud integration for security findings",
-    ///         KmsKeyArn = exampleAwsKmsKey.Arn,
     ///         ConnectorProvider = new Aws.SecurityHub.Inputs.ConnectorV2ConnectorProviderArgs
     ///         {
     ///             JiraCloud = new Aws.SecurityHub.Inputs.ConnectorV2ConnectorProviderJiraCloudArgs
@@ -88,6 +85,9 @@ namespace Pulumi.Aws.SecurityHub
     ///                 ProjectKey = "SEC",
     ///             },
     ///         },
+    ///         Name = "jira-connector",
+    ///         Description = "Jira Cloud integration for security findings",
+    ///         KmsKeyArn = exampleAwsKmsKey.Arn,
     ///     }, new CustomResourceOptions
     ///     {
     ///         DependsOn =

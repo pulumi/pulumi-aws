@@ -31,8 +31,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Folder("example", {
- *     folderId: "example-id",
- *     name: "example-name",
  *     permissions: [{
  *         actions: [
  *             "quicksight:CreateFolder",
@@ -46,6 +44,8 @@ import * as utilities from "../utilities";
  *         ],
  *         principal: exampleAwsQuicksightUser.arn,
  *     }],
+ *     folderId: "example-id",
+ *     name: "example-name",
  * });
  * ```
  *
@@ -137,7 +137,7 @@ export class Folder extends pulumi.CustomResource {
      */
     declare public readonly name: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * ARN for the parent folder. If not set, creates a root-level folder.
      */
     declare public readonly parentFolderArn: pulumi.Output<string | undefined>;
     /**
@@ -246,7 +246,7 @@ export interface FolderState {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * ARN for the parent folder. If not set, creates a root-level folder.
      */
     parentFolderArn?: pulumi.Input<string | undefined>;
     /**
@@ -290,7 +290,7 @@ export interface FolderArgs {
      */
     name?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) for the parent folder. If not set, creates a root-level folder.
+     * ARN for the parent folder. If not set, creates a root-level folder.
      */
     parentFolderArn?: pulumi.Input<string | undefined>;
     /**

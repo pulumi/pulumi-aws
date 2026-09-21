@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var foo = new VpcEndpoint("foo", VpcEndpointArgs.builder()
- *             .domainArn(domain1.arn())
  *             .vpcOptions(VpcEndpointVpcOptionsArgs.builder()
  *                 .securityGroupIds(                
  *                     test.id(),
@@ -54,6 +53,7 @@ import javax.annotation.Nullable;
  *                     testAwsSubnet.id(),
  *                     test2AwsSubnet.id())
  *                 .build())
+ *             .domainArn(domain1.arn())
  *             .build());
  * 
  *     }
@@ -73,14 +73,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:opensearch/vpcEndpoint:VpcEndpoint")
 public class VpcEndpoint extends com.pulumi.resources.CustomResource {
     /**
-     * Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * ARN of the domain to create the endpoint for
      * 
      */
     @Export(name="domainArn", refs={String.class}, tree="[0]")
     private Output<String> domainArn;
 
     /**
-     * @return Specifies the Amazon Resource Name (ARN) of the domain to create the endpoint for
+     * @return ARN of the domain to create the endpoint for
      * 
      */
     public Output<String> domainArn() {

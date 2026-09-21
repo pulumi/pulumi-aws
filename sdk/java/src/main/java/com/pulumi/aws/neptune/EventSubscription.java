@@ -107,14 +107,14 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:neptune/eventSubscription:EventSubscription")
 public class EventSubscription extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name of the Neptune event notification subscription.
+     * ARN of the Neptune event notification subscription.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name of the Neptune event notification subscription.
+     * @return ARN of the Neptune event notification subscription.
      * 
      */
     public Output<String> arn() {

@@ -48,12 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConnectionFunction("example", ConnectionFunctionArgs.builder()
- *             .name("example-connection-function")
- *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .connectionFunctionConfig(ConnectionFunctionConnectionFunctionConfigArgs.builder()
  *                 .runtime("cloudfront-js-2.0")
  *                 .comment("Example connection function")
  *                 .build())
+ *             .name("example-connection-function")
+ *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .build());
  * 
  *     }
@@ -87,12 +87,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConnectionFunction("example", ConnectionFunctionArgs.builder()
- *             .name("example-connection-function")
- *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .connectionFunctionConfig(ConnectionFunctionConnectionFunctionConfigArgs.builder()
  *                 .runtime("cloudfront-js-2.0")
  *                 .comment("Example connection function")
  *                 .build())
+ *             .name("example-connection-function")
+ *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .publish(true)
  *             .build());
  * 
@@ -135,15 +135,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConnectionFunction = new ConnectionFunction("exampleConnectionFunction", ConnectionFunctionArgs.builder()
- *             .name("example-connection-function")
- *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .connectionFunctionConfig(ConnectionFunctionConnectionFunctionConfigArgs.builder()
- *                 .runtime("cloudfront-js-2.0")
- *                 .comment("Example connection function")
  *                 .keyValueStoreAssociation(ConnectionFunctionConnectionFunctionConfigKeyValueStoreAssociationArgs.builder()
  *                     .keyValueStoreArn(example.arn())
  *                     .build())
+ *                 .runtime("cloudfront-js-2.0")
+ *                 .comment("Example connection function")
  *                 .build())
+ *             .name("example-connection-function")
+ *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .build());
  * 
  *     }
@@ -177,12 +177,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ConnectionFunction("example", ConnectionFunctionArgs.builder()
- *             .name("example-connection-function")
- *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .connectionFunctionConfig(ConnectionFunctionConnectionFunctionConfigArgs.builder()
  *                 .runtime("cloudfront-js-2.0")
  *                 .comment("Example connection function")
  *                 .build())
+ *             .name("example-connection-function")
+ *             .connectionFunctionCode("function handler(event) { return event.request; }")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Team", "web")

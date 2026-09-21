@@ -21,14 +21,14 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs e
     public static final RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs Empty = new RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * ARN of the Regex Pattern Set that this statement references.
      * 
      */
     @Import(name="arn", required=true)
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+     * @return ARN of the Regex Pattern Set that this statement references.
      * 
      */
     public Output<String> arn() {
@@ -112,7 +112,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs e
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         * @param arn ARN of the Regex Pattern Set that this statement references.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class RuleGroupRuleStatementRegexPatternSetReferenceStatementArgs e
         }
 
         /**
-         * @param arn The Amazon Resource Name (ARN) of the Regex Pattern Set that this statement references.
+         * @param arn ARN of the Regex Pattern Set that this statement references.
          * 
          * @return builder
          * 

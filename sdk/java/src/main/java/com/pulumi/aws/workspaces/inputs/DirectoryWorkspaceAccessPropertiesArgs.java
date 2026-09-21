@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.workspaces.inputs;
 
+import com.pulumi.aws.workspaces.inputs.DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
@@ -14,6 +15,21 @@ import javax.annotation.Nullable;
 public final class DirectoryWorkspaceAccessPropertiesArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final DirectoryWorkspaceAccessPropertiesArgs Empty = new DirectoryWorkspaceAccessPropertiesArgs();
+
+    /**
+     * Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+     * 
+     */
+    @Import(name="accessEndpointConfig")
+    private @Nullable Output<DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs> accessEndpointConfig;
+
+    /**
+     * @return Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+     * 
+     */
+    public Optional<Output<DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs>> accessEndpointConfig() {
+        return Optional.ofNullable(this.accessEndpointConfig);
+    }
 
     /**
      * Indicates whether users can use Android devices to access their WorkSpaces.
@@ -138,6 +154,7 @@ public final class DirectoryWorkspaceAccessPropertiesArgs extends com.pulumi.res
     private DirectoryWorkspaceAccessPropertiesArgs() {}
 
     private DirectoryWorkspaceAccessPropertiesArgs(DirectoryWorkspaceAccessPropertiesArgs $) {
+        this.accessEndpointConfig = $.accessEndpointConfig;
         this.deviceTypeAndroid = $.deviceTypeAndroid;
         this.deviceTypeChromeos = $.deviceTypeChromeos;
         this.deviceTypeIos = $.deviceTypeIos;
@@ -164,6 +181,27 @@ public final class DirectoryWorkspaceAccessPropertiesArgs extends com.pulumi.res
 
         public Builder(DirectoryWorkspaceAccessPropertiesArgs defaults) {
             $ = new DirectoryWorkspaceAccessPropertiesArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param accessEndpointConfig Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessEndpointConfig(@Nullable Output<DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs> accessEndpointConfig) {
+            $.accessEndpointConfig = accessEndpointConfig;
+            return this;
+        }
+
+        /**
+         * @param accessEndpointConfig Configuration for accessing WorkSpaces through VPC endpoints instead of the public internet. Defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessEndpointConfig(DirectoryWorkspaceAccessPropertiesAccessEndpointConfigArgs accessEndpointConfig) {
+            return accessEndpointConfig(Output.of(accessEndpointConfig));
         }
 
         /**

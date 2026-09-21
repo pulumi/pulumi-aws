@@ -46,14 +46,14 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+     * ARN of the Transfer Family resource to tag.
      * 
      */
     @Import(name="resourceArn")
     private @Nullable Output<String> resourceArn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+     * @return ARN of the Transfer Family resource to tag.
      * 
      */
     public Optional<Output<String>> resourceArn() {
@@ -145,7 +145,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+         * @param resourceArn ARN of the Transfer Family resource to tag.
          * 
          * @return builder
          * 
@@ -156,7 +156,7 @@ public final class TagState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param resourceArn Amazon Resource Name (ARN) of the Transfer Family resource to tag.
+         * @param resourceArn ARN of the Transfer Family resource to tag.
          * 
          * @return builder
          * 

@@ -17,7 +17,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.codepipeline.CustomActionType("example", {
- *     category: "Build",
  *     inputArtifactDetails: {
  *         maximumCount: 1,
  *         minimumCount: 0,
@@ -26,6 +25,7 @@ import * as utilities from "../utilities";
  *         maximumCount: 1,
  *         minimumCount: 0,
  *     },
+ *     category: "Build",
  *     providerName: "example",
  *     version: "1",
  * });

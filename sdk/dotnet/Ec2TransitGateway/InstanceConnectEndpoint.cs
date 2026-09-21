@@ -42,7 +42,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public partial class InstanceConnectEndpoint : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        /// ARN of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -234,7 +234,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     public sealed class InstanceConnectEndpointState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Amazon Resource Name (ARN) of the EC2 Instance Connect Endpoint.
+        /// ARN of the EC2 Instance Connect Endpoint.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

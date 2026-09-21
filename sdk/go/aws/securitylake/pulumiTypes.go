@@ -495,7 +495,7 @@ func (o CustomLogSourceConfigurationPtrOutput) ProviderIdentity() CustomLogSourc
 }
 
 type CustomLogSourceConfigurationCrawlerConfiguration struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 	RoleArn string `pulumi:"roleArn"`
 }
 
@@ -511,7 +511,7 @@ type CustomLogSourceConfigurationCrawlerConfigurationInput interface {
 }
 
 type CustomLogSourceConfigurationCrawlerConfigurationArgs struct {
-	// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+	// The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 	RoleArn pulumi.StringInput `pulumi:"roleArn"`
 }
 
@@ -592,7 +592,7 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) ToCustomLogSourc
 	}).(CustomLogSourceConfigurationCrawlerConfigurationPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+// The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 func (o CustomLogSourceConfigurationCrawlerConfigurationOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomLogSourceConfigurationCrawlerConfiguration) string { return v.RoleArn }).(pulumi.StringOutput)
 }
@@ -621,7 +621,7 @@ func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) Elem() Custom
 	}).(CustomLogSourceConfigurationCrawlerConfigurationOutput)
 }
 
-// The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
+// The ARN of the AWS Identity and Access Management (IAM) role to be used by the AWS Glue crawler.
 func (o CustomLogSourceConfigurationCrawlerConfigurationPtrOutput) RoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CustomLogSourceConfigurationCrawlerConfiguration) *string {
 		if v == nil {
@@ -2099,7 +2099,7 @@ type SubscriberNotificationConfigurationHttpsNotificationConfiguration struct {
 	// The HTTP method used for the notification subscription.
 	// Valid values are `POST` and `PUT`.
 	HttpMethod *string `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	// ARN of the EventBridge API destinations IAM role that you created.
 	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 	TargetRoleArn string `pulumi:"targetRoleArn"`
 }
@@ -2126,7 +2126,7 @@ type SubscriberNotificationConfigurationHttpsNotificationConfigurationArgs struc
 	// The HTTP method used for the notification subscription.
 	// Valid values are `POST` and `PUT`.
 	HttpMethod pulumi.StringPtrInput `pulumi:"httpMethod"`
-	// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+	// ARN of the EventBridge API destinations IAM role that you created.
 	// For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 	TargetRoleArn pulumi.StringInput `pulumi:"targetRoleArn"`
 }
@@ -2234,7 +2234,7 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput)
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string { return v.HttpMethod }).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+// ARN of the EventBridge API destinations IAM role that you created.
 // For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationOutput) TargetRoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v SubscriberNotificationConfigurationHttpsNotificationConfiguration) string {
@@ -2308,7 +2308,7 @@ func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutp
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created.
+// ARN of the EventBridge API destinations IAM role that you created.
 // For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
 func (o SubscriberNotificationConfigurationHttpsNotificationConfigurationPtrOutput) TargetRoleArn() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SubscriberNotificationConfigurationHttpsNotificationConfiguration) *string {

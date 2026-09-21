@@ -63,13 +63,13 @@ namespace Pulumi.Aws.Ses
     public partial class DomainIdentityVerification : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The ARN of the domain identity.
+        /// ARN of the domain identity.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// The domain name of the SES domain identity to verify.
+        /// Domain name of the SES domain identity to verify.
         /// </summary>
         [Output("domain")]
         public Output<string> Domain { get; private set; } = null!;
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.Ses
     public sealed class DomainIdentityVerificationArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The domain name of the SES domain identity to verify.
+        /// Domain name of the SES domain identity to verify.
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
@@ -147,13 +147,13 @@ namespace Pulumi.Aws.Ses
     public sealed class DomainIdentityVerificationState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The ARN of the domain identity.
+        /// ARN of the domain identity.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
         /// <summary>
-        /// The domain name of the SES domain identity to verify.
+        /// Domain name of the SES domain identity to verify.
         /// </summary>
         [Input("domain")]
         public Input<string>? Domain { get; set; }

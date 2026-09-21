@@ -148,7 +148,7 @@ class _ReservedInstanceState:
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[_builtins.str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]] recurring_charges: Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
@@ -334,7 +334,7 @@ class _ReservedInstanceState:
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ReservedInstanceRecurringChargeArgs']]]]:
         """
-        Recurring price charged to run this reserved DB instance.
+        Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
         """
         return pulumi.get(self, "recurring_charges")
 
@@ -620,7 +620,7 @@ class ReservedInstance(pulumi.CustomResource):
                The following arguments are optional:
         :param pulumi.Input[_builtins.str] offering_type: Offering type of this reserved DB instance.
         :param pulumi.Input[_builtins.str] product_description: Description of the reserved DB instance.
-        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ReservedInstanceRecurringChargeArgs', 'ReservedInstanceRecurringChargeArgsDict']]]] recurring_charges: Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] reservation_id: Customer-specified identifier to track this reservation.
         :param pulumi.Input[_builtins.str] start_time: Time the reservation started.
@@ -748,7 +748,7 @@ class ReservedInstance(pulumi.CustomResource):
     @pulumi.getter(name="recurringCharges")
     def recurring_charges(self) -> pulumi.Output[Sequence['outputs.ReservedInstanceRecurringCharge']]:
         """
-        Recurring price charged to run this reserved DB instance.
+        Recurring price charged to run this reserved DB instance. See `recurring_charges` below.
         """
         return pulumi.get(self, "recurring_charges")
 

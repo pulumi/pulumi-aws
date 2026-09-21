@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Cur
         public Output<ImmutableArray<string>> AdditionalSchemaElements { get; private set; } = null!;
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the cur report.
+        /// ARN specifying the cur report.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -312,7 +312,7 @@ namespace Pulumi.Aws.Cur
         }
 
         /// <summary>
-        /// The Amazon Resource Name (ARN) specifying the cur report.
+        /// ARN specifying the cur report.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

@@ -58,11 +58,11 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEvaluationForOrganization("example");
  * 
  *         var exampleTelemetryRuleForOrganization = new TelemetryRuleForOrganization("exampleTelemetryRuleForOrganization", TelemetryRuleForOrganizationArgs.builder()
- *             .ruleName("example-org-telemetry-rule")
  *             .rule(TelemetryRuleForOrganizationRuleArgs.builder()
  *                 .telemetryType("Logs")
  *                 .resourceType("AWS::EC2::VPC")
  *                 .build())
+ *             .ruleName("example-org-telemetry-rule")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -104,23 +104,23 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEvaluationForOrganization("example");
  * 
  *         var exampleTelemetryRuleForOrganization = new TelemetryRuleForOrganization("exampleTelemetryRuleForOrganization", TelemetryRuleForOrganizationArgs.builder()
- *             .ruleName("org-vpc-flow-logs-rule")
  *             .rule(TelemetryRuleForOrganizationRuleArgs.builder()
+ *                 .destinationConfiguration(TelemetryRuleForOrganizationRuleDestinationConfigurationArgs.builder()
+ *                     .vpcFlowLogParameters(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs.builder()
+ *                         .trafficType("ALL")
+ *                         .maxAggregationInterval(60)
+ *                         .build())
+ *                     .destinationType("cloud-watch-logs")
+ *                     .destinationPattern("/aws/vpcflowlogs/<resourceId>")
+ *                     .retentionInDays(30)
+ *                     .build())
  *                 .telemetryType("Logs")
  *                 .resourceType("AWS::EC2::VPC")
  *                 .telemetrySourceTypes("VPC_FLOW_LOGS")
  *                 .allRegions(true)
  *                 .allowFieldUpdates(true)
- *                 .destinationConfiguration(TelemetryRuleForOrganizationRuleDestinationConfigurationArgs.builder()
- *                     .destinationType("cloud-watch-logs")
- *                     .destinationPattern("/aws/vpcflowlogs/<resourceId>")
- *                     .retentionInDays(30)
- *                     .vpcFlowLogParameters(TelemetryRuleForOrganizationRuleDestinationConfigurationVpcFlowLogParametersArgs.builder()
- *                         .trafficType("ALL")
- *                         .maxAggregationInterval(60)
- *                         .build())
- *                     .build())
  *                 .build())
+ *             .ruleName("org-vpc-flow-logs-rule")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -165,7 +165,6 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEvaluationForOrganization("example");
  * 
  *         var exampleTelemetryRuleForOrganization = new TelemetryRuleForOrganization("exampleTelemetryRuleForOrganization", TelemetryRuleForOrganizationArgs.builder()
- *             .ruleName("org-scoped-rule")
  *             .rule(TelemetryRuleForOrganizationRuleArgs.builder()
  *                 .telemetryType("Logs")
  *                 .resourceType("AWS::EKS::Cluster")
@@ -175,6 +174,7 @@ import javax.annotation.Nullable;
  *                     "us-east-1",
  *                     "us-west-2")
  *                 .build())
+ *             .ruleName("org-scoped-rule")
  *             .build(), CustomResourceOptions.builder()
  *                 .dependsOn(example)
  *                 .build());
@@ -214,11 +214,11 @@ import javax.annotation.Nullable;
  *         var example = new TelemetryEvaluationForOrganization("example");
  * 
  *         var exampleTelemetryRuleForOrganization = new TelemetryRuleForOrganization("exampleTelemetryRuleForOrganization", TelemetryRuleForOrganizationArgs.builder()
- *             .ruleName("org-tagged-rule")
  *             .rule(TelemetryRuleForOrganizationRuleArgs.builder()
  *                 .telemetryType("Logs")
  *                 .resourceType("AWS::EC2::VPC")
  *                 .build())
+ *             .ruleName("org-tagged-rule")
  *             .tags(Map.ofEntries(
  *                 Map.entry("Environment", "production"),
  *                 Map.entry("Purpose", "organization-monitoring")

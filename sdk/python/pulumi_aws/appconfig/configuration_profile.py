@@ -37,7 +37,7 @@ class ConfigurationProfileArgs:
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[_builtins.str] retrieval_role_arn: ARN of an IAM role with permission to access the configuration at the specified `location_uri`. A retrieval role ARN is not required for configurations stored in the AWS AppConfig `hosted` configuration store. It is required for all other sources that store your configuration.
@@ -104,7 +104,7 @@ class ConfigurationProfileArgs:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -208,7 +208,7 @@ class _ConfigurationProfileState:
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Configuration Profile.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -297,7 +297,7 @@ class _ConfigurationProfileState:
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 
@@ -429,14 +429,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.ConfigurationProfile("example",
-            application_id=example_aws_appconfig_application["id"],
-            description="Example Configuration Profile",
-            name="example-configuration-profile-tf",
-            location_uri="hosted",
             validators=[{
                 "content": example_aws_lambda_function["arn"],
                 "type": "LAMBDA",
             }],
+            application_id=example_aws_appconfig_application["id"],
+            description="Example Configuration Profile",
+            name="example-configuration-profile-tf",
+            location_uri="hosted",
             tags={
                 "Type": "AppConfig Configuration Profile",
             })
@@ -455,7 +455,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] application_id: Application ID. Must be between 4 and 7 characters in length.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -480,14 +480,14 @@ class ConfigurationProfile(pulumi.CustomResource):
         import pulumi_aws as aws
 
         example = aws.appconfig.ConfigurationProfile("example",
-            application_id=example_aws_appconfig_application["id"],
-            description="Example Configuration Profile",
-            name="example-configuration-profile-tf",
-            location_uri="hosted",
             validators=[{
                 "content": example_aws_lambda_function["arn"],
                 "type": "LAMBDA",
             }],
+            application_id=example_aws_appconfig_application["id"],
+            description="Example Configuration Profile",
+            name="example-configuration-profile-tf",
+            location_uri="hosted",
             tags={
                 "Type": "AppConfig Configuration Profile",
             })
@@ -587,7 +587,7 @@ class ConfigurationProfile(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] arn: ARN of the AppConfig Configuration Profile.
         :param pulumi.Input[_builtins.str] configuration_profile_id: Configuration profile ID.
         :param pulumi.Input[_builtins.str] description: Description of the configuration profile. Can be at most 1024 characters.
-        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        :param pulumi.Input[_builtins.str] kms_key_identifier: Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         :param pulumi.Input[_builtins.str] location_uri: URI to locate the configuration. You can specify the AWS AppConfig hosted configuration store, Systems Manager (SSM) document, an SSM Parameter Store parameter, or an Amazon S3 object. For the hosted configuration store, specify `hosted`. For an SSM document, specify either the document name in the format `ssm-document://<Document_name>` or the ARN. For a parameter, specify either the parameter name in the format `ssm-parameter://<Parameter_name>` or the ARN. For an Amazon S3 object, specify the URI in the following format: `s3://<bucket>/<objectKey>`.
         :param pulumi.Input[_builtins.str] name: Name for the configuration profile. Must be between 1 and 128 characters in length.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -652,7 +652,7 @@ class ConfigurationProfile(pulumi.CustomResource):
     @pulumi.getter(name="kmsKeyIdentifier")
     def kms_key_identifier(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        Identifier for an Key Management Service key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the Amazon Resource Name (ARN) of the key ID or alias.
+        Identifier for a KMS key to encrypt new configuration data versions in the AppConfig hosted configuration store. This attribute is only used for hosted configuration types. The identifier can be an KMS key ID, alias, or the ARN of the key ID or alias.
         """
         return pulumi.get(self, "kms_key_identifier")
 

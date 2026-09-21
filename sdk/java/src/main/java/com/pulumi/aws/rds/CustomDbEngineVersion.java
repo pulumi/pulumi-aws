@@ -218,210 +218,210 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:rds/customDbEngineVersion:CustomDbEngineVersion")
 public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
     /**
-     * The Amazon Resource Name (ARN) for the custom engine version.
+     * ARN for the custom engine version.
      * 
      */
     @Export(name="arn", refs={String.class}, tree="[0]")
     private Output<String> arn;
 
     /**
-     * @return The Amazon Resource Name (ARN) for the custom engine version.
+     * @return ARN for the custom engine version.
      * 
      */
     public Output<String> arn() {
         return this.arn;
     }
     /**
-     * The date and time that the CEV was created.
+     * Date and time that the CEV was created.
      * 
      */
     @Export(name="createTime", refs={String.class}, tree="[0]")
     private Output<String> createTime;
 
     /**
-     * @return The date and time that the CEV was created.
+     * @return Date and time that the CEV was created.
      * 
      */
     public Output<String> createTime() {
         return this.createTime;
     }
     /**
-     * The name of the Amazon S3 bucket that contains the database installation files.
+     * Name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
     @Export(name="databaseInstallationFilesS3BucketName", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseInstallationFilesS3BucketName;
 
     /**
-     * @return The name of the Amazon S3 bucket that contains the database installation files.
+     * @return Name of the Amazon S3 bucket that contains the database installation files.
      * 
      */
     public Output<Optional<String>> databaseInstallationFilesS3BucketName() {
         return Codegen.optional(this.databaseInstallationFilesS3BucketName);
     }
     /**
-     * The prefix for the Amazon S3 bucket that contains the database installation files.
+     * Prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
     @Export(name="databaseInstallationFilesS3Prefix", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> databaseInstallationFilesS3Prefix;
 
     /**
-     * @return The prefix for the Amazon S3 bucket that contains the database installation files.
+     * @return Prefix for the Amazon S3 bucket that contains the database installation files.
      * 
      */
     public Output<Optional<String>> databaseInstallationFilesS3Prefix() {
         return Codegen.optional(this.databaseInstallationFilesS3Prefix);
     }
     /**
-     * The name of the DB parameter group family for the CEV.
+     * Name of the DB parameter group family for the CEV.
      * 
      */
     @Export(name="dbParameterGroupFamily", refs={String.class}, tree="[0]")
     private Output<String> dbParameterGroupFamily;
 
     /**
-     * @return The name of the DB parameter group family for the CEV.
+     * @return Name of the DB parameter group family for the CEV.
      * 
      */
     public Output<String> dbParameterGroupFamily() {
         return this.dbParameterGroupFamily;
     }
     /**
-     * The description of the CEV.
+     * Description of the CEV.
      * 
      */
     @Export(name="description", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> description;
 
     /**
-     * @return The description of the CEV.
+     * @return Description of the CEV.
      * 
      */
     public Output<Optional<String>> description() {
         return Codegen.optional(this.description);
     }
     /**
-     * The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+     * Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
     private Output<String> engine;
 
     /**
-     * @return The name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
+     * @return Name of the database engine. Valid values are `custom-oracle*`, `custom-sqlserver*`.
      * 
      */
     public Output<String> engine() {
         return this.engine;
     }
     /**
-     * The version of the database engine.
+     * Version of the database engine.
      * 
      */
     @Export(name="engineVersion", refs={String.class}, tree="[0]")
     private Output<String> engineVersion;
 
     /**
-     * @return The version of the database engine.
+     * @return Version of the database engine.
      * 
      */
     public Output<String> engineVersion() {
         return this.engineVersion;
     }
     /**
-     * The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+     * Name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
     @Export(name="filename", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> filename;
 
     /**
-     * @return The name of the manifest file within the local filesystem. Conflicts with `manifest`.
+     * @return Name of the manifest file within the local filesystem. Conflicts with `manifest`.
      * 
      */
     public Output<Optional<String>> filename() {
         return Codegen.optional(this.filename);
     }
     /**
-     * The ID of the AMI that was created with the CEV.
+     * ID of the AMI that was created with the CEV.
      * 
      */
     @Export(name="imageId", refs={String.class}, tree="[0]")
     private Output<String> imageId;
 
     /**
-     * @return The ID of the AMI that was created with the CEV.
+     * @return ID of the AMI that was created with the CEV.
      * 
      */
     public Output<String> imageId() {
         return this.imageId;
     }
     /**
-     * The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+     * ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
     @Export(name="kmsKeyId", refs={String.class}, tree="[0]")
     private Output<String> kmsKeyId;
 
     /**
-     * @return The ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
+     * @return ARN of the AWS KMS key that is used to encrypt the database installation files. Required for RDS Custom for Oracle.
      * 
      */
     public Output<String> kmsKeyId() {
         return this.kmsKeyId;
     }
     /**
-     * The major version of the database engine.
+     * Major version of the database engine.
      * 
      */
     @Export(name="majorEngineVersion", refs={String.class}, tree="[0]")
     private Output<String> majorEngineVersion;
 
     /**
-     * @return The major version of the database engine.
+     * @return Major version of the database engine.
      * 
      */
     public Output<String> majorEngineVersion() {
         return this.majorEngineVersion;
     }
     /**
-     * The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+     * Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
     @Export(name="manifest", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> manifest;
 
     /**
-     * @return The manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
+     * @return Manifest file, in JSON format, that contains the list of database installation files. Conflicts with `filename`.
      * 
      */
     public Output<Optional<String>> manifest() {
         return Codegen.optional(this.manifest);
     }
     /**
-     * The returned manifest file, in JSON format, service generated and often different from input `manifest`.
+     * Returned manifest file, in JSON format, service generated and often different from input `manifest`.
      * 
      */
     @Export(name="manifestComputed", refs={String.class}, tree="[0]")
     private Output<String> manifestComputed;
 
     /**
-     * @return The returned manifest file, in JSON format, service generated and often different from input `manifest`.
+     * @return Returned manifest file, in JSON format, service generated and often different from input `manifest`.
      * 
      */
     public Output<String> manifestComputed() {
         return this.manifestComputed;
     }
     /**
-     * Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+     * Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
     @Export(name="manifestHash", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> manifestHash;
 
     /**
-     * @return Used to trigger updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
+     * @return Triggers updates. Must be set to a base64-encoded SHA256 hash of the manifest source specified with `filename`. The usual way to set this is filebase64sha256(&#34;manifest.json&#34;) where &#34;manifest.json&#34; is the local filename of the manifest source.
      * 
      */
     public Output<Optional<String>> manifestHash() {
@@ -442,56 +442,56 @@ public class CustomDbEngineVersion extends com.pulumi.resources.CustomResource {
         return this.region;
     }
     /**
-     * The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+     * ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
     @Export(name="sourceImageId", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> sourceImageId;
 
     /**
-     * @return The ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
+     * @return ID of the AMI to create the CEV from. Required for RDS Custom for SQL Server. For RDS Custom for Oracle, you can specify an AMI ID that was used in a different Oracle CEV.
      * 
      */
     public Output<Optional<String>> sourceImageId() {
         return Codegen.optional(this.sourceImageId);
     }
     /**
-     * The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+     * Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
     @Export(name="status", refs={String.class}, tree="[0]")
     private Output<String> status;
 
     /**
-     * @return The status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
+     * @return Status of the CEV. Valid values are `available`, `inactive`, `inactive-except-restore`.
      * 
      */
     public Output<String> status() {
         return this.status;
     }
     /**
-     * A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output</* @Nullable */ Map<String,String>> tags;
 
     /**
-     * @return A mapping of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     * @return Map of tags to assign to the resource. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {
         return Codegen.optional(this.tags);
     }
     /**
-     * A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     @Export(name="tagsAll", refs={Map.class,String.class}, tree="[0,1,1]")
     private Output<Map<String,String>> tagsAll;
 
     /**
-     * @return A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     * @return Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
      * 
      */
     public Output<Map<String,String>> tagsAll() {

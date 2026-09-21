@@ -32,15 +32,15 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.VpcAttachment("example", {
- *     subnetArns: [exampleAwsSubnet.arn],
- *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
- *     vpcArn: exampleAwsVpc.arn,
  *     options: {
  *         applianceModeSupport: false,
  *         dnsSupport: true,
  *         ipv6Support: false,
  *         securityGroupReferencingSupport: true,
  *     },
+ *     subnetArns: [exampleAwsSubnet.arn],
+ *     coreNetworkId: exampleAwsccNetworkmanagerCoreNetwork.id,
+ *     vpcArn: exampleAwsVpc.arn,
  * });
  * ```
  *

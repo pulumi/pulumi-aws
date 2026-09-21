@@ -16,14 +16,14 @@ public final class IdentityPolicyState extends com.pulumi.resources.ResourceArgs
     public static final IdentityPolicyState Empty = new IdentityPolicyState();
 
     /**
-     * Name or Amazon Resource Name (ARN) of the SES Identity.
+     * Name or ARN of the SES Identity.
      * 
      */
     @Import(name="identity")
     private @Nullable Output<String> identity;
 
     /**
-     * @return Name or Amazon Resource Name (ARN) of the SES Identity.
+     * @return Name or ARN of the SES Identity.
      * 
      */
     public Optional<Output<String>> identity() {
@@ -103,7 +103,7 @@ public final class IdentityPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identity Name or Amazon Resource Name (ARN) of the SES Identity.
+         * @param identity Name or ARN of the SES Identity.
          * 
          * @return builder
          * 
@@ -114,7 +114,7 @@ public final class IdentityPolicyState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param identity Name or Amazon Resource Name (ARN) of the SES Identity.
+         * @param identity Name or ARN of the SES Identity.
          * 
          * @return builder
          * 

@@ -99,11 +99,11 @@ import (
 //				return err
 //			}
 //			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
-//				AutoEnable:          pulumi.Bool(false),
-//				AutoEnableStandards: pulumi.String("NONE"),
 //				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
 //					ConfigurationType: pulumi.String("CENTRAL"),
 //				},
+//				AutoEnable:          pulumi.Bool(false),
+//				AutoEnableStandards: pulumi.String("NONE"),
 //			}, pulumi.DependsOn([]pulumi.Resource{
 //				exampleFindingAggregator,
 //			}))

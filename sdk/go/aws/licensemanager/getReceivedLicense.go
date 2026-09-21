@@ -74,7 +74,7 @@ type GetReceivedLicenseResult struct {
 	Id string `pulumi:"id"`
 	// Granted license issuer. Detailed below
 	Issuers []GetReceivedLicenseIssuer `pulumi:"issuers"`
-	// Amazon Resource Name (ARN) of the license.
+	// ARN of the license.
 	LicenseArn string `pulumi:"licenseArn"`
 	// Granted license metadata. This is in the form of a set of all meta data. Detailed below
 	LicenseMetadatas []GetReceivedLicenseLicenseMetadata `pulumi:"licenseMetadatas"`
@@ -96,12 +96,8 @@ type GetReceivedLicenseResult struct {
 }
 
 func GetReceivedLicenseOutput(ctx *pulumi.Context, args GetReceivedLicenseOutputArgs, opts ...pulumi.InvokeOption) GetReceivedLicenseResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetReceivedLicenseResultOutput, error) {
-			args := v.(GetReceivedLicenseArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, GetReceivedLicenseResultOutput{}, options).(GetReceivedLicenseResultOutput), nil
-		}).(GetReceivedLicenseResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:licensemanager/getReceivedLicense:getReceivedLicense", args, GetReceivedLicenseResultOutput{}, options).(GetReceivedLicenseResultOutput)
 }
 
 // A collection of arguments for invoking getReceivedLicense.
@@ -168,7 +164,7 @@ func (o GetReceivedLicenseResultOutput) Issuers() GetReceivedLicenseIssuerArrayO
 	return o.ApplyT(func(v GetReceivedLicenseResult) []GetReceivedLicenseIssuer { return v.Issuers }).(GetReceivedLicenseIssuerArrayOutput)
 }
 
-// Amazon Resource Name (ARN) of the license.
+// ARN of the license.
 func (o GetReceivedLicenseResultOutput) LicenseArn() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicenseResult) string { return v.LicenseArn }).(pulumi.StringOutput)
 }

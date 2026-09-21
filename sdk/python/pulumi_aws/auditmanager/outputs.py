@@ -103,7 +103,7 @@ class AssessmentRole(dict):
                  role_arn: _builtins.str,
                  role_type: _builtins.str):
         """
-        :param _builtins.str role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param _builtins.str role_arn: ARN of the IAM role.
         :param _builtins.str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -113,7 +113,7 @@ class AssessmentRole(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 
@@ -151,7 +151,7 @@ class AssessmentRolesAll(dict):
                  role_arn: _builtins.str,
                  role_type: _builtins.str):
         """
-        :param _builtins.str role_arn: Amazon Resource Name (ARN) of the IAM role.
+        :param _builtins.str role_arn: ARN of the IAM role.
         :param _builtins.str role_type: Type of customer persona. For assessment creation, type must always be `PROCESS_OWNER`.
         """
         pulumi.set(__self__, "role_arn", role_arn)
@@ -161,7 +161,7 @@ class AssessmentRolesAll(dict):
     @pulumi.getter(name="roleArn")
     def role_arn(self) -> _builtins.str:
         """
-        Amazon Resource Name (ARN) of the IAM role.
+        ARN of the IAM role.
         """
         return pulumi.get(self, "role_arn")
 

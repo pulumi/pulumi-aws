@@ -26,7 +26,7 @@ public final class ReplicationConfigComputeConfig {
      */
     private @Nullable String dnsNameServers;
     /**
-     * @return An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+     * @return KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
      * 
      */
     private @Nullable String kmsKeyId;
@@ -61,7 +61,7 @@ public final class ReplicationConfigComputeConfig {
      */
     private String replicationSubnetGroupId;
     /**
-     * @return Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+     * @return VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
      * 
      */
     private @Nullable List<String> vpcSecurityGroupIds;
@@ -82,7 +82,7 @@ public final class ReplicationConfigComputeConfig {
         return Optional.ofNullable(this.dnsNameServers);
     }
     /**
-     * @return An Key Management Service (KMS) key Amazon Resource Name (ARN) that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
+     * @return KMS key ARN that is used to encrypt the data during DMS Serverless replication. If you don&#39;t specify a value for the KmsKeyId parameter, DMS uses your default encryption key.
      * 
      */
     public Optional<String> kmsKeyId() {
@@ -129,7 +129,7 @@ public final class ReplicationConfigComputeConfig {
         return this.replicationSubnetGroupId;
     }
     /**
-     * @return Specifies the virtual private cloud (VPC) security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
+     * @return VPC security group to use with the DMS Serverless replication. The VPC security group must work with the VPC containing the replication.
      * 
      */
     public List<String> vpcSecurityGroupIds() {

@@ -63,7 +63,7 @@ export class EmailIdentityFeedbackAttributes extends pulumi.CustomResource {
      */
     declare public readonly emailForwardingEnabled: pulumi.Output<boolean | undefined>;
     /**
-     * The email identity.
+     * Email identity.
      */
     declare public readonly emailIdentity: pulumi.Output<string>;
     /**
@@ -110,7 +110,7 @@ export interface EmailIdentityFeedbackAttributesState {
      */
     emailForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The email identity.
+     * Email identity.
      */
     emailIdentity?: pulumi.Input<string | undefined>;
     /**
@@ -128,7 +128,7 @@ export interface EmailIdentityFeedbackAttributesArgs {
      */
     emailForwardingEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The email identity.
+     * Email identity.
      */
     emailIdentity: pulumi.Input<string>;
     /**

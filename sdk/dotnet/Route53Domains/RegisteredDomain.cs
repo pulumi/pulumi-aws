@@ -28,7 +28,6 @@ namespace Pulumi.Aws.Route53Domains
     /// {
     ///     var example = new Aws.Route53Domains.RegisteredDomain("example", new()
     ///     {
-    ///         DomainName = "example.com",
     ///         NameServers = new[]
     ///         {
     ///             new Aws.Route53Domains.Inputs.RegisteredDomainNameServerArgs
@@ -40,6 +39,7 @@ namespace Pulumi.Aws.Route53Domains
     ///                 Name = "ns-874.awsdns-45.net",
     ///             },
     ///         },
+    ///         DomainName = "example.com",
     ///         Tags = 
     ///         {
     ///             { "Environment", "test" },

@@ -46,11 +46,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SharedDirectory("example", SharedDirectoryArgs.builder()
- *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
- *             .notes("example")
  *             .target(SharedDirectoryTargetArgs.builder()
  *                 .id(receiver.accountId())
  *                 .build())
+ *             .directoryId(exampleAwsDirectoryServiceDirectory.id())
+ *             .notes("example")
  *             .build());
  * 
  *         var exampleSharedDirectoryAccepter = new SharedDirectoryAccepter("exampleSharedDirectoryAccepter", SharedDirectoryAccepterArgs.builder()

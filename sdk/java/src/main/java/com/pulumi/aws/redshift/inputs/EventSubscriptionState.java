@@ -19,14 +19,14 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
     public static final EventSubscriptionState Empty = new EventSubscriptionState();
 
     /**
-     * Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * ARN of the Redshift event notification subscription
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Redshift event notification subscription
+     * @return ARN of the Redshift event notification subscription
      * 
      */
     public Optional<Output<String>> arn() {
@@ -242,7 +242,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift event notification subscription
+         * @param arn ARN of the Redshift event notification subscription
          * 
          * @return builder
          * 
@@ -253,7 +253,7 @@ public final class EventSubscriptionState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Redshift event notification subscription
+         * @param arn ARN of the Redshift event notification subscription
          * 
          * @return builder
          * 

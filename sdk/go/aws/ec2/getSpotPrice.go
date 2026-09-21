@@ -28,8 +28,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.GetSpotPrice(ctx, &ec2.GetSpotPriceArgs{
-//				InstanceType:     pulumi.StringRef("t3.medium"),
-//				AvailabilityZone: pulumi.StringRef("us-west-2a"),
 //				Filters: []ec2.GetSpotPriceFilter{
 //					{
 //						Name: "product-description",
@@ -38,6 +36,8 @@ import (
 //						},
 //					},
 //				},
+//				InstanceType:     pulumi.StringRef("t3.medium"),
+//				AvailabilityZone: pulumi.StringRef("us-west-2a"),
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -84,12 +84,8 @@ type GetSpotPriceResult struct {
 }
 
 func GetSpotPriceOutput(ctx *pulumi.Context, args GetSpotPriceOutputArgs, opts ...pulumi.InvokeOption) GetSpotPriceResultOutput {
-	return pulumi.ToOutputWithContext(ctx.Context(), args).
-		ApplyT(func(v interface{}) (GetSpotPriceResultOutput, error) {
-			args := v.(GetSpotPriceArgs)
-			options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
-			return ctx.InvokeOutput("aws:ec2/getSpotPrice:getSpotPrice", args, GetSpotPriceResultOutput{}, options).(GetSpotPriceResultOutput), nil
-		}).(GetSpotPriceResultOutput)
+	options := pulumi.InvokeOutputOptions{InvokeOptions: internal.PkgInvokeDefaultOpts(opts)}
+	return ctx.InvokeOutput("aws:ec2/getSpotPrice:getSpotPrice", args, GetSpotPriceResultOutput{}, options).(GetSpotPriceResultOutput)
 }
 
 // A collection of arguments for invoking getSpotPrice.

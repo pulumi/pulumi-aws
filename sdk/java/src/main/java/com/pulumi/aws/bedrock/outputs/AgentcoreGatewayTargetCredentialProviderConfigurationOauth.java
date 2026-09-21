@@ -20,12 +20,12 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
      */
     private @Nullable Map<String,String> customParameters;
     /**
-     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * @return URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
      * 
      */
     private @Nullable String defaultReturnUrl;
     /**
-     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
      * 
      */
     private @Nullable String grantType;
@@ -49,14 +49,14 @@ public final class AgentcoreGatewayTargetCredentialProviderConfigurationOauth {
         return this.customParameters == null ? Map.of() : this.customParameters;
     }
     /**
-     * @return The URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
+     * @return URL where the end user&#39;s browser is redirected after obtaining the authorization code. Required when `grantType` is `AUTHORIZATION_CODE`.
      * 
      */
     public Optional<String> defaultReturnUrl() {
         return Optional.ofNullable(this.defaultReturnUrl);
     }
     /**
-     * @return The OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
+     * @return OAuth grant type. Valid values: `CLIENT_CREDENTIALS` (machine-to-machine authentication), `AUTHORIZATION_CODE` (user-delegated access).
      * 
      */
     public Optional<String> grantType() {

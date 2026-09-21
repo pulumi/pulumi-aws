@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.Link("example", {
- *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
- *     siteId: exampleAwsNetworkmanagerSite.id,
  *     bandwidth: {
  *         uploadSpeed: 10,
  *         downloadSpeed: 50,
  *     },
+ *     globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id,
+ *     siteId: exampleAwsNetworkmanagerSite.id,
  *     providerName: "MegaCorp",
  * });
  * ```

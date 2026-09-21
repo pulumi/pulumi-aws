@@ -19,10 +19,10 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.Device("example", {
- *     deviceFleetName: exampleAwsSagemakerDeviceFleet.deviceFleetName,
  *     device: {
  *         deviceName: "example",
  *     },
+ *     deviceFleetName: exampleAwsSagemakerDeviceFleet.deviceFleetName,
  * });
  * ```
  *
@@ -64,7 +64,7 @@ export class Device extends pulumi.CustomResource {
 
     declare public /*out*/ readonly agentVersion: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * ARN assigned by AWS to this Device.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -123,7 +123,7 @@ export class Device extends pulumi.CustomResource {
 export interface DeviceState {
     agentVersion?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) assigned by AWS to this Device.
+     * ARN assigned by AWS to this Device.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

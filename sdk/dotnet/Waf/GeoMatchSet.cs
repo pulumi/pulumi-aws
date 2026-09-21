@@ -24,7 +24,6 @@ namespace Pulumi.Aws.Waf
     /// {
     ///     var geoMatchSet = new Aws.Waf.GeoMatchSet("geo_match_set", new()
     ///     {
-    ///         Name = "geo_match_set",
     ///         GeoMatchConstraints = new[]
     ///         {
     ///             new Aws.Waf.Inputs.GeoMatchSetGeoMatchConstraintArgs
@@ -38,6 +37,7 @@ namespace Pulumi.Aws.Waf
     ///                 Value = "CA",
     ///             },
     ///         },
+    ///         Name = "geo_match_set",
     ///     });
     /// 
     /// });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Waf
     public partial class GeoMatchSet : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Waf
     public sealed class GeoMatchSetState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Amazon Resource Name (ARN)
+        /// ARN
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

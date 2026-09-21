@@ -47,14 +47,14 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
     }
 
     /**
-     * Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * ARN of the Object Lambda Access Point.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) of the Object Lambda Access Point.
+     * @return ARN of the Object Lambda Access Point.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -178,7 +178,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Object Lambda Access Point.
+         * @param arn ARN of the Object Lambda Access Point.
          * 
          * @return builder
          * 
@@ -189,7 +189,7 @@ public final class ObjectLambdaAccessPointState extends com.pulumi.resources.Res
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) of the Object Lambda Access Point.
+         * @param arn ARN of the Object Lambda Access Point.
          * 
          * @return builder
          * 

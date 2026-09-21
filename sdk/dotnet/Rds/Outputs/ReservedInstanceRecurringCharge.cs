@@ -13,7 +13,13 @@ namespace Pulumi.Aws.Rds.Outputs
     [OutputType]
     public sealed class ReservedInstanceRecurringCharge
     {
+        /// <summary>
+        /// Amount of the recurring charge.
+        /// </summary>
         public readonly int? RecurringChargeAmount;
+        /// <summary>
+        /// Frequency of the recurring charge.
+        /// </summary>
         public readonly string? RecurringChargeFrequency;
 
         [OutputConstructor]

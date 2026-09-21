@@ -19,16 +19,16 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
     public static final ExportState Empty = new ExportState();
 
     /**
-     * Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     @Import(name="arn")
     private @Nullable Output<String> arn;
 
     /**
-     * @return Amazon Resource Name (ARN) for this export.
-     * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+     * @return ARN for this export.
+     * * `export[0].export_arn` - ARN for this export.
      * 
      */
     public Optional<Output<String>> arn() {
@@ -108,8 +108,8 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for this export.
-         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+         * @param arn ARN for this export.
+         * * `export[0].export_arn` - ARN for this export.
          * 
          * @return builder
          * 
@@ -120,8 +120,8 @@ public final class ExportState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param arn Amazon Resource Name (ARN) for this export.
-         * * `export[0].export_arn` - Amazon Resource Name (ARN) for this export.
+         * @param arn ARN for this export.
+         * * `export[0].export_arn` - ARN for this export.
          * 
          * @return builder
          * 

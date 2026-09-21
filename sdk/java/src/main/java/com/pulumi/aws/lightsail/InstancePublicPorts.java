@@ -53,11 +53,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         final var available = AwsFunctions.getAvailabilityZones(GetAvailabilityZonesArgs.builder()
- *             .state("available")
  *             .filters(GetAvailabilityZonesFilterArgs.builder()
  *                 .name("opt-in-status")
  *                 .values("opt-in-not-required")
  *                 .build())
+ *             .state("available")
  *             .build());
  * 
  *         var example = new Instance("example", InstanceArgs.builder()
@@ -68,7 +68,6 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleInstancePublicPorts = new InstancePublicPorts("exampleInstancePublicPorts", InstancePublicPortsArgs.builder()
- *             .instanceName(example.name())
  *             .portInfos(            
  *                 InstancePublicPortsPortInfoArgs.builder()
  *                     .protocol("tcp")
@@ -81,6 +80,7 @@ import javax.annotation.Nullable;
  *                     .toPort(443)
  *                     .cidrs("192.168.1.0/24")
  *                     .build())
+ *             .instanceName(example.name())
  *             .build());
  * 
  *     }

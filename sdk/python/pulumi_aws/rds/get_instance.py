@@ -187,7 +187,7 @@ class GetInstanceResult:
     @pulumi.getter(name="autoMinorVersionUpgrade")
     def auto_minor_version_upgrade(self) -> _builtins.bool:
         """
-        Indicates that minor version patches are applied automatically.
+        Whether minor version patches are applied automatically.
         """
         return pulumi.get(self, "auto_minor_version_upgrade")
 
@@ -203,7 +203,7 @@ class GetInstanceResult:
     @pulumi.getter(name="backupRetentionPeriod")
     def backup_retention_period(self) -> _builtins.int:
         """
-        Specifies the number of days for which automatic DB snapshots are retained.
+        Number of days for which automatic DB snapshots are retained.
         """
         return pulumi.get(self, "backup_retention_period")
 
@@ -219,7 +219,7 @@ class GetInstanceResult:
     @pulumi.getter(name="databaseInsightsMode")
     def database_insights_mode(self) -> _builtins.str:
         """
-        The mode of Database Insights that is enabled for the DB instance.
+        Mode of Database Insights that is enabled for the DB instance.
         """
         return pulumi.get(self, "database_insights_mode")
 
@@ -243,7 +243,7 @@ class GetInstanceResult:
     @pulumi.getter(name="dbInstanceClass")
     def db_instance_class(self) -> _builtins.str:
         """
-        Contains the name of the compute and memory capacity class of the DB instance.
+        Name of the compute and memory capacity class of the DB instance.
         """
         return pulumi.get(self, "db_instance_class")
 
@@ -264,7 +264,7 @@ class GetInstanceResult:
     @pulumi.getter(name="dbName")
     def db_name(self) -> _builtins.str:
         """
-        Contains the name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
+        Name of the initial database of this instance that was provided at create time, if one was specified when the DB instance was created. This same name is returned for the life of the DB instance.
         """
         return pulumi.get(self, "db_name")
 
@@ -344,7 +344,7 @@ class GetInstanceResult:
     @pulumi.getter(name="kmsKeyId")
     def kms_key_id(self) -> _builtins.str:
         """
-        The Amazon Web Services KMS key identifier that is used to encrypt the secret.
+        Amazon Web Services KMS key identifier that is used to encrypt the secret.
         """
         return pulumi.get(self, "kms_key_id")
 
@@ -368,7 +368,7 @@ class GetInstanceResult:
     @pulumi.getter(name="masterUsername")
     def master_username(self) -> _builtins.str:
         """
-        Contains the master username for the DB instance.
+        Master username for the DB instance.
         """
         return pulumi.get(self, "master_username")
 
@@ -376,7 +376,7 @@ class GetInstanceResult:
     @pulumi.getter(name="maxAllocatedStorage")
     def max_allocated_storage(self) -> _builtins.int:
         """
-        The upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
+        Upper limit to which Amazon RDS can automatically scale the storage of the DB instance.
         """
         return pulumi.get(self, "max_allocated_storage")
 
@@ -432,7 +432,7 @@ class GetInstanceResult:
     @pulumi.getter(name="preferredBackupWindow")
     def preferred_backup_window(self) -> _builtins.str:
         """
-        Specifies the daily time range during which automated backups are created.
+        Daily time range during which automated backups are created.
         """
         return pulumi.get(self, "preferred_backup_window")
 
@@ -440,7 +440,7 @@ class GetInstanceResult:
     @pulumi.getter(name="preferredMaintenanceWindow")
     def preferred_maintenance_window(self) -> _builtins.str:
         """
-        Specifies the weekly time range during which system maintenance can occur in UTC.
+        Weekly time range during which system maintenance can occur in UTC.
         """
         return pulumi.get(self, "preferred_maintenance_window")
 

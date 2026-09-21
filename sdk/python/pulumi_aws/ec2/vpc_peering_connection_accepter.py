@@ -427,7 +427,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcPeeringConnectionAccepter("example")
+        example = aws.ec2.VpcPeeringConnectionAccepter("example", opts = pulumi.ResourceOptions(ignore_changes=["autoAccept"]))
         ```
 
 
@@ -531,7 +531,7 @@ class VpcPeeringConnectionAccepter(pulumi.CustomResource):
         import pulumi
         import pulumi_aws as aws
 
-        example = aws.ec2.VpcPeeringConnectionAccepter("example")
+        example = aws.ec2.VpcPeeringConnectionAccepter("example", opts = pulumi.ResourceOptions(ignore_changes=["autoAccept"]))
         ```
 
 

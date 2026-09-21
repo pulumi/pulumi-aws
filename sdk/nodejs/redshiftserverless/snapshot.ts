@@ -68,7 +68,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly adminUsername: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -76,7 +76,7 @@ export class Snapshot extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly kmsKeyId: pulumi.Output<string>;
     /**
-     * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * ARN of the namespace the snapshot was created from.
      */
     declare public /*out*/ readonly namespaceArn: pulumi.Output<string>;
     /**
@@ -166,7 +166,7 @@ export interface SnapshotState {
      */
     adminUsername?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the snapshot.
+     * ARN of the snapshot.
      */
     arn?: pulumi.Input<string | undefined>;
     /**
@@ -174,7 +174,7 @@ export interface SnapshotState {
      */
     kmsKeyId?: pulumi.Input<string | undefined>;
     /**
-     * The Amazon Resource Name (ARN) of the namespace the snapshot was created from.
+     * ARN of the namespace the snapshot was created from.
      */
     namespaceArn?: pulumi.Input<string | undefined>;
     /**

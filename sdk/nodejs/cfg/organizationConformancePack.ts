@@ -25,11 +25,11 @@ import * as utilities from "../utilities";
  *     featureSet: "ALL",
  * });
  * const example = new aws.cfg.OrganizationConformancePack("example", {
- *     name: "example",
  *     inputParameters: [{
  *         parameterName: "AccessKeysRotatedParameterMaxAccessKeyAge",
  *         parameterValue: "90",
  *     }],
+ *     name: "example",
  *     templateBody: `Parameters:
  *   AccessKeysRotatedParameterMaxAccessKeyAge:
  *     Type: String
@@ -133,7 +133,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
     }
 
     /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
+     * ARN of the organization conformance pack.
      */
     declare public /*out*/ readonly arn: pulumi.Output<string>;
     /**
@@ -213,7 +213,7 @@ export class OrganizationConformancePack extends pulumi.CustomResource {
  */
 export interface OrganizationConformancePackState {
     /**
-     * Amazon Resource Name (ARN) of the organization conformance pack.
+     * ARN of the organization conformance pack.
      */
     arn?: pulumi.Input<string | undefined>;
     /**

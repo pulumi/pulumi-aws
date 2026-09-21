@@ -17,14 +17,14 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
     public static final ManagedPolicyAttachmentArgs Empty = new ManagedPolicyAttachmentArgs();
 
     /**
-     * The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     @Import(name="instanceArn", required=true)
     private Output<String> instanceArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+     * @return ARN of the SSO Instance under which the operation will be executed.
      * 
      */
     public Output<String> instanceArn() {
@@ -32,14 +32,14 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * IAM managed policy ARN to be attached to the Permission Set.
      * 
      */
     @Import(name="managedPolicyArn", required=true)
     private Output<String> managedPolicyArn;
 
     /**
-     * @return The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+     * @return IAM managed policy ARN to be attached to the Permission Set.
      * 
      */
     public Output<String> managedPolicyArn() {
@@ -47,14 +47,14 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
     }
 
     /**
-     * The Amazon Resource Name (ARN) of the Permission Set.
+     * ARN of the Permission Set.
      * 
      */
     @Import(name="permissionSetArn", required=true)
     private Output<String> permissionSetArn;
 
     /**
-     * @return The Amazon Resource Name (ARN) of the Permission Set.
+     * @return ARN of the Permission Set.
      * 
      */
     public Output<String> permissionSetArn() {
@@ -104,7 +104,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -115,7 +115,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param instanceArn The Amazon Resource Name (ARN) of the SSO Instance under which the operation will be executed.
+         * @param instanceArn ARN of the SSO Instance under which the operation will be executed.
          * 
          * @return builder
          * 
@@ -125,7 +125,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedPolicyArn The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+         * @param managedPolicyArn IAM managed policy ARN to be attached to the Permission Set.
          * 
          * @return builder
          * 
@@ -136,7 +136,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param managedPolicyArn The IAM managed policy Amazon Resource Name (ARN) to be attached to the Permission Set.
+         * @param managedPolicyArn IAM managed policy ARN to be attached to the Permission Set.
          * 
          * @return builder
          * 
@@ -146,7 +146,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 
@@ -157,7 +157,7 @@ public final class ManagedPolicyAttachmentArgs extends com.pulumi.resources.Reso
         }
 
         /**
-         * @param permissionSetArn The Amazon Resource Name (ARN) of the Permission Set.
+         * @param permissionSetArn ARN of the Permission Set.
          * 
          * @return builder
          * 

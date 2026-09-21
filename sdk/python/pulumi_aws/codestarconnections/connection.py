@@ -27,7 +27,7 @@ class ConnectionArgs:
         """
         The set of arguments for constructing a Connection resource.
 
-        :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -48,7 +48,7 @@ class ConnectionArgs:
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        ARN of the host associated with the connection. Conflicts with `provider_type`
         """
         return pulumi.get(self, "host_arn")
 
@@ -121,7 +121,7 @@ class _ConnectionState:
 
         :param pulumi.Input[_builtins.str] arn: The codestar connection ARN.
         :param pulumi.Input[_builtins.str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -173,7 +173,7 @@ class _ConnectionState:
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        ARN of the host associated with the connection. Conflicts with `provider_type`
         """
         return pulumi.get(self, "host_arn")
 
@@ -272,7 +272,6 @@ class Connection(pulumi.CustomResource):
             artifact_stores=[{}],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -286,6 +285,7 @@ class Connection(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
                     "actions": [{}],
@@ -306,7 +306,7 @@ class Connection(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connection.
+        - `arn` (String) ARN of the CodeStar connection.
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
@@ -317,7 +317,7 @@ class Connection(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -347,7 +347,6 @@ class Connection(pulumi.CustomResource):
             artifact_stores=[{}],
             stages=[
                 {
-                    "name": "Source",
                     "actions": [{
                         "name": "Source",
                         "category": "Source",
@@ -361,6 +360,7 @@ class Connection(pulumi.CustomResource):
                             "BranchName": "main",
                         },
                     }],
+                    "name": "Source",
                 },
                 {
                     "actions": [{}],
@@ -381,7 +381,7 @@ class Connection(pulumi.CustomResource):
 
         #### Required
 
-        - `arn` (String) Amazon Resource Name (ARN) of the CodeStar connection.
+        - `arn` (String) ARN of the CodeStar connection.
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
@@ -454,7 +454,7 @@ class Connection(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] arn: The codestar connection ARN.
         :param pulumi.Input[_builtins.str] connection_status: The codestar connection status. Possible values are `PENDING`, `AVAILABLE` and `ERROR`.
-        :param pulumi.Input[_builtins.str] host_arn: The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        :param pulumi.Input[_builtins.str] host_arn: ARN of the host associated with the connection. Conflicts with `provider_type`
         :param pulumi.Input[_builtins.str] name: The name of the connection to be created. The name must be unique in the calling AWS account. Changing `name` will create a new resource.
         :param pulumi.Input[_builtins.str] provider_type: The name of the external provider where your third-party code repository is configured. Valid values are `Bitbucket`, `GitHub`, `GitHubEnterpriseServer`, `GitLab` or `GitLabSelfManaged`. Changing `provider_type` will create a new resource. Conflicts with `host_arn`
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
@@ -495,7 +495,7 @@ class Connection(pulumi.CustomResource):
     @pulumi.getter(name="hostArn")
     def host_arn(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) of the host associated with the connection. Conflicts with `provider_type`
+        ARN of the host associated with the connection. Conflicts with `provider_type`
         """
         return pulumi.get(self, "host_arn")
 

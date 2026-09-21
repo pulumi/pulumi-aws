@@ -178,7 +178,7 @@ class DefaultRouteTableAssociation(pulumi.CustomResource):
                  transit_gateway_route_table_id: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
+        Resource for managing an AWS EC2 Transit Gateway Default Route Table Association.
 
         ## Example Usage
 
@@ -207,7 +207,7 @@ class DefaultRouteTableAssociation(pulumi.CustomResource):
                  args: DefaultRouteTableAssociationArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Resource for managing an AWS EC2 (Elastic Compute Cloud) Transit Gateway Default Route Table Association.
+        Resource for managing an AWS EC2 Transit Gateway Default Route Table Association.
 
         ## Example Usage
 

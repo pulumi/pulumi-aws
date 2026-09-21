@@ -53,14 +53,14 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     @Import(name="enhancedVpcRouting")
     private @Nullable Output<Boolean> enhancedVpcRouting;
 
     /**
-     * @return The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+     * @return Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
      * 
      */
     public Optional<Output<Boolean>> enhancedVpcRouting() {
@@ -326,7 +326,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * @param enhancedVpcRouting Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
          * 
          * @return builder
          * 
@@ -337,7 +337,7 @@ public final class WorkgroupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enhancedVpcRouting The value that specifies whether to turn on enhanced virtual private cloud (VPC) routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
+         * @param enhancedVpcRouting Value that specifies whether to turn on enhanced VPC routing, which forces Amazon Redshift Serverless to route traffic through your VPC instead of over the internet.
          * 
          * @return builder
          * 

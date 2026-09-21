@@ -101,7 +101,7 @@ class _HumanTaskUIState:
         """
         Input properties used for looking up and filtering HumanTaskUI resources.
 
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Human Task UI.
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -125,7 +125,7 @@ class _HumanTaskUIState:
     @pulumi.getter
     def arn(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        ARN assigned by AWS to this Human Task UI.
         """
         return pulumi.get(self, "arn")
 
@@ -216,10 +216,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
+            },
+            human_task_ui_name="example")
         ```
 
         ## Import
@@ -255,10 +255,10 @@ class HumanTaskUI(pulumi.CustomResource):
         import pulumi_std as std
 
         example = aws.sagemaker.HumanTaskUI("example",
-            human_task_ui_name="example",
             ui_template={
                 "content": std.file(input="sagemaker-human-task-ui-template.html").result,
-            })
+            },
+            human_task_ui_name="example")
         ```
 
         ## Import
@@ -331,7 +331,7 @@ class HumanTaskUI(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[_builtins.str] arn: The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        :param pulumi.Input[_builtins.str] arn: ARN assigned by AWS to this Human Task UI.
         :param pulumi.Input[_builtins.str] human_task_ui_name: The name of the Human Task UI.
         :param pulumi.Input[_builtins.str] region: Region where this resource will be [managed](https://docs.aws.amazon.com/general/latest/gr/rande.html#regional-endpoints). Defaults to the Region set in the provider configuration.
         :param pulumi.Input[Mapping[str, pulumi.Input[_builtins.str]]] tags: A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -354,7 +354,7 @@ class HumanTaskUI(pulumi.CustomResource):
     @pulumi.getter
     def arn(self) -> pulumi.Output[_builtins.str]:
         """
-        The Amazon Resource Name (ARN) assigned by AWS to this Human Task UI.
+        ARN assigned by AWS to this Human Task UI.
         """
         return pulumi.get(self, "arn")
 

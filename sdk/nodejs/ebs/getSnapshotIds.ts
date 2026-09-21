@@ -18,7 +18,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolumes = aws.ebs.getSnapshotIds({
- *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -29,6 +28,7 @@ import * as utilities from "../utilities";
  *             values: ["Example"],
  *         },
  *     ],
+ *     owners: ["self"],
  * });
  * ```
  */
@@ -93,7 +93,6 @@ export interface GetSnapshotIdsResult {
  * import * as aws from "@pulumi/aws";
  *
  * const ebsVolumes = aws.ebs.getSnapshotIds({
- *     owners: ["self"],
  *     filters: [
  *         {
  *             name: "volume-size",
@@ -104,6 +103,7 @@ export interface GetSnapshotIdsResult {
  *             values: ["Example"],
  *         },
  *     ],
+ *     owners: ["self"],
  * });
  * ```
  */

@@ -106,7 +106,7 @@ import javax.annotation.Nullable;
 @ResourceType(type="aws:bedrock/agentcoreApiKeyCredentialProvider:AgentcoreApiKeyCredentialProvider")
 public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.CustomResource {
     /**
-     * API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      * 
      * **Write-Only API Key (choose one approach):**
      * 
@@ -115,7 +115,7 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
     private Output</* @Nullable */ String> apiKey;
 
     /**
-     * @return API key value. Cannot be used with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
+     * @return API key value. Conflicts with `apiKeyWo`. This value will be visible in pulumi preview outputs and logs.
      * 
      * **Write-Only API Key (choose one approach):**
      * 
@@ -139,7 +139,7 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
     }
     /**
      * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     @Export(name="apiKeyWo", refs={String.class}, tree="[0]")
@@ -147,21 +147,21 @@ public class AgentcoreApiKeyCredentialProvider extends com.pulumi.resources.Cust
 
     /**
      * @return **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
-     * Write-only API key value. Cannot be used with `apiKey`. Must be used together with `apiKeyWoVersion`.
+     * Write-only API key value. Conflicts with `apiKey`. If set, requires `apiKeyWoVersion` to be set.
      * 
      */
     public Output<Optional<String>> apiKeyWo() {
         return Codegen.optional(this.apiKeyWo);
     }
     /**
-     * Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     @Export(name="apiKeyWoVersion", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> apiKeyWoVersion;
 
     /**
-     * @return Used together with `apiKeyWo` to trigger an update. Increment this value when an update to `apiKeyWo` is required.
+     * @return Required when `apiKeyWo` is set. Changing this value triggers an update to `apiKeyWo`.
      * 
      */
     public Output<Optional<Integer>> apiKeyWoVersion() {

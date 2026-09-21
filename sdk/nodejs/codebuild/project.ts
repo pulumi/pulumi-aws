@@ -27,11 +27,11 @@ import * as utilities from "../utilities";
  * });
  * const assumeRole = aws.iam.getPolicyDocument({
  *     statements: [{
- *         effect: "Allow",
  *         principals: [{
  *             type: "Service",
  *             identifiers: ["codebuild.amazonaws.com"],
  *         }],
+ *         effect: "Allow",
  *         actions: ["sts:AssumeRole"],
  *     }],
  * });
@@ -64,9 +64,6 @@ import * as utilities from "../utilities";
  *             resources: ["*"],
  *         },
  *         {
- *             effect: "Allow",
- *             actions: ["ec2:CreateNetworkInterfacePermission"],
- *             resources: ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
  *             conditions: [
  *                 {
  *                     test: "StringEquals",
@@ -82,6 +79,9 @@ import * as utilities from "../utilities";
  *                     values: ["codebuild.amazonaws.com"],
  *                 },
  *             ],
+ *             effect: "Allow",
+ *             actions: ["ec2:CreateNetworkInterfacePermission"],
+ *             resources: ["arn:aws:ec2:us-east-1:123456789012:network-interface/*"],
  *         },
  *         {
  *             effect: "Allow",
@@ -106,10 +106,6 @@ import * as utilities from "../utilities";
  *     policy: example.json,
  * });
  * const exampleProject = new aws.codebuild.Project("example", {
- *     name: "test-project",
- *     description: "test_codebuild_project",
- *     buildTimeout: 5,
- *     serviceRole: exampleRole.arn,
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
@@ -118,11 +114,6 @@ import * as utilities from "../utilities";
  *         location: exampleBucket.bucket,
  *     },
  *     environment: {
- *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/amazonlinux-x86_64-standard:6.0",
- *         type: "LINUX_CONTAINER",
- *         imagePullCredentialsType: "CODEBUILD",
- *         hostKernel: "LINUX_KERNEL_6",
  *         environmentVariables: [
  *             {
  *                 name: "SOME_KEY1",
@@ -134,6 +125,11 @@ import * as utilities from "../utilities";
  *                 type: "PARAMETER_STORE",
  *             },
  *         ],
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/amazonlinux-x86_64-standard:6.0",
+ *         type: "LINUX_CONTAINER",
+ *         imagePullCredentialsType: "CODEBUILD",
+ *         hostKernel: "LINUX_KERNEL_6",
  *     },
  *     logsConfig: {
  *         cloudwatchLogs: {
@@ -146,14 +142,13 @@ import * as utilities from "../utilities";
  *         },
  *     },
  *     source: {
- *         type: "GITHUB",
- *         location: "https://github.com/mitchellh/packer.git",
- *         gitCloneDepth: 1,
  *         gitSubmodulesConfig: {
  *             fetchSubmodules: true,
  *         },
+ *         type: "GITHUB",
+ *         location: "https://github.com/mitchellh/packer.git",
+ *         gitCloneDepth: 1,
  *     },
- *     sourceVersion: "master",
  *     vpcConfig: {
  *         vpcId: exampleAwsVpc.id,
  *         subnets: [
@@ -165,16 +160,16 @@ import * as utilities from "../utilities";
  *             example2AwsSecurityGroup.id,
  *         ],
  *     },
+ *     name: "test-project",
+ *     description: "test_codebuild_project",
+ *     buildTimeout: 5,
+ *     serviceRole: exampleRole.arn,
+ *     sourceVersion: "master",
  *     tags: {
  *         Environment: "Test",
  *     },
  * });
  * const project_with_cache = new aws.codebuild.Project("project-with-cache", {
- *     name: "test-project-cache",
- *     description: "test_codebuild_project_cache",
- *     buildTimeout: 5,
- *     queuedTimeout: 5,
- *     serviceRole: exampleRole.arn,
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
@@ -186,28 +181,30 @@ import * as utilities from "../utilities";
  *         ],
  *     },
  *     environment: {
- *         computeType: "BUILD_GENERAL1_SMALL",
- *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
- *         type: "LINUX_CONTAINER",
- *         imagePullCredentialsType: "CODEBUILD",
  *         environmentVariables: [{
  *             name: "SOME_KEY1",
  *             value: "SOME_VALUE1",
  *         }],
+ *         computeType: "BUILD_GENERAL1_SMALL",
+ *         image: "aws/codebuild/amazonlinux2-x86_64-standard:4.0",
+ *         type: "LINUX_CONTAINER",
+ *         imagePullCredentialsType: "CODEBUILD",
  *     },
  *     source: {
  *         type: "GITHUB",
  *         location: "https://github.com/mitchellh/packer.git",
  *         gitCloneDepth: 1,
  *     },
+ *     name: "test-project-cache",
+ *     description: "test_codebuild_project_cache",
+ *     buildTimeout: 5,
+ *     queuedTimeout: 5,
+ *     serviceRole: exampleRole.arn,
  *     tags: {
  *         Environment: "Test",
  *     },
  * });
  * const project_using_github_app = new aws.codebuild.Project("project-using-github-app", {
- *     name: "project-using-github-app",
- *     description: "gets_source_from_github_via_the_github_app",
- *     serviceRole: exampleRole.arn,
  *     artifacts: {
  *         type: "NO_ARTIFACTS",
  *     },
@@ -218,13 +215,16 @@ import * as utilities from "../utilities";
  *         imagePullCredentialsType: "CODEBUILD",
  *     },
  *     source: {
- *         type: "GITHUB",
- *         location: "https://github.com/example/example.git",
  *         auth: {
  *             type: "CODECONNECTIONS",
  *             resource: "arn:aws:codestar-connections:us-east-1:123456789012:connection/guid-string",
  *         },
+ *         type: "GITHUB",
+ *         location: "https://github.com/example/example.git",
  *     },
+ *     name: "project-using-github-app",
+ *     description: "gets_source_from_github_via_the_github_app",
+ *     serviceRole: exampleRole.arn,
  * });
  * ```
  *
@@ -239,7 +239,7 @@ import * as utilities from "../utilities";
  *
  * #### Required
  *
- * - `arn` (String) Amazon Resource Name (ARN) of the CodeBuild project.
+ * - `arn` (String) ARN of the CodeBuild project.
  *
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  *
@@ -321,7 +321,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly description: pulumi.Output<string>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     declare public readonly encryptionKey: pulumi.Output<string>;
@@ -379,7 +379,7 @@ export class Project extends pulumi.CustomResource {
      */
     declare public readonly secondarySources: pulumi.Output<outputs.codebuild.ProjectSecondarySource[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     declare public readonly serviceRole: pulumi.Output<string>;
@@ -551,7 +551,7 @@ export interface ProjectState {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
@@ -609,7 +609,7 @@ export interface ProjectState {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole?: pulumi.Input<string | undefined>;
@@ -683,7 +683,7 @@ export interface ProjectArgs {
      */
     description?: pulumi.Input<string | undefined>;
     /**
-     * AWS Key Management Service (AWS KMS) customer master key (CMK) to be used for encrypting
+     * KMS customer master key (CMK) to be used for encrypting
      * the build project's build output artifacts.
      */
     encryptionKey?: pulumi.Input<string | undefined>;
@@ -737,7 +737,7 @@ export interface ProjectArgs {
      */
     secondarySources?: pulumi.Input<pulumi.Input<inputs.codebuild.ProjectSecondarySource>[] | undefined>;
     /**
-     * Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that
+     * ARN of the AWS Identity and Access Management (IAM) role that
      * enables AWS CodeBuild to interact with dependent AWS services on behalf of the AWS account.
      */
     serviceRole: pulumi.Input<string>;

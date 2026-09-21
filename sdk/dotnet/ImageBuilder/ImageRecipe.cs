@@ -28,20 +28,19 @@ namespace Pulumi.Aws.ImageBuilder
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingArgs
     ///             {
-    ///                 DeviceName = "/dev/xvdb",
     ///                 Ebs = new Aws.ImageBuilder.Inputs.ImageRecipeBlockDeviceMappingEbsArgs
     ///                 {
     ///                     DeleteOnTermination = "true",
     ///                     VolumeSize = 100,
     ///                     VolumeType = "gp2",
     ///                 },
+    ///                 DeviceName = "/dev/xvdb",
     ///             },
     ///         },
     ///         Components = new[]
     ///         {
     ///             new Aws.ImageBuilder.Inputs.ImageRecipeComponentArgs
     ///             {
-    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///                 Parameters = new[]
     ///                 {
     ///                     new Aws.ImageBuilder.Inputs.ImageRecipeComponentParameterArgs
@@ -55,6 +54,7 @@ namespace Pulumi.Aws.ImageBuilder
     ///                         Value = "Value2",
     ///                     },
     ///                 },
+    ///                 ComponentArn = exampleAwsImagebuilderComponent.Arn,
     ///             },
     ///         },
     ///         Name = "example",
@@ -71,9 +71,9 @@ namespace Pulumi.Aws.ImageBuilder
     /// 
     /// #### Required
     /// 
-    /// - `Arn` (String) Amazon Resource Name (ARN) of the Image Builder image recipe.
+    /// - `Arn` (String) ARN of the Image Builder image recipe.
     /// 
-    /// Using `pulumi import`, import `aws.imagebuilder.ImageRecipe` resources using the Amazon Resource Name (ARN). For example:
+    /// Using `pulumi import`, import `aws.imagebuilder.ImageRecipe` resources using the ARN. For example:
     /// 
     /// ```sh
     /// $ pulumi import aws:imagebuilder/imageRecipe:ImageRecipe example arn:aws:imagebuilder:us-east-1:123456789012:image-recipe/example/1.0.0
@@ -89,7 +89,7 @@ namespace Pulumi.Aws.ImageBuilder
         public Output<ImmutableDictionary<string, string>?> AmiTags { get; private set; } = null!;
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         [Output("arn")]
         public Output<string> Arn { get; private set; } = null!;
@@ -351,7 +351,7 @@ namespace Pulumi.Aws.ImageBuilder
         }
 
         /// <summary>
-        /// Amazon Resource Name (ARN) of the image recipe.
+        /// ARN of the image recipe.
         /// </summary>
         [Input("arn")]
         public Input<string>? Arn { get; set; }

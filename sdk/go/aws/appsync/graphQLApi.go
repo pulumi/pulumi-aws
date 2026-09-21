@@ -85,13 +85,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
-//				Name:               pulumi.String("example"),
 //				UserPoolConfig: &appsync.GraphQLApiUserPoolConfigArgs{
 //					AwsRegion:     pulumi.Any(current.Region),
 //					DefaultAction: pulumi.String("DENY"),
 //					UserPoolId:    pulumi.Any(exampleAwsCognitoUserPool.Id),
 //				},
+//				AuthenticationType: pulumi.String("AMAZON_COGNITO_USER_POOLS"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -117,11 +117,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("OPENID_CONNECT"),
-//				Name:               pulumi.String("example"),
 //				OpenidConnectConfig: &appsync.GraphQLApiOpenidConnectConfigArgs{
 //					Issuer: pulumi.String("https://example.com"),
 //				},
+//				AuthenticationType: pulumi.String("OPENID_CONNECT"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -148,11 +148,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("AWS_LAMBDA"),
-//				Name:               pulumi.String("example"),
 //				LambdaAuthorizerConfig: &appsync.GraphQLApiLambdaAuthorizerConfigArgs{
 //					AuthorizerUri: pulumi.String("arn:aws:lambda:us-east-1:123456789012:function:custom_lambda_authorizer"),
 //				},
+//				AuthenticationType: pulumi.String("AWS_LAMBDA"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -188,13 +188,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appsync.NewGraphQLApi(ctx, "example", &appsync.GraphQLApiArgs{
-//				AuthenticationType: pulumi.String("API_KEY"),
-//				Name:               pulumi.String("example"),
 //				AdditionalAuthenticationProviders: appsync.GraphQLApiAdditionalAuthenticationProviderArray{
 //					&appsync.GraphQLApiAdditionalAuthenticationProviderArgs{
 //						AuthenticationType: pulumi.String("AWS_IAM"),
 //					},
 //				},
+//				AuthenticationType: pulumi.String("API_KEY"),
+//				Name:               pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
@@ -261,7 +261,6 @@ import (
 //			assumeRole, err := iam.GetPolicyDocument(ctx, &iam.GetPolicyDocumentArgs{
 //				Statements: []iam.GetPolicyDocumentStatement{
 //					{
-//						Effect: pulumi.StringRef("Allow"),
 //						Principals: []iam.GetPolicyDocumentStatementPrincipal{
 //							{
 //								Type: "Service",
@@ -270,6 +269,7 @@ import (
 //								},
 //							},
 //						},
+//						Effect: pulumi.StringRef("Allow"),
 //						Actions: []string{
 //							"sts:AssumeRole",
 //						},
@@ -331,16 +331,16 @@ import (
 //				return err
 //			}
 //			exampleWebAcl, err := wafv2.NewWebAcl(ctx, "example", &wafv2.WebAclArgs{
-//				Name:        pulumi.String("managed-rule-example"),
-//				Description: pulumi.String("Example of a managed rule."),
-//				Scope:       pulumi.String("REGIONAL"),
 //				DefaultAction: &wafv2.WebAclDefaultActionArgs{
 //					Allow: &wafv2.WebAclDefaultActionAllowArgs{},
 //				},
+//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
+//					CloudwatchMetricsEnabled: pulumi.Bool(false),
+//					MetricName:               pulumi.String("friendly-metric-name"),
+//					SampledRequestsEnabled:   pulumi.Bool(false),
+//				},
 //				Rules: wafv2.WebAclRuleTypeArray{
 //					&wafv2.WebAclRuleTypeArgs{
-//						Name:     pulumi.String("rule-1"),
-//						Priority: pulumi.Int(1),
 //						OverrideAction: &wafv2.WebAclRuleOverrideActionArgs{
 //							Block: []map[string]interface{}{
 //								map[string]interface{}{},
@@ -357,13 +357,13 @@ import (
 //							MetricName:               pulumi.String("friendly-rule-metric-name"),
 //							SampledRequestsEnabled:   pulumi.Bool(false),
 //						},
+//						Name:     pulumi.String("rule-1"),
+//						Priority: pulumi.Int(1),
 //					},
 //				},
-//				VisibilityConfig: &wafv2.WebAclVisibilityConfigArgs{
-//					CloudwatchMetricsEnabled: pulumi.Bool(false),
-//					MetricName:               pulumi.String("friendly-metric-name"),
-//					SampledRequestsEnabled:   pulumi.Bool(false),
-//				},
+//				Name:        pulumi.String("managed-rule-example"),
+//				Description: pulumi.String("Example of a managed rule."),
+//				Scope:       pulumi.String("REGIONAL"),
 //			})
 //			if err != nil {
 //				return err

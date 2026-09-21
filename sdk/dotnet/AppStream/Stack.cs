@@ -24,11 +24,11 @@ namespace Pulumi.Aws.AppStream
     /// {
     ///     var example = new Aws.AppStream.Stack("example", new()
     ///     {
-    ///         Name = "stack name",
-    ///         Description = "stack description",
-    ///         DisplayName = "stack display name",
-    ///         FeedbackUrl = "http://your-domain/feedback",
-    ///         RedirectUrl = "http://your-domain/redirect",
+    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
+    ///         {
+    ///             Enabled = true,
+    ///             SettingsGroup = "SettingsGroup",
+    ///         },
     ///         StorageConnectors = new[]
     ///         {
     ///             new Aws.AppStream.Inputs.StackStorageConnectorArgs
@@ -79,11 +79,11 @@ namespace Pulumi.Aws.AppStream
     ///                 Permission = "ENABLED",
     ///             },
     ///         },
-    ///         ApplicationSettings = new Aws.AppStream.Inputs.StackApplicationSettingsArgs
-    ///         {
-    ///             Enabled = true,
-    ///             SettingsGroup = "SettingsGroup",
-    ///         },
+    ///         Name = "stack name",
+    ///         Description = "stack description",
+    ///         DisplayName = "stack display name",
+    ///         FeedbackUrl = "http://your-domain/feedback",
+    ///         RedirectUrl = "http://your-domain/redirect",
     ///         Tags = 
     ///         {
     ///             { "TagName", "TagValue" },
